@@ -540,6 +540,9 @@
   // + los temas que aún no se han explorado, para enganchar en una conversación
   // que se va abriendo en profundidad en vez de repetir las mismas opciones.
   const renderAiSuggestions = () => {
+    const input = $('#aiInput');
+    const sendBtn = $('#aiSend');
+    if (sendBtn) sendBtn.toggleAttribute('disabled', STATE.ai.pending || !(input && input.value.trim()));
     const box = $('#aiSuggestions');
     if (!box || !STATE.activePoiId) return;
     box.innerHTML = '';
@@ -672,6 +675,37 @@
       renderAiSuggestions();
       scrollAiToBottom();
     }
+  };
+
+  const sendUserAiMessage = () => {
+    const input = $('#aiInput');
+    if (!input) return;
+    const text = (input.value || '').trim();
+    if (!text || STATE.ai.pending || !STATE.activePoiId) return;
+    const poi = POIS.find((p) => p.id === STATE.activePoiId);
+    stopAudio();
+    aiHistoryFor(poi.id).push({ role: 'user', text });
+    input.value = '';
+    $('#aiSend')?.setAttribute('disabled', 'true');
+    renderAiMessages();
+    scrollAiToBottom();
+    queueAiMessage({ poi, kind: 'text', userText: text });
+  };
+
+  const wireAiInput = () => {
+    const input = $('#aiInput');
+    const sendBtn = $('#aiSend');
+    if (!input || !sendBtn) return;
+    sendBtn.addEventListener('click', sendUserAiMessage);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendUserAiMessage();
+      }
+    });
+    input.addEventListener('input', () => {
+      sendBtn.toggleAttribute('disabled', STATE.ai.pending || !input.value.trim());
+    });
   };
 
   /* =========================================================
@@ -1119,6 +1153,7 @@
     buildHeader();
     initMap();
     wireEvents();
+    wireAiInput();
 
     setStateMode(STATE.mode);
     updatePills();

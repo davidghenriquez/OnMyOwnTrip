@@ -502,6 +502,47 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   pointer-events: none;
 }
 
+/* ---------- PREGUNTA LIBRE ---------- */
+.ai-input-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 0 16px 12px;
+  flex-shrink: 0;
+}
+.ai-input {
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ai-input::placeholder { color: var(--color-text-soft); }
+.ai-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+.ai-send {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--color-primary);
+  color: #0B1120;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+.ai-send svg { width: 17px; height: 17px; }
+.ai-send:active { transform: scale(0.92); }
+.ai-send[disabled] { opacity: 0.45; pointer-events: none; }
+
 /* ---------- AUDIO PLAYER ---------- */
 .audio-player {
   flex-shrink: 0;
