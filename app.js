@@ -1,6 +1,14 @@
 (() => {
   'use strict';
 
+  // ========================================================
+  // GLOBAL ERROR GUARD:
+  // Si CUALQUIER cosa falla dentro del IIFE (initMap double-create,
+  // synth crash, drag listener fallido, etc.), NO nos quedamos a oscuras.
+  // Reportamos el error al usuario mediante un toast y no aborta el resto.
+  // ========================================================
+  try {
+
   /* =========================================================
    * CONFIGURABLE LLM CONNECTOR
    *   - To enable a real API: define window.LLM_CONFIG BEFORE this script (in index.html top script)
@@ -284,8 +292,28 @@
 
   /* =========================================================
    * MAP
+   * · Fix anti-regresión "Map container is already initialized":
+   *   Elimina cualquier instancia previa L.map y limpia el DOM
+   *   para que, aunque el script se evalúe 2 veces, todo funcione.
    * =======================================================*/
   const initMap = () => {
+    // Cleanup any existing Leaflet map (H5 root cause fix)
+    const mapEl = document.getElementById('map');
+    if (mapEl) {
+      // Try to remove existing L.Map instance first
+      try {
+        if (mapEl._leaflet_id && window.L && window.L.Map) {
+          const existing = Object.values(window.L.Map._instances || {})[0] ||
+                           (window.L.map ? null : null);
+          if (existing && typeof existing.remove === 'function') existing.remove();
+        }
+      } catch (_) {}
+      // Brutal clean: borramos contenido para reiniciar de cero
+      while (mapEl.firstChild) mapEl.removeChild(mapEl.firstChild);
+      // También remueve estilos inline de Leaflet que impiden la recreación
+      mapEl.removeAttribute('style');
+      if (mapEl._leaflet_id) delete mapEl._leaflet_id;
+    }
     map = L.map('map', { zoomControl: false, attributionControl: false, scrollWheelZoom: true, maxBoundsViscosity: 0.7 })
       .setView([39.8628, -4.0273], 15.2);
     map.setMaxBounds(L.latLngBounds([39.845, -4.05], [39.878, -4.00]).pad(0.25));
@@ -1152,4 +1180,16 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+
+  } catch (err) {
+    // ============= GLOBAL FALLBACK SI ALGO EXPLOTA =============
+    // Nunca más nos quedamos sin saber por qué "nada funciona".
+    const msg = 'OnMyOwnTrip init error: ' + (err && err.message ? err.message : String(err));
+    try { console.error('[OMOT init]', err); } catch(_) {}
+    // Notificación visible al usuario (no depende de STATE/UI helpers que no existen)
+    const warn = document.createElement('div');
+    warn.setAttribute('style', 'position:fixed;left:16px;right:16px;top:16px;z-index:2147483647;background:#111;color:#fff;padding:12px 14px;border-radius:12px;font:600 13px/1.4 "DM Sans",sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.3);max-width:540px;margin:0 auto;white-space:pre-wrap;word-break:break-word;');
+    warn.textContent = '👀 Algo falló al cargar la app:\n' + (err && err.message ? err.message : String(err)) + '\n\n' + (err && err.stack ? String(err.stack).slice(0,200) : '');
+    try { document.body.appendChild(warn); } catch(_) {}
+  }
 })();
