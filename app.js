@@ -42,6 +42,11 @@
     const fetchOpenAI = async (sys, usr) => {
       const url = (CFG.baseUrl || 'https://api.openai.com/v1') + '/chat/completions';
       const model = CFG.model || 'gpt-4o-mini';
+      // maxTokens/extraBody son opcionales en window.LLM_CONFIG: algunos
+      // modelos "razonadores" (p.ej. Gemini 3.x vía el endpoint compatible
+      // con OpenAI) consumen muchos tokens en pensamiento interno antes de
+      // responder, así que necesitan un max_tokens mucho más alto y a veces
+      // un reasoning_effort bajo para no cortar la respuesta a medias.
       const res = await fetch(url, {
         method: 'POST',
         headers: {
@@ -51,11 +56,12 @@
         body: JSON.stringify({
           model,
           temperature: 0.6,
-          max_tokens: 700,
+          max_tokens: CFG.maxTokens || 700,
           messages: [
             { role: 'system', content: sys },
             { role: 'user', content: usr }
-          ]
+          ],
+          ...(CFG.extraBody || {})
         })
       });
       if (!res.ok) throw new Error(`OpenAI ${res.status}`);
@@ -198,7 +204,6 @@
         }
       },
       deepen(poi, m, topicId) {
-        const n = poi.name[m] || poi.name.adult;
         const topicMeta = AI_TOPIC_NAMES[topicId];
         const topic = topicMeta ? (topicMeta[m] || topicMeta.adult) : (m === 'kids' ? 'esto' : 'este tema');
         const pool = (this.deepenFacts[m] && this.deepenFacts[m][topicId]) || this.deepenFacts[m]['architecture'];
@@ -207,7 +212,7 @@
           return `✨ ¡Sigo contándote sobre ${topic}!\n\n${a}\n\n${b}\n\n${c || ''}\n\n${this.pick(this.closingsKids)}\n\n¿Quieres que siga profundizando? 🔍`;
         }
         const [factA, factB, factC] = this.pickDistinct(pool, Math.min(3, pool.length));
-        return `🔍 Profundizando en ${topic} de ${n}:\n\n${factA.charAt(0).toUpperCase()}${factA.slice(1)}.\n\nAdemás, ${factB}.\n\nY otro detalle poco conocido: ${factC || ''}.\n\n${this.pick(this.closingsAdult)}\n\n¿Sigo profundizando?`;
+        return `🔍 Profundizando en ${topic}:\n\n${factA.charAt(0).toUpperCase()}${factA.slice(1)}.\n\nAdemás, ${factB}.\n\nY otro detalle poco conocido: ${factC || ''}.\n\n${this.pick(this.closingsAdult)}\n\n¿Sigo profundizando?`;
       },
       option(poi, m, optionId) {
         if (optionId && optionId.startsWith('deepen:')) {
@@ -217,20 +222,20 @@
         switch (optionId) {
           case 'secret-history':
             return m === 'kids'
-              ? `🤫 HISTORIA SECRETA DE ${n.toUpperCase()}\n\n¿Sabes que cuando nadie mira, se oyen pasos por los pasillos? 😜 ¡No, no son fantasmas! Son los gatos de Toledo que cazan ratones por las noches 🐈‍⬛🐭.\n\nPero el secreto MÁS GRANDE es que debajo hay 🕳️ pasadizos subterráneos que los constructores hicieron para entrar sin que nadie los viera. Cuentan los abuelos de Toledo que, de pequeños, jugaban a buscar la entrada escondida y nunca la encontraron del todo.\n\n${this.pick(this.closingsKids)}\n\n¿Te atreves a buscar una grieta en el muro sur? ¡A ver si la encuentras! 🕵️‍♂️ Y si la encuentras, ¡cuéntaselo bajito a tu familia, que es un secreto!`
+              ? `🤫 HISTORIA SECRETA\n\n¿Sabes que cuando nadie mira, se oyen pasos por los pasillos? 😜 ¡No, no son fantasmas! Son los gatos de Toledo que cazan ratones por las noches 🐈‍⬛🐭.\n\nPero el secreto MÁS GRANDE es que debajo hay 🕳️ pasadizos subterráneos que los constructores hicieron para entrar sin que nadie los viera. Cuentan los abuelos de Toledo que, de pequeños, jugaban a buscar la entrada escondida y nunca la encontraron del todo.\n\n${this.pick(this.closingsKids)}\n\n¿Te atreves a buscar una grieta en el muro sur? ¡A ver si la encuentras! 🕵️‍♂️ Y si la encuentras, ¡cuéntaselo bajito a tu familia, que es un secreto!`
               : `🤫 HISTORIA POCO CONOCIDA\n\nEn ${n} hubo un episodio documentado pero poco difundido: en 1521, durante la revuelta de las Comunidades, un escribano llamado ${this.pick(['Juan de Perea', 'Gómez Ruiz', 'Antón de Torres'])} ocultó en el hueco de una ventana los privilegios de la ciudad para que no ardieran con el Alcázar. Allí permanecieron 37 años hasta que un cantero los descubrió mientras restauraba un friso, sorprendido de encontrar documentos que se daban por perdidos desde generaciones atrás.\n\nEl hallazgo obligó a reescribir parte de la crónica municipal de la época, y todavía hoy los archiveros discuten cuántos otros escondites similares podrían quedar sin descubrir en el casco histórico.\n\n${this.pick(this.closingsAdult)}\n\n📌 Fuente: Archivo Municipal de Toledo, Sección Histórica, legajo 42/7.`;
           case 'architecture':
             return m === 'kids'
-              ? `🏗️ ¡TRUCOS DE ARQUITECTURA DE ${n.toUpperCase()}!\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
-              : `🏛️ ARQUITECTURA DE ${n}\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
+              ? `🏗️ ¡TRUCOS DE ARQUITECTURA!\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
+              : `🏛️ ARQUITECTURA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
           case 'nearby-food':
             return m === 'kids'
-              ? `🍪 ¡QUÉ MERENDAR CERCA DE ${n.toUpperCase()}!\n\n1️⃣ 🍝 Plato principal: ¡Migas ruleras! Son como crujientes de pan con chorizo 🥓 ¡Pero sin queso! Pide "pequeño" que es para una persona.\n\n2️⃣ 🥙 Tapas para compartir: Patatas bravas toledanas + Empanada gallega de atún 🍞🐟.\n\n3️⃣ 🍰 Postre DIVERtIDO: "Tarta de queso con nombre de nube" ☁️ ¡Está rico, rico! (La ponen en todos los bares cercanos, pregúntala).\n\n4️⃣ 🍦 Si hace calor: un helado de mazapán, ¡el sabor más de Toledo que existe!\n\n😋 ¿Cuál eliges tú primero? Pregunta a tu familia si podéis probar más de uno.`
-              : `🍷 PROPUESTA DE TAPEO 3′ ANDANDO desde ${n}\n\n1️⃣ Casa ${this.pick(['Cándido', 'Bastos', 'Perdigón'])} — Calle de la Sillería. Tapeo tradicional con jamón ibérico y bacalao a la toledana (vinagreta de pimentón). Plato imprescindible: callos a la madrileña estilo toledano.\n\n2️⃣ Bar La ${this.pick(['Orza', 'Pepa', 'Mezquita'])} — Plaza del Padre Juan de Mariana. Perfecto para media mañana: copa de vino D.O. Méntrida + tortilla de patata cebolla confitada y medio punto de cordero asado.\n\n3️⃣ Postre en Pastelería Santo Tomé — Mazapán con yema tostada y hoja de Talavera. Ideal para cerrar una ruta en pareja.\n\n4️⃣ Si prefieres algo más informal, cualquier bar de la zona sirve una buena tabla de quesos manchegos con membrillo, perfecta para compartir de pie en la barra.\n\n💡 Consejo: pide "media ración" en los dos primeros para llegar con hambre al postre.`;
+              ? `🍪 ¡QUÉ MERENDAR CERCA!\n\n1️⃣ 🍝 Plato principal: ¡Migas ruleras! Son como crujientes de pan con chorizo 🥓 ¡Pero sin queso! Pide "pequeño" que es para una persona.\n\n2️⃣ 🥙 Tapas para compartir: Patatas bravas toledanas + Empanada gallega de atún 🍞🐟.\n\n3️⃣ 🍰 Postre DIVERtIDO: "Tarta de queso con nombre de nube" ☁️ ¡Está rico, rico! (La ponen en todos los bares cercanos, pregúntala).\n\n4️⃣ 🍦 Si hace calor: un helado de mazapán, ¡el sabor más de Toledo que existe!\n\n😋 ¿Cuál eliges tú primero? Pregunta a tu familia si podéis probar más de uno.`
+              : `🍷 PROPUESTA DE TAPEO 3′ ANDANDO\n\n1️⃣ Casa ${this.pick(['Cándido', 'Bastos', 'Perdigón'])} — Calle de la Sillería. Tapeo tradicional con jamón ibérico y bacalao a la toledana (vinagreta de pimentón). Plato imprescindible: callos a la madrileña estilo toledano.\n\n2️⃣ Bar La ${this.pick(['Orza', 'Pepa', 'Mezquita'])} — Plaza del Padre Juan de Mariana. Perfecto para media mañana: copa de vino D.O. Méntrida + tortilla de patata cebolla confitada y medio punto de cordero asado.\n\n3️⃣ Postre en Pastelería Santo Tomé — Mazapán con yema tostada y hoja de Talavera. Ideal para cerrar una ruta en pareja.\n\n4️⃣ Si prefieres algo más informal, cualquier bar de la zona sirve una buena tabla de quesos manchegos con membrillo, perfecta para compartir de pie en la barra.\n\n💡 Consejo: pide "media ración" en los dos primeros para llegar con hambre al postre.`;
           case 'legends':
             return m === 'kids'
-              ? `🧙‍♂️ LEYENDA DE ${n.toUpperCase()}\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids)}`
-              : `👻 LEYENDA DE ${n}\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.legends.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
+              ? `🧙‍♂️ LEYENDA\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids)}`
+              : `👻 LEYENDA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.legends.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
           default: {
             if (m === 'kids') {
               return `¡Vaya, qué buena pregunta! 🤔 Pues mira, te cuento un secreto: en ${n} hay ${this.pick(['ventanas invisibles', 'escaleras que giran', 'colores secretos'])} y solo los niños atentos lo descubren. ¡Pasea con los ojos MUY ABIERTOS! 👀 ¿Qué has visto tú que nadie más vea?`;
@@ -857,7 +862,11 @@
       const subtitle = pickDual(poi.subtitle);
       const hist = aiHistoryFor(poi.id).filter((x) => x.role === 'assistant');
       const body = hist.length ? hist[hist.length - 1].text : (pickDual(poi.tabs.history) || '');
-      const intro = (m === 'kids')
+      // El título y subtítulo solo se dicen en la primera narración (el
+      // resumen inicial al tocar el pin); en las siguientes respuestas
+      // (chips, "profundiza más", preguntas) se habla directo, sin repetirlo.
+      const isFirstNarration = hist.length <= 1;
+      const intro = !isFirstNarration ? '' : (m === 'kids')
         ? `¡Hola! Vamos a descubrir ${name}. ${subtitle}. ¡Pon mucha atención! `
         : `Audioguía de ${name}. ${subtitle}. `;
       return stripEmojiForSpeech(intro + body).replace(/\s+/g, ' ').trim().slice(0, 1800);
