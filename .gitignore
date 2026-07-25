@@ -52,3 +52,6 @@ build/
 # ---- PowerShell history & sandbox ----
 ConsoleHost_history.txt
 _TRaeSandbox/
+
+# ---- Configuración local de IA (API keys) — NUNCA se sube ----
+llm-config.js
