@@ -1,0 +1,53 @@
+# ============================================================
+# OnMyOwnTrip .gitignore
+#   - No subimos archivos temporales, logs, ni scripts locales de servidor
+# ============================================================
+
+# ---- OS / Editor ----
+Thumbs.db
+Desktop.ini
+.DS_Store
+ehthumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ---- Logs & TMP ----
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
+
+# ---- Screenshots locales / dev artifacts ----
+screenshots/
+screenshot-*.png
+*.png~
+*.jpg~
+
+# ---- Scripts locales de servidor (no se suben) ----
+serve-*.ps1
+*.ps1
+!README*.ps1
+
+# ---- Node (por si alguien lo usa luego) ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+dist/
+build/
+
+# ---- PowerShell history & sandbox ----
+ConsoleHost_history.txt
+_TRaeSandbox/
