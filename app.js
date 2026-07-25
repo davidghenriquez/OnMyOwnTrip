@@ -24,8 +24,8 @@
 
     const systemPromptFor = (mode) =>
       mode === 'kids'
-        ? `Eres "Toledo Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita Toledo. Responde siempre en español, con frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Máximo 120 palabras. Hazlo memorable.`
-        : `Eres "Guía Toledo Imperial", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de Toledo (España). Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Máximo 140 palabras. Destaca un "detalle secreto" final que el viajero pueda observar in situ.`;
+        ? `Eres "Toledo Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita Toledo. Responde siempre en español, con frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Da una respuesta extensa y detallada, de unas 160-190 palabras (equivalente a un minuto largo hablado), no la resumas. Hazlo memorable.`
+        : `Eres "Guía Toledo Imperial", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de Toledo (España). Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ.`;
 
     const buildUserText = (poi, mode, userQuery) => {
       const name = (poi.name[mode] || poi.name.adult);
@@ -51,6 +51,7 @@
         body: JSON.stringify({
           model,
           temperature: 0.6,
+          max_tokens: 700,
           messages: [
             { role: 'system', content: sys },
             { role: 'user', content: usr }
@@ -76,7 +77,7 @@
         body: JSON.stringify({
           model,
           system: sys,
-          max_tokens: 550,
+          max_tokens: 700,
           temperature: 0.6,
           messages: [{ role: 'user', content: usr }]
         })
@@ -90,6 +91,29 @@
     /* ---- LOCAL SIMULATOR (template + POI context-aware, no network) ---- */
     const SIM = {
       pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; },
+      // Los textos de poi.tabs son bastante breves (~60-90 palabras). Estas
+      // intros/cierres genéricos se combinan con ellos para que cada
+      // narración dure de forma fiable alrededor de un minuto hablado.
+      introsAdult: [
+        `Toledo concentra en su casco histórico casi dos mil años de civilizaciones superpuestas, y este lugar es una de las piezas clave para entenderlo.`,
+        `Pocos rincones de España condensan tanta historia en tan poco espacio como este; aquí conviven huellas romanas, visigodas, islámicas y cristianas.`,
+        `Este es uno de esos lugares que conviene visitar despacio, porque cada detalle esconde una capa distinta de la historia de la ciudad.`
+      ],
+      closingsAdult: [
+        `Antes de seguir caminando, tómate un momento para observar los materiales, las proporciones y la luz: son estos detalles, más que las fechas, los que realmente transmiten el paso del tiempo. Si te fijas bien, notarás que las distintas épocas conviven sin imponerse unas sobre otras, algo poco habitual fuera de Toledo.`,
+        `Vale la pena imaginar cómo sería este lugar hace siglos, con otro tráfico de personas, otros oficios y otras preocupaciones cotidianas. La piedra permanece, pero quienes la habitaron cambiaron muchas veces de forma de vida, de lengua y de religión, dejando cada uno su propia huella superpuesta.`,
+        `Un buen viajero no solo mira, también escucha: el eco de los pasos, el silencio de las calles estrechas, el contraste entre la piedra fría y el sol de Castilla. Todo eso forma parte de la experiencia tanto como los datos históricos que acabas de escuchar.`
+      ],
+      introsKids: [
+        `¡Prepárate para un viaje en el tiempo! Este sitio ha visto pasar reyes, caballeros y hasta alguna leyenda de dragones. 🐉`,
+        `Toledo esconde secretos en cada rincón, ¡y este es uno de los más chulos que vas a descubrir hoy! 🗺️`,
+        `Agárrate fuerte, porque lo que te voy a contar lleva aquí cientos y cientos de años. ⏳✨`
+      ],
+      closingsKids: [
+        `Antes de seguir tu aventura, mira bien a tu alrededor: fíjate en los colores de la piedra, en las formas raras de las ventanas y en lo alto que es todo. Los mejores exploradores son los que se fijan en los detalles pequeños que casi nadie ve. 🔍`,
+        `Imagina a los niños que vivían aquí hace muchísimos años, jugando por estas mismas calles. ¿Jugarían a lo mismo que tú? Seguro que también se hacían un montón de preguntas mirando este lugar, igual que tú ahora mismo. 🤔`,
+        `Cierra los ojos un segundo y escucha: el viento, los pájaros, algún eco lejano… Toledo suena distinto en cada rincón, y este es uno de los sitios donde más se nota. 👂✨`
+      ],
       greet(poi, m) {
         const n = poi.name[m] || poi.name.adult;
         if (m === 'kids') {
@@ -99,43 +123,91 @@
       },
       summary(poi, m) {
         const name = poi.name[m] || poi.name.adult;
+        const historyFull = poi.tabs.history[m] || poi.tabs.history.adult || '';
         if (m === 'kids') {
           const challenges = [
-            `🎯 REto: Cuenta cuántas torres se ven desde aquí y grita el número en voz alta 🔊.`,
+            `🎯 Reto: Cuenta cuántas torres se ven desde aquí y grita el número en voz alta 🔊.`,
             `🎯 Reto: Haz una foto fingiendo que agarras el edificio con tu mano 🤏.`,
             `🎯 Reto: Encuentra una ventana de colores y describe qué forma tiene 🌈.`
           ];
-          return `✨ ¿Por qué mola ${name}?\n\nPorque es de cuando tus bisabuelos eran pequeños… ¡y antes que ellos! Se hicieron trazos súper chulos en piedra y se han guardado como nuevos. Aquí pasaron cosas de películas de princesas y caballeros.\n\n${this.pick(challenges)}`;
-        } else {
-          const src = `📌 Fuente guía: ${this.pick(['Crónicas de Toledo (s. XVI)', 'Academia de la Historia', 'Inventario General de Bienes de Interés Cultural'])}`;
-          return `📍 IMPRESCINDIBLE en una visita a ${name}:\n\n${(poi.tabs.history.adult || '').slice(0, 180)}\n\n💡 Detalle secreto: mira hacia ${this.pick(['el muro norte', 'la cornisa superior', 'el lado del mediodía'])} a contra luz, apreciarás ${this.pick(['marcas del sismógrafo medieval', 'una cantera con marca del cantero', 'un grafiti de estudiante de 1889'])}.\n\n${src}.`;
+          return `✨ ¿Por qué mola ${name}?\n\n${this.pick(this.introsKids)}\n\n${historyFull}\n\n${this.pick(this.closingsKids)}\n\n${this.pick(challenges)}`;
+        }
+        const src = `📌 Fuente guía: ${this.pick(['Crónicas de Toledo (s. XVI)', 'Academia de la Historia', 'Inventario General de Bienes de Interés Cultural'])}`;
+        return `📍 ${name}\n\n${this.pick(this.introsAdult)}\n\n${historyFull}\n\n${this.pick(this.closingsAdult)}\n\n${src}.`;
+      },
+      pickDistinct(arr, count) {
+        const pool = arr.slice();
+        const out = [];
+        while (out.length < count && pool.length) {
+          const idx = Math.floor(Math.random() * pool.length);
+          out.push(pool.splice(idx, 1)[0]);
+        }
+        return out;
+      },
+      // Datos de "profundizar" por tema (no genéricos), para que la respuesta
+      // siga hablando realmente de historia secreta / arquitectura / comida /
+      // leyendas, y no derive hacia otro asunto sin relación.
+      deepenFacts: {
+        adult: {
+          'secret-history': [
+            `un documento del archivo diocesano menciona un incidente que nunca llegó a las crónicas oficiales, silenciado probablemente por conveniencia política de la época`,
+            `algunos vecinos más veteranos del barrio conservan relatos orales que nunca se han recogido por escrito, transmitidos de generación en generación`,
+            `un historiador local publicó hace pocos años una referencia que contradice la versión más difundida de los hechos, aunque todavía no se ha investigado a fondo`,
+            `existen indicios de que ciertos episodios se atenuaron deliberadamente en las crónicas para no comprometer a familias influyentes de la época`
+          ],
+          'architecture': [
+            `un detalle que pocos guías mencionan es que los canteros solían dejar una marca personal oculta, visible solo con luz rasante al amanecer o al atardecer`,
+            `los registros de la época recogen anécdotas curiosas sobre reformas posteriores que no siempre aparecen en las guías oficiales`,
+            `un matiz que sorprende a los expertos es la superposición de técnicas constructivas de distintas épocas en el mismo punto`,
+            `restauraciones recientes revelaron capas anteriores que cambian ligeramente la datación tradicional que se suele contar a los visitantes`
+          ],
+          'nearby-food': [
+            `una receta tradicional de la zona se transmite de generación en generación en algunas familias, y pocos turistas llegan a probarla porque no aparece en los menús habituales`,
+            `el maridaje que recomiendan los camareros más veteranos rara vez coincide con lo que sugieren las guías, y merece la pena preguntarlo directamente en el bar`,
+            `algunos productos típicos de esta zona de Toledo solo se encuentran en un pequeño radio de calles y desaparecen de las cartas fuera de temporada`,
+            `muchos locales del centro aún preparan a diario, sin anunciarlo, algún plato de cuchara que no figura en la carta y que solo se pide de palabra`
+          ],
+          'legends': [
+            `existen variantes de esta leyenda en pueblos cercanos, con protagonistas distintos pero un desenlace casi idéntico, lo que sugiere un origen común más antiguo`,
+            `algunos investigadores del folclore creen que estas historias servían para explicar fenómenos naturales que la gente de la época no podía comprender de otra forma`,
+            `hay quien asegura haber vivido una experiencia similar a la de la leyenda en tiempos recientes, aunque nunca ha quedado documentada de forma oficial`,
+            `la versión que se cuenta hoy en día difiere bastante de la recogida en manuscritos antiguos, señal de que la historia se ha ido adornando con el tiempo`
+          ]
+        },
+        kids: {
+          'secret-history': [
+            `Cuentan que hay una carta muy antigua escondida en un archivo que nadie ha terminado de leer 📜, ¡y podría guardar otro secreto más!`,
+            `Los abuelos de Toledo se cuentan unos a otros historias de este sitio que nunca se han escrito en ningún libro 👴👵.`,
+            `Un investigador encontró hace poco un papel que contaba la historia de otra forma distinta 🕵️‍♀️, ¡y todavía la están estudiando!`
+          ],
+          'architecture': [
+            `¿Sabías que si cuentas hasta 3 antes de mirar hacia arriba, dicen que ves el detalle mágico mejor? 👀 Muchos niños que han venido antes que tú lo han probado y juran que funciona.`,
+            `Un dato flipante: ¡algunas piedras de aquí pesan tanto como 3 elefantes juntos! 🐘🐘🐘 Y aun así, las subieron sin grúas ni máquinas, solo con cuerdas y mucha fuerza en equipo.`,
+            `¡Hay una marca secreta tallada en una piedra que solo se ve si el sol pega de lado! ☀️ Todavía nadie se pone de acuerdo en qué significa exactamente.`
+          ],
+          'nearby-food': [
+            `¡Hay un plato que las familias de aquí cocinan en casa desde hace un montón de años y que casi ningún turista prueba! 🍲`,
+            `Dicen que hay un truco secreto para saber cuál es el mejor sitio para merendar: ¡fijarte en dónde comen los propios vecinos! 👀🍰`,
+            `Algunos dulces de Toledo solo se hacen en ciertas épocas del año, ¡así que si los encuentras, tienes mucha suerte! 🍪✨`
+          ],
+          'legends': [
+            `¡Esta misma leyenda se cuenta también en otros pueblos, pero con otros protagonistas! 🧚 A lo mejor todas vienen de una historia aún más antigua.`,
+            `Algunas personas mayores dicen que a ellos también les pasó algo parecido a lo de la leyenda 😲, ¡aunque nadie lo ha escrito nunca!`,
+            `Cuentan que esta leyenda ha ido cambiando un poquito cada vez que se cuenta, ¡como el juego del teléfono escacharrado! 📞😄`
+          ]
         }
       },
       deepen(poi, m, topicId) {
         const n = poi.name[m] || poi.name.adult;
         const topicMeta = AI_TOPIC_NAMES[topicId];
         const topic = topicMeta ? (topicMeta[m] || topicMeta.adult) : (m === 'kids' ? 'esto' : 'este tema');
+        const pool = (this.deepenFacts[m] && this.deepenFacts[m][topicId]) || this.deepenFacts[m]['architecture'];
         if (m === 'kids') {
-          const facts = [
-            `¿Sabías que si cuentas hasta 3 antes de mirar hacia arriba, dicen que ves el detalle mágico mejor? 👀`,
-            `Cuentan que alguien escondió aquí una moneda de la suerte hace muchísimo tiempo 🪙, ¡a lo mejor sigue ahí!`,
-            `Si tocas la piedra más fría que encuentres cerca, dicen que te trae buena suerte en tu aventura 🍀`,
-            `Un dato flipante: ¡algunas piedras de aquí pesan tanto como 3 elefantes juntos! 🐘🐘🐘`,
-            `Se dice que por las noches, aquí se escucha un eco muy especial si susurras tu nombre 🌙`,
-            `¡Hay una marca secreta tallada en una piedra que solo se ve si el sol pega de lado! ☀️`
-          ];
-          return `✨ ¡Sigo contándote sobre ${topic}!\n\n${this.pick(facts)}\n\n¿Quieres que siga profundizando? 🔍`;
+          const [a, b, c] = this.pickDistinct(pool, Math.min(3, pool.length));
+          return `✨ ¡Sigo contándote sobre ${topic}!\n\n${a}\n\n${b}\n\n${c || ''}\n\n${this.pick(this.closingsKids)}\n\n¿Quieres que siga profundizando? 🔍`;
         }
-        const facts = [
-          `un detalle que pocos guías mencionan es que los canteros solían dejar una marca personal oculta, visible solo con luz rasante`,
-          `los registros de la época recogen anécdotas curiosas sobre reformas posteriores que no siempre aparecen en las guías oficiales`,
-          `una comparación interesante: pocos elementos similares en Toledo combinan tantas influencias en tan poco espacio`,
-          `un matiz que sorprende a los expertos es la superposición de técnicas constructivas de distintas épocas en el mismo punto`,
-          `existe una referencia documental poco citada que aporta un matiz distinto a la versión más conocida de esta historia`,
-          `un detalle curioso es que restauraciones recientes revelaron capas anteriores que cambian ligeramente la datación tradicional`
-        ];
-        const fact = this.pick(facts);
-        return `🔍 Profundizando en ${topic} de ${n}:\n\n${fact.charAt(0).toUpperCase()}${fact.slice(1)}.\n\n¿Sigo profundizando?`;
+        const [factA, factB, factC] = this.pickDistinct(pool, Math.min(3, pool.length));
+        return `🔍 Profundizando en ${topic} de ${n}:\n\n${factA.charAt(0).toUpperCase()}${factA.slice(1)}.\n\nAdemás, ${factB}.\n\nY otro detalle poco conocido: ${factC || ''}.\n\n${this.pick(this.closingsAdult)}\n\n¿Sigo profundizando?`;
       },
       option(poi, m, optionId) {
         if (optionId && optionId.startsWith('deepen:')) {
@@ -145,20 +217,20 @@
         switch (optionId) {
           case 'secret-history':
             return m === 'kids'
-              ? `🤫 HISTORIA SECRETA DE ${n.toUpperCase()}\n\n¿Sabes que cuando nadie mira, se oyen pasos por los pasillos? 😜 ¡No, no son fantasmas! Son los gatos de Toledo que cazan ratones por las noches 🐈‍⬛🐭.\n\nPero el secreto MÁS GRANDE es que debajo hay 🕳️ pasadizos subterráneos que los constructores hicieron para entrar sin que nadie los viera.\n\n¿Te atreves a buscar una grieta en el muro sur? ¡A ver si la encuentras! 🕵️‍♂️`
-              : `🤫 HISTORIA POCO CONOCIDA\n\nEn ${n} hubo un episodio documentado pero poco difundido: en 1521, durante la revuelta de las Comunidades, un escribano llamado ${this.pick(['Juan de Perea', 'Gómez Ruiz', 'Antón de Torres'])} ocultó en el hueco de una ventana los privilegios de la ciudad para que no ardieran con el Alcázar. Allí permanecieron 37 años hasta que un cantero los descubrió mientras restauraba un friso.\n\n📌 Fuente: Archivo Municipal de Toledo, Sección Histórica, legajo 42/7.`;
+              ? `🤫 HISTORIA SECRETA DE ${n.toUpperCase()}\n\n¿Sabes que cuando nadie mira, se oyen pasos por los pasillos? 😜 ¡No, no son fantasmas! Son los gatos de Toledo que cazan ratones por las noches 🐈‍⬛🐭.\n\nPero el secreto MÁS GRANDE es que debajo hay 🕳️ pasadizos subterráneos que los constructores hicieron para entrar sin que nadie los viera. Cuentan los abuelos de Toledo que, de pequeños, jugaban a buscar la entrada escondida y nunca la encontraron del todo.\n\n${this.pick(this.closingsKids)}\n\n¿Te atreves a buscar una grieta en el muro sur? ¡A ver si la encuentras! 🕵️‍♂️ Y si la encuentras, ¡cuéntaselo bajito a tu familia, que es un secreto!`
+              : `🤫 HISTORIA POCO CONOCIDA\n\nEn ${n} hubo un episodio documentado pero poco difundido: en 1521, durante la revuelta de las Comunidades, un escribano llamado ${this.pick(['Juan de Perea', 'Gómez Ruiz', 'Antón de Torres'])} ocultó en el hueco de una ventana los privilegios de la ciudad para que no ardieran con el Alcázar. Allí permanecieron 37 años hasta que un cantero los descubrió mientras restauraba un friso, sorprendido de encontrar documentos que se daban por perdidos desde generaciones atrás.\n\nEl hallazgo obligó a reescribir parte de la crónica municipal de la época, y todavía hoy los archiveros discuten cuántos otros escondites similares podrían quedar sin descubrir en el casco histórico.\n\n${this.pick(this.closingsAdult)}\n\n📌 Fuente: Archivo Municipal de Toledo, Sección Histórica, legajo 42/7.`;
           case 'architecture':
             return m === 'kids'
-              ? `🏗️ TRUCOS DE INGENIERO PARA NO CAERSE EN ${n.toUpperCase()}\n\n✅ Truco 1: ¡Las paredes son GORDAS! 🥐 Tanto como tu mochila. Así el viento no las tumba.\n✅ Truco 2: ¡Arcos de "herradura" 🐴! Reparten el peso de la parte de arriba por las dos columnas.\n✅ Truco 3: ¡Tejado inclinado 🏔️! Así el agua sale sin mojar las paredes.\n\n👀 Reto observación: Señala un arco con el dedo. ¿Cuántos puedes ver?`
-              : `🏛️ ANÁLISIS DE ARQUITECTURA\n\nEstilo dominante: ${this.pick(['gótico mudéjar', 'plateresco', 'renacentista'])}. Material estrella: piedra de ${this.pick(['granito de Ocaña', 'caliza de Illescas', 'mármol de Nieva'])}, trabajada en sillares regulares.\n\nDimensión poco visible: bajo el pavimento actual se conservan ${this.pick(['tres niveles arqueológicos', 'cisterna árabe', 'cimientos romanos'])} visibles en las visitas guiadas del sábado. Lo que la hace única frente a otros monumentos de Toledo es la superposición de órdenes sin renunciar a la luz cenital.\n\n💡 Si te acercas al ${this.pick(['pilar noreste', 'contrafuerte del lado de la epístola', 'friso superior'])} verás la marca del cantero: una pequeña cruz grabada.`;
+              ? `🏗️ ¡TRUCOS DE ARQUITECTURA DE ${n.toUpperCase()}!\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
+              : `🏛️ ARQUITECTURA DE ${n}\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
           case 'nearby-food':
             return m === 'kids'
-              ? `🍪 ¡QUÉ MERENDAR CERCA DE ${n.toUpperCase()}!\n\n1️⃣ 🍝 Plato principal: ¡Migas ruleras! Son como crujientes de pan con chorizo 🥓 ¡Pero sin queso! Pide "pequeño" que es para una persona.\n\n2️⃣ 🥙 Tapas para compartir: Patatas bravas toledanas + Empanada gallega de atún 🍞🐟.\n\n3️⃣ 🍰 Postre DIVERtIDO: "Tarta de queso con nombre de nube" ☁️ ¡Está rico, rico! (La ponen en todos los bares cercanos, pregúntala).\n\n😋 ¿Cuál eliges tú primero?`
-              : `🍷 PROPUESTA DE TAPEO 3′ ANDANDO desde ${n}\n\n1️⃣ Casa ${this.pick(['Cándido', 'Bastos', 'Perdigón'])} — Calle de la Sillería. Tapeo tradicional con jamón ibérico y bacalao a la toledana (vinagreta de pimentón). Plato imprescindible: callos a la madrileña estilo toledano.\n\n2️⃣ Bar La ${this.pick(['Orza', 'Pepa', 'Mezquita'])} — Plaza del Padre Juan de Mariana. Perfecto para media mañana: copa de vino D.O. Méntrida + tortilla de patata cebolla confitada y medio punto de cordero asado.\n\n3️⃣ Postre en Pastelería Santo Tomé — Mazapán con yema tostada y hoja de Talavera. Ideal para cerrar una ruta en pareja.\n\n💡 Consejo: pide "media ración" en los dos primeros para llegar con hambre al postre.`;
+              ? `🍪 ¡QUÉ MERENDAR CERCA DE ${n.toUpperCase()}!\n\n1️⃣ 🍝 Plato principal: ¡Migas ruleras! Son como crujientes de pan con chorizo 🥓 ¡Pero sin queso! Pide "pequeño" que es para una persona.\n\n2️⃣ 🥙 Tapas para compartir: Patatas bravas toledanas + Empanada gallega de atún 🍞🐟.\n\n3️⃣ 🍰 Postre DIVERtIDO: "Tarta de queso con nombre de nube" ☁️ ¡Está rico, rico! (La ponen en todos los bares cercanos, pregúntala).\n\n4️⃣ 🍦 Si hace calor: un helado de mazapán, ¡el sabor más de Toledo que existe!\n\n😋 ¿Cuál eliges tú primero? Pregunta a tu familia si podéis probar más de uno.`
+              : `🍷 PROPUESTA DE TAPEO 3′ ANDANDO desde ${n}\n\n1️⃣ Casa ${this.pick(['Cándido', 'Bastos', 'Perdigón'])} — Calle de la Sillería. Tapeo tradicional con jamón ibérico y bacalao a la toledana (vinagreta de pimentón). Plato imprescindible: callos a la madrileña estilo toledano.\n\n2️⃣ Bar La ${this.pick(['Orza', 'Pepa', 'Mezquita'])} — Plaza del Padre Juan de Mariana. Perfecto para media mañana: copa de vino D.O. Méntrida + tortilla de patata cebolla confitada y medio punto de cordero asado.\n\n3️⃣ Postre en Pastelería Santo Tomé — Mazapán con yema tostada y hoja de Talavera. Ideal para cerrar una ruta en pareja.\n\n4️⃣ Si prefieres algo más informal, cualquier bar de la zona sirve una buena tabla de quesos manchegos con membrillo, perfecta para compartir de pie en la barra.\n\n💡 Consejo: pide "media ración" en los dos primeros para llegar con hambre al postre.`;
           case 'legends':
             return m === 'kids'
-              ? `🧙‍♂️ LEYENDA DIVERTIDA DE ${n.toUpperCase()}\n\nHace mil años vivía aquí un hada madrina llamada Toledo 🧚 que cuidaba a los niños buenos. Si tú eres bueno y paseas sin hacer ruido, a lo mejor… ¡tu pelo se llena de purpurina invisible! 😳✨\n\nMoraleja: Los sitios antiguos esconden mucha magia… ¡solo hay que saber mirar despacio! 👀 ¿Qué magia te gustaría encontrar tú?`
-              : `👻 LEYENDA DOCUMENTADA más antigua sobre ${n}\n\nSegún el manuscrito 128 de la Catedral (s. XIV), durante el reinado de Alfonso VIII un ermitaño refugiado en el basamento vio aparecer en sueños a ${this.pick(['San Ildefonso', 'Santa Leocadia', 'San Eugenio'])} que le ordenaba señalar con un cirio la pared norte. A la mañana siguiente se descubrió una cavidad oculta con los restos de tres mártires visigodos.\n\nMi interpretación: la "cavidad" fue probablemente una cámara de acopio romana que los alarifes habían mantenido en secreto durante siglos para almacenar agua.\n\n📌 Fuente manuscrita: “Crónica de la Catedral”, cap. 41, editado por la Real Academia de la Historia en 1866.`;
+              ? `🧙‍♂️ LEYENDA DE ${n.toUpperCase()}\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids)}`
+              : `👻 LEYENDA DE ${n}\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.legends.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
           default: {
             if (m === 'kids') {
               return `¡Vaya, qué buena pregunta! 🤔 Pues mira, te cuento un secreto: en ${n} hay ${this.pick(['ventanas invisibles', 'escaleras que giran', 'colores secretos'])} y solo los niños atentos lo descubren. ¡Pasea con los ojos MUY ABIERTOS! 👀 ¿Qué has visto tú que nadie más vea?`;
@@ -209,22 +281,35 @@
       return SIM.generic(poi, mode, userQuery);
     };
 
-      const queryFor = (mode, userQuery, optionId) => {
+      // Usa los prompts específicos ya escritos en data.js (AI_PROMPTS) para
+      // la ruta de API real, en vez de un texto genérico "Tema: X" — así, si
+      // se configura una API real, las respuestas son tan ricas como las
+      // pensadas para cada tema, y no un resumen plano.
+      const queryFor = (poi, mode, userQuery, optionId) => {
         if (optionId && optionId.startsWith('deepen:')) {
           const topicId = optionId.slice(7);
           const topicMeta = AI_TOPIC_NAMES[topicId];
           const topicLabel = topicMeta ? (topicMeta[mode] || topicMeta.adult) : (mode === 'kids' ? 'esto' : 'este tema');
+          const fn = AI_PROMPTS.deepen && AI_PROMPTS.deepen[mode];
+          if (typeof fn === 'function') return fn(poi, topicLabel);
           return mode === 'kids'
             ? `Sigue contándome más sobre ${topicLabel}, un dato nuevo que no hayas contado antes.`
             : `Continúa profundizando sobre ${topicLabel}, con un dato nuevo, más concreto y que no hayas mencionado antes. No te repitas.`;
         }
-        if (optionId) return `Tema seleccionado: ${optionId}. Responde al contenido pedido.`;
-        return userQuery ?? 'Haz un resumen inicial del lugar.';
+        if (optionId) {
+          const opt = (AI_PROMPTS.options || []).find((o) => o.id === optionId);
+          const fn = opt && opt.prompt && opt.prompt[mode];
+          if (typeof fn === 'function') return fn(poi);
+          return `Tema seleccionado: ${optionId}. Responde al contenido pedido.`;
+        }
+        if (userQuery) return userQuery;
+        const summaryFn = AI_PROMPTS.summary && AI_PROMPTS.summary[mode];
+        return typeof summaryFn === 'function' ? summaryFn(poi) : 'Haz un resumen inicial del lugar.';
       };
 
     const generate = async ({ poi, mode, userQuery, optionId }) => {
       const sys = systemPromptFor(mode);
-      const usr = buildUserText(poi, mode, queryFor(mode, userQuery, optionId));
+      const usr = buildUserText(poi, mode, queryFor(poi, mode, userQuery, optionId));
       if (CFG && CFG.apiKey && CFG.provider) {
         try {
           if (CFG.provider === 'anthropic') return await fetchAnthropic(sys, usr);
@@ -473,6 +558,10 @@
           renderAiSuggestions();
           return;
         }
+
+        // Corta el audio en curso al instante: no tiene sentido seguir oyendo
+        // la respuesta anterior mientras se genera la nueva.
+        stopAudio();
 
         aiHistoryFor(poi.id).push({ role: 'user', text: chip.label, isOptionChip: true });
         renderAiMessages();
@@ -842,6 +931,7 @@
     return {
       isSupported: () => S.supported,
       isSpeaking: () => S.supported ? synth.speaking : false,
+      getText: buildNarrativeText,
       speak, pause, resume, cancel, warmUp
     };
   })();
@@ -876,9 +966,22 @@
     updateAudioUi();
   };
 
+  // Estima cuánto durará la narración a partir del nº de palabras, para que
+  // la barra de progreso corresponda al texto real (que ahora varía en
+  // longitud) en vez de a una duración fija inventada por POI.
+  const estimateSpeechDuration = (text) => {
+    const words = (text || '').trim().split(/\s+/).filter(Boolean).length;
+    const rate = STATE.mode === 'kids' ? 1.08 : 0.96;
+    const wpm = 150 * rate;
+    return Math.max(8, Math.round((words / wpm) * 60));
+  };
+
   const startAudio = (isResume = false, silent = false) => {
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
+    if (!isResume && SPEECH.isSupported()) {
+      STATE.audio.duration = estimateSpeechDuration(SPEECH.getText());
+    }
     const duration = STATE.audio.duration;
     clearInterval(STATE.audio.timer);
 
