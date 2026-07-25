@@ -580,16 +580,29 @@
 
   const openSheet = (target = 'peek') => {
     STATE.sheet = target;
+    // ============ IOS SAFE FIX: Forzamos backdrop abierto INLINE (no solo class) ============
     els.backdrop.classList.add('-open');
+    els.backdrop.style.display = '';
+    els.backdrop.style.pointerEvents = 'auto';
+    els.backdrop.style.removeProperty && els.backdrop.style.removeProperty('opacity');
     els.sheet.classList.remove('-closed', '-peek', '-open');
     els.sheet.classList.add(target === 'open' ? '-open' : '-peek');
+    try { els.sheet.setAttribute('aria-hidden', 'false'); } catch(_) {}
   };
   const closeSheet = () => {
     STATE.sheet = 'closed';
     STATE.activePoiId = null;
+    // ============ BLOQUE CRÍTICO FIX: iOS Safari a veces ignora classList.remove en backdrop.
+    // Forzamos todo inline + class removed + display none temporal
+    // Así el backdrop NUNCA se queda en -open bloqueando clicks
     els.backdrop.classList.remove('-open');
+    els.backdrop.style.display = 'none';
+    els.backdrop.style.pointerEvents = 'none';
+    els.backdrop.style.opacity = '0';
+    // Fin bloque crítico
     els.sheet.classList.remove('-peek', '-open');
     els.sheet.classList.add('-closed');
+    try { els.sheet.setAttribute('aria-hidden', 'true'); } catch(_) {}
     stopAudio();
     clearSelectedMarker();
   };
@@ -995,7 +1008,11 @@
     const dragTargets = [handle, hero];
     let startY = 0, startX = 0, startTranslate = 0, dragging = false, dir = 0, lastY = 0;
     let moved = false;
-    const DRAG_THRESHOLD = 8;
+    // iOS FIX: umbral alto para tap casual (14 px, antes 8)
+    const DRAG_THRESHOLD = 14;
+    // Elementos que NUNCA deben activar drag (botones, chips, input, tabs, etc.)
+    const NO_DRAG_SELECTOR = '.sheet-close, .close-btn, .tab-btn, .play-btn, .progress-wrap, .suggest-chip, ' +
+                            '.ai-btn-send, .zoom-btn, .ai-input-wrap, .audio-player, button, a, input, [role="button"]';
     const vh = () => window.innerHeight;
     const getPxFromState = (s) => {
       const val = getComputedStyle(document.documentElement).getPropertyValue(
@@ -1019,6 +1036,10 @@
       return candidates[0].s;
     };
     const onStart = (e) => {
+      // FIX iOS CRÍTICO: si el usuario pulsó sobre un botón NO arrancar drag NUNCA
+      if (e.target && e.target.closest && e.target.closest(NO_DRAG_SELECTOR)) {
+        return;
+      }
       const t = e.touches ? e.touches[0] : e;
       dragging = true; moved = false;
       startY = t.clientY; startX = t.clientX; lastY = t.clientY;
@@ -1036,7 +1057,6 @@
       const t = e.touches ? e.touches[0] : e;
       const deltaY = t.clientY - startY;
       const deltaX = t.clientX ? (t.clientX - startX) : 0;
-      // Activar "drag real" solo si > THRESHOLD vertical y > horizontal (no bloquea scroll lateral)
       if (!moved && (Math.abs(deltaY) > DRAG_THRESHOLD) && (Math.abs(deltaY) > Math.abs(deltaX))) {
         moved = true;
       }
@@ -1048,7 +1068,6 @@
         if (next < openY)  next = openY + (next - openY) * 0.35;
         if (next > closedY) next = closedY + (next - closedY) * 0.35;
         els.sheet.style.transform = `translateY(${next}px)`;
-        // ✅ Fix iOS: preventDefault SÓLO si es movimiento drag real y cancelable
         if (e.cancelable) {
           try { e.preventDefault(); } catch (_) {}
         }
@@ -1058,34 +1077,35 @@
       if (!dragging) return;
       const wasRealDrag = moved;
       dragging = false; moved = false;
+      // Si NO hubo drag real (tap corto): dejar pasar el click nativo, no tocar nada
+      if (!wasRealDrag) {
+        els.sheet.classList.remove('-drag');
+        els.sheet.style.transform = '';
+        return;
+      }
       const t = e.changedTouches ? e.changedTouches[0] : e;
       const finalDelta = (t.clientY || startY) - startY;
       const velocity = Math.abs(finalDelta);
       let snap = STATE.sheet;
-      if (wasRealDrag) {
-        const peekY = getPxFromState('peek');
-        if (velocity > 80) {
-          if (finalDelta < 0) snap = STATE.sheet === 'closed' ? 'peek' : 'open';
-          else              snap = STATE.sheet === 'open'   ? 'peek' : 'closed';
-        } else {
-          const style = window.getComputedStyle(els.sheet).transform;
-          const m = style && style !== 'none' ? (style.match(/-?[\d.]+/g) || []) : [];
-          snap = computeSnap(parseFloat(m[5] || m[1] || '0'));
-        }
+      const peekY = getPxFromState('peek');
+      if (velocity > 80) {
+        if (finalDelta < 0) snap = STATE.sheet === 'closed' ? 'peek' : 'open';
+        else              snap = STATE.sheet === 'open'   ? 'peek' : 'closed';
+      } else {
+        const style = window.getComputedStyle(els.sheet).transform;
+        const m = style && style !== 'none' ? (style.match(/-?[\d.]+/g) || []) : [];
+        snap = computeSnap(parseFloat(m[5] || m[1] || '0'));
       }
       els.sheet.classList.remove('-drag');
       els.sheet.style.transform = '';
-      if (wasRealDrag) {
-        if (snap === 'closed') closeSheet();
-        else openSheet(snap);
-      }
+      if (snap === 'closed') closeSheet();
+      else openSheet(snap);
     };
     dragTargets.forEach((el) => {
       if (!el) return;
       el.addEventListener('touchstart', onStart, { passive: true });
       el.addEventListener('mousedown', onStart);
     });
-    // Touchmove global con passive: false PERO preventDefault SOLO en drag real
     try { window.addEventListener('touchmove', onMove, { passive: false }); } catch (_) {
       window.addEventListener('touchmove', onMove);
     }
