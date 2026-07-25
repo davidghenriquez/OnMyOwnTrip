@@ -392,15 +392,27 @@
     return '📍';
   };
 
+  // Iconos SVG propios para los pines del mapa (en vez de emoji, que se
+  // renderizan de forma distinta y muy plana según el sistema operativo).
+  const PIN_ICON_SVG = {
+    [CATEGORIES.HISTORY]:
+      `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6"/><path d="M4 10v9M8 10v9M12 10v9M16 10v9M20 10v9"/><path d="M2 21h20"/></svg>`,
+    [CATEGORIES.GASTRONOMY]:
+      `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0L8 3Z"/><path d="M12 13v6"/><path d="M9 21h6"/></svg>`,
+    [CATEGORIES.HIDDEN]:
+      `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M11 11 20 20"/><path d="M16.5 15.5 19 13"/><path d="M18.3 17.3 20.5 15.1"/></svg>`
+  };
+  const getCategoryPinIconSvg = (cat) => PIN_ICON_SVG[cat] || PIN_ICON_SVG[CATEGORIES.HISTORY];
+
   /* =========================================================
-   * CUSTOM LEAFLET PIN (círculo de color + emoji, estilo app nativa)
+   * CUSTOM LEAFLET PIN (círculo de color + icono SVG, estilo app nativa)
    * =======================================================*/
   const makePinIcon = (poi) => {
     const color = getCategoryPinColor(poi.category);
-    const emoji = getCategoryPinEmoji(poi.category);
+    const icon = getCategoryPinIconSvg(poi.category);
     return L.divIcon({
       className: 'custom-pin-wrap',
-      html: `<div class="custom-pin" data-id="${poi.id}" style="--pin-color:${color}">${emoji}</div>`,
+      html: `<div class="custom-pin" data-id="${poi.id}" style="--pin-color:${color}">${icon}</div>`,
       iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -19]
     });
   };
@@ -791,6 +803,18 @@
       document.addEventListener('touchstart', unlockVoiceOnce, true);
     }
 
+    // La síntesis de voz de algunos sistemas "lee" los emoji en voz alta
+    // (por ejemplo 📌 se pronuncia como "chincheta"). Los quitamos SOLO del
+    // texto que se narra; el texto mostrado en el chat conserva sus emoji.
+    const stripEmojiForSpeech = (text) => Array.from(text || '').filter((ch) => {
+      const cp = ch.codePointAt(0);
+      if (cp === 0xFE0F || cp === 0x200D || cp === 0x20E3) return false; // variation selector, ZWJ, keycap
+      if (cp >= 0x1F000 && cp <= 0x1FFFF) return false; // emoji: emoticonos, símbolos, transporte, etc.
+      if (cp >= 0x2600 && cp <= 0x27BF) return false; // símbolos varios y dingbats (✨ ☀ etc.)
+      if (cp >= 0x2B00 && cp <= 0x2BFF) return false; // símbolos varios y flechas (⭐ etc.)
+      return true;
+    }).join('');
+
     const buildNarrativeText = () => {
       const poi = POIS.find((p) => p.id === STATE.activePoiId);
       if (!poi) return '';
@@ -802,7 +826,7 @@
       const intro = (m === 'kids')
         ? `¡Hola! Vamos a descubrir ${name}. ${subtitle}. ¡Pon mucha atención! `
         : `Audioguía de ${name}. ${subtitle}. `;
-      return (intro + body).replace(/\s+/g, ' ').trim().slice(0, 1800);
+      return stripEmojiForSpeech(intro + body).replace(/\s+/g, ' ').trim().slice(0, 1800);
     };
 
     let delayedCancelTimer = null;
