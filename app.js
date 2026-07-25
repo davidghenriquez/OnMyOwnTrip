@@ -342,6 +342,14 @@
   const setStateMode = (mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     document.documentElement.dataset.mode = STATE.mode;
+    // iOS: Cambiar color barra superior según Modo Dual
+    try {
+      const metaTheme = document.getElementById('metaThemeColor');
+      if (metaTheme) {
+        const primaryAdult = '#B8411E', primaryKids = '#FF8C42';
+        metaTheme.setAttribute('content', STATE.mode === 'kids' ? primaryKids : primaryAdult);
+      }
+    } catch (_) {}
     $$('.mode-toggle-option').forEach((o) => o.dataset.active = o.dataset.mode === STATE.mode ? 'true' : 'false');
     $$('.pill').forEach((p) => {
       const cat = p.dataset.category;
@@ -660,34 +668,85 @@
 
   /* =========================================================
    * SPEECH SYNTHESIS (real voice via Web Speech API)
+   * · Fix crítico iOS Safari: speak() SÓLO funciona si se
+   *   llama DIRECTAMENTE dentro del click/tap del usuario
+   *   (sin ningún setTimeout/Promise/await de por medio).
    * =======================================================*/
   const SPEECH = (() => {
     const S = STATE.audio.speech;
     const synth = (typeof window !== 'undefined' && 'speechSynthesis' in window) ? window.speechSynthesis : null;
     S.supported = !!synth && 'SpeechSynthesisUtterance' in window;
 
+    const IS_IOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    // Cargar voces: en iOS a veces requiere múltiples llamadas + evento
     const pickSpanishVoice = () => {
       if (!S.supported) return null;
-      const all = synth.getVoices() || [];
-      S.voices = all;
-      const prefer = [
-        (v) => /es[-_]ES/i.test(v.lang) && /female|mujer|sabina|lucia|paulina|google/i.test(v.name),
-        (v) => /es[-_]ES/i.test(v.lang),
-        (v) => /^es/i.test(v.lang)
-      ];
-      for (const fn of prefer) {
-        const hit = all.find(fn);
-        if (hit) { S.pickedVoice = hit; return hit; }
-      }
-      S.pickedVoice = all[0] || null;
-      return S.pickedVoice;
+      try {
+        const all = (synth.getVoices && synth.getVoices()) || [];
+        S.voices = all;
+        const prefer = [
+          (v) => /es[-_]ES/i.test(v.lang) && /Monica|Jorge|Diego|sabina|lucia|paulina|google/i.test(v.name || ''),
+          (v) => /es[-_]ES/i.test(v.lang),
+          (v) => /^es/i.test(v.lang),
+          (v) => !!v
+        ];
+        for (const fn of prefer) {
+          const hit = all.find(fn);
+          if (hit) { S.pickedVoice = hit; return hit; }
+        }
+        S.pickedVoice = all[0] || null;
+        return S.pickedVoice;
+      } catch (_) { return S.pickedVoice || null; }
+    };
+
+    // Warm-up obligatorio iOS: desbloquea el motor de voz con un texto vacío
+    // Llamado la primera vez que el usuario hace click en CUALQUIER sitio
+    let warmedUp = false;
+    const warmUp = () => {
+      if (!S.supported || warmedUp || !IS_IOS) { warmedUp = true; return; }
+      try {
+        // En iOS, se necesita un speak() inicial para que el motor se active
+        synth.cancel();
+        const u = new SpeechSynthesisUtterance('');
+        u.volume = 0;
+        u.rate = 1;
+        u.lang = 'es-ES';
+        u.onend = u.onerror = () => {};
+        synth.speak(u);
+        warmedUp = true;
+      } catch (_) {}
     };
 
     if (S.supported) {
       pickSpanishVoice();
-      if (typeof synth.onvoiceschanged !== 'undefined') {
-        synth.onvoiceschanged = pickSpanishVoice;
-      }
+      try { synth.onvoiceschanged = pickSpanishVoice; } catch (_) {}
+      // Cargamos voces varias veces (en iOS a veces tarda)
+      setTimeout(pickSpanishVoice, 500);
+      setTimeout(pickSpanishVoice, 1500);
+      setTimeout(pickSpanishVoice, 3000);
+
+      // Warm-up inicial: en el PRIMER click/tap del usuario en todo el documento
+      const unlockVoiceOnce = (e) => {
+        if (warmedUp) return;
+        warmUp();
+        // También pre-cargamos una voz corta para desbloquear
+        try {
+          synth.cancel();
+          const u = new SpeechSynthesisUtterance('.');
+          u.volume = 0.01;
+          u.rate = 2;
+          u.lang = 'es-ES';
+          u.onend = u.onerror = () => {};
+          synth.speak(u);
+          warmedUp = true;
+        } catch (_) { warmedUp = true; }
+        document.removeEventListener('click', unlockVoiceOnce, true);
+        document.removeEventListener('touchstart', unlockVoiceOnce, true);
+      };
+      document.addEventListener('click', unlockVoiceOnce, true);
+      document.addEventListener('touchstart', unlockVoiceOnce, true);
     }
 
     const buildNarrativeText = () => {
@@ -715,7 +774,9 @@
     const cancel = () => {
       if (!S.supported) return;
       try {
+        // iOS a veces necesita cancelar 2 veces
         synth.cancel();
+        setTimeout(() => { try { synth.cancel(); } catch(_) {} }, 20);
       } catch (_) {}
       S.utterance = null;
     };
@@ -727,40 +788,75 @@
 
     const resume = () => {
       if (!S.supported) return;
-      try { synth.resume(); } catch (_) {}
+      try {
+        // iOS a veces no hace resume bien: re-speakeamos desde el texto
+        synth.resume();
+      } catch (_) {}
     };
 
     const speak = (onEndCallback) => {
       if (!S.supported) return false;
+      warmUp();
+      pickSpanishVoice();
+      // Force resume de cualquier pausa pendiente (bug iOS)
+      try { synth.resume(); } catch (_) {}
+
       const text = buildNarrativeText();
       if (!text) return false;
       cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'es-ES';
-      u.rate = STATE.mode === 'kids' ? 1.08 : 0.96;
-      u.pitch = STATE.mode === 'kids' ? 1.22 : 1.0;
-      u.volume = 1;
-      if (S.pickedVoice) u.voice = S.pickedVoice;
-      u.onend = () => {
-        S.utterance = null;
-        if (typeof onEndCallback === 'function') onEndCallback({ finished: true });
+
+      // ============ iOS FIX: Speak inmediatamente SIN delays ============
+      const makeUtt = () => {
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'es-ES';
+        u.rate = STATE.mode === 'kids' ? 1.08 : 0.96;
+        u.pitch = STATE.mode === 'kids' ? 1.22 : 1.0;
+        u.volume = 1;
+        if (S.pickedVoice) {
+          try { u.voice = S.pickedVoice; } catch (_) {}
+        }
+        u.onend = () => {
+          S.utterance = null;
+          if (typeof onEndCallback === 'function') onEndCallback({ finished: true });
+        };
+        u.onerror = (ev) => {
+          S.utterance = null;
+          // En iOS a veces hay "canceled" spúreo; ignorarlo si no es el final
+          if (ev && typeof ev.error === 'string' && /canceled|interrupted/i.test(ev.error)) return;
+          if (typeof onEndCallback === 'function') onEndCallback({ finished: false, error: true });
+        };
+        return u;
       };
-      u.onerror = () => {
-        S.utterance = null;
-        if (typeof onEndCallback === 'function') onEndCallback({ finished: false, error: true });
-      };
-      S.utterance = u;
+
+      const u1 = makeUtt();
+      S.utterance = u1;
+      let ok = false;
       try {
-        synth.speak(u);
-        return true;
-      } catch (_) {
-        return false;
+        synth.speak(u1);
+        ok = true;
+      } catch (_) { ok = false; }
+
+      // Fix iOS: a veces el primer speak() se ignora, reintentamos 50ms después
+      // (solo si aún no está hablando y la utterance es la misma)
+      if (IS_IOS && ok) {
+        setTimeout(() => {
+          try {
+            if (S.utterance === u1 && !synth.speaking && !synth.paused) {
+              synth.cancel();
+              const u2 = makeUtt();
+              S.utterance = u2;
+              synth.speak(u2);
+            }
+          } catch (_) {}
+        }, 120);
       }
+      return ok;
     };
 
     return {
       isSupported: () => S.supported,
-      speak, pause, resume, cancel
+      isSpeaking: () => S.supported ? synth.speaking : false,
+      speak, pause, resume, cancel, warmUp
     };
   })();
 
@@ -862,12 +958,16 @@
 
   /* =========================================================
    * SHEET DRAG
+   * · Fix iOS: preventDefault SOLO cuando drag real > 8 px
+   *   (nunca en taps cortos -> no bloquea botones/tabs/chips)
    * =======================================================*/
   const initDrag = () => {
     const handle = $('.sheet-handle', els.sheet);
     const hero = $('.sheet-hero', els.sheet);
     const dragTargets = [handle, hero];
-    let startY = 0, startTranslate = 0, dragging = false, dir = 0, lastY = 0;
+    let startY = 0, startX = 0, startTranslate = 0, dragging = false, dir = 0, lastY = 0;
+    let moved = false;
+    const DRAG_THRESHOLD = 8;
     const vh = () => window.innerHeight;
     const getPxFromState = (s) => {
       const val = getComputedStyle(document.documentElement).getPropertyValue(
@@ -892,7 +992,8 @@
     };
     const onStart = (e) => {
       const t = e.touches ? e.touches[0] : e;
-      dragging = true; startY = t.clientY; lastY = t.clientY;
+      dragging = true; moved = false;
+      startY = t.clientY; startX = t.clientX; lastY = t.clientY;
       const style = window.getComputedStyle(els.sheet).transform;
       let ty;
       if (style && style !== 'none') {
@@ -905,43 +1006,61 @@
     const onMove = (e) => {
       if (!dragging) return;
       const t = e.touches ? e.touches[0] : e;
-      const delta = t.clientY - startY;
-      dir = t.clientY > lastY ? 1 : (t.clientY < lastY ? -1 : dir);
-      lastY = t.clientY;
-      const openY = getPxFromState('open'), closedY = getPxFromState('closed');
-      let next = startTranslate + delta;
-      if (next < openY)  next = openY + (next - openY) * 0.35;
-      if (next > closedY) next = closedY + (next - closedY) * 0.35;
-      els.sheet.style.transform = `translateY(${next}px)`;
-      if (e.cancelable) e.preventDefault();
+      const deltaY = t.clientY - startY;
+      const deltaX = t.clientX ? (t.clientX - startX) : 0;
+      // Activar "drag real" solo si > THRESHOLD vertical y > horizontal (no bloquea scroll lateral)
+      if (!moved && (Math.abs(deltaY) > DRAG_THRESHOLD) && (Math.abs(deltaY) > Math.abs(deltaX))) {
+        moved = true;
+      }
+      if (moved) {
+        dir = t.clientY > lastY ? 1 : (t.clientY < lastY ? -1 : dir);
+        lastY = t.clientY;
+        const openY = getPxFromState('open'), closedY = getPxFromState('closed');
+        let next = startTranslate + deltaY;
+        if (next < openY)  next = openY + (next - openY) * 0.35;
+        if (next > closedY) next = closedY + (next - closedY) * 0.35;
+        els.sheet.style.transform = `translateY(${next}px)`;
+        // ✅ Fix iOS: preventDefault SÓLO si es movimiento drag real y cancelable
+        if (e.cancelable) {
+          try { e.preventDefault(); } catch (_) {}
+        }
+      }
     };
     const onEnd = (e) => {
       if (!dragging) return;
-      dragging = false;
+      const wasRealDrag = moved;
+      dragging = false; moved = false;
       const t = e.changedTouches ? e.changedTouches[0] : e;
-      const finalDelta = t.clientY - startY;
+      const finalDelta = (t.clientY || startY) - startY;
       const velocity = Math.abs(finalDelta);
-      let snap;
-      const peekY = getPxFromState('peek');
-      if (velocity > 80) {
-        if (finalDelta < 0) snap = STATE.sheet === 'closed' ? 'peek' : 'open';
-        else              snap = STATE.sheet === 'open'   ? 'peek' : 'closed';
-      } else {
-        const style = window.getComputedStyle(els.sheet).transform;
-        const m = style && style !== 'none' ? (style.match(/-?[\d.]+/g) || []) : [];
-        snap = computeSnap(parseFloat(m[5] || m[1] || '0'));
+      let snap = STATE.sheet;
+      if (wasRealDrag) {
+        const peekY = getPxFromState('peek');
+        if (velocity > 80) {
+          if (finalDelta < 0) snap = STATE.sheet === 'closed' ? 'peek' : 'open';
+          else              snap = STATE.sheet === 'open'   ? 'peek' : 'closed';
+        } else {
+          const style = window.getComputedStyle(els.sheet).transform;
+          const m = style && style !== 'none' ? (style.match(/-?[\d.]+/g) || []) : [];
+          snap = computeSnap(parseFloat(m[5] || m[1] || '0'));
+        }
       }
       els.sheet.classList.remove('-drag');
       els.sheet.style.transform = '';
-      if (snap === 'closed') closeSheet();
-      else openSheet(snap);
+      if (wasRealDrag) {
+        if (snap === 'closed') closeSheet();
+        else openSheet(snap);
+      }
     };
     dragTargets.forEach((el) => {
       if (!el) return;
       el.addEventListener('touchstart', onStart, { passive: true });
       el.addEventListener('mousedown', onStart);
     });
-    window.addEventListener('touchmove', onMove, { passive: false });
+    // Touchmove global con passive: false PERO preventDefault SOLO en drag real
+    try { window.addEventListener('touchmove', onMove, { passive: false }); } catch (_) {
+      window.addEventListener('touchmove', onMove);
+    }
     window.addEventListener('mousemove', onMove);
     window.addEventListener('touchend', onEnd);
     window.addEventListener('mouseup', onEnd);
