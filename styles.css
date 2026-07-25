@@ -42,9 +42,11 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   --radius-xl: 28px;
   --radius-pill: 999px;
   --font-display: 'Playfair Display', 'Georgia', serif;
-  --sheet-closed: 100vh;
-  --sheet-peek: calc(100vh - 180px);
-  --sheet-open: calc(100vh - 52%);
+  /* iOS SAFARI FIX CRÍTICO: 101% para garantizar que se va COMPLETAMENTE fuera
+     (100vh a veces se ve un píxel en algunos viewports dinámicos iPhone) */
+  --sheet-closed: 101%;
+  --sheet-peek: calc(100% - 180px);
+  --sheet-open: calc(100% - 52%);
 }
 :root[data-mode="kids"] {
   --color-primary: #FF8C42;
@@ -296,15 +298,33 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   box-shadow: var(--shadow-lg);
   z-index: 110;
   transform: translateY(var(--sheet-closed));
-  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+              visibility 0s linear 0.4s,
+              pointer-events 0s linear 0.4s;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  touch-action: none;
+  /* ============== FIX IOS GIGANTE ==============
+     NUNCA más touch-action:none sobre TODA la sheet 100vh.
+     Solo lo aplicamos al .sheet-handle (el dragger). */
   will-change: transform;
+  /* POR DEFECTO (cerrada): invisible y SIN pointer events.
+     iOS Safari cree que la capa 100vh sigue estando aunque hagamos translate.
+     Con visibility:hidden + pointer-events:none → NUNCA te come un click. */
+  visibility: hidden;
+  pointer-events: none;
 }
-.bottom-sheet.-peek { transform: translateY(var(--sheet-peek)); transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1); }
-.bottom-sheet.-open { transform: translateY(var(--sheet-open)); transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1); }
+.bottom-sheet.-peek,
+.bottom-sheet.-open {
+  /* Activamos inmediatamente al abrir (sin delay) */
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+              visibility 0s linear 0s,
+              pointer-events 0s linear 0s;
+  visibility: visible;
+  pointer-events: auto;
+}
+.bottom-sheet.-peek { transform: translateY(var(--sheet-peek)); }
+.bottom-sheet.-open { transform: translateY(var(--sheet-open)); }
 .bottom-sheet.-drag { transition: none; }
 
 .sheet-handle {
@@ -318,6 +338,8 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   place-items: start center;
   padding-top: 10px;
   cursor: grab;
+  /* Solo el handle necesita bloquear el scroll táctil del body durante drag (nunca la sheet entera) */
+  touch-action: none;
 }
 .sheet-handle:active { cursor: grabbing; }
 .sheet-handle-bar {
