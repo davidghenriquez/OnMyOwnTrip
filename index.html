@@ -1,187 +1,704 @@
 <!DOCTYPE html>
-<html lang="es" data-mode="adult">
+<html lang="es" class="h-full">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" id="metaThemeColor" content="#B8411E" />
-
-  <!-- iOS / PWA → "Añadir a pantalla de inicio" como app nativa -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="OnMyOwnTrip" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="format-detection" content="telephone=no" />
-
-  <!-- Icono para iOS: SVG inline como apple-touch-icon sin assets externos -->
-  <link rel="apple-touch-icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%23B8411E"/><stop offset="1" stop-color="%23FF8C42"/></linearGradient></defs><rect width="180" height="180" rx="36" fill="url(%23g)"/><path d="M90 50c-22 0-38 14-38 34 0 26 28 42 38 42s38-16 38-42c0-20-16-34-38-34zm0 48a14 14 0 110-28 14 14 0 010 28z" fill="white"/><circle cx="90" cy="98" r="6" fill="%23B8411E"/></svg>' />
-  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="%23B8411E"/><path d="M32 20c-7.2 0-13 4.6-13 11.2 0 8.6 9.6 13.8 13 13.8s13-5.2 13-13.8C45 24.6 39.2 20 32 20zm0 15.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z" fill="white"/></svg>' />
-
-  <meta name="description" content="OnMyOwnTrip · Turismo autoguiado interactivo por Toledo, Ciudad Imperial. Modo Adultos y Niños." />
-  <title>OnMyOwnTrip · Toledo</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OnMyOwnTrip Toledo - App Definitiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS para Mapas Reales -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        .leaflet-layer,
+        .leaflet-control-zoom-in,
+        .leaflet-control-zoom-out,
+        .leaflet-control-attribution {
+            filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3);
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+        }
+        .pin-pulse {
+            animation: pulse-subtle 2s infinite ease-in-out;
+        }
+    </style>
 </head>
-<body>
-  <div class="app" id="app">
+<body id="app-body" class="h-full bg-slate-900 text-slate-100 font-sans overflow-hidden flex justify-center items-center transition-colors duration-500">
 
-    <!-- HEADER -->
-    <header class="header" role="banner">
-      <div class="header-top">
-        <div class="brand">
-          <span class="brand-mark">OnMyOwnTrip</span>
-          <span class="brand-sub">Toledo</span>
+    <!-- Contenedor Principal Simil Teléfono Móvil -->
+    <div class="w-full max-w-md h-full md:h-[850px] md:rounded-3xl bg-slate-800 shadow-2xl flex flex-col relative overflow-hidden border border-slate-700">
+        
+        <!-- Barra Superior (Header con Selector de Modo y Nombre OnMyOwnTrip) -->
+        <header id="header-bg" class="absolute top-0 left-0 right-0 z-[1000] p-4 bg-gradient-to-b from-slate-900/95 to-slate-900/40 flex flex-col gap-2.5 backdrop-blur-sm transition-colors duration-300">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="font-bold text-lg tracking-tight text-white flex items-center gap-2">
+                        <i id="header-icon" class="fa-solid fa-compass text-amber-400"></i> <span id="app-title">OnMyOwnTrip</span> 
+                        <span id="mode-badge" class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full">Adultos</span>
+                    </h1>
+                    <p id="app-subtitle" class="text-xs text-slate-300">Toledo: Turismo Autoguiado Inteligente</p>
+                </div>
+                <!-- Selector de Modo Adulto / Niño -->
+                <div class="flex bg-slate-900/90 border border-slate-700 rounded-full p-1 gap-1 shadow-inner">
+                    <button onclick="setMode('adult')" id="mode-adult-btn" class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500 text-slate-950 transition-all shadow">
+                        🧑 Adultos
+                    </button>
+                    <button onclick="setMode('kid')" id="mode-kid-btn" class="px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:text-white transition-all">
+                        🎈 Niños
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Filtros Superiores Horizontales (Píldoras) -->
+        <div class="absolute top-24 left-0 right-0 z-[1000] px-4 py-2 flex gap-2 overflow-x-auto no-scrollbar scroll-smooth pointer-events-auto">
+            <button onclick="filterPOIs('all')" id="btn-all" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-amber-500 text-slate-950 shadow-md whitespace-nowrap transition-all">
+                Todos
+            </button>
+            <button onclick="filterPOIs('history')" id="btn-history" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-slate-800/90 text-slate-200 border border-slate-600 backdrop-blur whitespace-nowrap transition-all">
+                🏛️ Historia
+            </button>
+            <button onclick="filterPOIs('food')" id="btn-food" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-slate-800/90 text-slate-200 border border-slate-600 backdrop-blur whitespace-nowrap transition-all">
+                🍷 Gastronomía
+            </button>
+            <button onclick="filterPOIs('hidden')" id="btn-hidden" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-slate-800/90 text-slate-200 border border-slate-600 backdrop-blur whitespace-nowrap transition-all">
+                🗝️ Rincones Ocultos
+            </button>
         </div>
 
-        <div class="mode-toggle" role="group" aria-label="Cambiar modo de contenido">
-          <button type="button" class="mode-toggle-option" data-mode="adult" data-active="true">
-            <span class="mode-ico" aria-hidden="true">👤</span>
-            <span>Adultos</span>
-          </button>
-          <button type="button" class="mode-toggle-option" data-mode="kids" data-active="false">
-            <span class="mode-ico" aria-hidden="true">🧒</span>
-            <span>Niños</span>
-          </button>
-          <span class="mode-toggle-thumb" aria-hidden="true"></span>
+        <!-- Contenedor del Mapa Real Leaflet -->
+        <div id="map" class="w-full h-full z-10 bg-slate-950"></div>
+
+        <!-- Tarjeta Inferior Deslizante (BottomSheet con Chat e Intro Auto-Play) -->
+        <div id="bottom-sheet" class="absolute bottom-0 left-0 right-0 bg-slate-800/98 backdrop-blur-md border-t border-slate-700 rounded-t-3xl p-4 z-[2000] transform translate-y-full transition-transform duration-300 ease-out shadow-2xl flex flex-col max-h-[82vh]">
+            <div class="w-12 h-1.5 bg-slate-600 rounded-full mx-auto mb-2 cursor-pointer flex-shrink-0" onclick="closeBottomSheet()"></div>
+
+            <!-- Cabecera Esencial del POI -->
+            <div class="flex items-start gap-3 mb-2.5 flex-shrink-0">
+                <img id="sheet-image" src="" alt="POI Image" class="w-16 h-16 rounded-xl object-cover border border-slate-700 flex-shrink-0">
+                <div class="flex-1 min-w-0">
+                    <span id="sheet-category" class="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 mb-0.5">Categoría</span>
+                    <h3 id="sheet-title" class="font-bold text-sm text-white truncate">Título del Lugar</h3>
+                    <p id="sheet-desc" class="text-xs text-slate-300 line-clamp-2 mt-0.5">Información esencial...</p>
+                </div>
+                <button onclick="closeBottomSheet()" class="text-slate-400 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Área de Conversación con la IA (Historial dinámico) -->
+            <div id="ai-chat-container" class="flex-1 bg-slate-900/90 border border-slate-700/60 rounded-2xl p-3 overflow-y-auto space-y-2.5 mb-2 min-h-[130px] max-h-[200px]">
+                <!-- Los mensajes se inyectan dinámicamente -->
+            </div>
+
+            <!-- Opciones Dinámicas Generadas por IA para seguir explorando -->
+            <div id="ai-suggestions" class="flex gap-1.5 overflow-x-auto no-scrollbar pb-2 flex-shrink-0">
+                <!-- Se generan nuevas opciones tras cada interacción -->
+            </div>
+
+            <!-- Reproductor de Audio Adaptado -->
+            <div class="bg-slate-900/80 border border-slate-700/60 rounded-xl p-2.5 flex flex-col gap-1.5 flex-shrink-0">
+                <div class="flex items-center justify-between text-[11px] text-slate-400">
+                    <span id="audio-label" class="flex items-center gap-1.5 text-amber-400 font-medium">
+                        <i class="fa-solid fa-headphones"></i> Audio Guía IA (Auto-play)
+                    </span>
+                    <span id="audio-time">0:00 / 1:00</span>
+                </div>
+
+                <div class="w-full bg-slate-700 h-1.5 rounded-full overflow-hidden cursor-pointer" onclick="seekAudio(event)">
+                    <div id="audio-progress" class="bg-amber-400 h-full w-0 transition-all duration-100"></div>
+                </div>
+
+                <div class="flex items-center justify-between pt-0.5">
+                    <button onclick="changeSpeed()" id="speed-btn" class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 hover:text-white transition">
+                        1.0x
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <button onclick="skipTime(-10)" class="text-slate-400 hover:text-white transition text-xs">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </button>
+                        <button onclick="togglePlay()" id="play-btn" class="w-8 h-8 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center shadow-md hover:bg-amber-300 transition text-xs">
+                            <i class="fa-solid fa-play ml-0.5"></i>
+                        </button>
+                        <button onclick="skipTime(10)" class="text-slate-400 hover:text-white transition text-xs">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+                    <span class="text-[10px] text-slate-500">Voz IA</span>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <nav class="filters" id="filters" role="tablist" aria-label="Filtrar puntos de interés">
-        <button type="button" class="pill" data-category="all" data-active="true">
-          <span class="pill-dot"></span>
-          <span>Todos</span>
-        </button>
-        <button type="button" class="pill" data-category="historia" data-active="false">
-          <span class="pill-dot"></span>
-          <span>Historia</span>
-        </button>
-        <button type="button" class="pill" data-category="gastronomia" data-active="false">
-          <span class="pill-dot"></span>
-          <span>Gastronomía</span>
-        </button>
-        <button type="button" class="pill" data-category="rincones-ocultos" data-active="false">
-          <span class="pill-dot"></span>
-          <span>Rincones Ocultos</span>
-        </button>
-      </nav>
-    </header>
-
-    <!-- MAP -->
-    <div class="map-wrap">
-      <main id="map" role="region" aria-label="Mapa interactivo de Toledo"></main>
     </div>
 
-    <!-- BACKDROP -->
-    <div class="sheet-backdrop" id="sheetBackdrop" aria-hidden="true"></div>
+    <!-- Lógica JavaScript Principal de OnMyOwnTrip -->
+    <script>
+        let currentMode = 'adult'; // 'adult' o 'kid'
+        let map;
+        let markersLayer = L.layerGroup();
+        let currentPOI = null;
+        let activeCategory = 'all';
+        let currentAiText = '';
 
-    <!-- BOTTOM SHEET -->
-    <aside class="bottom-sheet -closed" id="bottomSheet"
-           role="dialog" aria-modal="true" aria-label="Información del punto de interés" aria-hidden="true">
-      <div class="sheet-handle" aria-hidden="true">
-        <span class="sheet-handle-bar"></span>
-      </div>
+        let isPlaying = false;
+        let progressInterval = null;
+        let currentTimeSec = 0;
+        let totalDurationSec = 60;
+        let currentRate = 1.0;
 
-      <section class="sheet-hero" aria-label="Cabecera">
-        <img class="sheet-hero-img" src="" alt="" loading="eager" draggable="false" />
-        <div class="sheet-hero-overlay" aria-hidden="true"></div>
+        const pois = [
+            {
+                id: 'poi_toledo_01',
+                category: 'history',
+                categoryName: 'Historia',
+                lat: 39.8581,
+                lng: -4.0226,
+                image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=300&auto=format&fit=crop&q=60',
+                adult: {
+                    title: 'El Alcázar de Toledo',
+                    essential: 'Imponente fortificación sobre la colina más alta, símbolo histórico de resistencia y sede del Museo del Ejército.',
+                    initialAudio: 'Te damos la bienvenida al Alcázar de Toledo. Esta imponente fortificación domina la colina más alta de la ciudad, acumulando siglos de historia militar y defensa estratégica.',
+                    initialPrompts: [
+                        { label: '👻 ¿Qué leyendas oculta?', nextKey: 'legends' },
+                        { label: '🏰 Estilo arquitectónico', nextKey: 'architecture' },
+                        { label: '⚔️ Batallas históricas', nextKey: 'battles' }
+                    ],
+                    subBranches: {
+                        legends: {
+                            text: 'Las leyendas cuentan que en las noches de luna llena, los pasadizos subterráneos del Alcázar resuenan con ecos de armaduras fantasmales y un relicario olvidado.',
+                            nextPrompts: [
+                                { label: '🔍 ¿Dónde está el relicario?', nextKey: 'relic' },
+                                { label: '🛡️ ¿Vieron fantasmas?', nextKey: 'ghosts' },
+                                { label: '🔙 Volver al inicio', nextKey: 'root' }
+                            ]
+                        },
+                        architecture: {
+                            text: 'El edificio actual combina elementos renacentistas mandados construir por Carlos V, destacando diseños de Alonso de Covarrubias y Juan de Herrera.',
+                            nextPrompts: [
+                                { label: '👑 ¿Qué hizo Carlos V?', nextKey: 'carlos' },
+                                { label: '🔙 Volver al inicio', nextKey: 'root' }
+                            ]
+                        },
+                        battles: {
+                            text: 'El Alcázar ha sido protagonista ininterrumpido desde fuerte romano, palacio visigodo, alcázar árabe y escenario del asedio en 1936.',
+                            nextPrompts: [
+                                { label: '📜 Época visigoda y árabe', nextKey: 'visigoths' },
+                                { label: '🔙 Volver al inicio', nextKey: 'root' }
+                            ]
+                        },
+                        relic: { text: 'Los historiadores aseguran que bajo los cimientos principales existen bodegas amuralladas inexploradas desde la Edad Media.', nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }] },
+                        ghosts: { text: 'Guardias nocturnos de museos vecinos han reportado en ocasiones ruidos metálicos inexplicables.', nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }] },
+                        carlos: { text: 'Carlos V ordenó transformar la fortaleza medieval en un palacio imperial moderno que reflejase el poder absoluto de su imperio.', nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }] },
+                        visigoths: { text: 'Los reyes visigodos convirtieron Toledo en capital oficial, fortificando este cerro rocoso antes del año 711.', nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }] }
+                    }
+                },
+                kid: {
+                    title: 'El Gran Castillo de los Caballeros',
+                    essential: '¡Un castillo gigante en lo alto de la colina donde vivieron reyes, caballeros y torres secretas!',
+                    initialAudio: '¡Hola aventurero! Estás frente al castillo más grande de Toledo. Imagina torres altísimas donde los valientes caballeros protegían la ciudad.',
+                    initialPrompts: [
+                        { label: '🐉 ¿Hay dragones aquí?', nextKey: 'dragons' },
+                        { label: '👑 ¿Vivieron reyes?', nextKey: 'kings' },
+                        { label: '🍫 ¿Tesoros escondidos?', nextKey: 'treasure' }
+                    ],
+                    subBranches: {
+                        dragons: {
+                            text: '¡Cuentan que bajo este castillo gigantesco hay un dragón dormido que ronca tan fuerte que hace temblar las piedras!',
+                            nextPrompts: [
+                                { label: '🔥 ¿De qué color es?', nextKey: 'color' },
+                                { label: '🔙 Volver al inicio', nextKey: 'root' }
+                            ]
+                        },
+                        kings: {
+                            text: '¡Sí! Vivieron reyes poderosos con coronas doradas brillantes y capas de terciopelo que daban fiestas con banquetes gigantescos.',
+                            nextPrompts: [
+                                { label: '🍗 ¿Qué comían?', nextKey: 'food' },
+                                { label: '🔙 Volver al inicio', nextKey: 'root' }
+                            ]
+                        },
+                        treasure: {
+                            text: '¡Se rumorea que en el sótano más profundo hay cofres llenos de monedas de chocolate dorado y coronas de caramelo!',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        },
+                        color: { text: '¡Dicen que es de color verde esmeralda brillante con escamas luminosas!', nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }] },
+                        food: { text: '¡Comían pasteles gigantes de manzana, pollo asado y frutas con miel dulce!', nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }] }
+                    }
+                }
+            },
+            {
+                id: 'poi_toledo_02',
+                category: 'hidden',
+                categoryName: 'Rincón Oculto',
+                lat: 39.8565,
+                lng: -4.0250,
+                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=300&auto=format&fit=crop&q=60',
+                adult: {
+                    title: 'Cuevas y Baños Árabes Subterráneos',
+                    essential: 'Enigmáticas oquedades excavadas en el subsuelo vinculadas a aljibes islámicos y mitos sobre la Cueva de Hércules.',
+                    initialAudio: 'Estás ante las famosas cuevas subterráneas de Toledo, conectadas con la rica tradición de aljibes andalusíes y mitos sobre la Cueva de Hércules.',
+                    initialPrompts: [
+                        { label: '📜 El mito de Hércules', nextKey: 'hercules' },
+                        { label: '💧 Abastecimiento de agua', nextKey: 'water' }
+                    ],
+                    subBranches: {
+                        hercules: {
+                            text: 'Según la leyenda medieval, el rey Rodrigo abrió imprudentemente una caja custodiada en la Cueva de Hércules, desencadenando la maldición.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        },
+                        water: {
+                            text: 'Eran complejas redes hidráulicas subterráneas que aprovechaban manantiales naturales y sistemas de filtración para abastecer de agua potable a toda la medina.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                },
+                kid: {
+                    title: 'La Cueva Secreta de Hércules',
+                    essential: '¡Túneles secretos debajo de las calles donde los antiguos habitantes guardaban agua fresca y tesoros!',
+                    initialAudio: '¡Imagina un mundo secreto bajo tus pies! Estas cuevas fueron excavadas hace muchísimos años para llevar agua limpia por toda la ciudad.',
+                    initialPrompts: [
+                        { label: '🚪 ¿La puerta prohibida?', nextKey: 'door' }
+                    ],
+                    subBranches: {
+                        door: {
+                            text: '¡Dicen que había una puerta con un candado de oro gigante que ningún rey se atrevía a abrir!',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                }
+            },
+            {
+                id: 'poi_toledo_03',
+                category: 'food',
+                categoryName: 'Gastronomía',
+                lat: 39.8572,
+                lng: -4.0195,
+                image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&auto=format&fit=crop&q=60',
+                adult: {
+                    title: 'Obrador de Mazapán Tradicional',
+                    essential: 'Antigua confitería artesanal donde se elabora el auténtico mazapán con almendra y azúcar según recetas sefardíes.',
+                    initialAudio: 'Hablemos de la dulce tradición toledana. En este obrador artesanal se hornea el auténtico mazapán de Toledo, un manjar milenario.',
+                    initialPrompts: [
+                        { label: '🍞 El origen en el asedio', nextKey: 'siege_food' }
+                    ],
+                    subBranches: {
+                        siege_food: {
+                            text: 'La leyenda cuenta que durante un durísimo asedio, ante la falta total de trigo, las monjas mezclaron almendras machacadas con azúcar y salvaron a la población.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                },
+                kid: {
+                    title: 'La Fábrica Mágica de Mazapán',
+                    essential: '¡El taller más dulce del mundo donde los maestros pasteleros crean figuras mágicas de azúcar y almendra!',
+                    initialAudio: '¡Mmm, qué rico huele aquí! Estás en la fábrica del dulce favorito de Toledo: el mazapán con formas de animales y castillos.',
+                    initialPrompts: [
+                        { label: '🦸 Galletas de superpoderes', nextKey: 'power' }
+                    ],
+                    subBranches: {
+                        power: {
+                            text: '¡Se cuenta que los caballeros comían este dulce especial para tener energía y ganar todos sus torneos en el castillo!',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                }
+            },
+            {
+                id: 'poi_toledo_04',
+                category: 'history',
+                categoryName: 'Historia',
+                lat: 39.8552,
+                lng: -4.0270,
+                image: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=300&auto=format&fit=crop&q=60',
+                adult: {
+                    title: 'Catedral Primada de Santa María',
+                    essential: 'Obra maestra del gótico español, famosa por su gran torre, el tesoro artístico y la custodia procesional de Enrique de Arfe.',
+                    initialAudio: 'Te encuentras ante la magnífica Catedral Primada de Toledo. Considerada una de las cumbres del gótico europeo, destaca por su luminosidad interior, vidrieras medievales y la riqueza de su cabildo.',
+                    initialPrompts: [
+                        { label: '☀️ El Transparente', nextKey: 'transparent' },
+                        { label: '🛡️ Historia del templo', nextKey: 'history_cat' }
+                    ],
+                    subBranches: {
+                        transparent: {
+                            text: 'El Transparente es una impresionante obra barroca esculpida en mármol y bronce por Narciso Tomé, diseñada para que un rayo de luz ilumine directamente el sagrario.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        },
+                        history_cat: {
+                            text: 'Construida sobre una antigua mezquita mayor tras la reconquista cristiana, sus obras comenzaron en el siglo XIII bajo el reinado de Fernando III el Santo.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                },
+                kid: {
+                    title: 'La Gran Catedral de los Secretos',
+                    essential: '¡Un templo gigantesco con torres altísimas, vidrieras de colores brillantes y secretos de reyes!',
+                    initialAudio: '¡Mira qué edificio tan alto! Es la catedral de Toledo, un castillo de piedra lleno de luces de colores que entran por las ventanas.',
+                    initialPrompts: [
+                        { label: '🌈 ¿Ventanas mágicas?', nextKey: 'windows' }
+                    ],
+                    subBranches: {
+                        windows: {
+                            text: '¡Sí! Las ventanas son vidrieras gigantes de colores que pintan el suelo de la iglesia con tonos rojos, azules y verdes brillantes.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                }
+            },
+            {
+                id: 'poi_toledo_05',
+                category: 'hidden',
+                categoryName: 'Rincón Oculto',
+                lat: 39.8620,
+                lng: -4.0285,
+                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=300&auto=format&fit=crop&q=60',
+                adult: {
+                    title: 'Puerta de Bisagra',
+                    essential: 'Monumental acceso principal al casco histórico de Toledo, de origen islámico y reformado con el imponente escudo imperial.',
+                    initialAudio: 'Estás ante la Puerta de Bisagra, la entrada más emblemática a la ciudad amurallada. Su fachada luce el gran escudo de Carlos V flanqueado por torres imperiales.',
+                    initialPrompts: [
+                        { label: '🦅 El Águila bicéfala', nextKey: 'eagle' }
+                    ],
+                    subBranches: {
+                        eagle: {
+                            text: 'El gran escudo imperial con el águila bicéfala recuerda que Toledo fue capital de la monarquía hispánica durante el siglo XVI.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                },
+                kid: {
+                    title: 'La Gran Puerta del Castillo de Toledo',
+                    essential: '¡Una puerta gigante con torres de vigilancia y un escudo imperial de dragones y águilas!',
+                    initialAudio: '¡Imagina cruzar esta puerta defensiva! Antiguamente era el único acceso protegido por guardias con armaduras brillantes.',
+                    initialPrompts: [
+                        { label: '🛡️ ¿Cómo se protegían?', nextKey: 'guard' }
+                    ],
+                    subBranches: {
+                        guard: {
+                            text: '¡Tenía un puente levadizo y rejas de hierro gigantes que bajaban si se acercaban intrusos!',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                }
+            },
+            {
+                id: 'poi_toledo_06',
+                category: 'hidden',
+                categoryName: 'Rincón Oculto',
+                lat: 39.8520,
+                lng: -4.0160,
+                image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=300&auto=format&fit=crop&q=60',
+                adult: {
+                    title: 'Mirador del Valle',
+                    essential: 'El balcón paisajístico más famoso de Toledo, ofreciendo la panorámica clásica de postal con el río Tajo abrazando la ciudad.',
+                    initialAudio: 'Disfrutas de la mejor vista panorámica de Toledo desde el Mirador del Valle. Desde aquí se aprecia perfectamente la curva natural que forma el río Tajo.',
+                    initialPrompts: [
+                        { label: '📸 La estampa clásica', nextKey: 'photo' }
+                    ],
+                    subBranches: {
+                        photo: {
+                            text: 'Es el punto fotográfico por excelencia, inmortalizado por pintores como El Greco y viajeros de todo el mundo.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                },
+                kid: {
+                    title: 'El Gran Balcón de los Exploradores',
+                    essential: '¡El mejor lugar para ver toda la ciudad desde arriba como si fuera una maqueta de juguete!',
+                    initialAudio: '¡Asómate a este mirador mágico! Desde aquí arriba Toledo parece una isla mágica rodeada por un río brillante.',
+                    initialPrompts: [
+                        { label: '🌊 ¿El río rodea la ciudad?', nextKey: 'river' }
+                    ],
+                    subBranches: {
+                        river: {
+                            text: '¡Sí! El río Tajo abraza Toledo formando un foso natural como los de los cuentos de castillos.',
+                            nextPrompts: [{ label: '🔙 Volver al inicio', nextKey: 'root' }]
+                        }
+                    }
+                }
+            }
+        ];
 
-        <button type="button" class="sheet-close" aria-label="Cerrar ficha">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+        function initMap() {
+            map = L.map('map', { zoomControl: false }).setView([39.8567, -4.0244], 15);
 
-        <div class="sheet-info">
-          <span class="sheet-cat-badge">—</span>
-          <h2 class="sheet-title">—</h2>
-          <p class="sheet-sub">—</p>
-        </div>
-      </section>
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                maxZoom: 19,
+                subdomains: 'abcd',
+                attribution: '&copy; OpenStreetMap'
+            }).addTo(map);
 
-      <section class="sheet-tabs" aria-label="Pestañas de contenido">
-        <div class="sheet-tabs-row">
-          <button type="button" class="tab-btn" data-tab="history" data-active="true">Historia</button>
-          <button type="button" class="tab-btn" data-tab="legends" data-active="false">Leyendas</button>
-          <button type="button" class="tab-btn" data-tab="architecture" data-active="false">Arquitectura</button>
-          <button type="button" class="tab-btn tab-btn-ai" data-tab="ai" data-active="false">
-            <span class="ai-btn-spark">✨</span>
-            <span>Guía IA</span>
-          </button>
-          <span class="tab-indicator" aria-hidden="true"></span>
-        </div>
-      </section>
+            markersLayer.addTo(map);
+            renderPins('all');
+        }
 
-      <section class="sheet-body" aria-label="Contenido detallado">
-        <div class="tab-panel" data-tab="history" data-hidden="false"></div>
-        <div class="tab-panel" data-tab="legends" data-hidden="true"></div>
-        <div class="tab-panel" data-tab="architecture" data-hidden="true"></div>
-        <div class="tab-panel tab-panel-ai" data-tab="ai" data-hidden="true">
-          <div class="ai-panel">
-            <div class="ai-hello">
-              <div class="ai-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2 L14.5 8 L21 9 L16 13.5 L17.5 20 L12 17 L6.5 20 L8 13.5 L3 9 L9.5 8 Z"></path>
-                </svg>
-              </div>
-              <div>
-                <div class="ai-hello-title">Tu guía personal · OnMyOwnTrip IA</div>
-                <div class="ai-hello-sub">Pregunta lo que quieras sobre este lugar o pulsa una opción.</div>
-              </div>
-            </div>
+        function setMode(mode) {
+            currentMode = mode;
+            stopAudioEngine();
+            closeBottomSheet();
 
-            <div class="ai-messages" id="aiMessages">
-            </div>
+            const adultBtn = document.getElementById('mode-adult-btn');
+            const kidBtn = document.getElementById('mode-kid-btn');
+            const badge = document.getElementById('mode-badge');
+            const playBtn = document.getElementById('play-btn');
+            const appTitle = document.getElementById('app-title');
+            const appSubtitle = document.getElementById('app-subtitle');
+            const headerIcon = document.getElementById('header-icon');
 
-            <div class="ai-suggestions" id="aiSuggestions">
-            </div>
+            if (mode === 'adult') {
+                adultBtn.className = "px-3 py-1 rounded-full text-xs font-bold bg-amber-500 text-slate-950 transition-all shadow";
+                kidBtn.className = "px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:text-white transition-all";
+                badge.className = "text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full";
+                badge.innerText = "Adultos";
+                playBtn.className = "w-8 h-8 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center shadow-md hover:bg-amber-300 transition text-xs";
+                appTitle.innerText = "OnMyOwnTrip";
+                appSubtitle.innerText = "Toledo: Turismo Autoguiado";
+                headerIcon.className = "fa-solid fa-compass text-amber-400";
+            } else {
+                adultBtn.className = "px-3 py-1 rounded-full text-xs font-semibold text-slate-300 hover:text-white transition-all";
+                kidBtn.className = "px-3 py-1 rounded-full text-xs font-bold bg-indigo-500 text-white transition-all shadow";
+                badge.className = "text-xs bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full";
+                badge.innerText = "Modo Niños 🎈";
+                playBtn.className = "w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center shadow-md hover:bg-indigo-400 transition text-xs";
+                appTitle.innerText = "OnMyOwnTrip Kids";
+                appSubtitle.innerText = "¡Aventuras mágicas a tu ritmo!";
+                headerIcon.className = "fa-solid fa-rocket text-indigo-400";
+            }
 
-            <div class="ai-input-wrap">
-              <input type="text" class="ai-input" id="aiInput" placeholder="Pregunta a tu guía…" aria-label="Pregunta a la IA" autocomplete="off" />
-              <button type="button" class="ai-send" id="aiSend" aria-label="Enviar pregunta">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+            renderPins(activeCategory);
+        }
 
-      <section class="audio-player" aria-label="Reproductor de audio">
-        <div class="audio-card">
-          <button type="button" class="play-btn" aria-label="Reproducir audioguía">
-            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
-              <polygon points="7 4 20 12 7 20 7 4"></polygon>
-            </svg>
-          </button>
-          <div class="audio-title">Audioguía</div>
-          <div class="audio-waves" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-          <div class="audio-progress" role="group" aria-label="Progreso">
-            <div class="progress-wrap" aria-label="Barra de progreso" role="slider" tabindex="0">
-              <div class="progress-fill"></div>
-            </div>
-            <div class="audio-time" aria-live="polite">0:00 / 0:00</div>
-          </div>
-        </div>
-      </section>
-    </aside>
-  </div>
+        function renderPins(filter = 'all') {
+            activeCategory = filter;
+            markersLayer.clearLayers();
 
-  <!-- SCRIPTS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+            const filtered = filter === 'all' ? pois : pois.filter(p => p.category === filter);
+
+            filtered.forEach(poi => {
+                let iconColorBg = currentMode === 'adult' ? '#f59e0b' : '#6366f1';
+                let iconSymbol = 'fa-map-pin';
+                if(poi.category === 'history') iconSymbol = 'fa-landmark';
+                if(poi.category === 'food') iconSymbol = 'fa-utensils';
+                if(poi.category === 'hidden') iconSymbol = 'fa-key';
+
+                const customIcon = L.divIcon({
+                    className: 'custom-pin',
+                    html: `<div style="background-color: ${iconColorBg};" class="w-10 h-10 rounded-full flex items-center justify-center shadow-xl border-2 border-slate-900 text-slate-950 font-bold pin-pulse">
+                             <i class="fa-solid ${iconSymbol} text-xs text-white"></i>
+                           </div>`,
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 20]
+                });
+
+                const marker = L.marker([poi.lat, poi.lng], { icon: customIcon });
+                marker.on('click', () => openPOI(poi));
+                markersLayer.addLayer(marker);
+            });
+        }
+
+        function filterPOIs(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-slate-800/90 text-slate-200 border border-slate-600 backdrop-blur whitespace-nowrap transition-all";
+            });
+            
+            const activeBtn = document.getElementById(`btn-${category}`);
+            const activeColor = currentMode === 'adult' ? 'bg-amber-500 text-slate-950' : 'bg-indigo-500 text-white';
+            activeBtn.className = `filter-btn px-4 py-1.5 rounded-full text-xs font-medium ${activeColor} shadow-md whitespace-nowrap transition-all`;
+
+            renderPins(category);
+            closeBottomSheet();
+        }
+
+        function openPOI(poi) {
+            stopAudioEngine();
+            currentPOI = poi;
+            currentTimeSec = 0;
+
+            const modeData = poi[currentMode] || poi['adult'];
+            if (!modeData) return;
+
+            document.getElementById('sheet-title').innerText = modeData.title;
+            document.getElementById('sheet-category').innerText = poi.categoryName;
+            document.getElementById('sheet-desc').innerText = modeData.essential;
+            document.getElementById('sheet-image').src = poi.image;
+
+            currentAiText = modeData.initialAudio || modeData.essential;
+
+            const chatContainer = document.getElementById('ai-chat-container');
+            chatContainer.innerHTML = `
+                <div class="flex items-start gap-2">
+                    <div class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-[10px] font-bold flex-shrink-0"><i class="fa-solid fa-robot"></i></div>
+                    <div class="bg-slate-800 border border-slate-700/80 rounded-2xl p-2.5 text-xs text-slate-200 shadow-sm">
+                        ${modeData.initialAudio || modeData.essential}
+                    </div>
+                </div>
+            `;
+
+            renderDynamicPrompts(modeData.initialPrompts);
+
+            const sheet = document.getElementById('bottom-sheet');
+            sheet.classList.remove('translate-y-full');
+
+            map.flyTo([poi.lat, poi.lng], 17, { duration: 0.8 });
+            startAudioEngine();
+        }
+
+        function renderDynamicPrompts(promptsList) {
+            const suggestionsContainer = document.getElementById('ai-suggestions');
+            suggestionsContainer.innerHTML = '';
+
+            if (!promptsList) return;
+
+            promptsList.forEach(item => {
+                const btn = document.createElement('button');
+                const btnColor = currentMode === 'adult' 
+                    ? 'bg-amber-500/10 text-amber-300 border-amber-500/30 hover:bg-amber-500/20' 
+                    : 'bg-indigo-500/10 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500/20';
+                
+                btn.className = `px-3 py-1.5 rounded-xl text-xs whitespace-nowrap border transition-all ${btnColor}`;
+                btn.innerText = item.label;
+                btn.onclick = () => handleAiBranch(item.label, item.nextKey);
+                suggestionsContainer.appendChild(btn);
+            });
+        }
+
+        function handleAiBranch(question, nextKey) {
+            stopAudioEngine();
+            currentTimeSec = 0;
+
+            const modeData = currentPOI[currentMode] || currentPOI['adult'];
+            const chatContainer = document.getElementById('ai-chat-container');
+            
+            const userMsg = document.createElement('div');
+            userMsg.className = "flex items-start gap-2 justify-end";
+            const userBubbleColor = currentMode === 'adult' ? 'bg-amber-500 text-slate-950' : 'bg-indigo-500 text-white';
+            userMsg.innerHTML = `<div class="${userBubbleColor} rounded-2xl p-2.5 text-xs shadow-sm max-w-[85%]">${question}</div>`;
+            chatContainer.appendChild(userMsg);
+
+            setTimeout(() => {
+                let responseText = modeData.essential;
+                let nextPrompts = modeData.initialPrompts;
+
+                if (nextKey === 'root') {
+                    responseText = "¡Volvemos al punto de partida! ¿Qué otro aspecto te apetece descubrir ahora?";
+                    nextPrompts = modeData.initialPrompts;
+                } else if (modeData.subBranches && modeData.subBranches[nextKey]) {
+                    const branch = modeData.subBranches[nextKey];
+                    responseText = branch.text;
+                    nextPrompts = branch.nextPrompts;
+                }
+
+                currentAiText = responseText;
+
+                const aiMsg = document.createElement('div');
+                aiMsg.className = "flex items-start gap-2";
+                aiMsg.innerHTML = `
+                    <div class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-[10px] font-bold flex-shrink-0"><i class="fa-solid fa-robot"></i></div>
+                    <div class="bg-slate-800 border border-slate-700/80 rounded-2xl p-2.5 text-xs text-slate-200 shadow-sm max-w-[85%]">
+                        ${responseText}
+                    </div>
+                `;
+                chatContainer.appendChild(aiMsg);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                renderDynamicPrompts(nextPrompts);
+                updateAudioUI();
+                startAudioEngine();
+            }, 300);
+
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function closeBottomSheet() {
+            stopAudioEngine();
+            const sheet = document.getElementById('bottom-sheet');
+            sheet.classList.add('translate-y-full');
+        }
+
+        function togglePlay() {
+            if(!currentPOI) return;
+            if(isPlaying) stopAudioEngine();
+            else startAudioEngine();
+        }
+
+        function startAudioEngine() {
+            if(!currentPOI) return;
+            isPlaying = true;
+            document.getElementById('play-btn').innerHTML = '<i class="fa-solid fa-pause"></i>';
+
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(currentAiText);
+                utterance.lang = 'es-ES';
+                utterance.rate = currentRate;
+                
+                utterance.onend = () => {
+                    stopAudioEngine();
+                    currentTimeSec = totalDurationSec;
+                    updateAudioUI();
+                };
+
+                window.speechSynthesis.speak(utterance);
+            }
+
+            progressInterval = setInterval(() => {
+                currentTimeSec += currentRate;
+                if(currentTimeSec >= totalDurationSec) {
+                    currentTimeSec = totalDurationSec;
+                    stopAudioEngine();
+                }
+                updateAudioUI();
+            }, 1000);
+        }
+
+        function stopAudioEngine() {
+            isPlaying = false;
+            clearInterval(progressInterval);
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            const playBtn = document.getElementById('play-btn');
+            if(playBtn) playBtn.innerHTML = '<i class="fa-solid fa-play ml-0.5"></i>';
+        }
+
+        function updateAudioUI() {
+            const progressPercent = (currentTimeSec / totalDurationSec) * 100;
+            document.getElementById('audio-progress').style.width = `${Math.min(progressPercent, 100)}%`;
+
+            const currentMin = Math.floor(currentTimeSec / 60);
+            const currentSec = Math.floor(currentTimeSec % 60).toString().padStart(2, '0');
+            const totalMin = Math.floor(totalDurationSec / 60);
+            const totalSec = Math.floor(totalDurationSec % 60).toString().padStart(2, '0');
+
+            document.getElementById('audio-time').innerText = `${currentMin}:${currentSec} / ${totalMin}:${totalSec}`;
+        }
+
+        function seekAudio(event) {
+            if(!currentPOI) return;
+            const bar = event.currentTarget;
+            const rect = bar.getBoundingClientRect();
+            const percentage = (event.clientX - rect.left) / rect.width;
+            currentTimeSec = percentage * totalDurationSec;
+            updateAudioUI();
+        }
+
+        function skipTime(seconds) {
+            if(!currentPOI) return;
+            currentTimeSec = Math.max(0, Math.min(totalDurationSec, currentTimeSec + seconds));
+            updateAudioUI();
+        }
+
+        const speeds = [1.0, 1.25, 1.5, 2.0];
+        let speedIdx = 0;
+        function changeSpeed() {
+            speedIdx = (speedIdx + 1) % speeds.length;
+            currentRate = speeds[speedIdx];
+            document.getElementById('speed-btn').innerText = `${currentRate}x`;
+            if(isPlaying) startAudioEngine();
+        }
+
+        window.onload = () => {
+            initMap();
+        };
+    </script>
 </body>
 </html>
