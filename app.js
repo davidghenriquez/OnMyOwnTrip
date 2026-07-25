@@ -3,8 +3,7 @@
 
   // ========================================================
   // GLOBAL ERROR GUARD:
-  // Si CUALQUIER cosa falla dentro del IIFE (initMap double-create,
-  // synth crash, drag listener fallido, etc.), NO nos quedamos a oscuras.
+  // Si CUALQUIER cosa falla dentro del IIFE, no nos quedamos a oscuras.
   // Reportamos el error al usuario mediante un toast y no aborta el resto.
   // ========================================================
   try {
@@ -71,7 +70,8 @@
         headers: {
           'Content-Type': 'application/json',
           'x-api-key': CFG.apiKey,
-          'anthropic-version': '2023-06-01'
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
         },
         body: JSON.stringify({
           model,
@@ -213,20 +213,15 @@
     mode: 'adult',
     category: CATEGORIES.ALL,
     activePoiId: null,
-    activeTab: 'history',
     sheet: 'closed',
     audio: {
       playing: false, currentTime: 0, duration: 0, timer: null,
-      speech: { supported: false, utterance: null, voices: [], pickedVoice: null, pendingRestart: false }
+      speech: { supported: false, utterance: null, voices: [], pickedVoice: null }
     },
-    ai: { perPoiHistory: {}, pending: false, aiUsedOncePerPoi: {} }
+    ai: { perPoiHistory: {}, pending: false }
   };
 
   const ICONS = {
-    close: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
-    plus: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`,
-    minus: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>`,
-    target: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`,
     play: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg>`,
     pause: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`
   };
@@ -261,63 +256,48 @@
     t._tid = setTimeout(() => t.classList.remove('-show'), ms);
   };
   const getCategoryPinColor = (cat) => {
-    if (cat === CATEGORIES.HISTORY) return '#B8411E';
-    if (cat === CATEGORIES.GASTRONOMY) return '#C8703A';
-    if (cat === CATEGORIES.HIDDEN) return '#4A90A4';
-    return '#B8411E';
+    if (cat === CATEGORIES.HISTORY) return '#F59E0B';
+    if (cat === CATEGORIES.GASTRONOMY) return '#FB923C';
+    if (cat === CATEGORIES.HIDDEN) return '#38BDF8';
+    return '#F59E0B';
   };
   const getCategoryPinEmoji = (cat) => {
-    if (cat === CATEGORIES.HISTORY) return '🏰';
-    if (cat === CATEGORIES.GASTRONOMY) return '🍽️';
-    if (cat === CATEGORIES.HIDDEN) return '⭐';
+    if (cat === CATEGORIES.HISTORY) return '🏛️';
+    if (cat === CATEGORIES.GASTRONOMY) return '🍷';
+    if (cat === CATEGORIES.HIDDEN) return '🗝️';
     return '📍';
   };
 
   /* =========================================================
-   * CUSTOM LEAFLET PIN
+   * CUSTOM LEAFLET PIN (círculo de color + emoji, estilo app nativa)
    * =======================================================*/
   const makePinIcon = (poi) => {
     const color = getCategoryPinColor(poi.category);
     const emoji = getCategoryPinEmoji(poi.category);
-    const pinSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 52" width="40" height="52">
-      <path d="M20 2 C10 2 3 9 3 19 C3 30 11 40 17 46 C18 47 19 48 20 50 C21 48 22 47 23 46 C29 40 37 30 37 19 C37 9 30 2 20 2 Z" fill="${color}" stroke="white" stroke-width="2"/>
-      <circle cx="20" cy="18" r="10" fill="white" opacity="0.22"/>
-    </svg>`;
     return L.divIcon({
       className: 'custom-pin-wrap',
-      html: `<div class="custom-pin" data-id="${poi.id}">${pinSvg}<span class="pin-ico">${emoji}</span></div>`,
-      iconSize: [40, 52], iconAnchor: [20, 52], popupAnchor: [0, -48]
+      html: `<div class="custom-pin" data-id="${poi.id}" style="--pin-color:${color}">${emoji}</div>`,
+      iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -19]
     });
   };
 
   /* =========================================================
    * MAP
-   * · Fix anti-regresión "Map container is already initialized":
-   *   Elimina cualquier instancia previa L.map y limpia el DOM
-   *   para que, aunque el script se evalúe 2 veces, todo funcione.
    * =======================================================*/
   const initMap = () => {
-    // Cleanup any existing Leaflet map (H5 root cause fix)
+    // Cleanup: si el script se evalúa dos veces, evita "Map container is already initialized"
     const mapEl = document.getElementById('map');
     if (mapEl) {
-      // Try to remove existing L.Map instance first
-      try {
-        if (mapEl._leaflet_id && window.L && window.L.Map) {
-          const existing = Object.values(window.L.Map._instances || {})[0] ||
-                           (window.L.map ? null : null);
-          if (existing && typeof existing.remove === 'function') existing.remove();
-        }
-      } catch (_) {}
-      // Brutal clean: borramos contenido para reiniciar de cero
       while (mapEl.firstChild) mapEl.removeChild(mapEl.firstChild);
-      // También remueve estilos inline de Leaflet que impiden la recreación
       mapEl.removeAttribute('style');
       if (mapEl._leaflet_id) delete mapEl._leaflet_id;
     }
     map = L.map('map', { zoomControl: false, attributionControl: false, scrollWheelZoom: true, maxBoundsViscosity: 0.7 })
       .setView([39.8628, -4.0273], 15.2);
     map.setMaxBounds(L.latLngBounds([39.845, -4.05], [39.878, -4.00]).pad(0.25));
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, minZoom: 13 }).addTo(map);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19, minZoom: 13, subdomains: 'abcd'
+    }).addTo(map);
     markersLayer = L.layerGroup().addTo(map);
     renderMarkers();
   };
@@ -371,42 +351,37 @@
   const setStateMode = (mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     document.documentElement.dataset.mode = STATE.mode;
-    // iOS: Cambiar color barra superior según Modo Dual
+    const isKids = STATE.mode === 'kids';
+    // iOS: color de la barra superior según el modo
     try {
       const metaTheme = document.getElementById('metaThemeColor');
-      if (metaTheme) {
-        const primaryAdult = '#B8411E', primaryKids = '#FF8C42';
-        metaTheme.setAttribute('content', STATE.mode === 'kids' ? primaryKids : primaryAdult);
-      }
+      if (metaTheme) metaTheme.setAttribute('content', isKids ? '#12102b' : '#0F172A');
     } catch (_) {}
     $$('.mode-toggle-option').forEach((o) => o.dataset.active = o.dataset.mode === STATE.mode ? 'true' : 'false');
+    const brandIcon = $('#brandIcon'), brandTitle = $('#brandTitle'), brandSub = $('#brandSub'), brandBadge = $('#brandBadge');
+    if (brandIcon) brandIcon.textContent = isKids ? '🚀' : '🧭';
+    if (brandTitle) brandTitle.textContent = isKids ? 'OnMyOwnTrip Kids' : 'OnMyOwnTrip';
+    if (brandSub) brandSub.textContent = isKids ? '¡Aventuras mágicas a tu ritmo!' : 'Toledo · Turismo autoguiado inteligente';
+    if (brandBadge) brandBadge.textContent = isKids ? 'Modo Niños 🎈' : 'Adultos';
     $$('.pill').forEach((p) => {
       const cat = p.dataset.category;
       if (cat === CATEGORIES.ALL) {
-        p.innerHTML = `<span class="pill-dot"></span><span>${STATE.mode === 'kids' ? 'Todo ✨' : 'Todos'}</span>`;
+        p.innerHTML = `<span>${isKids ? 'Todo ✨' : 'Todos'}</span>`;
       } else {
         const meta = CATEGORY_META[cat];
-        if (meta) p.innerHTML = `<span class="pill-dot"></span><span>${pickDual(meta.label)}</span>`;
+        if (meta) p.innerHTML = `<span>${getCategoryPinEmoji(cat)} ${pickDual(meta.label)}</span>`;
       }
       p.dataset.active = cat === STATE.category ? 'true' : 'false';
     });
     if (STATE.activePoiId) {
       populateSheetContent(STATE.activePoiId);
-      // Re-render AI tab labels / suggestions on mode change
-      if (STATE.activeTab === 'ai') {
-        ensureAiPanelInitialGreet(POIS.find((p) => p.id === STATE.activePoiId));
-        renderAiSuggestions();
-      }
-    }
-    if (STATE.sheet !== 'closed' && STATE.activePoiId) {
-      const catEl = $('.sheet-cat-badge');
-      const poi = POIS.find((p) => p.id === STATE.activePoiId);
-      if (catEl && poi) catEl.textContent = pickDual(CATEGORY_META[poi.category].label);
+      ensureAiPanelInitialGreet(POIS.find((p) => p.id === STATE.activePoiId));
+      renderAiSuggestions();
     }
   };
 
   /* =========================================================
-   * AI GUIDE TAB
+   * AI GUIDE
    * =======================================================*/
   const aiHistoryFor = (poiId) => {
     if (!STATE.ai.perPoiHistory[poiId]) STATE.ai.perPoiHistory[poiId] = [];
@@ -418,7 +393,6 @@
     const history = aiHistoryFor(poi.id);
     if (history.length === 0) {
       history.push({ role: 'greet', text: LLM.summaryGreet(poi, STATE.mode) });
-      // Kick summary request (async, do not wait)
       queueAiMessage({ poi, kind: 'summary' });
     }
     renderAiMessages();
@@ -429,7 +403,6 @@
     const box = $('#aiSuggestions');
     if (!box) return;
     box.innerHTML = '';
-    // Disable chips while pending
     const disabled = STATE.ai.pending ? 'disabled' : '';
     (AI_PROMPTS?.options || []).forEach((opt) => {
       const b = document.createElement('button');
@@ -440,7 +413,6 @@
       b.addEventListener('click', () => {
         if (!STATE.activePoiId || STATE.ai.pending) return;
         const poi = POIS.find((p) => p.id === STATE.activePoiId);
-        // Add user bubble with the suggestion
         aiHistoryFor(poi.id).push({ role: 'user', text: pickDual(opt.label), isOptionChip: true });
         renderAiMessages();
         scrollAiToBottom();
@@ -468,16 +440,11 @@
       av.textContent = user ? (STATE.mode === 'kids' ? '🧒' : '👤') : '✨';
       const bubble = document.createElement('div');
       bubble.className = 'ai-msg-bubble';
-      // Basic safe HTML (newlines respected)
       bubble.textContent = msg.text || '';
       wrap.appendChild(av);
       wrap.appendChild(bubble);
       box.appendChild(wrap);
     });
-    // If there are pending typing, add it
-    if (STATE.ai.pending && !history.some((m) => m.role === 'typing')) {
-      // already maintained in queueAiMessage
-    }
   };
 
   const makeTypingEl = () => {
@@ -495,9 +462,8 @@
   };
 
   const scrollAiToBottom = () => {
-    // Find closest scroll container (the .sheet-body of the panel)
-    const body = $('.tab-panel-ai', els.sheet)?.closest('.sheet-body');
-    if (body) body.scrollTo({ top: body.scrollHeight, behavior: 'smooth' });
+    const box = $('#aiMessages');
+    if (box) box.scrollTo({ top: box.scrollHeight, behavior: 'smooth' });
   };
 
   const queueAiMessage = async ({ poi, kind, userText, optionId }) => {
@@ -516,7 +482,6 @@
         userQuery: userText ?? null,
         optionId: optionId ?? null
       });
-      // Remove typing
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
       hist.push({ role: 'assistant', text });
@@ -534,33 +499,6 @@
     }
   };
 
-  const sendUserAiMessage = () => {
-    const input = $('#aiInput');
-    if (!input) return;
-    const text = (input.value || '').trim();
-    if (!text || STATE.ai.pending || !STATE.activePoiId) return;
-    const poi = POIS.find((p) => p.id === STATE.activePoiId);
-    aiHistoryFor(poi.id).push({ role: 'user', text });
-    input.value = '';
-    renderAiMessages();
-    scrollAiToBottom();
-    queueAiMessage({ poi, kind: 'text', userText: text });
-  };
-
-  const wireAiTab = () => {
-    $('#aiSend')?.addEventListener('click', sendUserAiMessage);
-    const input = $('#aiInput');
-    input?.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        sendUserAiMessage();
-      }
-    });
-    input?.addEventListener('input', () => {
-      $('#aiSend').toggleAttribute('disabled', STATE.ai.pending || !input.value.trim());
-    });
-  };
-
   /* =========================================================
    * POI SELECTION + SHEET
    * =======================================================*/
@@ -570,40 +508,26 @@
     if (!poi) return;
     setSelectedMarker(id);
     populateSheetContent(id);
-    STATE.activeTab = 'history';
     resetAudio(poi.audio.duration);
-    // Prepare AI history for this POI (do not send it until user opens the AI tab, except greet + sum)
-    STATE.ai.aiUsedOncePerPoi[id] = true;
-    // schedule summary generation lazily when user opens AI tab — but greet + summary are placed on switch to 'ai' tab
-    openSheet('peek');
+    ensureAiPanelInitialGreet(poi);
+    openSheet();
     if (centerMap && map) map.flyTo([poi.coords[0] - 0.0015, poi.coords[1]], 16.5, { duration: 0.7 });
+    // Autoplay directo dentro del gesto de click (requisito de iOS Safari para SpeechSynthesis)
+    startAudio(false);
   };
 
-  const openSheet = (target = 'peek') => {
-    STATE.sheet = target;
-    // ============ IOS SAFE FIX: Forzamos backdrop abierto INLINE (no solo class) ============
+  const openSheet = () => {
+    STATE.sheet = 'open';
     els.backdrop.classList.add('-open');
-    els.backdrop.style.display = '';
-    els.backdrop.style.pointerEvents = 'auto';
-    els.backdrop.style.removeProperty && els.backdrop.style.removeProperty('opacity');
-    els.sheet.classList.remove('-closed', '-peek', '-open');
-    els.sheet.classList.add(target === 'open' ? '-open' : '-peek');
-    try { els.sheet.setAttribute('aria-hidden', 'false'); } catch(_) {}
+    els.sheet.classList.add('-open');
+    try { els.sheet.setAttribute('aria-hidden', 'false'); } catch (_) {}
   };
   const closeSheet = () => {
     STATE.sheet = 'closed';
     STATE.activePoiId = null;
-    // ============ BLOQUE CRÍTICO FIX: iOS Safari a veces ignora classList.remove en backdrop.
-    // Forzamos todo inline + class removed + display none temporal
-    // Así el backdrop NUNCA se queda en -open bloqueando clicks
     els.backdrop.classList.remove('-open');
-    els.backdrop.style.display = 'none';
-    els.backdrop.style.pointerEvents = 'none';
-    els.backdrop.style.opacity = '0';
-    // Fin bloque crítico
-    els.sheet.classList.remove('-peek', '-open');
-    els.sheet.classList.add('-closed');
-    try { els.sheet.setAttribute('aria-hidden', 'true'); } catch(_) {}
+    els.sheet.classList.remove('-open');
+    try { els.sheet.setAttribute('aria-hidden', 'true'); } catch (_) {}
     stopAudio();
     clearSelectedMarker();
   };
@@ -613,99 +537,19 @@
     if (!poi) return;
     const meta = CATEGORY_META[poi.category];
 
-    $('.sheet-hero-img', els.sheet).src = poi.image;
-    $('.sheet-hero-img', els.sheet).alt = pickDual(poi.name);
+    $('.sheet-thumb', els.sheet).src = poi.image;
+    $('.sheet-thumb', els.sheet).alt = pickDual(poi.name);
     $('.sheet-cat-badge', els.sheet).textContent = pickDual(meta.label);
     $('.sheet-title', els.sheet).textContent = pickDual(poi.name);
     $('.sheet-sub', els.sheet).textContent = pickDual(poi.subtitle);
 
-    // tabs text (4 now: history, legends, architecture, ai)
-    const tabsLabels = [
-      { id: 'history',      label: STATE.mode === 'kids' ? 'Cuéntamelo 📖' : 'Historia' },
-      { id: 'legends',      label: STATE.mode === 'kids' ? 'Misterios 👻'   : 'Leyendas' },
-      { id: 'architecture', label: STATE.mode === 'kids' ? 'Chuladas 📐'   : 'Arquitectura' }
-    ];
-    const tabsRow = $('.sheet-tabs-row', els.sheet);
-    const tabBtns = $$('.tab-btn', tabsRow);
-    tabBtns.forEach((btn) => {
-      const id = btn.dataset.tab;
-      if (id === 'ai') {
-        btn.innerHTML = `<span class="ai-btn-spark">✨</span><span>${STATE.mode === 'kids' ? 'Guía Mágica' : 'Guía IA'}</span>`;
-      } else {
-        const t = tabsLabels.find((x) => x.id === id);
-        if (t) btn.textContent = t.label;
-      }
-      btn.dataset.active = (btn.dataset.tab === STATE.activeTab) ? 'true' : 'false';
-    });
-    moveTabIndicator();
-
-    ['history', 'legends', 'architecture'].forEach((tid) => {
-      const panel = $(`.tab-panel[data-tab="${tid}"]`, els.sheet);
-      if (!panel) return;
-      panel.innerHTML = pickDual(poi.tabs[tid])
-        .split(/\n{2,}/).filter(Boolean).map((s) => `<p>${s}</p>`).join('');
-      panel.dataset.hidden = (tid === STATE.activeTab) ? 'false' : 'true';
-    });
-    // AI panel visibility
-    const aiPanel = $(`.tab-panel[data-tab="ai"]`, els.sheet);
-    if (aiPanel) aiPanel.dataset.hidden = ('ai' === STATE.activeTab) ? 'false' : 'true';
-
-    // Render AI suggestions (they depend on active mode)
     renderAiSuggestions();
 
-    // audio reset
     stopAudio();
     STATE.audio.duration = poi.audio.duration;
     STATE.audio.currentTime = 0;
     $('.audio-title', els.sheet).textContent = pickDual(poi.audio.title);
     updateAudioUi();
-  };
-
-  const switchTab = (tabId) => {
-    STATE.activeTab = tabId;
-    $$('.tab-btn', els.sheet).forEach((b) => b.dataset.active = (b.dataset.tab === tabId) ? 'true' : 'false');
-    $$('.tab-panel', els.sheet).forEach((p) => {
-      const show = p.dataset.tab === tabId;
-      if (show) {
-        p.dataset.hidden = 'false';
-        p.style.animation = 'none';
-        requestAnimationFrame(() => (p.style.animation = ''));
-      } else {
-        p.dataset.hidden = 'true';
-      }
-    });
-    moveTabIndicator();
-    // When AI tab is opened, ensure greet + summary exist and render messages
-    if (tabId === 'ai' && STATE.activePoiId) {
-      const poi = POIS.find((p) => p.id === STATE.activePoiId);
-      ensureAiPanelInitialGreet(poi);
-      // Upgrade sheet peek → open so user can read full chat
-      if (STATE.sheet === 'peek' && STATE.ai.perPoiHistory[STATE.activePoiId].length > 1) {
-        // Only auto open if sheet is in peek mode AND user is interacting with chat
-      }
-      // After a brief delay, snap to OPEN to improve chat UX
-      setTimeout(() => {
-        if (STATE.activeTab === 'ai' && STATE.sheet === 'peek') openSheet('open');
-      }, 250);
-    }
-  };
-
-  const moveTabIndicator = () => {
-    const row = $('.sheet-tabs-row', els.sheet);
-    const indicator = $('.tab-indicator', els.sheet);
-    const active = row?.querySelector('.tab-btn[data-active="true"]');
-    if (!active || !indicator || !row) return;
-    const rowRect = row.getBoundingClientRect();
-    const tabBtns = Array.from(row.children).filter((el) => el.classList.contains('tab-btn'));
-    const index = tabBtns.indexOf(active);
-    if (index === -1) return;
-    const gap = 6;
-    const totalGap = gap * (tabBtns.length - 1);
-    const available = rowRect.width - totalGap;
-    const singleW = available / tabBtns.length;
-    const x = index * (singleW + gap);
-    indicator.style.width = `${singleW}px`;
-    indicator.style.transform = `translateX(${x}px)`;
   };
 
   /* =========================================================
@@ -722,7 +566,6 @@
     const IS_IOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-    // Cargar voces: en iOS a veces requiere múltiples llamadas + evento
     const pickSpanishVoice = () => {
       if (!S.supported) return null;
       try {
@@ -743,13 +586,10 @@
       } catch (_) { return S.pickedVoice || null; }
     };
 
-    // Warm-up obligatorio iOS: desbloquea el motor de voz con un texto vacío
-    // Llamado la primera vez que el usuario hace click en CUALQUIER sitio
     let warmedUp = false;
     const warmUp = () => {
       if (!S.supported || warmedUp || !IS_IOS) { warmedUp = true; return; }
       try {
-        // En iOS, se necesita un speak() inicial para que el motor se active
         synth.cancel();
         const u = new SpeechSynthesisUtterance('');
         u.volume = 0;
@@ -764,16 +604,13 @@
     if (S.supported) {
       pickSpanishVoice();
       try { synth.onvoiceschanged = pickSpanishVoice; } catch (_) {}
-      // Cargamos voces varias veces (en iOS a veces tarda)
       setTimeout(pickSpanishVoice, 500);
       setTimeout(pickSpanishVoice, 1500);
       setTimeout(pickSpanishVoice, 3000);
 
-      // Warm-up inicial: en el PRIMER click/tap del usuario en todo el documento
-      const unlockVoiceOnce = (e) => {
+      const unlockVoiceOnce = () => {
         if (warmedUp) return;
         warmUp();
-        // También pre-cargamos una voz corta para desbloquear
         try {
           synth.cancel();
           const u = new SpeechSynthesisUtterance('.');
@@ -797,16 +634,8 @@
       const m = STATE.mode;
       const name = pickDual(poi.name);
       const subtitle = pickDual(poi.subtitle);
-      const tab = STATE.activeTab;
-      let body = '';
-      if (tab === 'history' || tab === 'legends' || tab === 'architecture') {
-        body = pickDual(poi.tabs[tab]) || '';
-      } else if (tab === 'ai') {
-        const hist = aiHistoryFor(poi.id).filter((x) => x.role === 'assistant');
-        body = hist.length ? hist[hist.length - 1].text : pickDual(poi.tabs.history) || '';
-      } else {
-        body = pickDual(poi.tabs.history) || '';
-      }
+      const hist = aiHistoryFor(poi.id).filter((x) => x.role === 'assistant');
+      const body = hist.length ? hist[hist.length - 1].text : (pickDual(poi.tabs.history) || '');
       const intro = (m === 'kids')
         ? `¡Hola! Vamos a descubrir ${name}. ${subtitle}. ¡Pon mucha atención! `
         : `Audioguía de ${name}. ${subtitle}. `;
@@ -821,7 +650,6 @@
       clearTimeout(delayedCancelTimer);
       delayedCancelTimer = null;
     };
-
     const clearStartWatch = () => {
       if (!startWatchTimer) return;
       clearTimeout(startWatchTimer);
@@ -834,12 +662,10 @@
       clearStartWatch();
       try {
         synth.cancel();
-        // Solo repetimos el cancel cuando realmente queremos parar del todo.
-        // Si lo hacemos justo antes de speak(), ese segundo cancel corta la voz nueva.
         if (aggressive) {
           delayedCancelTimer = setTimeout(() => {
             delayedCancelTimer = null;
-            try { synth.cancel(); } catch(_) {}
+            try { synth.cancel(); } catch (_) {}
           }, 20);
         }
       } catch (_) {}
@@ -853,24 +679,19 @@
 
     const resume = () => {
       if (!S.supported) return;
-      try {
-        // iOS a veces no hace resume bien: re-speakeamos desde el texto
-        synth.resume();
-      } catch (_) {}
+      try { synth.resume(); } catch (_) {}
     };
 
     const speak = (onEndCallback) => {
       if (!S.supported) return false;
       warmUp();
       pickSpanishVoice();
-      // Force resume de cualquier pausa pendiente (bug iOS)
       try { synth.resume(); } catch (_) {}
 
       const text = buildNarrativeText();
       if (!text) return false;
       cancel(false);
 
-      // ============ iOS FIX: Speak inmediatamente SIN delays ============
       const makeUtt = (usePickedVoice = true) => {
         const u = new SpeechSynthesisUtterance(text);
         u.lang = 'es-ES';
@@ -880,9 +701,7 @@
         if (usePickedVoice && S.pickedVoice) {
           try { u.voice = S.pickedVoice; } catch (_) {}
         }
-        u.onstart = () => {
-          clearStartWatch();
-        };
+        u.onstart = () => { clearStartWatch(); };
         u.onend = () => {
           clearStartWatch();
           S.utterance = null;
@@ -891,7 +710,6 @@
         u.onerror = (ev) => {
           clearStartWatch();
           S.utterance = null;
-          // En iOS a veces hay "canceled" spúreo; ignorarlo si no es el final
           if (ev && typeof ev.error === 'string' && /canceled|interrupted/i.test(ev.error)) return;
           if (typeof onEndCallback === 'function') {
             onEndCallback({ finished: false, error: true, reason: ev?.error || 'unknown' });
@@ -910,8 +728,6 @@
 
       if (!ok) return false;
 
-      // Guard adicional: si el motor no llega a arrancar, reintentamos una vez
-      // sin voz fija; si tampoco arranca, paramos la UI en lugar de fingir reproducción.
       startWatchTimer = setTimeout(() => {
         try {
           if (S.utterance !== u1 || synth.speaking || synth.pending) return;
@@ -934,8 +750,6 @@
         }
       }, IS_IOS ? 180 : 350);
 
-      // Fix iOS: a veces el primer speak() se ignora, reintentamos 50ms después
-      // (solo si aún no está hablando y la utterance es la misma)
       if (IS_IOS) {
         setTimeout(() => {
           try {
@@ -989,6 +803,7 @@
   };
 
   const startAudio = (isResume = false) => {
+    if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
     const duration = STATE.audio.duration;
     clearInterval(STATE.audio.timer);
@@ -1018,12 +833,6 @@
       if (!spokeOk) {
         STATE.audio.playing = false;
         updateAudioUi();
-        showToast(
-          STATE.mode === 'kids'
-            ? 'Tu navegador no pudo arrancar la voz ahora mismo.'
-            : 'Tu navegador no pudo arrancar la audioguía ahora mismo.',
-          3000
-        );
         return;
       }
     } else {
@@ -1064,8 +873,6 @@
     const c = els.sheet;
     const player = $('.audio-player', c), btn = $('.play-btn', c), fill = $('.progress-fill', c), time = $('.audio-time', c);
     if (!player || !btn || !fill || !time) return;
-    player.classList.toggle('-playing', STATE.audio.playing);
-    btn.classList.toggle('-playing', STATE.audio.playing);
     btn.innerHTML = STATE.audio.playing ? ICONS.pause : ICONS.play;
     const dur = STATE.audio.duration || 1;
     fill.style.width = `${Math.min(100, (STATE.audio.currentTime / dur) * 100)}%`;
@@ -1073,159 +880,12 @@
   };
 
   /* =========================================================
-   * SHEET DRAG
-   * · Fix iOS: preventDefault SOLO cuando drag real > 8 px
-   *   (nunca en taps cortos -> no bloquea botones/tabs/chips)
-   * =======================================================*/
-  const initDrag = () => {
-    const handle = $('.sheet-handle', els.sheet);
-    const hero = $('.sheet-hero', els.sheet);
-    const dragTargets = [handle, hero];
-    let startY = 0, startX = 0, startTranslate = 0, dragging = false, dir = 0, lastY = 0;
-    let moved = false;
-    // iOS FIX: umbral alto para tap casual (14 px, antes 8)
-    const DRAG_THRESHOLD = 14;
-    // Elementos que NUNCA deben activar drag (botones, chips, input, tabs, etc.)
-    const NO_DRAG_SELECTOR = '.sheet-close, .close-btn, .tab-btn, .play-btn, .progress-wrap, .suggest-chip, ' +
-                            '.ai-btn-send, .zoom-btn, .ai-input-wrap, .audio-player, button, a, input, [role="button"]';
-    const vh = () => window.innerHeight;
-    const getPxFromState = (s) => {
-      const val = getComputedStyle(document.documentElement).getPropertyValue(
-        s === 'open' ? '--sheet-open' : (s === 'peek' ? '--sheet-peek' : '--sheet-closed')
-      ).trim();
-      if (!val) return 0;
-      if (val.includes('vh') || val.includes('dvh')) return (parseFloat(val) / 100) * vh();
-      return parseFloat(val);
-    };
-    const computeSnap = (y) => {
-      const closed = getPxFromState('closed'), peek = getPxFromState('peek'), open = getPxFromState('open');
-      if (dir < 0 && startTranslate === getPxFromState('peek') && y < (peek + open) / 2) return 'open';
-      if (dir < 0 && startTranslate === getPxFromState('closed') && y < (closed + peek) / 2) return 'peek';
-      if (dir > 0 && startTranslate === getPxFromState('open') && y > (peek + open) / 2) return 'peek';
-      if (dir > 0 && startTranslate === getPxFromState('peek') && y > (closed + peek) / 2) return 'closed';
-      const candidates = [
-        { s: 'closed', d: Math.abs(y - closed) },
-        { s: 'peek',   d: Math.abs(y - peek) },
-        { s: 'open',   d: Math.abs(y - open) }
-      ].sort((a, b) => a.d - b.d);
-      return candidates[0].s;
-    };
-    const onStart = (e) => {
-      // FIX iOS CRÍTICO: si el usuario pulsó sobre un botón NO arrancar drag NUNCA
-      if (e.target && e.target.closest && e.target.closest(NO_DRAG_SELECTOR)) {
-        return;
-      }
-      const t = e.touches ? e.touches[0] : e;
-      dragging = true; moved = false;
-      startY = t.clientY; startX = t.clientX; lastY = t.clientY;
-      const style = window.getComputedStyle(els.sheet).transform;
-      let ty;
-      if (style && style !== 'none') {
-        const m = style.match(/-?[\d.]+/g) || [];
-        ty = parseFloat(m[5] || m[1] || '0');
-      } else ty = getPxFromState(STATE.sheet);
-      startTranslate = ty;
-      els.sheet.classList.add('-drag');
-    };
-    const onMove = (e) => {
-      if (!dragging) return;
-      const t = e.touches ? e.touches[0] : e;
-      const deltaY = t.clientY - startY;
-      const deltaX = t.clientX ? (t.clientX - startX) : 0;
-      if (!moved && (Math.abs(deltaY) > DRAG_THRESHOLD) && (Math.abs(deltaY) > Math.abs(deltaX))) {
-        moved = true;
-      }
-      if (moved) {
-        dir = t.clientY > lastY ? 1 : (t.clientY < lastY ? -1 : dir);
-        lastY = t.clientY;
-        const openY = getPxFromState('open'), closedY = getPxFromState('closed');
-        let next = startTranslate + deltaY;
-        if (next < openY)  next = openY + (next - openY) * 0.35;
-        if (next > closedY) next = closedY + (next - closedY) * 0.35;
-        els.sheet.style.transform = `translateY(${next}px)`;
-        if (e.cancelable) {
-          try { e.preventDefault(); } catch (_) {}
-        }
-      }
-    };
-    const onEnd = (e) => {
-      if (!dragging) return;
-      const wasRealDrag = moved;
-      dragging = false; moved = false;
-      // Si NO hubo drag real (tap corto): dejar pasar el click nativo, no tocar nada
-      if (!wasRealDrag) {
-        els.sheet.classList.remove('-drag');
-        els.sheet.style.transform = '';
-        return;
-      }
-      const t = e.changedTouches ? e.changedTouches[0] : e;
-      const finalDelta = (t.clientY || startY) - startY;
-      const velocity = Math.abs(finalDelta);
-      let snap = STATE.sheet;
-      const peekY = getPxFromState('peek');
-      if (velocity > 80) {
-        if (finalDelta < 0) snap = STATE.sheet === 'closed' ? 'peek' : 'open';
-        else              snap = STATE.sheet === 'open'   ? 'peek' : 'closed';
-      } else {
-        const style = window.getComputedStyle(els.sheet).transform;
-        const m = style && style !== 'none' ? (style.match(/-?[\d.]+/g) || []) : [];
-        snap = computeSnap(parseFloat(m[5] || m[1] || '0'));
-      }
-      els.sheet.classList.remove('-drag');
-      els.sheet.style.transform = '';
-      if (snap === 'closed') closeSheet();
-      else openSheet(snap);
-    };
-    dragTargets.forEach((el) => {
-      if (!el) return;
-      el.addEventListener('touchstart', onStart, { passive: true });
-      el.addEventListener('mousedown', onStart);
-    });
-    try { window.addEventListener('touchmove', onMove, { passive: false }); } catch (_) {
-      window.addEventListener('touchmove', onMove);
-    }
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('touchend', onEnd);
-    window.addEventListener('mouseup', onEnd);
-  };
-
-  /* =========================================================
-   * MAP UI
-   * =======================================================*/
-  const addMapUi = () => {
-    const wrap = document.createElement('div');
-    wrap.className = 'map-ui';
-    wrap.innerHTML = `
-      <button class="map-ui-btn" data-action="zoom-in" aria-label="Zoom in">${ICONS.plus}</button>
-      <button class="map-ui-btn" data-action="zoom-out" aria-label="Zoom out">${ICONS.minus}</button>
-      <button class="map-ui-btn" data-action="home" aria-label="Ver todo Toledo">${ICONS.target}</button>
-    `;
-    $('.map-wrap').appendChild(wrap);
-    wrap.addEventListener('click', (e) => {
-      const b = e.target.closest('.map-ui-btn');
-      if (!b) return;
-      const a = b.dataset.action;
-      if (a === 'zoom-in')  map.zoomIn(1, { animate: true });
-      if (a === 'zoom-out') map.zoomOut(1, { animate: true });
-      if (a === 'home') {
-        map.flyTo([39.8628, -4.0273], 15.2, { duration: 0.7 });
-        if (STATE.sheet !== 'closed') closeSheet();
-      }
-    });
-  };
-
-  /* =========================================================
    * WIRE EVENTS
    * =======================================================*/
   const wireEvents = () => {
     $('.sheet-close', els.sheet).addEventListener('click', closeSheet);
+    $('.sheet-handle', els.sheet).addEventListener('click', closeSheet);
     els.backdrop.addEventListener('click', closeSheet);
-
-    $('.sheet-tabs-row', els.sheet).addEventListener('click', (e) => {
-      const btn = e.target.closest('.tab-btn');
-      if (!btn) return;
-      switchTab(btn.dataset.tab);
-    });
 
     $('.play-btn', els.sheet).addEventListener('click', toggleAudio);
     $('.progress-wrap', els.sheet).addEventListener('click', (e) => {
@@ -1238,12 +898,6 @@
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && STATE.sheet !== 'closed') closeSheet();
     });
-
-    window.addEventListener('resize', () => {
-      if (STATE.activePoiId) moveTabIndicator();
-    });
-
-    wireAiTab();
   };
 
   /* =========================================================
@@ -1258,14 +912,11 @@
 
     buildHeader();
     initMap();
-    addMapUi();
     wireEvents();
-    initDrag();
 
     setStateMode(STATE.mode);
     updatePills();
 
-    requestAnimationFrame(() => moveTabIndicator());
     setTimeout(() => {
       showToast(STATE.mode === 'kids'
         ? '¡Hola aventurero! Toca los pines 🏰'
@@ -1278,13 +929,11 @@
 
   } catch (err) {
     // ============= GLOBAL FALLBACK SI ALGO EXPLOTA =============
-    // Nunca más nos quedamos sin saber por qué "nada funciona".
     const msg = 'OnMyOwnTrip init error: ' + (err && err.message ? err.message : String(err));
-    try { console.error('[OMOT init]', err); } catch(_) {}
-    // Notificación visible al usuario (no depende de STATE/UI helpers que no existen)
+    try { console.error('[OMOT init]', err); } catch (_) {}
     const warn = document.createElement('div');
-    warn.setAttribute('style', 'position:fixed;left:16px;right:16px;top:16px;z-index:2147483647;background:#111;color:#fff;padding:12px 14px;border-radius:12px;font:600 13px/1.4 "DM Sans",sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.3);max-width:540px;margin:0 auto;white-space:pre-wrap;word-break:break-word;');
+    warn.setAttribute('style', 'position:fixed;left:16px;right:16px;top:16px;z-index:2147483647;background:#111;color:#fff;padding:12px 14px;border-radius:12px;font:600 13px/1.4 system-ui,sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.3);max-width:540px;margin:0 auto;white-space:pre-wrap;word-break:break-word;');
     warn.textContent = '👀 Algo falló al cargar la app:\n' + (err && err.message ? err.message : String(err)) + '\n\n' + (err && err.stack ? String(err.stack).slice(0,200) : '');
-    try { document.body.appendChild(warn); } catch(_) {}
+    try { document.body.appendChild(warn); } catch (_) {}
   }
 })();
