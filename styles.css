@@ -42,10 +42,11 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   --radius-xl: 28px;
   --radius-pill: 999px;
   --font-display: 'Playfair Display', 'Georgia', serif;
+  --map-height: clamp(240px, 44dvh, 360px);
   /* iOS SAFARI FIX CRÍTICO: 101% para garantizar que se va COMPLETAMENTE fuera
      (100vh a veces se ve un píxel en algunos viewports dinámicos iPhone) */
   --sheet-closed: 101%;
-  --sheet-peek: calc(100% - 180px);
+  --sheet-peek: calc(100% - 320px);
   --sheet-open: calc(100% - 52%);
 }
 :root[data-mode="kids"] {
@@ -205,8 +206,11 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 /* ---------- MAP ---------- */
 .map-wrap {
   position: relative;
-  flex: 1;
+  flex: 0 0 var(--map-height);
   min-height: 0;
+  max-height: var(--map-height);
+  overflow: hidden;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
 }
 #map {
   position: absolute;
@@ -326,6 +330,17 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 .bottom-sheet.-peek { transform: translateY(var(--sheet-peek)); }
 .bottom-sheet.-open { transform: translateY(var(--sheet-open)); }
 .bottom-sheet.-drag { transition: none; }
+
+/* En peek dejamos una cabecera más compacta para que no parezca que la imagen invade el mapa */
+.bottom-sheet.-peek .sheet-hero {
+  height: 132px;
+}
+.bottom-sheet.-peek .sheet-title {
+  font-size: 20px;
+}
+.bottom-sheet.-peek .sheet-sub {
+  font-size: 12px;
+}
 
 .sheet-handle {
   position: absolute;
@@ -477,7 +492,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 20px 20px 140px;
+  padding: 16px 20px 28px;
   scrollbar-width: thin;
 }
 .sheet-body::-webkit-scrollbar { width: 4px; }
@@ -500,12 +515,10 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 
 /* audio player */
 .audio-player {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
-  background: linear-gradient(180deg, transparent 0%, var(--color-surface) 20%, var(--color-surface) 100%);
+  position: relative;
+  flex-shrink: 0;
+  padding: 12px 20px 0;
+  background: var(--color-surface);
   z-index: 6;
 }
 .audio-card {
@@ -653,7 +666,8 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 /* tablet+ */
 @media (min-width: 768px) {
   :root {
-    --sheet-peek: calc(100vh - 260px);
+    --map-height: clamp(280px, 42dvh, 420px);
+    --sheet-peek: calc(100% - 360px);
     --sheet-open: calc(100vh - 48%);
   }
   .app {

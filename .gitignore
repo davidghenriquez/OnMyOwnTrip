@@ -13,6 +13,7 @@ ehthumbs.db
 *~
 .idea/
 .vscode/
+.trae/
 *.suo
 *.user
 *.userosscache
