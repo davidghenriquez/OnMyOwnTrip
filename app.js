@@ -111,7 +111,36 @@
           return `📍 IMPRESCINDIBLE en una visita a ${name}:\n\n${(poi.tabs.history.adult || '').slice(0, 180)}\n\n💡 Detalle secreto: mira hacia ${this.pick(['el muro norte', 'la cornisa superior', 'el lado del mediodía'])} a contra luz, apreciarás ${this.pick(['marcas del sismógrafo medieval', 'una cantera con marca del cantero', 'un grafiti de estudiante de 1889'])}.\n\n${src}.`;
         }
       },
+      deepen(poi, m, topicId) {
+        const n = poi.name[m] || poi.name.adult;
+        const topicMeta = AI_TOPIC_NAMES[topicId];
+        const topic = topicMeta ? (topicMeta[m] || topicMeta.adult) : (m === 'kids' ? 'esto' : 'este tema');
+        if (m === 'kids') {
+          const facts = [
+            `¿Sabías que si cuentas hasta 3 antes de mirar hacia arriba, dicen que ves el detalle mágico mejor? 👀`,
+            `Cuentan que alguien escondió aquí una moneda de la suerte hace muchísimo tiempo 🪙, ¡a lo mejor sigue ahí!`,
+            `Si tocas la piedra más fría que encuentres cerca, dicen que te trae buena suerte en tu aventura 🍀`,
+            `Un dato flipante: ¡algunas piedras de aquí pesan tanto como 3 elefantes juntos! 🐘🐘🐘`,
+            `Se dice que por las noches, aquí se escucha un eco muy especial si susurras tu nombre 🌙`,
+            `¡Hay una marca secreta tallada en una piedra que solo se ve si el sol pega de lado! ☀️`
+          ];
+          return `✨ ¡Sigo contándote sobre ${topic}!\n\n${this.pick(facts)}\n\n¿Quieres que siga profundizando? 🔍`;
+        }
+        const facts = [
+          `un detalle que pocos guías mencionan es que los canteros solían dejar una marca personal oculta, visible solo con luz rasante`,
+          `los registros de la época recogen anécdotas curiosas sobre reformas posteriores que no siempre aparecen en las guías oficiales`,
+          `una comparación interesante: pocos elementos similares en Toledo combinan tantas influencias en tan poco espacio`,
+          `un matiz que sorprende a los expertos es la superposición de técnicas constructivas de distintas épocas en el mismo punto`,
+          `existe una referencia documental poco citada que aporta un matiz distinto a la versión más conocida de esta historia`,
+          `un detalle curioso es que restauraciones recientes revelaron capas anteriores que cambian ligeramente la datación tradicional`
+        ];
+        const fact = this.pick(facts);
+        return `🔍 Profundizando en ${topic} de ${n}:\n\n${fact.charAt(0).toUpperCase()}${fact.slice(1)}.\n\n¿Sigo profundizando?`;
+      },
       option(poi, m, optionId) {
+        if (optionId && optionId.startsWith('deepen:')) {
+          return this.deepen(poi, m, optionId.slice(7));
+        }
         const n = poi.name[m] || poi.name.adult;
         switch (optionId) {
           case 'secret-history':
@@ -180,12 +209,22 @@
       return SIM.generic(poi, mode, userQuery);
     };
 
+      const queryFor = (mode, userQuery, optionId) => {
+        if (optionId && optionId.startsWith('deepen:')) {
+          const topicId = optionId.slice(7);
+          const topicMeta = AI_TOPIC_NAMES[topicId];
+          const topicLabel = topicMeta ? (topicMeta[mode] || topicMeta.adult) : (mode === 'kids' ? 'esto' : 'este tema');
+          return mode === 'kids'
+            ? `Sigue contándome más sobre ${topicLabel}, un dato nuevo que no hayas contado antes.`
+            : `Continúa profundizando sobre ${topicLabel}, con un dato nuevo, más concreto y que no hayas mencionado antes. No te repitas.`;
+        }
+        if (optionId) return `Tema seleccionado: ${optionId}. Responde al contenido pedido.`;
+        return userQuery ?? 'Haz un resumen inicial del lugar.';
+      };
+
     const generate = async ({ poi, mode, userQuery, optionId }) => {
       const sys = systemPromptFor(mode);
-      const usr = buildUserText(poi, mode,
-        optionId
-          ? `Tema seleccionado: ${optionId}. Responde al contenido pedido.`
-          : (userQuery ?? 'Haz un resumen inicial del lugar.'));
+      const usr = buildUserText(poi, mode, queryFor(mode, userQuery, optionId));
       if (CFG && CFG.apiKey && CFG.provider) {
         try {
           if (CFG.provider === 'anthropic') return await fetchAnthropic(sys, usr);
@@ -218,7 +257,7 @@
       playing: false, currentTime: 0, duration: 0, timer: null,
       speech: { supported: false, utterance: null, voices: [], pickedVoice: null }
     },
-    ai: { perPoiHistory: {}, pending: false }
+    ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {} }
   };
 
   const ICONS = {
@@ -399,24 +438,54 @@
     scrollAiToBottom();
   };
 
+  // Chips de sugerencia: en vez de mostrar siempre las 4 categorías fijas,
+  // una vez elegido un tema se ofrece "profundizar más" sobre ese mismo tema
+  // + los temas que aún no se han explorado, para enganchar en una conversación
+  // que se va abriendo en profundidad en vez de repetir las mismas opciones.
   const renderAiSuggestions = () => {
     const box = $('#aiSuggestions');
-    if (!box) return;
+    if (!box || !STATE.activePoiId) return;
     box.innerHTML = '';
-    const disabled = STATE.ai.pending ? 'disabled' : '';
-    (AI_PROMPTS?.options || []).forEach((opt) => {
+    const poiId = STATE.activePoiId;
+    const topic = STATE.ai.currentTopic[poiId] || null;
+    const exploredSet = STATE.ai.explored[poiId] || new Set();
+    const disabled = STATE.ai.pending;
+
+    const chips = [];
+    if (topic) chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel) });
+    const remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
+    remaining.slice(0, topic ? 2 : 3).forEach((o) => chips.push({ id: o.id, kind: 'option', label: pickDual(o.label) }));
+    if (topic && remaining.length === 0) chips.push({ id: 'reset', kind: 'reset', label: pickDual(AI_PROMPTS.resetLabel) });
+
+    chips.forEach((chip) => {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'suggest-chip';
-      b.textContent = pickDual(opt.label);
+      b.textContent = chip.label;
       if (disabled) b.setAttribute('disabled', 'true');
       b.addEventListener('click', () => {
         if (!STATE.activePoiId || STATE.ai.pending) return;
         const poi = POIS.find((p) => p.id === STATE.activePoiId);
-        aiHistoryFor(poi.id).push({ role: 'user', text: pickDual(opt.label), isOptionChip: true });
+
+        if (chip.kind === 'reset') {
+          STATE.ai.explored[poi.id] = new Set();
+          STATE.ai.currentTopic[poi.id] = null;
+          renderAiSuggestions();
+          return;
+        }
+
+        aiHistoryFor(poi.id).push({ role: 'user', text: chip.label, isOptionChip: true });
         renderAiMessages();
         scrollAiToBottom();
-        queueAiMessage({ poi, kind: 'option', optionId: opt.id, userText: pickDual(opt.label) });
+
+        if (chip.kind === 'deepen') {
+          queueAiMessage({ poi, kind: 'deepen', optionId: 'deepen:' + topic, userText: chip.label });
+        } else {
+          if (!STATE.ai.explored[poi.id]) STATE.ai.explored[poi.id] = new Set();
+          STATE.ai.explored[poi.id].add(chip.id);
+          STATE.ai.currentTopic[poi.id] = chip.id;
+          queueAiMessage({ poi, kind: 'option', optionId: chip.id, userText: chip.label });
+        }
       });
       box.appendChild(b);
     });
@@ -485,6 +554,11 @@
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
       hist.push({ role: 'assistant', text });
+      // Autoplay de la respuesta recién generada. Se dispara fuera del gesto
+      // directo del usuario (tras el await), así que en iOS Safari puede no
+      // arrancar la primera vez; por eso "silent" evita un toast de error y
+      // el botón de play queda listo para un toque manual como respaldo.
+      if (STATE.activePoiId === poi.id) startAudio(false, true);
     } catch (e) {
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
@@ -512,8 +586,8 @@
     ensureAiPanelInitialGreet(poi);
     openSheet();
     if (centerMap && map) map.flyTo([poi.coords[0] - 0.0015, poi.coords[1]], 16.5, { duration: 0.7 });
-    // Autoplay directo dentro del gesto de click (requisito de iOS Safari para SpeechSynthesis)
-    startAudio(false);
+    // El audio del resumen se autorreproduce cuando llega (ver queueAiMessage),
+    // no aquí, para no arrancar dos veces la narración con el texto de relleno.
   };
 
   const openSheet = () => {
@@ -802,7 +876,7 @@
     updateAudioUi();
   };
 
-  const startAudio = (isResume = false) => {
+  const startAudio = (isResume = false, silent = false) => {
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
     const duration = STATE.audio.duration;
@@ -815,19 +889,24 @@
           stopAudio();
           STATE.audio.currentTime = 0;
           updateAudioUi();
-          showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
+          if (!silent) showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
           return;
         }
         if (error || startFailed) {
           stopAudio();
           STATE.audio.currentTime = 0;
           updateAudioUi();
-          showToast(
-            STATE.mode === 'kids'
-              ? 'No pude arrancar la voz. Toca reproducir otra vez.'
-              : 'No se pudo iniciar la audioguía. Prueba a pulsar reproducir otra vez.',
-            3200
-          );
+          // En autoplay (silent) no avisamos: en iOS Safari el primer intento
+          // fuera de un gesto directo puede fallar siempre, y el botón de
+          // play ya queda listo para un toque manual (eso sí funcionará).
+          if (!silent) {
+            showToast(
+              STATE.mode === 'kids'
+                ? 'No pude arrancar la voz. Toca reproducir otra vez.'
+                : 'No se pudo iniciar la audioguía. Prueba a pulsar reproducir otra vez.',
+              3200
+            );
+          }
         }
       });
       if (!spokeOk) {

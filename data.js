@@ -354,7 +354,22 @@ const AI_PROMPTS = {
           `¡Cuéntame una leyenda superchula de ${pick(p.name, 'kids')} con personajes mágicos (reyes, hadas, animales parlanchines)! 🧚 Sin miedo. Termina con una moraleja corta y divertida.`
       }
     }
-  ]
+  ],
+  deepenLabel: { adult: '🔍 Profundiza más', kids: '🔍 ¡Cuéntame más!' },
+  resetLabel: { adult: '🔄 Ver otros temas', kids: '🔄 ¡Otras sorpresas!' },
+  deepen: {
+    adult: (p, topicLabel) =>
+      `Sigue profundizando sobre ${topicLabel} en ${pick(p.name, 'adult')}. Da un dato nuevo, más concreto y menos conocido que no hayas mencionado antes, sin repetirte. Máximo 90 palabras.`,
+    kids: (p, topicLabel) =>
+      `¡Sigue contándome más sobre ${topicLabel} en ${pick(p.name, 'kids')}! Un dato nuevo y flipante que no hayas contado antes 🤩. Máximo 70 palabras. Termina con una pregunta para que quiera saber más.`
+  }
+};
+
+const AI_TOPIC_NAMES = {
+  'secret-history': { adult: 'la historia secreta', kids: 'el secreto' },
+  'architecture': { adult: 'la arquitectura', kids: 'los trucos de construcción' },
+  'nearby-food': { adult: 'la gastronomía cercana', kids: 'qué comer cerca' },
+  'legends': { adult: 'las leyendas', kids: 'las leyendas' }
 };
 
 function pick(obj, mode) {
