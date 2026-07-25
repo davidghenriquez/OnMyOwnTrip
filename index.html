@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es" data-mode="adult">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#B8411E" />
+  <meta name="description" content="OnMyOwnTrip · Turismo autoguiado interactivo por Toledo, Ciudad Imperial. Modo Adultos y Niños." />
+  <title>OnMyOwnTrip · Toledo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app" id="app">
+
+    <!-- HEADER -->
+    <header class="header" role="banner">
+      <div class="header-top">
+        <div class="brand">
+          <span class="brand-mark">OnMyOwnTrip</span>
+          <span class="brand-sub">Toledo</span>
+        </div>
+
+        <div class="mode-toggle" role="group" aria-label="Cambiar modo de contenido">
+          <button type="button" class="mode-toggle-option" data-mode="adult" data-active="true">
+            <span class="mode-ico" aria-hidden="true">👤</span>
+            <span>Adultos</span>
+          </button>
+          <button type="button" class="mode-toggle-option" data-mode="kids" data-active="false">
+            <span class="mode-ico" aria-hidden="true">🧒</span>
+            <span>Niños</span>
+          </button>
+          <span class="mode-toggle-thumb" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <nav class="filters" id="filters" role="tablist" aria-label="Filtrar puntos de interés">
+        <button type="button" class="pill" data-category="all" data-active="true">
+          <span class="pill-dot"></span>
+          <span>Todos</span>
+        </button>
+        <button type="button" class="pill" data-category="historia" data-active="false">
+          <span class="pill-dot"></span>
+          <span>Historia</span>
+        </button>
+        <button type="button" class="pill" data-category="gastronomia" data-active="false">
+          <span class="pill-dot"></span>
+          <span>Gastronomía</span>
+        </button>
+        <button type="button" class="pill" data-category="rincones-ocultos" data-active="false">
+          <span class="pill-dot"></span>
+          <span>Rincones Ocultos</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- MAP -->
+    <div class="map-wrap">
+      <main id="map" role="region" aria-label="Mapa interactivo de Toledo"></main>
+    </div>
+
+    <!-- BACKDROP -->
+    <div class="sheet-backdrop" id="sheetBackdrop" aria-hidden="true"></div>
+
+    <!-- BOTTOM SHEET -->
+    <aside class="bottom-sheet -closed" id="bottomSheet"
+           role="dialog" aria-modal="true" aria-label="Información del punto de interés" aria-hidden="true">
+      <div class="sheet-handle" aria-hidden="true">
+        <span class="sheet-handle-bar"></span>
+      </div>
+
+      <section class="sheet-hero" aria-label="Cabecera">
+        <img class="sheet-hero-img" src="" alt="" loading="eager" draggable="false" />
+        <div class="sheet-hero-overlay" aria-hidden="true"></div>
+
+        <button type="button" class="sheet-close" aria-label="Cerrar ficha">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="sheet-info">
+          <span class="sheet-cat-badge">—</span>
+          <h2 class="sheet-title">—</h2>
+          <p class="sheet-sub">—</p>
+        </div>
+      </section>
+
+      <section class="sheet-tabs" aria-label="Pestañas de contenido">
+        <div class="sheet-tabs-row">
+          <button type="button" class="tab-btn" data-tab="history" data-active="true">Historia</button>
+          <button type="button" class="tab-btn" data-tab="legends" data-active="false">Leyendas</button>
+          <button type="button" class="tab-btn" data-tab="architecture" data-active="false">Arquitectura</button>
+          <button type="button" class="tab-btn tab-btn-ai" data-tab="ai" data-active="false">
+            <span class="ai-btn-spark">✨</span>
+            <span>Guía IA</span>
+          </button>
+          <span class="tab-indicator" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="sheet-body" aria-label="Contenido detallado">
+        <div class="tab-panel" data-tab="history" data-hidden="false"></div>
+        <div class="tab-panel" data-tab="legends" data-hidden="true"></div>
+        <div class="tab-panel" data-tab="architecture" data-hidden="true"></div>
+        <div class="tab-panel tab-panel-ai" data-tab="ai" data-hidden="true">
+          <div class="ai-panel">
+            <div class="ai-hello">
+              <div class="ai-avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 L14.5 8 L21 9 L16 13.5 L17.5 20 L12 17 L6.5 20 L8 13.5 L3 9 L9.5 8 Z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="ai-hello-title">Tu guía personal · OnMyOwnTrip IA</div>
+                <div class="ai-hello-sub">Pregunta lo que quieras sobre este lugar o pulsa una opción.</div>
+              </div>
+            </div>
+
+            <div class="ai-messages" id="aiMessages">
+            </div>
+
+            <div class="ai-suggestions" id="aiSuggestions">
+            </div>
+
+            <div class="ai-input-wrap">
+              <input type="text" class="ai-input" id="aiInput" placeholder="Pregunta a tu guía…" aria-label="Pregunta a la IA" autocomplete="off" />
+              <button type="button" class="ai-send" id="aiSend" aria-label="Enviar pregunta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="audio-player" aria-label="Reproductor de audio">
+        <div class="audio-card">
+          <button type="button" class="play-btn" aria-label="Reproducir audioguía">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+              <polygon points="7 4 20 12 7 20 7 4"></polygon>
+            </svg>
+          </button>
+          <div class="audio-title">Audioguía</div>
+          <div class="audio-waves" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="audio-progress" role="group" aria-label="Progreso">
+            <div class="progress-wrap" aria-label="Barra de progreso" role="slider" tabindex="0">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="audio-time" aria-live="polite">0:00 / 0:00</div>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
