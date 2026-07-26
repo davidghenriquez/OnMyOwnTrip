@@ -350,6 +350,47 @@
     ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {} }
   };
 
+  /* =========================================================
+   * PERSISTENCIA (localStorage)
+   * Guarda el progreso (conversación por POI, temas explorados, modo)
+   * para que sobreviva a un refresco de página o a que el móvil mate
+   * la pestaña en segundo plano a media visita.
+   * =======================================================*/
+  const STORAGE_KEY = 'omot_state_v1';
+  const saveState = () => {
+    try {
+      const explored = {};
+      Object.entries(STATE.ai.explored).forEach(([poiId, set]) => {
+        explored[poiId] = Array.from(set);
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        mode: STATE.mode,
+        ai: {
+          perPoiHistory: STATE.ai.perPoiHistory,
+          currentTopic: STATE.ai.currentTopic,
+          explored
+        }
+      }));
+    } catch (_) { /* localStorage no disponible (navegación privada, cuota...): seguimos sin persistir */ }
+  };
+  const loadState = () => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const saved = JSON.parse(raw);
+      if (saved.mode === 'kids' || saved.mode === 'adult') STATE.mode = saved.mode;
+      if (saved.ai) {
+        STATE.ai.perPoiHistory = saved.ai.perPoiHistory || {};
+        STATE.ai.currentTopic = saved.ai.currentTopic || {};
+        const explored = {};
+        Object.entries(saved.ai.explored || {}).forEach(([poiId, arr]) => {
+          explored[poiId] = new Set(arr);
+        });
+        STATE.ai.explored = explored;
+      }
+    } catch (_) { /* datos corruptos o de una versión anterior: empezamos de cero */ }
+  };
+
   const ICONS = {
     play: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg>`,
     pause: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`
@@ -519,6 +560,7 @@
       ensureAiPanelInitialGreet(POIS.find((p) => p.id === STATE.activePoiId));
       renderAiSuggestions();
     }
+    saveState();
   };
 
   /* =========================================================
@@ -534,6 +576,7 @@
     const history = aiHistoryFor(poi.id);
     if (history.length === 0) {
       history.push({ role: 'greet', text: LLM.summaryGreet(poi, STATE.mode) });
+      saveState();
       queueAiMessage({ poi, kind: 'summary' });
     }
     renderAiMessages();
@@ -575,6 +618,7 @@
         if (chip.kind === 'reset') {
           STATE.ai.explored[poi.id] = new Set();
           STATE.ai.currentTopic[poi.id] = null;
+          saveState();
           renderAiSuggestions();
           return;
         }
@@ -679,6 +723,7 @@
       renderAiMessages();
       renderAiSuggestions();
       scrollAiToBottom();
+      saveState();
     }
   };
 
@@ -1153,6 +1198,7 @@
    * INIT
    * =======================================================*/
   const init = () => {
+    loadState();
     document.documentElement.dataset.mode = STATE.mode;
     els.sheet = $('#bottomSheet');
     els.backdrop = $('#sheetBackdrop');
