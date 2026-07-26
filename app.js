@@ -426,27 +426,30 @@
     t._tid = setTimeout(() => t.classList.remove('-show'), ms);
   };
   const getCategoryPinColor = (cat) => {
-    if (cat === CATEGORIES.HISTORY) return '#F59E0B';
-    if (cat === CATEGORIES.GASTRONOMY) return '#FB923C';
-    if (cat === CATEGORIES.HIDDEN) return '#38BDF8';
-    return '#F59E0B';
+    if (cat === CATEGORIES.HISTORY) return '#3B82F6'; // monumentos y museos: azul
+    if (cat === CATEGORIES.GASTRONOMY) return '#EAB308'; // restauración: amarillo
+    if (cat === CATEGORIES.HIDDEN) return '#22C55E'; // puntos de interés: verde
+    return '#3B82F6';
   };
   const getCategoryPinEmoji = (cat) => {
     if (cat === CATEGORIES.HISTORY) return '🏛️';
-    if (cat === CATEGORIES.GASTRONOMY) return '🍷';
-    if (cat === CATEGORIES.HIDDEN) return '🗝️';
+    if (cat === CATEGORIES.GASTRONOMY) return '🍴';
+    if (cat === CATEGORIES.HIDDEN) return '🔭';
     return '📍';
   };
 
   // Iconos SVG propios para los pines del mapa (en vez de emoji, que se
   // renderizan de forma distinta y muy plana según el sistema operativo).
   const PIN_ICON_SVG = {
+    // Monumentos y museos: edificio de columnas
     [CATEGORIES.HISTORY]:
       `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6"/><path d="M4 10v9M8 10v9M12 10v9M16 10v9M20 10v9"/><path d="M2 21h20"/></svg>`,
+    // Restauración: tenedor
     [CATEGORIES.GASTRONOMY]:
-      `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0L8 3Z"/><path d="M12 13v6"/><path d="M9 21h6"/></svg>`,
+      `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5M9 3v5M12 3v5"/><path d="M6 8c0 2 1.3 3 3 3s3-1 3-3"/><path d="M9 11v10"/></svg>`,
+    // Puntos de interés: prismáticos
     [CATEGORIES.HIDDEN]:
-      `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M11 11 20 20"/><path d="M16.5 15.5 19 13"/><path d="M18.3 17.3 20.5 15.1"/></svg>`
+      `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="9" width="7" height="9" rx="2.5"/><rect x="14.5" y="9" width="7" height="9" rx="2.5"/><path d="M9.5 12.5h5"/><path d="M5 9V7.5A1.5 1.5 0 0 1 6.5 6h1"/><path d="M19 9V7.5A1.5 1.5 0 0 0 17.5 6h-1"/></svg>`
   };
   const getCategoryPinIconSvg = (cat) => PIN_ICON_SVG[cat] || PIN_ICON_SVG[CATEGORIES.HISTORY];
 
