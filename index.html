@@ -118,13 +118,6 @@
         </div>
 
         <div class="header-actions">
-          <button type="button" class="change-city-btn" id="changeCityBtn" aria-label="Volver al menú principal" title="Menú principal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 11.5 12 4l8 7.5"></path>
-              <path d="M6 10v9a1 1 0 0 0 1 1h4v-6h2v6h4a1 1 0 0 0 1-1v-9"></path>
-            </svg>
-          </button>
-
           <div class="mode-toggle" role="group" aria-label="Cambiar modo de contenido">
             <button type="button" class="mode-toggle-option" data-mode="adult" data-active="true">
               <span>Adultos</span>
@@ -138,20 +131,29 @@
         </div>
       </div>
 
-      <nav class="filters" id="filters" role="tablist" aria-label="Filtrar puntos de interés">
-        <button type="button" class="pill" data-category="all" data-active="true">
-          <span>Todos</span>
+      <div class="header-bottom">
+        <button type="button" class="change-city-btn" id="changeCityBtn" aria-label="Volver al menú principal" title="Menú principal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 11.5 12 4l8 7.5"></path>
+            <path d="M6 10v9a1 1 0 0 0 1 1h4v-6h2v6h4a1 1 0 0 0 1-1v-9"></path>
+          </svg>
         </button>
-        <button type="button" class="pill" data-category="historia" data-active="false">
-          <span>Museos</span>
-        </button>
-        <button type="button" class="pill" data-category="gastronomia" data-active="false">
-          <span>Restauración</span>
-        </button>
-        <button type="button" class="pill" data-category="rincones-ocultos" data-active="false">
-          <span>Interés</span>
-        </button>
-      </nav>
+
+        <nav class="filters" id="filters" role="tablist" aria-label="Filtrar puntos de interés">
+          <button type="button" class="pill" data-category="all" data-active="true">
+            <span>Todos</span>
+          </button>
+          <button type="button" class="pill" data-category="historia" data-active="false">
+            <span>Museos</span>
+          </button>
+          <button type="button" class="pill" data-category="gastronomia" data-active="false">
+            <span>Restauración</span>
+          </button>
+          <button type="button" class="pill" data-category="rincones-ocultos" data-active="false">
+            <span>Interés</span>
+          </button>
+        </nav>
+      </div>
     </header>
 
     <!-- MAP (a pantalla completa) -->

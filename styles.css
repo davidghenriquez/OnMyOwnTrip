@@ -269,10 +269,6 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   row-gap: 8px;
   gap: 12px;
 }
-@media (max-width: 420px) {
-  .header-top { justify-content: flex-start; }
-  .header-actions { width: 100%; justify-content: flex-end; }
-}
 .brand {
   display: flex;
   align-items: center;
@@ -394,6 +390,12 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 :root[data-mode="kids"] .mode-toggle-thumb { transform: translateX(100%); }
 .mode-toggle-option[data-active="true"] { color: #0B1120; }
 
+.header-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* ---------- FILTERS ---------- */
 .filters {
   display: flex;
@@ -402,6 +404,8 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   padding: 2px 2px 2px;
   margin: 0 -4px;
   scrollbar-width: none;
+  flex: 1;
+  min-width: 0;
 }
 .filters::-webkit-scrollbar { display: none; }
 .pill {
