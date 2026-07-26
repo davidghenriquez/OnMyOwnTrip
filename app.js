@@ -439,8 +439,8 @@
   const CATEGORY_ICON_PATHS = {
     // Monumentos y museos: edificio de columnas
     [CATEGORIES.HISTORY]: `<path d="M3 10 12 4l9 6"/><path d="M4 10v9M8 10v9M12 10v9M16 10v9M20 10v9"/><path d="M2 21h20"/>`,
-    // Restauración: tenedor
-    [CATEGORIES.GASTRONOMY]: `<path d="M6 3v5M9 3v5M12 3v5"/><path d="M6 8c0 2 1.3 3 3 3s3-1 3-3"/><path d="M9 11v10"/>`,
+    // Restauración: tenedor (centrado en x=12)
+    [CATEGORIES.GASTRONOMY]: `<path d="M9 3v5M12 3v5M15 3v5"/><path d="M9 8c0 2 1.3 3 3 3s3-1 3-3"/><path d="M12 11v10"/>`,
     // Puntos de interés: prismáticos
     [CATEGORIES.HIDDEN]: `<rect x="2.5" y="9" width="7" height="9" rx="2.5"/><rect x="14.5" y="9" width="7" height="9" rx="2.5"/><path d="M9.5 12.5h5"/><path d="M5 9V7.5A1.5 1.5 0 0 1 6.5 6h1"/><path d="M19 9V7.5A1.5 1.5 0 0 0 17.5 6h-1"/>`
   };
@@ -625,6 +625,7 @@
       } else {
         const meta = CATEGORY_META[cat];
         if (meta) p.innerHTML = `<span class="pill-icon">${categoryIconSvg(cat)}</span><span>${pickDual(meta.label)}</span>`;
+        p.style.setProperty('--pill-color', getCategoryPinColor(cat));
       }
       p.dataset.active = cat === STATE.category ? 'true' : 'false';
     });

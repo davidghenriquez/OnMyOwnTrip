@@ -212,10 +212,10 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 .pill:hover { transform: translateY(-1px); }
 .pill:active { transform: translateY(0); }
 .pill[data-active="true"] {
-  background: var(--color-primary);
+  background: var(--pill-color, var(--color-primary));
   color: #0B1120;
-  border-color: var(--color-primary);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 35%, transparent);
+  border-color: var(--pill-color, var(--color-primary));
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--pill-color, var(--color-primary)) 35%, transparent);
 }
 .pill-icon {
   display: inline-flex;
