@@ -7,17 +7,17 @@ const CATEGORIES = {
 
 const CATEGORY_META = {
   [CATEGORIES.HISTORY]: {
-    label: { adult: 'Historia', kids: 'Lugares Épicos 🏰' },
+    label: { adult: 'Museos', kids: 'Lugares Épicos 🏰' },
     pin: 'history',
     accent: '#B8411E'
   },
   [CATEGORIES.GASTRONOMY]: {
-    label: { adult: 'Gastronomía', kids: '¡Comidas Ricas! 🍖' },
+    label: { adult: 'Restauración', kids: '¡Comidas Ricas! 🍖' },
     pin: 'gastronomy',
     accent: '#C8703A'
   },
   [CATEGORIES.HIDDEN]: {
-    label: { adult: 'Rincones Ocultos', kids: 'Secretos ⭐' },
+    label: { adult: 'Puntos de Interés', kids: 'Secretos ⭐' },
     pin: 'hidden',
     accent: '#4A90A4'
   }
