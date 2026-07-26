@@ -25,6 +25,52 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- PANTALLA DE BIENVENIDA: cerca de mí / elegir ciudad, luego modo -->
+  <div class="onboarding" id="onboarding" hidden aria-hidden="true">
+    <div class="onboarding-card">
+      <div class="onboarding-brand">
+        <span aria-hidden="true">🧭</span>
+        <span>OnMyOwnTrip</span>
+      </div>
+
+      <div class="onboarding-step" data-step="start">
+        <h1>¿Dónde quieres explorar?</h1>
+        <button type="button" class="onboarding-btn" id="obNearby">
+          <span class="onboarding-btn-ico" aria-hidden="true">📍</span>
+          <span>
+            <strong>Cerca de mí</strong>
+            <small>Detecto la ciudad más cercana con tu ubicación</small>
+          </span>
+        </button>
+        <button type="button" class="onboarding-btn" id="obPickCity">
+          <span class="onboarding-btn-ico" aria-hidden="true">🏙️</span>
+          <span>
+            <strong>Elegir una ciudad</strong>
+            <small>Toledo, Tokio…</small>
+          </span>
+        </button>
+      </div>
+
+      <div class="onboarding-step" data-step="city" hidden>
+        <h1>¿Qué ciudad?</h1>
+        <div class="onboarding-city-list" id="obCityList"></div>
+        <button type="button" class="onboarding-back" data-back="start">← Volver</button>
+      </div>
+
+      <div class="onboarding-step" data-step="mode" hidden>
+        <h1>¿Modo Adultos o Niños?</h1>
+        <button type="button" class="onboarding-btn" data-mode="adult">
+          <span class="onboarding-btn-ico" aria-hidden="true">🧑</span>
+          <span><strong>Adultos</strong><small>Contenido experto y riguroso</small></span>
+        </button>
+        <button type="button" class="onboarding-btn" data-mode="kids">
+          <span class="onboarding-btn-ico" aria-hidden="true">🎈</span>
+          <span><strong>Niños</strong><small>Aventuras, retos y magia</small></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="app" id="app">
 
     <!-- HEADER (flotante sobre el mapa) -->
@@ -41,15 +87,24 @@
           </div>
         </div>
 
-        <div class="mode-toggle" role="group" aria-label="Cambiar modo de contenido">
-          <button type="button" class="mode-toggle-option" data-mode="adult" data-active="true">
-            <span>Adultos</span>
+        <div class="header-actions">
+          <button type="button" class="change-city-btn" id="changeCityBtn" aria-label="Cambiar de ciudad o modo" title="Cambiar de ciudad">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
           </button>
-          <button type="button" class="mode-toggle-option" data-mode="kids" data-active="false">
-            <span class="mode-ico" aria-hidden="true">🌳</span>
-            <span>Niños</span>
-          </button>
-          <span class="mode-toggle-thumb" aria-hidden="true"></span>
+
+          <div class="mode-toggle" role="group" aria-label="Cambiar modo de contenido">
+            <button type="button" class="mode-toggle-option" data-mode="adult" data-active="true">
+              <span>Adultos</span>
+            </button>
+            <button type="button" class="mode-toggle-option" data-mode="kids" data-active="false">
+              <span class="mode-ico" aria-hidden="true">🌳</span>
+              <span>Niños</span>
+            </button>
+            <span class="mode-toggle-thumb" aria-hidden="true"></span>
+          </div>
         </div>
       </div>
 

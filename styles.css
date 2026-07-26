@@ -65,6 +65,80 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   background: var(--color-bg);
 }
 
+/* ---------- PANTALLA DE BIENVENIDA ---------- */
+.onboarding {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(circle at 30% 20%, #1e293b 0%, #05070d 70%);
+}
+.onboarding[hidden] { display: none; }
+.onboarding-card {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.onboarding-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.onboarding-step h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.onboarding-step[hidden] { display: none; }
+.onboarding-step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.onboarding-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.onboarding-btn:hover { border-color: var(--color-primary); background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); }
+.onboarding-btn:active { transform: scale(0.98); }
+.onboarding-btn-ico { font-size: 24px; flex-shrink: 0; }
+.onboarding-btn strong { display: block; font-size: 14.5px; }
+.onboarding-btn small { display: block; font-size: 12px; color: var(--color-text-soft); margin-top: 2px; }
+.onboarding-city-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.onboarding-back {
+  align-self: center;
+  margin-top: 6px;
+  color: var(--color-text-soft);
+  font-size: 13px;
+  cursor: pointer;
+}
+
 /* ---------- HEADER (flotante sobre el mapa) ---------- */
 .header {
   position: absolute;
@@ -132,6 +206,30 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.change-city-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 90%, black);
+  color: var(--color-text-soft);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.change-city-btn svg { width: 18px; height: 18px; }
+.change-city-btn:active { transform: scale(0.92); }
+.change-city-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
 
 .mode-toggle {
   display: inline-flex;

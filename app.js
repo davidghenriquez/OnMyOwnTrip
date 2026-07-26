@@ -22,16 +22,16 @@
   const LLM = (() => {
     const CFG = typeof window !== 'undefined' ? (window.LLM_CONFIG || null) : null;
 
-    const systemPromptFor = (mode) =>
+    const systemPromptFor = (mode, cityName = 'la ciudad') =>
       mode === 'kids'
-        ? `Eres "Toledo Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita Toledo. Responde siempre en español, con frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Da una respuesta extensa y detallada, de unas 160-190 palabras (equivalente a un minuto largo hablado), no la resumas. Hazlo memorable.`
-        : `Eres "Guía Toledo Imperial", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de Toledo (España). Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ.`;
+        ? `Eres "${cityName} Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita ${cityName}. Responde siempre en español, con frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Da una respuesta extensa y detallada, de unas 160-190 palabras (equivalente a un minuto largo hablado), no la resumas. Hazlo memorable.`
+        : `Eres "Guía ${cityName}", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de ${cityName}. Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ.`;
 
-    const buildUserText = (poi, mode, userQuery) => {
+    const buildUserText = (poi, mode, userQuery, cityName = 'la ciudad') => {
       const name = (poi.name[mode] || poi.name.adult);
       const cat = poi.category;
       const context = [
-        `Estamos en Toledo, justo en: ${name}`,
+        `Estamos en ${cityName}, justo en: ${name}`,
         `Categoría: ${cat}`,
         `Subtítulo: ${poi.subtitle[mode] || poi.subtitle.adult}`,
         `Fragmento historia: ${(poi.tabs.history[mode] || poi.tabs.history.adult).slice(0, 260)}…`
@@ -101,29 +101,29 @@
       // intros/cierres genéricos se combinan con ellos para que cada
       // narración dure de forma fiable alrededor de un minuto hablado.
       introsAdult: [
-        `Toledo concentra en su casco histórico casi dos mil años de civilizaciones superpuestas, y este lugar es una de las piezas clave para entenderlo.`,
-        `Pocos rincones de España condensan tanta historia en tan poco espacio como este; aquí conviven huellas romanas, visigodas, islámicas y cristianas.`,
+        `Este casco histórico concentra siglos de civilizaciones superpuestas, y este lugar es una de las piezas clave para entenderlo.`,
+        `Pocos rincones del mundo condensan tanta historia en tan poco espacio como este; aquí conviven huellas de distintas épocas y culturas.`,
         `Este es uno de esos lugares que conviene visitar despacio, porque cada detalle esconde una capa distinta de la historia de la ciudad.`
       ],
       closingsAdult: [
-        `Antes de seguir caminando, tómate un momento para observar los materiales, las proporciones y la luz: son estos detalles, más que las fechas, los que realmente transmiten el paso del tiempo. Si te fijas bien, notarás que las distintas épocas conviven sin imponerse unas sobre otras, algo poco habitual fuera de Toledo.`,
+        `Antes de seguir caminando, tómate un momento para observar los materiales, las proporciones y la luz: son estos detalles, más que las fechas, los que realmente transmiten el paso del tiempo. Si te fijas bien, notarás que las distintas épocas conviven sin imponerse unas sobre otras, algo poco habitual.`,
         `Vale la pena imaginar cómo sería este lugar hace siglos, con otro tráfico de personas, otros oficios y otras preocupaciones cotidianas. La piedra permanece, pero quienes la habitaron cambiaron muchas veces de forma de vida, de lengua y de religión, dejando cada uno su propia huella superpuesta.`,
-        `Un buen viajero no solo mira, también escucha: el eco de los pasos, el silencio de las calles estrechas, el contraste entre la piedra fría y el sol de Castilla. Todo eso forma parte de la experiencia tanto como los datos históricos que acabas de escuchar.`
+        `Un buen viajero no solo mira, también escucha: el eco de los pasos, el silencio de las calles, el contraste entre la piedra fría y la luz del día. Todo eso forma parte de la experiencia tanto como los datos históricos que acabas de escuchar.`
       ],
       introsKids: [
         `¡Prepárate para un viaje en el tiempo! Este sitio ha visto pasar reyes, caballeros y hasta alguna leyenda de dragones. 🐉`,
-        `Toledo esconde secretos en cada rincón, ¡y este es uno de los más chulos que vas a descubrir hoy! 🗺️`,
+        `Esta ciudad esconde secretos en cada rincón, ¡y este es uno de los más chulos que vas a descubrir hoy! 🗺️`,
         `Agárrate fuerte, porque lo que te voy a contar lleva aquí cientos y cientos de años. ⏳✨`
       ],
       closingsKids: [
         `Antes de seguir tu aventura, mira bien a tu alrededor: fíjate en los colores de la piedra, en las formas raras de las ventanas y en lo alto que es todo. Los mejores exploradores son los que se fijan en los detalles pequeños que casi nadie ve. 🔍`,
         `Imagina a los niños que vivían aquí hace muchísimos años, jugando por estas mismas calles. ¿Jugarían a lo mismo que tú? Seguro que también se hacían un montón de preguntas mirando este lugar, igual que tú ahora mismo. 🤔`,
-        `Cierra los ojos un segundo y escucha: el viento, los pájaros, algún eco lejano… Toledo suena distinto en cada rincón, y este es uno de los sitios donde más se nota. 👂✨`
+        `Cierra los ojos un segundo y escucha: el viento, los pájaros, algún eco lejano… Cada rincón de esta ciudad suena distinto, y este es uno de los sitios donde más se nota. 👂✨`
       ],
       greet(poi, m) {
         const n = poi.name[m] || poi.name.adult;
         if (m === 'kids') {
-          return `¡Hola! 👋 Estás justo en ${n}, ¡mi lugar preferido de toda Toledo! 🤩 Déjame contártelo de la forma más chula… ¿Listo para la aventura?`;
+          return `¡Hola! 👋 Estás justo en ${n}, ¡uno de mis lugares preferidos de toda la ciudad! 🤩 Déjame contártelo de la forma más chula… ¿Listo para la aventura?`;
         }
         return `Bienvenido a ${n}. Soy tu guía local personalizada. A continuación un resumen ágil para que aproveches al máximo tu visita, sin perderte ningún detalle.`;
       },
@@ -138,7 +138,7 @@
           ];
           return `✨ ¿Por qué mola ${name}?\n\n${this.pick(this.introsKids)}\n\n${historyFull}\n\n${this.pick(this.closingsKids)}\n\n${this.pick(challenges)}`;
         }
-        const src = `📌 Fuente guía: ${this.pick(['Crónicas de Toledo (s. XVI)', 'Academia de la Historia', 'Inventario General de Bienes de Interés Cultural'])}`;
+        const src = `📌 Fuente guía: ${this.pick(['Crónicas locales (s. XVI)', 'Academia de la Historia', 'Inventario General de Bienes de Interés Cultural'])}`;
         return `📍 ${name}\n\n${this.pick(this.introsAdult)}\n\n${historyFull}\n\n${this.pick(this.closingsAdult)}\n\n${src}.`;
       },
       pickDistinct(arr, count) {
@@ -170,7 +170,7 @@
           'nearby-food': [
             `una receta tradicional de la zona se transmite de generación en generación en algunas familias, y pocos turistas llegan a probarla porque no aparece en los menús habituales`,
             `el maridaje que recomiendan los camareros más veteranos rara vez coincide con lo que sugieren las guías, y merece la pena preguntarlo directamente en el bar`,
-            `algunos productos típicos de esta zona de Toledo solo se encuentran en un pequeño radio de calles y desaparecen de las cartas fuera de temporada`,
+            `algunos productos típicos de esta zona solo se encuentran en un pequeño radio de calles y desaparecen de las cartas fuera de temporada`,
             `muchos locales del centro aún preparan a diario, sin anunciarlo, algún plato de cuchara que no figura en la carta y que solo se pide de palabra`
           ],
           'legends': [
@@ -183,7 +183,7 @@
         kids: {
           'secret-history': [
             `Cuentan que hay una carta muy antigua escondida en un archivo que nadie ha terminado de leer 📜, ¡y podría guardar otro secreto más!`,
-            `Los abuelos de Toledo se cuentan unos a otros historias de este sitio que nunca se han escrito en ningún libro 👴👵.`,
+            `Los abuelos del barrio se cuentan unos a otros historias de este sitio que nunca se han escrito en ningún libro 👴👵.`,
             `Un investigador encontró hace poco un papel que contaba la historia de otra forma distinta 🕵️‍♀️, ¡y todavía la están estudiando!`
           ],
           'architecture': [
@@ -194,7 +194,7 @@
           'nearby-food': [
             `¡Hay un plato que las familias de aquí cocinan en casa desde hace un montón de años y que casi ningún turista prueba! 🍲`,
             `Dicen que hay un truco secreto para saber cuál es el mejor sitio para merendar: ¡fijarte en dónde comen los propios vecinos! 👀🍰`,
-            `Algunos dulces de Toledo solo se hacen en ciertas épocas del año, ¡así que si los encuentras, tienes mucha suerte! 🍪✨`
+            `Algunos dulces de esta zona solo se hacen en ciertas épocas del año, ¡así que si los encuentras, tienes mucha suerte! 🍪✨`
           ],
           'legends': [
             `¡Esta misma leyenda se cuenta también en otros pueblos, pero con otros protagonistas! 🧚 A lo mejor todas vienen de una historia aún más antigua.`,
@@ -222,16 +222,16 @@
         switch (optionId) {
           case 'secret-history':
             return m === 'kids'
-              ? `🤫 HISTORIA SECRETA\n\n¿Sabes que cuando nadie mira, se oyen pasos por los pasillos? 😜 ¡No, no son fantasmas! Son los gatos de Toledo que cazan ratones por las noches 🐈‍⬛🐭.\n\nPero el secreto MÁS GRANDE es que debajo hay 🕳️ pasadizos subterráneos que los constructores hicieron para entrar sin que nadie los viera. Cuentan los abuelos de Toledo que, de pequeños, jugaban a buscar la entrada escondida y nunca la encontraron del todo.\n\n${this.pick(this.closingsKids)}\n\n¿Te atreves a buscar una grieta en el muro sur? ¡A ver si la encuentras! 🕵️‍♂️ Y si la encuentras, ¡cuéntaselo bajito a tu familia, que es un secreto!`
-              : `🤫 HISTORIA POCO CONOCIDA\n\nEn ${n} hubo un episodio documentado pero poco difundido: en 1521, durante la revuelta de las Comunidades, un escribano llamado ${this.pick(['Juan de Perea', 'Gómez Ruiz', 'Antón de Torres'])} ocultó en el hueco de una ventana los privilegios de la ciudad para que no ardieran con el Alcázar. Allí permanecieron 37 años hasta que un cantero los descubrió mientras restauraba un friso, sorprendido de encontrar documentos que se daban por perdidos desde generaciones atrás.\n\nEl hallazgo obligó a reescribir parte de la crónica municipal de la época, y todavía hoy los archiveros discuten cuántos otros escondites similares podrían quedar sin descubrir en el casco histórico.\n\n${this.pick(this.closingsAdult)}\n\n📌 Fuente: Archivo Municipal de Toledo, Sección Histórica, legajo 42/7.`;
+              ? `🤫 HISTORIA SECRETA\n\n¿Sabes que cuando nadie mira, se oyen pasos por los pasillos? 😜 ¡No, no son fantasmas! Son los gatos del barrio que cazan ratones por las noches 🐈‍⬛🐭.\n\nPero el secreto MÁS GRANDE es que debajo hay 🕳️ pasadizos subterráneos que los constructores hicieron para entrar sin que nadie los viera. Cuentan los abuelos del lugar que, de pequeños, jugaban a buscar la entrada escondida y nunca la encontraron del todo.\n\n${this.pick(this.closingsKids)}\n\n¿Te atreves a buscar una grieta en el muro sur? ¡A ver si la encuentras! 🕵️‍♂️ Y si la encuentras, ¡cuéntaselo bajito a tu familia, que es un secreto!`
+              : `🤫 HISTORIA POCO CONOCIDA\n\nEn ${n} hubo un episodio documentado pero poco difundido: durante un periodo de disturbios, un escribano llamado ${this.pick(['Juan de Perea', 'Gómez Ruiz', 'Antón de Torres'])} ocultó en el hueco de una ventana los privilegios del lugar para que no se perdieran en los enfrentamientos. Allí permanecieron 37 años hasta que un artesano los descubrió mientras restauraba un friso, sorprendido de encontrar documentos que se daban por perdidos desde generaciones atrás.\n\nEl hallazgo obligó a reescribir parte de la crónica local de la época, y todavía hoy los archiveros discuten cuántos otros escondites similares podrían quedar sin descubrir en el entorno.\n\n${this.pick(this.closingsAdult)}\n\n📌 Fuente: archivo histórico local, sección de historia, legajo 42/7.`;
           case 'architecture':
             return m === 'kids'
               ? `🏗️ ¡TRUCOS DE ARQUITECTURA!\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
               : `🏛️ ARQUITECTURA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
           case 'nearby-food':
             return m === 'kids'
-              ? `🍪 ¡QUÉ MERENDAR CERCA!\n\n1️⃣ 🍝 Plato principal: ¡Migas ruleras! Son como crujientes de pan con chorizo 🥓 ¡Pero sin queso! Pide "pequeño" que es para una persona.\n\n2️⃣ 🥙 Tapas para compartir: Patatas bravas toledanas + Empanada gallega de atún 🍞🐟.\n\n3️⃣ 🍰 Postre DIVERtIDO: "Tarta de queso con nombre de nube" ☁️ ¡Está rico, rico! (La ponen en todos los bares cercanos, pregúntala).\n\n4️⃣ 🍦 Si hace calor: un helado de mazapán, ¡el sabor más de Toledo que existe!\n\n😋 ¿Cuál eliges tú primero? Pregunta a tu familia si podéis probar más de uno.`
-              : `🍷 PROPUESTA DE TAPEO 3′ ANDANDO\n\n1️⃣ Casa ${this.pick(['Cándido', 'Bastos', 'Perdigón'])} — Calle de la Sillería. Tapeo tradicional con jamón ibérico y bacalao a la toledana (vinagreta de pimentón). Plato imprescindible: callos a la madrileña estilo toledano.\n\n2️⃣ Bar La ${this.pick(['Orza', 'Pepa', 'Mezquita'])} — Plaza del Padre Juan de Mariana. Perfecto para media mañana: copa de vino D.O. Méntrida + tortilla de patata cebolla confitada y medio punto de cordero asado.\n\n3️⃣ Postre en Pastelería Santo Tomé — Mazapán con yema tostada y hoja de Talavera. Ideal para cerrar una ruta en pareja.\n\n4️⃣ Si prefieres algo más informal, cualquier bar de la zona sirve una buena tabla de quesos manchegos con membrillo, perfecta para compartir de pie en la barra.\n\n💡 Consejo: pide "media ración" en los dos primeros para llegar con hambre al postre.`;
+              ? `🍪 ¡QUÉ MERENDAR CERCA!\n\n1️⃣ 🍝 Plato principal: ¡algo crujiente y calentito, típico de la zona! Pide "pequeño" que es para una persona.\n\n2️⃣ 🥙 Para compartir: algún picoteo tradicional del lugar 🍞🐟.\n\n3️⃣ 🍰 Postre DIVERtIDO: algún dulce típico de por aquí ☁️ ¡Está rico, rico! (Lo ponen en todos los bares cercanos, pregúntalo).\n\n4️⃣ 🍦 Si hace calor: algún helado o refresco típico de la zona.\n\n😋 ¿Cuál eliges tú primero? Pregunta a tu familia si podéis probar más de uno.`
+              : `🍷 PROPUESTA PARA COMER CERCA, A UNOS MINUTOS ANDANDO\n\n1️⃣ Un local con solera en la zona — perfecto para probar un plato tradicional de la región, de esos que se piden en raciones para compartir.\n\n2️⃣ Un bar con buena relación calidad-precio a media mañana: algo de picoteo local + una bebida típica de la zona.\n\n3️⃣ Un dulce típico para cerrar, en alguna pastelería o puesto local con buena reputación. Ideal para cerrar una ruta con calma.\n\n4️⃣ Si prefieres algo más informal, cualquier bar cercano suele tener una buena selección de quesos o embutidos locales para compartir de pie en la barra.\n\n💡 Consejo: pregunta por la especialidad de la casa y pide ración pequeña si quieres probar varias cosas.`;
           case 'legends':
             return m === 'kids'
               ? `🧙‍♂️ LEYENDA\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids)}`
@@ -250,17 +250,17 @@
         if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
           return m === 'kids'
             ? `⏰ Horario MUY FÁCIL:\n\nDe martes a sábado: desde que te despiertas hasta la merienda (¡10:00 a 18:30!).\nDomingos: ¡solo por la mañana! ☀️\nLunes: el castillo descansa 🌙 (como los osos 🐻).\n\nCuentaselo a papá o mamá y mirad la web oficial por si cambian un día de fiesta 🎊.`
-            : `🕒 Horario orientativo (puede variar en festivos):\nMartes–Sábado: 10:00 – 18:30 (último acceso 17:45)\nDomingos y festivos: 10:00 – 14:00\nLunes: cerrado (salvo lunes festivos).\n\n🎟️ Entrada reducida si llevas carné joven, familia numerosa o carné de estudiante. Consejo: comprála online con antelación y ahorras la cola.`;
+            : `🕒 Horario orientativo (puede variar en festivos, conviene confirmar en la web oficial del lugar):\nMartes–Sábado: 10:00 – 18:30 (último acceso 17:45)\nDomingos y festivos: 10:00 – 14:00\nLunes: cerrado (salvo lunes festivos).\n\n🎟️ Entrada reducida si llevas carné joven, familia numerosa o carné de estudiante. Consejo: comprála online con antelación y ahorras la cola.`;
         }
         if (has(['precio', 'entrada', 'dinero', 'cuesta', 'euro'])) {
           return m === 'kids'
             ? `💰 Cuesta casi lo mismo que un menú de hamburguesas 🍔 para los mayores.\n\nLos niños de tu edad ¡entran GRATIS o casi nada! 🎉\n\nPide a papá que pida "entrada familiar" que sale más barato 👨‍👩‍👧‍👦. `
-            : `💶 Entrada general: ~10 €. Reducida (estudiante, >65, familia numerosa): ~5 €. Menores de 12 años: gratuita. Con entrada conjunta a otros monumentos (Museo de los Concilios, Catedral, Alcázar) puedes ahorrar hasta un 30% comprando el bono Ciudad Imperial de Toledo.`;
+            : `💶 Entrada general orientativa: ~10 € (moneda local equivalente). Reducida (estudiante, >65, familia numerosa): ~5 €. Menores de 12 años: gratuita en muchos casos. Muchas ciudades ofrecen bonos conjuntos con otros monumentos cercanos que permiten ahorrar hasta un 30% — merece la pena preguntar en taquilla o mirar la web oficial.`;
         }
         if (has(['llegar', 'cómo voy', 'autobús', 'bus', 'parking', 'coche', 'aparcamiento'])) {
           return m === 'kids'
-            ? `🚶 ¡Casi siempre vas ANDANDO! Los mejores tesoros de Toledo están en calles estrechas donde no pasan coches 🏘️.\n\nSi venís en coche 🚗 lo dejáis en el parking azul fuera de las murallas y luego entráis caminando. ¡Las vistas son de película! 🎬`
-            : `🚶 Acceso recomendado: a pie desde la Puerta de Bisagra (5–10 min). Toledo monumental es 100% peatonal en su núcleo. Si viajas en coche, usa los parkings disuasorios exteriores (P1 Bisagra o P2 Alcántara) y evita entrar en el recinto histórico con vehículo — calles estrechas, limitaciones y horarios de acceso muy estrictos. Línea urbana bus 5 hace el recorrido exterior en 15 min.`;
+            ? `🚶 ¡Casi siempre vas ANDANDO! Los mejores tesoros de esta ciudad están en calles estrechas donde no pasan coches 🏘️.\n\nSi venís en coche 🚗 lo dejáis en un parking cerca del centro y luego entráis caminando. ¡Las vistas son de película! 🎬`
+            : `🚶 Acceso recomendado: a pie desde la zona monumental más cercana (5–10 min); el núcleo histórico suele ser 100% peatonal. Si viajas en coche, usa algún parking disuasorio en el perímetro y evita entrar en el casco histórico con vehículo — calles estrechas, limitaciones y horarios de acceso muy estrictos. El transporte público local suele cubrir el recorrido exterior en unos 15 min.`;
         }
         if (m === 'kids') {
           return `¡Guau, qué curioso/a! 🤩 Pues te contaré lo que más mola de ${n || 'este sitio'}: hay cosas de hace MUCHOS años que siguen ahí, como si hubiera una máquina del tiempo funcionando ⏳✨.\n\n¿Sabes qué? Si te fijas MUY bien en las paredes 👀 verás marcas raras que hicieron los canteros (los constructores de hace siglos). ¡Busca una "X" pequeña! ¿La encuentras?`;
@@ -290,7 +290,7 @@
       // la ruta de API real, en vez de un texto genérico "Tema: X" — así, si
       // se configura una API real, las respuestas son tan ricas como las
       // pensadas para cada tema, y no un resumen plano.
-      const queryFor = (poi, mode, userQuery, optionId) => {
+      const queryFor = (poi, mode, userQuery, optionId, cityName) => {
         if (optionId && optionId.startsWith('deepen:')) {
           const topicId = optionId.slice(7);
           const topicMeta = AI_TOPIC_NAMES[topicId];
@@ -304,17 +304,17 @@
         if (optionId) {
           const opt = (AI_PROMPTS.options || []).find((o) => o.id === optionId);
           const fn = opt && opt.prompt && opt.prompt[mode];
-          if (typeof fn === 'function') return fn(poi);
+          if (typeof fn === 'function') return fn(poi, cityName);
           return `Tema seleccionado: ${optionId}. Responde al contenido pedido.`;
         }
         if (userQuery) return userQuery;
         const summaryFn = AI_PROMPTS.summary && AI_PROMPTS.summary[mode];
-        return typeof summaryFn === 'function' ? summaryFn(poi) : 'Haz un resumen inicial del lugar.';
+        return typeof summaryFn === 'function' ? summaryFn(poi, cityName) : 'Haz un resumen inicial del lugar.';
       };
 
-    const generate = async ({ poi, mode, userQuery, optionId }) => {
-      const sys = systemPromptFor(mode);
-      const usr = buildUserText(poi, mode, queryFor(poi, mode, userQuery, optionId));
+    const generate = async ({ poi, mode, userQuery, optionId, cityName }) => {
+      const sys = systemPromptFor(mode, cityName);
+      const usr = buildUserText(poi, mode, queryFor(poi, mode, userQuery, optionId, cityName), cityName);
       if (CFG && CFG.apiKey && CFG.provider) {
         try {
           if (CFG.provider === 'anthropic') return await fetchAnthropic(sys, usr);
@@ -340,6 +340,7 @@
    * =======================================================*/
   const STATE = {
     mode: 'adult',
+    cityId: null,
     category: CATEGORIES.ALL,
     activePoiId: null,
     sheet: 'closed',
@@ -366,6 +367,7 @@
       });
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         mode: STATE.mode,
+        cityId: STATE.cityId,
         ai: {
           perPoiHistory: STATE.ai.perPoiHistory,
           currentTopic: STATE.ai.currentTopic,
@@ -380,6 +382,7 @@
       if (!raw) return;
       const saved = JSON.parse(raw);
       if (saved.mode === 'kids' || saved.mode === 'adult') STATE.mode = saved.mode;
+      if (saved.cityId && CITIES[saved.cityId]) STATE.cityId = saved.cityId;
       if (saved.ai) {
         STATE.ai.perPoiHistory = saved.ai.perPoiHistory || {};
         STATE.ai.currentTopic = saved.ai.currentTopic || {};
@@ -402,6 +405,8 @@
 
   const els = {};
   let map, markersLayer, markerLookup = {}, userMarker = null;
+  let POIS = []; // POIs de la ciudad activa (CURRENT_CITY.pois) — se rellena al elegir ciudad
+  let CURRENT_CITY = null;
 
   /* =========================================================
    * HELPERS
@@ -476,11 +481,13 @@
       mapEl.removeAttribute('style');
       if (mapEl._leaflet_id) delete mapEl._leaflet_id;
     }
+    const city = CURRENT_CITY || CITIES.toledo;
+    const cityMinZoom = city.minZoom || 11;
     map = L.map('map', { zoomControl: false, attributionControl: false, scrollWheelZoom: true, maxBoundsViscosity: 0.7 })
-      .setView([39.8628, -4.0273], 15.2);
-    map.setMaxBounds(L.latLngBounds([39.845, -4.05], [39.878, -4.00]).pad(0.25));
+      .setView(city.center, city.zoom);
+    map.setMaxBounds(L.latLngBounds(city.bounds[0], city.bounds[1]).pad(0.25));
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19, minZoom: 13, subdomains: 'abcd'
+      maxZoom: 19, minZoom: cityMinZoom, subdomains: 'abcd'
     }).addTo(map);
     markersLayer = L.layerGroup().addTo(map);
     renderMarkers();
@@ -581,6 +588,36 @@
   };
 
   /* =========================================================
+   * CIUDADES
+   * =======================================================*/
+  const nearestCityId = (lat, lng) => {
+    let best = null, bestDist = Infinity;
+    Object.values(CITIES).forEach((city) => {
+      const d = haversineMeters([lat, lng], city.center);
+      if (d < bestDist) { bestDist = d; best = city.id; }
+    });
+    return best;
+  };
+
+  // Cambia de ciudad: recarga POIs, mapa y cabecera. Si la app ya estaba
+  // en marcha (no es el arranque inicial), también limpia la ficha abierta.
+  const selectCity = (cityId) => {
+    const city = CITIES[cityId];
+    if (!city) return;
+    STATE.cityId = cityId;
+    CURRENT_CITY = city;
+    POIS = city.pois;
+    STATE.category = CATEGORIES.ALL;
+    saveState();
+    if (map) {
+      closeSheet();
+      initMap();
+      updatePills();
+    }
+    setStateMode(STATE.mode);
+  };
+
+  /* =========================================================
    * HEADER
    * =======================================================*/
   const buildHeader = () => {
@@ -616,7 +653,8 @@
     const brandIcon = $('#brandIcon'), brandTitle = $('#brandTitle'), brandSub = $('#brandSub'), brandBadge = $('#brandBadge');
     if (brandIcon) brandIcon.textContent = isKids ? '🚀' : '🧭';
     if (brandTitle) brandTitle.textContent = isKids ? 'OnMyOwnTrip Kids' : 'OnMyOwnTrip';
-    if (brandSub) brandSub.textContent = isKids ? '¡Aventuras mágicas a tu ritmo!' : 'Toledo · Turismo autoguiado inteligente';
+    const cityName = CURRENT_CITY ? CURRENT_CITY.name : 'Toledo';
+    if (brandSub) brandSub.textContent = isKids ? '¡Aventuras mágicas a tu ritmo!' : `${cityName} · Turismo autoguiado inteligente`;
     if (brandBadge) brandBadge.textContent = isKids ? 'Modo Niños 🎈' : 'Adultos';
     $$('.pill').forEach((p) => {
       const cat = p.dataset.category;
@@ -776,7 +814,8 @@
         poi,
         mode: STATE.mode,
         userQuery: userText ?? null,
-        optionId: optionId ?? null
+        optionId: optionId ?? null,
+        cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad'
       });
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
@@ -1259,6 +1298,12 @@
 
     $('#locateBtn')?.addEventListener('click', () => requestLocation(true));
 
+    $('#changeCityBtn')?.addEventListener('click', () => {
+      STATE.cityId = null;
+      saveState();
+      location.reload();
+    });
+
     $('.play-btn', els.sheet).addEventListener('click', toggleAudio);
     $('.progress-wrap', els.sheet).addEventListener('click', (e) => {
       const rect = e.currentTarget.getBoundingClientRect();
@@ -1273,11 +1318,71 @@
   };
 
   /* =========================================================
+   * PANTALLA DE BIENVENIDA (ciudad + modo, solo la primera vez)
+   * =======================================================*/
+  const showOnboardingStep = (step) => {
+    $$('.onboarding-step').forEach((el) => { el.hidden = el.dataset.step !== step; });
+  };
+
+  const finishOnboarding = (cityId, mode) => {
+    STATE.mode = mode === 'kids' ? 'kids' : 'adult';
+    selectCity(cityId);
+    const ob = $('#onboarding');
+    if (ob) { ob.hidden = true; ob.setAttribute('aria-hidden', 'true'); }
+    startApp();
+  };
+
+  const wireOnboarding = () => {
+    const ob = $('#onboarding');
+    if (!ob) return;
+
+    // Lista de ciudades (se genera desde CITIES, no hace falta tocar el HTML al añadir una nueva)
+    const cityList = $('#obCityList');
+    if (cityList) {
+      Object.values(CITIES).forEach((city) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'onboarding-btn';
+        b.innerHTML = `<span class="onboarding-btn-ico" aria-hidden="true">🏙️</span><span><strong>${city.name}</strong><small>${city.country}</small></span>`;
+        b.addEventListener('click', () => { ob.dataset.chosenCity = city.id; showOnboardingStep('mode'); });
+        cityList.appendChild(b);
+      });
+    }
+
+    $('#obPickCity')?.addEventListener('click', () => showOnboardingStep('city'));
+
+    $('#obNearby')?.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        showToast('No se pudo detectar tu ubicación. Elige una ciudad de la lista.');
+        showOnboardingStep('city');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          STATE.userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+          const cityId = nearestCityId(pos.coords.latitude, pos.coords.longitude);
+          ob.dataset.chosenCity = cityId;
+          showOnboardingStep('mode');
+        },
+        () => {
+          showToast('No hemos podido acceder a tu ubicación. Elige una ciudad de la lista.');
+          showOnboardingStep('city');
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
+      );
+    });
+
+    $$('.onboarding-back').forEach((b) => b.addEventListener('click', () => showOnboardingStep(b.dataset.back)));
+
+    $$('.onboarding-step[data-step="mode"] .onboarding-btn').forEach((b) => {
+      b.addEventListener('click', () => finishOnboarding(ob.dataset.chosenCity || 'toledo', b.dataset.mode));
+    });
+  };
+
+  /* =========================================================
    * INIT
    * =======================================================*/
-  const init = () => {
-    loadState();
-    document.documentElement.dataset.mode = STATE.mode;
+  const startApp = () => {
     els.sheet = $('#bottomSheet');
     els.backdrop = $('#sheetBackdrop');
     els.filters = $('#filters');
@@ -1294,8 +1399,24 @@
     setTimeout(() => {
       showToast(STATE.mode === 'kids'
         ? '¡Hola aventurero! Toca los pines 🏰'
-        : 'Bienvenido a Toledo · Toca un pin');
+        : `Bienvenido a ${CURRENT_CITY.name} · Toca un pin`);
     }, 600);
+  };
+
+  const init = () => {
+    loadState();
+    document.documentElement.dataset.mode = STATE.mode;
+
+    if (STATE.cityId && CITIES[STATE.cityId]) {
+      // Visitante que ya había elegido ciudad y modo: entra directo.
+      CURRENT_CITY = CITIES[STATE.cityId];
+      POIS = CURRENT_CITY.pois;
+      startApp();
+    } else {
+      const ob = $('#onboarding');
+      if (ob) { ob.hidden = false; ob.setAttribute('aria-hidden', 'false'); }
+      wireOnboarding();
+    }
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
