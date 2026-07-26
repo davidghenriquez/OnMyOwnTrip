@@ -319,6 +319,12 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
               0 10px 22px rgba(0, 0, 0, 0.5);
   z-index: 1000 !important;
 }
+.custom-pin.-dimmed {
+  opacity: 0.45;
+  filter: grayscale(0.4);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+.custom-pin.-dimmed:not(.-selected) { z-index: 1 !important; }
 
 /* ---------- BOTTOM SHEET ---------- */
 .sheet-backdrop {

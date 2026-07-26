@@ -454,12 +454,13 @@
   /* =========================================================
    * CUSTOM LEAFLET PIN (círculo de color + icono SVG, estilo app nativa)
    * =======================================================*/
-  const makePinIcon = (poi) => {
-    const color = getCategoryPinColor(poi.category);
+  const makePinIcon = (poi, dimmed = false) => {
+    const color = dimmed ? '#94A3B8' : getCategoryPinColor(poi.category);
     const icon = getCategoryPinIconSvg(poi.category);
+    const cls = 'custom-pin' + (dimmed ? ' -dimmed' : '');
     return L.divIcon({
       className: 'custom-pin-wrap',
-      html: `<div class="custom-pin" data-id="${poi.id}" style="--pin-color:${color}">${icon}</div>`,
+      html: `<div class="${cls}" data-id="${poi.id}" style="--pin-color:${color}">${icon}</div>`,
       iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -19]
     });
   };
@@ -488,8 +489,8 @@
     markersLayer.clearLayers();
     markerLookup = {};
     POIS.forEach((poi) => {
-      if (STATE.category !== CATEGORIES.ALL && poi.category !== STATE.category) return;
-      const marker = L.marker(poi.coords, { icon: makePinIcon(poi) });
+      const dimmed = STATE.category !== CATEGORIES.ALL && poi.category !== STATE.category;
+      const marker = L.marker(poi.coords, { icon: makePinIcon(poi, dimmed) });
       marker.options.poiId = poi.id;
       marker.options.category = poi.category;
       marker.on('click', () => selectPoi(poi.id, true));
