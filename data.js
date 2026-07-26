@@ -36,7 +36,7 @@ const POIS = [
     },
     category: CATEGORIES.HISTORY,
     coords: [39.8568, -4.0244],
-    image: 'https://picsum.photos/seed/catedral-toledo/900/600',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cathedral_of_Toledo_%287079311505%29.jpg/330px-Cathedral_of_Toledo_%287079311505%29.jpg',
     audio: {
       duration: 182,
       title: {
@@ -71,7 +71,7 @@ const POIS = [
     },
     category: CATEGORIES.HISTORY,
     coords: [39.8604, -4.0308],
-    image: 'https://picsum.photos/seed/puerta-bisagra/900/600',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/1_Puerta_de_Bisagra_toledo_2014.jpg/330px-1_Puerta_de_Bisagra_toledo_2014.jpg',
     audio: {
       duration: 148,
       title: {
@@ -106,7 +106,7 @@ const POIS = [
     },
     category: CATEGORIES.HIDDEN,
     coords: [39.8530, -4.0205],
-    image: 'https://picsum.photos/seed/mirador-valle/900/600',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Vista_de_Toledo_desde_el_mirador_del_Valle_01.jpg/330px-Vista_de_Toledo_desde_el_mirador_del_Valle_01.jpg',
     audio: {
       duration: 124,
       title: {
@@ -131,17 +131,18 @@ const POIS = [
   },
   {
     id: 'restaurante-sorbona',
+    fictional: true, // parada de ambientación: no existe como tal en Toledo, ver §documentación
     name: {
       adult: 'Restaurante La Sorbona',
       kids: '¡La Casa de las Comidas! 🍽️'
     },
     subtitle: {
-      adult: 'Tradición gastronómica toledana desde 1893',
-      kids: 'Las migas más ricas de Toledo'
+      adult: 'Parada ilustrativa de gastronomía toledana',
+      kids: 'Las migas más ricas de Toledo (¡un cuento para abrir boca!)'
     },
     category: CATEGORIES.GASTRONOMY,
     coords: [39.8587, -4.0256],
-    image: 'https://picsum.photos/seed/sorbona-toledo/900/600',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Gazpacho_manchego_con_torta_cence%C3%B1a_Ruiz_de_La_Roda.jpg/330px-Gazpacho_manchego_con_torta_cence%C3%B1a_Ruiz_de_La_Roda.jpg', // foto genérica de cocina castellana (lugar ilustrativo, no una foto del "restaurante" en sí)
     audio: {
       duration: 156,
       title: {
@@ -151,16 +152,16 @@ const POIS = [
     },
     tabs: {
       history: {
-        adult: 'Fundado en 1893 por el matrimonio Soriano-Bona, La Sorbona es uno de los restaurantes más antiguos de Toledo. Su nombre hace honor a la cercana Universidad. Durante más de un siglo ha servido cocina castellana de autor, manteniendo intactos sus suelos de madera de roble y sus espejos biselados. Figuras como Hemingway, Juan Carlos I y Mario Vargas Llosa han comido en su salón principal.',
-        kids: '¡Este restaurante tiene más de 130 años! 🧓 De pequeñito… ¡de pequeñito el bisabuelo de los dueños lo abrió! Han venido escritores famosos y hasta reyes. ¡Hay espejos antiguos que reflejan tu cara como si fuera un cuento de hadas!'
+        adult: 'La Sorbona es una parada de ambientación (no un establecimiento real) que recrea el espíritu de los mesones clásicos del casco histórico de Toledo: siglos de cocina castellana de autor, suelos de madera de roble y espejos biselados. Sirve para imaginar, entre lugar y lugar de la ruta, cómo se vive la sobremesa toledana.',
+        kids: '¡Vamos a imaginarnos un restaurante mágico! Aquí nos inventamos una casa de comidas que lleva generaciones sirviendo migas riquísimas. 🧓 ¡Con espejos antiguos que reflejan tu cara como si fuera un cuento de hadas!'
       },
       legends: {
-        adult: 'Cuentan los camareros veteranos que el cubierto nº 7 de la mesa redonda del fondo es "el cubierto del escritor". Todo autor que se sienta allí y prueba el bacalao a la toledana termina su novela antes del año. También se dice que Ernest Hemingway se enamoró aquí de las gachas manchegas y llevó la receta escrita en una servilleta a su casa de Cuba.',
-        kids: '¡La mesa 7 es mágica! ✨ Los escritores que se sientan allí terminan sus libros antes de un año. ¡Pregunta a tu mamá o papá si puedes sentarte ahí y pide un postre rico! ¿Qué cuento escribirías tú?'
+        adult: 'Como parada imaginada, se le atribuye una pequeña leyenda propia de la ruta: dicen que el cubierto nº 7 de la mesa redonda del fondo es "el cubierto de la inspiración", y que quien se sienta ahí y prueba el bacalao a la toledana termina aquello en lo que estaba trabajando antes de un año.',
+        kids: '¡La mesa 7 es mágica! ✨ Quien se sienta ahí termina sus proyectos antes de un año. ¡Pide un postre rico y piensa qué cuento escribirías tú!'
       },
       architecture: {
-        adult: 'Ocupando la planta baja de un palacio renacentista del siglo XVI, su interior conserva suelos de roble original, paredes con pinturas murales de paisajes toledanos, techos con vigas de madera vistas y una gran chimenea de azulejos Talaveranos que funciona en invierno. El salón principal está flanqueado por estanterías de más de 4 metros llenas de libros antiguos y vinilos de solistas de jazz.',
-        kids: '¡Mira el techo! Hay vigas de madera supergruesas. 🪵 Una chimenea de colores se enciende en invierno. En las estanterías hay más de 500 libros antiguos. ¿Te atreves a contar cuántos platos caben en la mesa grande del centro?'
+        adult: 'Se imagina ocupando la planta baja de un palacio renacentista del siglo XVI, con suelos de roble, pinturas murales de paisajes toledanos, vigas de madera vistas y una gran chimenea de azulejos talaveranos. Una ambientación pensada para transmitir cómo era comer en el Toledo de hace varios siglos.',
+        kids: '¡Imagina el techo! Con vigas de madera supergruesas. 🪵 Una chimenea de colores que se enciende en invierno. ¿Te atreves a imaginar cuántos platos cabrían en la mesa grande del centro?'
       }
     }
   },
@@ -176,7 +177,7 @@ const POIS = [
     },
     category: CATEGORIES.HISTORY,
     coords: [39.8560, -4.0269],
-    image: 'https://picsum.photos/seed/santo-tome/900/600',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Tol%C3%A8de_-_clocher_de_Santo_Tom%C3%A9.JPG/330px-Tol%C3%A8de_-_clocher_de_Santo_Tom%C3%A9.JPG',
     audio: {
       duration: 171,
       title: {
@@ -211,7 +212,7 @@ const POIS = [
     },
     category: CATEGORIES.HIDDEN,
     coords: [39.8618, -4.0211],
-    image: 'https://picsum.photos/seed/mirador-azor/900/600',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Wall_detail_-_Toledo,_Spain.JPG/330px-Wall_detail_-_Toledo,_Spain.JPG', // detalle de la muralla (no la foto exacta de este rincón concreto, que no tiene foto libre disponible)
     audio: {
       duration: 112,
       title: {
@@ -246,7 +247,7 @@ const POIS = [
     },
     category: CATEGORIES.HISTORY,
     coords: [39.8551, -4.0281],
-    image: 'https://picsum.photos/seed/casa-greco/900/600',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/WLM14ES_-_10072005_114623_7742_-_.jpg/330px-WLM14ES_-_10072005_114623_7742_-_.jpg',
     audio: {
       duration: 165,
       title: {
@@ -281,7 +282,7 @@ const POIS = [
     },
     category: CATEGORIES.HISTORY,
     coords: [39.8581, -4.0219],
-    image: 'https://picsum.photos/seed/alcazar-toledo/900/600',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/FP_Toledo_Alcazar_2025_-_Views.jpg/330px-FP_Toledo_Alcazar_2025_-_Views.jpg',
     audio: {
       duration: 205,
       title: {

@@ -798,7 +798,8 @@
 
     $('.sheet-thumb', els.sheet).src = poi.image;
     $('.sheet-thumb', els.sheet).alt = pickDual(poi.name);
-    $('.sheet-cat-badge', els.sheet).textContent = pickDual(meta.label);
+    $('.sheet-cat-badge', els.sheet).textContent = pickDual(meta.label)
+      + (poi.fictional ? (STATE.mode === 'kids' ? ' · Imaginado' : ' · Ilustrativo') : '');
     $('.sheet-title', els.sheet).textContent = pickDual(poi.name);
     $('.sheet-sub', els.sheet).textContent = pickDual(poi.subtitle);
 
