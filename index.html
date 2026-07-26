@@ -25,48 +25,78 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- PANTALLA DE BIENVENIDA: cerca de mí / elegir ciudad, luego modo -->
+  <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla -->
   <div class="onboarding" id="onboarding" hidden aria-hidden="true">
+    <svg class="onboarding-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M8 88 Q50 4 92 32" fill="none" stroke="#f59e0b" stroke-width="0.35" stroke-dasharray="1.6 2.4" opacity="0.45"/>
+      <circle cx="8" cy="88" r="1.3" fill="#f59e0b"/>
+      <circle cx="92" cy="32" r="1.3" fill="#38bdf8"/>
+    </svg>
+
     <div class="onboarding-card">
       <div class="onboarding-brand">
         <span aria-hidden="true">🧭</span>
         <span>OnMyOwnTrip</span>
       </div>
 
-      <div class="onboarding-step" data-step="start">
+      <div class="onboarding-section">
         <h1>¿Dónde quieres explorar?</h1>
+
         <button type="button" class="onboarding-btn" id="obNearby">
-          <span class="onboarding-btn-ico" aria-hidden="true">📍</span>
+          <span class="onboarding-btn-ico -location" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"></circle>
+              <circle cx="12" cy="12" r="7.5"></circle>
+              <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"></path>
+            </svg>
+          </span>
           <span>
             <strong>Cerca de mí</strong>
             <small>Detecto la ciudad más cercana con tu ubicación</small>
           </span>
         </button>
-        <button type="button" class="onboarding-btn" id="obPickCity">
-          <span class="onboarding-btn-ico" aria-hidden="true">🏙️</span>
-          <span>
-            <strong>Elegir una ciudad</strong>
-            <small>Toledo, Tokio…</small>
-          </span>
-        </button>
+
+        <div class="onboarding-dropdown">
+          <button type="button" class="onboarding-btn" id="obPickCity" aria-expanded="false">
+            <span class="onboarding-btn-ico -map" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <defs>
+                  <linearGradient id="obPinGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#e0a458"/>
+                    <stop offset="1" stop-color="#8a5a2b"/>
+                  </linearGradient>
+                </defs>
+                <g opacity="0.9">
+                  <rect x="5" y="16" width="30" height="19" rx="2" fill="#f3e3c3" transform="rotate(-3 20 25)"></rect>
+                  <path d="M6 18l9 3 9-3 9 3" stroke="#b8905a" stroke-width="1" fill="none" opacity="0.7"></path>
+                  <path d="M6 26l9 3 9-3 9 3" stroke="#b8905a" stroke-width="1" fill="none" opacity="0.5"></path>
+                </g>
+                <path d="M20 3c-5.2 0-9 3.9-9 8.6 0 6.4 9 17.4 9 17.4s9-11 9-17.4C29 6.9 25.2 3 20 3z" fill="url(#obPinGrad)"></path>
+                <circle cx="20" cy="11.5" r="3.6" fill="#fdf3e2"></circle>
+              </svg>
+            </span>
+            <span>
+              <strong>Elegir una ciudad</strong>
+            </span>
+            <svg class="onboarding-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="onboarding-city-list" id="obCityList" hidden></div>
+        </div>
       </div>
 
-      <div class="onboarding-step" data-step="city" hidden>
-        <h1>¿Qué ciudad?</h1>
-        <div class="onboarding-city-list" id="obCityList"></div>
-        <button type="button" class="onboarding-back" data-back="start">← Volver</button>
-      </div>
-
-      <div class="onboarding-step" data-step="mode" hidden>
+      <div class="onboarding-section">
         <h1>¿Modo Adultos o Niños?</h1>
-        <button type="button" class="onboarding-btn" data-mode="adult">
-          <span class="onboarding-btn-ico" aria-hidden="true">🧑</span>
-          <span><strong>Adultos</strong><small>Contenido experto y riguroso</small></span>
-        </button>
-        <button type="button" class="onboarding-btn" data-mode="kids">
-          <span class="onboarding-btn-ico" aria-hidden="true">🎈</span>
-          <span><strong>Niños</strong><small>Aventuras, retos y magia</small></span>
-        </button>
+        <div class="onboarding-mode-row">
+          <button type="button" class="onboarding-btn -mode" data-mode="adult" data-active="true">
+            <span><strong>Adultos</strong><small>Contenido experto y riguroso</small></span>
+          </button>
+          <button type="button" class="onboarding-btn -mode" data-mode="kids" data-active="false">
+            <span><strong>Niños</strong><small>Aventuras, retos y magia</small></span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -88,10 +118,10 @@
         </div>
 
         <div class="header-actions">
-          <button type="button" class="change-city-btn" id="changeCityBtn" aria-label="Cambiar de ciudad o modo" title="Cambiar de ciudad">
+          <button type="button" class="change-city-btn" id="changeCityBtn" aria-label="Volver al menú principal" title="Menú principal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
+              <path d="M4 11.5 12 4l8 7.5"></path>
+              <path d="M6 10v9a1 1 0 0 0 1 1h4v-6h2v6h4a1 1 0 0 0 1-1v-9"></path>
             </svg>
           </button>
 

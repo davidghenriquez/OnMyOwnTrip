@@ -1318,12 +1318,8 @@
   };
 
   /* =========================================================
-   * PANTALLA DE BIENVENIDA (ciudad + modo, solo la primera vez)
+   * PANTALLA DE BIENVENIDA (ciudad + modo, todo en una sola pantalla)
    * =======================================================*/
-  const showOnboardingStep = (step) => {
-    $$('.onboarding-step').forEach((el) => { el.hidden = el.dataset.step !== step; });
-  };
-
   const finishOnboarding = (cityId, mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     selectCity(cityId);
@@ -1336,46 +1332,103 @@
     const ob = $('#onboarding');
     if (!ob) return;
 
-    // Lista de ciudades (se genera desde CITIES, no hace falta tocar el HTML al añadir una nueva)
-    const cityList = $('#obCityList');
-    if (cityList) {
-      Object.values(CITIES).forEach((city) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'onboarding-btn';
-        b.innerHTML = `<span class="onboarding-btn-ico" aria-hidden="true">🏙️</span><span><strong>${city.name}</strong><small>${city.country}</small></span>`;
-        b.addEventListener('click', () => { ob.dataset.chosenCity = city.id; showOnboardingStep('mode'); });
-        cityList.appendChild(b);
+    let chosenMode = STATE.mode === 'kids' ? 'kids' : 'adult';
+    const modeBtns = $$('.onboarding-btn.-mode');
+    modeBtns.forEach((b) => {
+      b.dataset.active = String(b.dataset.mode === chosenMode);
+      b.addEventListener('click', () => {
+        chosenMode = b.dataset.mode === 'kids' ? 'kids' : 'adult';
+        modeBtns.forEach((x) => { x.dataset.active = String(x === b); });
       });
-    }
+    });
 
-    $('#obPickCity')?.addEventListener('click', () => showOnboardingStep('city'));
+    // Lista de ciudades: continente → país → ciudad (se genera desde CITIES).
+    const cityList = $('#obCityList');
+    const allCities = Object.values(CITIES);
+
+    const makeRow = (label, sub, onClick) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'onboarding-city-option';
+      b.innerHTML = sub ? `<span>${label}</span><small>${sub}</small>` : `<span>${label}</span>`;
+      b.addEventListener('click', (e) => { e.stopPropagation(); onClick(); });
+      return b;
+    };
+
+    const makeBack = (label, onClick) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'onboarding-city-back';
+      b.innerHTML = `<span aria-hidden="true">←</span> ${label}`;
+      b.addEventListener('click', (e) => { e.stopPropagation(); onClick(); });
+      return b;
+    };
+
+    const renderContinents = () => {
+      if (!cityList) return;
+      cityList.innerHTML = '';
+      const continents = [...new Set(allCities.map((c) => c.continent))];
+      continents.forEach((continent) => {
+        cityList.appendChild(makeRow(continent, '', () => renderCountries(continent)));
+      });
+    };
+
+    const renderCountries = (continent) => {
+      if (!cityList) return;
+      cityList.innerHTML = '';
+      cityList.appendChild(makeBack('Continentes', renderContinents));
+      const countries = [...new Set(allCities.filter((c) => c.continent === continent).map((c) => c.country))];
+      countries.forEach((country) => {
+        cityList.appendChild(makeRow(country, '', () => renderCities(continent, country)));
+      });
+    };
+
+    const renderCities = (continent, country) => {
+      if (!cityList) return;
+      cityList.innerHTML = '';
+      cityList.appendChild(makeBack(country, () => renderCountries(continent)));
+      allCities
+        .filter((c) => c.continent === continent && c.country === country)
+        .forEach((city) => {
+          cityList.appendChild(makeRow(city.name, '', () => finishOnboarding(city.id, chosenMode)));
+        });
+    };
+
+    const pickCityBtn = $('#obPickCity');
+    pickCityBtn?.addEventListener('click', (e) => {
+      if (!cityList) return;
+      const willExpand = cityList.hidden;
+      if (willExpand) renderContinents();
+      cityList.hidden = !willExpand;
+      e.currentTarget.setAttribute('aria-expanded', String(willExpand));
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!cityList || cityList.hidden) return;
+      if (cityList.contains(e.target) || pickCityBtn?.contains(e.target)) return;
+      cityList.hidden = true;
+      pickCityBtn?.setAttribute('aria-expanded', 'false');
+    });
 
     $('#obNearby')?.addEventListener('click', () => {
       if (!navigator.geolocation) {
         showToast('No se pudo detectar tu ubicación. Elige una ciudad de la lista.');
-        showOnboardingStep('city');
+        if (cityList) cityList.hidden = false;
         return;
       }
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           STATE.userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
           const cityId = nearestCityId(pos.coords.latitude, pos.coords.longitude);
-          ob.dataset.chosenCity = cityId;
-          showOnboardingStep('mode');
+          finishOnboarding(cityId, chosenMode);
         },
         () => {
           showToast('No hemos podido acceder a tu ubicación. Elige una ciudad de la lista.');
-          showOnboardingStep('city');
+          if (cityList) cityList.hidden = false;
         },
         { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
       );
-    });
-
-    $$('.onboarding-back').forEach((b) => b.addEventListener('click', () => showOnboardingStep(b.dataset.back)));
-
-    $$('.onboarding-step[data-step="mode"] .onboarding-btn').forEach((b) => {
-      b.addEventListener('click', () => finishOnboarding(ob.dataset.chosenCity || 'toledo', b.dataset.mode));
     });
   };
 
