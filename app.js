@@ -347,7 +347,8 @@
       playing: false, currentTime: 0, duration: 0, timer: null,
       speech: { supported: false, utterance: null, voices: [], pickedVoice: null }
     },
-    ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {} }
+    ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {} },
+    userLocation: null // { lat, lng } una vez que el usuario comparte su ubicación
   };
 
   /* =========================================================
@@ -400,7 +401,7 @@
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
   const els = {};
-  let map, markersLayer, markerLookup = {};
+  let map, markersLayer, markerLookup = {}, userMarker = null;
 
   /* =========================================================
    * HELPERS
@@ -508,6 +509,77 @@
   };
   const clearSelectedMarker = () => {
     Object.values(markerLookup).forEach((m) => m.getElement()?.querySelector('.custom-pin')?.classList.remove('-selected'));
+  };
+
+  /* =========================================================
+   * GEOLOCALIZACIÓN ("dónde estoy" + distancia a cada lugar)
+   * =======================================================*/
+  const haversineMeters = (a, b) => {
+    const R = 6371000;
+    const toRad = (d) => (d * Math.PI) / 180;
+    const dLat = toRad(b[0] - a[0]);
+    const dLng = toRad(b[1] - a[1]);
+    const lat1 = toRad(a[0]), lat2 = toRad(b[0]);
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(h));
+  };
+  const formatDistance = (meters) => {
+    if (meters < 1000) return `${Math.round(meters / 10) * 10} m`;
+    return `${(meters / 1000).toFixed(1)} km`;
+  };
+
+  const updateUserMarker = () => {
+    if (!STATE.userLocation || !map) return;
+    const pos = [STATE.userLocation.lat, STATE.userLocation.lng];
+    if (userMarker) {
+      userMarker.setLatLng(pos);
+    } else {
+      userMarker = L.marker(pos, {
+        icon: L.divIcon({ className: 'user-location-wrap', html: '<div class="user-location-dot"></div>', iconSize: [16, 16], iconAnchor: [8, 8] }),
+        interactive: false,
+        zIndexOffset: -100
+      }).addTo(map);
+    }
+  };
+
+  const requestLocation = (centerOnResult = true) => {
+    const btn = $('#locateBtn');
+    if (!navigator.geolocation) {
+      showToast(STATE.mode === 'kids' ? 'Tu navegador no sabe dónde estás 😅' : 'La geolocalización no está disponible en este navegador.');
+      return;
+    }
+    btn?.classList.add('-locating');
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        STATE.userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        btn?.classList.remove('-locating');
+        btn?.classList.add('-active');
+        updateUserMarker();
+        if (centerOnResult && map) map.flyTo([STATE.userLocation.lat, STATE.userLocation.lng], 16, { duration: 0.7 });
+        if (STATE.activePoiId) updateSheetDistance(STATE.activePoiId);
+      },
+      (err) => {
+        btn?.classList.remove('-locating');
+        const denied = err && err.code === 1;
+        showToast(
+          STATE.mode === 'kids'
+            ? (denied ? 'Necesito permiso para saber dónde estás 🗺️' : 'No he podido encontrarte ahora mismo.')
+            : (denied ? 'Has denegado el permiso de ubicación. Actívalo en los ajustes del navegador para usar esta función.' : 'No se pudo obtener tu ubicación. Inténtalo de nuevo.'),
+          3200
+        );
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
+    );
+  };
+
+  const updateSheetDistance = (poiId) => {
+    const el = $('.sheet-distance', els.sheet);
+    if (!el) return;
+    const poi = POIS.find((p) => p.id === poiId);
+    if (!poi || !STATE.userLocation) { el.hidden = true; return; }
+    const meters = haversineMeters([STATE.userLocation.lat, STATE.userLocation.lng], poi.coords);
+    el.hidden = false;
+    el.textContent = (STATE.mode === 'kids' ? '📍 A ' : '📍 A ') + formatDistance(meters) + (STATE.mode === 'kids' ? ' de ti' : '');
   };
 
   /* =========================================================
@@ -805,6 +877,7 @@
       + (poi.fictional ? (STATE.mode === 'kids' ? ' · Imaginado' : ' · Ilustrativo') : '');
     $('.sheet-title', els.sheet).textContent = pickDual(poi.name);
     $('.sheet-sub', els.sheet).textContent = pickDual(poi.subtitle);
+    updateSheetDistance(id);
 
     renderAiSuggestions();
 
@@ -1184,6 +1257,8 @@
     $('.sheet-close', els.sheet).addEventListener('click', closeSheet);
     $('.sheet-handle', els.sheet).addEventListener('click', closeSheet);
     els.backdrop.addEventListener('click', closeSheet);
+
+    $('#locateBtn')?.addEventListener('click', () => requestLocation(true));
 
     $('.play-btn', els.sheet).addEventListener('click', toggleAudio);
     $('.progress-wrap', els.sheet).addEventListener('click', (e) => {
