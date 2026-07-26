@@ -17,7 +17,7 @@ const CATEGORY_META = {
     accent: '#C8703A'
   },
   [CATEGORIES.HIDDEN]: {
-    label: { adult: 'Puntos de Interés', kids: 'Secretos ⭐' },
+    label: { adult: 'Interés', kids: 'Secretos ⭐' },
     pin: 'hidden',
     accent: '#4A90A4'
   }
