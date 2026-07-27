@@ -1338,6 +1338,162 @@ const CITIES = {
             kids: '¡Busca la columna más especial de todas, tallada por los visigodos con dibujos que cuentan historias de la Biblia, hace más de 1300 años!'
           }
         }
+      },
+      {
+        id: 'torre-miradero',
+        name: { adult: 'Torre del Miradero', kids: 'El Palacio Diseñado por un Arquitecto Premiado 🏆' },
+        subtitle: {
+          adult: 'Un moderno palacio de congresos diseñado por Rafael Moneo, incrustado en la ladera',
+          kids: '¡Un edificio moderno diseñado por uno de los arquitectos más premiados de España!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8610525, -4.0210495],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Toledo%2C_eskal%C3%A1tory_%28002%29.jpg/330px-Toledo%2C_eskal%C3%A1tory_%28002%29.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Torre del Miradero', kids: '¡Aventura Sonora: El Palacio Diseñado por un Arquitecto Premiado!' } },
+        tabs: {
+          history: {
+            adult: 'El Palacio de Congresos de Toledo, situado junto a la Plaza de Zocodover sobre un abrupto promontorio que rodea el Tajo, fue diseñado en el año 2000 por el arquitecto Rafael Moneo, ganador del Premio Príncipe de Asturias de las Artes, junto al urbanista Joan Busquets, y se presentó en junio de 2001.',
+            kids: 'Este moderno edificio lo diseñó, hace unos 25 años, uno de los arquitectos españoles más premiados del mundo.'
+          },
+          legends: {
+            adult: 'El edificio, bautizado en honor a El Greco, hace referencia en su diseño al juego de luces y formas alargadas característico del pintor renacentista que vivió en Toledo. Moneo concibió una estructura parcialmente incrustada en la ladera de la ciudad, usando piedra y ladrillo para reflejar las texturas históricas de Toledo.',
+            kids: '¡El edificio se llama así en honor al pintor El Greco! Su diseño juega con la luz y las formas alargadas, igual que hacía el propio pintor en sus cuadros.'
+          },
+          architecture: {
+            adult: 'Con una superficie total de 12.000 metros cuadrados, su fachada escalonada y los jardines del Miradero en la azotea ofrecen espacios exteriores con vistas panorámicas sobre el río Tajo y el perfil de la ciudad.',
+            kids: '¡En la azotea del edificio hay unos jardines con unas vistas espectaculares sobre el río y toda la ciudad!'
+          }
+        }
+      },
+      {
+        id: 'puente-azarquiel',
+        name: { adult: 'Puente de Azarquiel (Puente de Piedra)', kids: 'El Puente del Astrónomo 🔭' },
+        subtitle: {
+          adult: 'Un puente moderno con nombre del gran astrónomo andalusí de Toledo',
+          kids: '¡Este puente lleva el nombre de un astrónomo que estudiaba las estrellas hace 900 años!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.861111, -4.016417],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Puente_de_Azarquiel._Toledo.jpg/330px-Puente_de_Azarquiel._Toledo.jpg',
+        audio: { duration: 140, title: { adult: 'Audioguía: Puente de Azarquiel', kids: '¡Aventura Sonora: El Puente del Astrónomo!' } },
+        tabs: {
+          history: {
+            adult: 'El puente de Azarquiel es un puente moderno construido sobre el río Tajo que conecta el barrio de Santa Bárbara y la estación de tren AVE con el casco histórico de Toledo, inaugurado el 19 de junio de 1984. Se construyó para atender las necesidades del entonces incipiente polígono industrial, la estación de ferrocarril y el barrio de Santa Bárbara, ya que el trazado estrecho y sinuoso del anterior Puente Nuevo de Alcántara, abierto en 1933, resultaba insuficiente.',
+            kids: 'Este puente moderno se construyó hace unos 40 años, para conectar mejor la estación de tren y algunos barrios con el centro histórico de Toledo.'
+          },
+          legends: {
+            adult: 'Durante siglos, Toledo solo pudo cruzar el Tajo por los puentes de Alcántara y San Martín, lo que constituía el mejor método de defensa de la ciudad. El proyecto se llamó inicialmente puente de Safont y puente de Galiana, pero finalmente recibió el nombre de Azarquiel, en honor al célebre astrónomo andalusí toledano, a petición de la Real Academia de Bellas Artes y Ciencias Históricas de Toledo.',
+            kids: '¡Durante siglos, solo se podía cruzar el río por dos puentes muy antiguos! Este puente moderno se llama así en honor a un astrónomo de Toledo que vivió hace casi 1000 años y que estudiaba las estrellas.'
+          },
+          architecture: {
+            adult: 'El equipo de ingenieros que lo diseñó, entre ellos Carlos Fernández Casado y Javier Manterola, tuvo la clara intención de crear una obra discreta que no interfiriera con las vistas del histórico puente de Alcántara y el paisaje medieval típico de la ciudad.',
+            kids: '¡Los ingenieros que lo diseñaron quisieron que este puente moderno no estropeara las vistas del puente antiguo y del paisaje histórico de Toledo!'
+          }
+        }
+      },
+      {
+        id: 'comendadoras-santiago',
+        name: { adult: 'Convento de las Comendadoras de Santiago', kids: 'El Convento de las Guerreras de Santiago ⚔️' },
+        subtitle: {
+          adult: 'Monjas vinculadas a la Orden Militar de Santiago, con siglos de tradición dulcera',
+          kids: '¡Estas monjas pertenecen a una orden militar y hacen dulces con recetas muy antiguas!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.860722, -4.026250],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Claustro_de_la_Mona._Toledo.jpg/330px-Claustro_de_la_Mona._Toledo.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Convento de las Comendadoras de Santiago', kids: '¡Aventura Sonora: El Convento de las Guerreras de Santiago!' } },
+        tabs: {
+          history: {
+            adult: 'La Orden de las Comendadoras de Santiago se fundó en 1175 en Palencia, y en 1502 los Reyes Católicos enviaron a las hermanas comendadoras a Toledo, concretamente al Convento de Santa Fe. En 1935, las monjas se trasladaron al Claustro de la Mona y los edificios adyacentes, parte del antiguo monasterio de Santo Domingo el Real.',
+            kids: 'Estas monjas pertenecen a una orden fundada hace más de 800 años, vinculada a los caballeros de una orden militar española. Viven en este convento desde hace unos 90 años.'
+          },
+          legends: {
+            adult: 'El claustro que hoy ocupan, el Claustro de la Mona, fue diseñado por Diego de Alcántara, buen conocedor de la arquitectura de Herrera, que trabajó como aparejador en la construcción del Alcázar de Toledo. En 1961 las hermanas abrieron un parvulario y más tarde comenzaron a elaborar dulces artesanales tras recibir recetas centenarias de las comendadoras del convento de Granada.',
+            kids: '¡Las monjas de este convento hacen dulces siguiendo recetas secretas que tienen más de un siglo de antigüedad, aprendidas de otras monjas de Granada!'
+          },
+          architecture: {
+            adult: 'Estas monjas de clausura forman parte integral de la Orden Militar de los Caballeros de Santiago, y entre sus dulces típicos destacan los pastelillos de té, la pasta bonita y las castañas de mazapán bañadas en chocolate.',
+            kids: '¡Puedes comprar sus dulces típicos, como castañas de mazapán bañadas en chocolate, hechos con recetas que llevan siglos pasando de monja en monja!'
+          }
+        }
+      },
+      {
+        id: 'iglesia-san-andres',
+        name: { adult: 'Iglesia de San Andrés', kids: 'La Iglesia de las Momias 💀' },
+        subtitle: {
+          adult: 'Alberga el mayor conjunto de momias conocido en toda España',
+          kids: '¡En su cripta hay 50 momias que llevan siglos conservadas!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.854472, -4.024058],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Toledo_-_San_Andres.jpg/330px-Toledo_-_San_Andres.jpg',
+        audio: { duration: 155, title: { adult: 'Audioguía: Iglesia de San Andrés', kids: '¡Aventura Sonora: La Iglesia de las Momias!' } },
+        tabs: {
+          history: {
+            adult: 'La primera noticia documental de esta iglesia data del año 1150, cuando se cita un incendio a raíz del cual tuvo que reedificarse ese mismo siglo. A comienzos del siglo XIV se añadieron el crucero y la capilla de la Epifanía, combinando elementos mudéjares y góticos con reformas barrocas del siglo XVII.',
+            kids: 'Esta iglesia se construyó hace casi 900 años, aunque tuvo que reconstruirse después de un incendio muy pronto en su historia.'
+          },
+          legends: {
+            adult: 'La iglesia alberga el mayor conjunto de momias conocido en España, con 50 cuerpos descubiertos en su cripta en la década de 1960. Los rostros de estas momias, que revelan un sentimiento de dolor y angustia, descansan hoy en el mismo lugar, protegidos bajo un cristal que permite contemplarlas sin alterar el microclima que las ha preservado durante más de dos siglos.',
+            kids: '¡En el sótano de esta iglesia se descubrieron, hace unos 60 años, ni más ni menos que 50 momias! Todavía se pueden ver hoy, protegidas detrás de un cristal.'
+          },
+          architecture: {
+            adult: 'El claustro mudéjar es datable en torno a finales del siglo XII; de este estilo quedan restos dentro del templo y en las dos portadas, ambas enmarcadas con arco de herradura.',
+            kids: '¡Sus puertas de entrada tienen forma de arco de herradura, un estilo típico de los constructores mudéjares de hace 800 años!'
+          }
+        }
+      },
+      {
+        id: 'puerta-alarcones',
+        name: { adult: 'Puerta de Alarcones', kids: 'La Puerta Escondida cerca de Zocodover 🚪' },
+        subtitle: {
+          adult: 'La puerta más antigua de Toledo que conserva su ubicación original',
+          kids: '¡Es la puerta más antigua que sigue exactamente en su sitio original!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.861126, -4.023231],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Espa%C3%B1a_-_Toledo_-_Puerta_de_Alarcones_001.JPG/330px-Espa%C3%B1a_-_Toledo_-_Puerta_de_Alarcones_001.JPG',
+        audio: { duration: 145, title: { adult: 'Audioguía: Puerta de Alarcones', kids: '¡Aventura Sonora: La Puerta Escondida cerca de Zocodover!' } },
+        tabs: {
+          history: {
+            adult: 'La Puerta de Alarcones tiene origen visigodo y, más tarde, durante el periodo islámico, se convirtió en uno de los principales accesos a la ciudad. Es la puerta más antigua de Toledo que se conserva en su ubicación original, muy cerca de la Puerta del Sol y la Plaza de Zocodover. Su primera mención escrita aparece en 1216, cuando un documento mozárabe la llama Puerta Mohaguía.',
+            kids: 'Esta es la puerta más antigua de Toledo que sigue exactamente en el mismo lugar donde se construyó, hace más de 1300 años.'
+          },
+          legends: {
+            adult: 'Más tarde se conoció como Puerta Alta de la Herrería, mientras que la Puerta del Sol era la Puerta Baja de la Herrería, ya que en esa zona trabajaban los herreros. Durante el periodo islámico fue uno de los accesos más importantes, por el que entraban a Toledo los visitantes más distinguidos, formando junto a la Puerta del Sol un sistema defensivo común.',
+            kids: '¡Por esta puerta entraban a la ciudad los visitantes más importantes, hace muchos siglos! Cerca de aquí trabajaban también los herreros, artesanos que forjaban el hierro.'
+          },
+          architecture: {
+            adult: 'Perdió importancia en el siglo XIV, cuando se convirtió en entrada secundaria; su arco de herradura se transformó en arco de medio punto para permitir el paso de carros, y en 1921 fue declarada Monumento Nacional junto con el resto de puertas y murallas de Toledo.',
+            kids: '¡Con el tiempo, la forma de su arco cambió para que pudieran pasar los carros! Hoy está protegida como monumento nacional, igual que el resto de puertas de la muralla.'
+          }
+        }
+      },
+      {
+        id: 'plaza-santa-teresa',
+        name: { adult: 'Plaza de Santa Teresa', kids: 'La Plaza de la Santa Escritora 📖' },
+        subtitle: {
+          adult: 'Pequeña plaza junto al convento fundado por Santa Teresa de Jesús',
+          kids: '¡Una santa muy famosa fundó aquí un convento hace más de 450 años!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [39.859629, -4.031443],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Monument_to_Saint_Teresa_of_Jesus_-_Toledo_04.jpg/330px-Monument_to_Saint_Teresa_of_Jesus_-_Toledo_04.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Plaza de Santa Teresa', kids: '¡Aventura Sonora: La Plaza de la Santa Escritora!' } },
+        tabs: {
+          history: {
+            adult: 'Esta pequeña plaza ajardinada se esconde tras las murallas, junto al Paseo del Recaredo, a pocos metros de la Puerta del Cambrón. La fundación toledana de Santa Teresa de Jesús fue la quinta que estableció la santa, el 14 de mayo de 1569, gracias a un rico mercader llamado Martín Ramírez que dejó dinero en su testamento para fundar una iglesia.',
+            kids: 'Esta plaza tan pequeña y tranquila está junto a un convento fundado por una santa muy famosa hace más de 450 años, gracias al dinero que dejó un rico comerciante.'
+          },
+          legends: {
+            adult: 'Inicialmente, el convento se ubicó en una casa de la calle San Juan de Dios, en la judería toledana, pero un año después se trasladó a su emplazamiento actual en la Plaza de Santa Teresa, muy cerca de la Puerta del Cambrón, donde continúa hoy.',
+            kids: '¡El convento no empezó aquí, sino en otra calle! Se mudó a este lugar solo un año después de fundarse, y desde entonces sigue en el mismo sitio.'
+          },
+          architecture: {
+            adult: 'La plaza está flanqueada por un antiguo edificio y el Convento de San José, de mediados del siglo XVI, de las Carmelitas Descalzas, la orden que la propia Santa Teresa fundó y en la que todavía residen algunas monjas; una escultura moderna de la santa, obra del escultor toledano Luis Pablo Gómez Vidales, preside hoy el espacio.',
+            kids: '¡En medio de la plaza hay una estatua moderna de la santa que le da nombre! Justo al lado sigue habiendo monjas viviendo, siguiendo la orden que ella misma fundó.'
+          }
+        }
       }
     ]
   },

@@ -106,6 +106,12 @@ como exige cada licencia.
 | Convento de la Madre de Dios | Fjdrevorio | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Convento_Madre_de_Dios_02.JPG) |
 | Cigarrales de Toledo (pintura, 1906) | Aureliano de Beruete | Dominio público | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Camino_de_los_Cigarrales_(alrededores_de_Toledo).jpg) |
 | Iglesia de El Salvador | José Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Iglesia_del_Salvador._Toledo.jpg) |
+| Torre del Miradero (Palacio de Congresos) | Juandev | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo,_eskal%C3%A1tory_(002).jpg) |
+| Puente de Azarquiel (Puente de Piedra) | Jose Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puente_de_Azarquiel._Toledo.jpg) |
+| Convento de las Comendadoras de Santiago | José Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Claustro_de_la_Mona._Toledo.jpg) |
+| Iglesia de San Andrés | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_-_San_Andres.jpg) |
+| Puerta de Alarcones | Antonio.velez | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Espa%C3%B1a_-_Toledo_-_Puerta_de_Alarcones_001.JPG) |
+| Plaza de Santa Teresa | Javier Perez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Monument_to_Saint_Teresa_of_Jesus_-_Toledo_04.jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya
