@@ -35,6 +35,22 @@ como exige cada licencia.
 | Museo Nacional del Prado | Emilio J. Rodríguez Posada | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_del_Prado_2016_(25185969599).jpg) |
 | Parque de El Retiro (Palacio de Cristal) | PepeZoom | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_de_Cristal.jpg) |
 | Plaza Mayor (Madrid) | Sebastian Dubiel | CC BY-SA 3.0 DE | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_06.jpg) |
+| Gran Vía | Álvaro Ibáñez | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_(Madrid)_(23815769052).jpg) |
+| Museo Nacional Thyssen-Bornemisza | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_Thyssen-Bornemisza_(Madrid)_07.jpg) |
+| Museo Nacional Centro de Arte Reina Sofía | Roy Luck | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_Reina_Sofia,_Madrid_(6394654203).jpg) |
+| Catedral de la Almudena | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Almudena_2022_-_overview.jpg) |
+| Plaza de Cibeles | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fuente_de_Cibeles_-_Dec_2024.jpg) |
+| Puerta de Alcalá | Fernando Pascullo | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puerta_de_Alcal%C3%A1_2025.jpg) |
+| Plaza de la Villa | Antonello Dellanotte | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%C2%A92021_Antonello_Dellanotte_Plaza_de_la_Villa_y_Torre_de_los_Lujanes_IMG_2491.jpg) |
+| Templo de Debod | jiuguangw (Flickr) | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Templo_de_Debod_in_Madrid.jpg) |
+| Plaza de España (Madrid) | Carlos Delgado | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_de_Espa%C3%B1a_de_Madrid_-_02.jpg) |
+| Círculo de Bellas Artes | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:C%C3%ADrculo_de_Bellas_Artes_(Madrid)_06.jpg) |
+| Teatro Real | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Teatro_Real_de_Madrid_2025.jpg) |
+| Plaza de Oriente | Jose Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_de_Oriente_(Madrid)._Monumento_a_Felipe_IV.jpg) |
+| Barrio de La Latina (Cava Baja) | Javier Pérez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fiestas_de_la_Paloma_2023_-_Calle_de_la_Cava_Baja_-_Madrid_07.jpg) |
+| Barrio de Chueca | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_-_Plaza_de_Chueca_2.jpg) |
+| Barrio de Malasaña | Panek | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_de_Manuela_Malasa%C3%B1a_south.JPG) |
+| Barrio de las Letras | Jorge Láscar | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Barrio_de_las_Letras_(Madrid)_01.jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya
