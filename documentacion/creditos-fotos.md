@@ -20,6 +20,18 @@ como exige cada licencia.
 | Monasterio de San Juan de los Reyes | Querubin Saldaña Sanchez | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Iglesia_del_monasterio_de_San_Juan_de_los_Reyes,_Toledo,_Espa%C3%B1a.jpg) |
 | Sinagoga de Santa María la Blanca | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Santa_Mar%C3%ADa_la_Blanca_-_Arcos.jpg) |
 | Mezquita del Cristo de la Luz | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cristo_de_la_Luz_2025_Fa%C3%A7ade.jpg) |
+| Puente de Alcántara | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:FP_Toledo_2025_-_Puente_de_Alc%C3%A1ntara.jpg) |
+| Puente de San Martín | Arturormk | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puente_de_San_Mart%C3%ADn_(Toledo)_2011-05-27.jpg) |
+| Iglesia de los Jesuitas (San Ildefonso) | Carlos Rodriguez (vía Yildori) | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:PanToledo01copia.jpg) |
+| Plaza de Zocodover | Lourdes Cardenal | CC BY-SA 3.0 / GFDL | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_Zocodover_01_lou.JPG) |
+| Sinagoga del Tránsito | Selbymay | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_-_Sinagoga_El_Transito_01.jpg) |
+| Hospital de Tavera | Luis Rogelio HM | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_Capital_-_194_(37538222744).jpg) |
+| Calle del Comercio | Pol Mayer (PMRMaeyaert) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo,_Calle_del_Comercio-PM_65607.jpg) |
+| Puerta del Sol (Toledo) | Selbymay | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_-_Puerta_del_Sol_1.jpg) |
+| Museo de los Concilios (San Román) | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_-_San_Roman_-_Museo_de_los_Concilios_y_de_la_Cultura_Visigoda_2.jpg) |
+| Paseo del Tránsito | José Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Paseo_del_Tr%C3%A1nsito,_Toledo.jpg) |
+| Antiguo Hospital de la Santa Cruz | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:FP_Toledo_2025_-_Santa_Cruz_Museum_-_Fa%C3%A7ade.jpg) |
+| Ermita del Valle | Feelingsregu | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puerta_de_la_Ermita_Nuestra_Se%C3%B1ora_del_Valle_(Toledo).jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya
