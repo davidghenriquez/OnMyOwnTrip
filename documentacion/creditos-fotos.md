@@ -51,6 +51,30 @@ como exige cada licencia.
 | Barrio de Chueca | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_-_Plaza_de_Chueca_2.jpg) |
 | Barrio de Malasaña | Panek | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_de_Manuela_Malasa%C3%B1a_south.JPG) |
 | Barrio de las Letras | Jorge Láscar | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Barrio_de_las_Letras_(Madrid)_01.jpg) |
+| Plaza de Santa Ana | Simon Burchell | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_de_Santa_Ana,_Madrid_01.jpg) |
+| Plaza de la Paja | Jorgecft | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Visual_Plaza_de_la_Paja.jpg) |
+| Calle de Cuchilleros | Luis García (Zaqarbal) | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_de_Cuchilleros_(Madrid)_01.jpg) |
+| Monasterio de las Descalzas Reales | Luis García (Zaqarbal) | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Monasterio_de_las_Descalzas_Reales_(Madrid)_01.jpg) |
+| Real Monasterio de la Encarnación | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Real_Monasterio_de_la_Encarnaci%C3%B3n_(Madrid)_01.jpg) |
+| Museo de Historia de Madrid | Luis García (Zaqarbal) | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_de_Historia_de_Madrid_(Espa%C3%B1a)_03.jpg) |
+| Museo del Romanticismo | Pablo Liñés (foto) / Museo del Romanticismo | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_del_Romanticismo_-_Fachada_-_Fachada_del_Museo_del_Romanticismo.jpg) |
+| Museo Cerralbo | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_del_Marqu%C3%A9s_de_Cerralbo_(Madrid)_01.jpg) |
+| Real Academia de Bellas Artes de San Fernando | Carlos Delgado | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_de_Goyeneche_-_Real_Academia_de_Bellas_Artes_de_San_Fernando.jpg) |
+| Palacio de Longoria | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_Longoria_(Madrid)_08.jpg) |
+| Edificio Metrópolis | Discasto | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Edificio_Metr%C3%B3polis_(6_de_diciembre_de_2005,_Madrid).JPG) |
+| Palacio de Cibeles (CentroCentro) | Carlos Delgado | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_de_Comunicaciones_-_46.jpg) |
+| Plaza de Alonso Martínez | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_-_Plaza_de_Alonso_Mart%C3%ADnez_1.jpg) |
+| Calle de Fuencarral | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_de_Fuencarral_(Madrid)_01.jpg) |
+| Calle de la Montera | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_de_la_Montera_(Madrid)_01.jpg) |
+| Plaza del Callao | Diriye Amey | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:City_of_Madrid_(18038988892).jpg) |
+| Edificio Telefónica | Fernandopascullo | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Edificio_Telefonica_Madrid.jpg) |
+| Parque de las Vistillas | Federico Jordá | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Parque_de_las_Vistillas_-Madrid_(6952903529).jpg) |
+| Jardines del Príncipe de Anglona | someone10x | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jardines_del_Principe_de_Anglona_(9)_(11983191794).jpg) |
+| Iglesia de San Ginés | Luis Javier Modino Martinez | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Gin%C3%A9s_(Madrid)_06.jpg) |
+| Basílica de San Francisco el Grande | Javier Perez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Exterior_-_Real_basilica_de_San_Francisco_el_Grande_-_Madrid_01.jpg) |
+| Puerta de Toledo (Madrid) | Javier Perez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puerta_de_Toledo_-_detalles_-_Madrid_01.jpg) |
+| Museo de San Isidro | J.L. de Diego | Dominio público | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_de_San_Isidro.jpg) |
+| CaixaForum Madrid | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Caixaforum_Madrid_2024.jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya
