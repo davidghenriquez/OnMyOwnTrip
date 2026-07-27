@@ -75,6 +75,18 @@ como exige cada licencia.
 | Puerta de Toledo (Madrid) | Javier Perez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puerta_de_Toledo_-_detalles_-_Madrid_01.jpg) |
 | Museo de San Isidro | J.L. de Diego | Dominio público | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_de_San_Isidro.jpg) |
 | CaixaForum Madrid | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Caixaforum_Madrid_2024.jpg) |
+| Plaza del Dos de Mayo | Nicolas Vigier | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_del_Dos_de_Mayo,_Madrid.jpg) |
+| Plaza de la Cebada | Luis García (Zaqarbal) | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_de_la_Cebada_(Madrid)_01.jpg) |
+| Plaza de Tirso de Molina | Daniel Lobo | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_de_Tirso_de_Molina_(Madrid)_02.jpg) |
+| Plaza de Lavapiés | Liberaler Humanist | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_Lavapies,_Madrid,_13.08.14.jpg) |
+| Mercado de Antón Martín | Malopez 21 | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mercado_de_Ant%C3%B3n_Mart%C3%ADn,_fachada_calle_Santa_Isabel.JPG) |
+| Mercado de la Cebada | Tiia Monto | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_-_Mercado_de_la_Cebada_-_outside.jpg) |
+| Calle del Nuncio | Luis García (Zaqarbal) | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_(Madrid)_01.jpg) |
+| Plaza del Rastrillo (antes Plaza de Juan Pujol) | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_-_Malasa%C3%B1a,_Plaza_Juan_Pujol_1.jpg) |
+| Calle de Zurbano | Asqueladd | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacete_en_la_calle_Zurbano.JPG) |
+| Plaza de Santa Bárbara (Iglesia de las Salesas Reales) | Enrique Cordero | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Salesas-fachada.jpg) |
+| Calle de Huertas | Frans Drewniak | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_Huertas_(5876701988).jpg) |
+| Jardines de Sabatini | Javier Perez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Estanque_Central_-_Jardines_de_Sabatini_-_Madrid_01.jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya

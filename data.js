@@ -2227,6 +2227,318 @@ const CITIES = {
             kids: '¡Al lado del edificio hay un jardín vertical gigante, con miles de plantas creciendo directamente sobre una pared! Parece una selva pegada al edificio.'
           }
         }
+      },
+      {
+        id: 'plaza-dos-de-mayo',
+        name: { adult: 'Plaza del Dos de Mayo', kids: 'La Plaza de los Héroes Valientes ⚔️' },
+        subtitle: {
+          adult: 'Cuna del levantamiento de 1808 contra las tropas napoleónicas',
+          kids: '¡Aquí lucharon unos héroes muy valientes hace más de 200 años!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.42693333, -3.70407222],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Plaza_del_Dos_de_Mayo%2C_Madrid.jpg/330px-Plaza_del_Dos_de_Mayo%2C_Madrid.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Plaza del Dos de Mayo', kids: '¡Aventura Sonora: La Plaza de los Héroes Valientes!' } },
+        tabs: {
+          history: {
+            adult: 'La plaza toma su nombre de la resistencia frente al ataque francés protagonizada por Luis Daoíz y Pedro Velarde la mañana del 2 de mayo de 1808, un levantamiento popular contra las tropas napoleónicas que marcó el inicio de la Guerra de la Independencia española. Donde hoy está la plaza se encontraba el Cuartel de Monteleón, donde unos doscientos patriotas se atrincheraron y lucharon sin esperanza contra el mejor ejército del mundo de aquel momento.',
+            kids: 'Esta plaza recuerda un día muy importante para España, hace más de 200 años, cuando un grupo de vecinos valientes se enfrentó a un ejército extranjero que había invadido Madrid.'
+          },
+          legends: {
+            adult: 'El monumento, con las esculturas de Daoíz y Velarde, se levanta ante el Arco de Monteleón, el único resto que se conserva del antiguo cuartel de artillería que ambos militares defendieron uniéndose al levantamiento popular. La iniciativa de erigir un homenaje a los héroes partió del propio rey Fernando VII, y fue encargada al escultor Antonio Solá, que la creó en 1822 durante su estancia en Roma; la escultura se instaló definitivamente en esta plaza en 1869.',
+            kids: '¡El arco de piedra que ves en la plaza es el único trozo que queda del cuartel donde lucharon los héroes! Las estatuas que los recuerdan las hizo un escultor español que vivía en Roma, hace ya 200 años.'
+          },
+          architecture: {
+            adult: 'Hoy la plaza es el corazón social de Malasaña, rodeada de terrazas, bares y ambiente joven, sin perder su valor simbólico como lugar de memoria histórica.',
+            kids: '¡Ahora esta plaza está siempre llena de gente sentada en las terrazas! Es uno de los puntos de encuentro favoritos del barrio.'
+          }
+        }
+      },
+      {
+        id: 'plaza-cebada',
+        name: { adult: 'Plaza de la Cebada', kids: 'La Plaza del Cereal para los Caballos 🌾' },
+        subtitle: {
+          adult: 'Mercado histórico que también fue escenario de ejecuciones públicas',
+          kids: '¡Aquí se vendía cebada para los caballos del rey!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41109722, -3.70968889],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Plaza_de_la_Cebada_%28Madrid%29_01.jpg/330px-Plaza_de_la_Cebada_%28Madrid%29_01.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Plaza de la Cebada', kids: '¡Aventura Sonora: La Plaza del Cereal para los Caballos!' } },
+        tabs: {
+          history: {
+            adult: 'Desde el siglo XVI, la Plaza de la Cebada ha sido escenario de comercio, ferias y otros episodios de la vida madrileña. El nombre se debe a que aquí se separaba la cebada destinada a los caballos del rey de la de los regimientos de caballería, cereal con el que se comerciaba en este emplazamiento.',
+            kids: 'Esta plaza lleva el nombre de un cereal, la cebada, porque aquí se vendía el que se usaba para dar de comer a los caballos del rey y del ejército, hace ya varios siglos.'
+          },
+          legends: {
+            adult: 'A finales del siglo XVIII se convirtió en el lugar de ejecuciones públicas de Madrid, tras el incendio de la Plaza Mayor en 1790, que hasta entonces había cumplido esa función. Durante el siglo XIX se celebraron aquí ejecuciones mediante horca o garrote vil; el general Rafael del Riego fue ahorcado en esta plaza en noviembre de 1823.',
+            kids: 'Hace mucho tiempo, esta plaza no solo era un mercado: también era el lugar donde se castigaba públicamente a quienes rompían la ley, algo muy distinto a lo que vemos en las plazas de hoy.'
+          },
+          architecture: {
+            adult: 'Hoy la plaza conserva su vocación comercial junto al moderno edificio del Mercado de la Cebada, en pleno corazón del castizo barrio de La Latina.',
+            kids: '¡Hoy en día la plaza sigue siendo un lugar de mercado, aunque ya no se venden caballos ni cebada!'
+          }
+        }
+      },
+      {
+        id: 'plaza-tirso-molina',
+        name: { adult: 'Plaza de Tirso de Molina', kids: 'La Plaza de las Flores y el Convento Desaparecido 🌷' },
+        subtitle: {
+          adult: 'Un antiguo convento dio paso a un mercado permanente de flores',
+          kids: '¡Aquí había un convento enorme que ya no existe!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41228611, -3.70501111],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Plaza_de_Tirso_de_Molina_%28Madrid%29_02.jpg/330px-Plaza_de_Tirso_de_Molina_%28Madrid%29_02.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Plaza de Tirso de Molina', kids: '¡Aventura Sonora: La Plaza de las Flores y el Convento Desaparecido!' } },
+        tabs: {
+          history: {
+            adult: 'La plaza ocupa el solar del antiguo Convento de la Merced, fundado en 1564, uno de los templos más frecuentados de la capital hasta el siglo XIX, con un claustro y una fuente considerada la joya de Madrid. El convento, desamortizado y demolido en 1836 durante el gobierno de Mendizábal, dio paso a la creación de la plaza, llamada inicialmente Plaza del Progreso. El dramaturgo Tirso de Molina, que da nombre actual a la plaza, residió en este convento.',
+            kids: 'En este lugar hubo antiguamente un convento enorme donde vivió el escritor que hoy da nombre a la plaza. El convento se derribó hace casi 200 años y en su lugar se creó esta plaza.'
+          },
+          legends: {
+            adult: 'En el siglo XVII el convento vivió su época dorada, llegando a tener 110 religiosos y una gran cantidad de obras de arte. Hoy, tras los muros de la actual estación de metro de Tirso de Molina, se dice que aún descansan los restos de los frailes del antiguo convento de la Merced.',
+            kids: '¡Se cuenta que bajo la estación de metro de esta plaza todavía descansan los restos de los frailes que vivían en el convento antiguo!'
+          },
+          architecture: {
+            adult: 'Actualmente la plaza cuenta con un mercado permanente de flores, formado por ocho módulos de metal y madera de diseño moderno, abierto todos los días del año, en el que cada puesto lleva el nombre de una obra de Tirso de Molina.',
+            kids: '¡Toda la plaza está llena de puestos de flores de colores! Cada puesto tiene el nombre de una obra escrita por el autor que da nombre a la plaza.'
+          }
+        }
+      },
+      {
+        id: 'plaza-lavapies',
+        name: { adult: 'Plaza de Lavapiés', kids: 'La Plaza del Nombre Misterioso 🧩' },
+        subtitle: {
+          adult: 'El corazón multicultural de Madrid, con un origen de nombre incierto',
+          kids: '¡Nadie sabe con seguridad de dónde viene su curioso nombre!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.40889722, -3.70115833],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Plaza_Lavapies%2C_Madrid%2C_13.08.14.jpg/330px-Plaza_Lavapies%2C_Madrid%2C_13.08.14.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Plaza de Lavapiés', kids: '¡Aventura Sonora: La Plaza del Nombre Misterioso!' } },
+        tabs: {
+          history: {
+            adult: 'Con más de 500 años de vida, el barrio de Lavapiés es uno de los más antiguos de la capital. El origen del topónimo es incierto, aunque se argumenta que procedería de una fuente que existió antiguamente en la plaza, ya que todas las plazoletas del Madrid antiguo contaban con fuentes para suministrar agua y para lavar la ropa.',
+            kids: 'Este barrio tiene más de 500 años de historia, ¡uno de los más antiguos de todo Madrid! Nadie sabe con total seguridad de dónde viene su nombre tan curioso.'
+          },
+          legends: {
+            adult: 'Una leyenda muy extendida asegura que aquí estuvo la judería de Madrid en época de los Reyes Católicos, y que el nombre vendría de una fuente donde los judíos se lavaban los pies antes de entrar a la sinagoga. Sin embargo, ni documentos escritos ni excavaciones arqueológicas han podido demostrar este origen, por lo que se considera más leyenda popular que hecho histórico confirmado.',
+            kids: '¡Cuenta una leyenda muy popular que el nombre de la plaza viene de una fuente donde la gente se lavaba los pies antes de entrar a un templo antiguo! Pero nadie ha podido demostrar del todo si esta historia es cierta.'
+          },
+          architecture: {
+            adult: 'Hoy es el epicentro multicultural, artístico y alternativo del castizo barrio de Lavapiés, con una intensa mezcla de comercios de todo el mundo, arte urbano y ambiente diverso.',
+            kids: '¡Esta plaza está llena de gente de todo el mundo! Es uno de los barrios más multiculturales y con más ambiente de todo Madrid.'
+          }
+        }
+      },
+      {
+        id: 'mercado-anton-martin',
+        name: { adult: 'Mercado de Antón Martín', kids: 'El Mercado con Escuela de Flamenco 💃' },
+        subtitle: {
+          adult: 'Tres siglos de tradición comercial junto al Cine Doré',
+          kids: '¡Este mercado tiene hasta una escuela de baile flamenco dentro!'
+        },
+        category: CATEGORIES.GASTRONOMY,
+        coords: [40.411575, -3.69871944],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Mercado_de_Ant%C3%B3n_Mart%C3%ADn%2C_fachada_calle_Santa_Isabel.JPG/330px-Mercado_de_Ant%C3%B3n_Mart%C3%ADn%2C_fachada_calle_Santa_Isabel.JPG',
+        audio: { duration: 145, title: { adult: 'Audioguía: Mercado de Antón Martín', kids: '¡Aventura Sonora: El Mercado con Escuela de Flamenco!' } },
+        tabs: {
+          history: {
+            adult: 'Durante el siglo XVIII, la plaza de Antón Martín tenía el sobrenombre de plazuela del Mercado, ya que allí se reunían puestos ambulantes de alimentación. En 1933 el Ayuntamiento de Madrid encargó al arquitecto Gonzalo Domínguez Espúñez el diseño del mercado actual, cuyo proyecto se ejecutó tras la Guerra Civil, siendo inaugurado en 1941.',
+            kids: 'En esta zona ya se vendía comida en puestos ambulantes hace más de 300 años. El edificio del mercado que ves hoy se construyó hace más de 80 años.'
+          },
+          legends: {
+            adult: 'El mercado, situado muy cerca de la Puerta del Sol y la Plaza Mayor, cuenta con más de 70 puestos, donde conviven comercios tradicionales de varias generaciones familiares con vermuterías, cafeterías y restaurantes de cocina internacional. En su tercera planta se encuentra la escuela de arte flamenco Amor de Dios, una de las más prestigiosas de España.',
+            kids: '¡En la parte de arriba del mercado hay una escuela donde se enseña baile flamenco! Es una de las escuelas de flamenco más importantes de toda España.'
+          },
+          architecture: {
+            adult: 'El mercado tiene tres plantas: en las dos primeras conviven puestos tradicionales de pescado, carne y verdura junto a espacios gastronómicos modernos, mientras que en la tercera se combina la actividad comercial con la cultural.',
+            kids: '¡Puedes recorrer el mercado y encontrar de todo: pescado, fruta, y también sitios para comer platos de todo el mundo!'
+          }
+        }
+      },
+      {
+        id: 'mercado-cebada',
+        name: { adult: 'Mercado de la Cebada', kids: 'El Mercado que Reemplazó a un Palacio de Hierro 🏗️' },
+        subtitle: {
+          adult: 'Uno de los mercados más grandes y tradicionales de Madrid',
+          kids: '¡Antes hubo aquí un mercado hecho de hierro traído desde Londres!'
+        },
+        category: CATEGORIES.GASTRONOMY,
+        coords: [40.41111111, -3.70975],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Madrid_-_Mercado_de_la_Cebada_-_outside.jpg/330px-Madrid_-_Mercado_de_la_Cebada_-_outside.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Mercado de la Cebada', kids: '¡Aventura Sonora: El Mercado que Reemplazó a un Palacio de Hierro!' } },
+        tabs: {
+          history: {
+            adult: 'A finales del siglo XVIII, el aumento de la población de Madrid llevó a crear un mercado capaz de abastecer a la ciudad con garantías de higiene. En 1868 el arquitecto Mariano Calvo y Pereira diseñó un edificio de hierro y cristal, con 166 columnas de hierro forjado traídas directamente desde Londres, inaugurado en 1875 por el rey Alfonso XII. Por problemas de higiene, aquel edificio se demolió en 1956 y se construyó el mercado más funcional que existe hoy, terminado en 1958.',
+            kids: 'El mercado que ves hoy no es el primero que hubo aquí: antes existió un edificio precioso hecho de hierro y cristal, con columnas traídas desde Londres, ¡pero se demolió hace más de 60 años porque ya no cumplía las normas de higiene!'
+          },
+          legends: {
+            adult: 'El primer edificio, con una cúpula central de 15 metros de altura, fue considerado todo un espectáculo arquitectónico en su época, comparable al mercado gemelo de los Mostenses, diseñado por el mismo arquitecto.',
+            kids: '¡El primer mercado de este lugar tenía una cúpula altísima, tan alta como un edificio de cinco pisos! Era una auténtica maravilla de la ingeniería de su época.'
+          },
+          architecture: {
+            adult: 'Es, junto con el de Antón Martín, uno de los mercados de abastos más grandes y tradicionales del centro histórico, corazón comercial del castizo barrio de La Latina.',
+            kids: '¡Sigue siendo uno de los mercados más grandes de todo el centro de Madrid! Aquí los vecinos del barrio hacen la compra desde hace generaciones.'
+          }
+        }
+      },
+      {
+        id: 'calle-nuncio',
+        name: { adult: 'Calle del Nuncio', kids: 'La Calle del Embajador del Papa ⛪' },
+        subtitle: {
+          adult: 'Una calle empinada que albergó a los embajadores del Vaticano',
+          kids: '¡Aquí vivían los representantes del Papa en España!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.413425, -3.70905278],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_%28Madrid%29_01.jpg/330px-Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_%28Madrid%29_01.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Calle del Nuncio', kids: '¡Aventura Sonora: La Calle del Embajador del Papa!' } },
+        tabs: {
+          history: {
+            adult: 'Esta calle del barrio de La Latina, en pleno casco histórico de Madrid, debe su nombre a la circunstancia de que en ella residieron, hasta mediados del siglo XX, los embajadores apostólicos del Vaticano. Durante los reinados de los Austrias, en los siglos XVI y XVII, el representante papal, o nuncio, se convirtió en una figura clave en la Corte de Madrid.',
+            kids: 'Esta calle tan empinada lleva el nombre de los antiguos embajadores del Papa, que vivieron aquí desde hace siglos hasta hace relativamente poco tiempo.'
+          },
+          legends: {
+            adult: 'El Palacio de la Nunciatura se construyó en un solar de la familia Vargas por el arquitecto Manuel Moradillo entre 1731 y 1735. En ese mismo solar tuvieron antes su casa nobles madrileños como Rodrigo Calderón, marqués de Siete Iglesias, favorito de Felipe III que murió degollado en la Plaza Mayor en 1621, al comienzo del reinado de Felipe IV.',
+            kids: '¡En el mismo terreno donde luego se construyó el palacio del embajador del Papa, antes vivió un noble muy poderoso que acabó ejecutado en la Plaza Mayor!'
+          },
+          architecture: {
+            adult: 'Calle de trazado irregular y pronunciada pendiente, que discurre desde la plaza de Puerta Cerrada hasta la costanilla de San Pedro, en pleno Madrid de los Austrias.',
+            kids: '¡Es una calle tan empinada que parece una pequeña cuesta! Está en pleno barrio más antiguo de Madrid.'
+          }
+        }
+      },
+      {
+        id: 'plaza-rastrillo',
+        name: { adult: 'Plaza del Rastrillo', kids: 'La Plaza del Mercadillo Antiguo 🛒' },
+        subtitle: {
+          adult: 'Antiguo mercadillo popular de Malasaña, hoy punto de encuentro',
+          kids: '¡Antiguamente aquí había un mercadillo callejero muy animado!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.4252956, -3.7039468],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Madrid_-_Malasa%C3%B1a%2C_Plaza_Juan_Pujol_1.jpg/330px-Madrid_-_Malasa%C3%B1a%2C_Plaza_Juan_Pujol_1.jpg',
+        audio: { duration: 140, title: { adult: 'Audioguía: Plaza del Rastrillo', kids: '¡Aventura Sonora: La Plaza del Mercadillo Antiguo!' } },
+        tabs: {
+          history: {
+            adult: 'Esta pequeña plaza de Malasaña albergó desde al menos el siglo XVII un mercadillo al aire libre, conocido popularmente entre los vecinos como el Rastrillo, que se abastecía de los puestos cercanos del mercado de San Ildefonso. Hacia finales de la década de 1960, con la apertura del mercado de Barceló, los vendedores callejeros fueron desapareciendo poco a poco.',
+            kids: 'En esta plaza había antiguamente un mercadillo al aire libre muy popular entre los vecinos del barrio, que llevaba funcionando desde hacía siglos.'
+          },
+          legends: {
+            adult: 'Entre 1969 y años recientes, la plaza llevó oficialmente el nombre de Juan Pujol, en homenaje a un periodista y propagandista del franquismo. En el marco de la retirada de referencias franquistas del callejero de Madrid, el Ayuntamiento recuperó su nombre popular e histórico, Plaza del Rastrillo, tal y como los vecinos siempre la habían conocido.',
+            kids: '¡Esta plaza ha cambiado de nombre oficial más de una vez! Los vecinos siempre la llamaron por su nombre popular, y hace poco el Ayuntamiento decidió recuperarlo oficialmente.'
+          },
+          architecture: {
+            adult: 'Pequeña y animada plaza del corazón de Malasaña, rodeada de terrazas y bares, y muy popular como punto de encuentro entre vecinos y visitantes.',
+            kids: '¡Es una plaza pequeñita pero con mucho ambiente! Está siempre llena de gente sentada charlando en las terrazas.'
+          }
+        }
+      },
+      {
+        id: 'calle-zurbano',
+        name: { adult: 'Calle de Zurbano', kids: 'La Calle de los Palacetes Elegantes 🏘️' },
+        subtitle: {
+          adult: 'Elegante calle residencial del siglo XIX, poblada de palacetes nobiliarios',
+          kids: '¡Una calle llena de casas tan bonitas que parecen pequeños palacios!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.4276489, -3.6938919],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Palacete_en_la_calle_Zurbano.JPG/330px-Palacete_en_la_calle_Zurbano.JPG',
+        audio: { duration: 140, title: { adult: 'Audioguía: Calle de Zurbano', kids: '¡Aventura Sonora: La Calle de los Palacetes Elegantes!' } },
+        tabs: {
+          history: {
+            adult: 'Calle arbolada de un único carril que atraviesa el distrito de Chamberí, urbanizada tras la parcelación de la antigua huerta de Loinaz a finales del siglo XIX. En ella se construyeron elegantes casas-palacio destinadas a la alta nobleza que se instaló en la zona, por iniciativa del visionario duque de Santo Mauro.',
+            kids: 'Esta calle se construyó hace más de 100 años, sobre lo que antes era una gran huerta. Familias nobles muy ricas mandaron construir aquí sus casas, algunas tan grandes que parecen pequeños palacios.'
+          },
+          legends: {
+            adult: 'Uno de los edificios más notables es el Palacio de Zurbano, en el número 5-7, construido entre 1878 y 1881 para el conde de Muguiro por el arquitecto Severiano Sainz de la Lastra, testimonio del estilo de vida de una clase social privilegiada durante más de un siglo de historia.',
+            kids: '¡Uno de los palacetes de esta calle lo mandó construir un conde hace casi 150 años! Todavía se conserva y se puede admirar su fachada.'
+          },
+          architecture: {
+            adult: 'La calle combina comercio de proximidad tradicional con casas señoriales de balconadas y algunos palacetes de estilo Belle Époque, en una de las estampas más elegantes del Madrid clásico.',
+            kids: '¡Caminar por esta calle es como pasear entre casas de cuento, con balcones y fachadas muy elegantes!'
+          }
+        }
+      },
+      {
+        id: 'plaza-santa-barbara',
+        name: { adult: 'Plaza de Santa Bárbara', kids: 'La Plaza de la Reina que Fundó un Convento 👸' },
+        subtitle: {
+          adult: 'Rodeada por la iglesia de las Salesas Reales, fundada por una reina',
+          kids: '¡Una reina fundó aquí un convento para educar a jóvenes nobles!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.42452778, -3.69387222],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Salesas-fachada.jpg/330px-Salesas-fachada.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Plaza de Santa Bárbara', kids: '¡Aventura Sonora: La Plaza de la Reina que Fundó un Convento!' } },
+        tabs: {
+          history: {
+            adult: 'La plaza toma su nombre de la Iglesia de Santa Bárbara, parte del Monasterio Real de la Visitación de Nuestra Señora, conocido como las Salesas Reales, fundado en 1748 por la reina Bárbara de Braganza, esposa de Fernando VI, con el propósito de educar a jóvenes nobles y servir de lugar de retiro. El convento fue diseñado por François Carlier y completado por Francisco Moradillo, que añadió las torres campanario, en 1758.',
+            kids: 'Esta plaza lleva el nombre de una iglesia que mandó construir una reina española, hace casi 300 años, para que unas monjas educaran a jóvenes nobles.'
+          },
+          legends: {
+            adult: 'La reina Bárbara de Braganza murió antes que su esposo el rey, y ambos fueron enterrados en esta iglesia, en un mausoleo diseñado por el arquitecto Francesco Sabatini. El antiguo monasterio fue incautado por el Estado en 1870 para convertirse en el Palacio de Justicia, mientras que la iglesia se mantuvo abierta al culto y hoy es parroquia.',
+            kids: '¡La reina que fundó este lugar está enterrada dentro de la propia iglesia, en una tumba diseñada por un arquitecto muy famoso!'
+          },
+          architecture: {
+            adult: 'Una de las iglesias más notables y hermosas de Madrid, declarada Bien de Interés Cultural en 1979, espléndido ejemplo del arte del siglo XVIII con elementos franceses, italianos y españoles. Junto a ella se encuentra el Palacio de Justicia, antigua sede del convento.',
+            kids: '¡Esta iglesia es tan bonita que está protegida como un tesoro artístico! Junto a ella hay un edificio enorme que antes era parte del mismo convento.'
+          }
+        }
+      },
+      {
+        id: 'calle-huertas',
+        name: { adult: 'Calle de Huertas', kids: 'La Calle de los Versos Dorados en el Suelo ✨' },
+        subtitle: {
+          adult: 'El eje literario del Barrio de las Letras, con versos grabados en el pavimento',
+          kids: '¡Hay versos escritos en letras doradas justo bajo tus pies!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41345556, -3.69793056],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Calle_Huertas_%285876701988%29.jpg/330px-Calle_Huertas_%285876701988%29.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Calle de Huertas', kids: '¡Aventura Sonora: La Calle de los Versos Dorados en el Suelo!' } },
+        tabs: {
+          history: {
+            adult: 'La calle toma su nombre de las huertas del Prado que existían en el siglo XVII en los terrenos vecinos al Prado de los Jerónimos. El Barrio de las Letras, conocido simplemente como Huertas, fue morada o lugar de encuentro de grandes escritores de los siglos XVI y XVII, entre ellos Cervantes, Lope de Vega, Tirso de Molina, Calderón de la Barca y Quevedo.',
+            kids: 'Esta calle recibe su nombre de unos huertos que existían aquí hace siglos. En este mismo barrio vivieron algunos de los escritores más importantes de la historia de España.'
+          },
+          legends: {
+            adult: 'Una de las características más singulares de la calle son los versos grabados en el propio pavimento: el Ayuntamiento inscribió frases y versos de Cervantes, Lope, Quevedo, Góngora y otros autores del Siglo de Oro en letras doradas, formando una ruta poética que conecta el Siglo de Oro con los visitantes de hoy.',
+            kids: '¡Mira bien al suelo mientras caminas! Hay frases y versos escritos en letras doradas, escritos por autores que vivieron hace 400 años.'
+          },
+          architecture: {
+            adult: 'Eje cultural del Barrio de las Letras, con ambiente animado de bares y restaurantes, que conserva su identidad literaria como ninguna otra calle de Madrid.',
+            kids: '¡Es una calle llena de vida, con bares y restaurantes, pero que no ha olvidado a los escritores que la hicieron famosa!'
+          }
+        }
+      },
+      {
+        id: 'jardines-sabatini',
+        name: { adult: 'Jardines de Sabatini', kids: 'El Jardín que Reemplazó a las Caballerizas Reales 🐎' },
+        subtitle: {
+          adult: 'Jardines neoclásicos construidos sobre las antiguas caballerizas reales',
+          kids: '¡Aquí antes vivían los caballos del rey, no había jardines!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.42021, -3.71394],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Estanque_Central_-_Jardines_de_Sabatini_-_Madrid_01.jpg/330px-Estanque_Central_-_Jardines_de_Sabatini_-_Madrid_01.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Jardines de Sabatini', kids: '¡Aventura Sonora: El Jardín que Reemplazó a las Caballerizas Reales!' } },
+        tabs: {
+          history: {
+            adult: 'Los Jardines de Sabatini se construyeron en la década de 1930, tras la proclamación de la Segunda República, sobre el solar que ocupaban las caballerizas reales, levantadas en el siglo XVIII por el arquitecto italiano Francesco Sabatini junto al Palacio Real. El Ayuntamiento de Madrid convocó un concurso abierto en 1932 para transformar el espacio, y el proyecto se asignó finalmente al arquitecto Fernando García Mercadal.',
+            kids: 'Donde hoy hay un jardín precioso, antes vivían los caballos del rey, en unas caballerizas construidas hace más de 250 años por un arquitecto italiano.'
+          },
+          legends: {
+            adult: 'La Guerra Civil detuvo las obras, que se retomaron después, completándose en 1950. Los jardines, ejecutados con algunas variaciones sobre el proyecto original, se inauguraron ese mismo año y recibieron el nombre de Sabatini en honor al arquitecto del palacio y de las antiguas caballerizas.',
+            kids: '¡Los jardines llevan el nombre del arquitecto que construyó las caballerizas de los caballos del rey, para no olvidar lo que hubo antes en este lugar!'
+          },
+          architecture: {
+            adult: 'Jardines de trazado neoclásico y geometría simétrica, con setos recortados, estanques y estatuas de reyes españoles, situados en la fachada norte del Palacio Real.',
+            kids: '¡Sus setos están recortados con formas muy geométricas, como un laberinto verde! Es un lugar perfecto para pasear tranquilamente junto al Palacio Real.'
+          }
+        }
       }
     ]
   }
