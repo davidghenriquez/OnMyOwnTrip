@@ -14,6 +14,9 @@ como exige cada licencia.
 | Mirador del Azor (foto genérica de la muralla — no existe foto libre del rincón exacto) | Daderot | Dominio público | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wall_detail_-_Toledo,_Spain.JPG) |
 | Casa-Museo de El Greco | Turol Jones | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:WLM14ES_-_10072005_114623_7742_-_.jpg) |
 | Alcázar de Toledo | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:FP_Toledo_Alcazar_2025_-_Views.jpg) |
+| Palacio Real de Madrid | Tim Adams | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_Real_de_Madrid_Julio_2016_(cropped).jpg) |
+| Mercado de San Miguel | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mercado_de_San_Miguel_2025.jpg) |
+| Puerta del Sol | Alfredo Urdaci / PromoMadrid | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MADRID_100206_UDCI_023.jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya
