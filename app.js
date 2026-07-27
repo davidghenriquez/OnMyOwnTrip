@@ -473,6 +473,16 @@
   /* =========================================================
    * MAP
    * =======================================================*/
+  const updatePinScale = () => {
+    if (!map || !CURRENT_CITY) return;
+    const zoom = map.getZoom();
+    const restZoom = CURRENT_CITY.zoom;
+    const minZoom = CURRENT_CITY.minZoom || 11;
+    const t = restZoom > minZoom ? (zoom - minZoom) / (restZoom - minZoom) : 1;
+    const scale = 0.45 + 0.55 * Math.max(0, Math.min(1, t));
+    document.documentElement.style.setProperty('--pin-scale', scale.toFixed(3));
+  };
+
   const initMap = () => {
     // Cleanup: si el script se evalúa dos veces, evita "Map container is already initialized"
     const mapEl = document.getElementById('map');
@@ -490,6 +500,8 @@
       maxZoom: 19, minZoom: cityMinZoom, subdomains: 'abcd'
     }).addTo(map);
     markersLayer = L.layerGroup().addTo(map);
+    map.on('zoom', updatePinScale);
+    updatePinScale();
     renderMarkers();
   };
   const renderMarkers = () => {
