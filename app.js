@@ -120,6 +120,20 @@
         `Imagina a los niños que vivían aquí hace muchísimos años, jugando por estas mismas calles. ¿Jugarían a lo mismo que tú? Seguro que también se hacían un montón de preguntas mirando este lugar, igual que tú ahora mismo. 🤔`,
         `Cierra los ojos un segundo y escucha: el viento, los pájaros, algún eco lejano… Cada rincón de esta ciudad suena distinto, y este es uno de los sitios donde más se nota. 👂✨`
       ],
+      // Introducciones específicas para "Historia secreta": el dato real viene
+      // de poi.tabs.legends (igual que el chip "Leyendas"), así que aquí se usa
+      // un envoltorio distinto ("dato poco conocido" en vez de "cuenta la
+      // leyenda") para que no se lea como una repetición literal del otro chip.
+      secretIntrosAdult: [
+        `No es un dato que aparezca en las guías al uso, pero muchos vecinos y guías locales lo conocen bien.`,
+        `Es de esos detalles que casi nunca se cuentan en una visita rápida, aunque cambian bastante la forma de ver el lugar.`,
+        `Pocos visitantes se paran a preguntar por esto, aunque forma parte de lo que hace único a este sitio.`
+      ],
+      secretIntrosKids: [
+        `¡Esto es un secreto que no todo el mundo conoce! 🤫`,
+        `Prepárate, porque esto que te voy a contar no lo sabe todo el mundo... 🤭`,
+        `¡Shhh! Acércate un poco, que esto es un secretillo especial de este lugar. 🤫✨`
+      ],
       greet(poi, m) {
         const n = poi.name[m] || poi.name.adult;
         if (m === 'kids') {
@@ -220,10 +234,17 @@
         }
         const n = poi.name[m] || poi.name.adult;
         switch (optionId) {
-          case 'secret-history':
+          case 'secret-history': {
+            // Sin API real disponible no hay forma de generar un dato nuevo
+            // de verdad, así que en vez de inventar un episodio y una fuente
+            // falsos (como antes), se reutiliza el dato real y verificado de
+            // poi.tabs.legends, con un envoltorio distinto al del chip
+            // "Leyendas" para que no se lea como el mismo texto dos veces.
+            const legendText = poi.tabs.legends[m] || poi.tabs.legends.adult || '';
             return m === 'kids'
-              ? `🤫 HISTORIA SECRETA\n\n¿Sabes que cuando nadie mira, se oyen pasos por los pasillos? 😜 ¡No, no son fantasmas! Son los gatos del barrio que cazan ratones por las noches 🐈‍⬛🐭.\n\nPero el secreto MÁS GRANDE es que debajo hay 🕳️ pasadizos subterráneos que los constructores hicieron para entrar sin que nadie los viera. Cuentan los abuelos del lugar que, de pequeños, jugaban a buscar la entrada escondida y nunca la encontraron del todo.\n\n${this.pick(this.closingsKids)}\n\n¿Te atreves a buscar una grieta en el muro sur? ¡A ver si la encuentras! 🕵️‍♂️ Y si la encuentras, ¡cuéntaselo bajito a tu familia, que es un secreto!`
-              : `🤫 HISTORIA POCO CONOCIDA\n\nEn ${n} hubo un episodio documentado pero poco difundido: durante un periodo de disturbios, un escribano llamado ${this.pick(['Juan de Perea', 'Gómez Ruiz', 'Antón de Torres'])} ocultó en el hueco de una ventana los privilegios del lugar para que no se perdieran en los enfrentamientos. Allí permanecieron 37 años hasta que un artesano los descubrió mientras restauraba un friso, sorprendido de encontrar documentos que se daban por perdidos desde generaciones atrás.\n\nEl hallazgo obligó a reescribir parte de la crónica local de la época, y todavía hoy los archiveros discuten cuántos otros escondites similares podrían quedar sin descubrir en el entorno.\n\n${this.pick(this.closingsAdult)}\n\n📌 Fuente: archivo histórico local, sección de historia, legajo 42/7.`;
+              ? `🤫 HISTORIA SECRETA\n\n${this.pick(this.secretIntrosKids)}\n\n${legendText}\n\n${this.pick(this.closingsKids)}\n\n🕵️‍♂️ ¿Te atreves a contarle este secreto a tu familia?`
+              : `🤫 HISTORIA POCO CONOCIDA\n\n${this.pick(this.secretIntrosAdult)}\n\n${legendText}\n\n${this.pick(this.closingsAdult)}`;
+          }
           case 'architecture':
             return m === 'kids'
               ? `🏗️ ¡TRUCOS DE ARQUITECTURA!\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
