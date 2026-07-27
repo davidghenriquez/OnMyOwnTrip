@@ -613,7 +613,53 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   border: 1px solid var(--color-border);
   flex-shrink: 0;
   background: var(--color-surface-2);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
+.sheet-thumb:hover { opacity: 0.9; }
+.sheet-thumb:active { transform: scale(0.95); }
+
+/* ---------- LIGHTBOX: imagen ampliada ---------- */
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 5500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(5, 7, 13, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.image-lightbox.-open {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-img {
+  max-width: min(92vw, 900px);
+  max-height: 85vh;
+  border-radius: 16px;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.lightbox-close svg { width: 20px; height: 20px; }
 .sheet-head-text {
   flex: 1;
   min-width: 0;

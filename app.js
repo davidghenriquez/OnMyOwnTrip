@@ -416,6 +416,21 @@
     const k = STATE.mode === 'kids' ? 'kids' : 'adult';
     return obj[k] ?? obj.adult ?? obj.kids ?? '';
   };
+  // Las imágenes vienen de Wikimedia como miniaturas de 330px
+  // (".../thumb/…/330px-Archivo.jpg"). Wikimedia genera bajo demanda
+  // cualquier ancho pedido en esa misma URL, pero si el ancho pedido supera
+  // el de la imagen original, responde 400 en vez de recortarlo — por eso el
+  // lightbox necesita una cadena de fallback (ver openLightbox).
+  const getLargeImageUrl = (src) => {
+    if (!src) return src;
+    return src.replace(/\/(\d+)px-/, '/1200px-');
+  };
+  // Reconstruye la URL del archivo original sin recortar, quitando el
+  // segmento "/thumb/" y el sufijo "NNNpx-" del nombre de archivo repetido.
+  const getOriginalImageUrl = (src) => {
+    if (!src || !src.includes('/thumb/')) return src;
+    return src.replace('/thumb/', '/').replace(/\/\d+px-[^/]+$/, '');
+  };
   const fmtTime = (sec) => {
     sec = Math.max(0, Math.floor(sec));
     return `${Math.floor(sec / 60)}:${(sec % 60).toString().padStart(2, '0')}`;
@@ -921,6 +936,35 @@
     try { els.sheet.setAttribute('aria-hidden', 'true'); } catch (_) {}
     stopAudio();
     clearSelectedMarker();
+    closeLightbox();
+  };
+
+  const openLightbox = (smallSrc, alt) => {
+    if (!els.lightbox || !smallSrc) return;
+    const img = $('.lightbox-img', els.lightbox);
+    const originalSrc = getOriginalImageUrl(smallSrc);
+    // Cadena de fallback: 1200px → original sin recortar → miniatura pequeña
+    // (esta última garantizada, ya que es la que se ve en la ficha).
+    img.onerror = () => {
+      if (img.dataset.stage === 'large') {
+        img.dataset.stage = 'original';
+        img.src = originalSrc;
+      } else if (img.dataset.stage !== 'small') {
+        img.dataset.stage = 'small';
+        img.onerror = null;
+        img.src = smallSrc;
+      }
+    };
+    img.dataset.stage = 'large';
+    img.alt = alt || '';
+    img.src = getLargeImageUrl(smallSrc);
+    els.lightbox.classList.add('-open');
+    els.lightbox.setAttribute('aria-hidden', 'false');
+  };
+  const closeLightbox = () => {
+    if (!els.lightbox) return;
+    els.lightbox.classList.remove('-open');
+    els.lightbox.setAttribute('aria-hidden', 'true');
   };
 
   const populateSheetContent = (id) => {
@@ -1331,8 +1375,20 @@
       updateAudioUi();
     });
 
+    $('.sheet-thumb', els.sheet).addEventListener('click', (e) => {
+      openLightbox(e.currentTarget.src, e.currentTarget.alt);
+    });
+    if (els.lightbox) {
+      $('.lightbox-close', els.lightbox).addEventListener('click', closeLightbox);
+      els.lightbox.addEventListener('click', (e) => {
+        if (e.target === els.lightbox) closeLightbox();
+      });
+    }
+
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && STATE.sheet !== 'closed') closeSheet();
+      if (e.key !== 'Escape') return;
+      if (els.lightbox && els.lightbox.classList.contains('-open')) { closeLightbox(); return; }
+      if (STATE.sheet !== 'closed') closeSheet();
     });
   };
 
@@ -1459,6 +1515,7 @@
     els.backdrop = $('#sheetBackdrop');
     els.filters = $('#filters');
     els.header = $('.header');
+    els.lightbox = $('#imageLightbox');
 
     buildHeader();
     initMap();
