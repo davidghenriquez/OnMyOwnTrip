@@ -32,6 +32,9 @@ como exige cada licencia.
 | Paseo del Tránsito | José Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Paseo_del_Tr%C3%A1nsito,_Toledo.jpg) |
 | Antiguo Hospital de la Santa Cruz | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:FP_Toledo_2025_-_Santa_Cruz_Museum_-_Fa%C3%A7ade.jpg) |
 | Ermita del Valle | Feelingsregu | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puerta_de_la_Ermita_Nuestra_Se%C3%B1ora_del_Valle_(Toledo).jpg) |
+| Museo Nacional del Prado | Emilio J. Rodríguez Posada | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_del_Prado_2016_(25185969599).jpg) |
+| Parque de El Retiro (Palacio de Cristal) | PepeZoom | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_de_Cristal.jpg) |
+| Plaza Mayor (Madrid) | Sebastian Dubiel | CC BY-SA 3.0 DE | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_06.jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya
