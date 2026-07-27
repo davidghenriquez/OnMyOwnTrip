@@ -1237,19 +1237,19 @@ const CITIES = {
       },
       {
         id: 'palacio-benacazon',
-        name: { adult: 'Palacio de Benacazón', kids: 'El Palacio del "Patio de los Presos" ⛓️' },
+        name: { adult: 'Palacio de Benacazón', kids: 'El Palacio del Conde Inventado 🎭' },
         subtitle: {
           adult: 'Antigua sede de la Inquisición, con un patio de historia inquietante',
-          kids: '¡Su patio tiene un nombre que da un poco de miedo!'
+          kids: '¡Un señor se inventó él solito un título de conde!'
         },
         category: CATEGORIES.HISTORY,
         coords: [39.8607285, -4.0217875],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Portada_del_Palacio_de_Benacaz%C3%B3n%2C_Toledo.jpg/330px-Portada_del_Palacio_de_Benacaz%C3%B3n%2C_Toledo.jpg',
-        audio: { duration: 150, title: { adult: 'Audioguía: Palacio de Benacazón', kids: '¡Aventura Sonora: El Palacio del "Patio de los Presos"!' } },
+        audio: { duration: 150, title: { adult: 'Audioguía: Palacio de Benacazón', kids: '¡Aventura Sonora: El Palacio del Conde Inventado!' } },
         tabs: {
           history: {
             adult: 'El palacio que hoy lleva el nombre de Benacazón data probablemente de la época de Pedro I el Cruel, y fue también sede del Santo Oficio de la Inquisición; su patio central era conocido como Patio de los Presos. Perteneció antes a Fernán Pérez de Pantoja y fue casa solariega de las familias Pantoja y Gaytán.',
-            kids: 'Este palacio tan antiguo fue durante un tiempo sede de la Inquisición, un tribunal muy temido de hace siglos. Por eso su patio se llamaba de forma tan siniestra: el "Patio de los Presos".'
+            kids: 'Este palacio tan antiguo fue durante un tiempo la sede de un tribunal muy importante de hace siglos, la Inquisición. Por eso a su patio central lo llamaban "el Patio de los Presos".'
           },
           legends: {
             adult: 'Entre 1920 y 1940 fue propiedad de Anastasio Páramo Barranco, que se atribuyó a sí mismo el título de conde de Benacazón, señor de Mocejón y Benacazón, dando nombre definitivo al edificio. Hacia 1970 fue adquirido por la Caja de Ahorro Provincial de Toledo, que lo rehabilitó para eventos culturales.',
@@ -1944,7 +1944,7 @@ const CITIES = {
       },
       {
         id: 'plaza-cibeles',
-        name: { adult: 'Plaza de Cibeles', kids: 'La Diosa que se Escondió de las Bombas 🦁' },
+        name: { adult: 'Plaza de Cibeles', kids: 'La Diosa que se Disfrazó de Piedra 🦁' },
         subtitle: {
           adult: 'El símbolo más fotografiado de Madrid',
           kids: '¡Una diosa en un carro tirado por leones!'
@@ -1952,7 +1952,7 @@ const CITIES = {
         category: CATEGORIES.HIDDEN,
         coords: [40.419331, -3.693093],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Fuente_de_Cibeles_-_Dec_2024.jpg/330px-Fuente_de_Cibeles_-_Dec_2024.jpg',
-        audio: { duration: 148, title: { adult: 'Audioguía: Plaza de Cibeles', kids: '¡Aventura Sonora: La Diosa que se Escondió de las Bombas!' } },
+        audio: { duration: 148, title: { adult: 'Audioguía: Plaza de Cibeles', kids: '¡Aventura Sonora: La Diosa que se Disfrazó de Piedra!' } },
         tabs: {
           history: {
             adult: 'La fuente, inaugurada en 1782 por iniciativa de Carlos III dentro de su plan de embellecimiento neoclásico de Madrid, representa a la diosa Cibeles sobre un carro tirado por leones, obra del arquitecto Francisco Gutiérrez y el escultor Vicente Crespí. Originalmente se ubicaba frente al Palacio de Buenavista, y no se trasladó al centro exacto de la plaza hasta 1895.',
