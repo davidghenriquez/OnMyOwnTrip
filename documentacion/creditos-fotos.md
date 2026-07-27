@@ -17,6 +17,9 @@ como exige cada licencia.
 | Palacio Real de Madrid | Tim Adams | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_Real_de_Madrid_Julio_2016_(cropped).jpg) |
 | Mercado de San Miguel | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mercado_de_San_Miguel_2025.jpg) |
 | Puerta del Sol | Alfredo Urdaci / PromoMadrid | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MADRID_100206_UDCI_023.jpg) |
+| Monasterio de San Juan de los Reyes | Querubin Saldaña Sanchez | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Iglesia_del_monasterio_de_San_Juan_de_los_Reyes,_Toledo,_Espa%C3%B1a.jpg) |
+| Sinagoga de Santa María la Blanca | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Santa_Mar%C3%ADa_la_Blanca_-_Arcos.jpg) |
+| Mezquita del Cristo de la Luz | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cristo_de_la_Luz_2025_Fa%C3%A7ade.jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya
