@@ -3000,7 +3000,7 @@ const CITIES = {
           },
           legends: {
             adult: 'El mercado, situado muy cerca de la Puerta del Sol y la Plaza Mayor, cuenta con más de 70 puestos, donde conviven comercios tradicionales de varias generaciones familiares con vermuterías, cafeterías y restaurantes de cocina internacional. En su tercera planta se encuentra la escuela de arte flamenco Amor de Dios, una de las más prestigiosas de España.',
-            kids: '¡En la parte de arriba del mercado hay una escuela donde se enseña baile flamenco! Es una de las escuelas de flamenco más importantes de toda España.'
+            kids: '¡Imagina comprar fruta y pescado abajo mientras arriba, en el piso de encima, decenas de bailarines de flamenco ensayan sus zapateados! Es una de las escuelas de flamenco más importantes de toda España, escondida justo encima de los puestos del mercado. 💃'
           },
           architecture: {
             adult: 'El mercado tiene tres plantas: en las dos primeras conviven puestos tradicionales de pescado, carne y verdura junto a espacios gastronómicos modernos, mientras que en la tercera se combina la actividad comercial con la cultural.',
@@ -3026,7 +3026,7 @@ const CITIES = {
           },
           legends: {
             adult: 'El primer edificio, con una cúpula central de 15 metros de altura, fue considerado todo un espectáculo arquitectónico en su época, comparable al mercado gemelo de los Mostenses, diseñado por el mismo arquitecto.',
-            kids: '¡El primer mercado de este lugar tenía una cúpula altísima, tan alta como un edificio de cinco pisos! Era una auténtica maravilla de la ingeniería de su época.'
+            kids: '¡Imagina un mercado fantasma hecho de hierro y cristal, con una cúpula tan alta como un edificio de cinco pisos y columnas traídas en barco desde muy lejos! Ese primer mercado ya no existe, pero fue toda una maravilla de la ingeniería en su época, mucho antes de que se construyera el que ves hoy. 👻'
           },
           architecture: {
             adult: 'Es, junto con el de Antón Martín, uno de los mercados de abastos más grandes y tradicionales del centro histórico, corazón comercial del castizo barrio de La Latina.',

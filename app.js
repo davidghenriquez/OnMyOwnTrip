@@ -725,7 +725,14 @@
 
     const chips = [];
     if (topic) chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel) });
-    const remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
+    let remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
+    if (STATE.mode === 'kids') {
+      // A los niños les enganchan antes las leyendas mágicas que las
+      // recomendaciones de comida cercana, así que en este modo se
+      // adelanta "legends" y se deja "nearby-food" para el final.
+      const KIDS_ORDER = ['secret-history', 'architecture', 'legends', 'nearby-food'];
+      remaining = [...remaining].sort((a, b) => KIDS_ORDER.indexOf(a.id) - KIDS_ORDER.indexOf(b.id));
+    }
     remaining.slice(0, topic ? 2 : 3).forEach((o) => chips.push({ id: o.id, kind: 'option', label: pickDual(o.label) }));
     if (topic && remaining.length === 0) chips.push({ id: 'reset', kind: 'reset', label: pickDual(AI_PROMPTS.resetLabel) });
 
