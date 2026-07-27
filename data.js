@@ -844,6 +844,500 @@ const CITIES = {
             kids: '¡Fíjate en los azulejos de colores en la parte de abajo de las paredes! También hay una reja de hierro forjado muy trabajada. Este lugar está justo al lado del mirador con las mejores vistas de todo Toledo.'
           }
         }
+      },
+      {
+        id: 'cuevas-hercules',
+        name: { adult: 'Cuevas de Hércules', kids: 'La Cueva Mágica de Hércules 🔮' },
+        subtitle: {
+          adult: 'Depósito de agua romano envuelto en leyendas de magia y nigromancia',
+          kids: '¡Aquí se contaba que un héroe enseñaba magia en secreto!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8586656, -4.0243597],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Cueva_de_H%C3%A9rcules_-_01.jpg/330px-Cueva_de_H%C3%A9rcules_-_01.jpg',
+        audio: { duration: 155, title: { adult: 'Audioguía: Cuevas de Hércules', kids: '¡Aventura Sonora: La Cueva Mágica de Hércules!' } },
+        tabs: {
+          history: {
+            adult: 'Se trata de un espacio abovedado construido por los romanos en el subsuelo de Toledo durante la segunda mitad del siglo I, en época de Augusto o Tiberio, que funcionó como castellum aquae, el depósito terminal del acueducto romano que abastecía la ciudad. Tras la caída del Imperio, los visigodos ocuparon el espacio y lo convirtieron en iglesia, y en el siglo XII se erigió sobre él un templo dedicado a San Ginés, abandonado en el siglo XVIII y demolido en 1841.',
+            kids: 'Este espacio subterráneo lo construyeron los romanos hace casi 2000 años para guardar agua. Después, otros pueblos lo usaron como iglesia, ¡hasta que quedó abandonado hace unos 200 años!'
+          },
+          legends: {
+            adult: 'Una persistente leyenda identifica estos sótanos con la mítica Cueva de Hércules, una suerte de universidad de las artes mágicas: se cuenta que el héroe convirtió las cuevas que horadan el promontorio rocoso de Toledo en el lugar donde enseñaba magia y nigromancia a quienes lo desearan.',
+            kids: '¡Cuenta la leyenda que el héroe Hércules usó estas cuevas como una auténtica escuela secreta de magia! Se dice que aquí enseñaba sus trucos más misteriosos a quien se atreviera a aprenderlos.'
+          },
+          architecture: {
+            adult: 'Declaradas Bien de Interés Cultural en 2008, las cuevas conservan su estructura original de opus caementicium recubierta de cemento hidráulico, visitables hoy como uno de los rincones subterráneos más enigmáticos de la ciudad.',
+            kids: '¡Bajar a estas cuevas es como viajar al mismísimo Imperio Romano! Sus paredes de piedra llevan casi 2000 años en pie.'
+          }
+        }
+      },
+      {
+        id: 'callejon-pozo-amargo',
+        name: { adult: 'Callejón del Pozo Amargo', kids: 'El Callejón del Amor Imposible 💔' },
+        subtitle: {
+          adult: 'Un pozo que da nombre a la leyenda de amor más trágica de Toledo',
+          kids: '¡Aquí ocurrió una historia de amor muy triste entre dos jóvenes de religiones distintas!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [39.8550219, -4.0235220],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/El_Pozo_Amargo._Toledo_%28Espa%C3%B1a%29.jpg/330px-El_Pozo_Amargo._Toledo_%28Espa%C3%B1a%29.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Callejón del Pozo Amargo', kids: '¡Aventura Sonora: El Callejón del Amor Imposible!' } },
+        tabs: {
+          history: {
+            adult: 'El pozo sobre el que se basa la historia se encuentra en una pequeña plaza de la calle del Pozo Amargo, en pleno corazón de la judería toledana, a pocos metros de la Catedral. Hay constancia de que dicho pozo era uno de los más notables de la ciudad ya en 1093, cuando se le llamaba pozo Caxali; en 1162 cambió su nombre a pozo amargo, época en la que se sitúa la leyenda.',
+            kids: 'Este pozo, escondido en una plazuela pequeñita del barrio judío de Toledo, ya era conocido hace casi 1000 años, ¡aunque entonces tenía un nombre distinto!'
+          },
+          legends: {
+            adult: 'La leyenda narra el amor imposible entre Don Fernando, un caballero cristiano, y Raquel, hija del acaudalado hebreo Leví, que vivía en un palacio en cuyos jardines se encontraba el pozo. Se trata de una de las leyendas de temática interreligiosa y romántica más conocidas de la ciudad, recogida por autores como Luis Moreno Nieto, con un desenlace trágico marcado por las normas sociales de la época.',
+            kids: 'Cuenta la leyenda que un caballero cristiano y una joven judía se enamoraron en secreto junto a este pozo, hace muchísimos siglos. Pero como pertenecían a religiones distintas, su historia de amor terminó de forma muy triste.'
+          },
+          architecture: {
+            adult: 'Una placa conmemorativa en la pared de la calle recuerda hoy la leyenda a los visitantes, en uno de los rincones más recogidos y evocadores de la antigua judería.',
+            kids: '¡Todavía hoy puedes ver una placa en la pared que recuerda esta historia tan antigua y tan triste!'
+          }
+        }
+      },
+      {
+        id: 'circo-romano-toledo',
+        name: { adult: 'Circo Romano de Toledo', kids: 'El Estadio de las Carreras de Carros 🏇' },
+        subtitle: {
+          adult: 'Restos de uno de los grandes espectáculos públicos de la Roma imperial',
+          kids: '¡Aquí competían carros tirados por caballos hace 2000 años!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.86426389, -4.02920833],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Espa%C3%B1a_-_Toledo_-_Ruinas_del_Circo_Romano_003.JPG/330px-Espa%C3%B1a_-_Toledo_-_Ruinas_del_Circo_Romano_003.JPG',
+        audio: { duration: 155, title: { adult: 'Audioguía: Circo Romano de Toledo', kids: '¡Aventura Sonora: El Estadio de las Carreras de Carros!' } },
+        tabs: {
+          history: {
+            adult: 'El circo romano de Toledo se construyó a finales del siglo I, probablemente por mandato de Octavio Augusto de dotar a las grandes ciudades de Hispania de exuberantes edificios públicos, con unas dimensiones de 422 metros de largo por unos 112 de ancho. Se encuentra en el sector sur de la Zona Arqueológica de la Vega Baja, un espacio de más de seis hectáreas que contiene también uno de los cementerios medievales más importantes de la ciudad.',
+            kids: 'Este enorme estadio se construyó hace casi 2000 años, cuando Toledo era una ciudad romana. Era tan grande como cuatro campos de fútbol seguidos.'
+          },
+          legends: {
+            adult: 'Las primeras excavaciones se remontan a 1886, cuando la Sociedad Arqueológica de Toledo exploró el sector de las carceres. Entre 1927 y 1929 se desarrollaron nuevas campañas, y en 1982-83 tuvo lugar la única excavación asociada a un proyecto de investigación científica, que determinó su proceso de construcción y descubrió restos medievales islámicos de hornos del siglo IX.',
+            kids: '¡Los arqueólogos llevan más de 130 años excavando este lugar poco a poco! Cada excavación ha ido descubriendo nuevos secretos escondidos bajo la tierra.'
+          },
+          architecture: {
+            adult: 'A pesar de todas las intervenciones, el circo no se ha desenterrado en su totalidad, pues existen construcciones modernas sobre parte de sus estructuras; sus restos quedan hoy repartidos entre el Parque Escolar y el Paseo del Circo Romano.',
+            kids: '¡Aunque hoy solo se ven algunos restos, imagina este lugar lleno de gente animando a los carros de caballos en sus carreras!'
+          }
+        }
+      },
+      {
+        id: 'iglesia-santiago-arrabal',
+        name: { adult: 'Iglesia de Santiago del Arrabal', kids: 'La Catedral en Miniatura del Mudéjar 🕌' },
+        subtitle: {
+          adult: 'Considerada la catedral del arte mudéjar toledano',
+          kids: '¡Le llaman "la catedral mudéjar" por lo especial que es!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.862, -4.0255],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/%C3%81bside_Iglesia_de_Santiago%2C_Toledo.jpg/330px-%C3%81bside_Iglesia_de_Santiago%2C_Toledo.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Iglesia de Santiago del Arrabal', kids: '¡Aventura Sonora: La Catedral en Miniatura del Mudéjar!' } },
+        tabs: {
+          history: {
+            adult: 'La iglesia se construyó en la segunda mitad del siglo XIII bajo el patrocinio de Sancho II, rey de Portugal, y es considerada uno de los mejores ejemplos del arte mudéjar toledano, hasta el punto de ser conocida como la Catedral del Mudéjar. Su ubicación en un antiguo barrio musulmán sugiere que se construyó sobre un templo anterior, posiblemente una mezquita, cuyo alminar correspondería a la actual torre exenta, reforzada con ladrillo para instalar el campanario.',
+            kids: 'Esta iglesia se construyó hace más de 750 años, probablemente sobre una mezquita antigua. Es tan bonita y especial que la llaman "la catedral" del estilo mudéjar, aunque no sea la catedral de verdad.'
+          },
+          legends: {
+            adult: 'Es uno de los ejemplos más claros de la construcción mudéjar toledana y la única iglesia de la ciudad que conserva su estructura primitiva casi intacta. Sus muros de mampostería y ladrillo, con puertas enmarcadas en arcos polilobulados de herradura, conviven con tres ábsides semicirculares decorados con arcos de distintos tipos.',
+            kids: '¡Es la única iglesia de todo Toledo que conserva su forma original de hace tantos siglos, casi sin cambios!'
+          },
+          architecture: {
+            adult: 'Se encuentra cerca de la Puerta Nueva de Bisagra, en la zona norte del casco histórico, y debe su nombre a su ubicación en los antiguos arrabales, los barrios que quedaban fuera de las murallas de la ciudad.',
+            kids: '¡Su nombre viene de que antiguamente estaba fuera de las murallas de la ciudad, en un barrio de las afueras!'
+          }
+        }
+      },
+      {
+        id: 'puerta-valmardon',
+        name: { adult: 'Puerta de Valmardón', kids: 'La Puerta Más Antigua de Toledo 🚪' },
+        subtitle: {
+          adult: 'Probablemente la puerta más antigua conservada de la ciudad',
+          kids: '¡Esta puerta ha tenido más de seis nombres distintos a lo largo de la historia!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8608494, -4.0244095],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Puerta_de_Valmard%C3%B3n%2C_Toledo_-_1.JPG/330px-Puerta_de_Valmard%C3%B3n%2C_Toledo_-_1.JPG',
+        audio: { duration: 145, title: { adult: 'Audioguía: Puerta de Valmardón', kids: '¡Aventura Sonora: La Puerta Más Antigua de Toledo!' } },
+        tabs: {
+          history: {
+            adult: 'La Puerta de Valmardón, o Bab al-Mardum, fue una de las puertas de la muralla urbana de Toledo por la que se accedía a la medina islámica. Es probablemente la puerta más antigua de la ciudad, con restos que datan de los siglos IX y X, aunque sus orígenes son incluso anteriores, pues en época romana era conocida como Puerta de Aquilina o del Rey Agila.',
+            kids: 'Esta es probablemente la puerta más vieja de toda la ciudad, con partes construidas hace más de 1000 años, ¡aunque sus orígenes son todavía más antiguos!'
+          },
+          legends: {
+            adult: 'Su nombre oficial procede del árabe bab al-Mardum, que significa "puerta bloqueada o condenada", indicando que en algún momento dejó de usarse como paso principal, ya que el tránsito habitual se realizaba por la cercana Puerta del Sol. A lo largo de la historia ha sido citada con nombres como Balmardón, Puerta del Mayordomo o Puerta de la Cruz.',
+            kids: '¡Esta puerta ha cambiado de nombre muchísimas veces a lo largo de los siglos! Su nombre en árabe significa "puerta bloqueada", porque en algún momento dejó de usarse para entrar a la ciudad.'
+          },
+          architecture: {
+            adult: 'En las partes bajas se reutilizaron sillares de épocas anteriores, mientras que en las zonas media y alta se empleó la mampostería toledana típica del mudéjar, con ladrillo y tapial. Con la pérdida de su valor defensivo, sus primitivos arcos de herradura se transformaron en arcos de medio punto.',
+            kids: '¡Si te fijas bien, verás piedras y ladrillos de épocas muy distintas mezclados en la misma puerta, como un rompecabezas de la historia!'
+          }
+        }
+      },
+      {
+        id: 'cristo-de-la-vega',
+        name: { adult: 'Ermita del Cristo de la Vega', kids: 'El Cristo que Testificó en un Juicio ⚖️' },
+        subtitle: {
+          adult: 'Escenario de la célebre leyenda "A buen juez, mejor testigo"',
+          kids: '¡Cuenta la leyenda que una estatua habló para salvar a una mujer!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.86091667, -4.03428056],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/WLM14ES_-_10072005_170647_7840_-_.jpg/330px-WLM14ES_-_10072005_170647_7840_-_.jpg',
+        audio: { duration: 155, title: { adult: 'Audioguía: Ermita del Cristo de la Vega', kids: '¡Aventura Sonora: El Cristo que Testificó en un Juicio!' } },
+        tabs: {
+          history: {
+            adult: 'La ermita se levanta donde antaño estuvo la basílica visigótica de Santa Leocadia, en plena Vega Baja de Toledo. Su parte más antigua, el ábside, data del siglo XIII y es de estilo mudéjar. El Cristo que alberga ya era venerado en este lugar al menos desde 1612, fecha en la que Francisco de Pisa mencionó por primera vez la famosa leyenda.',
+            kids: 'Esta ermita se construyó donde antes hubo un templo todavía más antiguo, de hace más de 1300 años. La imagen de Cristo que guarda dentro ya era venerada hace más de 400 años.'
+          },
+          legends: {
+            adult: 'La leyenda, convertida en pieza literaria por José Zorrilla bajo el título A buen juez, mejor testigo, narra el amor entre Diego Martínez e Inés de Vargas: antes de partir a la guerra, Diego juró ante el Cristo de la Vega que se casaría con ella a su regreso. Cuando Diego no volvió, Inés reclamó justicia y, como único testigo, presentó al propio Cristo, que ante el asombro general desclavó su mano derecha de la cruz para testificar a su favor.',
+            kids: '¡Esta es una de las leyendas más famosas de Toledo! Cuenta que un joven prometió casarse con su novia ante esta estatua de Cristo, y cuando no cumplió su promesa, la propia estatua movió la mano para testificar a favor de ella ante un tribunal.'
+          },
+          architecture: {
+            adult: 'Templo mudéjar de origen medieval, situado extramuros de la ciudad, que sigue siendo hoy escenario de gran devoción popular, especialmente ligado a la festividad de la Virgen del Valle.',
+            kids: '¡Está fuera de las antiguas murallas de Toledo, en una zona tranquila junto a la vega del río!'
+          }
+        }
+      },
+      {
+        id: 'casa-museo-victorio-macho',
+        name: { adult: 'Casa-Museo Victorio Macho', kids: 'El Estudio del Escultor sobre el Precipicio 🗿' },
+        subtitle: {
+          adult: 'La casa-taller de un escultor, encaramada sobre la Roca Tarpeya',
+          kids: '¡Un escultor construyó su casa en el borde de un acantilado!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8559506, -4.0307402],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Sala_de_museo_victorio_macho.jpg/330px-Sala_de_museo_victorio_macho.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Casa-Museo Victorio Macho', kids: '¡Aventura Sonora: El Estudio del Escultor sobre el Precipicio!' } },
+        tabs: {
+          history: {
+            adult: 'El museo se sitúa en el promontorio de la Roca Tarpeya, un enclave abrupto sobre el río Tajo, que el escultor Victorio Macho escogió para edificar en 1953 su casa y taller, diseñados por el arquitecto Secundino Zuazo. Cuando el artista murió en Toledo en 1966, dejó expresado en su testamento su deseo de que sus obras permanecieran vinculadas a este mismo lugar, en un museo creado a tal efecto.',
+            kids: 'Un escultor famoso eligió este lugar tan especial, al borde de un acantilado sobre el río, para construir su casa y su taller, hace más de 70 años.'
+          },
+          legends: {
+            adult: 'La colección del museo está compuesta por 91 esculturas y 48 dibujos que recorren la trayectoria artística del artista entre 1903 y 1965, la mayoría procedentes de la donación del propio Victorio Macho. Tras años cerrado, Roca Tarpeya reabrió sus puertas en 1999, y ese mismo año los Reyes de España inauguraron oficialmente el nuevo espacio cultural.',
+            kids: '¡Dentro del museo hay más de 90 esculturas hechas por el propio artista, que él mismo quiso regalar a la ciudad para que todos pudieran verlas!'
+          },
+          architecture: {
+            adult: 'La Roca Tarpeya ofrece unas vistas formidables sobre el meandro del Tajo y los cigarrales de la otra orilla, un mirador natural que el propio escultor convirtió en parte esencial de su obra y legado.',
+            kids: '¡Desde aquí las vistas sobre el río son espectaculares! No es de extrañar que un artista quisiera vivir y trabajar en un sitio tan bonito.'
+          }
+        }
+      },
+      {
+        id: 'convento-santo-domingo-antiguo',
+        name: { adult: 'Convento de Santo Domingo el Antiguo', kids: 'El Misterio de la Tumba Perdida 🔍' },
+        subtitle: {
+          adult: 'Donde El Greco fue enterrado, aunque sus restos hoy son un misterio',
+          kids: '¡Un gran pintor está enterrado aquí, pero nadie sabe exactamente dónde!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.859350, -4.028037],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Convento_de_Santo_Domingo_El_Antiguo_-_01.jpg/330px-Convento_de_Santo_Domingo_El_Antiguo_-_01.jpg',
+        audio: { duration: 155, title: { adult: 'Audioguía: Convento de Santo Domingo el Antiguo', kids: '¡Aventura Sonora: El Misterio de la Tumba Perdida!' } },
+        tabs: {
+          history: {
+            adult: 'Los orígenes del convento se remontan a un cenobio visigótico fundado sobre la casa de Santa Leocadia, sustituido después por un monasterio establecido por Alfonso VI en 1085, tras la conquista de Toledo, siendo uno de los conventos más antiguos de la ciudad. Este templo tuvo el honor de atraer por primera vez a Doménikos Theotokópoulos, El Greco, a Toledo en 1577, con un encargo de nueve pinturas para su retablo.',
+            kids: 'Este convento es uno de los más antiguos de Toledo, con casi 1000 años de historia. Fue precisamente un encargo en este lugar lo que trajo por primera vez a Toledo al pintor más famoso de la ciudad, El Greco.'
+          },
+          legends: {
+            adult: 'El Greco murió el 7 de abril de 1614 y fue enterrado en la cripta de este convento, pero durante reformas del siglo XVII sus restos fueron trasladados y se perdieron. Una tercera expedición a la cripta en 1984 documentó hallazgos, pero no pudo demostrarse con certeza que los restos del pintor sigan allí, por lo que, según Turismo de Toledo, no existe seguridad absoluta sobre su ubicación final.',
+            kids: '¡Aquí enterraron a El Greco cuando murió, hace más de 400 años! Pero con el tiempo sus restos se perdieron durante unas obras, y nadie sabe con seguridad dónde están exactamente hoy.'
+          },
+          architecture: {
+            adult: 'Alberga algunas de las obras más destacadas del pintor, como el retablo de La Resurrección y los Santos Juanes, en un conjunto monástico reformado en el siglo XVI que combina la antigüedad de sus orígenes con la riqueza artística del Siglo de Oro.',
+            kids: '¡Dentro se pueden ver algunos de los primeros cuadros que El Greco pintó al llegar a Toledo!'
+          }
+        }
+      },
+      {
+        id: 'palacio-fuensalida',
+        name: { adult: 'Palacio de Fuensalida', kids: 'El Palacio donde Vivió una Emperatriz 👑' },
+        subtitle: {
+          adult: 'Palacio mudéjar vinculado a la emperatriz Isabel de Portugal',
+          kids: '¡Aquí vivió la esposa de uno de los emperadores más poderosos de la historia!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.85638889, -4.02805556],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Palacio_de_Fuensalida_.jpg/330px-Palacio_de_Fuensalida_.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Palacio de Fuensalida', kids: '¡Aventura Sonora: El Palacio donde Vivió una Emperatriz!' } },
+        tabs: {
+          history: {
+            adult: 'Construido hacia 1440 por los primeros condes de Fuensalida, Pedro López de Ayala y Elvira de Castañeda, se trata de un soberbio palacio mudéjar con claras influencias góticas, según un modelo de inspiración hispanomusulmana implantado en Toledo desde mediados del siglo XIV. Su historia se vincula a figuras como Garcilaso de la Vega, El Greco o Lope de Vega, pero especialmente a Carlos I y su esposa, la emperatriz Isabel de Portugal, madre de Felipe II.',
+            kids: 'Este palacio, construido hace casi 600 años, estuvo vinculado a la esposa de uno de los emperadores más poderosos de la historia de España, y también a varios escritores y pintores famosos.'
+          },
+          legends: {
+            adult: 'A lo largo de su historia, el palacio ha tenido múltiples vidas: residencia nobiliaria, cuartel militar e incluso vivienda para vecinos, hasta que en 1964 fue adquirido por la Dirección General de Patrimonio Artístico para su restauración.',
+            kids: '¡Este edificio ha sido de todo un poco a lo largo de los siglos: casa de nobles, cuartel militar, e incluso vivienda de vecinos normales, antes de convertirse en el monumento que es hoy!'
+          },
+          architecture: {
+            adult: 'Su fachada sobria apenas deja intuir la riqueza artística que aguarda tras sus muros: patios porticados, yeserías mudéjares y artesonados policromados, entre ellos una escalera con artesonado plateresco del siglo XVI.',
+            kids: '¡Por fuera parece un edificio sencillo, pero por dentro esconde patios y techos de madera tallada y pintada muy elaborados!'
+          }
+        }
+      },
+      {
+        id: 'casa-consistorial-toledo',
+        name: { adult: 'Plaza del Ayuntamiento y Casa Consistorial', kids: 'La Plaza de los Tres Poderes ⚖️' },
+        subtitle: {
+          adult: 'El edificio consistorial diseñado por Juan de Herrera y rematado por el hijo de El Greco',
+          kids: '¡El hijo de un pintor muy famoso ayudó a terminar de construir este edificio!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.85655, -4.02498889],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Toledo_City_Council_01.jpg/330px-Toledo_City_Council_01.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Plaza del Ayuntamiento', kids: '¡Aventura Sonora: La Plaza de los Tres Poderes!' } },
+        tabs: {
+          history: {
+            adult: 'El Ayuntamiento se halla frente a la fachada principal de la Catedral y tiene su origen en el siglo XIV; a finales del siglo XVI se inició el actual edificio sobre otro mudéjar preexistente. El proyecto es obra del célebre arquitecto Juan de Herrera, autor también de El Escorial, cuyas obras comenzaron por la fachada principal.',
+            kids: 'Este edificio se construyó sobre otro más antiguo, hace más de 400 años. Lo diseñó el mismo arquitecto que hizo el famoso monasterio de El Escorial, cerca de Madrid.'
+          },
+          legends: {
+            adult: 'Tras la muerte del arquitecto que continuó la obra, Jorge Manuel Theotocópuli, hijo de El Greco, tomó las obras en sus manos en 1612, levantando el segundo piso y coronando el edificio con un pequeño frontón triangular donde colocó el escudo de la ciudad. El remate final de las dos torres con chapiteles barrocos de pizarra lo dio Teodoro Ardemans, que concluyó el edificio en 1703.',
+            kids: '¡El hijo del pintor El Greco ayudó a terminar de construir este edificio! Añadió un piso entero y colocó el escudo de la ciudad en lo más alto.'
+          },
+          architecture: {
+            adult: 'Situada frente a la Catedral, esta plaza reúne simbólicamente el poder civil, religioso y judicial de la ciudad, un buen resumen del peso histórico de Toledo como capital.',
+            kids: '¡En esta plaza se juntan los edificios más importantes del poder de la ciudad: el ayuntamiento y la catedral, uno frente al otro!'
+          }
+        }
+      },
+      {
+        id: 'iglesia-san-pedro-martir',
+        name: { adult: 'Iglesia de San Pedro Mártir', kids: 'El Convento Convertido en Universidad 🎓' },
+        subtitle: {
+          adult: 'Antiguo convento dominico, hoy sede universitaria',
+          kids: '¡Este antiguo convento hoy es parte de una universidad!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8579556, -4.0272897],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Convento_de_San_Pedro_M%C3%A1rtir_%28Toledo%29._Claustro_Real.jpg/330px-Convento_de_San_Pedro_M%C3%A1rtir_%28Toledo%29._Claustro_Real.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Iglesia de San Pedro Mártir', kids: '¡Aventura Sonora: El Convento Convertido en Universidad!' } },
+        tabs: {
+          history: {
+            adult: 'La presencia dominica en Toledo comenzó con una fundación en 1230 bajo la advocación de San Pablo, en la Huerta del Granadal, y en 1407 los frailes se trasladaron dentro de las murallas, alegando problemas de salud por la humedad del río. La iglesia, ejemplo del clasicismo posherreriano, fue dirigida por Nicolás de Vergara el Mozo a partir de 1587, continuando las obras Juan Bautista Monegro desde 1607.',
+            kids: 'Los frailes que vivían aquí se mudaron dentro de las murallas de la ciudad hace más de 600 años, porque decían que la humedad del río les hacía daño donde vivían antes.'
+          },
+          legends: {
+            adult: 'Con el proceso de crecimiento y expansión, el convento llegó a formar un conjunto arquitectónico de veintiún edificios, funcionando prácticamente como una microciudad dentro de la propia Toledo. Tras la desamortización, el edificio tuvo varios usos hasta ser rehabilitado como complejo universitario, sede hoy de la Facultad de Ciencias Jurídicas y Sociales de la Universidad de Castilla-La Mancha.',
+            kids: '¡Este convento llegó a tener 21 edificios propios, como una ciudad pequeña dentro de la propia Toledo! Hoy en día estudian aquí universitarios de verdad.'
+          },
+          architecture: {
+            adult: 'El claustro principal de los dominicos, el Claustro Real, es una importante obra renacentista proyectada por Alonso de Covarrubias en 1541 y ejecutada en piedra por Hernán González de Lara.',
+            kids: '¡Su patio principal es una auténtica joya, diseñado por uno de los arquitectos más importantes del Renacimiento español!'
+          }
+        }
+      },
+      {
+        id: 'mezquita-tornerias',
+        name: { adult: 'Mezquita de las Tornerías', kids: 'La Mezquita Escondida en un Barrio Comercial 🛍️' },
+        subtitle: {
+          adult: 'Más de mil años de historia en pleno barrio comercial toledano',
+          kids: '¡Esta mezquita antigua ha sido tienda, taller y hasta fábrica de velas!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8585, -4.0228],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Mezquita_de_las_Torner%C3%ADas._Toledo.jpg/330px-Mezquita_de_las_Torner%C3%ADas._Toledo.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Mezquita de las Tornerías', kids: '¡Aventura Sonora: La Mezquita Escondida en un Barrio Comercial!' } },
+        tabs: {
+          history: {
+            adult: 'Esta mezquita data de finales del siglo IX, asentada sobre cimientos visigodos anteriores, situada en el antiguo Arrabal de Francos, junto al zoco de los bruñidores y sobre el zoco de los cambiadores, en el corazón de un barrio eminentemente comercial. El edificio aparece mencionado por primera vez en 1190, y la última vez que se cita como mezquita es en 1498, fecha que se toma como límite para su desacralización.',
+            kids: 'Esta mezquita se construyó hace más de 1100 años, en un barrio donde se compraba y vendía de todo, entre puestos de artesanos y comerciantes.'
+          },
+          legends: {
+            adult: 'A lo largo de los siglos la mezquita ha tenido muchos usos: fue mesón, viviendas humildes, bodegones, carpinterías, caldererías, fábrica de sombreros y de velas de sebo, antes de que en 1505 su propietario, el corregidor de Toledo don Pedro de Castilla, la donara al Hospital de la Misericordia.',
+            kids: '¡A lo largo de la historia, este edificio ha sido de todo menos mezquita: posada, taller de sombreros, fábrica de velas y muchas cosas más!'
+          },
+          architecture: {
+            adult: 'Actualmente alberga el Centro Regional de Artesanía de Castilla-La Mancha, que puede visitarse y acoge exposiciones temporales, un buen ejemplo de cómo Toledo reutiliza su patrimonio islámico.',
+            kids: '¡Hoy en día puedes visitarla y ver exposiciones de artesanía, en un edificio que lleva mil años en pie!'
+          }
+        }
+      },
+      {
+        id: 'plaza-san-vicente',
+        name: { adult: 'Plaza de San Vicente', kids: 'La Iglesia que se Convirtió en Discoteca 🎶' },
+        subtitle: {
+          adult: 'Una iglesia mudéjar con un pasado sorprendentemente moderno',
+          kids: '¡Esta antigua iglesia llegó a ser discoteca antes de convertirse en centro de arte!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [39.8596, -4.0252],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Toledo%2C_Iglesia_san_Vicente-PM_65615.jpg/330px-Toledo%2C_Iglesia_san_Vicente-PM_65615.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Plaza de San Vicente', kids: '¡Aventura Sonora: La Iglesia que se Convirtió en Discoteca!' } },
+        tabs: {
+          history: {
+            adult: 'La Iglesia de San Vicente fue fundada por Alfonso VI poco después de la conquista cristiana de la ciudad en el siglo XI. Hacia 1125 ya se la citaba como parroquia, aunque su parte más antigua conservada, el ábside, data de mediados del siglo XIII, con tres niveles de arquerías ciegas y arcos de herradura interiores que dan paso a capillas góticas del siglo XIV.',
+            kids: 'Esta iglesia se construyó hace casi 1000 años, poco después de que los cristianos conquistaran Toledo. Su parte más antigua tiene casi 800 años.'
+          },
+          legends: {
+            adult: 'A finales del siglo XVI sufrió graves daños estructurales que obligaron a una rehabilitación importante, con una nueva torre construida en 1599. Su uso religioso terminó en 1842, tras lo cual el edificio pasó a ser almacén, después museo, más tarde aulas universitarias, e incluso, ya en el siglo XX, una sala de fiestas, antes de convertirse en la sede actual del Círculo de Arte de Toledo.',
+            kids: '¡Esta iglesia ha tenido vidas muy distintas! Ha sido almacén, museo, aulas de universidad, ¡e incluso una discoteca, antes de convertirse en lo que es hoy!'
+          },
+          architecture: {
+            adult: 'La capilla de Oballe, decorada por El Greco en el siglo XVII, es uno de los detalles artísticos más valiosos que se conservan en el interior del templo.',
+            kids: '¡Dentro hay una capilla decorada por el pintor El Greco, el mismo que pintó tantas obras famosas en Toledo!'
+          }
+        }
+      },
+      {
+        id: 'convento-san-clemente',
+        name: { adult: 'Convento de San Clemente', kids: 'La Cuna del Mazapán 🍬' },
+        subtitle: {
+          adult: 'Convento de clausura considerado el lugar de nacimiento del mazapán',
+          kids: '¡Aquí se inventó el mazapán, hace más de 800 años!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.858108, -4.028364],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Toledo_-_Convento_de_San_Clemente_-_201102.jpg/330px-Toledo_-_Convento_de_San_Clemente_-_201102.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Convento de San Clemente', kids: '¡Aventura Sonora: La Cuna del Mazapán!' } },
+        tabs: {
+          history: {
+            adult: 'El Monasterio de San Clemente fue fundado por Alfonso VI fuera de las murallas, y trasladado dentro de ellas por su nieto Alfonso VII el Emperador, siendo uno de los primeros conventos fundados en Toledo tras la Reconquista. Originalmente vinculado a la orden de Cluny, tras la reforma benedictina se adaptó a la regla cisterciense en 1117, incorporación que confirmó definitivamente el papa Alejandro III en 1180.',
+            kids: 'Este convento es uno de los primeros que se fundaron en Toledo después de que los cristianos reconquistaran la ciudad, hace casi 1000 años.'
+          },
+          legends: {
+            adult: 'Según la tradición, el mazapán en su versión actual se inventó en este convento a comienzos del siglo XIII, concretamente tras la batalla de las Navas de Tolosa en 1212, cuando el hambre se extendió por la región y las monjas idearon esta receta a base de almendra y azúcar. Hoy lo habitan monjas bernardas que siguen la regla "ora et labora", elaborando exquisitos dulces y mazapanes mientras mantienen su horario regular de oración.',
+            kids: '¡Cuenta la tradición que el mazapán, ese dulce tan típico de Toledo, se inventó aquí dentro hace más de 800 años, en un año de mucha hambre, usando solo almendra y azúcar!'
+          },
+          architecture: {
+            adult: 'Es un convento de clausura, por lo que las visitas son limitadas, aunque cuenta con una tienda y un espacio expositivo en la entrada donde se pueden adquirir los famosos dulces elaborados por las propias monjas.',
+            kids: '¡Aunque no se puede visitar por dentro porque las monjas viven en clausura, sí puedes comprar en la puerta los dulces que ellas mismas preparan!'
+          }
+        }
+      },
+      {
+        id: 'termas-amador-rios',
+        name: { adult: 'Termas Romanas de la Plaza de Amador de los Ríos', kids: 'Los Baños Romanos Escondidos bajo una Plaza 🛁' },
+        subtitle: {
+          adult: 'Restos de unas termas que revelan la monumentalidad del Toledo romano',
+          kids: '¡Debajo de esta plaza tan tranquila se esconden unos baños romanos!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8584168, -4.0252939],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Termas_Romanas_de_la_Plaza_de_Amador_de_los_R%C3%ADos%2C_Toledo_%286431432341%29.jpg/330px-Termas_Romanas_de_la_Plaza_de_Amador_de_los_R%C3%ADos%2C_Toledo_%286431432341%29.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Termas Romanas de Amador de los Ríos', kids: '¡Aventura Sonora: Los Baños Romanos Escondidos bajo una Plaza!' } },
+        tabs: {
+          history: {
+            adult: 'Los restos arqueológicos conservados en este lugar, conocidos desde 1986, ilustran la monumentalidad que debió de tener la ciudad de Toledo en época romana, siguiendo el modelo urbano imperante emanado de la capital del Imperio. La plaza toma su nombre de Rodrigo Amador de los Ríos, autor de la magnífica obra Monumentos arquitectónicos de España, publicada en 1905.',
+            kids: 'Bajo esta plaza tranquila se esconden restos de unos baños romanos de hace casi 2000 años, descubiertos hace relativamente poco tiempo, en 1986.'
+          },
+          legends: {
+            adult: 'La excavación de una necrópolis judía en Toledo fue uno de los últimos trabajos arqueológicos de Rodrigo Amador de los Ríos, y su muerte apenas cuatro meses después de publicar los resultados impidió consolidar un hallazgo que habría revolucionado la investigación sobre el mundo funerario medieval en la península.',
+            kids: '¡El estudioso que da nombre a esta plaza hizo un descubrimiento importantísimo sobre un antiguo cementerio judío, pero murió muy poco después de publicarlo!'
+          },
+          architecture: {
+            adult: 'El yacimiento es de acceso gratuito y permite ver directamente las estructuras de las termas romanas, un ejemplo poco conocido pero revelador del pasado imperial de la ciudad.',
+            kids: '¡Puedes entrar gratis a ver estos restos tan antiguos, escondidos justo debajo de la plaza por la que pasea la gente cada día!'
+          }
+        }
+      },
+      {
+        id: 'palacio-benacazon',
+        name: { adult: 'Palacio de Benacazón', kids: 'El Palacio del "Patio de los Presos" ⛓️' },
+        subtitle: {
+          adult: 'Antigua sede de la Inquisición, con un patio de historia inquietante',
+          kids: '¡Su patio tiene un nombre que da un poco de miedo!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8607285, -4.0217875],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Portada_del_Palacio_de_Benacaz%C3%B3n%2C_Toledo.jpg/330px-Portada_del_Palacio_de_Benacaz%C3%B3n%2C_Toledo.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Palacio de Benacazón', kids: '¡Aventura Sonora: El Palacio del "Patio de los Presos"!' } },
+        tabs: {
+          history: {
+            adult: 'El palacio que hoy lleva el nombre de Benacazón data probablemente de la época de Pedro I el Cruel, y fue también sede del Santo Oficio de la Inquisición; su patio central era conocido como Patio de los Presos. Perteneció antes a Fernán Pérez de Pantoja y fue casa solariega de las familias Pantoja y Gaytán.',
+            kids: 'Este palacio tan antiguo fue durante un tiempo sede de la Inquisición, un tribunal muy temido de hace siglos. Por eso su patio se llamaba de forma tan siniestra: el "Patio de los Presos".'
+          },
+          legends: {
+            adult: 'Entre 1920 y 1940 fue propiedad de Anastasio Páramo Barranco, que se atribuyó a sí mismo el título de conde de Benacazón, señor de Mocejón y Benacazón, dando nombre definitivo al edificio. Hacia 1970 fue adquirido por la Caja de Ahorro Provincial de Toledo, que lo rehabilitó para eventos culturales.',
+            kids: '¡El nombre actual del palacio se lo puso un hombre que, hace unos 100 años, decidió inventarse a sí mismo el título de conde!'
+          },
+          architecture: {
+            adult: 'Construcción ecléctica de tres plantas con motivos románicos, mudéjares, talaveranos, góticos e italianizantes; su patio, de estilo mudéjar, se decora con yeserías y azulejos, sus principales atractivos.',
+            kids: '¡Su patio interior está decorado con yeso tallado y azulejos de colores, una auténtica mezcla de estilos artísticos!'
+          }
+        }
+      },
+      {
+        id: 'monasterio-madre-de-dios',
+        name: { adult: 'Convento de la Madre de Dios', kids: 'El Convento de las Hermanas Silva 👭' },
+        subtitle: {
+          adult: 'Convento fundado por dos hermanas nobles a finales del siglo XV',
+          kids: '¡Dos hermanas nobles fundaron aquí un convento hace más de 500 años!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.857904, -4.026119],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Convento_Madre_de_Dios_02.JPG/330px-Convento_Madre_de_Dios_02.JPG',
+        audio: { duration: 145, title: { adult: 'Audioguía: Convento de la Madre de Dios', kids: '¡Aventura Sonora: El Convento de las Hermanas Silva!' } },
+        tabs: {
+          history: {
+            adult: 'El convento fue fundado a finales del siglo XV por Leonor y María de Silva, hijas del conde de Cifuentes, como convento femenino de la orden dominica. El complejo creció desde finales del siglo XV hasta mediados del XVII, dando lugar al típico conjunto conventual articulado en torno a patios.',
+            kids: 'Este convento lo fundaron dos hermanas nobles hace más de 500 años, para que vivieran allí monjas dominicas.'
+          },
+          legends: {
+            adult: 'Durante las obras de rehabilitación del complejo conventual se llevaron a cabo diversas actividades arqueológicas, especialmente en la zona antes ocupada por la huerta de las monjas, donde se hallaron restos de diferentes épocas: romana, medieval y moderna.',
+            kids: '¡Cuando se hicieron obras en este convento, los arqueólogos encontraron restos de muchísimas épocas distintas enterrados en el antiguo huerto de las monjas!'
+          },
+          architecture: {
+            adult: 'Combina los estilos mudéjar, renacentista y barroco, integrado hoy en la universidad; destaca su portada mudéjar del siglo XIV, que evoca la arquitectura de los Reales Alcázares de Sevilla y la Alhambra, y su claustro renacentista de planta trapezoidal a dos alturas.',
+            kids: '¡Su entrada está decorada de una forma que recuerda a los palacios árabes más famosos de España, como la Alhambra!'
+          }
+        }
+      },
+      {
+        id: 'cigarrales-toledo',
+        name: { adult: 'Cigarrales de Toledo', kids: 'Las Casas de Campo de las Cigarras 🎶' },
+        subtitle: {
+          adult: 'Las tradicionales fincas de recreo a orillas del Tajo',
+          kids: '¡Su nombre viene del sonido de las cigarras cantando en verano!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [39.8627518, -4.0456210],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Camino_de_los_Cigarrales_%28alrededores_de_Toledo%29.jpg/330px-Camino_de_los_Cigarrales_%28alrededores_de_Toledo%29.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Cigarrales de Toledo', kids: '¡Aventura Sonora: Las Casas de Campo de las Cigarras!' } },
+        tabs: {
+          history: {
+            adult: 'Un cigarral es una finca tradicional toledana situada en el entorno inmediato de la ciudad, generalmente en la margen sur del Tajo, compuesta por una casa de campo rodeada de jardines, arboledas y tierras de labor. Sus antecedentes se encuentran en las villas romanas y, especialmente, en las huertas de recreo islámicas, pensadas para mitigar el calor estival combinando agua, vegetación y frescor.',
+            kids: 'Los cigarrales son casas de campo tradicionales que rodean Toledo, situadas al otro lado del río. La idea de construir casas así viene de hace muchísimos siglos, desde época romana y árabe.'
+          },
+          legends: {
+            adult: 'Una de las teorías más extendidas sobre el origen del término cigarral hace referencia a la presencia de cigarras en los márgenes del Tajo, cuyo característico sonido acompañaba las jornadas estivales. Durante los siglos XVI y XVII, con la capitalidad de Carlos I en Toledo entre 1519 y 1561, la nobleza y el clero encontraron en estas fincas su lugar de esparcimiento estival, huyendo del bullicio de la capital.',
+            kids: '¡El nombre "cigarral" viene del sonido de las cigarras, esos insectos que cantan tanto en verano! Cuando Toledo fue capital de España, hace 500 años, los nobles construían aquí sus casas de vacaciones.'
+          },
+          architecture: {
+            adult: 'Hoy los cigarrales siguen siendo sinónimo de exclusividad y paisaje, con vistas privilegiadas sobre la ciudad amurallada desde la otra orilla del Tajo, y muchos de ellos convertidos en espacios para eventos y hostelería.',
+            kids: '¡Desde estas casas de campo se puede ver toda la ciudad de Toledo, con sus torres y murallas, al otro lado del río!'
+          }
+        }
+      },
+      {
+        id: 'iglesia-salvador',
+        name: { adult: 'Iglesia de El Salvador', kids: 'La Iglesia con Columnas Robadas a los Romanos 🏛️' },
+        subtitle: {
+          adult: 'Antigua mezquita construida reutilizando columnas romanas y visigodas',
+          kids: '¡Sus columnas son en realidad recicladas de un templo mucho más antiguo!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.85664444, -4.02677222],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Iglesia_del_Salvador._Toledo.jpg/330px-Iglesia_del_Salvador._Toledo.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Iglesia de El Salvador', kids: '¡Aventura Sonora: La Iglesia con Columnas Robadas a los Romanos!' } },
+        tabs: {
+          history: {
+            adult: 'La Iglesia de El Salvador fue originalmente una mezquita hispanomusulmana construida en el siglo IX, considerada la iglesia más antigua de la ciudad. Se trata de un templo del siglo XII construido sobre una mezquita taifa del siglo XI, que a su vez fue una ampliación de una mezquita omeya del siglo IX levantada sobre un edificio religioso visigodo anterior.',
+            kids: 'Esta iglesia empezó siendo una mezquita hace casi 1200 años, ¡pero se construyó encima de un templo todavía más antiguo, de los visigodos!'
+          },
+          legends: {
+            adult: 'La iglesia conserva una arquería de herradura en la nave de la epístola, compuesta por siete soportes, de los cuales seis son columnas romanas y uno es una pilastra visigoda decorada con escenas de milagros de Cristo relacionadas con la Resurrección. Excavaciones recientes han revelado restos de estructuras romanas y visigodas bajo la iglesia, permitiendo explorar la historia oculta de este templo.',
+            kids: '¡Mira bien sus columnas! Casi todas son romanas de verdad, reutilizadas aquí hace muchos siglos, y una de ellas tiene tallada una escena religiosa visigoda muy antigua.'
+          },
+          architecture: {
+            adult: 'La pilastra visigoda, auténtica joya histórica del templo, representa escenas como la curación del ciego, la resurrección de Lázaro o la curación de la mujer del flujo de sangre.',
+            kids: '¡Busca la columna más especial de todas, tallada por los visigodos con dibujos que cuentan historias de la Biblia, hace más de 1300 años!'
+          }
+        }
       }
     ]
   },

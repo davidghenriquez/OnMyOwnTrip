@@ -87,6 +87,25 @@ como exige cada licencia.
 | Plaza de Santa Bárbara (Iglesia de las Salesas Reales) | Enrique Cordero | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Salesas-fachada.jpg) |
 | Calle de Huertas | Frans Drewniak | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_Huertas_(5876701988).jpg) |
 | Jardines de Sabatini | Javier Perez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Estanque_Central_-_Jardines_de_Sabatini_-_Madrid_01.jpg) |
+| Cuevas de Hércules (Toledo) | Carlos Delgado | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cueva_de_H%C3%A9rcules_-_01.jpg) |
+| Callejón del Pozo Amargo | Jose Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:El_Pozo_Amargo._Toledo_(Espa%C3%B1a).jpg) |
+| Circo Romano de Toledo | Antonio.velez | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Espa%C3%B1a_-_Toledo_-_Ruinas_del_Circo_Romano_003.JPG) |
+| Iglesia de Santiago del Arrabal | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%C3%81bside_Iglesia_de_Santiago,_Toledo.jpg) |
+| Puerta de Valmardón | Daderot | Dominio público | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puerta_de_Valmard%C3%B3n,_Toledo_-_1.JPG) |
+| Ermita del Cristo de la Vega | Turol Jones | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:WLM14ES_-_10072005_170647_7840_-_.jpg) |
+| Casa-Museo Victorio Macho | Joncusil | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sala_de_museo_victorio_macho.jpg) |
+| Convento de Santo Domingo el Antiguo | Carlos Delgado | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Convento_de_Santo_Domingo_El_Antiguo_-_01.jpg) |
+| Palacio de Fuensalida | Francisco Javier Martín Fernández | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_de_Fuensalida_.jpg) |
+| Plaza del Ayuntamiento (Casa Consistorial) | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_City_Council_01.jpg) |
+| Iglesia de San Pedro Mártir | José Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Convento_de_San_Pedro_M%C3%A1rtir_(Toledo).Claustro_Real.jpg) |
+| Mezquita de las Tornerías | Solbaken | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mezquita_de_las_Torner%C3%ADas._Toledo.jpg) |
+| Plaza de San Vicente | PMRMaeyaert | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo,_Iglesia_san_Vicente-PM_65615.jpg) |
+| Convento de San Clemente | Barcex | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_-_Convento_de_San_Clemente_-_201102.jpg) |
+| Termas Romanas de Amador de los Ríos | amaianos | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Termas_Romanas_de_la_Plaza_de_Amador_de_los_R%C3%ADos,_Toledo_(6431432341).jpg) |
+| Palacio de Benacazón | José Luis Filpo Cabana | CC BY 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Portada_del_Palacio_de_Benacaz%C3%B3n,_Toledo.jpg) |
+| Convento de la Madre de Dios | Fjdrevorio | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Convento_Madre_de_Dios_02.JPG) |
+| Cigarrales de Toledo (pintura, 1906) | Aureliano de Beruete | Dominio público | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Camino_de_los_Cigarrales_(alrededores_de_Toledo).jpg) |
+| Iglesia de El Salvador | José Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Iglesia_del_Salvador._Toledo.jpg) |
 
 **Nota**: para un uso comercial real convendría mostrar estos créditos
 también visiblemente en la propia app (no solo en este documento), ya
