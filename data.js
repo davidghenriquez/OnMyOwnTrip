@@ -1661,6 +1661,38 @@ const CITIES = {
             adult: 'Sacchetti proyectó una planta cuadrada alrededor de un patio central, con cuatro torres en las esquinas que recuerdan a las fortalezas tradicionales, sobre un potente basamento almohadillado de piedra de Colmenar. Con más de 135.000 metros cuadrados y 3.418 habitaciones, es el palacio real en uso más grande de Europa Occidental, por delante de Versalles o Buckingham, aunque la familia real española no vive aquí: se reserva para actos oficiales y recepciones de Estado.',
             kids: '¡Este palacio tiene más de 3.000 habitaciones! 🚪 Es tan grande que ni los reyes de España viven aquí normalmente — solo lo usan para fiestas importantes y para recibir a otros jefes de estado. Fíjate en las cuatro torres de las esquinas, ¡parecen un castillo de cuento!'
           }
+        },
+        // Prototipo de gamificación para modo niño (ver conversación): una
+        // pregunta de selección simple por tema, con el dato real como
+        // "revelación" tras responder. Solo este POI la tiene por ahora,
+        // a la espera de validar el formato antes de escribirlas para más.
+        quiz: {
+          'secret-history': {
+            question: '¿Por qué se construyó este palacio nuevo?',
+            options: [
+              'Porque el castillo antiguo se quemó una Nochebuena',
+              'Porque un rey quería una casa más grande para sus hijos',
+              'Porque lo pidió el Papa de Roma'
+            ],
+            correct: 0,
+            reveal: 'El castillo antiguo se quemó la Nochebuena de 1734 🔥. El arquitecto que lo iba a construir murió antes de empezar, así que terminó el diseño su alumno... ¡y lo hizo mucho más alto de lo planeado!'
+          },
+          'legends': {
+            question: '¿Por qué el palacio no tiene, como se planeó al principio, estatuas de reyes en lo más alto?',
+            options: [
+              'Un pájaro gigante se las llevó volando',
+              'La reina soñó que una le caía encima en un terremoto',
+              'No quedó dinero para subirlas'
+            ],
+            correct: 1,
+            reveal: '¡La reina tuvo un sueño rarísimo! Soñó que un terremoto tiraba las 108 estatuas de reyes y una le caía encima 😱. Mandó guardarlas todas antes de colocarlas: algunas acabaron en la Plaza de Oriente.'
+          },
+          'architecture': {
+            question: '¿Cuántas habitaciones tiene aproximadamente este palacio?',
+            options: ['Unas 30', 'Unas 300', 'Más de 3.000'],
+            correct: 2,
+            reveal: '¡Más de 3.000 habitaciones! 🚪 Es tan grande que ni los reyes de España viven aquí normalmente, solo lo usan para actos oficiales importantes.'
+          }
         }
       },
       {

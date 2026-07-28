@@ -370,6 +370,10 @@
       speech: { supported: false, utterance: null, voices: [], pickedVoice: null }
     },
     ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {} },
+    // Gamificación (modo niño): puntos por preguntas acertadas. "answered" guarda
+    // qué combinaciones "poiId:topicId" ya sumaron puntos, para no poder
+    // "granjear" puntos repitiendo la misma pregunta una y otra vez.
+    game: { points: 0, answered: {} },
     userLocation: null // { lat, lng } una vez que el usuario comparte su ubicación
   };
 
@@ -393,7 +397,8 @@
           perPoiHistory: STATE.ai.perPoiHistory,
           currentTopic: STATE.ai.currentTopic,
           explored
-        }
+        },
+        game: STATE.game
       }));
     } catch (_) { /* localStorage no disponible (navegación privada, cuota...): seguimos sin persistir */ }
   };
@@ -412,6 +417,10 @@
           explored[poiId] = new Set(arr);
         });
         STATE.ai.explored = explored;
+      }
+      if (saved.game) {
+        STATE.game.points = Number(saved.game.points) || 0;
+        STATE.game.answered = saved.game.answered || {};
       }
     } catch (_) { /* datos corruptos o de una versión anterior: empezamos de cero */ }
   };
@@ -688,6 +697,135 @@
   const updatePills = () => $$('.pill', els.filters)
     .forEach((p) => p.dataset.active = p.dataset.category === STATE.category ? 'true' : 'false');
 
+  // Niveles del explorador (modo niño): umbrales de puntos pensados para
+  // cuando haya preguntas en más lugares, no solo para este prototipo.
+  const EXPLORER_LEVELS = [
+    { id: 'principiante', min: 0,   label: 'Principiante', color: '#22C55E', img: 'assets/explorer/principiante.png' },
+    { id: 'intermedio',   min: 50,  label: 'Intermedio',   color: '#F5B942', img: 'assets/explorer/intermedio.png' },
+    { id: 'avanzado',     min: 150, label: 'Avanzado',     color: '#EF4444', img: 'assets/explorer/avanzado.png' }
+  ];
+  const getExplorerLevel = (points) =>
+    [...EXPLORER_LEVELS].reverse().find((lv) => points >= lv.min) || EXPLORER_LEVELS[0];
+
+  // Los stickers del explorador se guardaron sin transparencia real: el
+  // "fondo a cuadros" que se ve en el editor de imágenes quedó grabado como
+  // píxeles opacos de verdad (negro/gris alternados), no como transparencia.
+  // Sin editor de imagen disponible aquí, se recorta en el propio navegador
+  // con un flood fill: partiendo de todo el borde exterior del lienzo, se
+  // va "caminando" por píxeles vecinos mientras sean neutros (gris/negro/
+  // blanco, poca diferencia entre R, G y B) —eso cubre tanto el cuadriculado
+  // como el borde blanco del sticker— y se detiene en cuanto encuentra color
+  // real del dibujo (piel, pelo, ropa...), que sí tiene saturación. Se
+  // cachea por URL para no repetir el procesado cada vez que cambia de nivel.
+  const explorerSpriteCache = {};
+  const loadExplorerSprite = (src) => {
+    if (explorerSpriteCache[src]) return explorerSpriteCache[src];
+    const promise = new Promise((resolve, reject) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        const W = img.naturalWidth, H = img.naturalHeight;
+        const off = document.createElement('canvas');
+        off.width = W;
+        off.height = H;
+        const ctx = off.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        const frame = ctx.getImageData(0, 0, W, H);
+        const d = frame.data;
+
+        const NEUTRAL_TOL = 26; // max(R,G,B) - min(R,G,B) por debajo de esto = "neutro"
+        const idx = (x, y) => (y * W + x) * 4;
+        const isNeutral = (i) => {
+          const r = d[i], g = d[i + 1], b = d[i + 2];
+          return (Math.max(r, g, b) - Math.min(r, g, b)) <= NEUTRAL_TOL;
+        };
+        const visited = new Uint8Array(W * H);
+        const stack = [];
+        for (let x = 0; x < W; x++) { stack.push(x, 0); stack.push(x, H - 1); }
+        for (let y = 0; y < H; y++) { stack.push(0, y); stack.push(W - 1, y); }
+        while (stack.length) {
+          const y = stack.pop(), x = stack.pop();
+          const p = y * W + x;
+          if (visited[p]) continue;
+          visited[p] = 1;
+          const i = idx(x, y);
+          if (!isNeutral(i)) continue;
+          d[i + 3] = 0;
+          if (x > 0) stack.push(x - 1, y);
+          if (x < W - 1) stack.push(x + 1, y);
+          if (y > 0) stack.push(x, y - 1);
+          if (y < H - 1) stack.push(x, y + 1);
+        }
+
+        ctx.putImageData(frame, 0, 0);
+
+        // El personaje queda perdido en medio de un lienzo enorme y
+        // mayormente vacío (los 1024×1024 originales), así que se recorta
+        // al rectángulo real donde hay contenido visible, para que al
+        // escalarlo a un icono pequeño se vea grande y centrado en vez de
+        // diminuto y descuadrado con el resto del badge.
+        let minX = W, minY = H, maxX = -1, maxY = -1;
+        for (let y = 0; y < H; y++) {
+          for (let x = 0; x < W; x++) {
+            if (d[idx(x, y) + 3] > 10) {
+              if (x < minX) minX = x;
+              if (x > maxX) maxX = x;
+              if (y < minY) minY = y;
+              if (y > maxY) maxY = y;
+            }
+          }
+        }
+        if (maxX < minX || maxY < minY) { resolve(off); return; } // no se detectó contenido: se usa tal cual
+        const cropW = maxX - minX + 1, cropH = maxY - minY + 1;
+        const cropped = document.createElement('canvas');
+        cropped.width = cropW;
+        cropped.height = cropH;
+        cropped.getContext('2d').drawImage(off, minX, minY, cropW, cropH, 0, 0, cropW, cropH);
+        resolve(cropped);
+      };
+      img.onerror = reject;
+      img.src = src;
+    });
+    explorerSpriteCache[src] = promise;
+    return promise;
+  };
+
+  const updatePointsBadge = () => {
+    const badge = $('#pointsBadge');
+    if (!badge) return;
+    const isKids = STATE.mode === 'kids';
+    badge.hidden = !isKids;
+    if (!isKids) return;
+    const level = getExplorerLevel(STATE.game.points);
+    badge.style.setProperty('--explorer-color', level.color);
+    badge.textContent = `⭐ ${STATE.game.points} · ${level.label}`;
+  };
+
+  const updateExplorerBadge = () => {
+    const wrap = $('#explorerBadge');
+    if (!wrap) return;
+    const isKids = STATE.mode === 'kids';
+    wrap.hidden = !isKids;
+    if (!isKids) return;
+    const level = getExplorerLevel(STATE.game.points);
+    const canvas = $('#explorerAvatar', wrap);
+    if (canvas.dataset.levelId === level.id) return;
+    canvas.dataset.levelId = level.id;
+    canvas.setAttribute('aria-label', `Explorador nivel ${level.label}`);
+    loadExplorerSprite(level.img).then((sprite) => {
+      if (canvas.dataset.levelId !== level.id) return; // el nivel cambió mientras cargaba
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // El recorte ya no es cuadrado (el personaje es más alto que ancho),
+      // así que se escala manteniendo proporción y se centra en el lienzo
+      // en vez de estirarlo, para que quede alineado con el badge de al lado.
+      const scale = Math.min(canvas.width / sprite.width, canvas.height / sprite.height);
+      const w = sprite.width * scale, h = sprite.height * scale;
+      const dx = (canvas.width - w) / 2, dy = (canvas.height - h) / 2;
+      ctx.drawImage(sprite, dx, dy, w, h);
+    }).catch(() => {});
+  };
+
   const setStateMode = (mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     document.documentElement.dataset.mode = STATE.mode;
@@ -704,6 +842,8 @@
     const cityName = CURRENT_CITY ? CURRENT_CITY.name : 'Toledo';
     if (brandSub) brandSub.textContent = isKids ? '¡Aventuras mágicas a tu ritmo!' : `${cityName} · Turismo autoguiado inteligente`;
     if (brandBadge) brandBadge.textContent = isKids ? 'Modo Niños 🎈' : 'Adultos';
+    updatePointsBadge();
+    updateExplorerBadge();
     $$('.pill').forEach((p) => {
       const cat = p.dataset.category;
       if (cat === CATEGORIES.ALL) {
@@ -795,6 +935,27 @@
         stopAudio();
 
         aiHistoryFor(poi.id).push({ role: 'user', text: chip.label, isOptionChip: true });
+
+        // Modo niño con pregunta ya escrita para este lugar y tema: en vez
+        // de pedir un párrafo a la IA (real o simulada), se muestra una
+        // pregunta de selección simple con puntos por acertar.
+        const quizData = chip.kind === 'option' && STATE.mode === 'kids' && poi.quiz && poi.quiz[chip.id];
+        if (quizData) {
+          if (!STATE.ai.explored[poi.id]) STATE.ai.explored[poi.id] = new Set();
+          STATE.ai.explored[poi.id].add(chip.id);
+          aiHistoryFor(poi.id).push({
+            role: 'quiz', poiId: poi.id, topicId: chip.id,
+            question: quizData.question, options: quizData.options,
+            correct: quizData.correct, reveal: quizData.reveal,
+            answered: false, selected: null
+          });
+          saveState();
+          renderAiMessages();
+          renderAiSuggestions();
+          scrollAiToBottom();
+          return;
+        }
+
         renderAiMessages();
         scrollAiToBottom();
 
@@ -811,6 +972,71 @@
     });
   };
 
+  // Registra la respuesta de una pregunta de gamificación (modo niño):
+  // marca el mensaje como respondido, suma puntos solo la primera vez que
+  // se acierta esa combinación lugar+tema, y añade el dato real como mensaje
+  // de la guía a continuación.
+  const answerQuiz = (msg, selectedIndex) => {
+    if (msg.answered) return;
+    msg.answered = true;
+    msg.selected = selectedIndex;
+    const isCorrect = selectedIndex === msg.correct;
+    const key = `${msg.poiId}:${msg.topicId}`;
+    let pointsAwarded = 0;
+    if (isCorrect && !STATE.game.answered[key]) {
+      STATE.game.answered[key] = true;
+      STATE.game.points += 10;
+      pointsAwarded = 10;
+      updatePointsBadge();
+      updateExplorerBadge();
+    }
+    const prefix = isCorrect
+      ? (pointsAwarded ? `🎉 ¡Correcto! +${pointsAwarded} ⭐\n\n` : `🎉 ¡Correcto!\n\n`)
+      : `¡Casi! Era esta 👉\n\n`;
+    aiHistoryFor(msg.poiId).push({ role: 'assistant', text: prefix + msg.reveal });
+    saveState();
+    renderAiMessages();
+    renderAiSuggestions();
+    scrollAiToBottom();
+  };
+
+  const makeQuizEl = (msg) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'ai-msg';
+    const av = document.createElement('div');
+    av.className = 'ai-msg-avatar';
+    av.textContent = '✨';
+    const bubble = document.createElement('div');
+    bubble.className = 'ai-msg-bubble';
+
+    const q = document.createElement('div');
+    q.className = 'quiz-question';
+    q.textContent = msg.question;
+    bubble.appendChild(q);
+
+    const optsWrap = document.createElement('div');
+    optsWrap.className = 'quiz-options';
+    msg.options.forEach((optText, i) => {
+      const optBtn = document.createElement('button');
+      optBtn.type = 'button';
+      optBtn.className = 'quiz-option';
+      optBtn.textContent = optText;
+      if (msg.answered) {
+        optBtn.disabled = true;
+        if (i === msg.correct) optBtn.classList.add('-correct');
+        else if (i === msg.selected) optBtn.classList.add('-incorrect');
+      } else {
+        optBtn.addEventListener('click', () => answerQuiz(msg, i));
+      }
+      optsWrap.appendChild(optBtn);
+    });
+    bubble.appendChild(optsWrap);
+
+    wrap.appendChild(av);
+    wrap.appendChild(bubble);
+    return wrap;
+  };
+
   const renderAiMessages = () => {
     const box = $('#aiMessages');
     if (!box || !STATE.activePoiId) return;
@@ -819,6 +1045,10 @@
     history.forEach((msg) => {
       if (msg.role === 'typing') {
         box.appendChild(makeTypingEl());
+        return;
+      }
+      if (msg.role === 'quiz') {
+        box.appendChild(makeQuizEl(msg));
         return;
       }
       const user = msg.role === 'user';

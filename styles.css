@@ -310,6 +310,54 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   max-width: 120px;
   flex-shrink: 1;
 }
+.points-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--explorer-color, #F5B942) 22%, transparent);
+  color: var(--explorer-color, #F5B942);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ---------- QUIZ (modo niño): pregunta con opciones tocables ---------- */
+.quiz-question {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+.quiz-option:hover:not(:disabled) { border-color: var(--color-primary); }
+.quiz-option:active:not(:disabled) { transform: scale(0.98); }
+.quiz-option:disabled { cursor: default; opacity: 0.75; }
+.quiz-option.-correct {
+  background: color-mix(in srgb, #22C55E 25%, transparent);
+  border-color: #22C55E;
+  opacity: 1;
+}
+.quiz-option.-incorrect {
+  background: color-mix(in srgb, #EF4444 20%, transparent);
+  border-color: #EF4444;
+  opacity: 1;
+}
 .brand-sub {
   font-size: 11px;
   font-weight: 500;
@@ -324,6 +372,22 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+}
+
+/* ---------- EXPLORADOR: mascota (modo niño), avatar propio y visible
+   junto al selector de modo; el nivel se funde con el badge de puntos. ---------- */
+.explorer-avatar-wrap {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+.explorer-avatar-wrap[hidden] { display: none; }
+.explorer-avatar {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
 }
 
 .change-city-btn {
