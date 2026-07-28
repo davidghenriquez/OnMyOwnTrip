@@ -1831,6 +1831,14 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 
+  // Al volver atrás o reabrir la pestaña, algunos navegadores (sobre todo en
+  // móvil) restauran la página desde la caché tal cual estaba (a media
+  // pregunta del quiz, con la ficha abierta...) sin volver a ejecutar init().
+  // Forzamos una recarga real para que siempre se vea la pantalla principal.
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) location.reload();
+  });
+
   } catch (err) {
     // ============= GLOBAL FALLBACK SI ALGO EXPLOTA =============
     const msg = 'OnMyOwnTrip init error: ' + (err && err.message ? err.message : String(err));
