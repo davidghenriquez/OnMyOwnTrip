@@ -1447,7 +1447,12 @@
       // El título y subtítulo solo se dicen en la primera narración (el
       // resumen inicial al tocar el pin); en las siguientes respuestas
       // (chips, "profundiza más", preguntas) se habla directo, sin repetirlo.
-      const isFirstNarration = hist.length <= 1;
+      // El texto de tabs.history no trae su propia introducción (a
+      // diferencia del resumen generado, que ya empieza con su propio
+      // gancho), así que cuando se usa como respaldo en modo niño también
+      // lleva el saludo, aunque el historial ya tenga mensajes antiguos.
+      const usingFallbackHistory = m === 'kids' && !summaryMsg;
+      const isFirstNarration = usingFallbackHistory || hist.length <= 1;
       const intro = !isFirstNarration ? '' : (m === 'kids')
         ? `¡Hola! Vamos a descubrir ${name}. ${subtitle}. ¡Pon mucha atención! `
         : `Audioguía de ${name}. ${subtitle}. `;
