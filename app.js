@@ -1138,7 +1138,10 @@
       });
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
-      hist.push({ role: 'assistant', text });
+      // isSummary marca de forma explícita cuál es el resumen inicial, para
+      // que el audio principal en modo niño siempre lo identifique bien sin
+      // depender de su posición en el historial (ver buildNarrativeText).
+      hist.push({ role: 'assistant', text, isSummary: kind === 'summary' });
       // Autoplay de la respuesta recién generada. Se dispara fuera del gesto
       // directo del usuario (tras el await), así que en iOS Safari puede no
       // arrancar la primera vez; por eso "silent" evita un toast de error y
@@ -1378,13 +1381,19 @@
       const name = poi.name.adult;
       const subtitle = pickDual(poi.subtitle);
       const hist = aiHistoryFor(poi.id).filter((x) => x.role === 'assistant');
-      // En modo niño el audio principal es siempre el resumen original (el
-      // primer mensaje): no hay chips que generen respuestas legítimas
-      // adicionales, así que cualquier mensaje posterior en el historial
-      // (p.ej. de versiones anteriores, antes de narrar el quiz aparte)
-      // se ignora aquí a propósito.
+      // Reconoce el texto de una revelación de quiz (empieza siempre con uno
+      // de estos dos prefijos fijos, ver answerKidsQuiz) para poder
+      // descartarlo aquí aunque venga de un historial guardado por una
+      // versión antigua, sin la marca isSummary ni en la posición esperada
+      // (p.ej. si en su momento se respondió una pregunta antes de que
+      // terminara de llegar el resumen inicial).
+      const looksLikeQuizReveal = (text) => /^(🎉 ¡Correcto!|¡Casi! Era esta)/.test(text || '');
+      // En modo niño el audio principal es siempre el resumen original: no
+      // hay chips que generen respuestas legítimas adicionales, así que
+      // cualquier otro mensaje del historial se ignora aquí a propósito.
+      const summaryMsg = hist.find((x) => x.isSummary) || hist.find((x) => !looksLikeQuizReveal(x.text));
       const body = hist.length
-        ? (m === 'kids' ? hist[0].text : hist[hist.length - 1].text)
+        ? (m === 'kids' ? (summaryMsg || hist[0]).text : hist[hist.length - 1].text)
         : (pickDual(poi.tabs.history) || '');
       // El título y subtítulo solo se dicen en la primera narración (el
       // resumen inicial al tocar el pin); en las siguientes respuestas
