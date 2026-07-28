@@ -1821,16 +1821,11 @@
     loadState();
     document.documentElement.dataset.mode = STATE.mode;
 
-    if (STATE.cityId && CITIES[STATE.cityId]) {
-      // Visitante que ya había elegido ciudad y modo: entra directo.
-      CURRENT_CITY = CITIES[STATE.cityId];
-      POIS = CURRENT_CITY.pois;
-      startApp();
-    } else {
-      const ob = $('#onboarding');
-      if (ob) { ob.hidden = false; ob.setAttribute('aria-hidden', 'false'); }
-      wireOnboarding();
-    }
+    // Al abrir el enlace siempre se muestra la pantalla principal (elegir
+    // ciudad y modo), aunque ya se hubiera elegido una ciudad antes.
+    const ob = $('#onboarding');
+    if (ob) { ob.hidden = false; ob.setAttribute('aria-hidden', 'false'); }
+    wireOnboarding();
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
