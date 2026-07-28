@@ -747,9 +747,11 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   font-size: 15px;
   font-weight: 700;
   color: #FFFFFF;
-  white-space: nowrap;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 .sheet-sub {
   font-size: 12px;
@@ -1013,6 +1015,35 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   color: var(--color-text-soft);
   min-width: 66px;
   text-align: right;
+}
+
+/* ---------- MODO NIÑO: sin chat de texto, solo audioguía + pregunta al terminar ---------- */
+html[data-mode="kids"] .ai-messages,
+html[data-mode="kids"] .ai-suggestions,
+html[data-mode="kids"] .ai-input-wrap {
+  display: none;
+}
+
+.kids-quiz-card {
+  flex-shrink: 0;
+  margin: 0 16px 16px;
+  padding: 14px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  animation: msgIn 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.quiz-done {
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+.quiz-reveal {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  font-size: 13.5px;
+  line-height: 1.5;
 }
 
 /* ---------- TOAST ---------- */

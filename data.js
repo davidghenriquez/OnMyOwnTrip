@@ -43,7 +43,7 @@ const CITIES = {
         id: 'catedral-primada',
         name: {
           adult: 'Catedral Primada Santa María de Toledo',
-          kids: 'La Catedral Mágica ✨'
+          kids: 'Catedral Primada Santa María de Toledo — La Catedral Mágica ✨'
         },
         subtitle: {
           adult: 'Obra maestra del gótico español',
@@ -78,7 +78,7 @@ const CITIES = {
         id: 'puerta-bisagra',
         name: {
           adult: 'Puerta de Bisagra',
-          kids: 'La Puerta de los Reyes 👑'
+          kids: 'Puerta de Bisagra — La Puerta de los Reyes 👑'
         },
         subtitle: {
           adult: 'Acceso monumental mudéjar a la ciudad',
@@ -113,7 +113,7 @@ const CITIES = {
         id: 'mirador-valle',
         name: {
           adult: 'Mirador del Valle',
-          kids: 'El Mirador de los Sueños 🌅'
+          kids: 'Mirador del Valle — El Mirador de los Sueños 🌅'
         },
         subtitle: {
           adult: 'La mejor panorámica de la Ciudad Imperial',
@@ -149,7 +149,7 @@ const CITIES = {
         fictional: true, // parada de ambientación: no existe como tal en Toledo, ver §documentación
         name: {
           adult: 'Restaurante La Sorbona',
-          kids: '¡La Casa de las Comidas! 🍽️'
+          kids: 'Restaurante La Sorbona — ¡La Casa de las Comidas! 🍽️'
         },
         subtitle: {
           adult: 'Parada ilustrativa de gastronomía toledana',
@@ -184,7 +184,7 @@ const CITIES = {
         id: 'santo-tome',
         name: {
           adult: 'Iglesia de Santo Tomé',
-          kids: 'La Iglesia del Caballero ⚔️'
+          kids: 'Iglesia de Santo Tomé — La Iglesia del Caballero ⚔️'
         },
         subtitle: {
           adult: 'Hogar de "El Entierro del Conde de Orgaz" de El Greco',
@@ -219,7 +219,7 @@ const CITIES = {
         id: 'mirador-azor',
         name: {
           adult: 'Mirador del Azor',
-          kids: 'El Secreto de las Palomas 🕊️'
+          kids: 'Mirador del Azor — El Secreto de las Palomas 🕊️'
         },
         subtitle: {
           adult: 'Rincón oculto del casco histórico',
@@ -254,7 +254,7 @@ const CITIES = {
         id: 'casa-museo-greco',
         name: {
           adult: 'Casa-Museo de El Greco',
-          kids: 'La Casa del Pintor Mágico 🎨'
+          kids: 'Casa-Museo de El Greco — La Casa del Pintor Mágico 🎨'
         },
         subtitle: {
           adult: 'Vida y obra del pintor cretense en Toledo',
@@ -289,7 +289,7 @@ const CITIES = {
         id: 'alcazar-toledo',
         name: {
           adult: 'El Alcázar de Toledo',
-          kids: 'El Castillo Gigante 🏯'
+          kids: 'El Alcázar de Toledo — El Castillo Gigante 🏯'
         },
         subtitle: {
           adult: 'Fortaleza romana convertida en Museo del Ejército',
@@ -324,7 +324,7 @@ const CITIES = {
         id: 'san-juan-de-los-reyes',
         name: {
           adult: 'Monasterio de San Juan de los Reyes',
-          kids: 'El Monasterio de las Cadenas ⛓️'
+          kids: 'Monasterio de San Juan de los Reyes — El Monasterio de las Cadenas ⛓️'
         },
         subtitle: {
           adult: 'Joya del gótico isabelino mandada construir por los Reyes Católicos',
@@ -359,7 +359,7 @@ const CITIES = {
         id: 'santa-maria-la-blanca',
         name: {
           adult: 'Sinagoga de Santa María la Blanca',
-          kids: 'El Bosque de Columnas Blancas 🕊️'
+          kids: 'Sinagoga de Santa María la Blanca — El Bosque de Columnas Blancas 🕊️'
         },
         subtitle: {
           adult: 'El mejor ejemplo de arte almohade conservado en España',
@@ -394,7 +394,7 @@ const CITIES = {
         id: 'cristo-de-la-luz',
         name: {
           adult: 'Mezquita del Cristo de la Luz',
-          kids: 'La Mezquita de la Lámpara Mágica 🏮'
+          kids: 'Mezquita del Cristo de la Luz — La Mezquita de la Lámpara Mágica 🏮'
         },
         subtitle: {
           adult: 'El edificio hispanomusulmán mejor conservado de Toledo',
@@ -429,7 +429,7 @@ const CITIES = {
         id: 'puente-alcantara',
         name: {
           adult: 'Puente de Alcántara',
-          kids: 'El Puente de las Dos Torres 🌉'
+          kids: 'Puente de Alcántara — El Puente de las Dos Torres 🌉'
         },
         subtitle: {
           adult: 'Puente romano y arco de triunfo sobre el Tajo',
@@ -464,7 +464,7 @@ const CITIES = {
         id: 'puente-san-martin',
         name: {
           adult: 'Puente de San Martín',
-          kids: 'El Puente del Incendio Secreto 🔥'
+          kids: 'Puente de San Martín — El Puente del Incendio Secreto 🔥'
         },
         subtitle: {
           adult: 'Puente mudéjar del siglo XIV con dos torres almenadas',
@@ -499,7 +499,7 @@ const CITIES = {
         id: 'iglesia-jesuitas',
         name: {
           adult: 'Iglesia de los Jesuitas (San Ildefonso)',
-          kids: 'La Iglesia de las Torres Gemelas 🔭'
+          kids: 'Iglesia de los Jesuitas (San Ildefonso) — La Iglesia de las Torres Gemelas 🔭'
         },
         subtitle: {
           adult: 'El mejor mirador barroco sobre los tejados de Toledo',
@@ -534,7 +534,7 @@ const CITIES = {
         id: 'plaza-zocodover',
         name: {
           adult: 'Plaza de Zocodover',
-          kids: 'La Plaza del Mercado de Camellos 🐫'
+          kids: 'Plaza de Zocodover — La Plaza del Mercado de Camellos 🐫'
         },
         subtitle: {
           adult: 'El corazón social de Toledo desde época árabe',
@@ -569,7 +569,7 @@ const CITIES = {
         id: 'sinagoga-transito',
         name: {
           adult: 'Sinagoga del Tránsito y Museo Sefardí',
-          kids: 'La Sinagoga de los Cedros del Líbano 🌲'
+          kids: 'Sinagoga del Tránsito y Museo Sefardí — La Sinagoga de los Cedros del Líbano 🌲'
         },
         subtitle: {
           adult: 'La sinagoga hispanojudía más importante de España',
@@ -604,7 +604,7 @@ const CITIES = {
         id: 'hospital-tavera',
         name: {
           adult: 'Hospital de Tavera (Museo Duque de Lerma)',
-          kids: 'El Hospital del Retrato Fantasma 👻'
+          kids: 'Hospital de Tavera (Museo Duque de Lerma) — El Hospital del Retrato Fantasma 👻'
         },
         subtitle: {
           adult: 'Palacio renacentista con farmacia histórica intacta',
@@ -639,7 +639,7 @@ const CITIES = {
         id: 'calle-comercio',
         name: {
           adult: 'Calle del Comercio (Calle Ancha)',
-          kids: 'La Calle del Tesoro Escondido 📜'
+          kids: 'Calle del Comercio (Calle Ancha) — La Calle del Tesoro Escondido 📜'
         },
         subtitle: {
           adult: 'La arteria comercial e histórica del casco antiguo',
@@ -674,7 +674,7 @@ const CITIES = {
         id: 'puerta-del-sol-toledo',
         name: {
           adult: 'Puerta del Sol',
-          kids: 'La Puerta del Sol y la Luna ☀️🌙'
+          kids: 'Puerta del Sol — La Puerta del Sol y la Luna ☀️🌙'
         },
         subtitle: {
           adult: 'Puerta mudéjar del siglo XIV con arcos entrelazados',
@@ -709,7 +709,7 @@ const CITIES = {
         id: 'museo-concilios-san-roman',
         name: {
           adult: 'Museo de los Concilios y la Cultura Visigoda',
-          kids: 'La Iglesia de las Coronas de Oro 👑'
+          kids: 'Museo de los Concilios y la Cultura Visigoda — La Iglesia de las Coronas de Oro 👑'
         },
         subtitle: {
           adult: 'Antigua iglesia de San Román con tesoro visigodo',
@@ -744,7 +744,7 @@ const CITIES = {
         id: 'paseo-transito',
         name: {
           adult: 'Paseo del Tránsito',
-          kids: 'El Paseo de los Huertos Secretos 🌳'
+          kids: 'Paseo del Tránsito — El Paseo de los Huertos Secretos 🌳'
         },
         subtitle: {
           adult: 'Mirador tranquilo sobre el valle del Tajo',
@@ -779,7 +779,7 @@ const CITIES = {
         id: 'hospital-santa-cruz',
         name: {
           adult: 'Antiguo Hospital de la Santa Cruz',
-          kids: 'El Palacio de la Cruz Gigante ✝️'
+          kids: 'Antiguo Hospital de la Santa Cruz — El Palacio de la Cruz Gigante ✝️'
         },
         subtitle: {
           adult: 'Obra cumbre del plateresco español',
@@ -814,7 +814,7 @@ const CITIES = {
         id: 'ermita-valle',
         name: {
           adult: 'Ermita del Valle (Santuario de Nuestra Señora del Valle)',
-          kids: 'La Ermita de la Romería 🌸'
+          kids: 'Ermita del Valle (Santuario de Nuestra Señora del Valle) — La Ermita de la Romería 🌸'
         },
         subtitle: {
           adult: 'Centro de la romería más querida de los toledanos',
@@ -847,7 +847,7 @@ const CITIES = {
       },
       {
         id: 'cuevas-hercules',
-        name: { adult: 'Cuevas de Hércules', kids: 'La Cueva Mágica de Hércules 🔮' },
+        name: { adult: 'Cuevas de Hércules', kids: 'Cuevas de Hércules — La Cueva Mágica de Hércules 🔮' },
         subtitle: {
           adult: 'Depósito de agua romano envuelto en leyendas de magia y nigromancia',
           kids: '¡Aquí se contaba que un héroe enseñaba magia en secreto!'
@@ -873,7 +873,7 @@ const CITIES = {
       },
       {
         id: 'callejon-pozo-amargo',
-        name: { adult: 'Callejón del Pozo Amargo', kids: 'El Callejón del Amor Imposible 💔' },
+        name: { adult: 'Callejón del Pozo Amargo', kids: 'Callejón del Pozo Amargo — El Callejón del Amor Imposible 💔' },
         subtitle: {
           adult: 'Un pozo que da nombre a la leyenda de amor más trágica de Toledo',
           kids: '¡Aquí ocurrió una historia de amor muy triste entre dos jóvenes de religiones distintas!'
@@ -899,7 +899,7 @@ const CITIES = {
       },
       {
         id: 'circo-romano-toledo',
-        name: { adult: 'Circo Romano de Toledo', kids: 'El Estadio de las Carreras de Carros 🏇' },
+        name: { adult: 'Circo Romano de Toledo', kids: 'Circo Romano de Toledo — El Estadio de las Carreras de Carros 🏇' },
         subtitle: {
           adult: 'Restos de uno de los grandes espectáculos públicos de la Roma imperial',
           kids: '¡Aquí competían carros tirados por caballos hace 2000 años!'
@@ -925,7 +925,7 @@ const CITIES = {
       },
       {
         id: 'iglesia-santiago-arrabal',
-        name: { adult: 'Iglesia de Santiago del Arrabal', kids: 'La Catedral en Miniatura del Mudéjar 🕌' },
+        name: { adult: 'Iglesia de Santiago del Arrabal', kids: 'Iglesia de Santiago del Arrabal — La Catedral en Miniatura del Mudéjar 🕌' },
         subtitle: {
           adult: 'Considerada la catedral del arte mudéjar toledano',
           kids: '¡Le llaman "la catedral mudéjar" por lo especial que es!'
@@ -951,7 +951,7 @@ const CITIES = {
       },
       {
         id: 'puerta-valmardon',
-        name: { adult: 'Puerta de Valmardón', kids: 'La Puerta Más Antigua de Toledo 🚪' },
+        name: { adult: 'Puerta de Valmardón', kids: 'Puerta de Valmardón — La Puerta Más Antigua de Toledo 🚪' },
         subtitle: {
           adult: 'Probablemente la puerta más antigua conservada de la ciudad',
           kids: '¡Esta puerta ha tenido más de seis nombres distintos a lo largo de la historia!'
@@ -977,7 +977,7 @@ const CITIES = {
       },
       {
         id: 'cristo-de-la-vega',
-        name: { adult: 'Ermita del Cristo de la Vega', kids: 'El Cristo que Testificó en un Juicio ⚖️' },
+        name: { adult: 'Ermita del Cristo de la Vega', kids: 'Ermita del Cristo de la Vega — El Cristo que Testificó en un Juicio ⚖️' },
         subtitle: {
           adult: 'Escenario de la célebre leyenda "A buen juez, mejor testigo"',
           kids: '¡Cuenta la leyenda que una estatua habló para salvar a una mujer!'
@@ -1003,7 +1003,7 @@ const CITIES = {
       },
       {
         id: 'casa-museo-victorio-macho',
-        name: { adult: 'Casa-Museo Victorio Macho', kids: 'El Estudio del Escultor sobre el Precipicio 🗿' },
+        name: { adult: 'Casa-Museo Victorio Macho', kids: 'Casa-Museo Victorio Macho — El Estudio del Escultor sobre el Precipicio 🗿' },
         subtitle: {
           adult: 'La casa-taller de un escultor, encaramada sobre la Roca Tarpeya',
           kids: '¡Un escultor construyó su casa en el borde de un acantilado!'
@@ -1029,7 +1029,7 @@ const CITIES = {
       },
       {
         id: 'convento-santo-domingo-antiguo',
-        name: { adult: 'Convento de Santo Domingo el Antiguo', kids: 'El Misterio de la Tumba Perdida 🔍' },
+        name: { adult: 'Convento de Santo Domingo el Antiguo', kids: 'Convento de Santo Domingo el Antiguo — El Misterio de la Tumba Perdida 🔍' },
         subtitle: {
           adult: 'Donde El Greco fue enterrado, aunque sus restos hoy son un misterio',
           kids: '¡Un gran pintor está enterrado aquí, pero nadie sabe exactamente dónde!'
@@ -1055,7 +1055,7 @@ const CITIES = {
       },
       {
         id: 'palacio-fuensalida',
-        name: { adult: 'Palacio de Fuensalida', kids: 'El Palacio donde Vivió una Emperatriz 👑' },
+        name: { adult: 'Palacio de Fuensalida', kids: 'Palacio de Fuensalida — El Palacio donde Vivió una Emperatriz 👑' },
         subtitle: {
           adult: 'Palacio mudéjar vinculado a la emperatriz Isabel de Portugal',
           kids: '¡Aquí vivió la esposa de uno de los emperadores más poderosos de la historia!'
@@ -1081,7 +1081,7 @@ const CITIES = {
       },
       {
         id: 'casa-consistorial-toledo',
-        name: { adult: 'Plaza del Ayuntamiento y Casa Consistorial', kids: 'La Plaza de los Tres Poderes ⚖️' },
+        name: { adult: 'Plaza del Ayuntamiento y Casa Consistorial', kids: 'Plaza del Ayuntamiento y Casa Consistorial — La Plaza de los Tres Poderes ⚖️' },
         subtitle: {
           adult: 'El edificio consistorial diseñado por Juan de Herrera y rematado por el hijo de El Greco',
           kids: '¡El hijo de un pintor muy famoso ayudó a terminar de construir este edificio!'
@@ -1107,7 +1107,7 @@ const CITIES = {
       },
       {
         id: 'iglesia-san-pedro-martir',
-        name: { adult: 'Iglesia de San Pedro Mártir', kids: 'El Convento Convertido en Universidad 🎓' },
+        name: { adult: 'Iglesia de San Pedro Mártir', kids: 'Iglesia de San Pedro Mártir — El Convento Convertido en Universidad 🎓' },
         subtitle: {
           adult: 'Antiguo convento dominico, hoy sede universitaria',
           kids: '¡Este antiguo convento hoy es parte de una universidad!'
@@ -1133,7 +1133,7 @@ const CITIES = {
       },
       {
         id: 'mezquita-tornerias',
-        name: { adult: 'Mezquita de las Tornerías', kids: 'La Mezquita Escondida en un Barrio Comercial 🛍️' },
+        name: { adult: 'Mezquita de las Tornerías', kids: 'Mezquita de las Tornerías — La Mezquita Escondida en un Barrio Comercial 🛍️' },
         subtitle: {
           adult: 'Más de mil años de historia en pleno barrio comercial toledano',
           kids: '¡Esta mezquita antigua ha sido tienda, taller y hasta fábrica de velas!'
@@ -1159,7 +1159,7 @@ const CITIES = {
       },
       {
         id: 'plaza-san-vicente',
-        name: { adult: 'Plaza de San Vicente', kids: 'La Iglesia que se Convirtió en Discoteca 🎶' },
+        name: { adult: 'Plaza de San Vicente', kids: 'Plaza de San Vicente — La Iglesia que se Convirtió en Discoteca 🎶' },
         subtitle: {
           adult: 'Una iglesia mudéjar con un pasado sorprendentemente moderno',
           kids: '¡Esta antigua iglesia llegó a ser discoteca antes de convertirse en centro de arte!'
@@ -1185,7 +1185,7 @@ const CITIES = {
       },
       {
         id: 'convento-san-clemente',
-        name: { adult: 'Convento de San Clemente', kids: 'La Cuna del Mazapán 🍬' },
+        name: { adult: 'Convento de San Clemente', kids: 'Convento de San Clemente — La Cuna del Mazapán 🍬' },
         subtitle: {
           adult: 'Convento de clausura considerado el lugar de nacimiento del mazapán',
           kids: '¡Aquí se inventó el mazapán, hace más de 800 años!'
@@ -1211,7 +1211,7 @@ const CITIES = {
       },
       {
         id: 'termas-amador-rios',
-        name: { adult: 'Termas Romanas de la Plaza de Amador de los Ríos', kids: 'Los Baños Romanos Escondidos bajo una Plaza 🛁' },
+        name: { adult: 'Termas Romanas de la Plaza de Amador de los Ríos', kids: 'Termas Romanas de la Plaza de Amador de los Ríos — Los Baños Romanos Escondidos bajo una Plaza 🛁' },
         subtitle: {
           adult: 'Restos de unas termas que revelan la monumentalidad del Toledo romano',
           kids: '¡Debajo de esta plaza tan tranquila se esconden unos baños romanos!'
@@ -1237,7 +1237,7 @@ const CITIES = {
       },
       {
         id: 'palacio-benacazon',
-        name: { adult: 'Palacio de Benacazón', kids: 'El Palacio del Conde Inventado 🎭' },
+        name: { adult: 'Palacio de Benacazón', kids: 'Palacio de Benacazón — El Palacio del Conde Inventado 🎭' },
         subtitle: {
           adult: 'Antigua sede de la Inquisición, con un patio de historia inquietante',
           kids: '¡Un señor se inventó él solito un título de conde!'
@@ -1263,7 +1263,7 @@ const CITIES = {
       },
       {
         id: 'monasterio-madre-de-dios',
-        name: { adult: 'Convento de la Madre de Dios', kids: 'El Convento de las Hermanas Silva 👭' },
+        name: { adult: 'Convento de la Madre de Dios', kids: 'Convento de la Madre de Dios — El Convento de las Hermanas Silva 👭' },
         subtitle: {
           adult: 'Convento fundado por dos hermanas nobles a finales del siglo XV',
           kids: '¡Dos hermanas nobles fundaron aquí un convento hace más de 500 años!'
@@ -1289,7 +1289,7 @@ const CITIES = {
       },
       {
         id: 'cigarrales-toledo',
-        name: { adult: 'Cigarrales de Toledo', kids: 'Las Casas de Campo de las Cigarras 🎶' },
+        name: { adult: 'Cigarrales de Toledo', kids: 'Cigarrales de Toledo — Las Casas de Campo de las Cigarras 🎶' },
         subtitle: {
           adult: 'Las tradicionales fincas de recreo a orillas del Tajo',
           kids: '¡Su nombre viene del sonido de las cigarras cantando en verano!'
@@ -1315,7 +1315,7 @@ const CITIES = {
       },
       {
         id: 'iglesia-salvador',
-        name: { adult: 'Iglesia de El Salvador', kids: 'La Iglesia con Columnas Robadas a los Romanos 🏛️' },
+        name: { adult: 'Iglesia de El Salvador', kids: 'Iglesia de El Salvador — La Iglesia con Columnas Robadas a los Romanos 🏛️' },
         subtitle: {
           adult: 'Antigua mezquita construida reutilizando columnas romanas y visigodas',
           kids: '¡Sus columnas son en realidad recicladas de un templo mucho más antiguo!'
@@ -1341,7 +1341,7 @@ const CITIES = {
       },
       {
         id: 'torre-miradero',
-        name: { adult: 'Torre del Miradero', kids: 'El Palacio Diseñado por un Arquitecto Premiado 🏆' },
+        name: { adult: 'Torre del Miradero', kids: 'Torre del Miradero — El Palacio Diseñado por un Arquitecto Premiado 🏆' },
         subtitle: {
           adult: 'Un moderno palacio de congresos diseñado por Rafael Moneo, incrustado en la ladera',
           kids: '¡Un edificio moderno diseñado por uno de los arquitectos más premiados de España!'
@@ -1367,7 +1367,7 @@ const CITIES = {
       },
       {
         id: 'puente-azarquiel',
-        name: { adult: 'Puente de Azarquiel (Puente de Piedra)', kids: 'El Puente del Astrónomo 🔭' },
+        name: { adult: 'Puente de Azarquiel (Puente de Piedra)', kids: 'Puente de Azarquiel (Puente de Piedra) — El Puente del Astrónomo 🔭' },
         subtitle: {
           adult: 'Un puente moderno con nombre del gran astrónomo andalusí de Toledo',
           kids: '¡Este puente lleva el nombre de un astrónomo que estudiaba las estrellas hace 900 años!'
@@ -1393,7 +1393,7 @@ const CITIES = {
       },
       {
         id: 'comendadoras-santiago',
-        name: { adult: 'Convento de las Comendadoras de Santiago', kids: 'El Convento de las Guerreras de Santiago ⚔️' },
+        name: { adult: 'Convento de las Comendadoras de Santiago', kids: 'Convento de las Comendadoras de Santiago — El Convento de las Guerreras de Santiago ⚔️' },
         subtitle: {
           adult: 'Monjas vinculadas a la Orden Militar de Santiago, con siglos de tradición dulcera',
           kids: '¡Estas monjas pertenecen a una orden militar y hacen dulces con recetas muy antiguas!'
@@ -1419,7 +1419,7 @@ const CITIES = {
       },
       {
         id: 'iglesia-san-andres',
-        name: { adult: 'Iglesia de San Andrés', kids: 'La Iglesia de las Momias 💀' },
+        name: { adult: 'Iglesia de San Andrés', kids: 'Iglesia de San Andrés — La Iglesia de las Momias 💀' },
         subtitle: {
           adult: 'Alberga el mayor conjunto de momias conocido en toda España',
           kids: '¡En su cripta hay 50 momias que llevan siglos conservadas!'
@@ -1445,7 +1445,7 @@ const CITIES = {
       },
       {
         id: 'puerta-alarcones',
-        name: { adult: 'Puerta de Alarcones', kids: 'La Puerta Escondida cerca de Zocodover 🚪' },
+        name: { adult: 'Puerta de Alarcones', kids: 'Puerta de Alarcones — La Puerta Escondida cerca de Zocodover 🚪' },
         subtitle: {
           adult: 'La puerta más antigua de Toledo que conserva su ubicación original',
           kids: '¡Es la puerta más antigua que sigue exactamente en su sitio original!'
@@ -1471,7 +1471,7 @@ const CITIES = {
       },
       {
         id: 'plaza-santa-teresa',
-        name: { adult: 'Plaza de Santa Teresa', kids: 'La Plaza de la Santa Escritora 📖' },
+        name: { adult: 'Plaza de Santa Teresa', kids: 'Plaza de Santa Teresa — La Plaza de la Santa Escritora 📖' },
         subtitle: {
           adult: 'Pequeña plaza junto al convento fundado por Santa Teresa de Jesús',
           kids: '¡Una santa muy famosa fundó aquí un convento hace más de 450 años!'
@@ -1513,7 +1513,7 @@ const CITIES = {
         id: 'senso-ji',
         name: {
           adult: 'Sensō-ji',
-          kids: 'El Templo del Dragón Dorado 🐉'
+          kids: 'Sensō-ji — El Templo del Dragón Dorado 🐉'
         },
         subtitle: {
           adult: 'El templo budista más antiguo de Tokio',
@@ -1548,7 +1548,7 @@ const CITIES = {
         id: 'tsukiji-mercado',
         name: {
           adult: 'Mercado Exterior de Tsukiji',
-          kids: '¡El Mercado de los Mil Sabores! 🐟'
+          kids: 'Mercado Exterior de Tsukiji — ¡El Mercado de los Mil Sabores! 🐟'
         },
         subtitle: {
           adult: 'La cocina de Tokio desde 1935',
@@ -1583,7 +1583,7 @@ const CITIES = {
         id: 'torre-tokio',
         name: {
           adult: 'Torre de Tokio',
-          kids: 'La Torre Roja y Blanca 🗼'
+          kids: 'Torre de Tokio — La Torre Roja y Blanca 🗼'
         },
         subtitle: {
           adult: 'El mirador más icónico de la ciudad',
@@ -1632,7 +1632,7 @@ const CITIES = {
         id: 'palacio-real',
         name: {
           adult: 'Palacio Real de Madrid',
-          kids: 'El Palacio de las Mil Puertas 👑'
+          kids: 'Palacio Real de Madrid — El Palacio de las Mil Puertas 👑'
         },
         subtitle: {
           adult: 'El palacio real en uso más grande de Europa Occidental',
@@ -1699,7 +1699,7 @@ const CITIES = {
         id: 'mercado-san-miguel',
         name: {
           adult: 'Mercado de San Miguel',
-          kids: '¡El Mercado de Hierro y Sabores! 🍤'
+          kids: 'Mercado de San Miguel — ¡El Mercado de Hierro y Sabores! 🍤'
         },
         subtitle: {
           adult: 'El último mercado de hierro de Madrid',
@@ -1734,7 +1734,7 @@ const CITIES = {
         id: 'puerta-del-sol-madrid',
         name: {
           adult: 'Puerta del Sol',
-          kids: 'La Plaza del Kilómetro Cero 🐻'
+          kids: 'Puerta del Sol — La Plaza del Kilómetro Cero 🐻'
         },
         subtitle: {
           adult: 'El kilómetro cero de España',
@@ -1769,7 +1769,7 @@ const CITIES = {
         id: 'museo-prado',
         name: {
           adult: 'Museo Nacional del Prado',
-          kids: 'El Palacio de los Cuadros Mágicos 🖼️'
+          kids: 'Museo Nacional del Prado — El Palacio de los Cuadros Mágicos 🖼️'
         },
         subtitle: {
           adult: 'Una de las mejores pinacotecas del mundo',
@@ -1804,7 +1804,7 @@ const CITIES = {
         id: 'parque-retiro',
         name: {
           adult: 'Parque de El Retiro',
-          kids: 'El Parque del Ángel Malo 😈'
+          kids: 'Parque de El Retiro — El Parque del Ángel Malo 😈'
         },
         subtitle: {
           adult: 'El gran pulmón verde histórico de Madrid',
@@ -1839,7 +1839,7 @@ const CITIES = {
         id: 'plaza-mayor-madrid',
         name: {
           adult: 'Plaza Mayor',
-          kids: 'La Plaza del Rey a Caballo 🐴'
+          kids: 'Plaza Mayor — La Plaza del Rey a Caballo 🐴'
         },
         subtitle: {
           adult: 'El corazón monumental del Madrid de los Austrias',
@@ -1872,7 +1872,7 @@ const CITIES = {
       },
       {
         id: 'gran-via',
-        name: { adult: 'Gran Vía', kids: 'La Avenida de los Rascacielos 🏙️' },
+        name: { adult: 'Gran Vía', kids: 'Gran Vía — La Avenida de los Rascacielos 🏙️' },
         subtitle: {
           adult: 'El Broadway madrileño, escaparate de un siglo de arquitectura',
           kids: '¡Una avenida que tardó 21 años en construirse entera!'
@@ -1898,7 +1898,7 @@ const CITIES = {
       },
       {
         id: 'museo-thyssen',
-        name: { adult: 'Museo Nacional Thyssen-Bornemisza', kids: 'El Museo de la Colección Ganadora 🏆' },
+        name: { adult: 'Museo Nacional Thyssen-Bornemisza', kids: 'Museo Nacional Thyssen-Bornemisza — El Museo de la Colección Ganadora 🏆' },
         subtitle: {
           adult: 'Un recorrido por 700 años de pintura occidental',
           kids: '¡España "ganó" esta colección a otros dos países!'
@@ -1924,7 +1924,7 @@ const CITIES = {
       },
       {
         id: 'museo-reina-sofia',
-        name: { adult: 'Museo Nacional Centro de Arte Reina Sofía', kids: 'El Hospital Convertido en Museo del Guernica 🎨' },
+        name: { adult: 'Museo Nacional Centro de Arte Reina Sofía', kids: 'Museo Nacional Centro de Arte Reina Sofía — El Hospital Convertido en Museo del Guernica 🎨' },
         subtitle: {
           adult: 'El hogar del Guernica de Picasso',
           kids: '¡Antes de ser museo, este edificio curaba enfermos!'
@@ -1950,7 +1950,7 @@ const CITIES = {
       },
       {
         id: 'catedral-almudena',
-        name: { adult: 'Catedral de la Almudena', kids: 'La Catedral de 110 Años y Colores 🌈' },
+        name: { adult: 'Catedral de la Almudena', kids: 'Catedral de la Almudena — La Catedral de 110 Años y Colores 🌈' },
         subtitle: {
           adult: 'Única catedral de España consagrada por un Papa',
           kids: '¡Tardaron 110 años en terminarla!'
@@ -1976,7 +1976,7 @@ const CITIES = {
       },
       {
         id: 'plaza-cibeles',
-        name: { adult: 'Plaza de Cibeles', kids: 'La Diosa que se Disfrazó de Piedra 🦁' },
+        name: { adult: 'Plaza de Cibeles', kids: 'Plaza de Cibeles — La Diosa que se Disfrazó de Piedra 🦁' },
         subtitle: {
           adult: 'El símbolo más fotografiado de Madrid',
           kids: '¡Una diosa en un carro tirado por leones!'
@@ -2002,7 +2002,7 @@ const CITIES = {
       },
       {
         id: 'puerta-alcala',
-        name: { adult: 'Puerta de Alcalá', kids: 'El Arco con Dos Caras Distintas 🎭' },
+        name: { adult: 'Puerta de Alcalá', kids: 'Puerta de Alcalá — El Arco con Dos Caras Distintas 🎭' },
         subtitle: {
           adult: 'El primer arco de triunfo de la Europa moderna',
           kids: '¡Sus dos lados son ligeramente diferentes!'
@@ -2028,7 +2028,7 @@ const CITIES = {
       },
       {
         id: 'plaza-villa-madrid',
-        name: { adult: 'Plaza de la Villa', kids: 'La Plaza que Encerró a un Rey Francés 🗼' },
+        name: { adult: 'Plaza de la Villa', kids: 'Plaza de la Villa — La Plaza que Encerró a un Rey Francés 🗼' },
         subtitle: {
           adult: 'El rincón medieval mejor conservado de Madrid',
           kids: '¡Aquí estuvo prisionero un rey de Francia!'
@@ -2054,7 +2054,7 @@ const CITIES = {
       },
       {
         id: 'templo-debod',
-        name: { adult: 'Templo de Debod', kids: 'El Templo Egipcio que Cruzó el Mar 🐪' },
+        name: { adult: 'Templo de Debod', kids: 'Templo de Debod — El Templo Egipcio que Cruzó el Mar 🐪' },
         subtitle: {
           adult: 'Un templo egipcio del siglo II a.C. en pleno Madrid',
           kids: '¡Viajó piedra a piedra desde Egipto hasta aquí!'
@@ -2080,7 +2080,7 @@ const CITIES = {
       },
       {
         id: 'plaza-espana-madrid',
-        name: { adult: 'Plaza de España', kids: 'La Plaza de Don Quijote y Sancho 🐴' },
+        name: { adult: 'Plaza de España', kids: 'Plaza de España — La Plaza de Don Quijote y Sancho 🐴' },
         subtitle: {
           adult: 'Homenaje a Cervantes junto a los rascacielos históricos',
           kids: '¡Aquí están Don Quijote y Sancho Panza en bronce!'
@@ -2106,7 +2106,7 @@ const CITIES = {
       },
       {
         id: 'circulo-bellas-artes',
-        name: { adult: 'Círculo de Bellas Artes', kids: 'La Azotea de la Diosa Sabia 🦉' },
+        name: { adult: 'Círculo de Bellas Artes', kids: 'Círculo de Bellas Artes — La Azotea de la Diosa Sabia 🦉' },
         subtitle: {
           adult: 'Las mejores vistas panorámicas de Madrid',
           kids: '¡Una diosa de bronce vigila la ciudad desde arriba!'
@@ -2132,7 +2132,7 @@ const CITIES = {
       },
       {
         id: 'teatro-real',
-        name: { adult: 'Teatro Real', kids: 'El Teatro que Flotaba sobre un Río Escondido 💧' },
+        name: { adult: 'Teatro Real', kids: 'Teatro Real — El Teatro que Flotaba sobre un Río Escondido 💧' },
         subtitle: {
           adult: 'La ópera nacional frente al Palacio Real',
           kids: '¡Un río escondido casi hace que se cayera!'
@@ -2158,7 +2158,7 @@ const CITIES = {
       },
       {
         id: 'plaza-oriente',
-        name: { adult: 'Plaza de Oriente', kids: 'La Plaza del Rey que Casi se Cae 🐎' },
+        name: { adult: 'Plaza de Oriente', kids: 'Plaza de Oriente — La Plaza del Rey que Casi se Cae 🐎' },
         subtitle: {
           adult: 'Jardines monumentales frente al Palacio Real',
           kids: '¡Una estatua a caballo con un truco de equilibrio genial!'
@@ -2184,7 +2184,7 @@ const CITIES = {
       },
       {
         id: 'barrio-la-latina',
-        name: { adult: 'Barrio de La Latina', kids: 'El Barrio de la Maestra Sabia 📚' },
+        name: { adult: 'Barrio de La Latina', kids: 'Barrio de La Latina — El Barrio de la Maestra Sabia 📚' },
         subtitle: {
           adult: 'El barrio más castizo, cuna del tapeo madrileño',
           kids: '¡Lleva el nombre de una profesora superlista!'
@@ -2210,7 +2210,7 @@ const CITIES = {
       },
       {
         id: 'barrio-chueca',
-        name: { adult: 'Barrio de Chueca', kids: 'El Barrio Más Alegre y Colorido 🌈' },
+        name: { adult: 'Barrio de Chueca', kids: 'Barrio de Chueca — El Barrio Más Alegre y Colorido 🌈' },
         subtitle: {
           adult: 'El corazón LGTBI de Madrid',
           kids: '¡Un barrio lleno de banderas de colores!'
@@ -2236,7 +2236,7 @@ const CITIES = {
       },
       {
         id: 'barrio-malasana',
-        name: { adult: 'Barrio de Malasaña', kids: 'El Barrio de la Joven Valiente 🎗️' },
+        name: { adult: 'Barrio de Malasaña', kids: 'Barrio de Malasaña — El Barrio de la Joven Valiente 🎗️' },
         subtitle: {
           adult: 'De heroína de 1808 a cuna de la Movida madrileña',
           kids: '¡Lleva el nombre de una joven muy valiente!'
@@ -2262,7 +2262,7 @@ const CITIES = {
       },
       {
         id: 'barrio-letras',
-        name: { adult: 'Barrio de las Letras', kids: 'El Barrio de los Escritores Rivales ✒️' },
+        name: { adult: 'Barrio de las Letras', kids: 'Barrio de las Letras — El Barrio de los Escritores Rivales ✒️' },
         subtitle: {
           adult: 'Donde vivieron Cervantes, Lope de Vega y Quevedo',
           kids: '¡Los versos de poetas famosos están escritos en el suelo!'
@@ -2288,7 +2288,7 @@ const CITIES = {
       },
       {
         id: 'plaza-santa-ana',
-        name: { adult: 'Plaza de Santa Ana', kids: 'La Plaza de los Poetas Rivales 🎭' },
+        name: { adult: 'Plaza de Santa Ana', kids: 'Plaza de Santa Ana — La Plaza de los Poetas Rivales 🎭' },
         subtitle: {
           adult: 'Donde el teatro y la vida nocturna conviven entre estatuas de dramaturgos',
           kids: '¡Dos poetas famosos parecen mirarse desde sus estatuas!'
@@ -2314,7 +2314,7 @@ const CITIES = {
       },
       {
         id: 'plaza-de-la-paja',
-        name: { adult: 'Plaza de la Paja', kids: 'La Plaza Antes de la Plaza Mayor 🌾' },
+        name: { adult: 'Plaza de la Paja', kids: 'Plaza de la Paja — La Plaza Antes de la Plaza Mayor 🌾' },
         subtitle: {
           adult: 'El mercado y corazón de Madrid antes de que existiera la Plaza Mayor',
           kids: '¡Aquí compraban paja para las mulas de los curas!'
@@ -2340,7 +2340,7 @@ const CITIES = {
       },
       {
         id: 'calle-cuchilleros',
-        name: { adult: 'Calle de Cuchilleros', kids: 'La Calle de los Fabricantes de Cuchillos 🔪' },
+        name: { adult: 'Calle de Cuchilleros', kids: 'Calle de Cuchilleros — La Calle de los Fabricantes de Cuchillos 🔪' },
         subtitle: {
           adult: 'Empinada calle porticada, hogar del restaurante más antiguo del mundo',
           kids: '¡Aquí está el restaurante más viejo del mundo entero!'
@@ -2366,7 +2366,7 @@ const CITIES = {
       },
       {
         id: 'descalzas-reales',
-        name: { adult: 'Monasterio de las Descalzas Reales', kids: 'El Convento del Tesoro Escondido 👑' },
+        name: { adult: 'Monasterio de las Descalzas Reales', kids: 'Monasterio de las Descalzas Reales — El Convento del Tesoro Escondido 👑' },
         subtitle: {
           adult: 'Fachada austera, interior con tesoros de la realeza española',
           kids: '¡Por fuera parece sencillo, pero por dentro esconde un tesoro!'
@@ -2392,7 +2392,7 @@ const CITIES = {
       },
       {
         id: 'monasterio-encarnacion',
-        name: { adult: 'Real Monasterio de la Encarnación', kids: 'El Convento de la Sangre Milagrosa 🩸' },
+        name: { adult: 'Real Monasterio de la Encarnación', kids: 'Real Monasterio de la Encarnación — El Convento de la Sangre Milagrosa 🩸' },
         subtitle: {
           adult: 'Reliquias reales y un milagro que se repite cada 27 de julio',
           kids: '¡Aquí guardan una reliquia que "cambia" una vez al año!'
@@ -2418,7 +2418,7 @@ const CITIES = {
       },
       {
         id: 'museo-historia-madrid',
-        name: { adult: 'Museo de Historia de Madrid', kids: 'El Museo de la Portada de Piedra Tallada 🏛️' },
+        name: { adult: 'Museo de Historia de Madrid', kids: 'Museo de Historia de Madrid — El Museo de la Portada de Piedra Tallada 🏛️' },
         subtitle: {
           adult: 'Un antiguo hospicio barroco que repasa la historia de la capital',
           kids: '¡Su entrada parece un decorado de teatro tallado en piedra!'
@@ -2444,7 +2444,7 @@ const CITIES = {
       },
       {
         id: 'museo-romanticismo',
-        name: { adult: 'Museo del Romanticismo', kids: 'La Casa que Viaja en el Tiempo 🕰️' },
+        name: { adult: 'Museo del Romanticismo', kids: 'Museo del Romanticismo — La Casa que Viaja en el Tiempo 🕰️' },
         subtitle: {
           adult: 'Un palacete que recrea la vida burguesa del Madrid del siglo XIX',
           kids: '¡Cada sala parece congelada hace 200 años!'
@@ -2470,7 +2470,7 @@ const CITIES = {
       },
       {
         id: 'museo-cerralbo',
-        name: { adult: 'Museo Cerralbo', kids: 'El Palacio del Marqués Coleccionista 🗝️' },
+        name: { adult: 'Museo Cerralbo', kids: 'Museo Cerralbo — El Palacio del Marqués Coleccionista 🗝️' },
         subtitle: {
           adult: 'La colección privada de un marqués, conservada intacta',
           kids: '¡Un marqués guardó aquí más de 50.000 objetos curiosos!'
@@ -2496,7 +2496,7 @@ const CITIES = {
       },
       {
         id: 'real-academia-bellas-artes',
-        name: { adult: 'Real Academia de Bellas Artes de San Fernando', kids: 'La Escuela que Suspendió a Goya 🎨' },
+        name: { adult: 'Real Academia de Bellas Artes de San Fernando', kids: 'Real Academia de Bellas Artes de San Fernando — La Escuela que Suspendió a Goya 🎨' },
         subtitle: {
           adult: 'Donde estudiaron, y no siempre triunfaron, los grandes artistas españoles',
           kids: '¡Uno de los pintores más famosos de España suspendió aquí el examen!'
@@ -2522,7 +2522,7 @@ const CITIES = {
       },
       {
         id: 'palacio-longoria',
-        name: { adult: 'Palacio de Longoria', kids: 'La Casa Tarta 🎂' },
+        name: { adult: 'Palacio de Longoria', kids: 'Palacio de Longoria — La Casa Tarta 🎂' },
         subtitle: {
           adult: 'La joya modernista de Madrid, a menudo confundida con obra de Gaudí',
           kids: '¡Los madrileños la llaman "la casa pastel" por sus formas onduladas!'
@@ -2548,7 +2548,7 @@ const CITIES = {
       },
       {
         id: 'edificio-metropolis',
-        name: { adult: 'Edificio Metrópolis', kids: 'El Edificio de la Estatua que Cambió 🗽' },
+        name: { adult: 'Edificio Metrópolis', kids: 'Edificio Metrópolis — El Edificio de la Estatua que Cambió 🗽' },
         subtitle: {
           adult: 'La cúpula dorada de Gran Vía, coronada por una estatua que no es la original',
           kids: '¡La estatua de oro que ves hoy no es la primera que tuvo este edificio!'
@@ -2574,7 +2574,7 @@ const CITIES = {
       },
       {
         id: 'palacio-cibeles-centrocentro',
-        name: { adult: 'Palacio de Cibeles (CentroCentro)', kids: 'Nuestra Señora de las Comunicaciones 📮' },
+        name: { adult: 'Palacio de Cibeles (CentroCentro)', kids: 'Palacio de Cibeles (CentroCentro) — Nuestra Señora de las Comunicaciones 📮' },
         subtitle: {
           adult: 'De sede de Correos a mirador y centro cultural con el mejor balcón de Madrid',
           kids: '¡Antes de ser ayuntamiento, aquí se repartía todo el correo de España!'
@@ -2600,7 +2600,7 @@ const CITIES = {
       },
       {
         id: 'plaza-alonso-martinez',
-        name: { adult: 'Plaza de Alonso Martínez', kids: 'La Rotonda del Jurista 👨‍⚖️' },
+        name: { adult: 'Plaza de Alonso Martínez', kids: 'Plaza de Alonso Martínez — La Rotonda del Jurista 👨‍⚖️' },
         subtitle: {
           adult: 'Rotonda histórica que homenajea al creador del Código Civil español',
           kids: '¡Lleva el nombre de quien escribió las leyes más importantes de España!'
@@ -2626,7 +2626,7 @@ const CITIES = {
       },
       {
         id: 'calle-fuencarral',
-        name: { adult: 'Calle de Fuencarral', kids: 'La Calle que Une Dos Barrios Distintos 🛍️' },
+        name: { adult: 'Calle de Fuencarral', kids: 'Calle de Fuencarral — La Calle que Une Dos Barrios Distintos 🛍️' },
         subtitle: {
           adult: 'Del camino rural a arteria comercial entre Malasaña y Chueca',
           kids: '¡Un antiguo camino de tierra se convirtió en una de las calles más de moda!'
@@ -2652,7 +2652,7 @@ const CITIES = {
       },
       {
         id: 'calle-montera',
-        name: { adult: 'Calle de la Montera', kids: 'La Calle del Gorro Perdido 🎩' },
+        name: { adult: 'Calle de la Montera', kids: 'Calle de la Montera — La Calle del Gorro Perdido 🎩' },
         subtitle: {
           adult: 'Tres leyendas distintas explican el origen de su nombre',
           kids: '¡Nadie se pone de acuerdo en por qué se llama así!'
@@ -2678,7 +2678,7 @@ const CITIES = {
       },
       {
         id: 'plaza-callao',
-        name: { adult: 'Plaza del Callao', kids: 'La Plaza de las Pantallas Gigantes 🎬' },
+        name: { adult: 'Plaza del Callao', kids: 'Plaza del Callao — La Plaza de las Pantallas Gigantes 🎬' },
         subtitle: {
           adult: 'El epicentro cinematográfico de Madrid, con nombre de batalla naval',
           kids: '¡Su nombre viene de una batalla en el mar, muy lejos de Madrid!'
@@ -2704,7 +2704,7 @@ const CITIES = {
       },
       {
         id: 'edificio-telefonica',
-        name: { adult: 'Edificio Telefónica', kids: 'El Primer Rascacielos de Europa 📞' },
+        name: { adult: 'Edificio Telefónica', kids: 'Edificio Telefónica — El Primer Rascacielos de Europa 📞' },
         subtitle: {
           adult: 'El primer rascacielos de Europa, testigo y refugio durante la Guerra Civil',
           kids: '¡Fue el edificio más alto de todo un continente!'
@@ -2730,7 +2730,7 @@ const CITIES = {
       },
       {
         id: 'parque-vistillas',
-        name: { adult: 'Parque de las Vistillas', kids: 'El Mirador de las Trincheras 🌅' },
+        name: { adult: 'Parque de las Vistillas', kids: 'Parque de las Vistillas — El Mirador de las Trincheras 🌅' },
         subtitle: {
           adult: 'Vistas privilegiadas sobre el Manzanares y huellas de la Guerra Civil',
           kids: '¡Un mirador precioso que también guarda huellas de una guerra!'
@@ -2756,7 +2756,7 @@ const CITIES = {
       },
       {
         id: 'jardines-anglona',
-        name: { adult: 'Jardines del Príncipe de Anglona', kids: 'El Jardín Secreto de La Latina 🌿' },
+        name: { adult: 'Jardines del Príncipe de Anglona', kids: 'Jardines del Príncipe de Anglona — El Jardín Secreto de La Latina 🌿' },
         subtitle: {
           adult: 'Un jardín nobiliario del siglo XVIII escondido junto a la Plaza de la Paja',
           kids: '¡Un jardín escondido que casi nadie conoce!'
@@ -2782,7 +2782,7 @@ const CITIES = {
       },
       {
         id: 'iglesia-san-gines',
-        name: { adult: 'Iglesia de San Ginés', kids: 'La Iglesia del Cuadro Escondido 🖼️' },
+        name: { adult: 'Iglesia de San Ginés', kids: 'Iglesia de San Ginés — La Iglesia del Cuadro Escondido 🖼️' },
         subtitle: {
           adult: 'Una de las parroquias más antiguas de Madrid, con un El Greco y chocolate con churros al lado',
           kids: '¡Guarda un cuadro pintado por uno de los artistas más famosos de la historia!'
@@ -2808,7 +2808,7 @@ const CITIES = {
       },
       {
         id: 'basilica-san-francisco-el-grande',
-        name: { adult: 'Basílica de San Francisco el Grande', kids: 'La Cúpula Gigante de Goya 🎨' },
+        name: { adult: 'Basílica de San Francisco el Grande', kids: 'Basílica de San Francisco el Grande — La Cúpula Gigante de Goya 🎨' },
         subtitle: {
           adult: 'La cuarta cúpula más grande de Europa, con un autorretrato escondido de Goya',
           kids: '¡Tiene una de las cúpulas más grandes de toda Europa!'
@@ -2834,7 +2834,7 @@ const CITIES = {
       },
       {
         id: 'puerta-de-toledo',
-        name: { adult: 'Puerta de Toledo', kids: 'La Última Puerta Monumental de Madrid 🚪' },
+        name: { adult: 'Puerta de Toledo', kids: 'Puerta de Toledo — La Última Puerta Monumental de Madrid 🚪' },
         subtitle: {
           adult: 'Arco triunfal construido para celebrar el regreso de un rey',
           kids: '¡Fue la última gran puerta que se construyó en todo Madrid!'
@@ -2860,7 +2860,7 @@ const CITIES = {
       },
       {
         id: 'museo-san-isidro',
-        name: { adult: 'Museo de San Isidro - Los Orígenes de Madrid', kids: 'El Museo del Pozo Milagroso 💧' },
+        name: { adult: 'Museo de San Isidro - Los Orígenes de Madrid', kids: 'Museo de San Isidro - Los Orígenes de Madrid — El Museo del Pozo Milagroso 💧' },
         subtitle: {
           adult: 'Arqueología madrileña y la leyenda del pozo del santo patrón',
           kids: '¡Aquí se cuenta una leyenda sobre un pozo mágico!'
@@ -2886,7 +2886,7 @@ const CITIES = {
       },
       {
         id: 'caixaforum-madrid',
-        name: { adult: 'CaixaForum Madrid', kids: 'El Edificio que Flota 🪴' },
+        name: { adult: 'CaixaForum Madrid', kids: 'CaixaForum Madrid — El Edificio que Flota 🪴' },
         subtitle: {
           adult: 'Un antiguo edificio industrial que parece flotar, junto a un jardín vertical gigante',
           kids: '¡Este edificio parece flotar en el aire, sin apoyarse en el suelo!'
@@ -2912,7 +2912,7 @@ const CITIES = {
       },
       {
         id: 'plaza-dos-de-mayo',
-        name: { adult: 'Plaza del Dos de Mayo', kids: 'La Plaza de los Héroes Valientes ⚔️' },
+        name: { adult: 'Plaza del Dos de Mayo', kids: 'Plaza del Dos de Mayo — La Plaza de los Héroes Valientes ⚔️' },
         subtitle: {
           adult: 'Cuna del levantamiento de 1808 contra las tropas napoleónicas',
           kids: '¡Aquí lucharon unos héroes muy valientes hace más de 200 años!'
@@ -2938,7 +2938,7 @@ const CITIES = {
       },
       {
         id: 'plaza-cebada',
-        name: { adult: 'Plaza de la Cebada', kids: 'La Plaza del Cereal para los Caballos 🌾' },
+        name: { adult: 'Plaza de la Cebada', kids: 'Plaza de la Cebada — La Plaza del Cereal para los Caballos 🌾' },
         subtitle: {
           adult: 'Mercado histórico que también fue escenario de ejecuciones públicas',
           kids: '¡Aquí se vendía cebada para los caballos del rey!'
@@ -2964,7 +2964,7 @@ const CITIES = {
       },
       {
         id: 'plaza-tirso-molina',
-        name: { adult: 'Plaza de Tirso de Molina', kids: 'La Plaza de las Flores y el Convento Desaparecido 🌷' },
+        name: { adult: 'Plaza de Tirso de Molina', kids: 'Plaza de Tirso de Molina — La Plaza de las Flores y el Convento Desaparecido 🌷' },
         subtitle: {
           adult: 'Un antiguo convento dio paso a un mercado permanente de flores',
           kids: '¡Aquí había un convento enorme que ya no existe!'
@@ -2990,7 +2990,7 @@ const CITIES = {
       },
       {
         id: 'plaza-lavapies',
-        name: { adult: 'Plaza de Lavapiés', kids: 'La Plaza del Nombre Misterioso 🧩' },
+        name: { adult: 'Plaza de Lavapiés', kids: 'Plaza de Lavapiés — La Plaza del Nombre Misterioso 🧩' },
         subtitle: {
           adult: 'El corazón multicultural de Madrid, con un origen de nombre incierto',
           kids: '¡Nadie sabe con seguridad de dónde viene su curioso nombre!'
@@ -3016,7 +3016,7 @@ const CITIES = {
       },
       {
         id: 'mercado-anton-martin',
-        name: { adult: 'Mercado de Antón Martín', kids: 'El Mercado con Escuela de Flamenco 💃' },
+        name: { adult: 'Mercado de Antón Martín', kids: 'Mercado de Antón Martín — El Mercado con Escuela de Flamenco 💃' },
         subtitle: {
           adult: 'Tres siglos de tradición comercial junto al Cine Doré',
           kids: '¡Este mercado tiene hasta una escuela de baile flamenco dentro!'
@@ -3042,7 +3042,7 @@ const CITIES = {
       },
       {
         id: 'mercado-cebada',
-        name: { adult: 'Mercado de la Cebada', kids: 'El Mercado que Reemplazó a un Palacio de Hierro 🏗️' },
+        name: { adult: 'Mercado de la Cebada', kids: 'Mercado de la Cebada — El Mercado que Reemplazó a un Palacio de Hierro 🏗️' },
         subtitle: {
           adult: 'Uno de los mercados más grandes y tradicionales de Madrid',
           kids: '¡Antes hubo aquí un mercado hecho de hierro traído desde Londres!'
@@ -3068,7 +3068,7 @@ const CITIES = {
       },
       {
         id: 'calle-nuncio',
-        name: { adult: 'Calle del Nuncio', kids: 'La Calle del Embajador del Papa ⛪' },
+        name: { adult: 'Calle del Nuncio', kids: 'Calle del Nuncio — La Calle del Embajador del Papa ⛪' },
         subtitle: {
           adult: 'Una calle empinada que albergó a los embajadores del Vaticano',
           kids: '¡Aquí vivían los representantes del Papa en España!'
@@ -3094,7 +3094,7 @@ const CITIES = {
       },
       {
         id: 'plaza-rastrillo',
-        name: { adult: 'Plaza del Rastrillo', kids: 'La Plaza del Mercadillo Antiguo 🛒' },
+        name: { adult: 'Plaza del Rastrillo', kids: 'Plaza del Rastrillo — La Plaza del Mercadillo Antiguo 🛒' },
         subtitle: {
           adult: 'Antiguo mercadillo popular de Malasaña, hoy punto de encuentro',
           kids: '¡Antiguamente aquí había un mercadillo callejero muy animado!'
@@ -3120,7 +3120,7 @@ const CITIES = {
       },
       {
         id: 'calle-zurbano',
-        name: { adult: 'Calle de Zurbano', kids: 'La Calle de los Palacetes Elegantes 🏘️' },
+        name: { adult: 'Calle de Zurbano', kids: 'Calle de Zurbano — La Calle de los Palacetes Elegantes 🏘️' },
         subtitle: {
           adult: 'Elegante calle residencial del siglo XIX, poblada de palacetes nobiliarios',
           kids: '¡Una calle llena de casas tan bonitas que parecen pequeños palacios!'
@@ -3146,7 +3146,7 @@ const CITIES = {
       },
       {
         id: 'plaza-santa-barbara',
-        name: { adult: 'Plaza de Santa Bárbara', kids: 'La Plaza de la Reina que Fundó un Convento 👸' },
+        name: { adult: 'Plaza de Santa Bárbara', kids: 'Plaza de Santa Bárbara — La Plaza de la Reina que Fundó un Convento 👸' },
         subtitle: {
           adult: 'Rodeada por la iglesia de las Salesas Reales, fundada por una reina',
           kids: '¡Una reina fundó aquí un convento para educar a jóvenes nobles!'
@@ -3172,7 +3172,7 @@ const CITIES = {
       },
       {
         id: 'calle-huertas',
-        name: { adult: 'Calle de Huertas', kids: 'La Calle de los Versos Dorados en el Suelo ✨' },
+        name: { adult: 'Calle de Huertas', kids: 'Calle de Huertas — La Calle de los Versos Dorados en el Suelo ✨' },
         subtitle: {
           adult: 'El eje literario del Barrio de las Letras, con versos grabados en el pavimento',
           kids: '¡Hay versos escritos en letras doradas justo bajo tus pies!'
@@ -3198,7 +3198,7 @@ const CITIES = {
       },
       {
         id: 'jardines-sabatini',
-        name: { adult: 'Jardines de Sabatini', kids: 'El Jardín que Reemplazó a las Caballerizas Reales 🐎' },
+        name: { adult: 'Jardines de Sabatini', kids: 'Jardines de Sabatini — El Jardín que Reemplazó a las Caballerizas Reales 🐎' },
         subtitle: {
           adult: 'Jardines neoclásicos construidos sobre las antiguas caballerizas reales',
           kids: '¡Aquí antes vivían los caballos del rey, no había jardines!'

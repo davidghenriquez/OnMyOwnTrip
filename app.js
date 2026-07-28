@@ -28,7 +28,9 @@
         : `Eres "Guía ${cityName}", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de ${cityName}. Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ.`;
 
     const buildUserText = (poi, mode, userQuery, cityName = 'la ciudad') => {
-      const name = (poi.name[mode] || poi.name.adult);
+      // Se usa siempre el nombre real (no el apodo de modo niño) como contexto
+      // para la IA, para no confundirla con un nombre que no es el oficial.
+      const name = poi.name.adult;
       const cat = poi.category;
       const context = [
         `Estamos en ${cityName}, justo en: ${name}`,
@@ -135,14 +137,16 @@
         `¡Shhh! Acércate un poco, que esto es un secretillo especial de este lugar. 🤫✨`
       ],
       greet(poi, m) {
-        const n = poi.name[m] || poi.name.adult;
+        // Nombre real siempre, aunque se hable en modo niño: el apodo
+        // divertido es solo para lo que se lee en pantalla.
+        const n = poi.name.adult;
         if (m === 'kids') {
           return `¡Hola! 👋 Estás justo en ${n}, ¡uno de mis lugares preferidos de toda la ciudad! 🤩 Déjame contártelo de la forma más chula… ¿Listo para la aventura?`;
         }
         return `Bienvenido a ${n}. Soy tu guía local personalizada. A continuación un resumen ágil para que aproveches al máximo tu visita, sin perderte ningún detalle.`;
       },
       summary(poi, m) {
-        const name = poi.name[m] || poi.name.adult;
+        const name = poi.name.adult;
         const historyFull = poi.tabs.history[m] || poi.tabs.history.adult || '';
         if (m === 'kids') {
           const challenges = [
@@ -232,7 +236,7 @@
         if (optionId && optionId.startsWith('deepen:')) {
           return this.deepen(poi, m, optionId.slice(7));
         }
-        const n = poi.name[m] || poi.name.adult;
+        const n = poi.name.adult;
         switch (optionId) {
           case 'secret-history': {
             // Sin API real disponible no hay forma de generar un dato nuevo
@@ -894,6 +898,9 @@
     const box = $('#aiSuggestions');
     if (!box || !STATE.activePoiId) return;
     box.innerHTML = '';
+    // Modo niño: sin chat de texto ni chips. Solo audioguía y, al terminar,
+    // una pregunta con puntos (ver renderKidsQuizCard).
+    if (STATE.mode === 'kids') return;
     const poiId = STATE.activePoiId;
     const topic = STATE.ai.currentTopic[poiId] || null;
     const exploredSet = STATE.ai.explored[poiId] || new Set();
@@ -901,14 +908,7 @@
 
     const chips = [];
     if (topic) chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel) });
-    let remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
-    if (STATE.mode === 'kids') {
-      // A los niños les enganchan antes las leyendas mágicas que las
-      // recomendaciones de comida cercana, así que en este modo se
-      // adelanta "legends" y se deja "nearby-food" para el final.
-      const KIDS_ORDER = ['secret-history', 'architecture', 'legends', 'nearby-food'];
-      remaining = [...remaining].sort((a, b) => KIDS_ORDER.indexOf(a.id) - KIDS_ORDER.indexOf(b.id));
-    }
+    const remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
     remaining.slice(0, topic ? 2 : 3).forEach((o) => chips.push({ id: o.id, kind: 'option', label: pickDual(o.label) }));
     if (topic && remaining.length === 0) chips.push({ id: 'reset', kind: 'reset', label: pickDual(AI_PROMPTS.resetLabel) });
 
@@ -936,26 +936,6 @@
 
         aiHistoryFor(poi.id).push({ role: 'user', text: chip.label, isOptionChip: true });
 
-        // Modo niño con pregunta ya escrita para este lugar y tema: en vez
-        // de pedir un párrafo a la IA (real o simulada), se muestra una
-        // pregunta de selección simple con puntos por acertar.
-        const quizData = chip.kind === 'option' && STATE.mode === 'kids' && poi.quiz && poi.quiz[chip.id];
-        if (quizData) {
-          if (!STATE.ai.explored[poi.id]) STATE.ai.explored[poi.id] = new Set();
-          STATE.ai.explored[poi.id].add(chip.id);
-          aiHistoryFor(poi.id).push({
-            role: 'quiz', poiId: poi.id, topicId: chip.id,
-            question: quizData.question, options: quizData.options,
-            correct: quizData.correct, reveal: quizData.reveal,
-            answered: false, selected: null
-          });
-          saveState();
-          renderAiMessages();
-          renderAiSuggestions();
-          scrollAiToBottom();
-          return;
-        }
-
         renderAiMessages();
         scrollAiToBottom();
 
@@ -972,16 +952,69 @@
     });
   };
 
-  // Registra la respuesta de una pregunta de gamificación (modo niño):
-  // marca el mensaje como respondido, suma puntos solo la primera vez que
-  // se acierta esa combinación lugar+tema, y añade el dato real como mensaje
-  // de la guía a continuación.
-  const answerQuiz = (msg, selectedIndex) => {
-    if (msg.answered) return;
-    msg.answered = true;
-    msg.selected = selectedIndex;
-    const isCorrect = selectedIndex === msg.correct;
-    const key = `${msg.poiId}:${msg.topicId}`;
+  // Pregunta de gamificación tras el audio (modo niño): elige el primer tema
+  // sin acertar aún de este lugar, o null si no hay preguntas o ya se
+  // respondieron todas. El orden prioriza secreto > leyenda > arquitectura.
+  const KIDS_QUIZ_ORDER = ['secret-history', 'legends', 'architecture', 'nearby-food'];
+  const nextKidsQuizTopic = (poi) => {
+    if (!poi || !poi.quiz) return null;
+    const keys = Object.keys(poi.quiz).sort((a, b) => KIDS_QUIZ_ORDER.indexOf(a) - KIDS_QUIZ_ORDER.indexOf(b));
+    return keys.find((t) => !STATE.game.answered[`${poi.id}:${t}`]) || null;
+  };
+
+  const hideKidsQuiz = () => {
+    const card = $('#kidsQuizCard');
+    if (!card) return;
+    card.hidden = true;
+    card.innerHTML = '';
+  };
+
+  // Se llama cuando termina de sonar la audioguía en modo niño: muestra la
+  // siguiente pregunta pendiente de este lugar directamente en la ficha
+  // (no en el chat, que en modo niño está oculto).
+  const renderKidsQuizCard = () => {
+    const card = $('#kidsQuizCard');
+    if (!card || STATE.mode !== 'kids' || !STATE.activePoiId) { hideKidsQuiz(); return; }
+    const poi = POIS.find((p) => p.id === STATE.activePoiId);
+    if (!poi || !poi.quiz) { hideKidsQuiz(); return; }
+
+    const topicId = nextKidsQuizTopic(poi);
+    card.innerHTML = '';
+    card.hidden = false;
+
+    if (!topicId) {
+      const done = document.createElement('p');
+      done.className = 'quiz-done';
+      done.textContent = '¡Ya conoces todos los secretos de este lugar! ⭐⭐⭐';
+      card.appendChild(done);
+      return;
+    }
+
+    const q = poi.quiz[topicId];
+    const question = document.createElement('div');
+    question.className = 'quiz-question';
+    question.textContent = '🤔 ' + q.question;
+    card.appendChild(question);
+
+    const optsWrap = document.createElement('div');
+    optsWrap.className = 'quiz-options';
+    q.options.forEach((optText, i) => {
+      const optBtn = document.createElement('button');
+      optBtn.type = 'button';
+      optBtn.className = 'quiz-option';
+      optBtn.textContent = optText;
+      optBtn.addEventListener('click', () => answerKidsQuiz(poi, topicId, i));
+      optsWrap.appendChild(optBtn);
+    });
+    card.appendChild(optsWrap);
+  };
+
+  const answerKidsQuiz = (poi, topicId, selectedIndex) => {
+    const card = $('#kidsQuizCard');
+    if (!card) return;
+    const q = poi.quiz[topicId];
+    const isCorrect = selectedIndex === q.correct;
+    const key = `${poi.id}:${topicId}`;
     let pointsAwarded = 0;
     if (isCorrect && !STATE.game.answered[key]) {
       STATE.game.answered[key] = true;
@@ -990,51 +1023,18 @@
       updatePointsBadge();
       updateExplorerBadge();
     }
-    const prefix = isCorrect
-      ? (pointsAwarded ? `🎉 ¡Correcto! +${pointsAwarded} ⭐\n\n` : `🎉 ¡Correcto!\n\n`)
-      : `¡Casi! Era esta 👉\n\n`;
-    aiHistoryFor(msg.poiId).push({ role: 'assistant', text: prefix + msg.reveal });
     saveState();
-    renderAiMessages();
-    renderAiSuggestions();
-    scrollAiToBottom();
-  };
-
-  const makeQuizEl = (msg) => {
-    const wrap = document.createElement('div');
-    wrap.className = 'ai-msg';
-    const av = document.createElement('div');
-    av.className = 'ai-msg-avatar';
-    av.textContent = '✨';
-    const bubble = document.createElement('div');
-    bubble.className = 'ai-msg-bubble';
-
-    const q = document.createElement('div');
-    q.className = 'quiz-question';
-    q.textContent = msg.question;
-    bubble.appendChild(q);
-
-    const optsWrap = document.createElement('div');
-    optsWrap.className = 'quiz-options';
-    msg.options.forEach((optText, i) => {
-      const optBtn = document.createElement('button');
-      optBtn.type = 'button';
-      optBtn.className = 'quiz-option';
-      optBtn.textContent = optText;
-      if (msg.answered) {
-        optBtn.disabled = true;
-        if (i === msg.correct) optBtn.classList.add('-correct');
-        else if (i === msg.selected) optBtn.classList.add('-incorrect');
-      } else {
-        optBtn.addEventListener('click', () => answerQuiz(msg, i));
-      }
-      optsWrap.appendChild(optBtn);
+    $$('.quiz-option', card).forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.correct) btn.classList.add('-correct');
+      else if (i === selectedIndex) btn.classList.add('-incorrect');
     });
-    bubble.appendChild(optsWrap);
-
-    wrap.appendChild(av);
-    wrap.appendChild(bubble);
-    return wrap;
+    const reveal = document.createElement('p');
+    reveal.className = 'quiz-reveal';
+    reveal.textContent = (isCorrect
+      ? (pointsAwarded ? `🎉 ¡Correcto! +${pointsAwarded} ⭐ ` : '🎉 ¡Correcto! ')
+      : '¡Casi! Era esta 👉 ') + q.reveal;
+    card.appendChild(reveal);
   };
 
   const renderAiMessages = () => {
@@ -1045,10 +1045,6 @@
     history.forEach((msg) => {
       if (msg.role === 'typing') {
         box.appendChild(makeTypingEl());
-        return;
-      }
-      if (msg.role === 'quiz') {
-        box.appendChild(makeQuizEl(msg));
         return;
       }
       const user = msg.role === 'user';
@@ -1232,6 +1228,7 @@
     updateSheetDistance(id);
 
     renderAiSuggestions();
+    hideKidsQuiz();
 
     stopAudio();
     STATE.audio.duration = poi.audio.duration;
@@ -1332,7 +1329,9 @@
       const poi = POIS.find((p) => p.id === STATE.activePoiId);
       if (!poi) return '';
       const m = STATE.mode;
-      const name = pickDual(poi.name);
+      // Nombre real también al hablar en modo niño (el apodo divertido es
+      // solo texto en pantalla; decirlo en voz alta con el "—" queda raro).
+      const name = poi.name.adult;
       const subtitle = pickDual(poi.subtitle);
       const hist = aiHistoryFor(poi.id).filter((x) => x.role === 'assistant');
       const body = hist.length ? hist[hist.length - 1].text : (pickDual(poi.tabs.history) || '');
@@ -1520,6 +1519,9 @@
   const startAudio = (isResume = false, silent = false) => {
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
+    // Al (re)arrancar una narración se oculta la pregunta de la vez anterior:
+    // vuelve a aparecer solo cuando esta narración termine.
+    if (!isResume && STATE.mode === 'kids') hideKidsQuiz();
     if (!isResume && SPEECH.isSupported()) {
       STATE.audio.duration = estimateSpeechDuration(SPEECH.getText());
     }
@@ -1534,6 +1536,7 @@
           STATE.audio.currentTime = 0;
           updateAudioUi();
           if (!silent) showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
+          if (STATE.mode === 'kids') renderKidsQuizCard();
           return;
         }
         if (error || startFailed) {
@@ -1570,6 +1573,7 @@
         STATE.audio.currentTime = 0;
         updateAudioUi();
         showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
+        if (STATE.mode === 'kids') renderKidsQuizCard();
         return;
       }
       updateAudioUi();
