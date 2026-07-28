@@ -1437,9 +1437,13 @@
       // hay chips que generen respuestas legítimas adicionales, así que
       // cualquier otro mensaje del historial se ignora aquí a propósito.
       const summaryMsg = hist.find((x) => x.isSummary) || hist.find((x) => !looksLikeQuizReveal(x.text));
-      const body = hist.length
-        ? (m === 'kids' ? (summaryMsg || hist[0]).text : hist[hist.length - 1].text)
-        : (pickDual(poi.tabs.history) || '');
+      // Si NINGÚN mensaje guardado sirve como resumen (p.ej. un historial
+      // viejo donde todas las respuestas registradas son revelaciones del
+      // quiz, sin que llegara a guardarse nunca un resumen real), no se cae
+      // a hist[0] a ciegas: se trata igual que si no hubiera historial.
+      const body = m === 'kids'
+        ? (summaryMsg ? summaryMsg.text : (pickDual(poi.tabs.history) || ''))
+        : (hist.length ? hist[hist.length - 1].text : (pickDual(poi.tabs.history) || ''));
       // El título y subtítulo solo se dicen en la primera narración (el
       // resumen inicial al tocar el pin); en las siguientes respuestas
       // (chips, "profundiza más", preguntas) se habla directo, sin repetirlo.
