@@ -1719,6 +1719,28 @@
     const ob = $('#onboarding');
     if (!ob) return;
 
+    // Ayuda temporal de diagnóstico: 5 toques rápidos sobre el número de
+    // versión muestran los datos guardados en un cuadro de texto que se
+    // puede copiar, para poder revisar de verdad qué hay guardado en un
+    // dispositivo concreto en vez de adivinarlo a ciegas.
+    const versionEl = $('#appVersion');
+    if (versionEl) {
+      let tapCount = 0;
+      let tapTimer = null;
+      versionEl.addEventListener('click', () => {
+        tapCount++;
+        clearTimeout(tapTimer);
+        tapTimer = setTimeout(() => { tapCount = 0; }, 1500);
+        if (tapCount >= 5) {
+          tapCount = 0;
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY) || '(vacío)';
+            window.prompt('Datos guardados (copia todo el texto y envíamelo):', raw);
+          } catch (_) {}
+        }
+      });
+    }
+
     let chosenMode = STATE.mode === 'kids' ? 'kids' : 'adult';
     const modeBtns = $$('.onboarding-btn.-mode');
     modeBtns.forEach((b) => {
