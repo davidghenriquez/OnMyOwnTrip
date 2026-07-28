@@ -1378,7 +1378,14 @@
       const name = poi.name.adult;
       const subtitle = pickDual(poi.subtitle);
       const hist = aiHistoryFor(poi.id).filter((x) => x.role === 'assistant');
-      const body = hist.length ? hist[hist.length - 1].text : (pickDual(poi.tabs.history) || '');
+      // En modo niño el audio principal es siempre el resumen original (el
+      // primer mensaje): no hay chips que generen respuestas legítimas
+      // adicionales, así que cualquier mensaje posterior en el historial
+      // (p.ej. de versiones anteriores, antes de narrar el quiz aparte)
+      // se ignora aquí a propósito.
+      const body = hist.length
+        ? (m === 'kids' ? hist[0].text : hist[hist.length - 1].text)
+        : (pickDual(poi.tabs.history) || '');
       // El título y subtítulo solo se dicen en la primera narración (el
       // resumen inicial al tocar el pin); en las siguientes respuestas
       // (chips, "profundiza más", preguntas) se habla directo, sin repetirlo.
