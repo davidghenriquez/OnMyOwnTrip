@@ -1029,12 +1029,23 @@
       if (i === q.correct) btn.classList.add('-correct');
       else if (i === selectedIndex) btn.classList.add('-incorrect');
     });
-    const reveal = document.createElement('p');
-    reveal.className = 'quiz-reveal';
-    reveal.textContent = (isCorrect
+    const revealText = (isCorrect
       ? (pointsAwarded ? `🎉 ¡Correcto! +${pointsAwarded} ⭐ ` : '🎉 ¡Correcto! ')
       : '¡Casi! Era esta 👉 ') + q.reveal;
+    const reveal = document.createElement('p');
+    reveal.className = 'quiz-reveal';
+    reveal.textContent = revealText;
     card.appendChild(reveal);
+
+    // La aventura continúa: se narra el dato en voz alta y, al terminar esa
+    // narración (ver los finales de startAudio), aparece automáticamente la
+    // siguiente pregunta pendiente de este lugar, o el mensaje de cierre.
+    if (STATE.activePoiId === poi.id) {
+      aiHistoryFor(poi.id).push({ role: 'assistant', text: revealText });
+      saveState();
+      stopAudio();
+      startAudio(false, true);
+    }
   };
 
   const renderAiMessages = () => {
@@ -1519,9 +1530,6 @@
   const startAudio = (isResume = false, silent = false) => {
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
-    // Al (re)arrancar una narración se oculta la pregunta de la vez anterior:
-    // vuelve a aparecer solo cuando esta narración termine.
-    if (!isResume && STATE.mode === 'kids') hideKidsQuiz();
     if (!isResume && SPEECH.isSupported()) {
       STATE.audio.duration = estimateSpeechDuration(SPEECH.getText());
     }
