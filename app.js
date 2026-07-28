@@ -955,11 +955,23 @@
   // Pregunta de gamificación tras el audio (modo niño): elige el primer tema
   // sin acertar aún de este lugar, o null si no hay preguntas o ya se
   // respondieron todas. El orden prioriza secreto > leyenda > arquitectura.
-  const KIDS_QUIZ_ORDER = ['secret-history', 'legends', 'architecture', 'nearby-food'];
+  const KIDS_QUIZ_ORDER = [
+    'secret-history', 'legends', 'architecture',
+    'construction-time', 'palace-size', 'royal-family', 'nearby-food'
+  ];
   const nextKidsQuizTopic = (poi) => {
     if (!poi || !poi.quiz) return null;
     const keys = Object.keys(poi.quiz).sort((a, b) => KIDS_QUIZ_ORDER.indexOf(a) - KIDS_QUIZ_ORDER.indexOf(b));
     return keys.find((t) => !STATE.game.answered[`${poi.id}:${t}`]) || null;
+  };
+
+  // Se llama al terminar cualquier narración en modo niño: solo dispara la
+  // primera pregunta (cuando termina el audio inicial y la ficha aún no
+  // muestra nada). Pasar de una pregunta a la siguiente es cosa del botón
+  // "Siguiente" en answerKidsQuiz, no de esperar a que acabe el audio.
+  const maybeShowFirstKidsQuiz = () => {
+    const card = $('#kidsQuizCard');
+    if (card && card.hidden) renderKidsQuizCard();
   };
 
   const hideKidsQuiz = () => {
@@ -1037,15 +1049,25 @@
     reveal.textContent = revealText;
     card.appendChild(reveal);
 
-    // La aventura continúa: se narra el dato en voz alta y, al terminar esa
-    // narración (ver los finales de startAudio), aparece automáticamente la
-    // siguiente pregunta pendiente de este lugar, o el mensaje de cierre.
+    // Se narra el dato en voz alta, pero avanzar a la siguiente pregunta
+    // ya no depende de esperar a que termine el audio: el niño decide el
+    // ritmo tocando "Siguiente" (ver el guard en los finales de startAudio).
     if (STATE.activePoiId === poi.id) {
       aiHistoryFor(poi.id).push({ role: 'assistant', text: revealText });
       saveState();
       stopAudio();
       startAudio(false, true);
     }
+
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'quiz-next-btn';
+    nextBtn.textContent = 'Siguiente ▶';
+    nextBtn.addEventListener('click', () => {
+      stopAudio();
+      renderKidsQuizCard();
+    });
+    card.appendChild(nextBtn);
   };
 
   const renderAiMessages = () => {
@@ -1544,7 +1566,7 @@
           STATE.audio.currentTime = 0;
           updateAudioUi();
           if (!silent) showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
-          if (STATE.mode === 'kids') renderKidsQuizCard();
+          if (STATE.mode === 'kids') maybeShowFirstKidsQuiz();
           return;
         }
         if (error || startFailed) {
@@ -1581,7 +1603,7 @@
         STATE.audio.currentTime = 0;
         updateAudioUi();
         showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
-        if (STATE.mode === 'kids') renderKidsQuizCard();
+        if (STATE.mode === 'kids') maybeShowFirstKidsQuiz();
         return;
       }
       updateAudioUi();

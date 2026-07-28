@@ -1692,6 +1692,24 @@ const CITIES = {
             options: ['Unas 30', 'Unas 300', 'Más de 3.000'],
             correct: 2,
             reveal: '¡Más de 3.000 habitaciones! 🚪 Es tan grande que ni los reyes de España viven aquí normalmente, solo lo usan para actos oficiales importantes.'
+          },
+          'construction-time': {
+            question: '¿Cuántos años tardaron en construir el palacio entero?',
+            options: ['Unos 5 años', 'Unos 15 años', '¡Casi 30 años!'],
+            correct: 2,
+            reveal: '¡Casi 30 años! 🏗️ Empezaron las obras en 1738 y no las terminaron hasta 1764. Para cuando lo acabaron, ¡ya reinaba un rey distinto al que lo había encargado!'
+          },
+          'palace-size': {
+            question: '¿Verdad o mentira: este palacio es incluso más grande que el famoso Palacio de Versalles, en Francia?',
+            options: ['¡Verdad, es más grande!', 'Mentira, Versalles es más grande', 'Miden exactamente lo mismo'],
+            correct: 0,
+            reveal: '¡Es verdad! 🏆 Con más de 3.000 habitaciones, el Palacio Real de Madrid es el palacio en uso más grande de toda Europa Occidental, por delante de Versalles y hasta del palacio de Buckingham en Londres.'
+          },
+          'royal-family': {
+            question: '¿Vive el Rey de España en este palacio ahora mismo?',
+            options: ['Sí, duerme aquí cada noche', 'No, solo lo usan para actos y fiestas importantes', 'Solo los fines de semana'],
+            correct: 1,
+            reveal: '¡No! Aunque es su palacio oficial, la familia real no vive aquí en el día a día: es tan grande que solo se usa para recibir a otros jefes de estado y celebrar actos muy importantes. 👑'
           }
         }
       },

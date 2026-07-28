@@ -1045,6 +1045,22 @@ html[data-mode="kids"] .ai-input-wrap {
   font-size: 13.5px;
   line-height: 1.5;
 }
+.quiz-next-btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px 14px;
+  border-radius: var(--radius-md, 12px);
+  border: 0;
+  background: var(--color-primary);
+  color: #0B1120;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.quiz-next-btn:active { transform: scale(0.98); }
 
 /* ---------- TOAST ---------- */
 .toast {
