@@ -371,6 +371,10 @@
     sheet: 'closed',
     audio: {
       playing: false, currentTime: 0, duration: 0, timer: null,
+      // Texto puntual a narrar a continuación (p.ej. la revelación de una
+      // pregunta del quiz), en vez del resumen inicial. Se limpia cada vez
+      // que se abre una ficha para que el audio inicial vuelva a sonar.
+      overrideText: null,
       speech: { supported: false, utterance: null, voices: [], pickedVoice: null }
     },
     ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {} },
@@ -1049,12 +1053,13 @@
     reveal.textContent = revealText;
     card.appendChild(reveal);
 
-    // Se narra el dato en voz alta, pero avanzar a la siguiente pregunta
-    // ya no depende de esperar a que termine el audio: el niño decide el
-    // ritmo tocando "Siguiente" (ver el guard en los finales de startAudio).
+    // Se narra el dato en voz alta como texto puntual (no se guarda en el
+    // historial del lugar: si no, la próxima vez que se abra esta ficha, el
+    // audio inicial sonaría con esta revelación en vez del resumen). Avanzar
+    // a la siguiente pregunta ya no depende de esperar a que termine el
+    // audio: el niño decide el ritmo tocando "Siguiente".
     if (STATE.activePoiId === poi.id) {
-      aiHistoryFor(poi.id).push({ role: 'assistant', text: revealText });
-      saveState();
+      STATE.audio.overrideText = revealText;
       stopAudio();
       startAudio(false, true);
     }
@@ -1264,6 +1269,7 @@
     hideKidsQuiz();
 
     stopAudio();
+    STATE.audio.overrideText = null;
     STATE.audio.duration = poi.audio.duration;
     STATE.audio.currentTime = 0;
     $('.audio-title', els.sheet).textContent = pickDual(poi.audio.title);
@@ -1361,6 +1367,11 @@
     const buildNarrativeText = () => {
       const poi = POIS.find((p) => p.id === STATE.activePoiId);
       if (!poi) return '';
+      // Texto puntual (p.ej. revelación de una pregunta del quiz): se dice
+      // directo, sin repetir el saludo inicial ni mezclarse con el resumen.
+      if (STATE.audio.overrideText) {
+        return stripEmojiForSpeech(STATE.audio.overrideText).replace(/\s+/g, ' ').trim().slice(0, 1800);
+      }
       const m = STATE.mode;
       // Nombre real también al hablar en modo niño (el apodo divertido es
       // solo texto en pantalla; decirlo en voz alta con el "—" queda raro).
