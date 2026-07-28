@@ -484,6 +484,51 @@
     clearTimeout(t._tid);
     t._tid = setTimeout(() => t.classList.remove('-show'), ms);
   };
+  // Ayuda temporal de diagnóstico (ver wireOnboarding): muestra un texto
+  // largo en un cuadro propio de la página, con un botón de copiar, en vez
+  // de depender de window.prompt (bloqueado en algunos navegadores móviles).
+  const showDebugDump = (text) => {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.75);display:flex;flex-direction:column;gap:10px;padding:16px;';
+    const box = document.createElement('textarea');
+    box.readOnly = true;
+    box.value = text;
+    box.style.cssText = 'flex:1;width:100%;box-sizing:border-box;padding:10px;border-radius:10px;border:0;font:12px/1.4 monospace;resize:none;';
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;gap:10px;';
+    const copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.textContent = 'Copiar';
+    copyBtn.style.cssText = 'flex:1;padding:12px;border-radius:10px;border:0;background:#6C5CE7;color:#fff;font-weight:700;font-size:15px;';
+    copyBtn.addEventListener('click', async () => {
+      box.focus();
+      box.select();
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = '¡Copiado! ✅';
+      } catch (_) {
+        try {
+          document.execCommand('copy');
+          copyBtn.textContent = '¡Copiado! ✅';
+        } catch (__) {
+          copyBtn.textContent = 'Selecciona el texto a mano';
+        }
+      }
+    });
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.textContent = 'Cerrar';
+    closeBtn.style.cssText = 'flex:1;padding:12px;border-radius:10px;border:0;background:#333;color:#fff;font-weight:700;font-size:15px;';
+    closeBtn.addEventListener('click', () => overlay.remove());
+    row.appendChild(copyBtn);
+    row.appendChild(closeBtn);
+    overlay.appendChild(box);
+    overlay.appendChild(row);
+    document.body.appendChild(overlay);
+    box.focus();
+    box.select();
+  };
+
   const getCategoryPinColor = (cat) => {
     if (cat === CATEGORIES.HISTORY) return '#3B82F6'; // monumentos y museos: azul
     if (cat === CATEGORIES.GASTRONOMY) return '#EAB308'; // restauración: amarillo
@@ -1719,10 +1764,11 @@
     const ob = $('#onboarding');
     if (!ob) return;
 
-    // Ayuda temporal de diagnóstico: 5 toques rápidos sobre el número de
-    // versión muestran los datos guardados en un cuadro de texto que se
-    // puede copiar, para poder revisar de verdad qué hay guardado en un
-    // dispositivo concreto en vez de adivinarlo a ciegas.
+    // Ayuda temporal de diagnóstico: 3 toques sobre el número de versión
+    // muestran los datos guardados en un cuadro directamente en la página
+    // (no window.prompt, que algunos navegadores móviles bloquean sobre
+    // todo en modo "añadido a pantalla de inicio"), para poder revisar de
+    // verdad qué hay guardado en un dispositivo concreto.
     const versionEl = $('#appVersion');
     if (versionEl) {
       let tapCount = 0;
@@ -1730,12 +1776,12 @@
       versionEl.addEventListener('click', () => {
         tapCount++;
         clearTimeout(tapTimer);
-        tapTimer = setTimeout(() => { tapCount = 0; }, 1500);
-        if (tapCount >= 5) {
+        tapTimer = setTimeout(() => { tapCount = 0; }, 2500);
+        if (tapCount >= 3) {
           tapCount = 0;
           try {
             const raw = localStorage.getItem(STORAGE_KEY) || '(vacío)';
-            window.prompt('Datos guardados (copia todo el texto y envíamelo):', raw);
+            showDebugDump(raw);
           } catch (_) {}
         }
       });
