@@ -3241,6 +3241,161 @@ const CITIES = {
         }
       }
     ]
+  },
+
+  peniscola: {
+    id: 'peniscola',
+    name: 'Peñíscola',
+    country: 'España',
+    continent: 'Europa',
+    subtitle: { adult: 'La Ciudad en el Mar', kids: '¡El Castillo sobre las Olas! 🌊' },
+    center: [40.359, 0.403],
+    zoom: 15.4,
+    minZoom: 13,
+    bounds: [[40.353, 0.395], [40.365, 0.411]],
+    pois: [
+      {
+        id: 'castillo-papa-luna',
+        name: {
+          adult: 'Castillo del Papa Luna',
+          kids: 'Castillo del Papa Luna — El Castillo del Papa Rebelde 🏰'
+        },
+        subtitle: {
+          adult: 'Fortaleza templaria y último refugio de un Papa',
+          kids: '¡Un castillo sobre el mar donde vivió un Papa muy testarudo!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [40.3626, 0.4020],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg/330px-Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg',
+        audio: {
+          duration: 178,
+          title: {
+            adult: 'Audioguía: Castillo del Papa Luna',
+            kids: '¡Aventura Sonora: El Castillo del Papa Rebelde!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Los caballeros templarios levantaron este castillo a comienzos del siglo XIV sobre una roca que se adentra en el Mediterráneo, aprovechando restos de una fortaleza árabe anterior. Tras la disolución de la Orden del Temple pasó a la Orden de Montesa, pero su momento más célebre llegó en 1411, cuando Benedicto XIII —el aragonés Pedro de Luna, conocido como el "Papa Luna"— se refugió aquí tras ser depuesto durante el Cisma de Occidente. Convertido en palacio pontificio, Peñíscola fue su corte y su último bastión: siguió considerándose el único Papa legítimo hasta su muerte en 1423, casi en solitario frente a toda la cristiandad.',
+            kids: '¡Hace más de 600 años, unos caballeros con cruces rojas construyeron este castillo sobre una roca metida en el mar! 🌊 Después vivió aquí un señor llamado el Papa Luna: ¡todo el mundo le decía que dejara de ser Papa, pero él dijo que no y se quedó aquí gobernando solo, sin rendirse nunca!'
+          },
+          legends: {
+            adult: 'Cuenta la tradición que Benedicto XIII, ya anciano y prácticamente abandonado por los cardenales que antes lo apoyaban, se negó hasta el final a renunciar al papado, firmando bulas y nombrando cardenales en solitario desde estas salas. Se dice que su tozudez dio origen al dicho popular "mantenerse en sus trece", porque redactó trece proposiciones defendiendo su legitimidad como Papa y nunca cedió ni una. Los pescadores locales cuentan que, en noches de tormenta, aún puede verse una luz encendida en su antigua biblioteca.',
+            kids: "¡Dicen que de aquí viene la frase 'mantenerse en sus trece'! El Papa Luna escribió trece razones para no rendirse... ¡y no cambió de idea ni una sola! 📜 Los pescadores cuentan que en noches de tormenta todavía se ve una lucecita encendida en su antigua biblioteca. ¿Será verdad?"
+          },
+          architecture: {
+            adult: 'De planta trapezoidal adaptada a la roca, combina el austero estilo militar templario con las reformas palaciegas que ordenó el Papa Luna: la Sala Gótica, la antigua biblioteca pontificia y una pequeña capilla. Sus muros, de hasta cuatro metros de grosor en algunos tramos, nunca llegaron a ser tomados por la fuerza en toda su historia medieval. Hoy es también escenario de rodajes: aquí se filmaron escenas de "El Cid" (1961) y de la ciudad de Meereen en "Juego de Tronos".',
+            kids: '¡Las paredes de este castillo son tan gruesas como un coche puesto de pie! 🚗 Por eso nadie pudo conquistarlo nunca por la fuerza. Y un secreto: ¡aquí se rodaron escenas de una serie de dragones muy famosa! ¿Sabes cuál puede ser?'
+          }
+        }
+      },
+      {
+        id: 'murallas-peniscola',
+        name: {
+          adult: 'Murallas de Peñíscola',
+          kids: 'Murallas de Peñíscola — La Muralla que Frenó a los Piratas 🛡️'
+        },
+        subtitle: {
+          adult: 'Fortificación renacentista contra la piratería berberisca',
+          kids: '¡Un muro gigante para que no entraran los piratas!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [40.3586, 0.4068],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Overview_of_walls_in_Pe%C3%B1%C3%ADscola%2C_Bajo_Maestrazgo_Comarca.jpg/330px-Overview_of_walls_in_Pe%C3%B1%C3%ADscola%2C_Bajo_Maestrazgo_Comarca.jpg',
+        audio: {
+          duration: 155,
+          title: {
+            adult: 'Audioguía: Murallas de Peñíscola',
+            kids: '¡Aventura Sonora: La Muralla que Frenó a los Piratas!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Durante el siglo XVI, la costa mediterránea sufría constantes ataques de piratas berberiscos, así que Felipe II encargó reforzar las defensas de Peñíscola al ingeniero militar italiano Giovan Battista Antonelli, especialista en fortificaciones abaluartadas. El resultado fue un cinturón de murallas que rodea todo el casco antiguo y se funde con el propio castillo, convirtiendo la península en una plaza casi inexpugnable. Junto al Portal Fosc y otras puertas históricas, estas murallas protegieron a la población durante siglos de incursiones desde el mar.',
+            kids: '¡Hace muchos años, unos piratas muy malos atacaban los pueblos de la costa! 🏴‍☠️ Así que el rey mandó construir esta muralla gigante alrededor de todo el pueblo. ¡Se juntaba con el castillo y hacía que fuera casi imposible entrar sin permiso!'
+          },
+          legends: {
+            adult: 'Se cuenta que, durante una de las incursiones berberiscas del siglo XVI, los vigías de la muralla lograron avistar las velas enemigas al amanecer y hacer sonar las campanas a tiempo para que toda la población se refugiara dentro del recinto amurallado antes del desembarco. Desde entonces, la tradición local recuerda cada año ese aviso con un repique especial de campanas, como homenaje a los centinelas anónimos que salvaron el pueblo.',
+            kids: '¡Cuentan que un vigía vio llegar a los piratas justo al amanecer y tocó las campanas a tiempo para avisar a todo el pueblo! 🔔 Gracias a él, todos se pusieron a salvo dentro de la muralla. Cada año, las campanas suenan en su honor. ¡Menos mal que estaba atento!'
+          },
+          architecture: {
+            adult: 'El trazado sigue el sistema abaluartado propio del siglo XVI, con lienzos de piedra que se adaptan al perfil irregular de la roca y se refuerzan en los puntos más expuestos al oleaje. Varias puertas históricas, como el Portal Fosc o la Puerta de Santa María, permiten aún hoy el acceso al casco antiguo, cuyas calles estrechas y empinadas conservan el trazado medieval original casi sin modificaciones desde su construcción.',
+            kids: '¡La muralla no es recta, sigue la forma de la roca! 🪨 Tiene varias puertas antiguas por donde se entra al pueblo, como el Portal Fosc. Las calles de dentro son estrechas y empinadas, ¡casi iguales a como eran hace cientos de años!'
+          }
+        }
+      },
+      {
+        id: 'el-bufador',
+        name: {
+          adult: 'El Bufador',
+          kids: 'El Bufador — La Roca que Respira 🌊'
+        },
+        subtitle: {
+          adult: 'Chimenea natural donde el mar "respira" entre las rocas',
+          kids: '¡Una roca que resopla como una ballena!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.3570, 0.4073],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Bufador.JPG/330px-Bufador.JPG',
+        audio: {
+          duration: 128,
+          title: {
+            adult: 'Audioguía: El Bufador',
+            kids: '¡Aventura Sonora: La Roca que Respira!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'En la ladera norte de la península, bajo las murallas del castillo, el oleaje ha ido horadando durante siglos una grieta natural en la roca. Cuando el mar está agitado, el agua entra a presión por una abertura inferior y sale expulsada con fuerza por un respiradero superior, produciendo un sonido característico parecido a un bufido, de ahí su nombre. Los pescadores de Peñíscola lo usaban tradicionalmente como indicador natural: si el Bufador "soplaba" con fuerza, era señal de que se aproximaba mal tiempo.',
+            kids: '¡Esta roca tiene un agujero secreto! 🕳️ Cuando el mar está movido, el agua entra a presión por abajo y sale disparada por arriba haciendo un ruido como un resoplido. Los pescadores de antes lo escuchaban para saber si venía una tormenta. ¡Es como si la roca respirara!'
+          },
+          legends: {
+            adult: 'La tradición oral de Peñíscola cuenta que en esta grieta vive el aliento de un antiguo dragón marino que protegía la costa de los invasores, y que su resoplido furioso —más fuerte cuanto peor es la tormenta— es en realidad una advertencia a los pescadores para que no se hagan a la mar. Aunque la explicación real es puramente geológica, muchos vecinos siguen llamando al fenómeno "el aliento del Bufador" cuando el mar brama con especial fuerza.',
+            kids: '¡Dicen que dentro vive el aliento de un dragón marino que cuida la costa! 🐉 Cuando resopla muy fuerte, es porque te está avisando de que viene una tormenta y que mejor no salgas a navegar. ¿Te atreves a escucharlo de cerca?'
+          },
+          architecture: {
+            adult: 'Más que una construcción, El Bufador es un accidente geológico: una cavidad kárstica formada por la erosión marina sobre la roca caliza de la península. Su boca superior, de apenas medio metro de diámetro, contrasta con la fuerza del chorro que puede llegar a proyectar en días de temporal. Es uno de los rincones favoritos de fotógrafos y curiosos, accesible a pie desde el paseo que rodea la base del castillo, aunque conviene mantener la distancia cuando el mar está fuerte.',
+            kids: '¡No lo construyó nadie, lo hizo el propio mar! 🌊 Durante muchísimos años, el agua fue abriendo un agujero en la roca poquito a poco. La salida de arriba es pequeñita, ¡pero el chorro de agua puede salir disparado muy alto los días de olas grandes!'
+          }
+        }
+      },
+      {
+        id: 'restaurante-la-llotja',
+        fictional: true, // parada de ambientación: no existe como tal en Peñíscola, sigue el mismo patrón que "restaurante-sorbona" en Toledo
+        name: {
+          adult: 'Restaurante La Llotja',
+          kids: 'Restaurante La Llotja — ¡La Casa de los Sabores del Mar! 🦐'
+        },
+        subtitle: {
+          adult: 'Parada ilustrativa de gastronomía marinera',
+          kids: '¡El arroz más rico junto al puerto!'
+        },
+        category: CATEGORIES.GASTRONOMY,
+        coords: [40.3572, 0.4040],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Arroz_a_banda_%28Torreblanca%29.jpg/330px-Arroz_a_banda_%28Torreblanca%29.jpg', // foto genérica de arròs a banda de la Costa del Azahar (lugar ilustrativo, no una foto del "restaurante" en sí)
+        audio: {
+          duration: 150,
+          title: {
+            adult: 'Audioguía: Gastronomía en La Llotja',
+            kids: '¡Aventura Sonora: Hora de Comer junto al Mar!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'La Llotja es una parada de ambientación (no un establecimiento real) que recrea el espíritu de las lonjas y restaurantes marineros que bordean el puerto de Peñíscola desde mediados del siglo XX, cuando la pesca de bou dejaba su género fresco cada mañana. Sirve para imaginar cómo huele y sabe la cocina de la Costa del Azahar entre parada y parada de la ruta, con el castillo siempre de fondo.',
+            kids: '¡Vamos a imaginarnos un restaurante junto al puerto! 🦐 Aquí los pescadores traían el pescado fresquísimo cada mañana, directo del barco al plato. ¡Con el castillo vigilando desde arriba mientras comes!'
+          },
+          legends: {
+            adult: 'Como parada imaginada, se le atribuye una pequeña leyenda propia de la ruta: dicen que el arròs a banda que se sirve en la mesa más cercana al ventanal solo sale perfecto —ni un grano pasado, ni uno crudo— cuando el cocinero mira al castillo justo antes de retirarlo del fuego. Los marineros que la frecuentan juran que a ellos nunca les ha fallado.',
+            kids: '¡Cuentan que el arroz sale perfecto solo si el cocinero mira al castillo justo antes de apagar el fuego! 👨‍🍳🏰 Los pescadores dicen que ese truco nunca falla. ¿Tú lo probarías?'
+          },
+          architecture: {
+            adult: 'Se imagina como una casa marinera de fachada azul añil frente al puerto deportivo, con mesas de madera desgastada por la sal, redes y aparejos de pesca colgados del techo, y una terraza abierta desde la que se ve el perfil del castillo recortado contra el mar. Una ambientación pensada para transmitir cómo es comer arroz recién hecho con los pies casi en el agua.',
+            kids: '¡Imagina una terraza pegadita al mar! 🌊 Con redes de pescar colgando del techo como decoración y mesas de madera con olor a sal. Desde tu silla puedes ver el castillo entero mientras comes. ¿A que apetece?'
+          }
+        }
+      }
+    ]
   }
 };
 
