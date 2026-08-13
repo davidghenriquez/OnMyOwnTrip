@@ -1508,130 +1508,6 @@ const CITIES = {
     ]
   },
 
-  tokio: {
-    id: 'tokio',
-    name: 'Tokio',
-    country: 'Japón',
-    continent: 'Asia',
-    subtitle: { adult: 'Tradición y neón', kids: '¡Ciudad de Templos y Robots! 🤖' },
-    center: [35.6782, 139.7706],
-    zoom: 12.5,
-    minZoom: 10,
-    bounds: [[35.55, 139.58], [35.80, 139.93]],
-    routes: [
-      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' }
-    ],
-    pois: [
-      {
-        id: 'senso-ji',
-        name: {
-          adult: 'Sensō-ji',
-          kids: 'Sensō-ji — El Templo del Dragón Dorado 🐉'
-        },
-        subtitle: {
-          adult: 'El templo budista más antiguo de Tokio',
-          kids: '¡Una estatua de oro que apareció en un río!'
-        },
-        category: CATEGORIES.HISTORY,
-        coords: [35.7146, 139.7967],
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Sensoji_2023.jpg/330px-Sensoji_2023.jpg',
-        audio: {
-          duration: 175,
-          title: {
-            adult: 'Audioguía: Sensō-ji',
-            kids: '¡Aventura Sonora: El Templo del Dragón Dorado!'
-          }
-        },
-        tabs: {
-          history: {
-            adult: 'El Sensō-ji se fundó en el año 645, cuando el sacerdote budista Shōkai construyó un pabellón para venerar una pequeña estatua de la diosa Kannon. Es el templo más antiguo de Tokio y el corazón del barrio de Asakusa. Su Kaminarimon, la "Puerta del Trueno", con su enorme farolillo rojo de casi 700 kg, es una de las imágenes más fotografiadas de Japón. El templo original ardió en el bombardeo de Tokio de 1945 y fue reconstruido en hormigón tras la guerra, respetando su diseño de época Edo.',
-            kids: '¡Este templo tiene casi 1.400 años! 🏮 Se llama Sensō-ji y está en el barrio de Asakusa. En la entrada hay una puerta gigante con un farolillo rojo enorme, ¡tan pesado como un coche pequeño! El templo de verdad se quemó hace muchos años, pero lo reconstruyeron para que siguiera siendo mágico.'
-          },
-          legends: {
-            adult: 'Cuenta la leyenda que en el año 628, dos hermanos pescadores, Hinokuma Hamanari y Takenari, encontraron una pequeña estatua dorada de Kannon atrapada en sus redes en el río Sumida. La devolvieron al agua varias veces, pero siempre regresaba a ellos. Un sabio local, conmovido, convirtió su propia casa en un santuario. Desde entonces la estatua nunca ha sido mostrada al público: nadie vivo puede decir con certeza qué aspecto tiene.',
-            kids: '¡Hace muchísimos años, dos hermanos pescadores sacaron del río una estatuita dorada con su red! 🎣✨ La devolvieron al agua… ¡pero volvió a aparecer una y otra vez! Así que decidieron guardarla para siempre. Desde entonces nadie ha vuelto a verla — ¡sigue siendo un secreto absoluto!'
-          },
-          architecture: {
-            adult: 'El complejo combina una pagoda de cinco pisos, el Hōzōmon (puerta del tesoro) y el Kaminarimon, flanqueados por estatuas guardianas. La calle Nakamise-dori, con casi 90 puestos centenarios, conecta ambas puertas con el salón principal. El techo del hondō (salón principal), reconstruido en 1958, sigue fielmente las proporciones del edificio original de época Edo, con tejas curvas y aleros muy pronunciados típicos del budismo japonés.',
-            kids: '¡Hay una calle entera de tiendas antiguas para llegar al templo! 🍡 Se llama Nakamise y vende dulces y recuerdos desde hace cientos de años. Busca las dos estatuas guardianas gigantes en la puerta — ¡parece que vigilan a todo el que entra!'
-          }
-        }
-      },
-      {
-        id: 'tsukiji-mercado',
-        name: {
-          adult: 'Mercado Exterior de Tsukiji',
-          kids: 'Mercado Exterior de Tsukiji — ¡El Mercado de los Mil Sabores! 🐟'
-        },
-        subtitle: {
-          adult: 'La cocina de Tokio desde 1935',
-          kids: 'Donde huele a sushi fresquísimo'
-        },
-        category: CATEGORIES.GASTRONOMY,
-        essential: { route: 'main', order: 1 },
-        coords: [35.6614, 139.7697],
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2018_Tsukiji_fish_market.jpg/330px-2018_Tsukiji_fish_market.jpg',
-        audio: {
-          duration: 150,
-          title: {
-            adult: 'Audioguía: Mercado de Tsukiji',
-            kids: '¡Aventura Sonora: El Mercado de los Mil Sabores!'
-          }
-        },
-        tabs: {
-          history: {
-            adult: 'Tras el gran terremoto de Kantō de 1923, que destruyó el antiguo mercado de Nihonbashi, la ciudad trasladó su mercado de pescado a Tsukiji, inaugurado en 1935. Durante más de 80 años fue conocido como "la cocina de Tokio". En 2018, la sección mayorista —con sus famosas subastas de atún— se trasladó a Toyosu, pero el mercado exterior, con sus calles llenas de puestos, cuchillería y restaurantes de sushi, sigue funcionando en su emplazamiento original.',
-            kids: '¡Este mercado lleva casi 90 años vendiendo el pescado más fresco de Tokio! 🐠 Antes aquí se hacían subastas gigantes de atunes enormes. Esa parte se mudó a otro barrio, pero las calles con puestos de comida y sushi siguen aquí, ¡oliendo riquísimo desde por la mañana!'
-          },
-          legends: {
-            adult: 'Junto al mercado se alza el santuario Namiyoke Inari, "el que protege de las olas". Cuenta la tradición que, en el siglo XVII, unas obras de relleno junto al mar eran destruidas una y otra vez por el oleaje, hasta que una noche apareció flotando un objeto sagrado y luminoso. Al construirle un santuario, el mar se calmó y las obras pudieron terminarse. Desde el terremoto de 1923, los comerciantes del mercado lo consideran su guardián.',
-            kids: '¡Hay un templo muy especial junto al mercado! Cuentan que hace muchísimo tiempo el mar no dejaba de destruir un muro nuevo, hasta que una noche apareció algo brillante flotando en el agua ✨. Construyeron un templo para cuidarlo, ¡y el mar se calmó para siempre!'
-          },
-          architecture: {
-            adult: 'El mercado exterior conserva un trazado de callejuelas estrechas de posguerra, con más de 400 tiendas y puestos especializados: cuchillos artesanales, algas secas, tés y, sobre todo, barras de sushi diminutas de apenas seis u ocho asientos. Los toldos de colores y los carteles pintados a mano mantienen una estética que apenas ha cambiado desde mediados del siglo XX, en fuerte contraste con los rascacielos que rodean el barrio.',
-            kids: '¡Las calles son súper estrechas y están llenas de tienditas! 🔪🍵 Venden desde cuchillos especiales hasta algas y té. Algunos restaurantes de sushi son tan pequeños que solo caben 6 personas sentadas. ¡Busca los toldos de colores, llevan ahí desde hace muchísimos años!'
-          }
-        }
-      },
-      {
-        id: 'torre-tokio',
-        name: {
-          adult: 'Torre de Tokio',
-          kids: 'Torre de Tokio — La Torre Roja y Blanca 🗼'
-        },
-        subtitle: {
-          adult: 'El mirador más icónico de la ciudad',
-          kids: '¡Más alta que la Torre Eiffel!'
-        },
-        category: CATEGORIES.HIDDEN,
-        essential: { route: 'main', order: 2 },
-        coords: [35.6586, 139.7456],
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/TaroTokyo20110213-TokyoTower-01.jpg/330px-TaroTokyo20110213-TokyoTower-01.jpg',
-        audio: {
-          duration: 160,
-          title: {
-            adult: 'Audioguía: Torre de Tokio',
-            kids: '¡Aventura Sonora: La Torre Roja y Blanca!'
-          }
-        },
-        tabs: {
-          history: {
-            adult: 'Inaugurada en 1958 como torre de telecomunicaciones, la Torre de Tokio se construyó en plena reconstrucción de posguerra como símbolo del renacimiento del país. Con 332,9 metros, es casi 9 metros más alta que la Torre Eiffel, en la que se inspiró su diseño. Un dato poco conocido: cerca de un tercio del acero de su estructura procede de tanques estadounidenses dañados durante la guerra de Corea, fundidos y reaprovechados.',
-            kids: '¡Se construyó en 1958 y es un poquito más alta que la Torre Eiffel de París! 🗼 Un dato flipante: ¡parte del metal con el que se hizo viene de tanques de guerra viejos que fundieron para reutilizar! Así que esta torre guarda un secreto de metal muy especial.'
-          },
-          legends: {
-            adult: 'Aunque no tiene leyendas centenarias como los templos de la ciudad, la Torre de Tokio se ha convertido en un mito moderno: generaciones de películas, series y cómics japoneses la usan como símbolo de esperanza y reencuentro, y muchas parejas suben a sus miradores por tradición en una primera cita. Se dice que si ves la torre iluminada de naranja en una noche despejada, el año que viene traerá buena suerte.',
-            kids: '¡Esta torre no tiene leyendas antiguas, pero sí una supermoderna! Dicen que si la ves iluminada de naranja en una noche muy clara, ¡tendrás buena suerte todo el año que viene! ✨ Muchísimas películas y dibujos animados japoneses la usan como protagonista.'
-          },
-          architecture: {
-            adult: 'Su estructura reticulada de acero, pintada en blanco y "naranja internacional" por normativa de seguridad aérea, alberga dos miradores: el Main Deck a 150 metros y el Top Deck, más exclusivo, a 250 metros. Bajo la torre, el edificio FootTown reúne tiendas, un acuario y un pequeño museo. De noche, un sistema de iluminación LED permite cambiar el color de toda la torre según la estación o eventos especiales.',
-            kids: '¡Tiene dos miradores para ver Tokio desde arriba! Uno está a 150 metros y el otro, más especial, a 250 metros 🏙️. Por la noche se ilumina de colores distintos según la época del año. ¡Debajo hay hasta un pequeño acuario!'
-          }
-        }
-      }
-    ]
-  },
-
   madrid: {
     id: 'madrid',
     name: 'Madrid',
@@ -3292,7 +3168,7 @@ const CITIES = {
           kids: '¡Un castillo sobre el mar donde vivió un Papa muy testarudo!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 2 },
+        essential: { route: 'main', order: 4 },
         coords: [40.3626, 0.4020],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg/330px-Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg',
         audio: {
@@ -3328,7 +3204,7 @@ const CITIES = {
           kids: '¡Un muro gigante para que no entraran los piratas!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 1 },
+        essential: { route: 'main', order: 2 },
         coords: [40.3586, 0.4068],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Overview_of_walls_in_Pe%C3%B1%C3%ADscola%2C_Bajo_Maestrazgo_Comarca.jpg/330px-Overview_of_walls_in_Pe%C3%B1%C3%ADscola%2C_Bajo_Maestrazgo_Comarca.jpg',
         audio: {
@@ -3364,7 +3240,7 @@ const CITIES = {
           kids: '¡Una roca que resopla como una ballena!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'main', order: 3 },
+        essential: { route: 'main', order: 6 },
         coords: [40.3570, 0.4073],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Bufador.JPG/330px-Bufador.JPG',
         audio: {
@@ -3422,6 +3298,114 @@ const CITIES = {
           architecture: {
             adult: 'Se imagina como una casa marinera de fachada azul añil frente al puerto deportivo, con mesas de madera desgastada por la sal, redes y aparejos de pesca colgados del techo, y una terraza abierta desde la que se ve el perfil del castillo recortado contra el mar. Una ambientación pensada para transmitir cómo es comer arroz recién hecho con los pies casi en el agua.',
             kids: '¡Imagina una terraza pegadita al mar! 🌊 Con redes de pescar colgando del techo como decoración y mesas de madera con olor a sal. Desde tu silla puedes ver el castillo entero mientras comes. ¿A que apetece?'
+          }
+        }
+      },
+      {
+        id: 'playa-norte',
+        name: {
+          adult: 'Playa Norte',
+          kids: 'Playa Norte — ¡La Playa que Casi Era una Isla! 🏖️'
+        },
+        subtitle: {
+          adult: 'Cinco kilómetros de arena sobre la lengua de tierra que salvó a Peñíscola',
+          kids: '¡Un banco de arena gigante que unió la roca con la tierra firme!'
+        },
+        category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 1 },
+        coords: [40.3555, 0.398],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/100_Platja_del_Nord_%28Pen%C3%ADscola%29.jpg/330px-100_Platja_del_Nord_%28Pen%C3%ADscola%29.jpg',
+        audio: {
+          duration: 150,
+          title: {
+            adult: 'Audioguía: Playa Norte',
+            kids: '¡Aventura Sonora: La Playa que Casi Era una Isla!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'La roca sobre la que se asienta Peñíscola fue durante siglos un peñón aislado en el mar. Con el paso de los siglos, la sedimentación fue formando un tómbolo —una franja natural de arena— que acabó uniéndolo a tierra firme, aunque durante mucho tiempo esa lengua de arena desaparecía con los temporales y volvía a formarse en verano. De ahí viene incluso el nombre de la ciudad: los romanos la llamaron "paene insula", "casi isla", que con el tiempo derivó en Peñíscola.',
+            kids: '¿Sabías que la roca donde está el castillo antes era una isla de verdad, separada de la playa? 🏝️ Poco a poco, el mar fue arrastrando arena hasta que se formó un camino natural que la unió a tierra. ¡Por eso la ciudad se llama Peñíscola, que viene de una palabra que significa "casi isla"!'
+          },
+          legends: {
+            adult: 'Durante siglos, esa franja de arena que unía la roca con la costa era tan frágil que los temporales fuertes podían borrarla por completo, dejando de nuevo aislado el peñón como en la Antigüedad. Los pescadores más veteranos contaban que, en esas noches de mar embravecido, la isla "recordaba" ser isla, y que solo el buen tiempo del verano le devolvía el camino a tierra, año tras año, como una promesa que el mar renovaba cada vez.',
+            kids: 'Cuentan los pescadores más mayores que, en las noches de tormenta más fuertes, el camino de arena podía desaparecer por completo, ¡y la roca del castillo volvía a quedarse sola en el mar como hace muchísimos años! 🌊 Por suerte, cuando llegaba el buen tiempo, la arena siempre volvía a aparecer.'
+          },
+          architecture: {
+            adult: 'Hoy Playa Norte es la más larga de la provincia de Castellón, con unos cinco kilómetros de arena dorada que arrancan junto al casco histórico y avanzan en paralelo al paseo marítimo de la Avenida Papa Luna. El proceso de erosión y sedimentación de sus acantilados fue estudiado ya en el siglo XVIII por el naturalista Cavanilles, y hoy la playa luce distinciones como la Bandera Azul gracias a la calidad de sus aguas.',
+            kids: 'Hoy la Playa Norte tiene ¡cinco kilómetros de arena! Empieza justo al lado del castillo y sigue y sigue por la costa 🏖️. Es tan limpia y bonita que tiene banderas especiales que premian a las mejores playas.'
+          }
+        }
+      },
+      {
+        id: 'iglesia-santa-maria',
+        name: {
+          adult: 'Iglesia de Santa María',
+          kids: 'Iglesia de Santa María — La Iglesia del Tesoro del Papa 📿'
+        },
+        subtitle: {
+          adult: 'El templo que guarda el tesoro personal del Papa Luna',
+          kids: '¡Aquí se guardan objetos que usó de verdad un Papa!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 3 },
+        coords: [40.3605, 0.4025],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Church_of_Santa_Maria%2C_Peniscola_01.JPG/330px-Church_of_Santa_Maria%2C_Peniscola_01.JPG',
+        audio: {
+          duration: 160,
+          title: {
+            adult: 'Audioguía: Iglesia de Santa María',
+            kids: '¡Aventura Sonora: La Iglesia del Tesoro del Papa!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'La iglesia se levantó poco después de la conquista cristiana de Peñíscola en el siglo XIII, y de aquella primera construcción todavía se conservan la portada y parte del muro original. A mediados del siglo XV un incendio la destruyó casi por completo, y el papa Eugenio IV concedió indulgencias especiales para financiar su reconstrucción, a petición de la reina María de Castilla. Entre 1725 y 1739 el templo se amplió y reorientó por completo, y en 1862 se añadió el campanario que hoy sigue en pie.',
+            kids: 'Esta iglesia se construyó hace más de 700 años, justo después de que Peñíscola pasara a manos cristianas ⛪. Hace mucho tiempo un incendio la destruyó casi entera, ¡pero hasta un Papa ayudó a pagar que la reconstruyeran! Después se hizo más grande, y el campanario que ves hoy se añadió hace más de 150 años.'
+          },
+          legends: {
+            adult: 'Aunque el Papa Luna vivía y gobernaba desde el castillo, esta iglesia guardaba parte de su tesoro personal: entre las piezas del patrimonio parroquial se conservan objetos pontificios que pertenecieron a Benedicto XIII, así como una cruz procesional manierista donada por otro Papa, Clemente VIII. Es el hilo que conecta directamente esta iglesia sencilla con la corte pontificia que un día gobernó Peñíscola desde lo alto del peñón.',
+            kids: 'El Papa Luna vivía en el castillo, ¡pero parte de sus objetos más valiosos se guardaban aquí, en esta iglesia! 👑 Todavía se conservan cosas que pertenecieron de verdad a aquel Papa tan testarudo. ¡Imagina tocar algo que usó él mismo hace más de 600 años!'
+          },
+          architecture: {
+            adult: 'De planta de cruz latina, tiene cuatro tramos de nave cubiertos con bóvedas de crucería y capillas laterales entre los contrafuertes, mientras que el crucero se remata con una bóveda de cañón con lunetos. La fachada, sobria, se organiza en torno a una puerta de arco de medio punto enmarcada por un alfiz, y el campanario, de base cuadrada, se eleva en tres cuerpos hasta rematarse con una pequeña cúpula y pináculos.',
+            kids: 'Por dentro tiene forma de cruz, con techos abovedados y varias capillas a los lados 🕍. Por fuera, la puerta de entrada tiene forma de arco redondeado. El campanario tiene tres pisos y termina en una cúpula pequeña con pináculos puntiagudos, ¡como un sombrero de mago!'
+          }
+        }
+      },
+      {
+        id: 'ermita-ermitana',
+        name: {
+          adult: 'Ermita de la Virgen de la Ermitana',
+          kids: 'Ermita de la Virgen de la Ermitana — La Capilla de la Patrona 🕯️'
+        },
+        subtitle: {
+          adult: 'El santuario de la patrona de Peñíscola, pegado al castillo',
+          kids: '¡La casa de la Virgen que cuida el pueblo entero!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 5 },
+        coords: [40.3628, 0.4017],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/045_Esgl%C3%A9sia_de_la_Mare_de_D%C3%A9u_de_l%27Ermitana_%28Pen%C3%ADscola%29%2C_pl._d%27Armes.jpg/330px-045_Esgl%C3%A9sia_de_la_Mare_de_D%C3%A9u_de_l%27Ermitana_%28Pen%C3%ADscola%29%2C_pl._d%27Armes.jpg',
+        audio: {
+          duration: 155,
+          title: {
+            adult: 'Audioguía: Ermita de la Virgen de la Ermitana',
+            kids: '¡Aventura Sonora: La Capilla de la Patrona!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'La ermita actual, adosada al propio castillo, se construyó entre 1708 y 1714 por orden de Sancho de Echevarría, gobernador militar de Peñíscola, en agradecimiento por la fidelidad de la población a la causa borbónica durante la Guerra de Sucesión. Sustituyó a una capilla más pequeña que ocupaba el mismo lugar, levantada a su vez sobre un antiguo cementerio del siglo VI. Desde 1664 hay constancia documental de que el pueblo celebraba fiestas en honor a su patrona, tradición que continúa cada 8 de septiembre con danzas populares.',
+            kids: 'Esta ermita se construyó hace más de 300 años, pegadita al castillo 🏰. Se hizo para dar las gracias porque el pueblo entero fue muy fiel durante una guerra importante. ¡Y debajo hay restos de un cementerio todavía más antiguo, de hace casi 1.500 años!'
+          },
+          legends: {
+            adult: 'La tradición cuenta que la imagen de la Virgen fue traída a Peñíscola por el propio apóstol Santiago, y que durante la dominación musulmana los cristianos la escondieron en una cueva del Barrio del Olivo para protegerla, hasta que pudo volver al culto tras la Reconquista. La talla original desapareció durante la Guerra Civil española, y en 1953 el propio pueblo, por voluntad popular, costeó una copia fiel para devolverle su patrona a la ermita.',
+            kids: 'Cuenta la leyenda que la imagen de la Virgen la trajo hasta aquí el mismísimo apóstol Santiago ✨. Hace muchos años tuvieron que esconderla en una cueva para protegerla, y luego desapareció durante una guerra. ¡Así que en 1953 todo el pueblo se juntó para hacer una copia y devolverle su Virgen a la ermita!'
+          },
+          architecture: {
+            adult: 'De planta de cruz latina con dos capillas a cada lado, el crucero se cubre con una cúpula y a los pies se levanta un coro alto. La fachada, rematada por una cornisa mixtilínea con pináculos que enmarca el escudo de Felipe V, guarda una curiosidad poco habitual en un templo religioso: junto a la puerta principal aparecen tallados en piedra motivos militares, como cañones y tambores de guerra, en lugar de los símbolos religiosos que sería de esperar.',
+            kids: 'Tiene forma de cruz, con una cúpula en el centro y un coro elevado a la entrada 🎶. Pero fíjate bien en la puerta principal: en vez de decoraciones religiosas, ¡tiene tallados cañones y tambores de guerra en la piedra! Un detalle rarísimo para una ermita.'
           }
         }
       }
