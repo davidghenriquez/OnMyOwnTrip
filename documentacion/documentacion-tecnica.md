@@ -255,6 +255,28 @@ Detalles relevantes:
 
 ---
 
+## 12bis. Service Worker (uso con conexión intermitente)
+
+`sw.js` cachea el shell de la app (`index.html`, `app.js`, `data.js`,
+`styles.css`, Leaflet) y, sobre la marcha, cualquier imagen que se pida
+(fotos de POIs y teselas del mapa ya vistas), para que la app siga
+funcionando al caminar por zonas con mala cobertura. Se registra con
+ruta **relativa** (`sw.js`, no `/sw.js`) a propósito: el scope de un
+Service Worker no puede ser más amplio que la carpeta donde vive su
+script, y la web se sirve bajo el subpath `/OnMyOwnTrip/` en GitHub
+Pages.
+
+No cachea nunca las peticiones al proxy de IA (son `POST`, y el fetch
+handler solo intercepta `GET`): si no hay red, esas llamadas fallan tal
+cual y `app.js` ya sabe caer al simulador local.
+
+Al subir un cambio a `index.html`/`app.js`/`data.js`/`styles.css`, hay
+que actualizar también la lista `SHELL_URLS` de `sw.js` con el nuevo
+`?v=N` de cada archivo (igual que ya se hace en `index.html`), para que
+la próxima visita descargue y cachee la versión nueva.
+
+---
+
 ## 13. Limitaciones conocidas
 
 - **Cuota de Gemini gratuita compartida**: ~20 peticiones/minuto para

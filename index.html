@@ -297,5 +297,16 @@
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data.js?v=2"></script>
   <script src="app.js?v=8"></script>
+  <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
+       vistas, para que la audioguía siga funcionando con conexión
+       intermitente (típico caminando por cascos históricos). Ruta relativa
+       a propósito: ver el comentario de cabecera en sw.js. -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((e) => console.warn('[SW] Registro falló:', e));
+      });
+    }
+  </script>
 </body>
 </html>
