@@ -805,6 +805,85 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   cursor: pointer;
 }
 .lightbox-close svg { width: 20px; height: 20px; }
+
+/* ---------- RESUMEN DE VISITA (modo niño, se abre desde la insignia de puntos) ---------- */
+.visit-summary-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 7, 13, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.visit-summary-modal.-open {
+  opacity: 1;
+  visibility: visible;
+}
+.visit-summary-card {
+  position: relative;
+  width: min(92vw, 380px);
+  max-height: 82vh;
+  overflow-y: auto;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 28px 22px 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.visit-summary-icon { font-size: 34px; line-height: 1; margin-bottom: 6px; }
+.visit-summary-title { font-size: 17px; font-weight: 800; margin: 0 0 4px; }
+.visit-summary-stat { font-size: 13px; color: var(--color-text-soft); margin: 0 0 12px; }
+.visit-summary-bar {
+  height: 8px;
+  border-radius: 8px;
+  background: var(--color-border);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.visit-summary-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-primary);
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+.visit-summary-points {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--explorer-color, #F5B942) 22%, transparent);
+  color: var(--explorer-color, #F5B942);
+  margin-bottom: 16px;
+}
+.visit-summary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.visit-summary-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--color-surface);
+}
+.visit-summary-list li[data-visited="true"] { color: var(--color-text); }
+.visit-summary-list li[data-visited="false"] { color: var(--color-text-soft); }
+.visit-summary-list .visit-summary-check { flex-shrink: 0; }
 .sheet-head-text {
   flex: 1;
   min-width: 0;

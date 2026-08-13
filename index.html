@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla -->
@@ -114,7 +114,7 @@
             <span class="brand-mark">
               <span id="brandTitle">OnMyOwnTrip</span>
               <span class="brand-badge" id="brandBadge">Adultos</span>
-              <span class="points-badge" id="pointsBadge" hidden>⭐ 0 · Principiante</span>
+              <button type="button" class="points-badge" id="pointsBadge" hidden aria-label="Ver resumen de tu visita">⭐ 0 · Principiante</button>
             </span>
             <span class="brand-sub" id="brandSub">Toledo · Turismo autoguiado inteligente</span>
           </div>
@@ -253,6 +253,24 @@
       </button>
       <img class="lightbox-img" src="" alt="" draggable="false" />
     </div>
+
+    <div class="visit-summary-modal" id="visitSummaryModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Resumen de tu visita">
+      <div class="visit-summary-card">
+        <button type="button" class="lightbox-close visit-summary-close" aria-label="Cerrar resumen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="visit-summary-icon" aria-hidden="true">🗺️</div>
+        <h2 class="visit-summary-title" id="visitSummaryTitle">Tu aventura</h2>
+        <p class="visit-summary-stat" id="visitSummaryStat">0 de 0 lugares visitados</p>
+        <div class="visit-summary-bar"><div class="visit-summary-fill" id="visitSummaryFill"></div></div>
+        <p class="visit-summary-points" id="visitSummaryPoints">⭐ 0 · Principiante</p>
+        <ul class="visit-summary-list" id="visitSummaryList"></ul>
+      </div>
+    </div>
   </div>
 
   <!-- SCRIPTS -->
@@ -278,6 +296,6 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data.js?v=2"></script>
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

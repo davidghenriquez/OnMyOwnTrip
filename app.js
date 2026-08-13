@@ -1452,6 +1452,43 @@
     els.lightbox.setAttribute('aria-hidden', 'true');
   };
 
+  // "Visitado" = se ha abierto su ficha al menos una vez (ensureAiPanelInitialGreet
+  // guarda un saludo en perPoiHistory la primera vez que se abre), sin importar
+  // si luego se ha vuelto a cerrar. Se recalcula cada vez que se abre el modal
+  // en vez de guardarse aparte, para no duplicar estado.
+  const openVisitSummary = () => {
+    if (!els.visitSummary || !CURRENT_CITY) return;
+    const visited = POIS.filter((p) => (STATE.ai.perPoiHistory[p.id] || []).length > 0);
+    const total = POIS.length;
+    const level = getExplorerLevel(STATE.game.points);
+
+    $('#visitSummaryTitle', els.visitSummary).textContent = `Tu aventura por ${CURRENT_CITY.name}`;
+    $('#visitSummaryStat', els.visitSummary).textContent =
+      `${visited.length} de ${total} lugares visitados`;
+    $('#visitSummaryFill', els.visitSummary).style.width =
+      `${total ? Math.round((visited.length / total) * 100) : 0}%`;
+    const pointsEl = $('#visitSummaryPoints', els.visitSummary);
+    pointsEl.textContent = `⭐ ${STATE.game.points} · ${level.label}`;
+    pointsEl.style.setProperty('--explorer-color', level.color);
+
+    const list = $('#visitSummaryList', els.visitSummary);
+    list.innerHTML = POIS.map((p) => {
+      const isVisited = (STATE.ai.perPoiHistory[p.id] || []).length > 0;
+      return `<li data-visited="${isVisited}">
+        <span class="visit-summary-check" aria-hidden="true">${isVisited ? '✅' : '⬜'}</span>
+        <span>${pickDual(p.name)}</span>
+      </li>`;
+    }).join('');
+
+    els.visitSummary.classList.add('-open');
+    els.visitSummary.setAttribute('aria-hidden', 'false');
+  };
+  const closeVisitSummary = () => {
+    if (!els.visitSummary) return;
+    els.visitSummary.classList.remove('-open');
+    els.visitSummary.setAttribute('aria-hidden', 'true');
+  };
+
   const populateSheetContent = (id) => {
     const poi = POIS.find((p) => p.id === id);
     if (!poi) return;
@@ -1976,9 +2013,18 @@
       });
     }
 
+    $('#pointsBadge')?.addEventListener('click', openVisitSummary);
+    if (els.visitSummary) {
+      $('.visit-summary-close', els.visitSummary).addEventListener('click', closeVisitSummary);
+      els.visitSummary.addEventListener('click', (e) => {
+        if (e.target === els.visitSummary) closeVisitSummary();
+      });
+    }
+
     window.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       if (els.lightbox && els.lightbox.classList.contains('-open')) { closeLightbox(); return; }
+      if (els.visitSummary && els.visitSummary.classList.contains('-open')) { closeVisitSummary(); return; }
       if (STATE.sheet !== 'closed') closeSheet();
     });
   };
@@ -2130,6 +2176,7 @@
     els.filters = $('#filters');
     els.header = $('.header');
     els.lightbox = $('#imageLightbox');
+    els.visitSummary = $('#visitSummaryModal');
     els.routePicker = $('#routePicker');
 
     buildHeader();
