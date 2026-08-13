@@ -3396,6 +3396,230 @@ const CITIES = {
         }
       }
     ]
+  },
+
+  cdmx: {
+    id: 'cdmx',
+    name: 'Ciudad de México',
+    country: 'México',
+    continent: 'América',
+    subtitle: { adult: 'Capital azteca y virreinal', kids: '¡La Ciudad de las Águilas y las Pirámides! 🦅' },
+    center: [19.34, -99.145],
+    zoom: 11.5,
+    minZoom: 10,
+    bounds: [[19.21, -99.20], [19.46, -99.08]],
+    pois: [
+      {
+        id: 'catedral-metropolitana-cdmx',
+        name: {
+          adult: 'Catedral Metropolitana de México',
+          kids: 'Catedral Metropolitana — La Catedral de las Dos Torres 🔔'
+        },
+        subtitle: {
+          adult: 'La catedral católica más grande de América',
+          kids: '¡Construida piedra a piedra sobre un templo azteca!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [19.4344, -99.1331],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Catedral_Metropolitana_de_la_Ciudad_de_M%C3%A9xico_1.jpg/330px-Catedral_Metropolitana_de_la_Ciudad_de_M%C3%A9xico_1.jpg',
+        audio: {
+          duration: 188,
+          title: {
+            adult: 'Audioguía: Catedral Metropolitana',
+            kids: '¡Aventura Sonora: La Catedral de las Dos Torres!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'La Catedral Metropolitana de México se construyó entre 1573 y 1813, a lo largo de 240 años y once virreyes, sobre parte del recinto sagrado mexica y con piedras procedentes del propio Templo Mayor. Es la catedral católica más grande de América y sede del arzobispado desde la época colonial. Su lenta construcción hizo que conviva el gótico tardío de los primeros planos con el barroco de su cuerpo central y el neoclásico de sus torres y el remate de la cúpula, obra de Manuel Tolsá a comienzos del siglo XIX.',
+            kids: '¡Esta catedral tardó 240 años en construirse — más de 10 generaciones de familias! 🏗️ Se levantó justo encima de donde estaba un templo azteca gigante, y usaron piedras de ese templo para hacerla. Por eso tiene un poquito de varios estilos mezclados, ¡como si tres arquitectos distintos se hubieran turnado el trabajo!'
+          },
+          legends: {
+            adult: 'Se dice que el edificio entero se hunde muy lentamente en el antiguo lecho del lago de Texcoco, sobre el que se construyó Tenochtitlan, y que sus cimientos guardan túneles secretos que conectarían con el Templo Mayor y el Palacio Nacional, aunque nunca se han encontrado del todo. En la Capilla de las Reliquias se venera al "Cristo del Veneno", una talla que según la tradición se oscureció al absorber el veneno que un feligrés indígena había untado en sus pies para envenenar a los fieles que lo besaban, salvando así muchas vidas.',
+            kids: '¡Dicen que la catedral se hunde poquito a poquito porque está construida sobre un lago antiguo! 🌊 También cuentan la leyenda de una estatua de Cristo que se puso oscura de color para "tragarse" un veneno y salvar a la gente que la besaba. ¡Algunos túneles secretos bajo la catedral siguen siendo un misterio!'
+          },
+          architecture: {
+            adult: 'De planta de cruz latina con cinco naves y dieciséis capillas, alberga el imponente Altar de los Reyes, obra churrigueresca en madera dorada de Jerónimo de Balbás terminada en 1737. Sus dos torres campanario alcanzan los 67 metros y guardan 25 campanas, entre ellas "La Doña María", la mayor de América Latina. Debido al terreno blando de la antigua isla lacustre, el edificio se ha inclinado y hundido de forma desigual durante siglos, lo que obligó a un ambicioso proyecto de nivelación con pozos de compensación en los años 90.',
+            kids: '¡Tiene dos torres altísimas con 25 campanas dentro, y una se llama "La Doña María"! 🔔 Es tan grande que tiene 16 capillas diferentes adentro, como pequeñas iglesias dentro de la iglesia grande. Como está construida sobre tierra blandita de un lago viejo, ¡el edificio se ha ido inclinando poquito a poco durante siglos!'
+          }
+        }
+      },
+      {
+        id: 'templo-mayor',
+        name: {
+          adult: 'Templo Mayor',
+          kids: 'Templo Mayor — La Pirámide Escondida 🐍🦅'
+        },
+        subtitle: {
+          adult: 'El corazón sagrado de Tenochtitlan',
+          kids: '¡Una pirámide azteca oculta bajo la ciudad!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [19.4350, -99.1314],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Partial_view_Templo_Mayor.jpg/330px-Partial_view_Templo_Mayor.jpg',
+        audio: {
+          duration: 180,
+          title: {
+            adult: 'Audioguía: Templo Mayor',
+            kids: '¡Aventura Sonora: La Pirámide Escondida!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'El Templo Mayor fue el centro religioso y simbólico de Tenochtitlan, capital del imperio mexica, fundada según la tradición en 1325. Dedicado conjuntamente a Huitzilopochtli, dios de la guerra, y Tláloc, dios de la lluvia, la pirámide se reconstruyó y amplió en siete etapas superpuestas a lo largo de dos siglos, cada nuevo gobernante añadiendo una capa sobre la anterior. Fue arrasado por los conquistadores españoles en 1521 y quedó sepultado bajo el centro de la nueva ciudad colonial durante más de 450 años.',
+            kids: '¡Aquí estaba la pirámide más importante de los aztecas, con dos templos en la punta! 🔺 Cada nuevo gobernante construía una pirámide nueva encima de la anterior, ¡como capas de un pastel! Cuando llegaron los españoles la destruyeron, y la ciudad se construyó justo encima. ¡Estuvo escondida bajo tierra durante casi 500 años!'
+          },
+          legends: {
+            adult: 'El lugar está ligado al mito fundacional de México: los mexicas, pueblo errante, recibieron de sus sacerdotes la señal de asentarse donde vieran un águila devorando una serpiente posada sobre un nopal, visión que hallaron en un islote del lago de Texcoco. En el Templo Mayor se representaba también el mito de Coyolxauhqui, la diosa lunar descuartizada por su hermano Huitzilopochtli al nacer este armado para defender a su madre; su cuerpo desmembrado aparece tallado en el enorme disco de piedra hallado al pie de las escalinatas.',
+            kids: '¡La leyenda dice que los aztecas buscaban una señal para fundar su ciudad: un águila comiéndose una serpiente encima de un nopal! 🦅🐍 La encontraron aquí mismo, ¡y por eso está en la bandera de México! También cuentan la historia de una diosa de la Luna que aparece "rota en pedacitos" tallada en una piedra gigante, ¡como un rompecabezas de piedra!'
+          },
+          architecture: {
+            adult: 'La pirámide combinaba dos templos gemelos en su cúspide, accesibles por escalinatas independientes, sobre una base de más de 80 metros de lado en su última fase. El hallazgo casual en 1978 de la piedra de Coyolxauhqui por trabajadores de la Compañía de Luz desencadenó una excavación sistemática que sacó a la luz más de 200 ofrendas rituales con objetos de jade, concha, coral y restos de animales traídos de todo Mesoamérica. Hoy el yacimiento, a cielo abierto junto a la Catedral, se recorre mediante pasarelas elevadas y se completa con el Museo del Templo Mayor.',
+            kids: '¡Se encontró por accidente en 1978, cuando unos trabajadores estaban cavando para poner cables de luz! ⚡ Encontraron una piedra gigante con la diosa de la Luna tallada. Desde entonces han descubierto más de 200 "regalos" que los aztecas ofrecían a sus dioses: joyas, conchas y hasta huesos de animales de lugares muy lejanos.'
+          }
+        }
+      },
+      {
+        id: 'castillo-chapultepec',
+        name: {
+          adult: 'Castillo de Chapultepec',
+          kids: 'Castillo de Chapultepec — El Castillo de la Colina del Chapulín 🦗🏰'
+        },
+        subtitle: {
+          adult: 'El único castillo real de América del Norte',
+          kids: '¡Un castillo de verdad con emperador y todo!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [19.4206, -99.1817],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Chapultepec_castle_in_Mexico_city.jpg/330px-Chapultepec_castle_in_Mexico_city.jpg',
+        audio: {
+          duration: 178,
+          title: {
+            adult: 'Audioguía: Castillo de Chapultepec',
+            kids: '¡Aventura Sonora: El Castillo de la Colina!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Construido a partir de 1785 sobre el cerro sagrado de Chapultepec —"colina del chapulín" en náhuatl— por orden del virrey Bernardo de Gálvez, pasó por usos muy distintos: colegio militar, y desde 1864 residencia del emperador Maximiliano I y la emperatriz Carlota durante el Segundo Imperio Mexicano. Fue también residencia presidencial hasta 1939, cuando Lázaro Cárdenas lo convirtió en el Museo Nacional de Historia. Es el único castillo de auténtico uso real que ha existido en el continente americano.',
+            kids: '¡Este es el único castillo de verdad, con emperador y todo, que ha habido en toda América! 👑 Antes de ser castillo fue escuela militar, y luego lo convirtieron en un museo enorme. Está en lo alto de una colina que los aztecas ya consideraban un lugar sagrado.'
+          },
+          legends: {
+            adult: 'El cerro es escenario de la célebre gesta de los Niños Héroes: en 1847, durante la invasión estadounidense, varios jóvenes cadetes del Colegio Militar resistieron hasta el final la toma del castillo, y la tradición cuenta que el cadete Juan Escutia se envolvió en la bandera mexicana y saltó al vacío antes que rendirla al enemigo. Por los pasillos del castillo también se cuenta que el fantasma de la emperatriz Carlota, quien enloqueció de dolor tras la ejecución de Maximiliano, aún recorre de noche las habitaciones que habitó.',
+            kids: '¡Cuenta la leyenda que en 1847 unos cadetes muy jóvenes defendieron el castillo hasta el final! Dicen que uno de ellos, Juan Escutia, se envolvió en la bandera de México y saltó desde lo alto antes que dejar que se la quitaran. 🇲🇽 También hay quien dice que el fantasma de una emperatriz muy triste todavía camina por las noches entre las habitaciones.'
+          },
+          architecture: {
+            adult: 'Combina elementos neoclásicos y art nouveau, con el añadido del célebre Alcázar y sus jardines colgantes al estilo pompeyano, mandados construir por Maximiliano. Alberga murales de grandes muralistas mexicanos como Juan O\'Gorman —cuyo mural narra la lucha por la Independencia— y David Alfaro Siqueiros. Desde su terraza, el "Balcón del Emperador" ofrece una de las mejores vistas de la Ciudad de México, con el Paseo de la Reforma extendiéndose hacia el horizonte.',
+            kids: '¡Tiene jardines colgantes que parecen de un palacio romano! 🌿 Dentro hay pinturas gigantes hechas por artistas mexicanos muy famosos que cuentan la historia del país en las paredes. Desde el balcón de arriba, ¡se ve toda la Ciudad de México a tus pies!'
+          }
+        }
+      },
+      {
+        id: 'casa-azul-frida-kahlo',
+        name: {
+          adult: 'Museo Frida Kahlo (La Casa Azul)',
+          kids: 'La Casa Azul — La Casa Mágica de Frida 🎨💙'
+        },
+        subtitle: {
+          adult: 'La casa donde nació, vivió y murió Frida Kahlo',
+          kids: '¡Una casa pintada de azul brillante!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [19.3551, -99.1625],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Museo_Frida_Kahlo.JPG/330px-Museo_Frida_Kahlo.JPG',
+        audio: {
+          duration: 170,
+          title: {
+            adult: 'Audioguía: La Casa Azul',
+            kids: '¡Aventura Sonora: La Casa Mágica de Frida!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Construida en 1904 por Guillermo Kahlo, padre de la artista, esta casa del barrio de Coyoacán fue el hogar donde Frida Kahlo nació en 1907 y murió en 1954, y donde vivió junto al muralista Diego Rivera durante buena parte de su matrimonio. Tras la muerte de Frida, Diego donó la casa y su contenido para convertirla en museo, que abrió sus puertas en 1958 conservando intactos muebles, objetos personales y buena parte de su colección de arte popular mexicano y prehispánico.',
+            kids: '¡Frida Kahlo nació en esta casa y también vivió aquí de mayor con su esposo, el pintor Diego Rivera! 🖼️ Cuando ella murió, Diego decidió convertir la casa en un museo para que todo el mundo pudiera conocerla, ¡con sus muebles y sus cosas tal y como las dejó!'
+          },
+          legends: {
+            adult: 'En el jardín se conserva la pequeña pirámide prehispánica que Diego Rivera mandó construir para exhibir su colección de piezas de arte popular y cerámica antigua, un templo en miniatura dedicado a "los dioses que él mismo inventaba" según sus propias palabras. Se cuenta que las urnas con las cenizas de Frida, en forma de sapo prehispánico según su deseo, permanecen en su antigua habitación junto a la cama con el espejo en el techo que su madre instaló tras el accidente de tranvía que marcó su vida y su pintura para siempre.',
+            kids: '¡En el jardín hay una pequeña pirámide que Diego construyó para guardar figuras antiguas que coleccionaba! 🌵 Dicen que las cenizas de Frida están guardadas en una urna con forma de sapito, tal y como ella quería. En su cuarto todavía se puede ver la cama con un espejo en el techo — ¡lo pusieron para que ella pudiera pintarse a sí misma cuando no podía moverse!'
+          },
+          architecture: {
+            adult: 'La casa debe su nombre al intenso azul cobalto de sus muros exteriores, un color tradicional mexicano conocido como "azul añil". En torno a un patio central con plantas y esculturas prehispánicas se distribuyen el estudio de Frida —con su silla de ruedas y caballete tal como los dejó—, la cocina de azulejos amarillos y azules decorada con miniaturas de barro, y salas que exhiben sus característicos vestidos de tehuana y corsés pintados a mano.',
+            kids: '¡Toda la casa está pintada de un azul buenísimo, por eso la llaman "la Casa Azul"! 💙 Tiene un patio en el medio lleno de plantas y esculturas antiguas. Puedes ver el estudio donde pintaba Frida, con su silla de ruedas y sus pinceles, ¡tal y como los dejó ella!'
+          }
+        }
+      },
+      {
+        id: 'xochimilco-trajineras',
+        name: {
+          adult: 'Xochimilco',
+          kids: 'Xochimilco — El Barrio de los Canales de Colores 🛶🌸'
+        },
+        subtitle: {
+          adult: 'Los últimos canales del antiguo lago azteca',
+          kids: '¡Paseos en barca por canales de colores!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [19.2476, -99.0982],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Sobrevuelos_CDMX_Xochimilco_%2840385667161%29.jpg/330px-Sobrevuelos_CDMX_Xochimilco_%2840385667161%29.jpg',
+        audio: {
+          duration: 165,
+          title: {
+            adult: 'Audioguía: Xochimilco',
+            kids: '¡Aventura Sonora: Los Canales de Colores!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Xochimilco —"lugar donde florecen las flores" en náhuatl— conserva el último vestigio del vasto sistema de lagos que cubría el Valle de México antes de la conquista española. Desde época prehispánica, los pueblos del lugar cultivaban chinampas, islas artificiales de tierra fértil ancladas con ahuejotes (sauces locales), un ingenioso sistema agrícola que llegó a alimentar a toda Tenochtitlan. En 1987 la UNESCO declaró la zona Patrimonio de la Humanidad, reconociendo tanto sus canales como su valor agrícola vivo.',
+            kids: '¡Xochimilco es lo último que queda del gran lago que había antes donde ahora está la ciudad! 🌊 Hace cientos de años la gente cultivaba en "islas flotantes" hechas de tierra, ¡como huertos que flotan en el agua! Todavía hoy hay gente que cultiva flores y verduras así.'
+          },
+          legends: {
+            adult: 'Los canales de Xochimilco son escenario de una de las leyendas más inquietantes de México: la de La Llorona, el espíritu de una mujer que llora eternamente junto al agua en busca de sus hijos perdidos, cuyo lamento —dicen los lugareños— aún puede escucharse en las noches de niebla sobre los canales. Muy cerca se encuentra también la Isla de las Muñecas, donde un ermitaño llamado Julián Santana Barrera colgó durante décadas cientos de muñecas mutiladas que encontraba flotando, convencido de que así calmaba el espíritu de una niña ahogada en el canal.',
+            kids: '¡Por las noches, cuentan que se escucha llorar a un fantasma llamado La Llorona entre la niebla de los canales! 👻 Y muy cerca hay una isla espeluznante llena de muñecas viejas colgadas de los árboles — ¡un señor las colocó ahí hace muchos años porque decía que así protegía el espíritu de una niña! ¿Te atreverías a pasar cerca en barca?'
+          },
+          architecture: {
+            adult: 'La red de canales, de unos 170 kilómetros en su máxima extensión histórica, se recorre en trajineras, coloridas embarcaciones de madera pintadas con nombres de mujeres y decoradas con arcos florales, que antiguamente transportaban las cosechas de las chinampas al mercado. Hoy conviven con embarcaciones que venden comida, música de mariachi y hasta flores directamente desde el agua, en un paseo dominical que sigue siendo, siglos después, la forma más viva de conocer el antiguo paisaje lacustre de la ciudad.',
+            kids: '¡Los barcos se llaman "trajineras" y cada uno tiene pintado un nombre de mujer, como si fueran de colores! 🚣‍♀️🌺 Por los canales pasan también barcas que venden comida y hasta música de mariachi tocando en directo. ¡Es como un mercado flotante gigante!'
+          }
+        }
+      },
+      {
+        id: 'mercado-coyoacan',
+        name: {
+          adult: 'Mercado de Coyoacán',
+          kids: 'Mercado de Coyoacán — El Mercado de los Mil Sabores 🌮🥭'
+        },
+        subtitle: {
+          adult: 'Sabores, colores y tostadas desde 1921',
+          kids: '¡Aquí huele riquísimo en cada pasillo!'
+        },
+        category: CATEGORIES.GASTRONOMY,
+        coords: [19.3503, -99.1624],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Mercado_de_Coyoac%C3%A1n_CDMX.jpg/330px-Mercado_de_Coyoac%C3%A1n_CDMX.jpg',
+        audio: {
+          duration: 155,
+          title: {
+            adult: 'Audioguía: Mercado de Coyoacán',
+            kids: '¡Aventura Sonora: El Mercado de los Mil Sabores!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'El Mercado de Coyoacán abrió sus puertas en 1921, aunque el edificio actual data de 1956, cuando el gobierno de Adolfo Ruiz Cortines impulsó la modernización de los mercados públicos de la capital. Situado en pleno barrio de Coyoacán, donde vivieron Frida Kahlo y Diego Rivera, se convirtió con el paso de las décadas en uno de los mercados más queridos de la ciudad, tanto por sus puestos de comida como por su artesanía y sus telas bordadas.',
+            kids: '¡Este mercado lleva abierto más de 100 años! 🏪 Está en el barrio donde vivió la pintora Frida Kahlo, así que dicen que ella misma venía por aquí a comprar. Tiene dos pisos llenos de puestos de comida, ropa y juguetes tradicionales mexicanos.'
+          },
+          legends: {
+            adult: 'Entre los puestos más veteranos circula la leyenda de que el secreto de las mejores tostadas del mercado —hay decenas de variedades, desde tinga hasta ceviche— se transmite en susurros de madre a hija desde hace generaciones, y que ningún puesto ha logrado copiar exactamente la receta original de sus vecinos, por mucho que lo hayan intentado. Los vecinos de Coyoacán aseguran que basta con caminar sus pasillos para reconocer, con los ojos cerrados, en qué puesto está cada familia solo por el aroma.',
+            kids: '¡Cuentan que las recetas de las famosas tostadas del mercado son un secreto de familia que se pasa de madres a hijas! 🤫 Nadie ha logrado copiar exactamente el sabor de su vecino, aunque lo intenten. ¡Dicen que los vecinos del barrio reconocen cada puesto solo por el olor, con los ojos cerrados!'
+          },
+          architecture: {
+            adult: 'Es un edificio de planta rectangular de dos alturas donde conviven bajo un mismo techo puestos de frutas y verduras, flores, artesanías, disfraces, textiles bordados a mano y una concurrida zona de comida con largas barras compartidas. Su trazado en pasillos estrechos, típico de los mercados populares mexicanos de mediados del siglo XX, mantiene un ambiente denso y colorido que apenas ha cambiado desde su modernización.',
+            kids: '¡Es un mercado de dos pisos con pasillos estrechos llenos de colores! 🌈 En una parte venden fruta y flores, en otra ropa bordada a mano y disfraces, ¡y en otra hay mesas larguísimas donde te sientas a comer codo con codo con otras familias!'
+          }
+        }
+      }
+    ]
   }
 };
 
