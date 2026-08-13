@@ -77,6 +77,26 @@ const CITIES = {
             adult: 'De planta de cruz latina y cinco naves, sus bóvedas de crucería alcanzan los 44 metros de altura. El triforio superior conserva tracerías mudéjares únicas. Destacan: la Puerta del Perdón (románica), la Sacristía con el "Expolio" de El Greco, la Capilla Mayor con el retablo de Berruguete, el coro con 72 sillas góticas talladas, y el Transparente (1721-1732), una pieza de mármol, bronce y cristal considerada una de las maravillas del Barroco español. Su silueta con tres torres define el perfil de Toledo desde el Mirador del Valle.',
             kids: '¡Mira hacia arriba y cuenta las columnas! 📐 Los arcos de punta parecen montañas de piedra. Las ventanas de colores se llaman "vitrales" — ¡cada color cuenta una historia! La catedral tiene 5 calles, como un laberinto gigante. ¡Y el techo es ¡más alto que 14 personas de pie una encima de otra!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Sobre qué se construyó la Catedral de Toledo?',
+            options: ['Sobre una antigua mezquita', 'Sobre un campo vacío', 'Sobre un antiguo teatro romano'],
+            correct: 0,
+            reveal: '¡Sobre una antigua mezquita! 🕌 Empezaron a construirla en 1226 y tardaron más de 250 años en terminarla del todo.'
+          },
+          legends: {
+            question: '¿Qué animal se dice que vive escondido en una de las torres de la Catedral?',
+            options: ['Un dragón', 'Un búho de oro', 'Un gato negro'],
+            correct: 1,
+            reveal: '¡Un búho de oro! 🦉 Cuenta la leyenda que solo se deja ver por quienes buscan la verdad entre sus muros.'
+          },
+          architecture: {
+            question: '¿Cómo se llama la obra de mármol y cristal por donde entra la luz del sol dentro de la Catedral?',
+            options: ['El Transparente', 'La Ventana Mágica', 'El Espejo de Oro'],
+            correct: 0,
+            reveal: '¡Se llama el Transparente! ✨ Se hizo entre 1721 y 1732 con mármol, bronce y cristal, y hace que la luz entre como por arte de magia.'
+          }
         }
       },
       {
@@ -113,6 +133,26 @@ const CITIES = {
             adult: 'Construida en piedra de granito, combina arcos mudéjares (herradura doblada) con elementos renacentistas. Consta de dos cuerpos: el inferior con dos torres cilíndricas y un gran arco de medio punto flanqueado por columnas toscanas; y el superior con un frontón clásico y el escudo imperial. En su interior se abre un puente levadizo y un doble arco que crea una sala de paso casi catedralicia.',
             kids: '¡Tiene dos torres de vigilancia como de castillo! 🏰 El arco grande es tan ancho que pasan 5 personas de la mano. Arriba del todo hay un escudo con un águila de dos cabezas ¡genial! ¡Ponte justo debajo del arco y grita fuerte a ver si oyes el eco!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De qué palabra árabe viene el nombre "Bisagra"?',
+            options: ['De Bab-Saqra, "Puerta Sagrada"', 'De la bisagra de una puerta de madera', 'Del nombre de un rey'],
+            correct: 0,
+            reveal: '¡De Bab-Saqra, "Puerta Sagrada"! 🕌 Se construyó en el siglo X y por aquí entraban reyes, peregrinos y ejércitos enteros.'
+          },
+          legends: {
+            question: '¿Qué dicen que hay escondido bajo los cimientos de la Puerta de Bisagra?',
+            options: ['Un tesoro de un gobernador musulmán', 'Una piscina romana', 'Una biblioteca secreta'],
+            correct: 0,
+            reveal: '¡Un tesoro! 💰 Cuentan que lo enterró el último gobernador musulmán la noche antes de rendir la ciudad, en el año 1085.'
+          },
+          architecture: {
+            question: '¿Qué animal aparece en el escudo imperial de la parte de arriba de la puerta?',
+            options: ['Un león', 'Un águila de dos cabezas', 'Un dragón'],
+            correct: 1,
+            reveal: '¡Un águila de dos cabezas! 🦅 Es el escudo imperial de los Austrias, y corona el arco por donde pasaban los caballos de los reyes.'
+          }
         }
       },
       {
@@ -148,6 +188,26 @@ const CITIES = {
           architecture: {
             adult: 'Es un mirador natural de 120 metros de desnivel sobre la vega del Tajo, con una explanada de piedra caliza y bancos de hierro fundido de principios de siglo. Desde su barandilla se domina todo el recinto amurallado: la Catedral, el Alcázar, San Juan de los Reyes, las murallas y el puente de San Martín. No tiene edificación propia, pero destaca una inscripción de piedra con un verso de Garcilaso de la Vega.',
             kids: '¡Aguanta fuerte la barandilla y mira 360 grados! 📏 Puedes ver: la catedral, el castillo (Alcázar), el río Tajo y todas las casitas juntas como un juguete. ¡Cuenta las torres que veas, hay más de 20!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué pintor famoso usaba este mirador para dibujar Toledo?',
+            options: ['Velázquez', 'El Greco', 'Goya'],
+            correct: 1,
+            reveal: '¡El Greco! 🖼️ Se dice que vino aquí para componer su famosa "Vista y plano de Toledo", que hoy se guarda en el Museo del Prado.'
+          },
+          legends: {
+            question: 'Según la leyenda, ¿qué hay que hacer para que se cumpla un deseo en este mirador?',
+            options: ['Pedirlo cuando el sol se pone tras la Catedral', 'Girar tres veces sobre ti mismo', 'Lanzar una moneda al río'],
+            correct: 0,
+            reveal: '¡Pedirlo justo cuando el sol se oculta tras las torres de la Catedral! 🌅 Dicen que el deseo se cumple antes de que pase un año.'
+          },
+          architecture: {
+            question: '¿Cuántos metros de desnivel tiene el mirador sobre el río Tajo?',
+            options: ['Unos 10 metros', 'Unos 60 metros', '120 metros'],
+            correct: 2,
+            reveal: '¡120 metros! 📏 Desde ahí arriba se ve toda la ciudad amurallada: la Catedral, el Alcázar y el puente de San Martín.'
           }
         }
       },
@@ -220,6 +280,26 @@ const CITIES = {
           architecture: {
             adult: 'De estilo gótico mudéjar, destaca su torre del siglo XIV, una de las más bellas de Toledo, con cuerpos superpuestos y frisos de esmaltes mudéjares en azul y blanco. Su interior conserva un artesonado renacentista, púlpito de mármol y la capilla de la Concepción, donde se expone el cuadro de El Greco en penumbra controlada para su conservación. El presbiterio está alzado sobre el antiguo mihrab de la mezquita.',
             kids: '¡Mira la torre por fuera! Tiene azulejos azules y blancos como la playa 🏖️. Dentro el cuadro está en una habitación casi oscura, como si fuera un tesoro secreto. ¡Toca tu nariz 3 veces antes de entrar para que te traiga suerte!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién pintó "El Entierro del Conde de Orgaz", que se guarda en esta iglesia?',
+            options: ['El Greco', 'Goya', 'Velázquez'],
+            correct: 0,
+            reveal: '¡El Greco! 🎨 Se lo encargó el párroco Andrés Núñez en 1586, y es la obra más famosa de todo el pintor.'
+          },
+          legends: {
+            question: '¿Por qué se enfadó el párroco con El Greco al ver el cuadro terminado?',
+            options: ['Porque tardó demasiado en pintarlo', 'Porque un noble miraba directamente al espectador', 'Porque usó muy pocos colores'],
+            correct: 1,
+            reveal: '¡Porque un noble te mira a ti directamente a los ojos! 👀 El Greco dijo que ese caballero era el único que había visto con vida al conde, y el párroco, impresionado, le pagó el doble.'
+          },
+          architecture: {
+            question: '¿Sobre qué se construyó el altar principal de esta iglesia?',
+            options: ['Sobre el antiguo mihrab de una mezquita', 'Sobre un cementerio romano', 'Sobre un antiguo pozo'],
+            correct: 0,
+            reveal: '¡Sobre el mihrab de una mezquita! 🕌 La iglesia se construyó en el siglo XIV sobre un templo musulmán anterior, en pleno barrio de la Judería.'
           }
         }
       },
@@ -327,6 +407,26 @@ const CITIES = {
           architecture: {
             adult: 'Cuatro torres de 52 m flanquean un rectángulo de 80 × 63 metros. El patio de armas, renacentista, es una de las obras maestras de Covarrubias, con columnas toscanas y una escalera imperial monumental. Sus muros de granito tienen 8 metros de espesor en los basamentos. Destacan el Salón de los Tapices (Flandes s. XVII) y la Sala del Trono, donde Felipe II juró como príncipe heredero.',
             kids: '¡Cuenta las 4 torres! Cada una mide lo mismo que ¡12 niños en fila de alto! 🧍 Las paredes son ¡tan gruesas como un coche! 🚗 Dentro hay un patio con escaleras gigantes ¡y un salón de tapices de colores parecido a un cuento de princesas!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De qué época es el origen de la fortaleza del Alcázar?',
+            options: ['Época romana', 'Siglo XIX', 'Edad Media tardía'],
+            correct: 0,
+            reveal: '¡De época romana! 🏛️ Se construyó en el siglo III d.C. y después reyes y emperadores lo fueron ampliando durante siglos hasta hacerlo gigante.'
+          },
+          legends: {
+            question: 'Según la leyenda, ¿hasta dónde llegan los túneles secretos bajo el Alcázar?',
+            options: ['Hasta el mar', 'Hasta la Catedral y la Puerta de Bisagra', 'Hasta Madrid'],
+            correct: 1,
+            reveal: '¡Hasta la Catedral y la Puerta de Bisagra! 🕳️ Aunque nadie los ha encontrado nunca de verdad, cuentan que cruzan toda la ciudad bajo tierra.'
+          },
+          architecture: {
+            question: '¿Cuánto miden de grosor los muros de granito del Alcázar en sus partes más bajas?',
+            options: ['2 metros', '8 metros', '20 metros'],
+            correct: 1,
+            reveal: '¡8 metros! 🧱 Tan gruesos como varios coches puestos en fila. Por eso el Alcázar ha resistido tantos siglos y tantos asedios.'
           }
         }
       },
@@ -576,6 +676,26 @@ const CITIES = {
             adult: 'La plaza actual, de planta irregular con soportales porticados, se reconstruyó tras el incendio de 1589 siguiendo criterios de regularidad urbana promovidos por Felipe II. Los edificios que la rodean combinan balconadas de forja y arcos de medio punto en sus plantas bajas, creando un espacio unificado que ha servido de escenario social continuado desde la Edad Media hasta hoy.',
             kids: '¡Mira los soportales con columnas alrededor de toda la plaza! Sirven para pasear a la sombra o resguardarte de la lluvia. Después de un incendio muy grande hace 400 años, la reconstruyeron toda igual de bonita, ¡y así sigue hoy!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué significa "Zocodover" en árabe?',
+            options: ['Plaza del rey', 'Mercado de bestias de carga', 'Jardín de flores'],
+            correct: 1,
+            reveal: '¡Mercado de bestias de carga! 🐫 Durante el dominio musulmán aquí se compraban y vendían burros, camellos y caballos.'
+          },
+          legends: {
+            question: '¿Qué cuenta la tradición toledana sobre las noches silenciosas en esta plaza?',
+            options: ['Que aparecen luces de colores', 'Que se nota la presencia de quienes fueron ajusticiados aquí', 'Que suena música antigua'],
+            correct: 1,
+            reveal: 'Durante siglos aquí hubo ejecuciones públicas, y la tradición dice que en las noches más silenciosas todavía se percibe algo raro entre los soportales. 👻'
+          },
+          architecture: {
+            question: '¿Qué pasó en esta plaza en 1589 que hizo que se reconstruyera entera?',
+            options: ['Un terremoto', 'Un incendio', 'Una inundación'],
+            correct: 1,
+            reveal: '¡Un incendio! 🔥 Ardió el 29 de octubre de 1589, y la reconstruyeron con los soportales y arcos que todavía puedes ver hoy.'
+          }
         }
       },
       {
@@ -611,6 +731,26 @@ const CITIES = {
           architecture: {
             adult: 'Su Gran Sala de oración, de planta rectangular, conserva frisos policromados de yesería con motivos vegetales, geométricos, epigráficos en hebreo y heráldicos de la corona de Castilla —una combinación única que refleja la doble lealtad de Samuel ha-Leví, judío y servidor del rey cristiano. El artesonado de madera de alerce con incrustaciones de marfil corona el conjunto.',
             kids: '¡Mira las paredes de arriba a abajo! Tienen dibujos tallados en yeso: unos son de plantas, otros de formas geométricas y otros son letras hebreas. El techo de madera tiene decoraciones de marfil, ¡como si fuera una caja de joyas gigante!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De dónde trajo la madera para el techo el hombre que mandó construir esta sinagoga?',
+            options: ['Del Líbano', 'De un bosque cerca de Toledo', 'De Italia'],
+            correct: 0,
+            reveal: '¡Del Líbano! 🌲 Samuel ha-Leví, tesorero del rey Pedro I, hizo traer cedros desde muy lejos, cruzando el mar, para el techo de la sinagoga.'
+          },
+          legends: {
+            question: '¿Qué le pasó a Samuel ha-Leví, el hombre que mandó construir la sinagoga?',
+            options: ['Vivió feliz en ella muchos años', 'Fue acusado y murió antes de poder disfrutarla', 'Se hizo todavía más rico'],
+            correct: 1,
+            reveal: 'Su riqueza y su cercanía al rey le trajeron envidias: lo acusaron y murió sin haber podido disfrutar de la joya que había construido. 😢'
+          },
+          architecture: {
+            question: '¿Qué tipo de decoraciones cubren las paredes de la Gran Sala de oración?',
+            options: ['Frisos tallados en yeso con motivos vegetales y hebreos', 'Pinturas al óleo', 'Mosaicos de cerámica azul'],
+            correct: 0,
+            reveal: '¡Frisos de yesería con plantas, formas geométricas y letras hebreas! 📜 Una combinación única que no se ve en ningún otro sitio.'
           }
         }
       },
