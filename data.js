@@ -39,7 +39,8 @@ const CITIES = {
     minZoom: 13,
     bounds: [[39.845, -4.05], [39.878, -4.00]],
     routes: [
-      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' }
+      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' },
+      { id: 'juderia', name: { adult: 'Judería y Rincones Ocultos', kids: '¡El Barrio Secreto! 🕵️' }, color: '#8B5CF6' }
     ],
     pois: [
       {
@@ -268,6 +269,7 @@ const CITIES = {
           kids: '¡Donde vivía el hombre de los cuadros!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'juderia', order: 3 },
         coords: [39.8551, -4.0281],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/WLM14ES_-_10072005_114623_7742_-_.jpg/330px-WLM14ES_-_10072005_114623_7742_-_.jpg',
         audio: {
@@ -374,6 +376,7 @@ const CITIES = {
           kids: '¡Una sinagoga convertida en un bosque de piedra blanca!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'juderia', order: 1 },
         coords: [39.8569, -4.0304],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Santa_Mar%C3%ADa_la_Blanca_-_Arcos.jpg/330px-Santa_Mar%C3%ADa_la_Blanca_-_Arcos.jpg',
         audio: {
@@ -409,6 +412,7 @@ const CITIES = {
           kids: '¡Una lámpara que ardió encendida 300 años!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'juderia', order: 6 },
         coords: [39.8606, -4.0243],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Cristo_de_la_Luz_2025_Fa%C3%A7ade.jpg/330px-Cristo_de_la_Luz_2025_Fa%C3%A7ade.jpg',
         audio: {
@@ -889,6 +893,7 @@ const CITIES = {
           kids: '¡Aquí ocurrió una historia de amor muy triste entre dos jóvenes de religiones distintas!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'juderia', order: 4 },
         coords: [39.8550219, -4.0235220],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/El_Pozo_Amargo._Toledo_%28Espa%C3%B1a%29.jpg/330px-El_Pozo_Amargo._Toledo_%28Espa%C3%B1a%29.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Callejón del Pozo Amargo', kids: '¡Aventura Sonora: El Callejón del Amor Imposible!' } },
@@ -1071,6 +1076,7 @@ const CITIES = {
           kids: '¡Aquí vivió la esposa de uno de los emperadores más poderosos de la historia!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'juderia', order: 2 },
         coords: [39.85638889, -4.02805556],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Palacio_de_Fuensalida_.jpg/330px-Palacio_de_Fuensalida_.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Palacio de Fuensalida', kids: '¡Aventura Sonora: El Palacio donde Vivió una Emperatriz!' } },
@@ -1149,6 +1155,7 @@ const CITIES = {
           kids: '¡Esta mezquita antigua ha sido tienda, taller y hasta fábrica de velas!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'juderia', order: 5 },
         coords: [39.8585, -4.0228],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Mezquita_de_las_Torner%C3%ADas._Toledo.jpg/330px-Mezquita_de_las_Torner%C3%ADas._Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Mezquita de las Tornerías', kids: '¡Aventura Sonora: La Mezquita Escondida en un Barrio Comercial!' } },
