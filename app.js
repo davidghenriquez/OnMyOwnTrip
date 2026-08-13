@@ -185,12 +185,6 @@
             `un matiz que sorprende a los expertos es la superposición de técnicas constructivas de distintas épocas en el mismo punto`,
             `restauraciones recientes revelaron capas anteriores que cambian ligeramente la datación tradicional que se suele contar a los visitantes`
           ],
-          'nearby-food': [
-            `una receta tradicional de la zona se transmite de generación en generación en algunas familias, y pocos turistas llegan a probarla porque no aparece en los menús habituales`,
-            `el maridaje que recomiendan los camareros más veteranos rara vez coincide con lo que sugieren las guías, y merece la pena preguntarlo directamente en el bar`,
-            `algunos productos típicos de esta zona solo se encuentran en un pequeño radio de calles y desaparecen de las cartas fuera de temporada`,
-            `muchos locales del centro aún preparan a diario, sin anunciarlo, algún plato de cuchara que no figura en la carta y que solo se pide de palabra`
-          ],
           'legends': [
             `existen variantes de esta leyenda en pueblos cercanos, con protagonistas distintos pero un desenlace casi idéntico, lo que sugiere un origen común más antiguo`,
             `algunos investigadores del folclore creen que estas historias servían para explicar fenómenos naturales que la gente de la época no podía comprender de otra forma`,
@@ -208,11 +202,6 @@
             `¿Sabías que si cuentas hasta 3 antes de mirar hacia arriba, dicen que ves el detalle mágico mejor? 👀 Muchos niños que han venido antes que tú lo han probado y juran que funciona.`,
             `Un dato flipante: ¡algunas piedras de aquí pesan tanto como 3 elefantes juntos! 🐘🐘🐘 Y aun así, las subieron sin grúas ni máquinas, solo con cuerdas y mucha fuerza en equipo.`,
             `¡Hay una marca secreta tallada en una piedra que solo se ve si el sol pega de lado! ☀️ Todavía nadie se pone de acuerdo en qué significa exactamente.`
-          ],
-          'nearby-food': [
-            `¡Hay un plato que las familias de aquí cocinan en casa desde hace un montón de años y que casi ningún turista prueba! 🍲`,
-            `Dicen que hay un truco secreto para saber cuál es el mejor sitio para merendar: ¡fijarte en dónde comen los propios vecinos! 👀🍰`,
-            `Algunos dulces de esta zona solo se hacen en ciertas épocas del año, ¡así que si los encuentras, tienes mucha suerte! 🍪✨`
           ],
           'legends': [
             `¡Esta misma leyenda se cuenta también en otros pueblos, pero con otros protagonistas! 🧚 A lo mejor todas vienen de una historia aún más antigua.`,
@@ -253,10 +242,6 @@
             return m === 'kids'
               ? `🏗️ ¡TRUCOS DE ARQUITECTURA!\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
               : `🏛️ ARQUITECTURA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
-          case 'nearby-food':
-            return m === 'kids'
-              ? `🍪 ¡QUÉ MERENDAR CERCA!\n\n1️⃣ 🍝 Plato principal: ¡algo crujiente y calentito, típico de la zona! Pide "pequeño" que es para una persona.\n\n2️⃣ 🥙 Para compartir: algún picoteo tradicional del lugar 🍞🐟.\n\n3️⃣ 🍰 Postre DIVERtIDO: algún dulce típico de por aquí ☁️ ¡Está rico, rico! (Lo ponen en todos los bares cercanos, pregúntalo).\n\n4️⃣ 🍦 Si hace calor: algún helado o refresco típico de la zona.\n\n😋 ¿Cuál eliges tú primero? Pregunta a tu familia si podéis probar más de uno.`
-              : `🍷 PROPUESTA PARA COMER CERCA, A UNOS MINUTOS ANDANDO\n\n1️⃣ Un local con solera en la zona — perfecto para probar un plato tradicional de la región, de esos que se piden en raciones para compartir.\n\n2️⃣ Un bar con buena relación calidad-precio a media mañana: algo de picoteo local + una bebida típica de la zona.\n\n3️⃣ Un dulce típico para cerrar, en alguna pastelería o puesto local con buena reputación. Ideal para cerrar una ruta con calma.\n\n4️⃣ Si prefieres algo más informal, cualquier bar cercano suele tener una buena selección de quesos o embutidos locales para compartir de pie en la barra.\n\n💡 Consejo: pregunta por la especialidad de la casa y pide ración pequeña si quieres probar varias cosas.`;
           case 'legends':
             return m === 'kids'
               ? `🧙‍♂️ LEYENDA\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids)}`
@@ -801,31 +786,37 @@
       : `Ruta "${routeLabel}": sigue el orden numerado en el mapa.`, 3000);
   };
 
+  // Posiciona un menú `position:absolute` justo bajo (o, si no cabe, sobre)
+  // un botón ancla, relativo al offsetParent del propio menú. Se usa para
+  // el selector de circuitos, anclado dentro del header.
+  const positionDropdownNear = (picker, anchorEl) => {
+    const anchor = picker.offsetParent;
+    if (!anchorEl || !anchor) return;
+    const elRect = anchorEl.getBoundingClientRect();
+    const anchorRect = anchor.getBoundingClientRect();
+    const pickerWidth = picker.offsetWidth;
+    const maxLeft = anchorRect.width - pickerWidth - 4;
+    const left = Math.max(4, Math.min(elRect.left - anchorRect.left, maxLeft));
+    picker.style.left = `${left}px`;
+  };
+
   const closeRoutePicker = () => { if (els.routePicker) els.routePicker.hidden = true; };
   const openRoutePicker = (routes) => {
     if (!els.routePicker) return;
     els.routePicker.innerHTML = routes.map((r) => `
-      <button type="button" class="route-option" data-route="${r.id}">
-        <span class="route-dot" style="background:${r.color}"></span>
+      <button type="button" class="dropdown-option" data-route="${r.id}">
+        <span class="dropdown-dot" style="background:${r.color}"></span>
         <span>${pickDual(r.name)}</span>
       </button>
     `).join('');
-    $$('.route-option', els.routePicker).forEach((btn) => {
+    $$('.dropdown-option', els.routePicker).forEach((btn) => {
       btn.addEventListener('click', () => activateRoute(btn.dataset.route));
     });
     els.routePicker.hidden = false;
     // Ancla el selector justo bajo la píldora "Imprescindible" (y no a todo
     // el ancho del header), para tapar lo mínimo posible del mapa.
     const pill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
-    const anchor = els.routePicker.offsetParent;
-    if (pill && anchor) {
-      const pillRect = pill.getBoundingClientRect();
-      const anchorRect = anchor.getBoundingClientRect();
-      const pickerWidth = els.routePicker.offsetWidth;
-      const maxLeft = anchorRect.width - pickerWidth - 4;
-      const left = Math.max(4, Math.min(pillRect.left - anchorRect.left, maxLeft));
-      els.routePicker.style.left = `${left}px`;
-    }
+    positionDropdownNear(els.routePicker, pill);
   };
 
   const updateEssentialPillLabel = () => {
@@ -868,12 +859,13 @@
     $$('.mode-toggle-option').forEach((opt) => {
       opt.addEventListener('click', () => setStateMode(opt.dataset.mode));
     });
-    // Cierra el selector de circuitos al tocar fuera de él (o de la píldora)
+    // Cierra los desplegables (circuitos, voz) al tocar fuera de ellos o de
+    // su botón.
     document.addEventListener('click', (e) => {
-      if (!els.routePicker || els.routePicker.hidden) return;
-      const essentialPill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
-      if (els.routePicker.contains(e.target) || (essentialPill && essentialPill.contains(e.target))) return;
-      closeRoutePicker();
+      if (els.routePicker && !els.routePicker.hidden) {
+        const essentialPill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
+        if (!els.routePicker.contains(e.target) && !(essentialPill && essentialPill.contains(e.target))) closeRoutePicker();
+      }
     }, true);
   };
   const updatePills = () => $$('.pill', els.filters)
@@ -1086,11 +1078,14 @@
     const exploredSet = STATE.ai.explored[poiId] || new Set();
     const disabled = STATE.ai.pending;
 
+    // "Profundiza más" va siempre primero, incluso antes de elegir un tema
+    // (en ese caso profundiza sobre el resumen inicial, no sobre un tema
+    // concreto); luego, hasta 2 temas sin explorar todavía.
     const chips = [];
-    if (topic) chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel) });
+    chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel) });
     const remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
-    remaining.slice(0, topic ? 2 : 3).forEach((o) => chips.push({ id: o.id, kind: 'option', label: pickDual(o.label) }));
-    if (topic && remaining.length === 0) chips.push({ id: 'reset', kind: 'reset', label: pickDual(AI_PROMPTS.resetLabel) });
+    remaining.slice(0, 2).forEach((o) => chips.push({ id: o.id, kind: 'option', label: pickDual(o.label) }));
+    if (remaining.length === 0) chips.push({ id: 'reset', kind: 'reset', label: pickDual(AI_PROMPTS.resetLabel) });
 
     chips.forEach((chip) => {
       const b = document.createElement('button');
@@ -1120,7 +1115,7 @@
         scrollAiToBottom();
 
         if (chip.kind === 'deepen') {
-          queueAiMessage({ poi, kind: 'deepen', optionId: 'deepen:' + topic, userText: chip.label });
+          queueAiMessage({ poi, kind: 'deepen', optionId: 'deepen:' + (topic || 'general'), userText: chip.label });
         } else {
           if (!STATE.ai.explored[poi.id]) STATE.ai.explored[poi.id] = new Set();
           STATE.ai.explored[poi.id].add(chip.id);
@@ -1469,13 +1464,19 @@
     const IS_IOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
+    // Nombres que en la práctica suenan mucho menos "robóticas" que las voces
+    // clásicas offline de cada sistema (Windows SAPI, etc.): voces neuronales/
+    // online de Google, Microsoft Edge, Amazon o Apple.
+    const QUALITY_NAME_RE = /online|natural|neural|enhanced|premium|wavenet|google/i;
+
     const pickSpanishVoice = () => {
       if (!S.supported) return null;
       try {
         const all = (synth.getVoices && synth.getVoices()) || [];
         S.voices = all;
         const prefer = [
-          (v) => /es[-_]ES/i.test(v.lang) && /Monica|Jorge|Diego|sabina|lucia|paulina|google/i.test(v.name || ''),
+          (v) => /^es/i.test(v.lang) && QUALITY_NAME_RE.test(v.name || ''),
+          (v) => /es[-_]ES/i.test(v.lang) && /Monica|Jorge|Diego|sabina|lucia|paulina/i.test(v.name || ''),
           (v) => /es[-_]ES/i.test(v.lang),
           (v) => /^es/i.test(v.lang),
           (v) => !!v

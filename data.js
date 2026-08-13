@@ -4053,16 +4053,6 @@ const AI_PROMPTS = {
       }
     },
     {
-      id: 'nearby-food',
-      label: { adult: '🍷 Gastronomía cercana', kids: '🍪 ¡Qué comer cerca!' },
-      prompt: {
-        adult: (p) =>
-          `Soy un viajero cerca de ${pick(p.name, 'adult')}. Recomiéndame con detalle 3 o 4 opciones de tapeo o restaurante cercanos (máx 3 min andando), por qué cada una merece la pena y un plato imprescindible en cada una. Tipo de público: pareja. Unas 190-220 palabras.`,
-        kids: (p) =>
-          `Estoy con mi familia justo en ${pick(p.name, 'kids')}, ¿qué sitios ricos hay cerca? 🥘 Recomienda con detalle 3 o 4 ideas: plato principal, tapas chulas para compartir y postre ¡con nombre divertido! Unas 160-190 palabras.`
-      }
-    },
-    {
       id: 'legends',
       label: { adult: '👻 Leyendas', kids: '🧙‍♂️ Leyendas divertidas' },
       prompt: {
@@ -4086,7 +4076,6 @@ const AI_PROMPTS = {
 const AI_TOPIC_NAMES = {
   'secret-history': { adult: 'la historia secreta', kids: 'el secreto' },
   'architecture': { adult: 'la arquitectura', kids: 'los trucos de construcción' },
-  'nearby-food': { adult: 'la gastronomía cercana', kids: 'qué comer cerca' },
   'legends': { adult: 'las leyendas', kids: 'las leyendas' }
 };
 
