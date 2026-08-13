@@ -66,7 +66,11 @@
           ...(CFG.extraBody || {})
         })
       });
-      if (!res.ok) throw new Error(`OpenAI ${res.status}`);
+      if (!res.ok) {
+        const err = new Error(`OpenAI ${res.status}`);
+        err.status = res.status;
+        throw err;
+      }
       const json = await res.json();
       return json?.choices?.[0]?.message?.content?.trim() ?? '';
     };
@@ -90,7 +94,11 @@
           messages: [{ role: 'user', content: usr }]
         })
       });
-      if (!res.ok) throw new Error(`Anthropic ${res.status}`);
+      if (!res.ok) {
+        const err = new Error(`Anthropic ${res.status}`);
+        err.status = res.status;
+        throw err;
+      }
       const json = await res.json();
       const block = json?.content?.find((b) => b.type === 'text');
       return (block?.text ?? '').trim();
@@ -331,8 +339,18 @@
           return await fetchOpenAI(sys, usr);
         } catch (e) {
           console.warn('[LLM] Fallo API, usando simulador local:', e);
-          return await simulated(poi, mode, userQuery, optionId) +
-            (mode === 'kids' ? '\n\n⚠️ (Modo offline: la IA real respondió con error)' : '\n\n⚠️ (Modo offline. Error al conectar con la API, se ha usado el simulador local.)');
+          // 429 = cuota agotada, 503 = modelo saturado: son la misma causa de
+          // cara al usuario ("hay demasiada gente usando la IA ahora mismo"),
+          // así que merecen un aviso distinto del genérico de "error de conexión".
+          const isQuotaError = e && (e.status === 429 || e.status === 503);
+          const suffix = isQuotaError
+            ? (mode === 'kids'
+                ? '\n\n⚠️ (¡La IA está muy solicitada ahora mismo! Se ha usado el modo sin conexión mientras se libera hueco.)'
+                : '\n\n⚠️ (La IA está saturada de peticiones en este momento —no es un fallo de la app—, se ha usado el simulador local mientras tanto.)')
+            : (mode === 'kids'
+                ? '\n\n⚠️ (Modo offline: la IA real respondió con error)'
+                : '\n\n⚠️ (Modo offline. Error al conectar con la API, se ha usado el simulador local.)');
+          return await simulated(poi, mode, userQuery, optionId) + suffix;
         }
       }
       return simulated(poi, mode, userQuery, optionId);
@@ -1016,6 +1034,14 @@
     const cityName = CURRENT_CITY ? CURRENT_CITY.name : 'Toledo';
     if (brandSub) brandSub.textContent = isKids ? '¡Aventuras mágicas a tu ritmo!' : `${cityName} · Turismo autoguiado inteligente`;
     if (brandBadge) brandBadge.textContent = isKids ? 'Modo Niños 🎈' : 'Adultos';
+    if (CURRENT_CITY) {
+      const citySubtitle = pickDual(CURRENT_CITY.subtitle);
+      document.title = `OnMyOwnTrip · ${cityName}`;
+      const metaDescription = document.getElementById('metaDescription');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', `OnMyOwnTrip · Turismo autoguiado interactivo por ${cityName}, ${citySubtitle}. Modo Adultos y Niños.`);
+      }
+    }
     updatePointsBadge();
     updateExplorerBadge();
     $$('.pill').forEach((p) => {
@@ -1448,6 +1474,7 @@
     STATE.audio.currentTime = 0;
     $('.audio-title', els.sheet).textContent = pickDual(poi.audio.title);
     updateAudioUi();
+    refreshVoicePicker();
   };
 
   /* =========================================================
@@ -1469,11 +1496,22 @@
     // online de Google, Microsoft Edge, Amazon o Apple.
     const QUALITY_NAME_RE = /online|natural|neural|enhanced|premium|wavenet|google/i;
 
+    // Voz elegida a mano por el usuario (selector en el reproductor), si la
+    // hay: se guarda solo el nombre (las voces del navegador no son
+    // serializables) y tiene prioridad sobre la heurística automática de
+    // más abajo, siempre que siga estando disponible en este dispositivo.
+    const VOICE_PREF_KEY = 'omot_voice_pref_v1';
+    try { S.preferredVoiceName = localStorage.getItem(VOICE_PREF_KEY) || null; } catch (_) { S.preferredVoiceName = null; }
+
     const pickSpanishVoice = () => {
       if (!S.supported) return null;
       try {
         const all = (synth.getVoices && synth.getVoices()) || [];
         S.voices = all;
+        if (S.preferredVoiceName) {
+          const chosen = all.find((v) => v.name === S.preferredVoiceName);
+          if (chosen) { S.pickedVoice = chosen; return chosen; }
+        }
         const prefer = [
           (v) => /^es/i.test(v.lang) && QUALITY_NAME_RE.test(v.name || ''),
           (v) => /es[-_]ES/i.test(v.lang) && /Monica|Jorge|Diego|sabina|lucia|paulina/i.test(v.name || ''),
@@ -1488,6 +1526,25 @@
         S.pickedVoice = all[0] || null;
         return S.pickedVoice;
       } catch (_) { return S.pickedVoice || null; }
+    };
+
+    // Voces candidatas para el selector: españolas si hay al menos dos,
+    // o todas las disponibles como último recurso (algunos navegadores/SO
+    // no traen ninguna voz "es*" instalada).
+    const listVoices = () => {
+      const all = S.voices && S.voices.length ? S.voices : ((synth && synth.getVoices && synth.getVoices()) || []);
+      const spanish = all.filter((v) => /^es/i.test(v.lang));
+      return spanish.length >= 2 ? spanish : all;
+    };
+
+    const setPreferredVoice = (name) => {
+      const all = S.voices && S.voices.length ? S.voices : ((synth && synth.getVoices && synth.getVoices()) || []);
+      const chosen = all.find((v) => v.name === name);
+      if (!chosen) return false;
+      S.preferredVoiceName = name;
+      S.pickedVoice = chosen;
+      try { localStorage.setItem(VOICE_PREF_KEY, name); } catch (_) {}
+      return true;
     };
 
     let warmedUp = false;
@@ -1718,9 +1775,27 @@
       isSupported: () => S.supported,
       isSpeaking: () => S.supported ? synth.speaking : false,
       getText: buildNarrativeText,
-      speak, pause, resume, cancel, warmUp
+      speak, pause, resume, cancel, warmUp,
+      listVoices, setPreferredVoice,
+      getPickedVoiceName: () => (S.pickedVoice && S.pickedVoice.name) || null
     };
   })();
+
+  // Rellena/oculta el selector de voz del reproductor según las voces que
+  // el navegador tenga disponibles en ESTE momento (getVoices() suele
+  // llegar de forma asíncrona, así que se reintenta desde varios puntos:
+  // apertura de ficha, onvoiceschanged, y los reintentos de pickSpanishVoice).
+  const refreshVoicePicker = () => {
+    const picker = $('#voicePicker'), select = $('#voiceSelect');
+    if (!picker || !select || !SPEECH.isSupported()) return;
+    const voices = SPEECH.listVoices();
+    if (voices.length < 2) { picker.hidden = true; return; }
+    const current = SPEECH.getPickedVoiceName();
+    select.innerHTML = voices.map((v) =>
+      `<option value="${v.name.replace(/"/g, '&quot;')}"${v.name === current ? ' selected' : ''}>${v.name} (${v.lang})</option>`
+    ).join('');
+    picker.hidden = false;
+  };
 
   /* =========================================================
    * AUDIO PLAYER (visual + real speech when available)
@@ -1872,6 +1947,24 @@
       STATE.audio.currentTime = ratio * (STATE.audio.duration || 0);
       updateAudioUi();
     });
+
+    $('#voiceSelect')?.addEventListener('change', (e) => {
+      const wasPlaying = STATE.audio.playing;
+      if (!SPEECH.setPreferredVoice(e.target.value)) return;
+      if (wasPlaying) {
+        // No se puede "seguir" a mitad de frase con otra voz: se reinicia
+        // la narración desde el principio, ya con la voz elegida.
+        stopAudio();
+        STATE.audio.currentTime = 0;
+        startAudio(false);
+      }
+    });
+    // getVoices() suele llegar de forma asíncrona tras la carga: si el
+    // selector de ciudad/POI se abrió antes de que las voces estuvieran
+    // listas, esto lo repuebla en cuanto el navegador avisa.
+    if (SPEECH.isSupported() && typeof speechSynthesis !== 'undefined') {
+      try { speechSynthesis.addEventListener('voiceschanged', refreshVoicePicker); } catch (_) {}
+    }
 
     $('.sheet-thumb', els.sheet).addEventListener('click', (e) => {
       openLightbox(e.currentTarget.src, e.currentTarget.alt);
