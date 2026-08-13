@@ -3610,6 +3610,26 @@ const CITIES = {
             adult: 'De planta de cruz latina con cinco naves y dieciséis capillas, alberga el imponente Altar de los Reyes, obra churrigueresca en madera dorada de Jerónimo de Balbás terminada en 1737. Sus dos torres campanario alcanzan los 67 metros y guardan 25 campanas, entre ellas "La Doña María", la mayor de América Latina. Debido al terreno blando de la antigua isla lacustre, el edificio se ha inclinado y hundido de forma desigual durante siglos, lo que obligó a un ambicioso proyecto de nivelación con pozos de compensación en los años 90.',
             kids: '¡Tiene dos torres altísimas con 25 campanas dentro, y una se llama "La Doña María"! 🔔 Es tan grande que tiene 16 capillas diferentes adentro, como pequeñas iglesias dentro de la iglesia grande. Como está construida sobre tierra blandita de un lago viejo, ¡el edificio se ha ido inclinando poquito a poco durante siglos!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántos años tardó en construirse la Catedral Metropolitana?',
+            options: ['Unos 20 años', '240 años', 'Unos 100 años'],
+            correct: 1,
+            reveal: '¡240 años! 🏗️ Se construyó entre 1573 y 1813, ¡a lo largo de once virreyes distintos!'
+          },
+          legends: {
+            question: '¿Por qué dicen que el "Cristo del Veneno" se puso de color oscuro?',
+            options: ['Por el humo de las velas', 'Porque absorbió un veneno para salvar a los fieles', 'Porque lo pintaron así a propósito'],
+            correct: 1,
+            reveal: '¡Según la leyenda, absorbió un veneno para salvar a la gente que lo besaba! 🙏 Desde entonces se oscureció y así se conserva.'
+          },
+          architecture: {
+            question: '¿Cómo se llama la campana más grande de toda América Latina, que está en esta catedral?',
+            options: ['La Doña María', 'La Campana de Oro', 'La Gigante'],
+            correct: 0,
+            reveal: '¡Se llama "La Doña María"! 🔔 Está entre las 25 campanas que guardan las dos torres, de 67 metros de altura.'
+          }
         }
       },
       {
@@ -3645,6 +3665,26 @@ const CITIES = {
           architecture: {
             adult: 'La pirámide combinaba dos templos gemelos en su cúspide, accesibles por escalinatas independientes, sobre una base de más de 80 metros de lado en su última fase. El hallazgo casual en 1978 de la piedra de Coyolxauhqui por trabajadores de la Compañía de Luz desencadenó una excavación sistemática que sacó a la luz más de 200 ofrendas rituales con objetos de jade, concha, coral y restos de animales traídos de todo Mesoamérica. Hoy el yacimiento, a cielo abierto junto a la Catedral, se recorre mediante pasarelas elevadas y se completa con el Museo del Templo Mayor.',
             kids: '¡Se encontró por accidente en 1978, cuando unos trabajadores estaban cavando para poner cables de luz! ⚡ Encontraron una piedra gigante con la diosa de la Luna tallada. Desde entonces han descubierto más de 200 "regalos" que los aztecas ofrecían a sus dioses: joyas, conchas y hasta huesos de animales de lugares muy lejanos.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántos años estuvo el Templo Mayor escondido bajo tierra?',
+            options: ['Unos 50 años', 'Casi 500 años', 'Solo 10 años'],
+            correct: 1,
+            reveal: '¡Casi 500 años! 🏺 Quedó sepultado bajo la ciudad colonial desde 1521 hasta que se descubrió en 1978.'
+          },
+          legends: {
+            question: '¿Qué señal buscaban los aztecas para fundar su ciudad?',
+            options: ['Un águila comiéndose una serpiente sobre un nopal', 'Una estrella fugaz', 'Un río de oro'],
+            correct: 0,
+            reveal: '¡Un águila devorando una serpiente sobre un nopal! 🦅🐍 La encontraron aquí mismo, y por eso hoy está en la bandera de México.'
+          },
+          architecture: {
+            question: '¿Cómo se descubrió por accidente la piedra de la diosa Coyolxauhqui, en 1978?',
+            options: ['Cavando para poner cables de luz', 'Construyendo el metro', 'Durante un terremoto'],
+            correct: 0,
+            reveal: '¡Cavando para poner cables de luz! ⚡ Ese hallazgo casual desató una excavación que sacó a la luz más de 200 ofrendas rituales.'
           }
         }
       },
@@ -3682,6 +3722,26 @@ const CITIES = {
             adult: 'Combina un exterior de mármol de estilo Art Nouveau, con la célebre cúpula de mosaicos de cristal de Tiffany, y un interior completamente Art Déco, con mármoles de colores geométricos y motivos prehispánicos estilizados. Alberga el telón de cristal de Tiffany más grande del mundo, con casi un millón de piezas representando los volcanes Popocatépetl e Iztaccíhuatl, y sus muros están decorados con murales de Diego Rivera —incluido "El hombre controlador del universo"—, David Alfaro Siqueiros y Rufino Tamayo.',
             kids: '¡Por fuera parece un pastel de mármol blanco con una cúpula de cristales de colores! 🎂✨ Por dentro tiene un telón gigante hecho con casi un millón de piezas de cristal que forma un dibujo de dos volcanes. En las paredes hay pinturas enormes hechas por artistas mexicanos muy famosos, ¡como si el palacio fuera un museo de cómics gigante!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántos años tardó en terminarse el Palacio de Bellas Artes?',
+            options: ['5 años', '30 años', '100 años'],
+            correct: 1,
+            reveal: '¡30 años! 🏛️ Empezó en 1904 y no se inauguró hasta 1934, con una revolución de por medio que paró las obras.'
+          },
+          legends: {
+            question: '¿Por qué hay que bajar escalones para entrar al Palacio hoy en día?',
+            options: ['Porque siempre se diseñó así', 'Porque el edificio se ha hundido varios metros', 'Porque construyeron la calle más alta'],
+            correct: 1,
+            reveal: '¡Porque el edificio, hecho de pesado mármol, se ha hundido más de cuatro metros! ⬇️ Al principio se construyó al nivel de la calle.'
+          },
+          architecture: {
+            question: '¿Qué forman casi un millón de piezas de cristal en el telón del teatro?',
+            options: ['Dos volcanes', 'Un mapa de México', 'Un sol gigante'],
+            correct: 0,
+            reveal: '¡Los volcanes Popocatépetl e Iztaccíhuatl! 🌋 Es el telón de cristal de Tiffany más grande del mundo.'
+          }
         }
       },
       {
@@ -3717,6 +3777,26 @@ const CITIES = {
           architecture: {
             adult: 'Fue el primer rascacielos del mundo diseñado específicamente para resistir tanto sismos como el terreno blando de una antigua cuenca lacustre, mediante 361 pilotes de control clavados hasta encontrar un estrato de roca firme a 33 metros de profundidad, permitiendo que la estructura "flote" y se mueva ligeramente en vez de resistir rígida. Su mirador, en el piso 44, ofrece una de las mejores vistas panorámicas de 360 grados del Centro Histórico y, en días despejados, de los volcanes que rodean el Valle de México.',
             kids: '¡Tiene 361 patas de cemento clavadas muy hondo en la tierra, hasta encontrar roca dura! 🦵 Así, en vez de quedarse tiesa como una estatua, el edificio se puede mover un poquito cuando tiembla, ¡como si bailara! Arriba del todo hay un mirador desde el que se ve toda la ciudad, ¡y hasta los volcanes en los días despejados!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué fue la Torre Latinoamericana durante más de dos décadas?',
+            options: ['El edificio más alto de Latinoamérica', 'El primer rascacielos del mundo', 'Un palacio de gobierno'],
+            correct: 0,
+            reveal: '¡El edificio más alto de toda Latinoamérica! 🏆 182 metros y 44 pisos, inaugurada en 1956.'
+          },
+          legends: {
+            question: '¿Qué le pasó a la torre durante el terremoto de 1957?',
+            options: ['Se derrumbó por completo', 'Apenas sufrió daños', 'Se tuvo que cerrar para siempre'],
+            correct: 1,
+            reveal: '¡Apenas sufrió daños! 🌎 Osciló sin romperse mientras otros edificios caían, y desde entonces la llaman la torre "invencible".'
+          },
+          architecture: {
+            question: '¿Hasta qué profundidad llegan las patas de cemento que sostienen la torre?',
+            options: ['33 metros', '5 metros', '100 metros'],
+            correct: 0,
+            reveal: '¡33 metros! 🦵 361 pilotes clavados hasta encontrar roca firme, para que el edificio "flote" y se mueva en los terremotos en vez de romperse.'
           }
         }
       },
@@ -3754,6 +3834,26 @@ const CITIES = {
             adult: 'Combina elementos neoclásicos y art nouveau, con el añadido del célebre Alcázar y sus jardines colgantes al estilo pompeyano, mandados construir por Maximiliano. Alberga murales de grandes muralistas mexicanos como Juan O\'Gorman —cuyo mural narra la lucha por la Independencia— y David Alfaro Siqueiros. Desde su terraza, el "Balcón del Emperador" ofrece una de las mejores vistas de la Ciudad de México, con el Paseo de la Reforma extendiéndose hacia el horizonte.',
             kids: '¡Tiene jardines colgantes que parecen de un palacio romano! 🌿 Dentro hay pinturas gigantes hechas por artistas mexicanos muy famosos que cuentan la historia del país en las paredes. Desde el balcón de arriba, ¡se ve toda la Ciudad de México a tus pies!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué es el Castillo de Chapultepec en todo el continente americano?',
+            options: ['El único castillo de auténtico uso real', 'El museo más grande', 'El edificio más alto'],
+            correct: 0,
+            reveal: '¡El único castillo de uso real que ha existido en América! 👑 Fue residencia del emperador Maximiliano y luego de varios presidentes.'
+          },
+          legends: {
+            question: 'Según la leyenda, ¿qué hizo el cadete Juan Escutia antes de rendirse a los invasores?',
+            options: ['Escondió el tesoro del castillo', 'Se envolvió en la bandera de México y saltó al vacío', 'Escapó por un túnel secreto'],
+            correct: 1,
+            reveal: '¡Se envolvió en la bandera y saltó! 🇲🇽 Es la leyenda de los Niños Héroes, cadetes que resistieron hasta el final en 1847.'
+          },
+          architecture: {
+            question: '¿Cómo se llama el famoso balcón del castillo desde donde se ve toda la ciudad?',
+            options: ['El Balcón del Emperador', 'El Mirador Azteca', 'La Terraza Imperial'],
+            correct: 0,
+            reveal: '¡El Balcón del Emperador! 🏰 Desde ahí se ve el Paseo de la Reforma extendiéndose hacia el horizonte.'
+          }
         }
       },
       {
@@ -3790,6 +3890,26 @@ const CITIES = {
             adult: 'La casa debe su nombre al intenso azul cobalto de sus muros exteriores, un color tradicional mexicano conocido como "azul añil". En torno a un patio central con plantas y esculturas prehispánicas se distribuyen el estudio de Frida —con su silla de ruedas y caballete tal como los dejó—, la cocina de azulejos amarillos y azules decorada con miniaturas de barro, y salas que exhiben sus característicos vestidos de tehuana y corsés pintados a mano.',
             kids: '¡Toda la casa está pintada de un azul buenísimo, por eso la llaman "la Casa Azul"! 💙 Tiene un patio en el medio lleno de plantas y esculturas antiguas. Puedes ver el estudio donde pintaba Frida, con su silla de ruedas y sus pinceles, ¡tal y como los dejó ella!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién construyó la Casa Azul?',
+            options: ['Guillermo Kahlo, el padre de Frida', 'Diego Rivera', 'El gobierno de México'],
+            correct: 0,
+            reveal: '¡Guillermo Kahlo, el padre de Frida! 📸 La construyó en 1904, y aquí nació y murió su hija.'
+          },
+          legends: {
+            question: '¿Con qué forma es la urna donde están guardadas las cenizas de Frida?',
+            options: ['Forma de mariposa', 'Forma de sapo prehispánico', 'Forma de corazón'],
+            correct: 1,
+            reveal: '¡Forma de sapo prehispánico! 🐸 Así lo pidió ella misma, y sigue en su antigua habitación.'
+          },
+          architecture: {
+            question: '¿De qué color están pintados los muros exteriores de la Casa Azul?',
+            options: ['Azul cobalto', 'Verde esmeralda', 'Amarillo mostaza'],
+            correct: 0,
+            reveal: '¡Azul cobalto, o "azul añil"! 💙 Un color tradicional mexicano que le da nombre a toda la casa.'
+          }
         }
       },
       {
@@ -3824,6 +3944,26 @@ const CITIES = {
           architecture: {
             adult: 'La red de canales, de unos 170 kilómetros en su máxima extensión histórica, se recorre en trajineras, coloridas embarcaciones de madera pintadas con nombres de mujeres y decoradas con arcos florales, que antiguamente transportaban las cosechas de las chinampas al mercado. Hoy conviven con embarcaciones que venden comida, música de mariachi y hasta flores directamente desde el agua, en un paseo dominical que sigue siendo, siglos después, la forma más viva de conocer el antiguo paisaje lacustre de la ciudad.',
             kids: '¡Los barcos se llaman "trajineras" y cada uno tiene pintado un nombre de mujer, como si fueran de colores! 🚣‍♀️🌺 Por los canales pasan también barcas que venden comida y hasta música de mariachi tocando en directo. ¡Es como un mercado flotante gigante!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué son las "chinampas" que se cultivaban en Xochimilco?',
+            options: ['Islas artificiales de tierra fértil flotante', 'Barcos de pesca', 'Templos aztecas'],
+            correct: 0,
+            reveal: '¡Islas artificiales flotantes! 🌊 Este sistema agrícola llegó a alimentar a toda la ciudad de Tenochtitlan.'
+          },
+          legends: {
+            question: '¿Cómo se llama el espíritu que, según la leyenda, llora junto a los canales buscando a sus hijos?',
+            options: ['La Llorona', 'La Catrina', 'La Sirena del Lago'],
+            correct: 0,
+            reveal: '¡La Llorona! 👻 Dicen que su lamento todavía se escucha en las noches de niebla sobre los canales.'
+          },
+          architecture: {
+            question: '¿Cómo se llaman las coloridas embarcaciones de madera que recorren los canales?',
+            options: ['Trajineras', 'Góndolas', 'Piraguas'],
+            correct: 0,
+            reveal: '¡Trajineras! 🚣‍♀️ Cada una lleva pintado un nombre de mujer y va decorada con arcos florales.'
           }
         }
       },
@@ -3861,6 +4001,26 @@ const CITIES = {
             adult: 'Es un edificio de planta rectangular de dos alturas donde conviven bajo un mismo techo puestos de frutas y verduras, flores, artesanías, disfraces, textiles bordados a mano y una concurrida zona de comida con largas barras compartidas. Su trazado en pasillos estrechos, típico de los mercados populares mexicanos de mediados del siglo XX, mantiene un ambiente denso y colorido que apenas ha cambiado desde su modernización.',
             kids: '¡Es un mercado de dos pisos con pasillos estrechos llenos de colores! 🌈 En una parte venden fruta y flores, en otra ropa bordada a mano y disfraces, ¡y en otra hay mesas larguísimas donde te sientas a comer codo con codo con otras familias!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué año abrió sus puertas el Mercado de Coyoacán?',
+            options: ['1921', '1850', '1990'],
+            correct: 0,
+            reveal: '¡En 1921! 🏪 Aunque el edificio que ves hoy es de 1956, cuando se modernizaron los mercados públicos de la ciudad.'
+          },
+          legends: {
+            question: '¿Cómo se transmite, según la leyenda, el secreto de las mejores tostadas del mercado?',
+            options: ['Se vende en un libro de recetas', 'De madres a hijas, en susurros', 'Lo publican cada año en internet'],
+            correct: 1,
+            reveal: '¡De madres a hijas, en susurros! 🤫 Dicen que ningún puesto ha logrado copiar la receta exacta de su vecino.'
+          },
+          architecture: {
+            question: '¿Cómo es el edificio del Mercado de Coyoacán?',
+            options: ['Rectangular, de dos alturas', 'Circular, de un solo piso', 'Una torre de cristal'],
+            correct: 0,
+            reveal: '¡Rectangular y de dos alturas! 🏢 Con pasillos estrechos típicos de los mercados populares mexicanos de mediados del siglo XX.'
+          }
         }
       },
       {
@@ -3896,6 +4056,26 @@ const CITIES = {
           architecture: {
             adult: 'De trazado geométrico con paseos arbolados que convergen en un octágono central, conserva ocho fuentes de estilo neoclásico e italianizante instaladas durante el Porfiriato, entre ellas la Fuente de Venus y la Fuente de Neptuno. En sus extremos se alzan el Hemiciclo a Juárez y el Palacio de Bellas Artes, y su vegetación de fresnos centenarios ofrece uno de los pocos grandes pulmones verdes del Centro Histórico.',
             kids: '¡Tiene ocho fuentes de piedra con nombres de dioses antiguos, como Venus y Neptuno! ⛲ Los caminos del parque forman un dibujo geométrico si lo ves desde arriba. Está lleno de árboles enormes y muy viejos que dan muchísima sombra.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué es la Alameda Central en todo el continente americano?',
+            options: ['El parque público más antiguo de América', 'El parque más grande del mundo', 'El primer zoológico de México'],
+            correct: 0,
+            reveal: '¡El parque público más antiguo de América! 🌳 Se creó en 1592, hace más de 400 años.'
+          },
+          legends: {
+            question: '¿Qué pintor incluyó su propio rostro de niño en el famoso mural sobre este parque?',
+            options: ['Diego Rivera', 'Frida Kahlo', 'David Alfaro Siqueiros'],
+            correct: 0,
+            reveal: '¡Diego Rivera! 🖼️ Se dibujó de niño junto a Frida Kahlo y La Catrina en "Sueño de una tarde dominical en la Alameda Central".'
+          },
+          architecture: {
+            question: '¿Cuántas fuentes neoclásicas tiene la Alameda Central?',
+            options: ['Ocho', 'Tres', 'Veinte'],
+            correct: 0,
+            reveal: '¡Ocho fuentes! ⛲ Entre ellas la Fuente de Venus y la Fuente de Neptuno, instaladas hace más de 100 años.'
           }
         }
       },
@@ -3933,6 +4113,26 @@ const CITIES = {
             adult: 'La fachada de la parroquia combina un ábside plateresco del siglo XVI con torres barrocas añadidas en 1804, resultado de sucesivas ampliaciones a lo largo de cuatro siglos. El antiguo atrio conventual, hoy convertido en el Jardín Centenario, conserva parte de sus muros de piedra volcánica original y se comunica directamente con la vecina Plaza Hidalgo, formando el conjunto de plazas arboladas más animado de Coyoacán, rodeado de cafés y puestos de artesanía.',
             kids: '¡La iglesia mezcla partes construidas hace 500 años con torres añadidas hace "solo" 200! 🕰️ Todavía se pueden ver trozos del muro original de piedra volcánica del convento. Alrededor hay cafés y puestos de artesanías por todas partes.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién cedió estos terrenos a los frailes franciscanos que construyeron la parroquia?',
+            options: ['Hernán Cortés', 'Moctezuma', 'El rey de España'],
+            correct: 0,
+            reveal: '¡Hernán Cortés! ⛪ Se los cedió a solo ocho años de completada la conquista.'
+          },
+          legends: {
+            question: '¿Qué dicen que trae buena suerte en el Jardín Centenario?',
+            options: ['Frotar la cabeza de una de las ranas de bronce', 'Tocar la campana de la iglesia', 'Pisar una piedra especial'],
+            correct: 0,
+            reveal: '¡Frotar la cabeza de una rana! 🐸 Es un ritual que miles de visitantes repiten cada fin de semana.'
+          },
+          architecture: {
+            question: '¿De qué siglo es el ábside plateresco de la parroquia?',
+            options: ['Siglo XVI', 'Siglo XIX', 'Siglo XX'],
+            correct: 0,
+            reveal: '¡Del siglo XVI! 🕍 Las torres barrocas que ves hoy se añadieron mucho después, en 1804.'
+          }
         }
       },
       {
@@ -3968,6 +4168,26 @@ const CITIES = {
           architecture: {
             adult: 'Tras el primer atentado, la vivienda original se transformó en una auténtica fortaleza: se levantaron muros perimetrales de más de tres metros, se blindaron puertas y ventanas, y se construyeron torretas de vigilancia en las esquinas, todavía en pie. El despacho de Trotsky se conserva intacto, con sus libros, gafas y calendario congelado en la fecha del atentado, mientras que el jardín alberga su tumba, coronada con un monumento y la hoz y el martillo.',
             kids: '¡Después del primer ataque, convirtieron la casa en una fortaleza de verdad! 🏰 Le pusieron muros altísimos, ventanas blindadas y hasta torretas de vigilancia en las esquinas, que todavía siguen ahí. Su despacho se conserva tal cual lo dejó, con sus libros y sus gafas.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué otra casa de esta lista vivió Trotsky antes de mudarse a la que hoy es museo?',
+            options: ['La Casa Azul de Frida Kahlo', 'El Castillo de Chapultepec', 'Un hotel del centro'],
+            correct: 0,
+            reveal: '¡En la Casa Azul! 🏠 Frida Kahlo y Diego Rivera gestionaron su asilo en México y lo alojaron allí primero.'
+          },
+          legends: {
+            question: '¿Qué pasó en el primer atentado contra Trotsky, en mayo de 1940?',
+            options: ['Ametrallaron los dormitorios pero él sobrevivió', 'Le robaron todos sus libros', 'Incendiaron la casa'],
+            correct: 0,
+            reveal: '¡Ametrallaron los dormitorios! 🔫 Se salvó escondiéndose bajo la cama; los agujeros de bala todavía se ven en las paredes.'
+          },
+          architecture: {
+            question: '¿Qué le añadieron a la casa después de ese primer atentado?',
+            options: ['Muros altísimos y torretas de vigilancia', 'Una piscina', 'Un segundo piso'],
+            correct: 0,
+            reveal: '¡Muros de más de tres metros y torretas de vigilancia! 🏰 La convirtieron en una auténtica fortaleza.'
           }
         }
       },
@@ -4005,6 +4225,26 @@ const CITIES = {
             adult: 'El edificio, obra maestra de la arquitectura mexicana del siglo XX, se organiza alrededor de un patio central cubierto por "El Paraguas", una gran estructura de concreto de 84 por 54 metros sostenida por una única columna esculpida con motivos prehispánicos, de la que cae una cortina de agua. Las salas se distribuyen en dos niveles bajo un mismo techo continuo, permitiendo un recorrido cronológico y temático por las principales culturas de Mesoamérica.',
             kids: '¡Hay una estructura gigante llamada "El Paraguas" que cubre el patio central, sostenida por una sola columna decorada! 🌂 Debajo cae una cortina de agua como una fuente. El museo tiene dos pisos enteros llenos de salas para recorrer.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántas salas tiene el Museo Nacional de Antropología?',
+            options: ['23 salas', '5 salas', '100 salas'],
+            correct: 0,
+            reveal: '¡23 salas! 🏺 Cada una dedicada a una cultura prehispánica distinta: olmecas, mayas, mexicas y muchas más.'
+          },
+          legends: {
+            question: '¿Qué es en realidad la Piedra del Sol, según los arqueólogos del museo?',
+            options: ['Un monumento ceremonial dedicado al Sol', 'Un calendario que predice el futuro', 'Una mesa de sacrificios'],
+            correct: 0,
+            reveal: '¡Un monumento ceremonial dedicado al Sol! ☀️ No es un calendario funcional, aunque mucha gente lo crea.'
+          },
+          architecture: {
+            question: '¿Cómo se llama la gran estructura que cubre el patio central del museo?',
+            options: ['El Paraguas', 'La Sombrilla Azteca', 'El Techo del Sol'],
+            correct: 0,
+            reveal: '¡"El Paraguas"! 🌂 Se sostiene con una sola columna esculpida, y de ella cae una cortina de agua.'
+          }
         }
       },
       {
@@ -4040,6 +4280,26 @@ const CITIES = {
           architecture: {
             adult: 'La estructura, de 16.000 paneles hexagonales de aluminio anodizado montados sobre una retícula de acero, forma una superficie curva sin una sola línea recta, apoyada sobre seis columnas asimétricas. En su interior, una rampa helicoidal continua conecta los seis niveles de exhibición sin necesidad de escaleras, permitiendo un recorrido ascendente ininterrumpido por toda la colección.',
             kids: '¡Por fuera parece una escultura brillante sin ninguna línea recta! 🌀 Por dentro tiene una rampa que sube en espiral y conecta los seis pisos, así que puedes recorrer todo el museo sin usar ni una sola escalera.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿A quién está dedicado el Museo Soumaya?',
+            options: ['A la esposa fallecida de Carlos Slim', 'A un expresidente de México', 'A un pintor famoso'],
+            correct: 0,
+            reveal: '¡A Soumaya Domit, la esposa de Carlos Slim! 🎟️ El museo, de entrada gratuita, lleva su nombre.'
+          },
+          legends: {
+            question: '¿Con qué apodo conoce la gente a este edificio por su forma curva y brillante?',
+            options: ['"La plancha"', '"El huevo"', '"La ballena"'],
+            correct: 0,
+            reveal: '¡"La plancha"! 🪞 Aunque cada persona ve una forma distinta cuando lo mira, ¡algunos hasta ven una bota gigante!'
+          },
+          architecture: {
+            question: '¿Cuántos paneles hexagonales de aluminio cubren el edificio?',
+            options: ['16.000', '1.000', '100.000'],
+            correct: 0,
+            reveal: '¡16.000 paneles! ✨ Forman una superficie curva sin una sola línea recta, como una armadura brillante.'
           }
         }
       },
@@ -4077,6 +4337,26 @@ const CITIES = {
             adult: 'El edificio, de cinco niveles revestidos en piedra travertino, se eleva sobre una planta baja porticada que conecta visualmente con la plaza pública, mientras que su cubierta ondulada de aluminio dentado —visible sobre todo desde el interior— es la única concesión formal a la geometría curva de su entorno. Sus salas diáfanas, sin columnas interiores, permiten montajes flexibles para exposiciones temporales de arte contemporáneo internacional.',
             kids: '¡Tiene cinco pisos cubiertos de piedra blanca y un techo con forma de zigzag que casi no se ve desde fuera! 🏢 Por dentro las salas son enormes y sin columnas, así que pueden cambiar la forma de exponer el arte cada vez que quieren.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué colección alberga el Museo Jumex?',
+            options: ['La mayor colección privada de arte contemporáneo de América Latina', 'Arte prehispánico exclusivamente', 'Solo fotografía antigua'],
+            correct: 0,
+            reveal: '¡La mayor colección privada de arte contemporáneo de toda América Latina! 🎨 Reunida por el empresario Eugenio López Alonso.'
+          },
+          legends: {
+            question: '¿Por qué el arquitecto diseñó un edificio tan sobrio, comparado con su vecino el Soumaya?',
+            options: ['Para no competir visualmente con el Soumaya', 'Porque no había presupuesto suficiente', 'Porque así lo pidió el gobierno'],
+            correct: 0,
+            reveal: '¡Para no competir con el brillo de su vecino! 📐 Una decisión consciente del arquitecto David Chipperfield.'
+          },
+          architecture: {
+            question: '¿En qué material está revestido el Museo Jumex?',
+            options: ['Piedra travertino blanca', 'Mármol negro', 'Vidrio espejado'],
+            correct: 0,
+            reveal: '¡Piedra travertino blanca! 🏢 Cinco niveles con salas diáfanas, sin columnas interiores, para exposiciones flexibles.'
+          }
         }
       },
       {
@@ -4113,6 +4393,26 @@ const CITIES = {
             adult: 'La nueva basílica, obra del arquitecto Pedro Ramírez Vázquez, adopta una planta circular de gran amplitud que permite a 10.000 fieles ver el altar simultáneamente desde cualquier punto, coronada por una cubierta de cobre en forma de carpa que evoca el manto de la Virgen. Junto a ella permanece la antigua basílica barroca, notablemente inclinada por el hundimiento diferencial del subsuelo, motivo por el que fue cerrada al culto y reconvertida en museo.',
             kids: '¡La iglesia nueva es redonda y tiene sitio para 10.000 personas a la vez, todas viendo bien el altar! ⭕ Al lado se puede ver la iglesia vieja, que está clarísimamente torcida porque el terreno se hundió con el paso de los años, ¡ahora es un museo!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Por qué se construyó una nueva Basílica de Guadalupe, inaugurada en 1976?',
+            options: ['Porque la antigua se estaba hundiendo', 'Porque se quemó la anterior', 'Porque era muy pequeña desde el principio'],
+            correct: 0,
+            reveal: '¡Porque la antigua se estaba hundiendo peligrosamente! ⛪ El terreno lacustre la hacía inclinarse cada vez más.'
+          },
+          legends: {
+            question: '¿Qué cayó del manto de Juan Diego, según la tradición, cuando apareció la imagen de la Virgen?',
+            options: ['Un ramo de rosas de Castilla', 'Monedas de oro', 'Plumas de quetzal'],
+            correct: 0,
+            reveal: '¡Rosas de Castilla! 🌹 Unas flores imposibles en pleno invierno mexicano, según cuenta la tradición.'
+          },
+          architecture: {
+            question: '¿A cuántos fieles a la vez puede acoger la nueva basílica viendo bien el altar?',
+            options: ['10.000', '1.000', '500'],
+            correct: 0,
+            reveal: '¡10.000 personas a la vez! ⭕ Su planta circular permite que todos vean el altar desde cualquier punto.'
+          }
         }
       },
       {
@@ -4148,6 +4448,26 @@ const CITIES = {
           architecture: {
             adult: 'La capilla actual, de fachada neoclásica sencilla, se alza sobre una plataforma con vistas privilegiadas de todo el conjunto de la Villa de Guadalupe y buena parte del norte de la ciudad. En su exterior, un mural de mosaico narra el momento en que Juan Diego recoge las rosas, y unos jardines con motivos florales tallados en piedra recrean el prodigio que da nombre al lugar.',
             kids: '¡Desde aquí arriba se ve toda la Villa de Guadalupe y buena parte de la ciudad! 🏙️ Por fuera tiene un mural hecho con piezas pequeñas de mosaico que cuenta la historia de las rosas. Alrededor hay jardines con flores talladas en piedra.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué recogió Juan Diego, según la tradición, en la cima de esta colina?',
+            options: ['Las rosas de Castilla para el obispo', 'Agua bendita', 'Piedras sagradas'],
+            correct: 0,
+            reveal: '¡Las rosas de Castilla! 🌹 Se las llevó al obispo como prueba de la aparición de la Virgen.'
+          },
+          legends: {
+            question: '¿A qué diosa se dice que ya se rendía culto en este cerro antes de la aparición de la Virgen?',
+            options: ['A Tonantzin', 'A Coatlicue', 'A Xochiquetzal'],
+            correct: 0,
+            reveal: '¡A Tonantzin, diosa madre mexica! 🌵 Se cree que la devoción guadalupana se superpuso a este culto antiguo.'
+          },
+          architecture: {
+            question: '¿Qué cuenta el mural de mosaico en el exterior de la capilla?',
+            options: ['El momento en que Juan Diego recoge las rosas', 'La conquista de México', 'La fundación de Tenochtitlan'],
+            correct: 0,
+            reveal: '¡El momento en que Juan Diego recoge las rosas! 🎨 Está hecho con pequeñas piezas de mosaico.'
           }
         }
       }
