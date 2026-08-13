@@ -16,7 +16,7 @@
 // Sube este número cuando cambies la lista SHELL_URLS de aquí abajo
 // (los propios archivos versionados con "?v=N" ya se cachean solos con
 // su nueva clave la primera vez que se piden, sin necesidad de tocar esto).
-const CACHE_VERSION = 'v4';
+const CACHE_VERSION = 'v5';
 const SHELL_CACHE = `omot-shell-${CACHE_VERSION}`;
 const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
 
@@ -24,12 +24,18 @@ const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
 // resuelven correctamente tanto en local como bajo el subpath de GitHub
 // Pages. No se incluye llm-config.js: es un override local opcional que
 // ni siquiera existe en el despliegue público (está en .gitignore).
+//
+// data/cities/<id>.js NO se precachea aquí a propósito: solo se descarga
+// cuando el usuario elige esa ciudad (ver loadCityData en app.js), pero
+// una vez pedida, el fetch handler de abajo la cachea igual que el resto
+// del shell, así que la siguiente visita a esa misma ciudad ya funciona
+// offline sin tocar este archivo.
 const SHELL_URLS = [
   './',
   './index.html',
-  './app.js?v=8',
-  './data.js?v=5',
-  './styles.css?v=4',
+  './app.js?v=9',
+  './data/core.js?v=1',
+  './styles.css?v=5',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
 ];

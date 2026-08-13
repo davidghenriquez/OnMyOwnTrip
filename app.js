@@ -760,11 +760,31 @@
     return best;
   };
 
+  // Carga bajo demanda de data/cities/<id>.js (POIs de una ciudad): solo
+  // CATEGORIES/CITIES-esqueleto/AI_PROMPTS viven en data/core.js, que se
+  // descarga siempre; el contenido real de cada ciudad se pide solo la
+  // primera vez que se elige, y queda cacheado (variable + Service Worker)
+  // para las siguientes veces en la misma sesión o visitas posteriores.
+  const loadedCityScripts = new Set();
+  const loadCityData = (cityId) => {
+    if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return Promise.resolve();
+    if (loadedCityScripts.has(cityId)) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = `data/cities/${cityId}.js?v=1`;
+      script.onload = () => { loadedCityScripts.add(cityId); resolve(); };
+      script.onerror = () => reject(new Error(`No se pudo cargar data/cities/${cityId}.js`));
+      document.head.appendChild(script);
+    });
+  };
+
   // Cambia de ciudad: recarga POIs, mapa y cabecera. Si la app ya estaba
   // en marcha (no es el arranque inicial), también limpia la ficha abierta.
-  const selectCity = (cityId) => {
+  // Async porque puede necesitar descargar data/cities/<id>.js primero.
+  const selectCity = async (cityId) => {
     const city = CITIES[cityId];
     if (!city) return;
+    await loadCityData(cityId);
     STATE.cityId = cityId;
     CURRENT_CITY = city;
     POIS = city.pois;
@@ -2032,9 +2052,23 @@
   /* =========================================================
    * PANTALLA DE BIENVENIDA (ciudad + modo, todo en una sola pantalla)
    * =======================================================*/
-  const finishOnboarding = (cityId, mode) => {
+  const setOnboardingLoading = (isLoading) => {
+    const card = $('.onboarding-card');
+    if (card) card.classList.toggle('-loading', isLoading);
+  };
+
+  const finishOnboarding = async (cityId, mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
-    selectCity(cityId);
+    setOnboardingLoading(true);
+    try {
+      await selectCity(cityId);
+    } catch (e) {
+      console.warn('[OMOT] Fallo al cargar la ciudad:', e);
+      setOnboardingLoading(false);
+      showToast('No se pudo cargar la ciudad. Comprueba tu conexión e inténtalo de nuevo.', 3500);
+      return;
+    }
+    setOnboardingLoading(false);
     const ob = $('#onboarding');
     if (ob) { ob.hidden = true; ob.setAttribute('aria-hidden', 'true'); }
     startApp();

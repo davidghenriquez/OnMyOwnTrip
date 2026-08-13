@@ -12,8 +12,11 @@ servidor propio salvo el proxy de IA opcional) pensada para GitHub Pages.
 ```
 index.html                    Estructura de la página (mapa, ficha, chat)
 styles.css                    Estética oscura (ámbar=adultos / índigo=niños)
-data.js                       Todo el contenido: POIs, categorías, prompts de IA
+data/core.js                  Categorías, esqueleto de ciudades (sin pois[]), prompts de IA
+data/cities/<id>.js           POIs de cada ciudad — cargado bajo demanda, no al arrancar
 app.js                        Toda la lógica (mapa, ficha, IA, audio)
+sw.js                         Service Worker: cachea shell + imágenes/ciudades ya vistas
+scripts/validate-data.js      Valida data/core.js + data/cities/*.js (ids, bounds, dual...)
 llm-config.example.js         Plantilla de configuración de IA (SÍ se sube a git)
 llm-config.js                 Configuración real local (NO se sube, está en .gitignore)
 worker/proxy.js               Código del proxy de IA (Cloudflare Worker)
@@ -29,11 +32,22 @@ No hay build step: los archivos se sirven tal cual (GitHub Pages).
 
 1. `index.html` carga, en orden: Leaflet (CDN), la configuración de IA
    (inline en el propio `index.html` + `llm-config.js` opcional que la
-   sobreescribe), `data.js` y por último `app.js`.
-2. `app.js` es un único IIFE envuelto en un `try/catch` global: si algo
+   sobreescribe), `data/core.js` y por último `app.js`. **`data/cities/<id>.js`
+   NO se carga aquí**: solo contiene categorías, el esqueleto de las 4
+   ciudades (metadatos + rutas, sin `pois[]`) y los prompts de IA — lo
+   justo para pintar la pantalla de bienvenida y calcular la ciudad más
+   cercana por geolocalización sin descargar el contenido de las 130 y
+   pico paradas de golpe.
+2. Al elegir ciudad (`finishOnboarding` → `selectCity` → `loadCityData` en
+   `app.js`), se inyecta dinámicamente un `<script src="data/cities/<id>.js">`
+   que rellena `CITIES[id].pois`. Es asíncrono: la pantalla de bienvenida
+   muestra un spinner (`.onboarding-card.-loading`) mientras se descarga, y
+   si falla (sin red y esa ciudad no estaba cacheada de una visita
+   anterior) se avisa con un toast y no se sale de la pantalla de inicio.
+3. `app.js` es un único IIFE envuelto en un `try/catch` global: si algo
    falla durante la carga, se muestra un aviso visible en pantalla en vez
    de dejar la app "en blanco" sin explicación.
-3. `init()` (final de `app.js`):
+4. `init()` (final de `app.js`):
    - Pinta el header y conecta los filtros / el toggle Adultos-Niños
      (`buildHeader`).
    - Inicializa el mapa Leaflet y coloca los pines (`initMap`,
@@ -45,7 +59,7 @@ No hay build step: los archivos se sirven tal cual (GitHub Pages).
 
 ---
 
-## 3. Datos (`data.js`)
+## 3. Datos (`data/core.js` + `data/cities/<id>.js`)
 
 - **`CATEGORIES`**: `historia`, `gastronomia`, `rincones-ocultos` (+ `all`
   para el filtro "Todos").
@@ -152,7 +166,7 @@ caminos:
 ### a) Sin API configurada → **simulador local** (`SIM`)
 No hay ninguna llamada de red. Genera texto a partir de plantillas
 escritas a mano (con partes elegidas al azar para variar entre visitas)
-combinadas con los textos de `data.js`. Es el modo por defecto y el que
+combinadas con los textos de `data/cities/<id>.js`. Es el modo por defecto y el que
 usa cualquiera que abra la app sin haber configurado `window.LLM_CONFIG`.
 
 ### b) Con `window.LLM_CONFIG` definido → **IA real**
@@ -257,7 +271,7 @@ Detalles relevantes:
 
 ## 12bis. Service Worker (uso con conexión intermitente)
 
-`sw.js` cachea el shell de la app (`index.html`, `app.js`, `data.js`,
+`sw.js` cachea el shell de la app (`index.html`, `app.js`, `data/core.js`,
 `styles.css`, Leaflet) y, sobre la marcha, cualquier imagen que se pida
 (fotos de POIs y teselas del mapa ya vistas), para que la app siga
 funcionando al caminar por zonas con mala cobertura. Se registra con
@@ -266,14 +280,24 @@ Service Worker no puede ser más amplio que la carpeta donde vive su
 script, y la web se sirve bajo el subpath `/OnMyOwnTrip/` en GitHub
 Pages.
 
+`data/cities/<id>.js` NO está en la lista de precache (`SHELL_URLS`) a
+propósito: solo se pide cuando el usuario elige esa ciudad. Pero una vez
+pedida, el mismo fetch handler genérico la cachea igual que el resto del
+shell (es una petición `GET` normal), así que la próxima vez que se elija
+esa misma ciudad —incluso sin red— ya funciona.
+
 No cachea nunca las peticiones al proxy de IA (son `POST`, y el fetch
 handler solo intercepta `GET`): si no hay red, esas llamadas fallan tal
 cual y `app.js` ya sabe caer al simulador local.
 
-Al subir un cambio a `index.html`/`app.js`/`data.js`/`styles.css`, hay
-que actualizar también la lista `SHELL_URLS` de `sw.js` con el nuevo
-`?v=N` de cada archivo (igual que ya se hace en `index.html`), para que
-la próxima visita descargue y cachee la versión nueva.
+Al subir un cambio a `index.html`/`app.js`/`data/core.js`/`styles.css`,
+hay que actualizar también la lista `SHELL_URLS` de `sw.js` con el nuevo
+`?v=N` de cada archivo (igual que ya se hace en `index.html`) y subir
+`CACHE_VERSION`, para que la próxima visita descargue y cachee la
+versión nueva. Los archivos de `data/cities/` no necesitan este paso:
+al no estar en `SHELL_URLS`, cambiar su `?v=N` en `loadCityData` (en
+`app.js`) ya basta para que se pidan y cacheen de nuevo con la clave
+nueva.
 
 ---
 
@@ -287,8 +311,9 @@ la próxima visita descargue y cachee la versión nueva.
   operativo/navegador de quien visita la web; no es una voz neuronal de
   pago.
 - **Sin base de datos**: todos los POIs están escritos a mano en
-  `data.js`; añadir una ciudad nueva hoy implica editar código, no un
-  panel de administración.
+  `data/cities/<id>.js`; añadir una ciudad nueva hoy implica editar
+  código (y registrarla en el esqueleto de `data/core.js`), no un panel
+  de administración.
 - **Protección del proxy básica**: el filtro por origen (`Origin`) no es
   infalible ante un atacante decidido; sería mejorable con reglas de
   *rate limiting* de Cloudflare (gratuitas, activables desde su panel

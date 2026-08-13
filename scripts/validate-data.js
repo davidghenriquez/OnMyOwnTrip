@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 // ============================================================
-// OnMyOwnTrip · Validador de integridad de data.js
+// OnMyOwnTrip · Validador de integridad de data/
 //
-// data.js no es un módulo (se carga como <script> plano en el navegador,
-// sin module.exports), así que aquí lo compilamos como si lo fuera con
-// Module._compile, en vez de tocar el archivo original o mantener una
-// copia duplicada del contenido.
+// Desde que data.js se partió en data/core.js (categorías, esqueleto de
+// ciudades, prompts de IA) + data/cities/<id>.js (POIs, cargados bajo
+// demanda por app.js), este script reconstruye el mismo CITIES completo
+// concatenando core.js con todos los archivos de data/cities/ en un único
+// script, y lo compila como si fuera un módulo con Module._compile — así
+// no hay que tocar esos archivos ni mantener una copia duplicada.
 //
 // Uso:
 //   node scripts/validate-data.js
@@ -19,15 +21,21 @@ const fs = require('fs');
 const path = require('path');
 const Module = require('module');
 
-const DATA_PATH = path.join(__dirname, '..', 'data.js');
+const DATA_DIR = path.join(__dirname, '..', 'data');
+const CORE_PATH = path.join(DATA_DIR, 'core.js');
+const CITIES_DIR = path.join(DATA_DIR, 'cities');
 
 function loadData() {
-  const src = fs.readFileSync(DATA_PATH, 'utf8');
-  const wrapped = `${src}\nmodule.exports = { CATEGORIES, CATEGORY_META, CITIES, AI_PROMPTS };`;
-  const m = new Module(DATA_PATH);
-  m.filename = DATA_PATH;
-  m.paths = Module._nodeModulePaths(path.dirname(DATA_PATH));
-  m._compile(wrapped, DATA_PATH);
+  const coreSrc = fs.readFileSync(CORE_PATH, 'utf8');
+  const cityFiles = fs.readdirSync(CITIES_DIR).filter((f) => f.endsWith('.js'));
+  const citiesSrc = cityFiles
+    .map((f) => fs.readFileSync(path.join(CITIES_DIR, f), 'utf8'))
+    .join('\n');
+  const wrapped = `${coreSrc}\n${citiesSrc}\nmodule.exports = { CATEGORIES, CATEGORY_META, CITIES, AI_PROMPTS };`;
+  const m = new Module(CORE_PATH);
+  m.filename = CORE_PATH;
+  m.paths = Module._nodeModulePaths(DATA_DIR);
+  m._compile(wrapped, CORE_PATH);
   return m.exports;
 }
 
@@ -146,7 +154,7 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`\n✅ data.js válido (${Object.keys(CITIES).length} ciudades revisadas, ${warnings.length} avisos, 0 errores).`);
+  console.log(`\n✅ data/ válido (${Object.keys(CITIES).length} ciudades revisadas, ${warnings.length} avisos, 0 errores).`);
 }
 
 main();
