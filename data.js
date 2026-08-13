@@ -38,6 +38,9 @@ const CITIES = {
     zoom: 15.2,
     minZoom: 13,
     bounds: [[39.845, -4.05], [39.878, -4.00]],
+    routes: [
+      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' }
+    ],
     pois: [
       {
         id: 'catedral-primada',
@@ -50,6 +53,7 @@ const CITIES = {
           kids: 'Un castillo de piedra con agujas de sol'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 4 },
         coords: [39.8568, -4.0244],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cathedral_of_Toledo_%287079311505%29.jpg/330px-Cathedral_of_Toledo_%287079311505%29.jpg',
         audio: {
@@ -85,6 +89,7 @@ const CITIES = {
           kids: 'Una puerta de castillo de verdad'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 1 },
         coords: [39.8604, -4.0308],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/1_Puerta_de_Bisagra_toledo_2014.jpg/330px-1_Puerta_de_Bisagra_toledo_2014.jpg',
         audio: {
@@ -120,6 +125,7 @@ const CITIES = {
           kids: '¡Las mejores vistas de todo Toledo!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 7 },
         coords: [39.8530, -4.0205],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Vista_de_Toledo_desde_el_mirador_del_Valle_01.jpg/330px-Vista_de_Toledo_desde_el_mirador_del_Valle_01.jpg',
         audio: {
@@ -191,6 +197,7 @@ const CITIES = {
           kids: '¡Un cuadro de gigante muy famoso!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 5 },
         coords: [39.8560, -4.0269],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Tol%C3%A8de_-_clocher_de_Santo_Tom%C3%A9.JPG/330px-Tol%C3%A8de_-_clocher_de_Santo_Tom%C3%A9.JPG',
         audio: {
@@ -296,6 +303,7 @@ const CITIES = {
           kids: '¡El castillo más grande de Toledo!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 3 },
         coords: [39.8581, -4.0219],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/FP_Toledo_Alcazar_2025_-_Views.jpg/330px-FP_Toledo_Alcazar_2025_-_Views.jpg',
         audio: {
@@ -541,6 +549,7 @@ const CITIES = {
           kids: '¡Aquí se vendían animales hace 1.000 años!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 2 },
         coords: [39.8595, -4.0214],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Toledo_Zocodover_01_lou.JPG/330px-Toledo_Zocodover_01_lou.JPG',
         audio: {
@@ -576,6 +585,7 @@ const CITIES = {
           kids: '¡Construida con madera traída desde muy, muy lejos!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 6 },
         coords: [39.8557, -4.0294],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Toledo_-_Sinagoga_El_Transito_01.jpg/330px-Toledo_-_Sinagoga_El_Transito_01.jpg',
         audio: {
@@ -1508,6 +1518,9 @@ const CITIES = {
     zoom: 12.5,
     minZoom: 10,
     bounds: [[35.55, 139.58], [35.80, 139.93]],
+    routes: [
+      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' }
+    ],
     pois: [
       {
         id: 'senso-ji',
@@ -1555,6 +1568,7 @@ const CITIES = {
           kids: 'Donde huele a sushi fresquísimo'
         },
         category: CATEGORIES.GASTRONOMY,
+        essential: { route: 'main', order: 1 },
         coords: [35.6614, 139.7697],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2018_Tsukiji_fish_market.jpg/330px-2018_Tsukiji_fish_market.jpg',
         audio: {
@@ -1590,6 +1604,7 @@ const CITIES = {
           kids: '¡Más alta que la Torre Eiffel!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 2 },
         coords: [35.6586, 139.7456],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/TaroTokyo20110213-TokyoTower-01.jpg/330px-TaroTokyo20110213-TokyoTower-01.jpg',
         audio: {
@@ -1627,6 +1642,9 @@ const CITIES = {
     zoom: 15.3,
     minZoom: 13,
     bounds: [[40.408, -3.722], [40.423, -3.697]],
+    routes: [
+      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' }
+    ],
     pois: [
       {
         id: 'palacio-real',
@@ -1639,6 +1657,7 @@ const CITIES = {
           kids: '¡Un palacio con más de 3.000 habitaciones!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 4 },
         coords: [40.4180, -3.7144],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Palacio_Real_de_Madrid_Julio_2016_%28cropped%29.jpg/330px-Palacio_Real_de_Madrid_Julio_2016_%28cropped%29.jpg',
         audio: {
@@ -1724,6 +1743,7 @@ const CITIES = {
           kids: 'Tapas del mundo bajo un techo antiguo'
         },
         category: CATEGORIES.GASTRONOMY,
+        essential: { route: 'main', order: 3 },
         coords: [40.4153, -3.7092],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Mercado_de_San_Miguel_2025.jpg/330px-Mercado_de_San_Miguel_2025.jpg',
         audio: {
@@ -1759,6 +1779,7 @@ const CITIES = {
           kids: '¡Aquí empiezan todas las carreteras!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 1 },
         coords: [40.4169, -3.7035],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/MADRID_100206_UDCI_023.jpg/330px-MADRID_100206_UDCI_023.jpg',
         audio: {
@@ -1864,6 +1885,7 @@ const CITIES = {
           kids: '¡Una plaza que se ha incendiado tres veces!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 2 },
         coords: [40.4155, -3.7074],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Plaza_Mayor_de_Madrid_06.jpg/330px-Plaza_Mayor_de_Madrid_06.jpg',
         audio: {
@@ -1896,6 +1918,7 @@ const CITIES = {
           kids: '¡Una avenida que tardó 21 años en construirse entera!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 6 },
         coords: [40.420438, -3.706293],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_%28Madrid%29_%2823815769052%29.jpg/330px-Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_%28Madrid%29_%2823815769052%29.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Gran Vía', kids: '¡Aventura Sonora: La Avenida de los Rascacielos!' } },
@@ -1974,6 +1997,7 @@ const CITIES = {
           kids: '¡Tardaron 110 años en terminarla!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 5 },
         coords: [40.415556, -3.714444],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Almudena_2022_-_overview.jpg/330px-Almudena_2022_-_overview.jpg',
         audio: { duration: 168, title: { adult: 'Audioguía: Catedral de la Almudena', kids: '¡Aventura Sonora: La Catedral de 110 Años y Colores!' } },
@@ -3253,6 +3277,9 @@ const CITIES = {
     zoom: 15.4,
     minZoom: 13,
     bounds: [[40.353, 0.395], [40.365, 0.411]],
+    routes: [
+      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' }
+    ],
     pois: [
       {
         id: 'castillo-papa-luna',
@@ -3265,6 +3292,7 @@ const CITIES = {
           kids: '¡Un castillo sobre el mar donde vivió un Papa muy testarudo!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 2 },
         coords: [40.3626, 0.4020],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg/330px-Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg',
         audio: {
@@ -3300,6 +3328,7 @@ const CITIES = {
           kids: '¡Un muro gigante para que no entraran los piratas!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 1 },
         coords: [40.3586, 0.4068],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Overview_of_walls_in_Pe%C3%B1%C3%ADscola%2C_Bajo_Maestrazgo_Comarca.jpg/330px-Overview_of_walls_in_Pe%C3%B1%C3%ADscola%2C_Bajo_Maestrazgo_Comarca.jpg',
         audio: {
@@ -3335,6 +3364,7 @@ const CITIES = {
           kids: '¡Una roca que resopla como una ballena!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 3 },
         coords: [40.3570, 0.4073],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Bufador.JPG/330px-Bufador.JPG',
         audio: {
@@ -3404,10 +3434,16 @@ const CITIES = {
     country: 'México',
     continent: 'América',
     subtitle: { adult: 'Capital azteca y virreinal', kids: '¡La Ciudad de las Águilas y las Pirámides! 🦅' },
-    center: [19.34, -99.145],
-    zoom: 11.5,
-    minZoom: 10,
-    bounds: [[19.21, -99.20], [19.46, -99.08]],
+    center: [19.37, -99.15],
+    zoom: 11,
+    minZoom: 9.5,
+    bounds: [[19.22, -99.22], [19.51, -99.08]],
+    routes: [
+      { id: 'centro', name: { adult: 'Centro Histórico', kids: 'Centro Histórico 🏛️' }, color: '#E4002B' },
+      { id: 'sur', name: { adult: 'Coyoacán', kids: 'Coyoacán 🎨' }, color: '#22C55E' },
+      { id: 'polanco', name: { adult: 'Polanco · Museos', kids: 'Polanco · Museos 🦉' }, color: '#F5A623' },
+      { id: 'basilica', name: { adult: 'Basílica', kids: 'Basílica ⛪' }, color: '#7B2D8E' }
+    ],
     pois: [
       {
         id: 'catedral-metropolitana-cdmx',
@@ -3420,6 +3456,7 @@ const CITIES = {
           kids: '¡Construida piedra a piedra sobre un templo azteca!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'centro', order: 1 },
         coords: [19.4344, -99.1331],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Catedral_Metropolitana_de_la_Ciudad_de_M%C3%A9xico_1.jpg/330px-Catedral_Metropolitana_de_la_Ciudad_de_M%C3%A9xico_1.jpg',
         audio: {
@@ -3455,6 +3492,7 @@ const CITIES = {
           kids: '¡Una pirámide azteca oculta bajo la ciudad!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'centro', order: 2 },
         coords: [19.4350, -99.1314],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Partial_view_Templo_Mayor.jpg/330px-Partial_view_Templo_Mayor.jpg',
         audio: {
@@ -3480,6 +3518,78 @@ const CITIES = {
         }
       },
       {
+        id: 'palacio-bellas-artes-cdmx',
+        name: {
+          adult: 'Palacio de Bellas Artes',
+          kids: 'Palacio de Bellas Artes — El Palacio de Mármol que Sube y Baja 🎭'
+        },
+        subtitle: {
+          adult: 'El templo del arte mexicano, mitad mármol, mitad Art Déco',
+          kids: '¡Un palacio que pesa tanto que se hunde poquito a poco!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'centro', order: 4 },
+        coords: [19.43527778, -99.14138889],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Bellas_Artes_01.jpg/330px-Bellas_Artes_01.jpg',
+        audio: {
+          duration: 178,
+          title: {
+            adult: 'Audioguía: Palacio de Bellas Artes',
+            kids: '¡Aventura Sonora: El Palacio que Sube y Baja!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'El Palacio de Bellas Artes se comenzó a construir en 1904 por encargo del presidente Porfirio Díaz, quien encomendó al arquitecto italiano Adamo Boari un edificio de mármol que rivalizara con los grandes teatros europeos para celebrar el centenario de la Independencia en 1910. Las obras se interrumpieron por la Revolución Mexicana y por problemas de cimentación en el terreno blando del antiguo lago, y no se inauguró hasta 1934, treinta años después de empezar, ya con un interior Art Déco diseñado por el arquitecto mexicano Federico Mariscal.',
+            kids: '¡Este palacio tardó 30 años en terminarse! 🏛️ Empezó a construirse hace más de 100 años con mármol traído desde Italia, pero hubo una revolución en México y las obras pararon durante mucho tiempo. Cuando por fin lo terminaron, lo decoraron por dentro con un estilo mucho más moderno y colorido.'
+          },
+          legends: {
+            adult: 'El edificio entero pesa tanto —su fachada es de mármol de Carrara— que desde su construcción se ha hundido más de cuatro metros en el subsuelo blando de la antigua Ciudad de México, hasta el punto de que hoy hay que bajar varios escalones desde la calle para entrar, al contrario de como se proyectó. Se cuenta que Boari, obsesionado con el mármol italiano, mandó traer tantas toneladas de piedra que los propios barcos que las transportaban tuvieron problemas para cruzar el Atlántico cargados.',
+            kids: '¡Este palacio pesa tantísimo que se ha ido hundiendo poco a poco durante más de 100 años! 🏛️⬇️ Por eso ahora hay que bajar escalones para entrar, cuando al principio se construyó al nivel de la calle. ¡Imagina un edificio tan pesado que se hunde en la tierra como una piedra en la arena!'
+          },
+          architecture: {
+            adult: 'Combina un exterior de mármol de estilo Art Nouveau, con la célebre cúpula de mosaicos de cristal de Tiffany, y un interior completamente Art Déco, con mármoles de colores geométricos y motivos prehispánicos estilizados. Alberga el telón de cristal de Tiffany más grande del mundo, con casi un millón de piezas representando los volcanes Popocatépetl e Iztaccíhuatl, y sus muros están decorados con murales de Diego Rivera —incluido "El hombre controlador del universo"—, David Alfaro Siqueiros y Rufino Tamayo.',
+            kids: '¡Por fuera parece un pastel de mármol blanco con una cúpula de cristales de colores! 🎂✨ Por dentro tiene un telón gigante hecho con casi un millón de piezas de cristal que forma un dibujo de dos volcanes. En las paredes hay pinturas enormes hechas por artistas mexicanos muy famosos, ¡como si el palacio fuera un museo de cómics gigante!'
+          }
+        }
+      },
+      {
+        id: 'torre-latinoamericana',
+        name: {
+          adult: 'Torre Latinoamericana',
+          kids: 'Torre Latinoamericana — El Rascacielos que Baila con los Terremotos 🏢'
+        },
+        subtitle: {
+          adult: 'El primer rascacielos antisísmico del mundo',
+          kids: '¡Un edificio que se mueve para no romperse en los terremotos!'
+        },
+        category: CATEGORIES.HIDDEN,
+        essential: { route: 'centro', order: 3 },
+        coords: [19.43388889, -99.14055556],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Torre_Latinoamericana_Mexico_City.jpg/330px-Torre_Latinoamericana_Mexico_City.jpg',
+        audio: {
+          duration: 172,
+          title: {
+            adult: 'Audioguía: Torre Latinoamericana',
+            kids: '¡Aventura Sonora: El Rascacielos que Baila!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Inaugurada en 1956, la Torre Latinoamericana fue durante más de dos décadas el edificio más alto de Latinoamérica, con 182 metros y 44 pisos. Se construyó justo en el cruce donde antes estuvo el Colegio de San Ildefonso, sobre el mismo subsuelo lacustre inestable que ha hundido tantos edificios del centro histórico.',
+            kids: '¡Cuando se construyó, en 1956, fue el edificio más alto de toda Latinoamérica! 🏆 Tiene 44 pisos y está justo en el centro de la ciudad, construido sobre la misma tierra blandita de un lago antiguo que ha hecho que otros edificios se hundan.'
+          },
+          legends: {
+            adult: 'Su mayor hazaña ocurrió el 28 de julio de 1957: un terremoto de magnitud 7,7 sacudió la ciudad y derribó decenas de edificios, pero la Torre Latinoamericana apenas sufrió daños, oscilando sin romperse gracias a su innovador sistema de cimentación con pilotes de fricción hasta roca firme, diseñado por el ingeniero Adolfo Zeevaert. Desde entonces se ganó fama de torre "invencible", y ha resistido sin colapsar todos los grandes terremotos de la capital, incluidos los de 1985 y 2017.',
+            kids: '¡En 1957 hubo un terremoto gigante que tiró muchos edificios de la ciudad, pero esta torre apenas se movió! 🌎 Desde entonces la llaman la torre "invencible", porque ha aguantado todos los terremotos grandes que ha habido después, ¡incluso los más recientes!'
+          },
+          architecture: {
+            adult: 'Fue el primer rascacielos del mundo diseñado específicamente para resistir tanto sismos como el terreno blando de una antigua cuenca lacustre, mediante 361 pilotes de control clavados hasta encontrar un estrato de roca firme a 33 metros de profundidad, permitiendo que la estructura "flote" y se mueva ligeramente en vez de resistir rígida. Su mirador, en el piso 44, ofrece una de las mejores vistas panorámicas de 360 grados del Centro Histórico y, en días despejados, de los volcanes que rodean el Valle de México.',
+            kids: '¡Tiene 361 patas de cemento clavadas muy hondo en la tierra, hasta encontrar roca dura! 🦵 Así, en vez de quedarse tiesa como una estatua, el edificio se puede mover un poquito cuando tiembla, ¡como si bailara! Arriba del todo hay un mirador desde el que se ve toda la ciudad, ¡y hasta los volcanes en los días despejados!'
+          }
+        }
+      },
+      {
         id: 'castillo-chapultepec',
         name: {
           adult: 'Castillo de Chapultepec',
@@ -3490,6 +3600,7 @@ const CITIES = {
           kids: '¡Un castillo de verdad con emperador y todo!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'polanco', order: 1 },
         coords: [19.4206, -99.1817],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Chapultepec_castle_in_Mexico_city.jpg/330px-Chapultepec_castle_in_Mexico_city.jpg',
         audio: {
@@ -3525,6 +3636,7 @@ const CITIES = {
           kids: '¡Una casa pintada de azul brillante!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'sur', order: 3 },
         coords: [19.3551, -99.1625],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Museo_Frida_Kahlo.JPG/330px-Museo_Frida_Kahlo.JPG',
         audio: {
@@ -3595,6 +3707,7 @@ const CITIES = {
           kids: '¡Aquí huele riquísimo en cada pasillo!'
         },
         category: CATEGORIES.GASTRONOMY,
+        essential: { route: 'sur', order: 2 },
         coords: [19.3503, -99.1624],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Mercado_de_Coyoac%C3%A1n_CDMX.jpg/330px-Mercado_de_Coyoac%C3%A1n_CDMX.jpg',
         audio: {
@@ -3616,6 +3729,294 @@ const CITIES = {
           architecture: {
             adult: 'Es un edificio de planta rectangular de dos alturas donde conviven bajo un mismo techo puestos de frutas y verduras, flores, artesanías, disfraces, textiles bordados a mano y una concurrida zona de comida con largas barras compartidas. Su trazado en pasillos estrechos, típico de los mercados populares mexicanos de mediados del siglo XX, mantiene un ambiente denso y colorido que apenas ha cambiado desde su modernización.',
             kids: '¡Es un mercado de dos pisos con pasillos estrechos llenos de colores! 🌈 En una parte venden fruta y flores, en otra ropa bordada a mano y disfraces, ¡y en otra hay mesas larguísimas donde te sientas a comer codo con codo con otras familias!'
+          }
+        }
+      },
+      {
+        id: 'alameda-central',
+        name: {
+          adult: 'Alameda Central',
+          kids: 'Alameda Central — El Parque de las Fuentes de Piedra ⛲'
+        },
+        subtitle: {
+          adult: 'El parque público más antiguo de América',
+          kids: '¡El parque más viejito de todo el continente!'
+        },
+        category: CATEGORIES.HIDDEN,
+        essential: { route: 'centro', order: 5 },
+        coords: [19.43555556, -99.14388889],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Alameda_Central_desde_el_aire_1.jpg/330px-Alameda_Central_desde_el_aire_1.jpg',
+        audio: {
+          duration: 150,
+          title: {
+            adult: 'Audioguía: Alameda Central',
+            kids: '¡Aventura Sonora: El Parque de las Fuentes de Piedra!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Mandada crear en 1592 por el virrey Luis de Velasco II, la Alameda Central es el parque público más antiguo de América. Debe su nombre a los álamos que se plantaron originalmente en sus paseos. Durante la época colonial fue ampliada varias veces y, bajo el Porfiriato, se remodeló al estilo de los parques parisinos, con las fuentes y esculturas de mármol que aún conserva, para ofrecer a la burguesía capitalina un paseo elegante a la europea.',
+            kids: '¡Este parque se creó hace más de 400 años, en 1592! 🌳 Es el parque público más antiguo de todo el continente americano. Le pusieron ese nombre por los árboles llamados álamos que sembraron al principio. Hace más de 100 años lo decoraron con fuentes que parecen sacadas de un cuento.'
+          },
+          legends: {
+            adult: 'En la época colonial, la Alameda fue también escenario de los autos de fe de la Inquisición, y se cuenta que las almas de algunos condenados aún vagan entre sus fuentes en las noches de niebla. Más moderna es la leyenda urbana ligada al mural de Diego Rivera "Sueño de una tarde dominical en la Alameda Central", que originalmente colgaba en un hotel cercano: se dice que el pintor incluyó su propio rostro de niño junto al de Frida Kahlo y La Catrina como un autorretrato secreto de todo México reunido en un solo sueño.',
+            kids: '¡Cuentan que hace mucho tiempo pasaban cosas muy tristes en este parque, y que algunos fantasmas todavía se pasean entre las fuentes en las noches de niebla! 👻 También hay un mural gigante y famoso sobre este parque donde el pintor Diego Rivera se dibujó a sí mismo de niño, ¡escondido entre cientos de personajes de la historia de México!'
+          },
+          architecture: {
+            adult: 'De trazado geométrico con paseos arbolados que convergen en un octágono central, conserva ocho fuentes de estilo neoclásico e italianizante instaladas durante el Porfiriato, entre ellas la Fuente de Venus y la Fuente de Neptuno. En sus extremos se alzan el Hemiciclo a Juárez y el Palacio de Bellas Artes, y su vegetación de fresnos centenarios ofrece uno de los pocos grandes pulmones verdes del Centro Histórico.',
+            kids: '¡Tiene ocho fuentes de piedra con nombres de dioses antiguos, como Venus y Neptuno! ⛲ Los caminos del parque forman un dibujo geométrico si lo ves desde arriba. Está lleno de árboles enormes y muy viejos que dan muchísima sombra.'
+          }
+        }
+      },
+      {
+        id: 'parroquia-san-juan-bautista-coyoacan',
+        name: {
+          adult: 'Jardín Centenario y Parroquia de San Juan Bautista',
+          kids: 'Jardín Centenario — La Plaza de las Ranas de Coyoacán 🐸'
+        },
+        subtitle: {
+          adult: 'El corazón colonial de Coyoacán desde 1522',
+          kids: '¡La plaza principal con estatuas de ranitas!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'sur', order: 1 },
+        coords: [19.34891667, -99.16236111],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/San_Juan_Bautista%2C_Parroquia_de_Coyoac%C3%A1n.jpg/330px-San_Juan_Bautista%2C_Parroquia_de_Coyoac%C3%A1n.jpg',
+        audio: {
+          duration: 165,
+          title: {
+            adult: 'Audioguía: Jardín Centenario y Parroquia de Coyoacán',
+            kids: '¡Aventura Sonora: La Plaza de las Ranitas!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'A solo ocho años de completada la conquista, Hernán Cortés cedió estos terrenos a un grupo de frailes franciscanos, que entre 1522 y 1552 levantaron el convento, el templo y la huerta de San Juan Bautista, una de las primeras parroquias de la Nueva España. El conjunto, que hoy ocupa buena parte del actual Jardín Centenario y Plaza Hidalgo, fue el germen del pueblo de Coyoacán, que durante un tiempo llegó a funcionar como sede provisional del gobierno de la Ciudad de México tras la caída de Tenochtitlan.',
+            kids: '¡Esta iglesia y su plaza tienen casi 500 años! ⛪ Los frailes que la construyeron llegaron justo después de la conquista. Durante un tiempo, Coyoacán fue incluso el lugar desde donde se gobernaba toda la ciudad, ¡antes de que se reconstruyera el centro donde está hoy!'
+          },
+          legends: {
+            adult: 'El Jardín Centenario, antiguo atrio del convento, se llenó en el siglo XX de esculturas de ranas de bronce en homenaje al posible origen del nombre "Coyoacán" —"lugar de coyotes" en náhuatl, aunque otra teoría lo relaciona con "cojo-huacan", "lugar de quienes tienen ranas"—. La tradición local asegura que frotar la cabeza de la rana de la fuente central trae buena suerte a los visitantes, un ritual que miles de turistas repiten cada fin de semana.',
+            kids: '¡El jardín está lleno de estatuas de ranas de bronce! 🐸 Nadie sabe con seguridad por qué, pero una teoría dice que tiene que ver con el propio nombre de Coyoacán. La gente del barrio dice que si le frotas la cabeza a la rana de la fuente, ¡te trae buena suerte!'
+          },
+          architecture: {
+            adult: 'La fachada de la parroquia combina un ábside plateresco del siglo XVI con torres barrocas añadidas en 1804, resultado de sucesivas ampliaciones a lo largo de cuatro siglos. El antiguo atrio conventual, hoy convertido en el Jardín Centenario, conserva parte de sus muros de piedra volcánica original y se comunica directamente con la vecina Plaza Hidalgo, formando el conjunto de plazas arboladas más animado de Coyoacán, rodeado de cafés y puestos de artesanía.',
+            kids: '¡La iglesia mezcla partes construidas hace 500 años con torres añadidas hace "solo" 200! 🕰️ Todavía se pueden ver trozos del muro original de piedra volcánica del convento. Alrededor hay cafés y puestos de artesanías por todas partes.'
+          }
+        }
+      },
+      {
+        id: 'museo-casa-trotsky',
+        name: {
+          adult: 'Museo Casa de León Trotsky',
+          kids: 'Museo Casa de León Trotsky — La Casa Fortaleza 🗼'
+        },
+        subtitle: {
+          adult: 'El último refugio del revolucionario ruso exiliado',
+          kids: '¡Una casa convertida en fortaleza de verdad!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'sur', order: 4 },
+        coords: [19.35770123, -99.15958737],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/MUSEO_CASA_DE_LEON_TROTSKY_1.jpg/330px-MUSEO_CASA_DE_LEON_TROTSKY_1.jpg',
+        audio: {
+          duration: 170,
+          title: {
+            adult: 'Audioguía: Casa de León Trotsky',
+            kids: '¡Aventura Sonora: La Casa Fortaleza!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'El revolucionario ruso León Trotsky, exiliado y perseguido por Stalin, vivió en esta casa de Coyoacán desde 1939 hasta su asesinato en 1940, tras una primera etapa alojado en la Casa Azul de Frida Kahlo y Diego Rivera, quienes gestionaron su asilo en México. Tras el atentado, su viuda Natalia Sedova conservó la vivienda tal cual quedó aquella noche, y en 1990 la convirtió en museo dedicado a su memoria y a la historia del movimiento revolucionario internacional.',
+            kids: '¡Aquí vivió un revolucionario ruso muy famoso que tuvo que escapar de su país! 🇷🇺 Antes de esta casa, vivió un tiempo en la Casa Azul con Frida Kahlo y Diego Rivera, que le ayudaron a venir a México. Su esposa convirtió la casa en museo para que la gente recordara su historia.'
+          },
+          legends: {
+            adult: 'La casa sufrió un primer atentado en mayo de 1940, cuando un comando armado ametralló los dormitorios sin lograr matar a Trotsky, que se salvó escondiéndose bajo la cama junto a su esposa; los impactos de bala aún son visibles en los muros. Meses después, en agosto de 1940, un agente soviético infiltrado como simpatizante logró acercarse a él en su propio despacho y asestarle un golpe mortal con un piolet de alpinista, en uno de los magnicidios más estudiados del siglo XX.',
+            kids: '¡Esta casa sufrió un ataque con muchísimos disparos, y todavía se pueden ver los agujeros de las balas en las paredes! 🔫 Por suerte, esa vez nadie murió. Meses después ocurrió algo mucho más triste, y por eso la casa se convirtió después en un lugar para recordar su historia.'
+          },
+          architecture: {
+            adult: 'Tras el primer atentado, la vivienda original se transformó en una auténtica fortaleza: se levantaron muros perimetrales de más de tres metros, se blindaron puertas y ventanas, y se construyeron torretas de vigilancia en las esquinas, todavía en pie. El despacho de Trotsky se conserva intacto, con sus libros, gafas y calendario congelado en la fecha del atentado, mientras que el jardín alberga su tumba, coronada con un monumento y la hoz y el martillo.',
+            kids: '¡Después del primer ataque, convirtieron la casa en una fortaleza de verdad! 🏰 Le pusieron muros altísimos, ventanas blindadas y hasta torretas de vigilancia en las esquinas, que todavía siguen ahí. Su despacho se conserva tal cual lo dejó, con sus libros y sus gafas.'
+          }
+        }
+      },
+      {
+        id: 'museo-nacional-antropologia',
+        name: {
+          adult: 'Museo Nacional de Antropología',
+          kids: 'Museo Nacional de Antropología — El Museo de la Piedra del Sol ☀️'
+        },
+        subtitle: {
+          adult: 'El mayor museo de culturas prehispánicas del mundo',
+          kids: '¡Aquí vive la piedra azteca más famosa del mundo!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'polanco', order: 2 },
+        coords: [19.42611111, -99.18611111],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Musee_National_Anthropologie-Entree.jpg/330px-Musee_National_Anthropologie-Entree.jpg',
+        audio: {
+          duration: 185,
+          title: {
+            adult: 'Audioguía: Museo Nacional de Antropología',
+            kids: '¡Aventura Sonora: El Museo de la Piedra del Sol!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Inaugurado en 1964 por el presidente Adolfo López Mateos, el Museo Nacional de Antropología reúne y ordena en 23 salas el legado de las culturas prehispánicas de México: olmecas, mayas, mexicas, teotihuacanos y muchas más. Su construcción, dirigida por el arquitecto Pedro Ramírez Vázquez, formó parte de un ambicioso proyecto de estado para consolidar un relato nacional del pasado indígena mexicano tras la Revolución.',
+            kids: '¡Este museo se inauguró en 1964 y guarda tesoros de todas las culturas antiguas de México! 🏺 Ahí dentro puedes conocer a los olmecas, los mayas y los aztecas, entre muchos otros pueblos. Tiene 23 salas, ¡cada una dedicada a una cultura distinta!'
+          },
+          legends: {
+            adult: 'Su pieza más célebre, la Piedra del Sol o "calendario azteca", encontrada en 1790 bajo el Zócalo, ha generado toda clase de teorías populares —desde predicciones apocalípticas hasta lecturas astronómicas fantasiosas— que los propios arqueólogos del museo llevan décadas desmintiendo: en realidad es un monumento ceremonial dedicado al Sol, no un calendario funcional como tal. Se dice también que el gran "paraguas" de piedra que preside el patio central, sostenido por una sola columna, desafía las leyes de la ingeniería según cuentan los guías a los visitantes más incrédulos.',
+            kids: '¡La pieza más famosa es un disco de piedra gigante llamado "calendario azteca"! ☀️ Aunque mucha gente cree que predice el futuro, los expertos dicen que en realidad era un monumento dedicado al Sol. En el patio central hay un "paraguas" de piedra gigante que se sostiene ¡con una sola columna en el medio!'
+          },
+          architecture: {
+            adult: 'El edificio, obra maestra de la arquitectura mexicana del siglo XX, se organiza alrededor de un patio central cubierto por "El Paraguas", una gran estructura de concreto de 84 por 54 metros sostenida por una única columna esculpida con motivos prehispánicos, de la que cae una cortina de agua. Las salas se distribuyen en dos niveles bajo un mismo techo continuo, permitiendo un recorrido cronológico y temático por las principales culturas de Mesoamérica.',
+            kids: '¡Hay una estructura gigante llamada "El Paraguas" que cubre el patio central, sostenida por una sola columna decorada! 🌂 Debajo cae una cortina de agua como una fuente. El museo tiene dos pisos enteros llenos de salas para recorrer.'
+          }
+        }
+      },
+      {
+        id: 'museo-soumaya',
+        name: {
+          adult: 'Museo Soumaya',
+          kids: 'Museo Soumaya — El Edificio de Escamas Plateadas ✨'
+        },
+        subtitle: {
+          adult: 'Un edificio futurista con más de 66.000 obras de arte',
+          kids: '¡Un museo con forma de escultura gigante y brillante!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'polanco', order: 3 },
+        coords: [19.44066, -99.20462],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Museo_Soumaya%2C_Ciudad_de_M%C3%A9xico%2C_M%C3%A9xico%2C_2015-07-18%2C_DD_12.JPG/330px-Museo_Soumaya%2C_Ciudad_de_M%C3%A9xico%2C_M%C3%A9xico%2C_2015-07-18%2C_DD_12.JPG',
+        audio: {
+          duration: 160,
+          title: {
+            adult: 'Audioguía: Museo Soumaya',
+            kids: '¡Aventura Sonora: El Edificio de Escamas Plateadas!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Inaugurado en 2011 y financiado por el empresario Carlos Slim, el Museo Soumaya lleva el nombre de su esposa fallecida, Soumaya Domit. Su colección, de entrada gratuita, reúne más de 66.000 piezas que van desde arte prehispánico mexicano hasta la mayor colección de esculturas de Auguste Rodin fuera de Francia, pasando por pintura europea de los siglos XV al XX.',
+            kids: '¡Este museo se inauguró en 2011 y es totalmente gratis! 🎟️ Tiene más de 66.000 obras de arte, incluida la colección más grande de esculturas de un artista francés muy famoso llamado Rodin que hay fuera de su propio país.'
+          },
+          legends: {
+            adult: 'El diseño del arquitecto Fernando Romero, yerno de Carlos Slim, generó un intenso debate desde su inauguración: se dice que su forma asimétrica, cubierta por 16.000 hexágonos de aluminio plateado, no tenía originalmente ninguna columna interior que interrumpiera el recorrido, todo un reto de ingeniería que obligó a rediseñar la estructura sobre la marcha. Popularmente se le apodó "la plancha" por su silueta curva y brillante, comparada también con un torso o una bota gigante según quien lo mire.',
+            kids: '¡La gente le ha puesto un montón de apodos graciosos a este edificio por su forma tan rara, como "la plancha"! 🪞 Está cubierto por 16.000 piezas de metal plateado con forma de hexágono, como una armadura brillante. ¡Cada persona ve una forma distinta cuando lo mira!'
+          },
+          architecture: {
+            adult: 'La estructura, de 16.000 paneles hexagonales de aluminio anodizado montados sobre una retícula de acero, forma una superficie curva sin una sola línea recta, apoyada sobre seis columnas asimétricas. En su interior, una rampa helicoidal continua conecta los seis niveles de exhibición sin necesidad de escaleras, permitiendo un recorrido ascendente ininterrumpido por toda la colección.',
+            kids: '¡Por fuera parece una escultura brillante sin ninguna línea recta! 🌀 Por dentro tiene una rampa que sube en espiral y conecta los seis pisos, así que puedes recorrer todo el museo sin usar ni una sola escalera.'
+          }
+        }
+      },
+      {
+        id: 'museo-jumex',
+        name: {
+          adult: 'Museo Jumex',
+          kids: 'Museo Jumex — El Vecino de Cemento Blanco 🏛️'
+        },
+        subtitle: {
+          adult: 'Arte contemporáneo frente al Museo Soumaya',
+          kids: '¡El museo blanco justo al lado del edificio brillante!'
+        },
+        category: CATEGORIES.HIDDEN,
+        essential: { route: 'polanco', order: 4 },
+        coords: [19.4406, -99.2033],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Museo_J%C3%BAmex_front.jpg/330px-Museo_J%C3%BAmex_front.jpg',
+        audio: {
+          duration: 155,
+          title: {
+            adult: 'Audioguía: Museo Jumex',
+            kids: '¡Aventura Sonora: El Vecino de Cemento Blanco!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Abierto en 2013, el Museo Jumex alberga la Colección Jumex, la mayor colección privada de arte contemporáneo de América Latina, reunida por el empresario Eugenio López Alonso a partir de la fortuna de la empresa jugera familiar. Se construyó deliberadamente justo enfrente del Museo Soumaya, creando en la Plaza Carso uno de los conjuntos museísticos privados más comentados de la ciudad, financiados por dos de las mayores fortunas de México.',
+            kids: '¡Este museo se abrió en 2013 y guarda una de las colecciones de arte moderno más grandes de toda Latinoamérica! 🎨 Lo construyeron a propósito justo enfrente del Museo Soumaya, así que puedes visitar los dos seguidos, ¡son vecinos!'
+          },
+          legends: {
+            adult: 'A diferencia de la exuberancia formal de su vecino el Soumaya, el arquitecto británico David Chipperfield diseñó un edificio deliberadamente sobrio de piedra travertino blanca, casi como un contrapunto silencioso. Se cuenta que esta austeridad fue una decisión consciente para no competir visualmente con la escultura plateada de enfrente, generando entre los arquitectos locales un debate constante sobre cuál de los dos edificios "gana" a la vista desde la plaza.',
+            kids: '¡Mientras que el museo de al lado es plateado y curvo, este es blanco y con formas rectas! 📐 Dicen que el arquitecto lo hizo así a propósito, para no "competir" con el brillo del edificio vecino. ¡Los dos juntos parecen el día y la noche!'
+          },
+          architecture: {
+            adult: 'El edificio, de cinco niveles revestidos en piedra travertino, se eleva sobre una planta baja porticada que conecta visualmente con la plaza pública, mientras que su cubierta ondulada de aluminio dentado —visible sobre todo desde el interior— es la única concesión formal a la geometría curva de su entorno. Sus salas diáfanas, sin columnas interiores, permiten montajes flexibles para exposiciones temporales de arte contemporáneo internacional.',
+            kids: '¡Tiene cinco pisos cubiertos de piedra blanca y un techo con forma de zigzag que casi no se ve desde fuera! 🏢 Por dentro las salas son enormes y sin columnas, así que pueden cambiar la forma de exponer el arte cada vez que quieren.'
+          }
+        }
+      },
+      {
+        id: 'basilica-guadalupe',
+        name: {
+          adult: 'Basílica de Guadalupe',
+          kids: 'Basílica de Guadalupe — El Templo que se Inclina 🌟'
+        },
+        subtitle: {
+          adult: 'El santuario mariano más visitado del mundo',
+          kids: '¡El templo más visitado del planeta, después de este hay pocos!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'basilica', order: 1 },
+        coords: [19.484444, -99.117222],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Bas%C3%ADlica_de_Santa_Mar%C3%ADa_de_Guadalupe_2018.jpg/330px-Bas%C3%ADlica_de_Santa_Mar%C3%ADa_de_Guadalupe_2018.jpg',
+        audio: {
+          duration: 180,
+          title: {
+            adult: 'Audioguía: Basílica de Guadalupe',
+            kids: '¡Aventura Sonora: El Templo que se Inclina!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Erigida a los pies del cerro del Tepeyac, la Basílica de Guadalupe marca el lugar donde, según la tradición católica, la Virgen de Guadalupe se apareció al indígena Juan Diego en 1531. La antigua basílica, construida entre los siglos XVI y XVIII, comenzó a hundirse de forma peligrosa por el terreno lacustre, lo que llevó a construir un nuevo templo, inaugurado en 1976, capaz de recibir a las multitudes que la visitan cada año, especialmente el 12 de diciembre.',
+            kids: '¡Aquí se apareció, según cuentan, la Virgen de Guadalupe a un indígena llamado Juan Diego hace casi 500 años! ⛪ La iglesia antigua se empezó a hundir por el terreno blandito, así que construyeron una nueva y mucho más grande en 1976 para que cupiera toda la gente que viene a visitarla.'
+          },
+          legends: {
+            adult: 'La reliquia central del santuario es el ayate de Juan Diego, un manto de fibra de maguey donde habría quedado impresa milagrosamente la imagen de la Virgen tras caer de él un ramo de rosas de Castilla —flores imposibles en pleno invierno mexicano—. Científicos y devotos llevan siglos debatiendo el origen de la imagen, que se conserva sin restauración aparente pese a los más de 490 años transcurridos, y que hoy puede verse desde una cinta transportadora bajo el altar para no interrumpir el paso de los peregrinos.',
+            kids: '¡La imagen de la Virgen apareció, según la leyenda, pintada mágicamente en la capa de un hombre llamado Juan Diego, cuando de ella cayeron unas rosas que no deberían crecer en esa época del año! 🌹 La capa original se sigue conservando, ¡y puedes verla pasando por una cinta que se mueve debajo del altar!'
+          },
+          architecture: {
+            adult: 'La nueva basílica, obra del arquitecto Pedro Ramírez Vázquez, adopta una planta circular de gran amplitud que permite a 10.000 fieles ver el altar simultáneamente desde cualquier punto, coronada por una cubierta de cobre en forma de carpa que evoca el manto de la Virgen. Junto a ella permanece la antigua basílica barroca, notablemente inclinada por el hundimiento diferencial del subsuelo, motivo por el que fue cerrada al culto y reconvertida en museo.',
+            kids: '¡La iglesia nueva es redonda y tiene sitio para 10.000 personas a la vez, todas viendo bien el altar! ⭕ Al lado se puede ver la iglesia vieja, que está clarísimamente torcida porque el terreno se hundió con el paso de los años, ¡ahora es un museo!'
+          }
+        }
+      },
+      {
+        id: 'capilla-cerrito',
+        name: {
+          adult: 'Capilla del Cerrito',
+          kids: 'Capilla del Cerrito — La Capilla de la Cima 🌵'
+        },
+        subtitle: {
+          adult: 'En la cima del Tepeyac, donde florecieron las rosas',
+          kids: '¡Sube hasta arriba de la colina para ver toda la ciudad!'
+        },
+        category: CATEGORIES.HIDDEN,
+        essential: { route: 'basilica', order: 2 },
+        coords: [19.48618333, -99.11598056],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Capilla_del_Cerrito_05.jpg/330px-Capilla_del_Cerrito_05.jpg',
+        audio: {
+          duration: 145,
+          title: {
+            adult: 'Audioguía: Capilla del Cerrito',
+            kids: '¡Aventura Sonora: La Capilla de la Cima!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'En la cima del cerro del Tepeyac, la tradición sitúa el lugar exacto donde Juan Diego recogió las rosas de Castilla que la Virgen le pidió llevar como prueba ante el obispo. La primera ermita se construyó aquí en el siglo XVII, y el templo actual, de finales del XIX, corona el punto más alto y sagrado de todo el conjunto guadalupano, muy anterior en importancia religiosa a la propia basílica de abajo.',
+            kids: '¡Arriba de esta colina fue, según la leyenda, donde Juan Diego recogió las rosas mágicas para llevárselas al obispo! 🌹 La primera capilla se construyó aquí hace más de 300 años. Es el punto más alto y más sagrado de todo el santuario.'
+          },
+          legends: {
+            adult: 'Se dice que el propio cerro, antes de la evangelización, era ya un lugar de culto a Tonantzin, diosa madre mexica, y que la aparición guadalupana se superpuso deliberadamente a esta devoción prehispánica previa para facilitar la conversión de los indígenas al catolicismo. Los peregrinos más devotos suben de rodillas la explanada hasta la capilla como penitencia, una tradición que se mantiene viva especialmente en la madrugada del 12 de diciembre.',
+            kids: '¡Antes de que llegara la Virgen, se dice que la gente ya subía a esta colina para rezarle a una diosa antigua! Por eso este lugar ya era especial desde antes. Algunos peregrinos muy devotos suben hasta arriba de rodillas, ¡como una promesa muy especial!'
+          },
+          architecture: {
+            adult: 'La capilla actual, de fachada neoclásica sencilla, se alza sobre una plataforma con vistas privilegiadas de todo el conjunto de la Villa de Guadalupe y buena parte del norte de la ciudad. En su exterior, un mural de mosaico narra el momento en que Juan Diego recoge las rosas, y unos jardines con motivos florales tallados en piedra recrean el prodigio que da nombre al lugar.',
+            kids: '¡Desde aquí arriba se ve toda la Villa de Guadalupe y buena parte de la ciudad! 🏙️ Por fuera tiene un mural hecho con piezas pequeñas de mosaico que cuenta la historia de las rosas. Alrededor hay jardines con flores talladas en piedra.'
           }
         }
       }

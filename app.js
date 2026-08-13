@@ -367,6 +367,7 @@
     mode: 'adult',
     cityId: null,
     category: CATEGORIES.ALL,
+    activeRoute: null, // id de la ruta imprescindible activa (para ciudades con varios circuitos)
     activePoiId: null,
     sheet: 'closed',
     audio: {
@@ -554,6 +555,11 @@
   );
   const getCategoryPinIconSvg = (cat) => PIN_ICON_SVG[cat] || PIN_ICON_SVG[CATEGORIES.HISTORY];
 
+  // Icono de la píldora "Ruta imprescindible" (bandera de meta)
+  const ROUTE_ICON_SVG = (color = 'currentColor') =>
+    `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"/><path d="M5 4h13l-3 4 3 4H5"/></svg>`;
+  const getCssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
   /* =========================================================
    * CUSTOM LEAFLET PIN (círculo de color + icono SVG, estilo app nativa)
    * =======================================================*/
@@ -602,12 +608,54 @@
     updatePinScale();
     renderMarkers();
   };
+  const isRouteMode = () => STATE.category === 'essential';
+  // Rutas imprescindibles de la ciudad activa; las ciudades sin `routes` propio
+  // se tratan como una única ruta "main" con el color primario de la app.
+  const getCityRoutes = () => (CURRENT_CITY && CURRENT_CITY.routes) || [
+    { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top!' }, color: null }
+  ];
+  const isPoiInActiveRoute = (poi) => !!(poi.essential && poi.essential.route === STATE.activeRoute);
+
+  const makeRouteIcon = (poi, order, color) => {
+    return L.divIcon({
+      className: 'custom-pin-wrap',
+      html: `<div class="custom-pin -route" data-id="${poi.id}" style="--pin-color:${color}">${order}</div>`,
+      iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -19]
+    });
+  };
+
   const renderMarkers = () => {
     markersLayer.clearLayers();
     markerLookup = {};
-    POIS.forEach((poi) => {
-      const dimmed = STATE.category !== CATEGORIES.ALL && poi.category !== STATE.category;
-      const marker = L.marker(poi.coords, { icon: makePinIcon(poi, dimmed) });
+    const routeMode = isRouteMode();
+    const routeMeta = routeMode && getCityRoutes().find((r) => r.id === STATE.activeRoute);
+    const routeColor = (routeMeta && routeMeta.color) || getCssVar('--color-primary') || '#F59E0B';
+    const list = routeMode && routeMeta
+      ? POIS.filter(isPoiInActiveRoute).sort((a, b) => a.essential.order - b.essential.order)
+      : (routeMode ? [] : POIS);
+    if (routeMode && list.length > 1) {
+      L.polyline(list.map((p) => p.coords), {
+        color: routeColor,
+        weight: 3, opacity: 0.8, dashArray: '2 10', lineCap: 'round'
+      }).addTo(markersLayer);
+      for (let i = 1; i < list.length; i++) {
+        const a = list[i - 1].coords, b = list[i].coords;
+        const mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+        L.marker(mid, {
+          icon: L.divIcon({
+            className: 'route-distance-wrap',
+            html: `<span class="route-distance" style="--route-color:${routeColor}">${formatDistance(haversineMeters(a, b))}</span>`,
+            iconSize: [0, 0]
+          }),
+          interactive: false,
+          zIndexOffset: -9000
+        }).addTo(markersLayer);
+      }
+    }
+    list.forEach((poi, i) => {
+      const dimmed = !routeMode && STATE.category !== CATEGORIES.ALL && poi.category !== STATE.category;
+      const icon = routeMode ? makeRouteIcon(poi, i + 1, routeColor) : makePinIcon(poi, dimmed);
+      const marker = L.marker(poi.coords, { icon });
       marker.options.poiId = poi.id;
       marker.options.category = poi.category;
       marker.on('click', () => selectPoi(poi.id, true));
@@ -718,6 +766,8 @@
     CURRENT_CITY = city;
     POIS = city.pois;
     STATE.category = CATEGORIES.ALL;
+    STATE.activeRoute = null;
+    closeRoutePicker();
     saveState();
     if (map) {
       closeSheet();
@@ -730,15 +780,87 @@
   /* =========================================================
    * HEADER
    * =======================================================*/
+  // Activa una ruta imprescindible concreta (tras elegirla directamente o
+  // desde el selector de circuitos) y refresca mapa/ficha/píldora en bloque.
+  const activateRoute = (routeId) => {
+    STATE.activeRoute = routeId;
+    STATE.category = 'essential';
+    closeRoutePicker();
+    updatePills();
+    updateEssentialPillLabel();
+    renderMarkers();
+    if (STATE.activePoiId) {
+      const poi = POIS.find((x) => x.id === STATE.activePoiId);
+      if (!poi || !isPoiInActiveRoute(poi)) closeSheet();
+      else setSelectedMarker(STATE.activePoiId);
+    }
+    const routeMeta = getCityRoutes().find((r) => r.id === routeId);
+    const routeLabel = routeMeta ? pickDual(routeMeta.name) : '';
+    showToast(STATE.mode === 'kids'
+      ? `¡Sigue los números de "${routeLabel}" en el mapa! 🚩`
+      : `Ruta "${routeLabel}": sigue el orden numerado en el mapa.`, 3000);
+  };
+
+  const closeRoutePicker = () => { if (els.routePicker) els.routePicker.hidden = true; };
+  const openRoutePicker = (routes) => {
+    if (!els.routePicker) return;
+    els.routePicker.innerHTML = routes.map((r) => `
+      <button type="button" class="route-option" data-route="${r.id}">
+        <span class="route-dot" style="background:${r.color}"></span>
+        <span>${pickDual(r.name)}</span>
+      </button>
+    `).join('');
+    $$('.route-option', els.routePicker).forEach((btn) => {
+      btn.addEventListener('click', () => activateRoute(btn.dataset.route));
+    });
+    els.routePicker.hidden = false;
+    // Ancla el selector justo bajo la píldora "Imprescindible" (y no a todo
+    // el ancho del header), para tapar lo mínimo posible del mapa.
+    const pill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
+    const anchor = els.routePicker.offsetParent;
+    if (pill && anchor) {
+      const pillRect = pill.getBoundingClientRect();
+      const anchorRect = anchor.getBoundingClientRect();
+      const pickerWidth = els.routePicker.offsetWidth;
+      const maxLeft = anchorRect.width - pickerWidth - 4;
+      const left = Math.max(4, Math.min(pillRect.left - anchorRect.left, maxLeft));
+      els.routePicker.style.left = `${left}px`;
+    }
+  };
+
+  const updateEssentialPillLabel = () => {
+    const pill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
+    if (!pill) return;
+    const isKids = STATE.mode === 'kids';
+    const active = STATE.category === 'essential' && getCityRoutes().find((r) => r.id === STATE.activeRoute);
+    pill.innerHTML = `<span class="pill-icon">${ROUTE_ICON_SVG()}</span><span>${
+      active ? pickDual(active.name) : (isKids ? '¡Lo Top! 🚩' : 'Imprescindible')
+    }</span>`;
+    pill.style.setProperty('--pill-color', (active && active.color) || getCssVar('--color-primary'));
+  };
+
   const buildHeader = () => {
     $$('.pill', els.filters).forEach((p) => {
       p.addEventListener('click', () => {
+        if (p.dataset.category === 'essential') {
+          const routes = getCityRoutes();
+          if (routes.length > 1) {
+            if (els.routePicker && !els.routePicker.hidden) closeRoutePicker();
+            else openRoutePicker(routes);
+            return;
+          }
+          activateRoute(routes[0].id);
+          return;
+        }
+        closeRoutePicker();
         STATE.category = p.dataset.category;
         updatePills();
+        updateEssentialPillLabel();
         renderMarkers();
         if (STATE.activePoiId) {
           const poi = POIS.find((x) => x.id === STATE.activePoiId);
-          if (poi && STATE.category !== CATEGORIES.ALL && poi.category !== STATE.category) closeSheet();
+          const stillVisible = poi && (STATE.category === CATEGORIES.ALL || poi.category === STATE.category);
+          if (!stillVisible) closeSheet();
           else setSelectedMarker(STATE.activePoiId);
         }
       });
@@ -746,6 +868,13 @@
     $$('.mode-toggle-option').forEach((opt) => {
       opt.addEventListener('click', () => setStateMode(opt.dataset.mode));
     });
+    // Cierra el selector de circuitos al tocar fuera de él (o de la píldora)
+    document.addEventListener('click', (e) => {
+      if (!els.routePicker || els.routePicker.hidden) return;
+      const essentialPill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
+      if (els.routePicker.contains(e.target) || (essentialPill && essentialPill.contains(e.target))) return;
+      closeRoutePicker();
+    }, true);
   };
   const updatePills = () => $$('.pill', els.filters)
     .forEach((p) => p.dataset.active = p.dataset.category === STATE.category ? 'true' : 'false');
@@ -901,6 +1030,8 @@
       const cat = p.dataset.category;
       if (cat === CATEGORIES.ALL) {
         p.innerHTML = `<span>${isKids ? 'Todo ✨' : 'Todos'}</span>`;
+      } else if (cat === 'essential') {
+        updateEssentialPillLabel();
       } else {
         const meta = CATEGORY_META[cat];
         if (meta) p.innerHTML = `<span class="pill-icon">${categoryIconSvg(cat)}</span><span>${pickDual(meta.label)}</span>`;
@@ -1905,6 +2036,7 @@
     els.filters = $('#filters');
     els.header = $('.header');
     els.lightbox = $('#imageLightbox');
+    els.routePicker = $('#routePicker');
 
     buildHeader();
     initMap();
