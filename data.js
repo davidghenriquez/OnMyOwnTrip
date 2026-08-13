@@ -3338,6 +3338,26 @@ const CITIES = {
             adult: 'De planta trapezoidal adaptada a la roca, combina el austero estilo militar templario con las reformas palaciegas que ordenó el Papa Luna: la Sala Gótica, la antigua biblioteca pontificia y una pequeña capilla. Sus muros, de hasta cuatro metros de grosor en algunos tramos, nunca llegaron a ser tomados por la fuerza en toda su historia medieval. Hoy es también escenario de rodajes: aquí se filmaron escenas de "El Cid" (1961) y de la ciudad de Meereen en "Juego de Tronos".',
             kids: '¡Las paredes de este castillo son tan gruesas como un coche puesto de pie! 🚗 Por eso nadie pudo conquistarlo nunca por la fuerza. Y un secreto: ¡aquí se rodaron escenas de una serie de dragones muy famosa! ¿Sabes cuál puede ser?'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién construyó este castillo a comienzos del siglo XIV?',
+            options: ['Los caballeros templarios', 'Los romanos', 'Los piratas berberiscos'],
+            correct: 0,
+            reveal: '¡Los caballeros templarios! ⚔️ Lo levantaron sobre una roca metida en el mar, aprovechando restos de una fortaleza árabe anterior.'
+          },
+          legends: {
+            question: '¿De qué dicho popular se dice que viene la tozudez del Papa Luna?',
+            options: ['"Mantenerse en sus trece"', '"Írsele el santo al cielo"', '"Estar en las nubes"'],
+            correct: 0,
+            reveal: '¡"Mantenerse en sus trece"! 📜 Escribió trece razones para no rendirse, y nunca cambió de idea en ninguna.'
+          },
+          architecture: {
+            question: '¿Qué serie de televisión muy famosa rodó escenas en este castillo?',
+            options: ['Juego de Tronos', 'Vikingos', 'La Casa de Papel'],
+            correct: 0,
+            reveal: '¡Juego de Tronos! 🐉 Aquí se filmaron escenas de la ciudad de Meereen, y también de la película "El Cid" en 1961.'
+          }
         }
       },
       {
@@ -3374,6 +3394,26 @@ const CITIES = {
             adult: 'El trazado sigue el sistema abaluartado propio del siglo XVI, con lienzos de piedra que se adaptan al perfil irregular de la roca y se refuerzan en los puntos más expuestos al oleaje. Varias puertas históricas, como el Portal Fosc o la Puerta de Santa María, permiten aún hoy el acceso al casco antiguo, cuyas calles estrechas y empinadas conservan el trazado medieval original casi sin modificaciones desde su construcción.',
             kids: '¡La muralla no es recta, sigue la forma de la roca! 🪨 Tiene varias puertas antiguas por donde se entra al pueblo, como el Portal Fosc. Las calles de dentro son estrechas y empinadas, ¡casi iguales a como eran hace cientos de años!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién encargó reforzar las murallas de Peñíscola en el siglo XVI?',
+            options: ['El rey Felipe II', 'Los caballeros templarios', 'El Papa Luna'],
+            correct: 0,
+            reveal: '¡El rey Felipe II! 👑 Se lo encargó a un ingeniero militar italiano para protegerse de los ataques piratas.'
+          },
+          legends: {
+            question: '¿Cómo avisaron los vigías a la población de un ataque pirata al amanecer?',
+            options: ['Tocando las campanas', 'Encendiendo hogueras', 'Gritando desde el castillo'],
+            correct: 0,
+            reveal: '¡Tocando las campanas! 🔔 Gracias a ese aviso, todo el pueblo pudo refugiarse dentro de la muralla a tiempo.'
+          },
+          architecture: {
+            question: '¿Cómo se llama una de las puertas históricas por las que todavía se entra al casco antiguo?',
+            options: ['El Portal Fosc', 'La Puerta del Sol', 'El Arco de Triunfo'],
+            correct: 0,
+            reveal: '¡El Portal Fosc! 🚪 Junto con la Puerta de Santa María, sigue dando acceso al pueblo hoy en día.'
+          }
         }
       },
       {
@@ -3409,6 +3449,26 @@ const CITIES = {
           architecture: {
             adult: 'Más que una construcción, El Bufador es un accidente geológico: una cavidad kárstica formada por la erosión marina sobre la roca caliza de la península. Su boca superior, de apenas medio metro de diámetro, contrasta con la fuerza del chorro que puede llegar a proyectar en días de temporal. Es uno de los rincones favoritos de fotógrafos y curiosos, accesible a pie desde el paseo que rodea la base del castillo, aunque conviene mantener la distancia cuando el mar está fuerte.',
             kids: '¡No lo construyó nadie, lo hizo el propio mar! 🌊 Durante muchísimos años, el agua fue abriendo un agujero en la roca poquito a poco. La salida de arriba es pequeñita, ¡pero el chorro de agua puede salir disparado muy alto los días de olas grandes!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué usaban antiguamente los pescadores el sonido de El Bufador?',
+            options: ['Para saber que se acercaba mal tiempo', 'Para llamar a los peces', 'Para orientarse de noche'],
+            correct: 0,
+            reveal: '¡Para saber que se acercaba mal tiempo! ⛈️ Si el Bufador "soplaba" con fuerza, era señal segura de tormenta.'
+          },
+          legends: {
+            question: 'Según la leyenda, ¿qué vive dentro de la grieta de El Bufador?',
+            options: ['El aliento de un dragón marino', 'Un pulpo gigante', 'Un tesoro pirata'],
+            correct: 0,
+            reveal: '¡El aliento de un dragón marino! 🐉 Su resoplido furioso sería, según la tradición, un aviso para los pescadores.'
+          },
+          architecture: {
+            question: '¿Qué es en realidad El Bufador?',
+            options: ['Un accidente geológico natural', 'Una construcción templaria', 'Un túnel secreto del castillo'],
+            correct: 0,
+            reveal: '¡Un accidente geológico! 🪨 Una cavidad kárstica formada por la erosión del mar sobre la roca caliza, sin que nadie la construyera.'
           }
         }
       },
@@ -3482,6 +3542,26 @@ const CITIES = {
             adult: 'Hoy Playa Norte es la más larga de la provincia de Castellón, con unos cinco kilómetros de arena dorada que arrancan junto al casco histórico y avanzan en paralelo al paseo marítimo de la Avenida Papa Luna. El proceso de erosión y sedimentación de sus acantilados fue estudiado ya en el siglo XVIII por el naturalista Cavanilles, y hoy la playa luce distinciones como la Bandera Azul gracias a la calidad de sus aguas.',
             kids: 'Hoy la Playa Norte tiene ¡cinco kilómetros de arena! Empieza justo al lado del castillo y sigue y sigue por la costa 🏖️. Es tan limpia y bonita que tiene banderas especiales que premian a las mejores playas.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué significa "Peñíscola", según su origen romano?',
+            options: ['"Casi isla"', '"Roca del rey"', '"Playa dorada"'],
+            correct: 0,
+            reveal: '¡"Casi isla"! 🏝️ Los romanos la llamaron "paene insula", porque la roca del castillo estuvo separada de tierra firme durante siglos.'
+          },
+          legends: {
+            question: 'Según los pescadores más mayores, ¿qué podía pasar con el camino de arena en las peores tormentas?',
+            options: ['Podía desaparecer por completo', 'Se volvía de otro color', 'Se llenaba de peces'],
+            correct: 0,
+            reveal: '¡Podía desaparecer por completo! 🌊 Y la roca del castillo volvía a quedarse sola en el mar, como en la Antigüedad.'
+          },
+          architecture: {
+            question: '¿Cuántos kilómetros de arena tiene hoy la Playa Norte?',
+            options: ['Cinco kilómetros', 'Un kilómetro', 'Veinte kilómetros'],
+            correct: 0,
+            reveal: '¡Cinco kilómetros! 🏖️ Es la playa más larga de toda la provincia de Castellón.'
+          }
         }
       },
       {
@@ -3518,6 +3598,26 @@ const CITIES = {
             adult: 'De planta de cruz latina, tiene cuatro tramos de nave cubiertos con bóvedas de crucería y capillas laterales entre los contrafuertes, mientras que el crucero se remata con una bóveda de cañón con lunetos. La fachada, sobria, se organiza en torno a una puerta de arco de medio punto enmarcada por un alfiz, y el campanario, de base cuadrada, se eleva en tres cuerpos hasta rematarse con una pequeña cúpula y pináculos.',
             kids: 'Por dentro tiene forma de cruz, con techos abovedados y varias capillas a los lados 🕍. Por fuera, la puerta de entrada tiene forma de arco redondeado. El campanario tiene tres pisos y termina en una cúpula pequeña con pináculos puntiagudos, ¡como un sombrero de mago!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién ayudó a pagar la reconstrucción de esta iglesia tras un incendio en el siglo XV?',
+            options: ['El papa Eugenio IV', 'El rey de Aragón', 'Los caballeros templarios'],
+            correct: 0,
+            reveal: '¡El papa Eugenio IV! ⛪ Concedió indulgencias especiales para financiar la reconstrucción, a petición de la reina María de Castilla.'
+          },
+          legends: {
+            question: '¿Qué objetos relacionados con el Papa Luna se conservan en esta iglesia?',
+            options: ['Objetos pontificios que le pertenecieron', 'Su corona real', 'Sus armas de guerra'],
+            correct: 0,
+            reveal: '¡Objetos pontificios que le pertenecieron! 👑 Aunque el Papa Luna vivía en el castillo, parte de su tesoro se guardaba aquí.'
+          },
+          architecture: {
+            question: '¿De qué forma es la planta de esta iglesia?',
+            options: ['De cruz latina', 'Circular', 'Cuadrada'],
+            correct: 0,
+            reveal: '¡De cruz latina! ⛪ Con cuatro tramos de nave y capillas laterales entre los contrafuertes.'
+          }
         }
       },
       {
@@ -3553,6 +3653,26 @@ const CITIES = {
           architecture: {
             adult: 'De planta de cruz latina con dos capillas a cada lado, el crucero se cubre con una cúpula y a los pies se levanta un coro alto. La fachada, rematada por una cornisa mixtilínea con pináculos que enmarca el escudo de Felipe V, guarda una curiosidad poco habitual en un templo religioso: junto a la puerta principal aparecen tallados en piedra motivos militares, como cañones y tambores de guerra, en lugar de los símbolos religiosos que sería de esperar.',
             kids: 'Tiene forma de cruz, con una cúpula en el centro y un coro elevado a la entrada 🎶. Pero fíjate bien en la puerta principal: en vez de decoraciones religiosas, ¡tiene tallados cañones y tambores de guerra en la piedra! Un detalle rarísimo para una ermita.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién mandó construir la ermita actual, entre 1708 y 1714?',
+            options: ['Sancho de Echevarría, gobernador militar', 'El Papa Luna', 'Los piratas berberiscos'],
+            correct: 0,
+            reveal: '¡Sancho de Echevarría! 🏰 La mandó construir en agradecimiento por la fidelidad del pueblo durante la Guerra de Sucesión.'
+          },
+          legends: {
+            question: 'Según la tradición, ¿quién trajo la imagen de la Virgen hasta Peñíscola?',
+            options: ['El apóstol Santiago', 'Los templarios', 'El Papa Luna'],
+            correct: 0,
+            reveal: '¡El apóstol Santiago, según la leyenda! ✨ Durante la dominación musulmana la escondieron en una cueva para protegerla.'
+          },
+          architecture: {
+            question: '¿Qué motivos poco habituales para una ermita aparecen tallados junto a la puerta principal?',
+            options: ['Cañones y tambores de guerra', 'Flores y ángeles', 'Peces y barcos'],
+            correct: 0,
+            reveal: '¡Cañones y tambores de guerra! ⚔️ Un detalle rarísimo, en vez de los símbolos religiosos que cabría esperar.'
           }
         }
       }
