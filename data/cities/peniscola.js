@@ -87,6 +87,10 @@ CITIES.peniscola.pois = [
             kids: '¡Aventura Sonora: La Muralla que Frenó a los Piratas!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (forman parte del recorrido por las calles del casco antiguo).', kids: '¡Se pueden ver en cualquier momento, no tienen horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Durante el siglo XVI, la costa mediterránea sufría constantes ataques de piratas berberiscos, así que Felipe II encargó reforzar las defensas de Peñíscola al ingeniero militar italiano Giovan Battista Antonelli, especialista en fortificaciones abaluartadas. El resultado fue un cinturón de murallas que rodea todo el casco antiguo y se funde con el propio castillo, convirtiendo la península en una plaza casi inexpugnable. Junto al Portal Fosc y otras puertas históricas, estas murallas protegieron a la población durante siglos de incursiones desde el mar.',
@@ -142,6 +146,10 @@ CITIES.peniscola.pois = [
             adult: 'Audioguía: El Bufador',
             kids: '¡Aventura Sonora: La Roca que Respira!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (accidente natural en la roca, al aire libre).', kids: '¡Se puede ver en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -200,6 +208,10 @@ CITIES.peniscola.pois = [
             kids: '¡Aventura Sonora: Hora de Comer junto al Mar!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Horario habitual de restaurante: en torno a 13:00-16:00 y 20:00-23:00 (puede variar).', kids: 'Abre a la hora de comer y a la hora de cenar.' },
+          price: { adult: 'No es un monumento con entrada: se paga según lo que pidas de la carta.', kids: 'Aquí no se paga entrada, ¡se paga la comida que pidas!' }
+        },
         tabs: {
           history: {
             adult: 'La Llotja es una parada de ambientación (no un establecimiento real) que recrea el espíritu de las lonjas y restaurantes marineros que bordean el puerto de Peñíscola desde mediados del siglo XX, cuando la pesca de bou dejaba su género fresco cada mañana. Sirve para imaginar cómo huele y sabe la cocina de la Costa del Azahar entre parada y parada de la ruta, con el castillo siempre de fondo.',
@@ -235,6 +247,10 @@ CITIES.peniscola.pois = [
             adult: 'Audioguía: Playa Norte',
             kids: '¡Aventura Sonora: La Playa que Casi Era una Isla!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (playa pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -292,6 +308,10 @@ CITIES.peniscola.pois = [
             kids: '¡Aventura Sonora: La Iglesia del Tesoro del Papa!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Abierta al público todos los días, por la mañana y por la tarde (fuera de los horarios de misa).', kids: 'Abre todos los días, por la mañana y por la tarde.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La iglesia se levantó poco después de la conquista cristiana de Peñíscola en el siglo XIII, y de aquella primera construcción todavía se conservan la portada y parte del muro original. A mediados del siglo XV un incendio la destruyó casi por completo, y el papa Eugenio IV concedió indulgencias especiales para financiar su reconstrucción, a petición de la reina María de Castilla. Entre 1725 y 1739 el templo se amplió y reorientó por completo, y en 1862 se añadió el campanario que hoy sigue en pie.',
@@ -347,6 +367,10 @@ CITIES.peniscola.pois = [
             adult: 'Audioguía: Ermita de la Virgen de la Ermitana',
             kids: '¡Aventura Sonora: La Capilla de la Patrona!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'El interior suele abrirse en horario de misa y en las fiestas de la patrona; el exterior y su entorno se ven en cualquier momento.', kids: 'Por fuera se ve siempre; por dentro solo en fiestas o cuando hay misa.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
