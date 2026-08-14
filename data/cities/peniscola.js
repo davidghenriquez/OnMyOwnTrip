@@ -11,7 +11,7 @@ CITIES.peniscola.pois = [
           kids: '¡Un castillo sobre el mar donde vivió un Papa muy testarudo!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 4 },
+        essential: { route: 'main', order: 5 },
         coords: [40.3626, 0.4020],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg/330px-Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg',
         audio: {
@@ -67,7 +67,7 @@ CITIES.peniscola.pois = [
           kids: '¡Un muro gigante para que no entraran los piratas!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 2 },
+        essential: { route: 'main', order: 3 },
         coords: [40.3586, 0.4068],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Overview_of_walls_in_Pe%C3%B1%C3%ADscola%2C_Bajo_Maestrazgo_Comarca.jpg/330px-Overview_of_walls_in_Pe%C3%B1%C3%ADscola%2C_Bajo_Maestrazgo_Comarca.jpg',
         audio: {
@@ -123,7 +123,7 @@ CITIES.peniscola.pois = [
           kids: '¡Una roca que resopla como una ballena!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'main', order: 6 },
+        essential: { route: 'main', order: 7 },
         coords: [40.3570, 0.4073],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Bufador.JPG/330px-Bufador.JPG',
         audio: {
@@ -180,6 +180,7 @@ CITIES.peniscola.pois = [
           kids: '¡El arroz más rico junto al puerto!'
         },
         category: CATEGORIES.GASTRONOMY,
+        essential: { route: 'main', order: 2 },
         coords: [40.3572, 0.4040],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Arroz_a_banda_%28Torreblanca%29.jpg/330px-Arroz_a_banda_%28Torreblanca%29.jpg', // foto genérica de arròs a banda de la Costa del Azahar (lugar ilustrativo, no una foto del "restaurante" en sí)
         audio: {
@@ -271,7 +272,7 @@ CITIES.peniscola.pois = [
           kids: '¡Aquí se guardan objetos que usó de verdad un Papa!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 3 },
+        essential: { route: 'main', order: 4 },
         coords: [40.3605, 0.4025],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Church_of_Santa_Maria%2C_Peniscola_01.JPG/330px-Church_of_Santa_Maria%2C_Peniscola_01.JPG',
         audio: {
@@ -327,7 +328,7 @@ CITIES.peniscola.pois = [
           kids: '¡La casa de la Virgen que cuida el pueblo entero!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 5 },
+        essential: { route: 'main', order: 6 },
         coords: [40.3628, 0.4017],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/045_Esgl%C3%A9sia_de_la_Mare_de_D%C3%A9u_de_l%27Ermitana_%28Pen%C3%ADscola%29%2C_pl._d%27Armes.jpg/330px-045_Esgl%C3%A9sia_de_la_Mare_de_D%C3%A9u_de_l%27Ermitana_%28Pen%C3%ADscola%29%2C_pl._d%27Armes.jpg',
         audio: {

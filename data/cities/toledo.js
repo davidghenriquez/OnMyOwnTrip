@@ -11,7 +11,7 @@ CITIES.toledo.pois = [
           kids: 'Un castillo de piedra con agujas de sol'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 4 },
+        essential: { route: 'main', order: 5 },
         coords: [39.8568, -4.0244],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cathedral_of_Toledo_%287079311505%29.jpg/330px-Cathedral_of_Toledo_%287079311505%29.jpg',
         audio: {
@@ -123,7 +123,7 @@ CITIES.toledo.pois = [
           kids: '¡Las mejores vistas de todo Toledo!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'main', order: 7 },
+        essential: { route: 'main', order: 9 },
         coords: [39.8530, -4.0205],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Vista_de_Toledo_desde_el_mirador_del_Valle_01.jpg/330px-Vista_de_Toledo_desde_el_mirador_del_Valle_01.jpg',
         audio: {
@@ -215,7 +215,7 @@ CITIES.toledo.pois = [
           kids: '¡Un cuadro de gigante muy famoso!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 5 },
+        essential: { route: 'main', order: 6 },
         coords: [39.8560, -4.0269],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Tol%C3%A8de_-_clocher_de_Santo_Tom%C3%A9.JPG/330px-Tol%C3%A8de_-_clocher_de_Santo_Tom%C3%A9.JPG',
         audio: {
@@ -342,7 +342,7 @@ CITIES.toledo.pois = [
           kids: '¡El castillo más grande de Toledo!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 3 },
+        essential: { route: 'main', order: 4 },
         coords: [39.8581, -4.0219],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/FP_Toledo_Alcazar_2025_-_Views.jpg/330px-FP_Toledo_Alcazar_2025_-_Views.jpg',
         audio: {
@@ -470,7 +470,7 @@ CITIES.toledo.pois = [
           kids: '¡Una lámpara que ardió encendida 300 años!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'juderia', order: 6 },
+        essential: { route: 'juderia', order: 7 },
         coords: [39.8606, -4.0243],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Cristo_de_la_Luz_2025_Fa%C3%A7ade.jpg/330px-Cristo_de_la_Luz_2025_Fa%C3%A7ade.jpg',
         audio: {
@@ -576,6 +576,7 @@ CITIES.toledo.pois = [
           kids: '¡Sube a sus torres y verás TODO Toledo!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'conventos', order: 6 },
         coords: [39.8581, -4.0261],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/PanToledo01copia.jpg/330px-PanToledo01copia.jpg',
         audio: {
@@ -611,7 +612,7 @@ CITIES.toledo.pois = [
           kids: '¡Aquí se vendían animales hace 1.000 años!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'main', order: 2 },
+        essential: { route: 'main', order: 3 },
         coords: [39.8595, -4.0214],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Toledo_Zocodover_01_lou.JPG/330px-Toledo_Zocodover_01_lou.JPG',
         audio: {
@@ -667,7 +668,7 @@ CITIES.toledo.pois = [
           kids: '¡Construida con madera traída desde muy, muy lejos!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 6 },
+        essential: { route: 'main', order: 7 },
         coords: [39.8557, -4.0294],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Toledo_-_Sinagoga_El_Transito_01.jpg/330px-Toledo_-_Sinagoga_El_Transito_01.jpg',
         audio: {
@@ -758,6 +759,7 @@ CITIES.toledo.pois = [
           kids: '¡Aquí Cervantes dice que encontró el Quijote!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'juderia', order: 5 },
         coords: [39.8585, -4.0233],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Toledo%2C_Calle_del_Comercio-PM_65607.jpg/330px-Toledo%2C_Calle_del_Comercio-PM_65607.jpg',
         audio: {
@@ -1255,7 +1257,7 @@ CITIES.toledo.pois = [
           kids: '¡Esta mezquita antigua ha sido tienda, taller y hasta fábrica de velas!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'juderia', order: 5 },
+        essential: { route: 'juderia', order: 6 },
         coords: [39.8585, -4.0228],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Mezquita_de_las_Torner%C3%ADas._Toledo.jpg/330px-Mezquita_de_las_Torner%C3%ADas._Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Mezquita de las Tornerías', kids: '¡Aventura Sonora: La Mezquita Escondida en un Barrio Comercial!' } },
@@ -1282,6 +1284,7 @@ CITIES.toledo.pois = [
           kids: '¡Esta antigua iglesia llegó a ser discoteca antes de convertirse en centro de arte!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 2 },
         coords: [39.8596, -4.0252],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Toledo%2C_Iglesia_san_Vicente-PM_65615.jpg/330px-Toledo%2C_Iglesia_san_Vicente-PM_65615.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Plaza de San Vicente', kids: '¡Aventura Sonora: La Iglesia que se Convirtió en Discoteca!' } },
@@ -1518,7 +1521,7 @@ CITIES.toledo.pois = [
           kids: '¡Estas monjas pertenecen a una orden militar y hacen dulces con recetas muy antiguas!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'conventos', order: 6 },
+        essential: { route: 'conventos', order: 7 },
         coords: [39.860722, -4.026250],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Claustro_de_la_Mona._Toledo.jpg/330px-Claustro_de_la_Mona._Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Convento de las Comendadoras de Santiago', kids: '¡Aventura Sonora: El Convento de las Guerreras de Santiago!' } },
@@ -1545,6 +1548,7 @@ CITIES.toledo.pois = [
           kids: '¡En su cripta hay 50 momias que llevan siglos conservadas!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 8 },
         coords: [39.854472, -4.024058],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Toledo_-_San_Andres.jpg/330px-Toledo_-_San_Andres.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Iglesia de San Andrés', kids: '¡Aventura Sonora: La Iglesia de las Momias!' } },

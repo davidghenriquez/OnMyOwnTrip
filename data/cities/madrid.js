@@ -11,7 +11,7 @@ CITIES.madrid.pois = [
           kids: '¡Un palacio con más de 3.000 habitaciones!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 4 },
+        essential: { route: 'main', order: 5 },
         coords: [40.4180, -3.7144],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Palacio_Real_de_Madrid_Julio_2016_%28cropped%29.jpg/330px-Palacio_Real_de_Madrid_Julio_2016_%28cropped%29.jpg',
         audio: {
@@ -274,7 +274,7 @@ CITIES.madrid.pois = [
           kids: '¡Una avenida que tardó 21 años en construirse entera!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'main', order: 6 },
+        essential: { route: 'main', order: 8 },
         coords: [40.420438, -3.706293],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_%28Madrid%29_%2823815769052%29.jpg/330px-Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_%28Madrid%29_%2823815769052%29.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Gran Vía', kids: '¡Aventura Sonora: La Avenida de los Rascacielos!' } },
@@ -355,7 +355,7 @@ CITIES.madrid.pois = [
           kids: '¡Tardaron 110 años en terminarla!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 5 },
+        essential: { route: 'main', order: 6 },
         coords: [40.415556, -3.714444],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Almudena_2022_-_overview.jpg/330px-Almudena_2022_-_overview.jpg',
         audio: { duration: 168, title: { adult: 'Audioguía: Catedral de la Almudena', kids: '¡Aventura Sonora: La Catedral de 110 Años y Colores!' } },
@@ -434,6 +434,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí estuvo prisionero un rey de Francia!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 4 },
         coords: [40.415324, -3.710195],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/%C2%A92021_Antonello_Dellanotte_Plaza_de_la_Villa_y_Torre_de_los_Lujanes_IMG_2491.jpg/330px-%C2%A92021_Antonello_Dellanotte_Plaza_de_la_Villa_y_Torre_de_los_Lujanes_IMG_2491.jpg',
         audio: { duration: 158, title: { adult: 'Audioguía: Plaza de la Villa', kids: '¡Aventura Sonora: La Plaza que Encerró a un Rey Francés!' } },
@@ -487,7 +488,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí están Don Quijote y Sancho Panza en bronce!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'palacio', order: 5 },
+        essential: { route: 'palacio', order: 6 },
         coords: [40.42339, -3.71223],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Plaza_de_Espa%C3%B1a_de_Madrid_-_02.jpg/330px-Plaza_de_Espa%C3%B1a_de_Madrid_-_02.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Plaza de España', kids: '¡Aventura Sonora: La Plaza de Don Quijote y Sancho!' } },
@@ -724,7 +725,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí compraban paja para las mulas de los curas!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'austrias', order: 3 },
+        essential: { route: 'austrias', order: 4 },
         coords: [40.41256389, -3.71113611],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Visual_Plaza_de_la_Paja.jpg/330px-Visual_Plaza_de_la_Paja.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza de la Paja', kids: '¡Aventura Sonora: La Plaza Antes de la Plaza Mayor!' } },
@@ -778,6 +779,7 @@ CITIES.madrid.pois = [
           kids: '¡Por fuera parece sencillo, pero por dentro esconde un tesoro!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 7 },
         coords: [40.4186602, -3.7062538],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Monasterio_de_las_Descalzas_Reales_%28Madrid%29_01.jpg/330px-Monasterio_de_las_Descalzas_Reales_%28Madrid%29_01.jpg',
         audio: { duration: 160, title: { adult: 'Audioguía: Monasterio de las Descalzas Reales', kids: '¡Aventura Sonora: El Convento del Tesoro Escondido!' } },
@@ -804,7 +806,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí guardan una reliquia que "cambia" una vez al año!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'palacio', order: 6 },
+        essential: { route: 'palacio', order: 7 },
         coords: [40.4200041, -3.7115521],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Real_Monasterio_de_la_Encarnaci%C3%B3n_%28Madrid%29_01.jpg/330px-Real_Monasterio_de_la_Encarnaci%C3%B3n_%28Madrid%29_01.jpg',
         audio: { duration: 165, title: { adult: 'Audioguía: Real Monasterio de la Encarnación', kids: '¡Aventura Sonora: El Convento de la Sangre Milagrosa!' } },
@@ -883,6 +885,7 @@ CITIES.madrid.pois = [
           kids: '¡Un marqués guardó aquí más de 50.000 objetos curiosos!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'palacio', order: 5 },
         coords: [40.423684, -3.714577],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Palacio_del_Marqu%C3%A9s_de_Cerralbo_%28Madrid%29_01.jpg/330px-Palacio_del_Marqu%C3%A9s_de_Cerralbo_%28Madrid%29_01.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Museo Cerralbo', kids: '¡Aventura Sonora: El Palacio del Marqués Coleccionista!' } },
@@ -1169,7 +1172,7 @@ CITIES.madrid.pois = [
           kids: '¡Un jardín escondido que casi nadie conoce!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'austrias', order: 4 },
+        essential: { route: 'austrias', order: 5 },
         coords: [40.4129877, -3.7115786],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Jardines_del_Principe_de_Anglona_%289%29_%2811983191794%29.jpg/330px-Jardines_del_Principe_de_Anglona_%289%29_%2811983191794%29.jpg',
         audio: { duration: 140, title: { adult: 'Audioguía: Jardines del Príncipe de Anglona', kids: '¡Aventura Sonora: El Jardín Secreto de La Latina!' } },
@@ -1223,7 +1226,7 @@ CITIES.madrid.pois = [
           kids: '¡Tiene una de las cúpulas más grandes de toda Europa!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'austrias', order: 5 },
+        essential: { route: 'austrias', order: 7 },
         coords: [40.4108476, -3.7138633],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Exterior_-_Real_basilica_de_San_Francisco_el_Grande_-_Madrid_01.jpg/330px-Exterior_-_Real_basilica_de_San_Francisco_el_Grande_-_Madrid_01.jpg',
         audio: { duration: 160, title: { adult: 'Audioguía: Basílica de San Francisco el Grande', kids: '¡Aventura Sonora: La Cúpula Gigante de Goya!' } },
@@ -1276,6 +1279,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí se cuenta una leyenda sobre un pozo mágico!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'austrias', order: 6 },
         coords: [40.4122, -3.71093056],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Museo_de_San_Isidro.jpg/330px-Museo_de_San_Isidro.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Museo de San Isidro', kids: '¡Aventura Sonora: El Museo del Pozo Milagroso!' } },
@@ -1459,7 +1463,7 @@ CITIES.madrid.pois = [
           kids: '¡Antes hubo aquí un mercado hecho de hierro traído desde Londres!'
         },
         category: CATEGORIES.GASTRONOMY,
-        essential: { route: 'austrias', order: 6 },
+        essential: { route: 'austrias', order: 8 },
         coords: [40.41111111, -3.70975],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Madrid_-_Mercado_de_la_Cebada_-_outside.jpg/330px-Madrid_-_Mercado_de_la_Cebada_-_outside.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Mercado de la Cebada', kids: '¡Aventura Sonora: El Mercado que Reemplazó a un Palacio de Hierro!' } },
@@ -1486,6 +1490,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí vivían los representantes del Papa en España!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'austrias', order: 3 },
         coords: [40.413425, -3.70905278],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_%28Madrid%29_01.jpg/330px-Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_%28Madrid%29_01.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Calle del Nuncio', kids: '¡Aventura Sonora: La Calle del Embajador del Papa!' } },
