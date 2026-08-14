@@ -57,6 +57,62 @@ CITIES.cdmx.pois = [
         }
       },
       {
+        id: 'palacio-nacional-cdmx',
+        name: {
+          adult: 'Palacio Nacional',
+          kids: 'Palacio Nacional — El Palacio de la Campana de la Libertad 🔔🇲🇽'
+        },
+        subtitle: {
+          adult: 'Sede del poder en México desde los tiempos de Moctezuma',
+          kids: '¡Aquí vive la campana que anuncia la fiesta más grande de México!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'centro', order: 2 },
+        coords: [19.4327, -99.1332],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Puerta_Principal_del_Palacio_Nacional_de_M%C3%A9xico_1.jpg/330px-Puerta_Principal_del_Palacio_Nacional_de_M%C3%A9xico_1.jpg',
+        audio: {
+          duration: 185,
+          title: {
+            adult: 'Audioguía: Palacio Nacional',
+            kids: '¡Aventura Sonora: El Palacio de la Campana!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'El Palacio Nacional ocupa, en pleno lado oriental del Zócalo, el mismo solar donde se levantaban las "casas nuevas" de Moctezuma II y, tras la conquista, el palacio virreinal que Hernán Cortés construyó con piedras del recinto sagrado mexica. La Corona española lo compró en 1562 para convertirlo en residencia de los virreyes, y desde la Independencia ha sido sede del poder ejecutivo federal, con más de 200 metros de fachada de cantera roja que lo convierten en uno de los edificios históricos más largos de América.',
+            kids: '¡Este palacio está construido justo donde vivía el emperador azteca Moctezuma, hace más de 500 años! Después los españoles hicieron aquí su propio palacio, usando piedras del templo azteca que había al lado. Desde entonces, este ha sido siempre el sitio desde donde se gobierna México. ¡Su fachada mide más de 200 metros, casi como dos campos de fútbol seguidos!'
+          },
+          legends: {
+            adult: 'En el balcón central cuelga la Campana de Dolores, la misma que el cura Miguel Hidalgo hizo repicar en 1810 para llamar al pueblo a las armas contra el dominio español, el célebre "Grito de Dolores". Trasladada aquí en 1896, cada 15 de septiembre a medianoche el presidente de México la hace sonar de nuevo ante la plaza abarrotada, repitiendo el mismo grito que inició la Independencia. Se dice también que bajo el palacio se esconden túneles que conectarían con la Catedral y el Templo Mayor, usados antaño para escapes secretos del poder virreinal.',
+            kids: '¡En el balcón principal cuelga la campana de verdad que un cura hizo sonar hace más de 200 años para empezar la lucha por la libertad de México! Cada 15 de septiembre a medianoche, el presidente la toca otra vez delante de miles de personas. ¡También cuentan que hay túneles secretos escondidos bajo el palacio!'
+          },
+          architecture: {
+            adult: 'En la escalera principal y a lo largo del primer piso se despliega "La Historia de México", el mural más ambicioso de Diego Rivera: casi 3.000 años de historia narrados en un friso continuo que va desde las civilizaciones prehispánicas hasta la Revolución Mexicana, pintado entre 1929 y 1951. El edificio, de tres plantas alrededor de amplios patios interiores, combina la estructura virreinal original con ampliaciones del siglo XX, entre ellas el propio tercer piso, añadido en 1926.',
+            kids: '¡Por dentro tiene una escalera gigante cubierta de pinturas que cuentan TODA la historia de México, desde los aztecas hasta hace cien años! Las pintó un artista muy famoso, Diego Rivera, y tardó más de 20 años en terminarlas. El edificio tiene patios enormes por dentro, ¡como un laberinto de historia!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Sobre qué se construyó el Palacio Nacional?',
+            options: ['Sobre el antiguo palacio de Moctezuma', 'Sobre un campo vacío a las afueras', 'Sobre una fábrica colonial'],
+            correct: 0,
+            reveal: '¡Sobre el palacio de Moctezuma II! 🏛️ La Corona española lo compró en 1562 para convertirlo en residencia de los virreyes.'
+          },
+          legends: {
+            question: '¿Qué campana histórica cuelga del balcón principal del Palacio Nacional?',
+            options: ['La Campana de Dolores, del Grito de Independencia', 'Una campana traída de España', 'La campana de la Catedral'],
+            correct: 0,
+            reveal: '¡La Campana de Dolores! 🔔 Es la misma que hizo sonar el cura Miguel Hidalgo en 1810 para empezar la Independencia.'
+          },
+          architecture: {
+            question: '¿Qué artista pintó el mural "La Historia de México" en la escalera principal?',
+            options: ['Diego Rivera', 'Frida Kahlo', 'David Alfaro Siqueiros'],
+            correct: 0,
+            reveal: '¡Diego Rivera! 🎨 Tardó más de 20 años, entre 1929 y 1951, en terminar este friso de casi 3.000 años de historia.'
+          }
+        }
+      },
+      {
         id: 'templo-mayor',
         name: {
           adult: 'Templo Mayor',
@@ -67,7 +123,7 @@ CITIES.cdmx.pois = [
           kids: '¡Una pirámide azteca oculta bajo la ciudad!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'centro', order: 2 },
+        essential: { route: 'centro', order: 3 },
         coords: [19.4350, -99.1314],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Partial_view_Templo_Mayor.jpg/330px-Partial_view_Templo_Mayor.jpg',
         audio: {
@@ -123,7 +179,7 @@ CITIES.cdmx.pois = [
           kids: '¡Un palacio que pesa tanto que se hunde poquito a poco!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'centro', order: 4 },
+        essential: { route: 'centro', order: 5 },
         coords: [19.43527778, -99.14138889],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Bellas_Artes_01.jpg/330px-Bellas_Artes_01.jpg',
         audio: {
@@ -179,7 +235,7 @@ CITIES.cdmx.pois = [
           kids: '¡Un edificio que se mueve para no romperse en los terremotos!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'centro', order: 3 },
+        essential: { route: 'centro', order: 4 },
         coords: [19.43388889, -99.14055556],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Torre_Latinoamericana_Mexico_City.jpg/330px-Torre_Latinoamericana_Mexico_City.jpg',
         audio: {
@@ -458,7 +514,7 @@ CITIES.cdmx.pois = [
           kids: '¡El parque más viejito de todo el continente!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'centro', order: 5 },
+        essential: { route: 'centro', order: 6 },
         coords: [19.43555556, -99.14388889],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Alameda_Central_desde_el_aire_1.jpg/330px-Alameda_Central_desde_el_aire_1.jpg',
         audio: {
