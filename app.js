@@ -784,7 +784,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=10`;
+    const src = `data/cities/${cityId}.js?v=11`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
@@ -1462,6 +1462,19 @@
       const bubble = document.createElement('div');
       bubble.className = 'ai-msg-bubble';
       bubble.textContent = msg.text || '';
+      // msg.link solo lo trae el mensaje fijo de info práctica (ver
+      // showVisitInfo): se añade como <a> real vía DOM, nunca con innerHTML,
+      // para no arriesgarse a inyectar HTML si algún día este campo llegara
+      // a depender de un texto menos controlado que el nuestro.
+      if (msg.link) {
+        const a = document.createElement('a');
+        a.className = 'ai-msg-link';
+        a.href = msg.link;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = '🎟️ Comprar entrada oficial ↗';
+        bubble.appendChild(a);
+      }
       wrap.appendChild(av);
       wrap.appendChild(bubble);
       box.appendChild(wrap);
@@ -1498,7 +1511,7 @@
     const hours = pickDual(poi.visitInfo.hours);
     const price = pickDual(poi.visitInfo.price);
     const text = `🕐 Horario\n${hours}\n\n🎟️ Precio\n${price}\n\n📅 Datos orientativos: pueden cambiar, confirma en la web oficial antes de ir.`;
-    hist.push({ role: 'assistant', text });
+    hist.push({ role: 'assistant', text, link: poi.visitInfo.link || null });
     renderAiMessages();
     scrollAiToBottom();
     saveState();
