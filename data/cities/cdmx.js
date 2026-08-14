@@ -560,6 +560,61 @@ CITIES.cdmx.pois = [
         }
       },
       {
+        id: 'angel-independencia',
+        name: {
+          adult: 'Ángel de la Independencia',
+          kids: 'El Ángel de la Independencia — La Dama Dorada Voladora 👼✨'
+        },
+        subtitle: {
+          adult: 'El monumento más fotografiado de Paseo de la Reforma',
+          kids: '¡Una estatua dorada gigante que brilla como el sol!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [19.4270, -99.1677],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Angel_de_la_Independencia_Mexico_City.jpg/330px-Angel_de_la_Independencia_Mexico_City.jpg',
+        audio: {
+          duration: 170,
+          title: {
+            adult: 'Audioguía: Ángel de la Independencia',
+            kids: '¡Aventura Sonora: La Dama Dorada Voladora!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Inaugurada el 16 de septiembre de 1910, en pleno centenario del inicio de la Independencia, esta columna conmemorativa fue un encargo del presidente Porfirio Díaz al arquitecto Antonio Rivas Mercado. Sus 36 metros de altura se alzan sobre la glorieta donde confluye el Paseo de la Reforma, la gran avenida trazada en el siglo XIX a imitación de los grandes bulevares europeos, y desde su inauguración se convirtió en el símbolo más reconocible de la capital.',
+            kids: '¡Esta columna tan alta se inauguró hace más de 100 años, para celebrar 100 años desde que empezó la lucha por la libertad de México! Mide 36 metros, ¡como un edificio de 12 pisos! Está en una de las avenidas más famosas de la ciudad.'
+          },
+          legends: {
+            adult: 'En su cúspide, una escultura de bronce dorado de casi siete metros representa a la Victoria alada, popularmente conocida como "El Ángel", sosteniendo una corona de laurel y una cadena rota, símbolo de la libertad conquistada. En 1957, un fuerte terremoto derribó la estatua desde lo alto, haciéndola añicos contra el suelo; se reconstruyó con el mismo molde y hoy es, además de monumento, un mausoleo que guarda los restos de héroes de la Independencia como Hidalgo, Morelos y Guerrero. Su base se ha convertido también en el punto de encuentro espontáneo de la ciudad para celebrar grandes victorias, especialmente las de la selección mexicana de fútbol.',
+            kids: '¡Arriba del todo hay una estatua dorada de una diosa con alas, a la que todos llaman cariñosamente "El Ángel"! En 1957 un terremoto la tiró al suelo y se rompió en pedazos, ¡pero la reconstruyeron igual que antes! Dentro de la columna descansan los restos de varios héroes que lucharon por la libertad de México. Cuando la selección de fútbol gana un partido importante, ¡miles de personas vienen aquí a celebrar!'
+          },
+          architecture: {
+            adult: 'La columna, de estilo neoclásico y recubierta de mármol, se apoya sobre un pedestal cuadrangular flanqueado por cuatro grupos escultóricos que representan la Ley, la Guerra, la Paz y la Justicia, obra de escultores como Enrique Alciati. En su interior, una escalera de caracol de 200 escalones —hoy cerrada al público por motivos de seguridad— ascendía hasta un mirador bajo los pies del Ángel, desde donde se contemplaba toda la avenida Reforma.',
+            kids: '¡La columna está cubierta de mármol y tiene cuatro estatuas grandes en la base que representan ideas importantes, como la paz y la justicia! Por dentro tenía una escalera de caracol con 200 escalones que subía hasta arriba, cerca de los pies del Ángel, ¡para ver toda la avenida desde las alturas!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para conmemorar qué se inauguró la columna en 1910?',
+            options: ['El centenario del inicio de la Independencia', 'La fundación de la ciudad', 'El fin de la Revolución Mexicana'],
+            correct: 0,
+            reveal: '¡El centenario del inicio de la Independencia! 🎉 Se inauguró el 16 de septiembre de 1910, cien años después del Grito de Dolores.'
+          },
+          legends: {
+            question: '¿Qué pasó con la estatua del Ángel durante el terremoto de 1957?',
+            options: ['Se rompió en pedazos al caer', 'No sufrió ningún daño', 'Se movió pero no cayó'],
+            correct: 0,
+            reveal: '¡Se rompió en pedazos al caer desde lo alto! 😲 Se reconstruyó después con el mismo molde original.'
+          },
+          architecture: {
+            question: '¿Cuántos escalones tenía la escalera de caracol que subía hasta el mirador?',
+            options: ['200', '50', '1000'],
+            correct: 0,
+            reveal: '¡200 escalones! 🌀 Hoy está cerrada al público, pero antes llevaba hasta un mirador bajo los pies del Ángel.'
+          }
+        }
+      },
+      {
         id: 'parroquia-san-juan-bautista-coyoacan',
         name: {
           adult: 'Jardín Centenario y Parroquia de San Juan Bautista',
