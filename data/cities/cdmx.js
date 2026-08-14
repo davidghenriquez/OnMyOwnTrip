@@ -951,6 +951,62 @@ CITIES.cdmx.pois = [
         }
       },
       {
+        id: 'antigua-basilica-guadalupe',
+        name: {
+          adult: 'Antigua Basílica de Guadalupe',
+          kids: 'Antigua Basílica de Guadalupe — El Templo que se Hunde de Verdad 📐'
+        },
+        subtitle: {
+          adult: 'La basílica barroca que tuvieron que abandonar por su propio peso',
+          kids: '¡Una iglesia tan inclinada que parece a punto de caerse!'
+        },
+        category: CATEGORIES.HISTORY,
+        essential: { route: 'basilica', order: 2 },
+        coords: [19.4841, -99.1171],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Antigua_Basilica_de_Guadalupe_18.JPG/330px-Antigua_Basilica_de_Guadalupe_18.JPG',
+        audio: {
+          duration: 165,
+          title: {
+            adult: 'Audioguía: Antigua Basílica de Guadalupe',
+            kids: '¡Aventura Sonora: El Templo que se Hunde de Verdad!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Construida entre 1695 y 1709 según planos del arquitecto Pedro de Arrieta, esta basílica barroca fue durante más de dos siglos y medio el santuario oficial que custodiaba la imagen de la Virgen de Guadalupe, hasta que el hundimiento del terreno obligó a cerrarla al culto en 1974 y trasladar la imagen a la nueva basílica circular contigua, inaugurada en 1976. Desde 1999 alberga el Museo de la Basílica de Guadalupe, con una de las colecciones de arte virreinal religioso más importantes de México.',
+            kids: '¡Esta iglesia fue la casa de la Virgen de Guadalupe durante más de 250 años, mucho antes de que existiera la iglesia nueva y redonda de al lado! Se construyó hace más de 300 años. Como se empezó a hundir demasiado, tuvieron que mudar la imagen a un templo nuevo en 1976. Hoy es un museo lleno de arte antiguo.'
+          },
+          legends: {
+            adult: 'El mismo terreno lacustre que ha inclinado la Catedral Metropolitana y el Palacio de Bellas Artes actuó aquí de forma aún más dramática: sus cimientos se hundieron de manera tan desigual que las columnas y arcos interiores llegaron a desviarse visiblemente de la vertical, un fenómeno que puede apreciarse a simple vista recorriendo sus naves. Se cuenta que, durante los últimos años de culto activo, algunos fieles evitaban sentarse bajo ciertas bóvedas por miedo a que el propio edificio, ya tan inclinado, terminara por venirse abajo sobre ellos.',
+            kids: '¡El mismo suelo blandito que hace que otros edificios de la ciudad se hundan, aquí hizo que las columnas de dentro se torcieran de verdad! Puedes verlo con tus propios ojos caminando por dentro. Cuentan que, cuando todavía se rezaba aquí, algunas personas evitaban sentarse bajo ciertos techos ¡por si acaso se caían!'
+          },
+          architecture: {
+            adult: 'De planta de cruz latina con cúpula central y una espectacular fachada churrigueresca de cantera labrada, el templo conserva retablos dorados, pinturas coloniales y orfebrería religiosa de los siglos XVII y XVIII. Su torre y fachada, reforzadas en distintas ocasiones para frenar el hundimiento diferencial, muestran hoy una inclinación perceptible que convive, a escasos metros, con la moderna cubierta circular de cobre de la basílica que la sustituyó.',
+            kids: '¡Por fuera tiene una fachada tallada en piedra llena de detalles, y por dentro guarda pinturas y objetos de oro de hace más de 300 años! La torre está claramente torcida, aunque la han reforzado varias veces para que no se hunda más. Al lado tiene la iglesia nueva y redonda, ¡las dos una junto a la otra!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Hasta qué año fue esta la basílica oficial que custodiaba la imagen de la Virgen de Guadalupe?',
+            options: ['1974', '1810', '2000'],
+            correct: 0,
+            reveal: '¡Hasta 1974! ⛪ Ese año se cerró al culto por el hundimiento del terreno y la imagen se trasladó a la nueva basílica circular.'
+          },
+          legends: {
+            question: '¿Qué se puede apreciar a simple vista dentro de la antigua basílica, por culpa del hundimiento del terreno?',
+            options: ['Columnas y arcos claramente inclinados', 'Grietas de fuego', 'Estatuas que faltan'],
+            correct: 0,
+            reveal: '¡Columnas y arcos claramente inclinados! 📐 El mismo terreno lacustre que afecta a otros edificios del centro actuó aquí de forma aún más dramática.'
+          },
+          architecture: {
+            question: '¿Qué alberga hoy el edificio de la antigua basílica?',
+            options: ['El Museo de la Basílica de Guadalupe', 'Oficinas del gobierno', 'Un hotel'],
+            correct: 0,
+            reveal: '¡El Museo de la Basílica de Guadalupe! 🖼️ Desde 1999, con una de las colecciones de arte virreinal religioso más importantes de México.'
+          }
+        }
+      },
+      {
         id: 'capilla-cerrito',
         name: {
           adult: 'Capilla del Cerrito',
@@ -961,7 +1017,7 @@ CITIES.cdmx.pois = [
           kids: '¡Sube hasta arriba de la colina para ver toda la ciudad!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'basilica', order: 2 },
+        essential: { route: 'basilica', order: 3 },
         coords: [19.48618333, -99.11598056],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Capilla_del_Cerrito_05.jpg/330px-Capilla_del_Cerrito_05.jpg',
         audio: {
