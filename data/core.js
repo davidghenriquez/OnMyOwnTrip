@@ -206,8 +206,8 @@ const CITIES = {
         name: { adult: 'Basílica', kids: 'Basílica ⛪' },
         color: '#7B2D8E',
         intro: {
-          adult: 'Una ruta breve pero muy especial: el santuario mariano más visitado del mundo. Visitarás la Basílica de Guadalupe, construida junto al cerro donde, según la tradición, se apareció la Virgen a Juan Diego en 1531, y subirás hasta la Capilla del Cerrito, en el punto más alto y sagrado de todo el conjunto. Al terminar conocerás el lugar que recibe a millones de peregrinos cada año, especialmente cada 12 de diciembre.',
-          kids: '¡Esta ruta te lleva a uno de los lugares más visitados del mundo! ⛪🌟 Vas a ver una iglesia redonda gigantesca, y subir hasta la cima de una colina donde, cuenta la leyenda, aparecieron unas rosas mágicas. Al final sabrás por qué millones de personas vienen aquí cada año desde hace casi 500 años.'
+          adult: 'Una ruta breve pero muy especial: el santuario mariano más visitado del mundo. Visitarás la Basílica de Guadalupe, construida junto al cerro donde, según la tradición, se apareció la Virgen a Juan Diego en 1531, recorrerás la Antigua Basílica —el templo original, hoy museo, notablemente inclinado por el hundimiento del terreno— y subirás hasta la Capilla del Cerrito, en el punto más alto y sagrado de todo el conjunto. Al terminar conocerás el lugar que recibe a millones de peregrinos cada año, especialmente cada 12 de diciembre.',
+          kids: '¡Esta ruta te lleva a uno de los lugares más visitados del mundo! ⛪🌟 Vas a ver una iglesia redonda gigantesca, otra iglesia mucho más vieja que está clarísimamente torcida, y subir hasta la cima de una colina donde, cuenta la leyenda, aparecieron unas rosas mágicas. Al final sabrás por qué millones de personas vienen aquí cada año desde hace casi 500 años.'
         }
       }
     ]
