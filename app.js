@@ -822,6 +822,125 @@
     showToast(STATE.mode === 'kids'
       ? `¡Sigue los números de "${routeLabel}" en el mapa! 🚩`
       : `Ruta "${routeLabel}": sigue el orden numerado en el mapa.`, 3000);
+    playRouteIntro(routeMeta);
+  };
+
+  /* =========================================================
+   * INTRO DE RUTA (audioguía corta al elegir un circuito)
+   * Reutiliza SPEECH (misma voz elegida, mismo motor) pero con su propio
+   * mini-reproductor en el header, independiente de la ficha de POI: se
+   * activa antes de que el usuario haya tocado ningún pin.
+   * =======================================================*/
+  const routeIntroState = { playing: false, currentTime: 0, duration: 0, timer: null, routeId: null };
+
+  const formatAudioTime = (s) => {
+    const total = Math.max(0, Math.round(s));
+    return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, '0')}`;
+  };
+
+  const updateRouteIntroUi = () => {
+    if (!els.routeIntro || els.routeIntro.hidden) return;
+    const btn = $('#routeIntroPlay');
+    if (btn) btn.innerHTML = routeIntroState.playing ? ICONS.pause : ICONS.play;
+    const fill = $('#routeIntroFill');
+    const dur = routeIntroState.duration || 1;
+    if (fill) fill.style.width = `${Math.min(100, (routeIntroState.currentTime / dur) * 100)}%`;
+    const time = $('#routeIntroTime');
+    if (time) time.textContent = `${formatAudioTime(routeIntroState.currentTime)} / ${formatAudioTime(routeIntroState.duration)}`;
+  };
+
+  const stopRouteIntroAudio = () => {
+    routeIntroState.playing = false;
+    clearInterval(routeIntroState.timer);
+    routeIntroState.timer = null;
+    SPEECH.cancel();
+    updateRouteIntroUi();
+  };
+
+  // Se llama también al abrir un POI o cambiar de ciudad, para que no quede
+  // sonando (o con el icono desincronizado) por encima de otra narración.
+  const closeRouteIntro = () => {
+    stopRouteIntroAudio();
+    routeIntroState.routeId = null;
+    if (els.routeIntro) els.routeIntro.hidden = true;
+  };
+
+  const startRouteIntroAudio = (isResume = false) => {
+    routeIntroState.playing = true;
+    if (!isResume && SPEECH.isSupported()) {
+      routeIntroState.duration = estimateSpeechDuration(SPEECH.getText());
+    }
+    const duration = routeIntroState.duration;
+    clearInterval(routeIntroState.timer);
+
+    if (!isResume) {
+      const spokeOk = SPEECH.isSupported() && SPEECH.speak(({ finished, error, startFailed }) => {
+        if (finished || error || startFailed) {
+          routeIntroState.currentTime = finished ? duration : 0;
+          stopRouteIntroAudio();
+        }
+      });
+      if (!spokeOk) {
+        routeIntroState.playing = false;
+        updateRouteIntroUi();
+        return;
+      }
+    } else {
+      SPEECH.resume();
+    }
+
+    routeIntroState.timer = setInterval(() => {
+      routeIntroState.currentTime += 0.2;
+      if (routeIntroState.currentTime >= duration) {
+        routeIntroState.currentTime = duration;
+        stopRouteIntroAudio();
+        return;
+      }
+      updateRouteIntroUi();
+    }, 200);
+    updateRouteIntroUi();
+  };
+
+  const pauseRouteIntroAudio = () => {
+    routeIntroState.playing = false;
+    clearInterval(routeIntroState.timer);
+    routeIntroState.timer = null;
+    SPEECH.pause();
+    updateRouteIntroUi();
+  };
+
+  const toggleRouteIntroAudio = () => {
+    if (!routeIntroState.routeId) return;
+    if (routeIntroState.playing) {
+      if (SPEECH.isSupported() && routeIntroState.currentTime > 0 && routeIntroState.currentTime < routeIntroState.duration) {
+        pauseRouteIntroAudio();
+      } else {
+        stopRouteIntroAudio();
+      }
+    } else {
+      const isPausedMidway = routeIntroState.currentTime > 0 && routeIntroState.currentTime < routeIntroState.duration;
+      startRouteIntroAudio(isPausedMidway);
+    }
+  };
+
+  // Se llama SIEMPRE de forma síncrona dentro del click del usuario que
+  // elige la ruta (requisito de iOS para poder narrar sin un gesto aparte).
+  const playRouteIntro = (routeMeta) => {
+    if (!els.routeIntro || !routeMeta || !routeMeta.intro || !SPEECH.isSupported()) return;
+    const text = pickDual(routeMeta.intro);
+    if (!text) return;
+    stopRouteIntroAudio();
+    routeIntroState.routeId = routeMeta.id;
+    routeIntroState.currentTime = 0;
+    routeIntroState.duration = 0;
+    STATE.audio.overrideText = text;
+    const title = $('#routeIntroTitle');
+    if (title) {
+      title.textContent = (STATE.mode === 'kids' ? '¡Antes de empezar! — ' : 'Antes de empezar — ') + pickDual(routeMeta.name);
+    }
+    els.routeIntro.style.setProperty('--route-intro-color', routeMeta.color || '');
+    els.routeIntro.hidden = false;
+    startRouteIntroAudio(false);
   };
 
   // Posiciona un menú `position:absolute` justo bajo (o, si no cabe, sobre)
@@ -1417,6 +1536,7 @@
     STATE.activePoiId = id;
     const poi = POIS.find((p) => p.id === id);
     if (!poi) return;
+    closeRouteIntro(); // no dejar la intro de la ruta sonando por encima del POI
     setSelectedMarker(id);
     populateSheetContent(id);
     resetAudio(poi.audio.duration);
@@ -1659,13 +1779,14 @@
     }).join('');
 
     const buildNarrativeText = () => {
-      const poi = POIS.find((p) => p.id === STATE.activePoiId);
-      if (!poi) return '';
-      // Texto puntual (p.ej. revelación de una pregunta del quiz): se dice
-      // directo, sin repetir el saludo inicial ni mezclarse con el resumen.
+      // Texto puntual (revelación de una pregunta del quiz, o la intro de
+      // una ruta): se dice directo, sin depender de que haya un POI activo
+      // (una intro de ruta se narra antes de elegir ningún lugar concreto).
       if (STATE.audio.overrideText) {
         return stripEmojiForSpeech(STATE.audio.overrideText).replace(/\s+/g, ' ').trim().slice(0, 1800);
       }
+      const poi = POIS.find((p) => p.id === STATE.activePoiId);
+      if (!poi) return '';
       const m = STATE.mode;
       // Nombre real también al hablar en modo niño (el apodo divertido es
       // solo texto en pantalla; decirlo en voz alta con el "—" queda raro).
@@ -2041,6 +2162,9 @@
       });
     }
 
+    $('#routeIntroPlay')?.addEventListener('click', toggleRouteIntroAudio);
+    $('#routeIntroClose')?.addEventListener('click', closeRouteIntro);
+
     window.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       if (els.lightbox && els.lightbox.classList.contains('-open')) { closeLightbox(); return; }
@@ -2212,6 +2336,7 @@
     els.lightbox = $('#imageLightbox');
     els.visitSummary = $('#visitSummaryModal');
     els.routePicker = $('#routePicker');
+    els.routeIntro = $('#routeIntro');
 
     buildHeader();
     initMap();
