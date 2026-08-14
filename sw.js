@@ -16,7 +16,7 @@
 // Sube este número cuando cambies la lista SHELL_URLS de aquí abajo
 // (los propios archivos versionados con "?v=N" ya se cachean solos con
 // su nueva clave la primera vez que se piden, sin necesidad de tocar esto).
-const CACHE_VERSION = 'v24';
+const CACHE_VERSION = 'v25';
 const SHELL_CACHE = `omot-shell-${CACHE_VERSION}`;
 const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
 
@@ -33,7 +33,7 @@ const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
 const SHELL_URLS = [
   './',
   './index.html',
-  './app.js?v=26',
+  './app.js?v=27',
   './data/core.js?v=8',
   './styles.css?v=9',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',

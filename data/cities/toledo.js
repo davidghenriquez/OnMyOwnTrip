@@ -88,6 +88,10 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: La Puerta de los Reyes!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (puerta exterior integrada en las murallas).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La Puerta de Bisagra es la entrada monumental más famosa de Toledo, construida en el siglo X durante la época musulmana y reformada ampliamente en 1559 por Alonso de Covarrubias por orden de Carlos I. Su nombre procede de Bab-Saqra (Puerta Sagrada). Sobre su arco luce el escudo imperial de los Austrias. Fue el punto de recepción de reyes, peregrinos y ejércitos durante siglos.',
@@ -144,6 +148,10 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: El Mirador de los Sueños!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (mirador al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El Mirador del Valle se construyó a principios del siglo XX en el paraje conocido como "Cerro del Emperador", frente al Alcázar. Sobre sus bancos han pasado generaciones de toledanos y viajeros, y se dice que El Greco utilizaba este punto de vista para componer su famosa "Vista y plano de Toledo", pintura conservada en el Museo del Prado. Aquí es costumbre acudir al atardecer.',
@@ -199,6 +207,10 @@ CITIES.toledo.pois = [
             adult: 'Audioguía: Gastronomía en La Sorbona',
             kids: '¡Aventura Sonora: ¡Hora de Comer!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Horario habitual de restaurante: en torno a 13:00-16:00 y 20:00-23:00 (puede variar).', kids: 'Abre a la hora de comer y a la hora de cenar.' },
+          price: { adult: 'No es un monumento con entrada: se paga según lo que pidas de la carta.', kids: 'Aquí no se paga entrada, ¡se paga la comida que pidas!' }
         },
         tabs: {
           history: {
@@ -301,6 +313,10 @@ CITIES.toledo.pois = [
             adult: 'Audioguía: Mirador del Azor',
             kids: '¡Aventura Sonora: ¡El Rincón Secreto!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (mirador al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -450,6 +466,10 @@ CITIES.toledo.pois = [
             adult: 'Audioguía: Real Fábrica de Armas',
             kids: '¡Aventura Sonora: La Fábrica de las Espadas Mágicas!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Hoy es un campus universitario: los exteriores y patios se pueden recorrer libremente en horario lectivo (aproximadamente 8:00-21:00 entre semana).', kids: 'Se puede pasear por fuera del campus, ¡como si fuera un parque!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -647,6 +667,10 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: El Puente de las Dos Torres!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (puente peatonal al aire libre).', kids: '¡Se puede cruzar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'De origen romano, el puente fue reconstruido por los árabes en el año 997 y de nuevo en el siglo XIII por Alfonso X tras sufrir graves daños. Su nombre conserva la huella de aquella época: alcántara significa "puente" en árabe. Carlos V ordenó una restauración en el siglo XVI, dejando constancia con el escudo imperial que corona su arco de triunfo. El torreón oriental, ya en ruinas, fue sustituido en 1721 por el actual arco barroco.',
@@ -681,6 +705,10 @@ CITIES.toledo.pois = [
             adult: 'Audioguía: Puente de San Martín',
             kids: '¡Aventura Sonora: El Puente del Incendio Secreto!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (puente peatonal al aire libre).', kids: '¡Se puede cruzar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -764,6 +792,10 @@ CITIES.toledo.pois = [
             adult: 'Audioguía: Plaza de Zocodover',
             kids: '¡Aventura Sonora: La Plaza del Mercado de Camellos!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -934,6 +966,10 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: La Calle del Tesoro Escondido!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública); las tiendas suelen abrir de 10:00 a 20:00.', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Conocida popularmente como Calle Ancha, une la Plaza de Zocodover con la Plaza de las Cuatro Calles, antiguo emplazamiento de la Alcaná, el mercado judío donde trabajaban cambistas, prestamistas y plateros hebreos. En el siglo XIX recibió su nombre oficial de Calle del Comercio, en referencia a los numerosos gremios que allí ejercían su actividad, tradición artesanal que continúa hoy con los talleres de damasquinado.',
@@ -968,6 +1004,10 @@ CITIES.toledo.pois = [
             adult: 'Audioguía: Puerta del Sol',
             kids: '¡Aventura Sonora: La Puerta del Sol y la Luna!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (puerta exterior integrada en las murallas).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -1004,6 +1044,10 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: La Iglesia de las Coronas de Oro!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Martes a sábado 10:00-14:00 y 16:00-18:00; domingos 9:00-15:00. Cerrado los lunes.', kids: 'Abre de martes a domingo. Los lunes está cerrado.' },
+          price: { adult: 'Entrada gratuita (de forma temporal).', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Esta iglesia mudéjar del siglo XIII, consagrada en 1221, fue escenario en 1166 de la proclamación como rey de Alfonso VIII de Castilla, con el alzamiento de su pendón desde la torre. Desde 1968 alberga el Museo de los Concilios y la Cultura Visigoda, con piezas arqueológicas de los siglos VI al VIII y réplicas de las coronas votivas del célebre Tesoro de Guarrazar, halladas cerca de Toledo en el siglo XIX.',
@@ -1038,6 +1082,10 @@ CITIES.toledo.pois = [
             adult: 'Audioguía: Paseo del Tránsito',
             kids: '¡Aventura Sonora: El Paseo de los Huertos Secretos!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (paseo público al aire libre).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -1074,6 +1122,10 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: El Palacio de la Cruz Gigante!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Lunes a sábado 10:00-18:30, domingos 10:00-14:00.', kids: 'Abre todos los días, por la mañana y la tarde (domingos solo por la mañana).' },
+          price: { adult: '4€ entrada general, aunque actualmente es gratuita de forma temporal. Siempre gratis miércoles desde las 16:00, domingos, y para menores de 18, mayores de 65 y otros colectivos.', kids: '¡Ahora mismo es gratis para todos! Y siempre lo es los domingos y los miércoles por la tarde.' }
+        },
         tabs: {
           history: {
             adult: 'Fundado por el cardenal Pedro González de Mendoza, que obtuvo la bula papal en 1494 para levantar un hospital dedicado a acoger a niños huérfanos y desamparados de la ciudad, aunque murió en enero de 1495 sin llegar a ver comenzar las obras. Se construyó en dos fases: la primera, entre 1504 y 1514, a cargo de Enrique y Antón Egas; la segunda, ya avanzado el siglo XVI, con Alonso de Covarrubias completando la fachada y el patio principal.',
@@ -1109,6 +1161,10 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: La Ermita de la Romería!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'El interior solo suele abrir durante la romería (en torno al 1 de mayo) y en horario de misa; el exterior y su entorno son visitables en cualquier momento.', kids: 'Por fuera se puede ver siempre, ¡pero por dentro solo se abre en la fiesta de la romería!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Se cree que el primer edificio religioso en este lugar data del año 610, cuando el rey visigodo Gundemaro habría fundado un monasterio dedicado a San Félix de Gerona. La ermita actual se construyó en 1674, sobre los restos de aquella primitiva fundación y de una posterior ermita de San Pedro de Saelices. Desde 1631, la tradicional romería en honor a la Virgen del Valle se celebra cada 1 de mayo, tras trasladarse desde su fecha original de agosto para evitar el calor.',
@@ -1135,6 +1191,10 @@ CITIES.toledo.pois = [
         coords: [39.8586656, -4.0243597],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Cueva_de_H%C3%A9rcules_-_01.jpg/330px-Cueva_de_H%C3%A9rcules_-_01.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Cuevas de Hércules', kids: '¡Aventura Sonora: La Cueva Mágica de Hércules!' } },
+        visitInfo: {
+          hours: { adult: 'Martes a sábado 12:00-14:00 y 16:00-18:00. Cerrado domingos y lunes. Sufre cierres puntuales sin previo aviso: conviene confirmar con el Consorcio de Toledo antes de ir.', kids: 'Abre de martes a sábado. Los domingos y lunes está cerrada.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Se trata de un espacio abovedado construido por los romanos en el subsuelo de Toledo durante la segunda mitad del siglo I, en época de Augusto o Tiberio, que funcionó como castellum aquae, el depósito terminal del acueducto romano que abastecía la ciudad. Tras la caída del Imperio, los visigodos ocuparon el espacio y lo convirtieron en iglesia, y en el siglo XII se erigió sobre él un templo dedicado a San Ginés, abandonado en el siglo XVIII y demolido en 1841.',
@@ -1162,6 +1222,10 @@ CITIES.toledo.pois = [
         coords: [39.8550219, -4.0235220],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/El_Pozo_Amargo._Toledo_%28Espa%C3%B1a%29.jpg/330px-El_Pozo_Amargo._Toledo_%28Espa%C3%B1a%29.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Callejón del Pozo Amargo', kids: '¡Aventura Sonora: El Callejón del Amor Imposible!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (callejón público).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El pozo sobre el que se basa la historia se encuentra en una pequeña plaza de la calle del Pozo Amargo, en pleno corazón de la judería toledana, a pocos metros de la Catedral. Hay constancia de que dicho pozo era uno de los más notables de la ciudad ya en 1093, cuando se le llamaba pozo Caxali; en 1162 cambió su nombre a pozo amargo, época en la que se sitúa la leyenda.',
@@ -1188,6 +1252,10 @@ CITIES.toledo.pois = [
         coords: [39.86426389, -4.02920833],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Espa%C3%B1a_-_Toledo_-_Ruinas_del_Circo_Romano_003.JPG/330px-Espa%C3%B1a_-_Toledo_-_Ruinas_del_Circo_Romano_003.JPG',
         audio: { duration: 155, title: { adult: 'Audioguía: Circo Romano de Toledo', kids: '¡Aventura Sonora: El Estadio de las Carreras de Carros!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre como parque arqueológico al aire libre, en horario diurno habitual de parque público.', kids: 'Se puede visitar de día, ¡como un parque!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El circo romano de Toledo se construyó a finales del siglo I, probablemente por mandato de Octavio Augusto de dotar a las grandes ciudades de Hispania de exuberantes edificios públicos, con unas dimensiones de 422 metros de largo por unos 112 de ancho. Se encuentra en el sector sur de la Zona Arqueológica de la Vega Baja, un espacio de más de seis hectáreas que contiene también uno de los cementerios medievales más importantes de la ciudad.',
@@ -1214,6 +1282,10 @@ CITIES.toledo.pois = [
         coords: [39.862, -4.0255],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/%C3%81bside_Iglesia_de_Santiago%2C_Toledo.jpg/330px-%C3%81bside_Iglesia_de_Santiago%2C_Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Iglesia de Santiago del Arrabal', kids: '¡Aventura Sonora: La Catedral en Miniatura del Mudéjar!' } },
+        visitInfo: {
+          hours: { adult: 'Iglesia parroquial activa: el interior suele abrirse en horario de misa (normalmente por la mañana y a media tarde); el exterior se ve en cualquier momento.', kids: 'Por fuera se ve siempre; por dentro solo cuando hay misa.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La iglesia se construyó en la segunda mitad del siglo XIII bajo el patrocinio de Sancho II, rey de Portugal, y es considerada uno de los mejores ejemplos del arte mudéjar toledano, hasta el punto de ser conocida como la Catedral del Mudéjar. Su ubicación en un antiguo barrio musulmán sugiere que se construyó sobre un templo anterior, posiblemente una mezquita, cuyo alminar correspondería a la actual torre exenta, reforzada con ladrillo para instalar el campanario.',
@@ -1240,6 +1312,10 @@ CITIES.toledo.pois = [
         coords: [39.8608494, -4.0244095],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Puerta_de_Valmard%C3%B3n%2C_Toledo_-_1.JPG/330px-Puerta_de_Valmard%C3%B3n%2C_Toledo_-_1.JPG',
         audio: { duration: 145, title: { adult: 'Audioguía: Puerta de Valmardón', kids: '¡Aventura Sonora: La Puerta Más Antigua de Toledo!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (puerta exterior integrada en las murallas).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La Puerta de Valmardón, o Bab al-Mardum, fue una de las puertas de la muralla urbana de Toledo por la que se accedía a la medina islámica. Es probablemente la puerta más antigua de la ciudad, con restos que datan de los siglos IX y X, aunque sus orígenes son incluso anteriores, pues en época romana era conocida como Puerta de Aquilina o del Rey Agila.',
@@ -1266,6 +1342,10 @@ CITIES.toledo.pois = [
         coords: [39.86091667, -4.03428056],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/WLM14ES_-_10072005_170647_7840_-_.jpg/330px-WLM14ES_-_10072005_170647_7840_-_.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Ermita del Cristo de la Vega', kids: '¡Aventura Sonora: El Cristo que Testificó en un Juicio!' } },
+        visitInfo: {
+          hours: { adult: 'Iglesia parroquial activa: el interior suele abrirse en horario de misa; el exterior se ve en cualquier momento.', kids: 'Por fuera se ve siempre; por dentro solo cuando hay misa.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La ermita se levanta donde antaño estuvo la basílica visigótica de Santa Leocadia, en plena Vega Baja de Toledo. Su parte más antigua, el ábside, data del siglo XIII y es de estilo mudéjar. El Cristo que alberga ya era venerado en este lugar al menos desde 1612, fecha en la que Francisco de Pisa mencionó por primera vez la famosa leyenda.',
@@ -1292,6 +1372,10 @@ CITIES.toledo.pois = [
         coords: [39.8559506, -4.0307402],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Sala_de_museo_victorio_macho.jpg/330px-Sala_de_museo_victorio_macho.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Casa-Museo Victorio Macho', kids: '¡Aventura Sonora: El Estudio del Escultor sobre el Precipicio!' } },
+        visitInfo: {
+          hours: { adult: 'Domingo a miércoles 10:00-14:00; jueves a sábado 11:00-18:00. Cerrado en agosto.', kids: 'Abre casi todos los días, aunque en agosto está cerrado.' },
+          price: { adult: '5€ general, 2,50€ reducida (estudiantes, guías, mayores de 65, grupos). Gratis para menores de 12 años.', kids: '5€, pero gratis si tienes menos de 12 años.' }
+        },
         tabs: {
           history: {
             adult: 'El museo se sitúa en el promontorio de la Roca Tarpeya, un enclave abrupto sobre el río Tajo, que el escultor Victorio Macho escogió para edificar en 1953 su casa y taller, diseñados por el arquitecto Secundino Zuazo. Cuando el artista murió en Toledo en 1966, dejó expresado en su testamento su deseo de que sus obras permanecieran vinculadas a este mismo lugar, en un museo creado a tal efecto.',
@@ -1319,6 +1403,10 @@ CITIES.toledo.pois = [
         coords: [39.859350, -4.028037],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Convento_de_Santo_Domingo_El_Antiguo_-_01.jpg/330px-Convento_de_Santo_Domingo_El_Antiguo_-_01.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Convento de Santo Domingo el Antiguo', kids: '¡Aventura Sonora: El Misterio de la Tumba Perdida!' } },
+        visitInfo: {
+          hours: { adult: 'Lunes a sábado y festivos 11:00-13:30 y 16:00-19:00; domingos 16:00-19:00.', kids: 'Abre todos los días, aunque los domingos solo por la tarde.' },
+          price: { adult: '3€ entrada general.', kids: '3€ la entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Los orígenes del convento se remontan a un cenobio visigótico fundado sobre la casa de Santa Leocadia, sustituido después por un monasterio establecido por Alfonso VI en 1085, tras la conquista de Toledo, siendo uno de los conventos más antiguos de la ciudad. Este templo tuvo el honor de atraer por primera vez a Doménikos Theotokópoulos, El Greco, a Toledo en 1577, con un encargo de nueve pinturas para su retablo.',
@@ -1346,6 +1434,10 @@ CITIES.toledo.pois = [
         coords: [39.85638889, -4.02805556],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Palacio_de_Fuensalida_.jpg/330px-Palacio_de_Fuensalida_.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Palacio de Fuensalida', kids: '¡Aventura Sonora: El Palacio donde Vivió una Emperatriz!' } },
+        visitInfo: {
+          hours: { adult: 'Sede institucional (Presidencia de Castilla-La Mancha): no tiene horario turístico regular, solo se visita por dentro en ocasiones puntuales o con autorización previa. La fachada y la plaza se ven en cualquier momento.', kids: 'Por fuera se ve siempre; por dentro casi nunca se puede entrar, ¡porque hoy es una oficina del gobierno!' },
+          price: { adult: 'Gratis (cuando hay visita autorizada, no requiere entrada de pago).', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Construido hacia 1440 por los primeros condes de Fuensalida, Pedro López de Ayala y Elvira de Castañeda, se trata de un soberbio palacio mudéjar con claras influencias góticas, según un modelo de inspiración hispanomusulmana implantado en Toledo desde mediados del siglo XIV. Su historia se vincula a figuras como Garcilaso de la Vega, El Greco o Lope de Vega, pero especialmente a Carlos I y su esposa, la emperatriz Isabel de Portugal, madre de Felipe II.',
@@ -1372,6 +1464,10 @@ CITIES.toledo.pois = [
         coords: [39.85655, -4.02498889],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Toledo_City_Council_01.jpg/330px-Toledo_City_Council_01.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Plaza del Ayuntamiento', kids: '¡Aventura Sonora: La Plaza de los Tres Poderes!' } },
+        visitInfo: {
+          hours: { adult: 'La plaza es de acceso libre en cualquier momento. El interior del Ayuntamiento solo se visita en horario de oficina o con visita concertada.', kids: 'La plaza se puede ver siempre; por dentro del ayuntamiento no se suele entrar.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El Ayuntamiento se halla frente a la fachada principal de la Catedral y tiene su origen en el siglo XIV; a finales del siglo XVI se inició el actual edificio sobre otro mudéjar preexistente. El proyecto es obra del célebre arquitecto Juan de Herrera, autor también de El Escorial, cuyas obras comenzaron por la fachada principal.',
@@ -1399,6 +1495,10 @@ CITIES.toledo.pois = [
         coords: [39.8579556, -4.0272897],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Convento_de_San_Pedro_M%C3%A1rtir_%28Toledo%29._Claustro_Real.jpg/330px-Convento_de_San_Pedro_M%C3%A1rtir_%28Toledo%29._Claustro_Real.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Iglesia de San Pedro Mártir', kids: '¡Aventura Sonora: El Convento Convertido en Universidad!' } },
+        visitInfo: {
+          hours: { adult: 'Hoy es una facultad universitaria: el claustro se puede visitar libremente en horario lectivo (lunes a viernes, 8:00-21:30); la iglesia suele estar cerrada salvo eventos. Hay visitas guiadas concertadas por 3€.', kids: 'El patio se puede ver entre semana; la iglesia normalmente está cerrada.' },
+          price: { adult: 'Gratis para el claustro; 3€ la visita guiada concertada.', kids: 'Gratis para pasear por el patio.' }
+        },
         tabs: {
           history: {
             adult: 'La presencia dominica en Toledo comenzó con una fundación en 1230 bajo la advocación de San Pablo, en la Huerta del Granadal, y en 1407 los frailes se trasladaron dentro de las murallas, alegando problemas de salud por la humedad del río. La iglesia, ejemplo del clasicismo posherreriano, fue dirigida por Nicolás de Vergara el Mozo a partir de 1587, continuando las obras Juan Bautista Monegro desde 1607.',
@@ -1426,6 +1526,10 @@ CITIES.toledo.pois = [
         coords: [39.8585, -4.0228],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Mezquita_de_las_Torner%C3%ADas._Toledo.jpg/330px-Mezquita_de_las_Torner%C3%ADas._Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Mezquita de las Tornerías', kids: '¡Aventura Sonora: La Mezquita Escondida en un Barrio Comercial!' } },
+        visitInfo: {
+          hours: { adult: 'Martes a sábado y festivos 10:00-15:00 y 16:00-18:00 (acceso hasta 30 min antes del cierre). Cerrado los lunes.', kids: 'Abre de martes a sábado. Los lunes está cerrada.' },
+          price: { adult: '3€ general, 2€ reducida.', kids: '3€ la entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Esta mezquita data de finales del siglo IX, asentada sobre cimientos visigodos anteriores, situada en el antiguo Arrabal de Francos, junto al zoco de los bruñidores y sobre el zoco de los cambiadores, en el corazón de un barrio eminentemente comercial. El edificio aparece mencionado por primera vez en 1190, y la última vez que se cita como mezquita es en 1498, fecha que se toma como límite para su desacralización.',
@@ -1453,6 +1557,10 @@ CITIES.toledo.pois = [
         coords: [39.8596, -4.0252],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Toledo%2C_Iglesia_san_Vicente-PM_65615.jpg/330px-Toledo%2C_Iglesia_san_Vicente-PM_65615.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Plaza de San Vicente', kids: '¡Aventura Sonora: La Iglesia que se Convirtió en Discoteca!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La Iglesia de San Vicente fue fundada por Alfonso VI poco después de la conquista cristiana de la ciudad en el siglo XI. Hacia 1125 ya se la citaba como parroquia, aunque su parte más antigua conservada, el ábside, data de mediados del siglo XIII, con tres niveles de arquerías ciegas y arcos de herradura interiores que dan paso a capillas góticas del siglo XIV.',
@@ -1480,6 +1588,10 @@ CITIES.toledo.pois = [
         coords: [39.858108, -4.028364],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Toledo_-_Convento_de_San_Clemente_-_201102.jpg/330px-Toledo_-_Convento_de_San_Clemente_-_201102.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Convento de San Clemente', kids: '¡Aventura Sonora: La Cuna del Mazapán!' } },
+        visitInfo: {
+          hours: { adult: 'Es un convento de clausura: no se visita el interior. Se puede comprar mazapán por el torno, normalmente por la mañana y a media tarde.', kids: 'No se puede entrar, ¡pero puedes comprar mazapán por una ventanita giratoria llamada torno!' },
+          price: { adult: 'No hay entrada; solo se paga si compras dulces.', kids: 'No se paga entrada, ¡solo si compras dulces!' }
+        },
         tabs: {
           history: {
             adult: 'El Monasterio de San Clemente fue fundado por Alfonso VI fuera de las murallas, y trasladado dentro de ellas por su nieto Alfonso VII el Emperador, siendo uno de los primeros conventos fundados en Toledo tras la Reconquista. Originalmente vinculado a la orden de Cluny, tras la reforma benedictina se adaptó a la regla cisterciense en 1117, incorporación que confirmó definitivamente el papa Alejandro III en 1180.',
@@ -1506,6 +1618,10 @@ CITIES.toledo.pois = [
         coords: [39.8584168, -4.0252939],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Termas_Romanas_de_la_Plaza_de_Amador_de_los_R%C3%ADos%2C_Toledo_%286431432341%29.jpg/330px-Termas_Romanas_de_la_Plaza_de_Amador_de_los_R%C3%ADos%2C_Toledo_%286431432341%29.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Termas Romanas de Amador de los Ríos', kids: '¡Aventura Sonora: Los Baños Romanos Escondidos bajo una Plaza!' } },
+        visitInfo: {
+          hours: { adult: 'Se ven desde el exterior, a través de un mirador acristalado, en cualquier momento.', kids: '¡Se pueden ver a través de un cristal, en cualquier momento del día!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Los restos arqueológicos conservados en este lugar, conocidos desde 1986, ilustran la monumentalidad que debió de tener la ciudad de Toledo en época romana, siguiendo el modelo urbano imperante emanado de la capital del Imperio. La plaza toma su nombre de Rodrigo Amador de los Ríos, autor de la magnífica obra Monumentos arquitectónicos de España, publicada en 1905.',
@@ -1532,6 +1648,10 @@ CITIES.toledo.pois = [
         coords: [39.8607285, -4.0217875],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Portada_del_Palacio_de_Benacaz%C3%B3n%2C_Toledo.jpg/330px-Portada_del_Palacio_de_Benacaz%C3%B3n%2C_Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Palacio de Benacazón', kids: '¡Aventura Sonora: El Palacio del Conde Inventado!' } },
+        visitInfo: {
+          hours: { adult: 'Edificio de propiedad privada: no tiene horario turístico regular. Solo se ve la fachada desde la calle.', kids: 'Es de un dueño particular, así que solo se puede ver por fuera.' },
+          price: { adult: 'Gratis ver la fachada; no se visita el interior.', kids: '¡Gratis mirarlo por fuera!' }
+        },
         tabs: {
           history: {
             adult: 'El palacio que hoy lleva el nombre de Benacazón data probablemente de la época de Pedro I el Cruel, y fue también sede del Santo Oficio de la Inquisición; su patio central era conocido como Patio de los Presos. Perteneció antes a Fernán Pérez de Pantoja y fue casa solariega de las familias Pantoja y Gaytán.',
@@ -1559,6 +1679,10 @@ CITIES.toledo.pois = [
         coords: [39.857904, -4.026119],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Convento_Madre_de_Dios_02.JPG/330px-Convento_Madre_de_Dios_02.JPG',
         audio: { duration: 145, title: { adult: 'Audioguía: Convento de la Madre de Dios', kids: '¡Aventura Sonora: El Convento de las Hermanas Silva!' } },
+        visitInfo: {
+          hours: { adult: 'Es un convento de clausura: no se visita el interior con regularidad, aunque se organizan visitas guiadas puntuales al claustro. Se puede comprar dulces por el torno.', kids: 'No se suele poder entrar, ¡pero puedes comprar dulces por una ventanita giratoria!' },
+          price: { adult: 'No hay entrada; solo se paga si compras dulces.', kids: 'No se paga entrada, ¡solo si compras dulces!' }
+        },
         tabs: {
           history: {
             adult: 'El convento fue fundado a finales del siglo XV por Leonor y María de Silva, hijas del conde de Cifuentes, como convento femenino de la orden dominica. El complejo creció desde finales del siglo XV hasta mediados del XVII, dando lugar al típico conjunto conventual articulado en torno a patios.',
@@ -1585,6 +1709,10 @@ CITIES.toledo.pois = [
         coords: [39.8627518, -4.0456210],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Camino_de_los_Cigarrales_%28alrededores_de_Toledo%29.jpg/330px-Camino_de_los_Cigarrales_%28alrededores_de_Toledo%29.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Cigarrales de Toledo', kids: '¡Aventura Sonora: Las Casas de Campo de las Cigarras!' } },
+        visitInfo: {
+          hours: { adult: 'Zona de fincas privadas: se contempla desde los miradores y caminos públicos en cualquier momento.', kids: 'Se ven desde fuera, ¡en cualquier momento del día!' },
+          price: { adult: 'Gratis contemplarlos desde el exterior.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Un cigarral es una finca tradicional toledana situada en el entorno inmediato de la ciudad, generalmente en la margen sur del Tajo, compuesta por una casa de campo rodeada de jardines, arboledas y tierras de labor. Sus antecedentes se encuentran en las villas romanas y, especialmente, en las huertas de recreo islámicas, pensadas para mitigar el calor estival combinando agua, vegetación y frescor.',
@@ -1611,6 +1739,11 @@ CITIES.toledo.pois = [
         coords: [39.85664444, -4.02677222],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Iglesia_del_Salvador._Toledo.jpg/330px-Iglesia_del_Salvador._Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Iglesia de El Salvador', kids: '¡Aventura Sonora: La Iglesia con Columnas Robadas a los Romanos!' } },
+        visitInfo: {
+          hours: { adult: 'Todos los días 10:00-18:45 (1 de marzo a 15 de octubre) o 10:00-17:45 (16 de octubre a 28 de febrero); domingos abre a las 11:30.', kids: 'Abre todos los días, por la mañana y por la tarde.' },
+          price: { adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).', kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.' },
+          link: 'https://tickets.toledomonumental.com/es/767-toledo-monumental/4296-pulsera-turistica-de-toledo'
+        },
         tabs: {
           history: {
             adult: 'La Iglesia de El Salvador fue originalmente una mezquita hispanomusulmana construida en el siglo IX, considerada la iglesia más antigua de la ciudad. Se trata de un templo del siglo XII construido sobre una mezquita taifa del siglo XI, que a su vez fue una ampliación de una mezquita omeya del siglo IX levantada sobre un edificio religioso visigodo anterior.',
@@ -1637,6 +1770,10 @@ CITIES.toledo.pois = [
         coords: [39.8610525, -4.0210495],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Toledo%2C_eskal%C3%A1tory_%28002%29.jpg/330px-Toledo%2C_eskal%C3%A1tory_%28002%29.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Torre del Miradero', kids: '¡Aventura Sonora: El Palacio Diseñado por un Arquitecto Premiado!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (mirador exterior al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El Palacio de Congresos de Toledo, situado junto a la Plaza de Zocodover sobre un abrupto promontorio que rodea el Tajo, fue diseñado en el año 2000 por el arquitecto Rafael Moneo, ganador del Premio Príncipe de Asturias de las Artes, junto al urbanista Joan Busquets, y se presentó en junio de 2001.',
@@ -1663,6 +1800,10 @@ CITIES.toledo.pois = [
         coords: [39.861111, -4.016417],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Puente_de_Azarquiel._Toledo.jpg/330px-Puente_de_Azarquiel._Toledo.jpg',
         audio: { duration: 140, title: { adult: 'Audioguía: Puente de Azarquiel', kids: '¡Aventura Sonora: El Puente del Astrónomo!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (puente al aire libre).', kids: '¡Se puede cruzar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El puente de Azarquiel es un puente moderno construido sobre el río Tajo que conecta el barrio de Santa Bárbara y la estación de tren AVE con el casco histórico de Toledo, inaugurado el 19 de junio de 1984. Se construyó para atender las necesidades del entonces incipiente polígono industrial, la estación de ferrocarril y el barrio de Santa Bárbara, ya que el trazado estrecho y sinuoso del anterior Puente Nuevo de Alcántara, abierto en 1933, resultaba insuficiente.',
@@ -1690,6 +1831,10 @@ CITIES.toledo.pois = [
         coords: [39.860722, -4.026250],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Claustro_de_la_Mona._Toledo.jpg/330px-Claustro_de_la_Mona._Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Convento de las Comendadoras de Santiago', kids: '¡Aventura Sonora: El Convento de las Guerreras de Santiago!' } },
+        visitInfo: {
+          hours: { adult: 'Es un convento de clausura: no tiene horario turístico regular ni visitas garantizadas al interior.', kids: 'Es un convento donde viven monjas, así que normalmente no se puede entrar.' },
+          price: { adult: 'Gratis ver la fachada; no se visita el interior con regularidad.', kids: '¡Gratis mirarlo por fuera!' }
+        },
         tabs: {
           history: {
             adult: 'La Orden de las Comendadoras de Santiago se fundó en 1175 en Palencia, y en 1502 los Reyes Católicos enviaron a las hermanas comendadoras a Toledo, concretamente al Convento de Santa Fe. En 1935, las monjas se trasladaron al Claustro de la Mona y los edificios adyacentes, parte del antiguo monasterio de Santo Domingo el Real.',
@@ -1717,6 +1862,10 @@ CITIES.toledo.pois = [
         coords: [39.854472, -4.024058],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Toledo_-_San_Andres.jpg/330px-Toledo_-_San_Andres.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Iglesia de San Andrés', kids: '¡Aventura Sonora: La Iglesia de las Momias!' } },
+        visitInfo: {
+          hours: { adult: 'La iglesia abre en horario de misa. La visita a las momias es limitada y se organiza directamente con la parroquia: conviene confirmar disponibilidad antes de ir.', kids: 'La iglesia abre cuando hay misa. Para ver las momias hay que preguntar antes en la propia iglesia.' },
+          price: { adult: 'Entrada a la iglesia gratuita; la visita a las momias puede tener un coste que fija la propia parroquia.', kids: 'Entrar a la iglesia es gratis; para ver las momias puede haber que pagar un poco.' }
+        },
         tabs: {
           history: {
             adult: 'La primera noticia documental de esta iglesia data del año 1150, cuando se cita un incendio a raíz del cual tuvo que reedificarse ese mismo siglo. A comienzos del siglo XIV se añadieron el crucero y la capilla de la Epifanía, combinando elementos mudéjares y góticos con reformas barrocas del siglo XVII.',
@@ -1743,6 +1892,10 @@ CITIES.toledo.pois = [
         coords: [39.861126, -4.023231],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Espa%C3%B1a_-_Toledo_-_Puerta_de_Alarcones_001.JPG/330px-Espa%C3%B1a_-_Toledo_-_Puerta_de_Alarcones_001.JPG',
         audio: { duration: 145, title: { adult: 'Audioguía: Puerta de Alarcones', kids: '¡Aventura Sonora: La Puerta Escondida cerca de Zocodover!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (puerta exterior).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La Puerta de Alarcones tiene origen visigodo y, más tarde, durante el periodo islámico, se convirtió en uno de los principales accesos a la ciudad. Es la puerta más antigua de Toledo que se conserva en su ubicación original, muy cerca de la Puerta del Sol y la Plaza de Zocodover. Su primera mención escrita aparece en 1216, cuando un documento mozárabe la llama Puerta Mohaguía.',
@@ -1769,6 +1922,10 @@ CITIES.toledo.pois = [
         coords: [39.859629, -4.031443],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Monument_to_Saint_Teresa_of_Jesus_-_Toledo_04.jpg/330px-Monument_to_Saint_Teresa_of_Jesus_-_Toledo_04.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza de Santa Teresa', kids: '¡Aventura Sonora: La Plaza de la Santa Escritora!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Esta pequeña plaza ajardinada se esconde tras las murallas, junto al Paseo del Recaredo, a pocos metros de la Puerta del Cambrón. La fundación toledana de Santa Teresa de Jesús fue la quinta que estableció la santa, el 14 de mayo de 1569, gracias a un rico mercader llamado Martín Ramírez que dejó dinero en su testamento para fundar una iglesia.',
