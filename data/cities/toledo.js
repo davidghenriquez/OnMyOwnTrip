@@ -29,7 +29,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '12€ entrada general (templo, museos, Capilla de Reyes y claustro). Gratis para empadronados en Toledo; 8€ para mayores de 65 años.',
             kids: '12€, aunque es gratis si vives en Toledo. Si vas muy pronto entre semana, ¡puedes ver la iglesia gratis!'
-          }
+          },
+          link: 'https://tickets.catedralprimada.es/'
         },
         tabs: {
           history: {
@@ -243,7 +244,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).',
             kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
-          }
+          },
+          link: 'https://tickets.toledomonumental.com/es/767-toledo-monumental/4296-pulsera-turistica-de-toledo'
         },
         tabs: {
           history: {
@@ -344,7 +346,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '3€ entrada individual, 5€ combinada con el Museo Sefardí. Gratis los sábados a partir de las 14:00 y todos los domingos.',
             kids: '3€, pero es gratis los sábados por la tarde y todos los domingos.'
-          }
+          },
+          link: 'https://museodelgreco.sacatuentrada.es/es/productos/info/museo-del-greco'
         },
         tabs: {
           history: {
@@ -390,7 +393,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '5€ entrada general, 2,50€ reducida (estudiantes, mayores de 65, discapacidad). Gratis para menores de 18 y todos los domingos.',
             kids: '5€, pero es gratis si eres menor de edad, ¡y también todos los domingos!'
-          }
+          },
+          link: 'https://ejercito.defensa.gob.es/museo/visitas/prepara_visita/'
         },
         tabs: {
           history: {
@@ -511,7 +515,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).',
             kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
-          }
+          },
+          link: 'https://tickets.toledomonumental.com/es/767-toledo-monumental/4296-pulsera-turistica-de-toledo'
         },
         tabs: {
           history: {
@@ -557,7 +562,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).',
             kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
-          }
+          },
+          link: 'https://tickets.toledomonumental.com/es/767-toledo-monumental/4296-pulsera-turistica-de-toledo'
         },
         tabs: {
           history: {
@@ -603,7 +609,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).',
             kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
-          }
+          },
+          link: 'https://tickets.toledomonumental.com/es/767-toledo-monumental/4296-pulsera-turistica-de-toledo'
         },
         tabs: {
           history: {
@@ -719,7 +726,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '4€ entrada individual (incluye subir a las torres-mirador), o 14€ con la Pulsera Turística de Toledo Monumental (7 monumentos, válida 7 días).',
             kids: '4€ para subir a las torres, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
-          }
+          },
+          link: 'https://tickets.toledomonumental.com/es/767-toledo-monumental/4296-pulsera-turistica-de-toledo'
         },
         tabs: {
           history: {
@@ -821,7 +829,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '3€ entrada individual. Gratis los sábados a partir de las 14:00 y todos los domingos.',
             kids: '3€, pero es gratis los sábados por la tarde y todos los domingos.'
-          }
+          },
+          link: 'https://www.cultura.gob.es/msefardi/visita/entradas-reservas.html'
         },
         tabs: {
           history: {
@@ -886,7 +895,8 @@ CITIES.toledo.pois = [
           price: {
             adult: '15€ visita guiada completa. Gratis para menores de 12 años.',
             kids: '15€, ¡pero gratis si tienes menos de 12 años!'
-          }
+          },
+          link: 'https://fundacionmedinaceli.org/monumentos/hospital-tavera/'
         },
         tabs: {
           history: {

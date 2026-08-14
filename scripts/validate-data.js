@@ -104,6 +104,9 @@ function validateCity(cityId, city) {
     if (poi.visitInfo) {
       if (!hasDual(poi.visitInfo.hours)) err(`${poiLabel}: visitInfo.hours incompleto`);
       if (!hasDual(poi.visitInfo.price)) err(`${poiLabel}: visitInfo.price incompleto`);
+      if (poi.visitInfo.link && !/^https?:\/\//.test(poi.visitInfo.link)) {
+        err(`${poiLabel}: visitInfo.link no es una URL http(s)`);
+      }
     }
 
     if (poi.essential) {

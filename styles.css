@@ -1098,6 +1098,20 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   white-space: pre-wrap;
   word-break: break-word;
 }
+.ai-msg-link {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #0B1120;
+  font-weight: 600;
+  font-size: 12.5px;
+  text-decoration: none;
+}
 .ai-msg.-user .ai-msg-bubble {
   background: var(--color-primary);
   color: #0B1120;
