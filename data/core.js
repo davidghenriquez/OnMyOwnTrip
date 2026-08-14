@@ -115,8 +115,8 @@ const CITIES = {
         name: { adult: 'Paseo del Arte', kids: '¡El Paseo de los Museos! 🎨' },
         color: '#E11D48',
         intro: {
-          adult: 'El Paseo del Arte es el eje cultural más importante de España: en poco más de un kilómetro se concentran algunos de los museos más visitados del mundo. Empezarás en el Museo Thyssen-Bornemisza, seguirás por el Museo del Prado, te tomarás un respiro entre los jardines del Retiro, pasarás por la fachada vegetal del CaixaForum y terminarás en el Museo Reina Sofía, hogar del Guernica de Picasso. Al terminar habrás recorrido ocho siglos de historia del arte, del Románico a la vanguardia del siglo XX, sin salir de un mismo paseo.',
-          kids: '¡Esta ruta es puro arte! 🎨 Vas a pasar por tres museos gigantes, cada uno con cuadros y tesoros distintos, un parque enorme para descansar en medio, y un edificio con una pared cubierta de plantas de verdad. Al terminar habrás visto pinturas hechas hace cientos de años y otras hechas hace muy poquito tiempo, ¡todo en el mismo paseo!'
+          adult: 'El Paseo del Arte es el eje cultural más importante de España: en poco más de un kilómetro se concentran algunos de los museos más visitados del mundo. Empezarás en el Museo Thyssen-Bornemisza, seguirás por el Museo del Prado, cruzarás el Real Jardín Botánico, te tomarás un respiro entre los jardines del Retiro, pasarás por la fachada vegetal del CaixaForum y terminarás en el Museo Reina Sofía, hogar del Guernica de Picasso. Al terminar habrás recorrido ocho siglos de historia del arte, del Románico a la vanguardia del siglo XX, sin salir de un mismo paseo.',
+          kids: '¡Esta ruta es puro arte! 🎨 Vas a pasar por tres museos gigantes, cada uno con cuadros y tesoros distintos, un jardín con plantas de todo el mundo, un parque enorme para descansar en medio, y un edificio con una pared cubierta de plantas de verdad. Al terminar habrás visto pinturas hechas hace cientos de años y otras hechas hace muy poquito tiempo, ¡todo en el mismo paseo!'
         }
       },
       {

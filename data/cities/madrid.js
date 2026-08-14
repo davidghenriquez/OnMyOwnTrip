@@ -195,6 +195,62 @@ CITIES.madrid.pois = [
         }
       },
       {
+        id: 'jardin-botanico-madrid',
+        name: {
+          adult: 'Real Jardín Botánico',
+          kids: 'Real Jardín Botánico — El Bosque de las Mil Plantas 🌿'
+        },
+        subtitle: {
+          adult: 'Miles de especies vegetales junto al Prado',
+          kids: '¡Un jardín con plantas de todo el mundo, justo al lado del museo!'
+        },
+        category: CATEGORIES.HIDDEN,
+        essential: { route: 'arte', order: 3 },
+        coords: [40.4111, -3.6917],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/RJB_-_Puerta_Real_%28Madrid%29_01.jpg/330px-RJB_-_Puerta_Real_%28Madrid%29_01.jpg',
+        audio: {
+          duration: 160,
+          title: {
+            adult: 'Audioguía: Real Jardín Botánico',
+            kids: '¡Aventura Sonora: El Bosque de las Mil Plantas!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Fundado en 1755 por el rey Fernando VI junto al río Manzanares, el Real Jardín Botánico se trasladó en 1781, por orden de Carlos III, a su ubicación actual junto al Paseo del Prado, dentro del gran proyecto ilustrado del "Salón del Prado" que incluía también el propio Museo del Prado y el Observatorio Astronómico. Concebido como centro científico para catalogar y aclimatar las especies traídas de las expediciones botánicas a América, hoy conserva un herbario con más de un millón de pliegos.',
+            kids: '¡Este jardín tiene más de 270 años y lo mandó construir un rey para estudiar plantas! Primero estaba en otro sitio, junto a un río, pero lo trasladaron aquí, justo al lado de donde después se construyó el Museo del Prado. Aquí llegaban plantas traídas en barco desde América para estudiarlas.'
+          },
+          legends: {
+            adult: 'Entre sus tesoros se conserva parte del herbario original de expediciones botánicas del siglo XVIII a Nueva Granada, Perú y Chile, financiadas por la Corona para localizar plantas medicinales y de valor comercial; se cuenta que algunos de los botánicos que participaron en aquellos viajes de años de duración jamás regresaron a España, y que sus colecciones llegaron a Madrid mucho después que ellos mismos, a bordo de barcos distintos. El jardín conserva también varios árboles centenarios catalogados como Monumento Natural, supervivientes de los primeros años del jardín en su ubicación actual.',
+            kids: '¡Guardan aquí plantas secas de expediciones que viajaron a América hace más de 200 años, buscando plantas medicinales! Algunos de los científicos que fueron a buscarlas tardaron muchísimos años en volver, ¡y algunos ni siquiera llegaron a regresar! Hay árboles aquí que tienen más de 200 años y están protegidos como si fueran monumentos.'
+          },
+          architecture: {
+            adult: 'Diseñado por los arquitectos Francesco Sabatini y Juan de Villanueva —el mismo que proyectó el edificio del Prado—, el jardín se organiza en tres terrazas escalonadas que salvan el desnivel hasta la calle Alfonso XII, cada una con un trazado distinto: el Cuadro de la Escuela Botánica, el Plano de Flores y el Jardín de Bonpland. Su acceso principal, la Puerta Real, es una verja monumental de estilo neoclásico realizada en 1781, considerada una de las más elegantes de todo Madrid.',
+            kids: '¡Está construido en tres niveles como una escalera gigante, cada uno con un tipo distinto de jardín! La entrada principal tiene una verja de hierro preciosa que se hizo hace más de 240 años. El mismo arquitecto que diseñó el Museo del Prado ayudó también a diseñar este jardín.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué rey trasladó el Real Jardín Botánico a su ubicación actual, junto al Prado?',
+            options: ['Carlos III', 'Felipe II', 'Alfonso XII'],
+            correct: 0,
+            reveal: '¡Carlos III! 🌿 Lo trasladó aquí en 1781, dentro de su gran proyecto ilustrado del Paseo del Prado.'
+          },
+          legends: {
+            question: '¿De dónde venían muchas de las plantas que se estudiaron aquí en el siglo XVIII?',
+            options: ['De expediciones botánicas a América', 'De jardines franceses', 'De invernaderos de Rusia'],
+            correct: 0,
+            reveal: '¡De expediciones botánicas a América! 🌎 Viajes de años de duración en busca de plantas medicinales y comerciales.'
+          },
+          architecture: {
+            question: '¿Cómo se llama la verja monumental de la entrada principal del jardín?',
+            options: ['La Puerta Real', 'La Puerta del Sol', 'La Puerta Verde'],
+            correct: 0,
+            reveal: '¡La Puerta Real! 🚪 Una verja neoclásica de 1781, considerada una de las más elegantes de Madrid.'
+          }
+        }
+      },
+      {
         id: 'parque-retiro',
         name: {
           adult: 'Parque de El Retiro',
@@ -205,7 +261,7 @@ CITIES.madrid.pois = [
           kids: '¡Tiene una estatua del diablo, única en el mundo!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'arte', order: 3 },
+        essential: { route: 'arte', order: 4 },
         coords: [40.4150, -3.6839],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Palacio_de_Cristal.jpg/330px-Palacio_de_Cristal.jpg',
         audio: {
@@ -328,7 +384,7 @@ CITIES.madrid.pois = [
           kids: '¡Antes de ser museo, este edificio curaba enfermos!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'arte', order: 5 },
+        essential: { route: 'arte', order: 6 },
         coords: [40.408798, -3.693648],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Museo_Reina_Sofia%2C_Madrid_%286394654203%29.jpg/330px-Museo_Reina_Sofia%2C_Madrid_%286394654203%29.jpg',
         audio: { duration: 172, title: { adult: 'Audioguía: Museo Reina Sofía', kids: '¡Aventura Sonora: El Hospital Convertido en Museo!' } },
@@ -1306,7 +1362,7 @@ CITIES.madrid.pois = [
           kids: '¡Este edificio parece flotar en el aire, sin apoyarse en el suelo!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'arte', order: 4 },
+        essential: { route: 'arte', order: 5 },
         coords: [40.410905, -3.692897],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Caixaforum_Madrid_2024.jpg/330px-Caixaforum_Madrid_2024.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: CaixaForum Madrid', kids: '¡Aventura Sonora: El Edificio que Flota!' } },
