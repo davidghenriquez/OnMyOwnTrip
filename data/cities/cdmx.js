@@ -21,6 +21,10 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: La Catedral de las Dos Torres!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Abierta todos los días, aproximadamente de 8:00 a 20:00 (puede variar por celebraciones religiosas).', kids: 'Abre todos los días, por la mañana y por la tarde.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La Catedral Metropolitana de México se construyó entre 1573 y 1813, a lo largo de 240 años y once virreyes, sobre parte del recinto sagrado mexica y con piedras procedentes del propio Templo Mayor. Es la catedral católica más grande de América y sede del arzobispado desde la época colonial. Su lenta construcción hizo que conviva el gótico tardío de los primeros planos con el barroco de su cuerpo central y el neoclásico de sus torres y el remate de la cúpula, obra de Manuel Tolsá a comienzos del siglo XIX.',
@@ -76,6 +80,10 @@ CITIES.cdmx.pois = [
             adult: 'Audioguía: Palacio Nacional',
             kids: '¡Aventura Sonora: El Palacio de la Campana!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Martes a domingo 9:00-17:00. Cerrado los lunes. Conviene llegar temprano: los turnos de acceso suelen agotarse después de las 10:30.', kids: 'Abre de martes a domingo por la mañana y hasta media tarde. Los lunes está cerrado.' },
+          price: { adult: 'Gratis, tanto para mexicanos como extranjeros. Solo hace falta enseñar una identificación oficial vigente (INE o pasaporte) para registrarte en la entrada.', kids: '¡Es gratis! Pero hay que enseñar una identificación (como el pasaporte) para poder entrar.' }
         },
         tabs: {
           history: {
@@ -199,6 +207,10 @@ CITIES.cdmx.pois = [
             adult: 'Audioguía: Palacio de Bellas Artes',
             kids: '¡Aventura Sonora: El Palacio que Sube y Baja!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Martes a domingo 10:00-17:30. Cerrado los lunes.', kids: 'Abre de martes a domingo. Los lunes está cerrado.' },
+          price: { adult: '90 MXN entrada general (acceso a los murales y exposiciones temporales). Gratis los domingos, y siempre gratis para estudiantes, docentes y personas mayores (INAPAM).', kids: '90 pesos, ¡pero es gratis los domingos!' }
         },
         tabs: {
           history: {
@@ -456,6 +468,10 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: Los Canales de Colores!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Los embarcaderos suelen operar en horario diurno, aproximadamente de 9:00 a 18:00.', kids: 'Se puede pasear en trajinera durante el día.' },
+          price: { adult: 'No es una "entrada": se renta la trajinera completa, a razón de 750 MXN por hora (tarifa oficial 2026), para hasta 18 personas por barca.', kids: 'No se paga por persona: se alquila la barca entera, ¡y pueden ir hasta 18 personas juntas!' }
+        },
         tabs: {
           history: {
             adult: 'Xochimilco —"lugar donde florecen las flores" en náhuatl— conserva el último vestigio del vasto sistema de lagos que cubría el Valle de México antes de la conquista española. Desde época prehispánica, los pueblos del lugar cultivaban chinampas, islas artificiales de tierra fértil ancladas con ahuejotes (sauces locales), un ingenioso sistema agrícola que llegó a alimentar a toda Tenochtitlan. En 1987 la UNESCO declaró la zona Patrimonio de la Humanidad, reconociendo tanto sus canales como su valor agrícola vivo.',
@@ -511,6 +527,10 @@ CITIES.cdmx.pois = [
             adult: 'Audioguía: Mercado de Coyoacán',
             kids: '¡Aventura Sonora: El Mercado de los Mil Sabores!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Abierto todos los días, en torno a 9:00-19:00 (algunos puestos cierran antes o abren más tarde).', kids: 'Abre todos los días, por la mañana y por la tarde.' },
+          price: { adult: 'Gratis entrar; solo se paga lo que compres.', kids: 'Entrar es gratis, ¡solo se paga lo que compres!' }
         },
         tabs: {
           history: {
@@ -568,6 +588,10 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: El Parque de las Fuentes de Piedra!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, parque público abierto en horario diurno (aproximadamente 6:00-22:00).', kids: '¡Se puede visitar en cualquier momento del día!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Mandada crear en 1592 por el virrey Luis de Velasco II, la Alameda Central es el parque público más antiguo de América. Debe su nombre a los álamos que se plantaron originalmente en sus paseos. Durante la época colonial fue ampliada varias veces y, bajo el Porfiriato, se remodeló al estilo de los parques parisinos, con las fuentes y esculturas de mármol que aún conserva, para ofrecer a la burguesía capitalina un paseo elegante a la europea.',
@@ -622,6 +646,10 @@ CITIES.cdmx.pois = [
             adult: 'Audioguía: Ángel de la Independencia',
             kids: '¡Aventura Sonora: La Dama Dorada Voladora!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'La glorieta y el monumento se ven en cualquier momento; el interior y el mirador no están abiertos regularmente al público.', kids: 'Se puede ver siempre desde fuera, ¡pero no se puede subir dentro!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -678,6 +706,10 @@ CITIES.cdmx.pois = [
             adult: 'Audioguía: Jardín Centenario y Parroquia de Coyoacán',
             kids: '¡Aventura Sonora: La Plaza de las Ranitas!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'El jardín es de acceso libre en cualquier momento; la parroquia suele abrir en horario de misa, normalmente por la mañana y por la tarde.', kids: 'El jardín se puede visitar siempre; la iglesia abre cuando hay misa.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -868,6 +900,10 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: El Edificio de Escamas Plateadas!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Todos los días 10:30-18:30.', kids: 'Abre todos los días, por la mañana y por la tarde.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Inaugurado en 2011 y financiado por el empresario Carlos Slim, el Museo Soumaya lleva el nombre de su esposa fallecida, Soumaya Domit. Su colección, de entrada gratuita, reúne más de 66.000 piezas que van desde arte prehispánico mexicano hasta la mayor colección de esculturas de Auguste Rodin fuera de Francia, pasando por pintura europea de los siglos XV al XX.',
@@ -990,6 +1026,10 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: El Templo que se Inclina!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Todos los días, de 6:00 a 21:00.', kids: 'Abre todos los días, desde muy temprano hasta la noche.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Erigida a los pies del cerro del Tepeyac, la Basílica de Guadalupe marca el lugar donde, según la tradición católica, la Virgen de Guadalupe se apareció al indígena Juan Diego en 1531. La antigua basílica, construida entre los siglos XVI y XVIII, comenzó a hundirse de forma peligrosa por el terreno lacustre, lo que llevó a construir un nuevo templo, inaugurado en 1976, capaz de recibir a las multitudes que la visitan cada año, especialmente el 12 de diciembre.',
@@ -1046,6 +1086,10 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: El Templo que se Hunde de Verdad!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Martes a domingo 10:00-17:00. Cerrado los lunes.', kids: 'Abre de martes a domingo. Los lunes está cerrada.' },
+          price: { adult: '10 MXN entrada general, 5 MXN para estudiantes e INAPAM. Gratis para menores de 12 años.', kids: '10 pesos, ¡pero gratis si tienes menos de 12 años!' }
+        },
         tabs: {
           history: {
             adult: 'Construida entre 1695 y 1709 según planos del arquitecto Pedro de Arrieta, esta basílica barroca fue durante más de dos siglos y medio el santuario oficial que custodiaba la imagen de la Virgen de Guadalupe, hasta que el hundimiento del terreno obligó a cerrarla al culto en 1974 y trasladar la imagen a la nueva basílica circular contigua, inaugurada en 1976. Desde 1999 alberga el Museo de la Basílica de Guadalupe, con una de las colecciones de arte virreinal religioso más importantes de México.',
@@ -1101,6 +1145,10 @@ CITIES.cdmx.pois = [
             adult: 'Audioguía: Capilla del Cerrito',
             kids: '¡Aventura Sonora: La Capilla de la Cima!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Accesible durante el horario general del conjunto de la Basílica, de 6:00 a 21:00.', kids: 'Se puede subir durante el mismo horario que la Basílica.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
