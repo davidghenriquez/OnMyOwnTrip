@@ -388,6 +388,61 @@ CITIES.toledo.pois = [
         }
       },
       {
+        id: 'fabrica-armas-toledo',
+        name: {
+          adult: 'Real Fábrica de Armas de Toledo',
+          kids: 'Real Fábrica de Armas de Toledo — La Fábrica de las Espadas Mágicas ⚔️'
+        },
+        subtitle: {
+          adult: 'Donde se industrializó la tradición espadera de Toledo',
+          kids: '¡Aquí se fabricaban miles de espadas de verdad!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [39.8660, -4.0429],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Biblioteca_General_del_Campus_de_Toledo.jpg/330px-Biblioteca_General_del_Campus_de_Toledo.jpg',
+        audio: {
+          duration: 175,
+          title: {
+            adult: 'Audioguía: Real Fábrica de Armas',
+            kids: '¡Aventura Sonora: La Fábrica de las Espadas Mágicas!'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Toledo forjaba espadas de gran calidad desde época romana, gracias al hierro y al agua de sus ríos, pero hasta el siglo XVIII el oficio se repartía entre pequeños talleres dispersos por la ciudad. En 1761 el rey Carlos III ordenó centralizar y modernizar esta tradición bajo un único techo: la Real Fábrica de Armas, construida entre 1777 y 1783 según los planos del arquitecto italiano Francesco Sabatini, el mismo que diseñó la Puerta de Alcalá de Madrid. Produjo espadas de caballería, dragones e infantería para el ejército español durante más de dos siglos.',
+            kids: '¡En Toledo se hacían espadas desde hace casi 2.000 años, pero cada herrero trabajaba por su cuenta en su propio taller! Un rey llamado Carlos III decidió juntar a todos bajo un mismo techo enorme, hace más de 200 años. ¡El mismo arquitecto que hizo un monumento famoso de Madrid diseñó también esta fábrica!'
+          },
+          legends: {
+            adult: 'Se dice que los maestros espaderos toledanos guardaban en secreto de familia la técnica exacta del temple del acero, un proceso tan delicado que una leyenda asegura que las mejores espadas se enfriaban clavándolas en el cuerpo de un condenado a muerte, para que el acero absorbiera su fuerza vital. La fama de las espadas de Toledo llegó a ser tal que en toda Europa se falsificaba la marca "Toledo" grabada en las hojas, obligando a los gremios locales a desarrollar marcas y contramarcas cada vez más difíciles de imitar.',
+            kids: '¡Los maestros espaderos guardaban en secreto cómo hacer el acero perfecto para las espadas! Cuenta una leyenda muy antigua y exagerada que las mejores espadas se enfriaban de una forma muy dramática para que quedaran superfuertes. Las espadas de Toledo eran tan famosas que en otros países las copiaban ¡y ponían la palabra "Toledo" en espadas falsas para venderlas mejor!'
+          },
+          architecture: {
+            adult: 'El edificio principal, el Palacio Sabatini, es una construcción rectangular de planta clásica organizada en torno a dos grandes patios, hoy considerada una de las mejores muestras de arquitectura industrial ilustrada de España. Bajo el propio edificio discurre el Canal de Carlos III, una obra de ingeniería hidráulica que canalizaba el agua del Tajo para mover la maquinaria de forja. En ampliaciones posteriores, ya de los siglos XIX y XX, se añadieron pabellones de estilo neomudéjar en ladrillo y hierro, hasta sumar más de sesenta edificios en su época de mayor actividad.',
+            kids: '¡El edificio principal tiene dos patios enormes y fue diseñado por un arquitecto muy famoso! Por debajo pasa un canal de agua que movía toda la maquinaria de la fábrica, ¡como un río escondido bajo tierra! Con el tiempo se construyeron más de sesenta edificios distintos alrededor, formando casi una ciudad propia dedicada a fabricar armas.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué rey ordenó construir la Real Fábrica de Armas de Toledo?',
+            options: ['Carlos III', 'Felipe II', 'Alfonso X'],
+            correct: 0,
+            reveal: '¡Carlos III! ⚔️ La mandó construir en 1761 para centralizar bajo un mismo techo la tradición espadera toledana.'
+          },
+          legends: {
+            question: '¿Qué palabra falsificaban en otros países sobre las espadas, por su fama?',
+            options: ['"Toledo" grabada en las hojas', 'El escudo del rey', 'La firma del herrero'],
+            correct: 0,
+            reveal: '¡La palabra "Toledo"! ⚔️ Las espadas toledanas eran tan famosas que se falsificaba esa marca en espadas hechas fuera de la ciudad.'
+          },
+          architecture: {
+            question: '¿Qué obra de ingeniería hidráulica discurre bajo el edificio principal?',
+            options: ['El Canal de Carlos III', 'Un acueducto romano', 'Una mina de plata'],
+            correct: 0,
+            reveal: '¡El Canal de Carlos III! 💧 Canalizaba el agua del Tajo para mover la maquinaria de forja de toda la fábrica.'
+          }
+        }
+      },
+      {
         id: 'san-juan-de-los-reyes',
         name: {
           adult: 'Monasterio de San Juan de los Reyes',
