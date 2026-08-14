@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla -->
@@ -101,6 +101,24 @@
     </div>
 
     <span class="onboarding-version" id="appVersion">Beta V8</span>
+    <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
+  </div>
+
+  <div class="reset-confirm-modal" id="resetConfirmModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Confirmar reinicio de la app">
+    <div class="reset-confirm-card">
+      <div class="reset-confirm-icon" aria-hidden="true">⚠️</div>
+      <h2 class="reset-confirm-title">¿Reiniciar la app?</h2>
+      <p class="reset-confirm-text">
+        Se borrará todo: la ciudad y el modo guardados, tus puntos y progreso del quiz,
+        las conversaciones con la guía IA y todo el contenido descargado para uso sin
+        conexión. Quedará como la primera vez que abriste la web. Esta acción no se
+        puede deshacer.
+      </p>
+      <div class="reset-confirm-actions">
+        <button type="button" class="reset-confirm-cancel" id="resetConfirmCancel">Cancelar</button>
+        <button type="button" class="reset-confirm-ok" id="resetConfirmOk">Sí, reiniciar</button>
+      </div>
+    </div>
   </div>
 
   <div class="app" id="app">
@@ -318,7 +336,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=3"></script>
-  <script src="app.js?v=13"></script>
+  <script src="app.js?v=14"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa

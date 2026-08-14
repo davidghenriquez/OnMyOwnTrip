@@ -124,6 +124,83 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   opacity: 0.55;
   cursor: pointer;
 }
+.onboarding-reset {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 1;
+  padding: 10px;
+  margin: -10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  opacity: 0.55;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.onboarding-reset:active { opacity: 0.85; }
+
+/* ---------- CONFIRMACIÓN DE REINICIO ---------- */
+.reset-confirm-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 6000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 7, 13, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.reset-confirm-modal.-open {
+  opacity: 1;
+  visibility: visible;
+}
+.reset-confirm-card {
+  width: min(92vw, 360px);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 26px 22px 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.reset-confirm-icon { font-size: 30px; line-height: 1; margin-bottom: 8px; }
+.reset-confirm-title { font-size: 16px; font-weight: 800; margin: 0 0 10px; }
+.reset-confirm-text {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  margin: 0 0 20px;
+}
+.reset-confirm-actions {
+  display: flex;
+  gap: 10px;
+}
+.reset-confirm-cancel,
+.reset-confirm-ok {
+  flex: 1;
+  height: 42px;
+  border-radius: 12px;
+  border: 0;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.reset-confirm-cancel {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+.reset-confirm-ok {
+  background: #DC2626;
+  color: #fff;
+}
+.reset-confirm-ok:active,
+.reset-confirm-cancel:active { transform: scale(0.97); }
 .onboarding-route path {
   animation: onboardingDash 3.2s linear infinite;
 }
