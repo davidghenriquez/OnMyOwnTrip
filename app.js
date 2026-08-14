@@ -2247,6 +2247,49 @@
       });
     }
 
+    // Reinicio completo: borra caché del Service Worker, el propio Service
+    // Worker registrado y todo localStorage (ciudad/modo, puntos, progreso
+    // del quiz, conversaciones con la IA), y recarga — como si fuera la
+    // primera vez que se abre la web. Pide confirmación con un modal propio
+    // (no window.confirm, por el mismo motivo que el volcado de depuración
+    // no usa window.prompt: puede bloquearse en modo "añadido a pantalla de
+    // inicio" en algunos navegadores móviles).
+    const resetBtn = $('#obResetBtn');
+    const resetModal = $('#resetConfirmModal');
+    const openResetConfirm = () => {
+      if (!resetModal) return;
+      resetModal.classList.add('-open');
+      resetModal.setAttribute('aria-hidden', 'false');
+    };
+    const closeResetConfirm = () => {
+      if (!resetModal) return;
+      resetModal.classList.remove('-open');
+      resetModal.setAttribute('aria-hidden', 'true');
+    };
+    const performFullReset = async () => {
+      const okBtn = $('#resetConfirmOk');
+      if (okBtn) { okBtn.disabled = true; okBtn.textContent = 'Reiniciando…'; }
+      try {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((r) => r.unregister()));
+      } catch (_) {}
+      try {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+      } catch (_) {}
+      try { localStorage.clear(); } catch (_) {}
+      location.reload();
+    };
+    resetBtn?.addEventListener('click', openResetConfirm);
+    $('#resetConfirmCancel')?.addEventListener('click', closeResetConfirm);
+    $('#resetConfirmOk')?.addEventListener('click', performFullReset);
+    resetModal?.addEventListener('click', (e) => {
+      if (e.target === resetModal) closeResetConfirm();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && resetModal && resetModal.classList.contains('-open')) closeResetConfirm();
+    });
+
     let chosenMode = STATE.mode === 'kids' ? 'kids' : 'adult';
     const modeBtns = $$('.onboarding-btn.-mode');
     modeBtns.forEach((b) => {
