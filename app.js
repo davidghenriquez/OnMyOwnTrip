@@ -766,16 +766,38 @@
   // primera vez que se elige, y queda cacheado (variable + Service Worker)
   // para las siguientes veces en la misma sesión o visitas posteriores.
   const loadedCityScripts = new Set();
-  const loadCityData = (cityId) => {
-    if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return Promise.resolve();
-    if (loadedCityScripts.has(cityId)) return Promise.resolve();
-    return new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = `data/cities/${cityId}.js?v=2`;
-      script.onload = () => { loadedCityScripts.add(cityId); resolve(); };
-      script.onerror = () => reject(new Error(`No se pudo cargar data/cities/${cityId}.js`));
-      document.head.appendChild(script);
-    });
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  const loadScriptOnce = (src) => new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`No se pudo cargar ${src}`));
+    document.head.appendChild(script);
+  });
+
+  // Justo tras registrarse, el Service Worker puede tomar el control de la
+  // página a mitad de sesión (clients.claim() en sw.js) mientras esta
+  // petición ya está en marcha, lo que a veces la hace fallar una vez con
+  // net::ERR_FAILED aunque la red vaya bien. Un par de reintentos cortos
+  // resuelve ese hueco sin que el usuario vea nunca el aviso de error.
+  const loadCityData = async (cityId) => {
+    if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
+    if (loadedCityScripts.has(cityId)) return;
+    const src = `data/cities/${cityId}.js?v=2`;
+    const delays = [0, 350, 900];
+    let lastError;
+    for (const delay of delays) {
+      if (delay) await sleep(delay);
+      try {
+        await loadScriptOnce(src);
+        loadedCityScripts.add(cityId);
+        return;
+      } catch (e) {
+        lastError = e;
+      }
+    }
+    throw lastError;
   };
 
   // Cambia de ciudad: recarga POIs, mapa y cabecera. Si la app ya estaba
