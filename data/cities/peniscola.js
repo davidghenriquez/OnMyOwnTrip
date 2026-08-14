@@ -21,6 +21,16 @@ CITIES.peniscola.pois = [
             kids: '¡Aventura Sonora: El Castillo del Papa Rebelde!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Del Domingo de Ramos al 15 de octubre: 9:30-21:30. Del 16 de octubre al Domingo de Ramos: 10:30-17:30.',
+            kids: 'En verano abre hasta la noche; en invierno, solo hasta media tarde.'
+          },
+          price: {
+            adult: '5€ entrada general, 3,50€ reducida (9-16 años, mayores, desempleados, docentes, estudiantes y grupos grandes). Gratis para menores de 9 años y personas con discapacidad. No hay venta de entradas online confirmada: se compran en la taquilla del castillo.',
+            kids: '5€, pero gratis si tienes menos de 9 años. Se compra en la puerta del castillo.'
+          }
+        },
         tabs: {
           history: {
             adult: 'Los caballeros templarios levantaron este castillo a comienzos del siglo XIV sobre una roca que se adentra en el Mediterráneo, aprovechando restos de una fortaleza árabe anterior. Tras la disolución de la Orden del Temple pasó a la Orden de Montesa, pero su momento más célebre llegó en 1411, cuando Benedicto XIII —el aragonés Pedro de Luna, conocido como el "Papa Luna"— se refugió aquí tras ser depuesto durante el Cisma de Occidente. Convertido en palacio pontificio, Peñíscola fue su corte y su último bastión: siguió considerándose el único Papa legítimo hasta su muerte en 1423, casi en solitario frente a toda la cristiandad.',
