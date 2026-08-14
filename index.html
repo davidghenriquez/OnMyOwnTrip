@@ -167,17 +167,17 @@
           <button type="button" class="pill" data-category="all" data-active="true">
             <span>Todos</span>
           </button>
+          <button type="button" class="pill" data-category="essential" data-active="false">
+            <span>Recomendaciones</span>
+          </button>
+          <button type="button" class="pill" data-category="rincones-ocultos" data-active="false">
+            <span>Interés</span>
+          </button>
           <button type="button" class="pill" data-category="historia" data-active="false">
             <span>Museos</span>
           </button>
           <button type="button" class="pill" data-category="gastronomia" data-active="false">
             <span>Restauración</span>
-          </button>
-          <button type="button" class="pill" data-category="rincones-ocultos" data-active="false">
-            <span>Interés</span>
-          </button>
-          <button type="button" class="pill" data-category="essential" data-active="false">
-            <span>Imprescindible</span>
           </button>
         </nav>
         <div class="dropdown-menu route-picker" id="routePicker" hidden></div>
@@ -335,8 +335,8 @@
   <!-- El "?v=N" de data.js/app.js/styles.css evita que el móvil se quede con
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
-  <script src="data/core.js?v=3"></script>
-  <script src="app.js?v=14"></script>
+  <script src="data/core.js?v=4"></script>
+  <script src="app.js?v=15"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa

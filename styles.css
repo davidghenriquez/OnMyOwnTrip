@@ -579,7 +579,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 
 /* ---------- SELECTOR DE CIRCUITOS (rutas imprescindibles) ----------
  * Ancho de contenido (no ocupa todo el header): se posiciona con JS
- * justo bajo la píldora "Imprescindible", para tapar lo mínimo posible. */
+ * justo bajo la píldora "Recomendaciones", para tapar lo mínimo posible. */
 .dropdown-menu {
   min-width: 190px;
   max-width: min(260px, calc(100vw - 32px));
