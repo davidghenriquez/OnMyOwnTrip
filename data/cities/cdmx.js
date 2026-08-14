@@ -133,6 +133,17 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: La Pirámide Escondida!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a domingo 9:00-17:00. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo por la mañana y hasta media tarde. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '210 MXN para extranjeros sin residencia; 105 MXN para mexicanos y residentes. Gratis los domingos para nacionales y residentes, y siempre gratis para menores de 13, docentes y personas mayores.',
+            kids: '210 pesos, pero es gratis si tienes menos de 13 años, ¡y también los domingos para quienes viven en México!'
+          },
+          link: 'https://ventadeboletosenlinea.inah.gob.mx/'
+        },
         tabs: {
           history: {
             adult: 'El Templo Mayor fue el centro religioso y simbólico de Tenochtitlan, capital del imperio mexica, fundada según la tradición en 1325. Dedicado conjuntamente a Huitzilopochtli, dios de la guerra, y Tláloc, dios de la lluvia, la pirámide se reconstruyó y amplió en siete etapas superpuestas a lo largo de dos siglos, cada nuevo gobernante añadiendo una capa sobre la anterior. Fue arrasado por los conquistadores españoles en 1521 y quedó sepultado bajo el centro de la nueva ciudad colonial durante más de 450 años.',
@@ -245,6 +256,17 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: El Rascacielos que Baila!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Lunes a viernes 10:00-21:00; sábados y domingos 9:00-22:00.',
+            kids: 'Abre todos los días, por la mañana, la tarde y hasta la noche.'
+          },
+          price: {
+            adult: 'Mirador + Museo Bicentenario: 200 MXN adultos, 140 MXN niños de 4 a 11 años.',
+            kids: '200 pesos, o solo 140 pesos si tienes entre 4 y 11 años.'
+          },
+          link: 'https://www.miradortorrelatino.com/boletos'
+        },
         tabs: {
           history: {
             adult: 'Inaugurada en 1956, la Torre Latinoamericana fue durante más de dos décadas el edificio más alto de Latinoamérica, con 182 metros y 44 pisos. Se construyó justo en el cruce donde antes estuvo el Colegio de San Ildefonso, sobre el mismo subsuelo lacustre inestable que ha hundido tantos edificios del centro histórico.',
@@ -301,6 +323,17 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: El Castillo de la Colina!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a domingo 9:00-17:00. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo por la mañana y hasta media tarde. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '210 MXN para extranjeros sin residencia; 105 MXN para mexicanos y residentes. Gratis para menores de 13, mayores de 60, docentes y personas con discapacidad.',
+            kids: '210 pesos, pero es gratis si tienes menos de 13 años o más de 60.'
+          },
+          link: 'https://ventadeboletosenlinea.inah.gob.mx/'
+        },
         tabs: {
           history: {
             adult: 'Construido a partir de 1785 sobre el cerro sagrado de Chapultepec —"colina del chapulín" en náhuatl— por orden del virrey Bernardo de Gálvez, pasó por usos muy distintos: colegio militar, y desde 1864 residencia del emperador Maximiliano I y la emperatriz Carlota durante el Segundo Imperio Mexicano. Fue también residencia presidencial hasta 1939, cuando Lázaro Cárdenas lo convirtió en el Museo Nacional de Historia. Es el único castillo de auténtico uso real que ha existido en el continente americano.',
@@ -356,6 +389,17 @@ CITIES.cdmx.pois = [
             adult: 'Audioguía: La Casa Azul',
             kids: '¡Aventura Sonora: La Casa Mágica de Frida!'
           }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Martes, jueves a domingo 10:00-18:00; miércoles 11:00-18:00. Jueves también horario nocturno "Noches Azules" hasta las 21:00.',
+            kids: 'Abre de martes a domingo. Los jueves se puede visitar hasta la noche.'
+          },
+          price: {
+            adult: '320 MXN entrada general, con descuentos para residentes, estudiantes y mayores. Gratis para menores de 6 años. La compra es únicamente en línea, con horario asignado: no se vende en taquilla.',
+            kids: '320 pesos, pero gratis si tienes menos de 6 años. ¡Ojo! Solo se compra por internet, no se puede pagar en la puerta.'
+          },
+          link: 'https://boletos.museofridakahlo.org.mx/es/tickets/museo-frida-kahlo-cdmx'
         },
         tabs: {
           history: {
@@ -691,6 +735,16 @@ CITIES.cdmx.pois = [
             kids: '¡Aventura Sonora: La Casa Fortaleza!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a domingo 10:00-17:00. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo. Los lunes está cerrado.'
+          },
+          price: {
+            adult: 'Entre 50 y 70 MXN, con descuentos para adultos mayores, docentes y estudiantes con credencial. No hay venta de entradas online: se compran en la recepción del museo.',
+            kids: 'Entre 50 y 70 pesos. Se compra en la puerta, no por internet.'
+          }
+        },
         tabs: {
           history: {
             adult: 'El revolucionario ruso León Trotsky, exiliado y perseguido por Stalin, vivió en esta casa de Coyoacán desde 1939 hasta su asesinato en 1940, tras una primera etapa alojado en la Casa Azul de Frida Kahlo y Diego Rivera, quienes gestionaron su asilo en México. Tras el atentado, su viuda Natalia Sedova conservó la vivienda tal cual quedó aquella noche, y en 1990 la convirtió en museo dedicado a su memoria y a la historia del movimiento revolucionario internacional.',
@@ -746,6 +800,17 @@ CITIES.cdmx.pois = [
             adult: 'Audioguía: Museo Nacional de Antropología',
             kids: '¡Aventura Sonora: El Museo de la Piedra del Sol!'
           }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a domingo 9:00-18:00. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '210 MXN para extranjeros sin residencia; 105 MXN para mexicanos y residentes. Gratis los domingos para nacionales y residentes, y siempre gratis para mayores de 60, menores de 13 y docentes.',
+            kids: '210 pesos, pero es gratis si tienes menos de 13 años, ¡y también los domingos para quienes viven en México!'
+          },
+          link: 'https://ventadeboletosenlinea.inah.gob.mx/'
         },
         tabs: {
           history: {
@@ -857,6 +922,16 @@ CITIES.cdmx.pois = [
           title: {
             adult: 'Audioguía: Museo Jumex',
             kids: '¡Aventura Sonora: El Vecino de Cemento Blanco!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a viernes 10:00-17:00, sábados 10:00-19:00, domingos 10:00-17:00. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '50 MXN general, 30 MXN residentes nacionales. Gratis los domingos, y siempre gratis para menores de 15, estudiantes, docentes y mayores.',
+            kids: '50 pesos, ¡pero es gratis los domingos y si tienes menos de 15 años!'
           }
         },
         tabs: {
