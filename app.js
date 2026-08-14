@@ -771,7 +771,7 @@
     if (loadedCityScripts.has(cityId)) return Promise.resolve();
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = `data/cities/${cityId}.js?v=1`;
+      script.src = `data/cities/${cityId}.js?v=2`;
       script.onload = () => { loadedCityScripts.add(cityId); resolve(); };
       script.onerror = () => reject(new Error(`No se pudo cargar data/cities/${cityId}.js`));
       document.head.appendChild(script);

@@ -56,7 +56,8 @@ const CITIES = {
     bounds: [[39.845, -4.05], [39.878, -4.00]],
     routes: [
       { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' },
-      { id: 'juderia', name: { adult: 'Judería y Rincones Ocultos', kids: '¡El Barrio Secreto! 🕵️' }, color: '#8B5CF6' }
+      { id: 'juderia', name: { adult: 'Judería y Rincones Ocultos', kids: '¡El Barrio Secreto! 🕵️' }, color: '#8B5CF6' },
+      { id: 'conventos', name: { adult: 'Conventos y Monasterios Escondidos', kids: '¡El Barrio de las Monjas y los Frailes! 🙏' }, color: '#10B981' }
     ]
   },
 
@@ -69,9 +70,17 @@ const CITIES = {
     center: [40.4169, -3.7095],
     zoom: 15.3,
     minZoom: 13,
-    bounds: [[40.408, -3.722], [40.423, -3.697]],
+    // Ampliados respecto a los originales ([[40.408,-3.722],[40.423,-3.697]]):
+    // eran demasiado ajustados y dejaban fuera del área navegable del mapa
+    // POIs reales como el Museo del Prado o el Parque del Retiro (detectado
+    // por scripts/validate-data.js). Con las nuevas rutas "Paseo del Arte"
+    // y "Palacio y Plaza de España" tocaba corregirlo ya.
+    bounds: [[40.404, -3.723], [40.432, -3.680]],
     routes: [
-      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' }
+      { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' }, color: '#F59E0B' },
+      { id: 'arte', name: { adult: 'Paseo del Arte', kids: '¡El Paseo de los Museos! 🎨' }, color: '#E11D48' },
+      { id: 'austrias', name: { adult: 'Madrid de los Austrias', kids: '¡El Madrid Antiguo! 🏰' }, color: '#16A34A' },
+      { id: 'palacio', name: { adult: 'Palacio y Plaza de España', kids: '¡El Barrio del Rey! 👑' }, color: '#0EA5E9' }
     ]
   },
 

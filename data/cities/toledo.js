@@ -398,6 +398,7 @@ CITIES.toledo.pois = [
           kids: '¡Un monasterio cubierto de cadenas de verdad!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'conventos', order: 1 },
         coords: [39.8577, -4.0316],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Iglesia_del_monasterio_de_San_Juan_de_los_Reyes%2C_Toledo%2C_Espa%C3%B1a.jpg/330px-Iglesia_del_monasterio_de_San_Juan_de_los_Reyes%2C_Toledo%2C_Espa%C3%B1a.jpg',
         audio: {
@@ -1147,6 +1148,7 @@ CITIES.toledo.pois = [
           kids: '¡Un gran pintor está enterrado aquí, pero nadie sabe exactamente dónde!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'conventos', order: 2 },
         coords: [39.859350, -4.028037],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Convento_de_Santo_Domingo_El_Antiguo_-_01.jpg/330px-Convento_de_Santo_Domingo_El_Antiguo_-_01.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Convento de Santo Domingo el Antiguo', kids: '¡Aventura Sonora: El Misterio de la Tumba Perdida!' } },
@@ -1226,6 +1228,7 @@ CITIES.toledo.pois = [
           kids: '¡Este antiguo convento hoy es parte de una universidad!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'conventos', order: 4 },
         coords: [39.8579556, -4.0272897],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Convento_de_San_Pedro_M%C3%A1rtir_%28Toledo%29._Claustro_Real.jpg/330px-Convento_de_San_Pedro_M%C3%A1rtir_%28Toledo%29._Claustro_Real.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Iglesia de San Pedro Mártir', kids: '¡Aventura Sonora: El Convento Convertido en Universidad!' } },
@@ -1305,6 +1308,7 @@ CITIES.toledo.pois = [
           kids: '¡Aquí se inventó el mazapán, hace más de 800 años!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'conventos', order: 3 },
         coords: [39.858108, -4.028364],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Toledo_-_Convento_de_San_Clemente_-_201102.jpg/330px-Toledo_-_Convento_de_San_Clemente_-_201102.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Convento de San Clemente', kids: '¡Aventura Sonora: La Cuna del Mazapán!' } },
@@ -1383,6 +1387,7 @@ CITIES.toledo.pois = [
           kids: '¡Dos hermanas nobles fundaron aquí un convento hace más de 500 años!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'conventos', order: 5 },
         coords: [39.857904, -4.026119],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Convento_Madre_de_Dios_02.JPG/330px-Convento_Madre_de_Dios_02.JPG',
         audio: { duration: 145, title: { adult: 'Audioguía: Convento de la Madre de Dios', kids: '¡Aventura Sonora: El Convento de las Hermanas Silva!' } },
@@ -1513,6 +1518,7 @@ CITIES.toledo.pois = [
           kids: '¡Estas monjas pertenecen a una orden militar y hacen dulces con recetas muy antiguas!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'conventos', order: 6 },
         coords: [39.860722, -4.026250],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Claustro_de_la_Mona._Toledo.jpg/330px-Claustro_de_la_Mona._Toledo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Convento de las Comendadoras de Santiago', kids: '¡Aventura Sonora: El Convento de las Guerreras de Santiago!' } },
