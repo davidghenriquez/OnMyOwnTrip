@@ -57,7 +57,7 @@ const CITIES = {
     routes: [
       {
         id: 'main',
-        name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' },
+        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
         color: '#F59E0B',
         intro: {
           adult: 'Esta es la ruta imprescindible de Toledo: siete paradas que resumen casi 2.000 años de historia en poco más de dos kilómetros a pie. Entrarás por la monumental Puerta de Bisagra, cruzarás la Plaza de Zocodover, subirás hasta el Alcázar y visitarás la Catedral Primada, la Iglesia de Santo Tomé y la Sinagoga del Tránsito, antes de terminar con las mejores vistas de la ciudad desde el Mirador del Valle. Al acabar entenderás por qué Toledo se llama la Ciudad de las Tres Culturas: aquí conviven, a pocos metros unas de otras, la huella musulmana, cristiana y judía.',
@@ -103,7 +103,7 @@ const CITIES = {
     routes: [
       {
         id: 'main',
-        name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' },
+        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
         color: '#F59E0B',
         intro: {
           adult: 'La ruta imprescindible de Madrid reúne sus seis grandes símbolos en un paseo corto y muy caminable. Visitarás el Palacio Real, uno de los más grandes de Europa, probarás el ambiente del Mercado de San Miguel, pisarás el kilómetro cero de España en la Puerta del Sol, cruzarás la Plaza Mayor, recorrerás la Gran Vía y terminarás junto a la Catedral de la Almudena. Al acabar tendrás una primera fotografía completa de Madrid: la capital de un imperio, convertida siglos después en una ciudad moderna y cosmopolita.',
@@ -153,7 +153,7 @@ const CITIES = {
     routes: [
       {
         id: 'main',
-        name: { adult: 'Imprescindible', kids: '¡Lo Top! 🚩' },
+        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
         color: '#F59E0B',
         intro: {
           adult: 'La ruta imprescindible de Peñíscola sigue el camino natural que unió esta antigua isla a tierra firme. Empezarás en Playa Norte, entrarás por las murallas renacentistas, visitarás la Iglesia de Santa María y llegarás hasta el Castillo del Papa Luna, el último bastión de un Papa que nunca se rindió. Terminarás en la Ermita de la Virgen de la Ermitana y en El Bufador, una grieta en la roca que "respira" con el oleaje. Al acabar conocerás la historia de Peñíscola desde el mar hasta lo más alto del peñón.',

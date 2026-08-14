@@ -615,7 +615,7 @@
   // Rutas imprescindibles de la ciudad activa; las ciudades sin `routes` propio
   // se tratan como una única ruta "main" con el color primario de la app.
   const getCityRoutes = () => (CURRENT_CITY && CURRENT_CITY.routes) || [
-    { id: 'main', name: { adult: 'Imprescindible', kids: '¡Lo Top!' }, color: null }
+    { id: 'main', name: { adult: 'Recomendaciones', kids: '¡Lo Top!' }, color: null }
   ];
   const isPoiInActiveRoute = (poi) => !!(poi.essential && poi.essential.route === STATE.activeRoute);
 
@@ -992,7 +992,7 @@
       btn.addEventListener('click', () => activateRoute(btn.dataset.route));
     });
     els.routePicker.hidden = false;
-    // Ancla el selector justo bajo la píldora "Imprescindible" (y no a todo
+    // Ancla el selector justo bajo la píldora "Recomendaciones" (y no a todo
     // el ancho del header), para tapar lo mínimo posible del mapa.
     const pill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
     positionDropdownNear(els.routePicker, pill);
@@ -1004,7 +1004,7 @@
     const isKids = STATE.mode === 'kids';
     const active = STATE.category === 'essential' && getCityRoutes().find((r) => r.id === STATE.activeRoute);
     pill.innerHTML = `<span class="pill-icon">${ROUTE_ICON_SVG()}</span><span>${
-      active ? pickDual(active.name) : (isKids ? '¡Lo Top! 🚩' : 'Imprescindible')
+      active ? pickDual(active.name) : (isKids ? '¡Lo Top! 🚩' : 'Recomendaciones')
     }</span>`;
     pill.style.setProperty('--pill-color', (active && active.color) || getCssVar('--color-primary'));
   };
