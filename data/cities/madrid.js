@@ -21,6 +21,17 @@ CITIES.madrid.pois = [
             kids: '¡Aventura Sonora: El Palacio de las Mil Puertas!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Octubre a marzo 10:00-18:00; abril a septiembre 10:00-19:00. Última entrada una hora antes del cierre.',
+            kids: 'Abre todos los días, por la mañana y por la tarde.'
+          },
+          price: {
+            adult: 'Entre 8€ y 17€ según qué zonas visites (Real Armería, Jardines del Campo del Moro). Gratis para menores de 5 años, docentes, desempleados y personas con discapacidad.',
+            kids: 'Entre 8€ y 17€, según cuánto quieras ver. ¡Gratis si tienes menos de 5 años!'
+          },
+          link: 'https://tickets.patrimonionacional.es/es/tickets/palacio-real-de-madrid'
+        },
         tabs: {
           history: {
             adult: 'El Alcázar medieval que ocupaba este lugar ardió la Nochebuena de 1734, y Felipe V encargó un palacio nuevo al arquitecto italiano Filippo Juvarra, que murió antes de empezar las obras. Su discípulo Giovanni Battista Sacchetti heredó el proyecto en 1737 y lo redujo drásticamente, elevando de tres a seis plantas lo que Juvarra había pensado como una construcción horizontal inspirada en Versalles. Las obras, iniciadas en 1738, no terminaron hasta 1764, ya con Carlos III en el trono, y arquitectos españoles como Francesco Sabatini y Ventura Rodríguez completaron los interiores.',
@@ -178,6 +189,17 @@ CITIES.madrid.pois = [
             adult: 'Audioguía: Museo del Prado',
             kids: '¡Aventura Sonora: El Palacio de los Cuadros Mágicos!'
           }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Lunes a sábado 10:00-20:00, domingos y festivos 10:00-19:00.',
+            kids: 'Abre todos los días, por la mañana y hasta bien entrada la tarde.'
+          },
+          price: {
+            adult: '15€ general, 7,50€ reducida. Gratis lunes a sábado de 18:00 a 20:00 y domingos/festivos de 17:00 a 19:00; siempre gratis para menores de 18 años.',
+            kids: '15€, ¡pero es gratis si tienes menos de 18 años! También es gratis un ratito antes de cerrar cada día.'
+          },
+          link: 'https://entradas.museodelprado.es/'
         },
         tabs: {
           history: {
@@ -361,6 +383,17 @@ CITIES.madrid.pois = [
         coords: [40.4160, -3.6944],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Museo_Thyssen-Bornemisza_%28Madrid%29_07.jpg/330px-Museo_Thyssen-Bornemisza_%28Madrid%29_07.jpg',
         audio: { duration: 165, title: { adult: 'Audioguía: Museo Thyssen-Bornemisza', kids: '¡Aventura Sonora: El Museo de la Colección Ganadora!' } },
+        visitInfo: {
+          hours: {
+            adult: 'Lunes 12:00-16:00; martes a domingo 10:00-19:00 (sábados, las exposiciones temporales abren hasta las 21:00).',
+            kids: 'Abre todos los días. Los lunes solo abre por la tarde.'
+          },
+          price: {
+            adult: '13€ general, 9€ reducida (mayores de 65, jubilados, estudiantes). Gratis lunes de 12:00 a 16:00 y sábados de 21:00 a 23:00; siempre gratis para menores de 18.',
+            kids: '13€, pero gratis si tienes menos de 18 años, o los lunes por la mañana.'
+          },
+          link: 'https://museothyssen.tictactickets.com/es'
+        },
         tabs: {
           history: {
             adult: 'Inaugurado en octubre de 1992 en el Palacio de Villahermosa, el museo reúne la colección privada del barón Hans Heinrich Thyssen-Bornemisza, considerada una de las más importantes formadas en el siglo XX. El Gobierno español convenció al barón de instalarla en Madrid frente a las ofertas de Suiza y Reino Unido, y en 1993 adquirió las 775 obras por 265 millones de euros, abarcando siete siglos de pintura europea, desde los primitivos italianos hasta las vanguardias.',
@@ -388,6 +421,17 @@ CITIES.madrid.pois = [
         coords: [40.408798, -3.693648],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Museo_Reina_Sofia%2C_Madrid_%286394654203%29.jpg/330px-Museo_Reina_Sofia%2C_Madrid_%286394654203%29.jpg',
         audio: { duration: 172, title: { adult: 'Audioguía: Museo Reina Sofía', kids: '¡Aventura Sonora: El Hospital Convertido en Museo!' } },
+        visitInfo: {
+          hours: {
+            adult: 'Lunes a sábado 10:00-21:00, domingos 10:00-14:30. Cerrado los martes.',
+            kids: 'Abre todos los días excepto los martes. Los domingos solo por la mañana.'
+          },
+          price: {
+            adult: '12€ general. Gratis lunes y de miércoles a sábado de 19:00 a 21:00, y domingos de 12:30 a 14:30.',
+            kids: '12€, aunque hay un ratito gratis cada tarde y los domingos a mediodía.'
+          },
+          link: 'https://entradas.museoreinasofia.es/'
+        },
         tabs: {
           history: {
             adult: 'El edificio Sabatini, sede original del museo, fue construido en el siglo XVIII como Hospital General de Madrid, según diseño de José de Hermosilla ejecutado por Francesco Sabatini. Declarado Monumento Histórico-Artístico en 1977, se reconvirtió en centro de arte y abrió al público en 1986. En 2005 se amplió con el edificio Nouvel, de cristal y acero, obra del arquitecto francés Jean Nouvel.',
@@ -415,6 +459,17 @@ CITIES.madrid.pois = [
         coords: [40.415556, -3.714444],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Almudena_2022_-_overview.jpg/330px-Almudena_2022_-_overview.jpg',
         audio: { duration: 168, title: { adult: 'Audioguía: Catedral de la Almudena', kids: '¡Aventura Sonora: La Catedral de 110 Años y Colores!' } },
+        visitInfo: {
+          hours: {
+            adult: 'La catedral abre todos los días de 9:00 a 20:30. El museo y la cúpula abren de lunes a sábado de 10:00 a 14:30.',
+            kids: 'La iglesia se puede visitar todos los días. Para subir a la cúpula, solo de lunes a sábado por la mañana.'
+          },
+          price: {
+            adult: 'Entrar a la catedral es gratis (donativo voluntario de 1€). Museo + cúpula: 7€ general, 5€ reducida. Gratis para menores de 9 años.',
+            kids: '¡Entrar a la iglesia es gratis! Para subir a la cúpula y ver la ciudad desde arriba, cuesta 7€.'
+          },
+          link: 'https://catedraldelaalmudena.es/museoycupula'
+        },
         tabs: {
           history: {
             adult: 'Alfonso XII colocó la primera piedra el 4 de abril de 1883, con un proyecto neogótico del arquitecto Francisco de Cubas. La proclamación de la República en 1931 y la Guerra Civil paralizaron las obras durante décadas. Cuando se reanudaron en 1984, los arquitectos Carlos Sidro y Fernando Chueca Goitia rebajaron deliberadamente la altura prevista para no eclipsar al Palacio Real vecino. Tras 110 años de obras, el Papa Juan Pablo II la consagró el 15 de junio de 1993, la única catedral de España que ostenta ese honor.',
@@ -601,6 +656,17 @@ CITIES.madrid.pois = [
         coords: [40.41824, -3.71037],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Teatro_Real_de_Madrid_2025.jpg/330px-Teatro_Real_de_Madrid_2025.jpg',
         audio: { duration: 160, title: { adult: 'Audioguía: Teatro Real', kids: '¡Aventura Sonora: El Teatro que Flotaba sobre un Río Escondido!' } },
+        visitInfo: {
+          hours: {
+            adult: 'El edificio solo se visita con visita guiada, todos los días, con acceso entre las 10:30 y las 16:30 (último acceso 15:30).',
+            kids: 'Solo se puede entrar con una visita guiada, todos los días por la mañana y por la tarde.'
+          },
+          price: {
+            adult: 'Según la modalidad de visita guiada, entre 5€ y 10€ (reducida entre 3€ y 8€ para mayores de 65, menores de 26 y familias numerosas). Menores de 7 años, gratis.',
+            kids: 'Entre 5€ y 10€, según qué zonas del teatro visites. ¡Gratis si tienes menos de 7 años!'
+          },
+          link: 'https://www.teatroreal.es/es/comprar-entradas'
+        },
         tabs: {
           history: {
             adult: 'La primera piedra se colocó el 23 de abril de 1818, bajo Fernando VII, pero las obras se interrumpieron repetidamente por falta de fondos hasta que la reina Isabel II lo inauguró formalmente el 19 de noviembre de 1850: 32 años de construcción intermitente. Se erige en la Plaza de Isabel II, frente a la fachada oeste del Palacio Real, consolidándose como la principal sede de ópera de España.',
@@ -866,6 +932,17 @@ CITIES.madrid.pois = [
         coords: [40.4200041, -3.7115521],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Real_Monasterio_de_la_Encarnaci%C3%B3n_%28Madrid%29_01.jpg/330px-Real_Monasterio_de_la_Encarnaci%C3%B3n_%28Madrid%29_01.jpg',
         audio: { duration: 165, title: { adult: 'Audioguía: Real Monasterio de la Encarnación', kids: '¡Aventura Sonora: El Convento de la Sangre Milagrosa!' } },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a sábado 10:00-14:00 y 16:00-18:30, domingos 10:00-15:00. Cerrado los lunes. Solo se visita con guía (incluida en el precio).',
+            kids: 'Abre de martes a domingo. Los lunes está cerrado. Se visita siempre con un guía.'
+          },
+          price: {
+            adult: '8€ entrada general. Gratis miércoles y jueves de 16:00 a 18:30.',
+            kids: '8€, pero es gratis los miércoles y jueves por la tarde.'
+          },
+          link: 'https://tickets.patrimonionacional.es/es/tickets/monasterio-encarnacion'
+        },
         tabs: {
           history: {
             adult: 'Construido entre 1611 y 1616 por orden de la reina Margarita de Austria, esposa de Felipe III, según proyecto de Juan Gómez de Mora y Alberto de la Madre de Dios, como convento de monjas agustinas de clausura vinculado a la familia real. La iglesia fue reformada posteriormente por Ventura Rodríguez entre 1755 y 1767. El monasterio conserva una colección de más de dos mil reliquias, una de las más importantes de España.',
@@ -918,6 +995,16 @@ CITIES.madrid.pois = [
         coords: [40.4260218, -3.6989394],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Museo_del_Romanticismo_-_Fachada_-_Fachada_del_Museo_del_Romanticismo.jpg/330px-Museo_del_Romanticismo_-_Fachada_-_Fachada_del_Museo_del_Romanticismo.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Museo del Romanticismo', kids: '¡Aventura Sonora: La Casa que Viaja en el Tiempo!' } },
+        visitInfo: {
+          hours: {
+            adult: 'Mayo a octubre: martes a sábado 9:30-20:30, domingos 10:00-15:00. Noviembre a abril: martes a sábado 9:30-18:30, domingos 10:00-15:00. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '3€ general, 1,50€ reducida. Gratis sábados desde las 14:00 y todos los domingos. No hay venta de entradas online: se compran en la taquilla del museo.',
+            kids: '3€, pero es gratis los sábados por la tarde y todos los domingos. Se compra en la puerta, no por internet.'
+          }
+        },
         tabs: {
           history: {
             adult: 'Palacio construido entre 1776 y 1779 por el arquitecto Manuel Rodríguez para el marqués de Matallana; a finales del siglo XVIII pasó a los condes de Puebla del Maestre, que lo habitaron hasta 1915. El museo nace de la colección donada al Estado en 1921 por Benigno de la Vega-Inclán, marqués de Vega-Inclán, y abrió sus puertas el 1 de junio de 1924.',
@@ -945,6 +1032,16 @@ CITIES.madrid.pois = [
         coords: [40.423684, -3.714577],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Palacio_del_Marqu%C3%A9s_de_Cerralbo_%28Madrid%29_01.jpg/330px-Palacio_del_Marqu%C3%A9s_de_Cerralbo_%28Madrid%29_01.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Museo Cerralbo', kids: '¡Aventura Sonora: El Palacio del Marqués Coleccionista!' } },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a sábado 9:30-15:00 (jueves también 17:00-20:00), domingos y festivos 10:00-15:00. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '3€ general, 1,50€ reducida. Gratis los jueves de 17:00 a 20:00 y todos los domingos. No hay venta de entradas online: se compran en la taquilla del museo.',
+            kids: '3€, pero es gratis los jueves por la tarde y todos los domingos. Se compra en la puerta, no por internet.'
+          }
+        },
         tabs: {
           history: {
             adult: 'Palacio mandado construir entre 1883 y 1893 por Enrique de Aguilera y Gamboa, XVII marqués de Cerralbo, según proyecto del arquitecto Luis María Cabello y Lapiedra pero siguiendo el gusto e ideas personales del propio marqués. Se concibió desde el inicio con doble función, vivienda nobiliaria y museo, y fue donado al Estado para conservar la colección unida.',
@@ -971,6 +1068,17 @@ CITIES.madrid.pois = [
         coords: [40.417423, -3.700378],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Palacio_de_Goyeneche_-_Real_Academia_de_Bellas_Artes_de_San_Fernando.jpg/330px-Palacio_de_Goyeneche_-_Real_Academia_de_Bellas_Artes_de_San_Fernando.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Real Academia de Bellas Artes de San Fernando', kids: '¡Aventura Sonora: La Escuela que Suspendió a Goya!' } },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a domingo 10:00-15:00, incluidos festivos. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo por la mañana. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '9€ general, 5€ reducida (mayores de 65, jubilados, estudiantes). Gratis de martes a viernes de 13:30 a 15:00.',
+            kids: '9€, pero hay un ratito gratis cada tarde entre semana.'
+          },
+          link: 'https://www.realacademiabellasartessanfernando.com/visitas/tarifas-y-reservas/'
+        },
         tabs: {
           history: {
             adult: 'El Palacio de Goyeneche fue diseñado en 1720 por José Benito de Churriguera como residencia del financiero Juan de Goyeneche, y completado tras su muerte por su hermano Alberto de Churriguera. En 1773 Carlos III compró el edificio a los herederos de Goyeneche para instalar la Real Academia de Bellas Artes de San Fernando, cuya primera sede había estado en la Casa de la Panadería de la Plaza Mayor.',
