@@ -784,7 +784,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=9`;
+    const src = `data/cities/${cityId}.js?v=10`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
@@ -1261,14 +1261,19 @@
     // una pregunta con puntos (ver renderKidsQuizCard).
     if (STATE.mode === 'kids') return;
     const poiId = STATE.activePoiId;
+    const poi = POIS.find((p) => p.id === poiId);
     const topic = STATE.ai.currentTopic[poiId] || null;
     const exploredSet = STATE.ai.explored[poiId] || new Set();
     const disabled = STATE.ai.pending;
 
-    // "Profundiza más" va siempre primero, incluso antes de elegir un tema
-    // (en ese caso profundiza sobre el resumen inicial, no sobre un tema
-    // concreto); luego, hasta 2 temas sin explorar todavía.
+    // El chip de "Entrada" no es una de las opciones de IA: es información
+    // práctica fija (horario/precio), solo se muestra si el propio POI la
+    // trae (poi.visitInfo) y va siempre primero, antes que "Profundiza más".
     const chips = [];
+    if (poi && poi.visitInfo) chips.push({ id: 'ticket', kind: 'ticket', label: '🎟️ Entrada: horario y precio' });
+    // "Profundiza más" va siempre el primero de los de IA, incluso antes de
+    // elegir un tema (en ese caso profundiza sobre el resumen inicial, no
+    // sobre un tema concreto); luego, hasta 2 temas sin explorar todavía.
     chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel) });
     const remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
     remaining.slice(0, 2).forEach((o) => chips.push({ id: o.id, kind: 'option', label: pickDual(o.label) }));
@@ -1300,6 +1305,11 @@
 
         renderAiMessages();
         scrollAiToBottom();
+
+        if (chip.kind === 'ticket') {
+          showVisitInfo(poi);
+          return;
+        }
 
         if (chip.kind === 'deepen') {
           queueAiMessage({ poi, kind: 'deepen', optionId: 'deepen:' + (topic || 'general'), userText: chip.label });
@@ -1475,6 +1485,24 @@
   const scrollAiToBottom = () => {
     const box = $('#aiMessages');
     if (box) box.scrollTo({ top: box.scrollHeight, behavior: 'smooth' });
+  };
+
+  // Info práctica (horario/precio): a diferencia de los chips de IA, este
+  // texto es fijo y viene del propio POI (poi.visitInfo), así que se
+  // inserta directo en el historial sin pasar por LLM.generate — no tiene
+  // sentido dejar que un dato tan sensible a errores (precios, horarios)
+  // pueda inventarse o desactualizarse vía IA.
+  const showVisitInfo = (poi) => {
+    if (!poi || !poi.visitInfo) return;
+    const hist = aiHistoryFor(poi.id);
+    const hours = pickDual(poi.visitInfo.hours);
+    const price = pickDual(poi.visitInfo.price);
+    const text = `🕐 Horario\n${hours}\n\n🎟️ Precio\n${price}\n\n📅 Datos orientativos: pueden cambiar, confirma en la web oficial antes de ir.`;
+    hist.push({ role: 'assistant', text });
+    renderAiMessages();
+    scrollAiToBottom();
+    saveState();
+    if (STATE.activePoiId === poi.id) startAudio(false, true);
   };
 
   const queueAiMessage = async ({ poi, kind, userText, optionId }) => {

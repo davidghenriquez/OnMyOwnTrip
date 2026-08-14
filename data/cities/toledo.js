@@ -21,6 +21,16 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: La Catedral Mágica!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Lunes a sábado 10:00-18:30, domingos 14:00-18:30 (el acceso cierra media hora antes). Entrada gratuita a las naves de lunes a viernes de 8:00 a 9:15.',
+            kids: 'Abre de lunes a sábado por la mañana y por la tarde, y los domingos solo por la tarde.'
+          },
+          price: {
+            adult: '12€ entrada general (templo, museos, Capilla de Reyes y claustro). Gratis para empadronados en Toledo; 8€ para mayores de 65 años.',
+            kids: '12€, aunque es gratis si vives en Toledo. Si vas muy pronto entre semana, ¡puedes ver la iglesia gratis!'
+          }
+        },
         tabs: {
           history: {
             adult: 'La Catedral Primada de Toledo fue comenzada en 1226 bajo el reinado de Fernando III el Santo, sobre los restos de una antigua mezquita. Considerada una de las obras cumbres del gótico español, su construcción se prolongó durante más de 250 años, incorporando elementos mudéjares y renacentistas. Su interior acoge obras de El Greco, Titiano, Velázquez y Goya, además del espectacular Transparente de Narciso Tomé, una obra de mármol y cristal que parece flotar bajo la luz cenital.',
@@ -225,6 +235,16 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: La Iglesia del Caballero!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Todos los días 10:00-18:45 (1 de marzo a 15 de octubre) o 10:00-17:45 (16 de octubre a 28 de febrero). Taquilla cierra 10 minutos antes.',
+            kids: 'Abre todos los días, por la mañana y por la tarde.'
+          },
+          price: {
+            adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).',
+            kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
+          }
+        },
         tabs: {
           history: {
             adult: 'La Iglesia de Santo Tomé se construyó en el siglo XIV sobre una antigua mezquita, en el barrio toledano de la Judería. Su mayor tesoro es "El Entierro del Conde de Orgaz", encargado en 1586 a Doménikos Theotokópoulos "El Greco" por el párroco Andrés Núñez. Es la obra más célebre del pintor cretense, un óleo de 4,8 m × 3,6 m que divide el mundo en dos: el terrenal, con los nobles toledanos; y el celestial, con santos y ángeles que reciben el alma del conde.',
@@ -316,6 +336,16 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: ¡La Casa del Pintor Mágico!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a sábado 9:30-19:30 (marzo-octubre) o 9:30-18:00 (noviembre-febrero); domingos y festivos 10:00-15:00. Cerrado los lunes.',
+            kids: 'Abre de martes a sábado, y los domingos solo por la mañana. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '3€ entrada individual, 5€ combinada con el Museo Sefardí. Gratis los sábados a partir de las 14:00 y todos los domingos.',
+            kids: '3€, pero es gratis los sábados por la tarde y todos los domingos.'
+          }
+        },
         tabs: {
           history: {
             adult: 'La Casa-Museo de El Greco, inaugurada en 1911, reconstruye el hogar que pudo tener Doménikos Theotokópoulos "El Greco" en la Judería de Toledo, donde vivió desde 1577 hasta su muerte en 1614. El museo acoge pinturas originales suyas (como "Vista y plano de Toledo" y retratos de sus contemporáneos) además de obras de sus discípulos, mobiliario del siglo XVI y reconstrucciones de su taller.',
@@ -350,6 +380,16 @@ CITIES.toledo.pois = [
           title: {
             adult: 'Audioguía: El Alcázar de Toledo',
             kids: '¡Aventura Sonora: ¡El Castillo Gigante!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a domingo 10:00-17:00. Cerrado los lunes.',
+            kids: 'Abre de martes a domingo por la mañana y hasta media tarde. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '5€ entrada general, 2,50€ reducida (estudiantes, mayores de 65, discapacidad). Gratis para menores de 18 y todos los domingos.',
+            kids: '5€, pero es gratis si eres menor de edad, ¡y también todos los domingos!'
           }
         },
         tabs: {
@@ -463,6 +503,16 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: El Monasterio de las Cadenas!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Todos los días 10:00-18:45 (1 de marzo a 15 de octubre) o 10:00-17:45 (16 de octubre a 28 de febrero). Taquilla cierra 10 minutos antes.',
+            kids: 'Abre todos los días, por la mañana y por la tarde.'
+          },
+          price: {
+            adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).',
+            kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
+          }
+        },
         tabs: {
           history: {
             adult: 'Isabel la Católica encargó este monasterio en 1477 a los arquitectos Juan Guas y Enrique Egas para conmemorar la victoria de Toro (1476) frente a Portugal, y lo concibió como panteón real donde descansarían ella y Fernando para siempre. Tras la conquista de Granada en 1492, los reyes cambiaron de planes: decidieron ser enterrados allí, en la recién fundada Capilla Real, como símbolo del fin de la Reconquista. San Juan de los Reyes se quedó sin los cuerpos reales, pero conservó su función devocional franciscana.',
@@ -499,6 +549,16 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: El Bosque de Columnas Blancas!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Todos los días 10:00-18:45 (1 de marzo a 15 de octubre) o 10:00-17:45 (16 de octubre a 28 de febrero). Taquilla cierra 10 minutos antes.',
+            kids: 'Abre todos los días, por la mañana y por la tarde.'
+          },
+          price: {
+            adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).',
+            kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
+          }
+        },
         tabs: {
           history: {
             adult: 'Construida hacia 1180 para la próspera comunidad judía de Toledo, fue durante 211 años la Sinagoga Mayor de la ciudad. Tras los violentos disturbios antijudíos de 1391, impulsados por los sermones del arcediano Ferrán Martínez, el edificio fue confiscado y, en 1411, tras la predicación de san Vicente Ferrer, convertido en iglesia bajo la advocación de Santa María la Blanca. Con el paso de los siglos también sirvió como beaterío (1550) y cuartel militar (siglo XVIII).',
@@ -533,6 +593,16 @@ CITIES.toledo.pois = [
           title: {
             adult: 'Audioguía: Mezquita del Cristo de la Luz',
             kids: '¡Aventura Sonora: La Mezquita de la Lámpara Mágica!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Todos los días 10:00-18:45 (1 de marzo a 15 de octubre) o 10:00-17:45 (16 de octubre a 28 de febrero). Taquilla cierra 10 minutos antes.',
+            kids: 'Abre todos los días, por la mañana y por la tarde.'
+          },
+          price: {
+            adult: '4€ entrada individual, o 14€ con la Pulsera Turística de Toledo Monumental (incluye 7 monumentos, válida 7 días).',
+            kids: '4€, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
           }
         },
         tabs: {
@@ -641,6 +711,16 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: La Iglesia de las Torres Gemelas!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Todos los días 10:00-18:45 (1 de marzo a 15 de octubre) o 10:00-17:45 (16 de octubre a 28 de febrero). Taquilla cierra 10 minutos antes.',
+            kids: 'Abre todos los días, por la mañana y por la tarde.'
+          },
+          price: {
+            adult: '4€ entrada individual (incluye subir a las torres-mirador), o 14€ con la Pulsera Turística de Toledo Monumental (7 monumentos, válida 7 días).',
+            kids: '4€ para subir a las torres, o 14€ con una pulsera especial que sirve para entrar en 7 sitios distintos de Toledo.'
+          }
+        },
         tabs: {
           history: {
             adult: 'Los jesuitas se establecieron en Toledo en 1558 y adquirieron en 1569 los terrenos donde, según la tradición, había nacido San Ildefonso. Las obras de la actual iglesia comenzaron hacia 1629 bajo la dirección de Pedro Sánchez, y se prolongaron durante más de un siglo: Francisco Bautista construyó la fachada-retablo barroca, y Bartolomé Zumbigo terminó las torres gemelas. La iglesia fue finalmente consagrada en 1718.',
@@ -733,6 +813,16 @@ CITIES.toledo.pois = [
             kids: '¡Aventura Sonora: La Sinagoga de los Cedros del Líbano!'
           }
         },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a sábado 9:30-20:00, domingos y festivos 10:00-15:00. Cerrado los lunes.',
+            kids: 'Abre de martes a sábado, y los domingos solo por la mañana. Los lunes está cerrado.'
+          },
+          price: {
+            adult: '3€ entrada individual. Gratis los sábados a partir de las 14:00 y todos los domingos.',
+            kids: '3€, pero es gratis los sábados por la tarde y todos los domingos.'
+          }
+        },
         tabs: {
           history: {
             adult: 'Construida entre 1357 y 1358 por encargo de Samuel ha-Leví, tesorero del rey Pedro I de Castilla, que llegó a importar cedros del Líbano para su techumbre. Desde 1964 alberga el Museo Sefardí, dedicado a la historia de los judíos en España: su llegada en época romana, su edad de oro cultural medieval y su expulsión por los Reyes Católicos en 1492.',
@@ -786,6 +876,16 @@ CITIES.toledo.pois = [
           title: {
             adult: 'Audioguía: Hospital de Tavera',
             kids: '¡Aventura Sonora: El Hospital del Retrato Fantasma!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Martes a sábado 10:00-18:00, domingos 10:00-14:00. Cerrado los lunes. Se visita en grupo con un guía, en turnos cada hora.',
+            kids: 'Abre de martes a sábado, y los domingos solo por la mañana. Los lunes está cerrado. Se visita con un guía, en grupo.'
+          },
+          price: {
+            adult: '15€ visita guiada completa. Gratis para menores de 12 años.',
+            kids: '15€, ¡pero gratis si tienes menos de 12 años!'
           }
         },
         tabs: {

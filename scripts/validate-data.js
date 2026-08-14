@@ -101,6 +101,11 @@ function validateCity(cityId, city) {
       if (!hasDual(t)) err(`${poiLabel}: tabs.${tab} incompleto`);
     });
 
+    if (poi.visitInfo) {
+      if (!hasDual(poi.visitInfo.hours)) err(`${poiLabel}: visitInfo.hours incompleto`);
+      if (!hasDual(poi.visitInfo.price)) err(`${poiLabel}: visitInfo.price incompleto`);
+    }
+
     if (poi.essential) {
       if (!routeIds.has(poi.essential.route)) {
         err(`${poiLabel}: essential.route "${poi.essential.route}" no existe en routes[]`);
