@@ -1627,6 +1627,47 @@
     });
   };
 
+  // Dictado por voz de la pregunta: Web Speech API (reconocimiento), no
+  // confundir con SPEECH (síntesis/TTS de la audioguía) de más arriba. Solo
+  // Chrome/Edge la soportan de verdad (Safari/iOS no implementa
+  // SpeechRecognition), así que el botón se queda oculto si no hay soporte
+  // en vez de mostrar algo roto.
+  const wireMicInput = () => {
+    const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const btn = $('#aiMic');
+    const input = $('#aiInput');
+    const sendBtn = $('#aiSend');
+    if (!Recognition || !btn || !input || !sendBtn) return;
+    btn.hidden = false;
+
+    let recognition = null;
+    let listening = false;
+    const setListening = (on) => {
+      listening = on;
+      btn.setAttribute('aria-pressed', String(on));
+    };
+
+    btn.addEventListener('click', () => {
+      if (listening) { recognition?.stop(); return; }
+      if (!STATE.activePoiId) return;
+      stopAudio(); // si la audioguía está sonando, el micro no debe "escucharla"
+      recognition = new Recognition();
+      recognition.lang = 'es-ES';
+      recognition.interimResults = true;
+      recognition.continuous = false;
+      recognition.onstart = () => setListening(true);
+      recognition.onresult = (e) => {
+        let transcript = '';
+        for (let i = 0; i < e.results.length; i++) transcript += e.results[i][0].transcript;
+        input.value = transcript;
+        sendBtn.toggleAttribute('disabled', STATE.ai.pending || !transcript.trim());
+      };
+      recognition.onerror = () => setListening(false);
+      recognition.onend = () => setListening(false);
+      try { recognition.start(); } catch (_) { setListening(false); }
+    });
+  };
+
   /* =========================================================
    * POI SELECTION + SHEET
    * =======================================================*/
@@ -2419,6 +2460,7 @@
     initMap();
     wireEvents();
     wireAiInput();
+    wireMicInput();
 
     setStateMode(STATE.mode);
     updatePills();
