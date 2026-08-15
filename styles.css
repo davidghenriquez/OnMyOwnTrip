@@ -808,6 +808,16 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 .locate-btn:active { transform: scale(0.92); }
 .locate-btn.-active { color: var(--color-primary); border-color: var(--color-primary); }
 .locate-btn.-locating svg { animation: locateSpin 1s linear infinite; }
+.locate-btn.-camera { bottom: 220px; }
+.locate-btn.-camera.-scanning {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  animation: scanPulse 1.1s ease-in-out infinite;
+}
+@keyframes scanPulse {
+  0%, 100% { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 0 0 color-mix(in srgb, var(--color-primary) 45%, transparent); }
+  50% { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 0 7px transparent; }
+}
 @keyframes locateSpin { to { transform: rotate(360deg); } }
 
 /* ---------- MARCADOR "MI POSICIÓN" ---------- */
@@ -1000,6 +1010,68 @@ html[data-mode="kids"] .bottom-sheet {
 }
 .sheet-thumb:hover { opacity: 0.9; }
 .sheet-thumb:active { transform: scale(0.95); }
+
+/* ---------- CÁMARA: captura en vivo para "¿qué estoy viendo?" ---------- */
+.camera-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5800;
+  background: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.camera-modal.-open {
+  opacity: 1;
+  visibility: visible;
+}
+#cameraVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.camera-modal-close {
+  position: absolute;
+  top: max(16px, env(safe-area-inset-top));
+  right: 16px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.camera-modal-close svg { width: 18px; height: 18px; }
+.camera-modal-close:active { transform: scale(0.92); }
+.camera-shutter {
+  position: absolute;
+  left: 50%;
+  bottom: max(28px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.camera-shutter::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: #fff;
+}
+.camera-shutter:active { transform: translateX(-50%) scale(0.9); }
+.camera-shutter:active::before { background: color-mix(in srgb, #fff 80%, black); }
 
 /* ---------- LIGHTBOX: imagen ampliada ---------- */
 .image-lightbox {
