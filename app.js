@@ -446,7 +446,7 @@
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
   const els = {};
-  let map, markersLayer, markerLookup = {}, userMarker = null;
+  let map, markersLayer, clusterLayer, markerLookup = {}, userMarker = null;
   let POIS = []; // POIs de la ciudad activa (CURRENT_CITY.pois) — se rellena al elegir ciudad
   let CURRENT_CITY = null;
 
@@ -577,6 +577,19 @@
     });
   };
 
+  // Burbuja de agrupación (cluster): mismo lenguaje visual que .custom-pin,
+  // pero con el número de POIs agrupados dentro. Crece un poco con la
+  // cantidad para que se note de un vistazo si hay 3 o 30 ahí dentro.
+  const makeClusterIcon = (cluster) => {
+    const count = cluster.getChildCount();
+    const size = count < 10 ? 40 : count < 30 ? 46 : 52;
+    return L.divIcon({
+      className: 'custom-pin-wrap',
+      html: `<div class="custom-pin -cluster" style="--pin-size:${size}px">${count}</div>`,
+      iconSize: [size, size], iconAnchor: [size / 2, size / 2]
+    });
+  };
+
   /* =========================================================
    * MAP
    * =======================================================*/
@@ -607,6 +620,16 @@
       maxZoom: 19, minZoom: cityMinZoom, subdomains: 'abcd'
     }).addTo(map);
     markersLayer = L.layerGroup().addTo(map);
+    // Agrupa pines en modo "explorar libremente" (fuera de una ruta): con
+    // ciudades como Madrid (59 POIs) el mapa alejado es ilegible sin esto.
+    // En modo ruta no se agrupa nunca: los pines llevan un número de orden
+    // y una línea que los conecta, agruparlos rompería esa lectura.
+    clusterLayer = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+      maxClusterRadius: 55,
+      iconCreateFunction: makeClusterIcon
+    });
     map.on('zoom', updatePinScale);
     updatePinScale();
     renderMarkers();
@@ -629,8 +652,20 @@
 
   const renderMarkers = () => {
     markersLayer.clearLayers();
+    clusterLayer.clearLayers();
     markerLookup = {};
     const routeMode = isRouteMode();
+    // En modo ruta se usa markersLayer (sin agrupar, con línea y orden);
+    // en modo exploración libre se usa clusterLayer (agrupa al alejar el
+    // zoom). Solo una de las dos capas está añadida al mapa a la vez.
+    if (routeMode) {
+      if (map.hasLayer(clusterLayer)) map.removeLayer(clusterLayer);
+      if (!map.hasLayer(markersLayer)) markersLayer.addTo(map);
+    } else {
+      if (map.hasLayer(markersLayer)) map.removeLayer(markersLayer);
+      if (!map.hasLayer(clusterLayer)) clusterLayer.addTo(map);
+    }
+    const targetLayer = routeMode ? markersLayer : clusterLayer;
     const routeMeta = routeMode && getCityRoutes().find((r) => r.id === STATE.activeRoute);
     const routeColor = (routeMeta && routeMeta.color) || getCssVar('--color-primary') || '#F59E0B';
     const list = routeMode && routeMeta
@@ -662,7 +697,7 @@
       marker.options.poiId = poi.id;
       marker.options.category = poi.category;
       marker.on('click', () => selectPoi(poi.id, true));
-      marker.addTo(markersLayer);
+      marker.addTo(targetLayer);
       markerLookup[poi.id] = marker;
     });
   };

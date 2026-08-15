@@ -21,8 +21,13 @@
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <!-- Agrupa pines cercanos en una burbuja con contador cuando hay muchos
+       POIs visibles a la vez (p.ej. Madrid con 59): sin esto, al alejar el
+       zoom los pines se solapan y es casi imposible tocar uno concreto. -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla -->
@@ -316,6 +321,7 @@
   <!-- SCRIPTS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <!-- IA real vía el proxy (worker/proxy.js en Cloudflare Workers): no hay
        ninguna key aquí, el Worker la guarda como secret en su propio panel.
        Funciona igual para cualquier visitante de esta web pública. -->
@@ -336,7 +342,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=8"></script>
-  <script src="app.js?v=30"></script>
+  <script src="app.js?v=31"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
