@@ -325,6 +325,211 @@ CITIES.madrid.pois = [
         }
       },
       {
+        id: 'palacio-cristal-retiro',
+        name: {
+          adult: 'Palacio de Cristal',
+          kids: 'Palacio de Cristal — El Invernadero Gigante 🌿'
+        },
+        subtitle: {
+          adult: 'Un pabellón de hierro y vidrio inspirado en Londres',
+          kids: '¡Un palacio casi todo transparente!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [40.413556, -3.682056],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg/330px-Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg',
+        audio: {
+          duration: 130,
+          title: {
+            adult: 'Audioguía: Palacio de Cristal',
+            kids: '¡Aventura Sonora: El Invernadero Gigante!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Abril-septiembre 10:00-22:00; marzo y octubre 10:00-19:00; noviembre-febrero 10:00-18:00, todos los días (puede cerrar en días de lluvia o calor extremo).',
+            kids: 'Abre todos los días; en verano se puede visitar hasta las 10 de la noche.'
+          },
+          price: {
+            adult: 'Gratis, no requiere entrada (sala de exposiciones del Museo Reina Sofía).',
+            kids: '¡Gratis! No hace falta pagar entrada.'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Lo construyó en 1887 el arquitecto Ricardo Velázquez Bosco para exhibir la flora y fauna traídas de la Exposición General de las Islas Filipinas. Iba a ser una estructura provisional, incluso se planeó desmontarla y enviarla a Manila al terminar la exposición, pero nunca se desmontó y se quedó para siempre en el Retiro. El 10 de mayo de 1936 acogió la votación que eligió a Manuel Azaña presidente de la Segunda República.',
+            kids: 'Se construyó hace más de 130 años para enseñar plantas y animales que trajeron de Filipinas, ¡un viaje larguísimo en barco! Iba a ser algo temporal, pero gustó tanto que se quedó para siempre.'
+          },
+          architecture: {
+            adult: 'Es una estructura metálica cubierta casi por completo de cristal, con planta de cruz griega de tres naves: la cúpula central alcanza 22,60 metros de altura. La cerámica decorativa, obra de Daniel Zuloaga, incluye grutescos con cabezas de pato en frisos y remates. Le rodea un estanque artificial con cipreses calvos, elegido para que el edificio se reflejase en el agua.',
+            kids: 'Está hecho de hierro y cristal, ¡como un gran invernadero de casi 23 metros de altura! Fíjate en la cerámica de colores con dibujos de patos raros, y en el estanque de delante: el palacio se refleja entero en el agua.'
+          }
+        }
+      },
+      {
+        id: 'palacio-velazquez-retiro',
+        name: {
+          adult: 'Palacio de Velázquez',
+          kids: 'Palacio de Velázquez — El Hermano de Ladrillo 🧱'
+        },
+        subtitle: {
+          adult: 'El otro gran pabellón de exposiciones del Retiro',
+          kids: '¡El hermano mayor del Palacio de Cristal, pero de ladrillo!'
+        },
+        category: CATEGORIES.HISTORY,
+        coords: [40.415189, -3.681989],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/037_Palacio_de_Vel%C3%A1zquez%2C_Parque_del_Retiro_%28Madrid%29%2C_fa%C3%A7ana_sud.jpg/330px-037_Palacio_de_Vel%C3%A1zquez%2C_Parque_del_Retiro_%28Madrid%29%2C_fa%C3%A7ana_sud.jpg',
+        audio: {
+          duration: 125,
+          title: {
+            adult: 'Audioguía: Palacio de Velázquez',
+            kids: '¡Aventura Sonora: El Hermano de Ladrillo!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Abril-septiembre 10:00-22:00; marzo y octubre 10:00-19:00; noviembre-febrero 10:00-18:00, todos los días.',
+            kids: 'Abre todos los días; en verano se puede visitar hasta las 10 de la noche.'
+          },
+          price: {
+            adult: 'Gratis, no requiere entrada (sala de exposiciones del Museo Reina Sofía).',
+            kids: '¡Gratis! No hace falta pagar entrada.'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Se construyó entre 1881 y 1883 para la Exposición Nacional de Minería, y en 1887 acogió también la Exposición General de las Islas Filipinas, sirviendo después como Museo de Ultramar. Cerró en 2005 para una restauración y reabrió en 2010 con una exposición dedicada al artista Antoni Miralda.',
+            kids: 'Este edificio ha sido de todo un poco: primero enseñó minerales, luego cosas traídas de Filipinas, ¡y ahora enseña arte moderno! Ha cambiado de trabajo más veces que nadie que conozcas.'
+          },
+          architecture: {
+            adult: 'Obra de Ricardo Velázquez Bosco, el mismo arquitecto del Palacio de Cristal, con bóvedas de hierro y cristal que iluminan las salas con luz natural. Mide 73,80 por 28,75 metros, construido en ladrillo de dos tonos traído de Zaragoza y decorado con azulejos de la Real Fábrica de la Moncloa.',
+            kids: '¡Es como el hermano mayor del Palacio de Cristal, pero vestido de ladrillo en vez de cristal! Por dentro también tiene techos de cristal que dejan entrar la luz del sol.'
+          }
+        }
+      },
+      {
+        id: 'jardines-cecilio-rodriguez',
+        name: {
+          adult: 'Jardines de Cecilio Rodríguez',
+          kids: 'Jardines de Cecilio Rodríguez — El Reino de los Pavos Reales 🦚'
+        },
+        subtitle: {
+          adult: 'Un jardín vallado con pavos reales sueltos',
+          kids: '¡Aquí viven pavos reales de verdad, sueltos!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.414256, -3.678609],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Pabell%C3%B3n_de_los_Jardines_de_Cecilio_Rodriguez_%2852108926219%29.jpg/330px-Pabell%C3%B3n_de_los_Jardines_de_Cecilio_Rodriguez_%2852108926219%29.jpg',
+        audio: {
+          duration: 115,
+          title: {
+            adult: 'Audioguía: Jardines de Cecilio Rodríguez',
+            kids: '¡Aventura Sonora: El Reino de los Pavos Reales!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Recinto vallado con horario propio, distinto al del parque general: 10:00-18:00 en otoño e invierno; 10:00-20:00 en primavera y verano.',
+            kids: 'Tiene su propia verja y cierra un poco antes que el resto del parque.'
+          },
+          price: {
+            adult: 'Gratis, no requiere entrada.',
+            kids: '¡Gratis! No hace falta pagar entrada.'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'Se diseñaron hacia 1940 y llevan el nombre de Cecilio Rodríguez, jardinero mayor del Retiro que empezó a trabajar con solo 8 años y siguió en su oficio hasta los 88. El jardín es un homenaje a toda una vida dedicada a cuidar este parque.',
+            kids: 'Este jardín tiene el nombre de un jardinero que empezó a trabajar cuando tenía solo 8 años, ¡y siguió cuidando plantas hasta que cumplió 88! Casi toda su vida entera.'
+          },
+          legends: {
+            adult: 'Mezclan un trazado clásico con influencia andaluza: junto a la entrada norte hay una escultura de Venus romana, y la Fuente de las Gaviotas, regalo de la embajada de Noruega a los madrileños en 1962. Los vistosos pavos reales que pasean sueltos por el recinto son la seña de identidad del lugar, y forman parte del "Paisaje de la Luz", declarado Patrimonio de la Humanidad por la UNESCO en 2021.',
+            kids: '¡Los pavos reales caminan sueltos por todo el jardín, como si fueran los dueños! Si tienes suerte, verás a alguno abrir su cola en forma de abanico lleno de colores. Este jardín es tan especial que la UNESCO lo declaró tesoro de la humanidad.'
+          }
+        }
+      },
+      {
+        id: 'casa-fieras-retiro',
+        name: {
+          adult: 'Casa de Fieras',
+          kids: 'Casa de Fieras — El Zoo Fantasma 👻🦁'
+        },
+        subtitle: {
+          adult: 'Los restos del antiguo zoológico del Retiro',
+          kids: '¡Aquí hubo leones y monos de verdad!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.416472, -3.679703],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Retiro_-_Casa_de_Fieras_08_recortada.jpg/330px-Retiro_-_Casa_de_Fieras_08_recortada.jpg',
+        audio: {
+          duration: 120,
+          title: {
+            adult: 'Audioguía: Casa de Fieras',
+            kids: '¡Aventura Sonora: El Zoo Fantasma!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'Los restos exteriores se ven en cualquier momento dentro del horario del parque; el edificio alberga hoy una biblioteca pública con horario propio.',
+            kids: '¡Puedes verlo desde fuera siempre que el parque esté abierto!'
+          },
+          price: {
+            adult: 'Gratis, no requiere entrada.',
+            kids: '¡Gratis! No hace falta pagar entrada.'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'El Retiro tuvo su propio zoológico, la Casa de Fieras, abierto en 1774 bajo Carlos III. Cerró el 22 de junio de 1972, cuando sus más de 550 animales de 83 especies se trasladaron al nuevo zoo de la Casa de Campo.',
+            kids: '¡Aquí hubo un zoo de verdad, con más de 550 animales! Cerró hace más de 50 años y todos los animales se mudaron a otro zoo de Madrid.'
+          },
+          legends: {
+            adult: 'Hoy el espacio lo ocupa la Biblioteca Pública Eugenio Trías (2013), que integró a propósito restos del antiguo zoo en su diseño: la "Leonera" de dos plantas y las rejas de hierro por las que se alimentaba a los animales desde arriba. Cerca, en los Jardines de Herrera Palacios, todavía se conserva el llamado "Foso de los Monos".',
+            kids: 'Aunque ahora es una biblioteca, todavía se pueden ver restos de verdad del zoo antiguo: una jaula de dos pisos donde vivían los leones, y un foso donde antes vivían los monos. ¡Como un zoo fantasma escondido en la biblioteca!'
+          }
+        }
+      },
+      {
+        id: 'estanque-retiro',
+        name: {
+          adult: 'Estanque Grande y Monumento a Alfonso XII',
+          kids: 'El Estanque Grande — El Lago de las Barcas 🚣'
+        },
+        subtitle: {
+          adult: 'El gran lago del Retiro y su monumento más fotografiado',
+          kids: '¡Aquí puedes alquilar una barca de remos!'
+        },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.417151, -3.683971],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Monumento_a_Alfonso_XII_%28Madrid%29_13.jpg/330px-Monumento_a_Alfonso_XII_%28Madrid%29_13.jpg',
+        audio: {
+          duration: 135,
+          title: {
+            adult: 'Audioguía: Estanque Grande y Monumento a Alfonso XII',
+            kids: '¡Aventura Sonora: El Lago de las Barcas!'
+          }
+        },
+        visitInfo: {
+          hours: {
+            adult: 'El paseo alrededor del estanque sigue el horario general del parque. Alquiler de barcas: 10:00-14:00 y 15:30-20:00.',
+            kids: '¡El parque abre pronto y cierra tarde, así que hay mucho tiempo para remar!'
+          },
+          price: {
+            adult: 'Pasear es gratis; alquilar una barca (hasta 4 personas, 45 minutos) cuesta 6€ entre semana y 8€ fines de semana y festivos.',
+            kids: '¡Pasear es gratis! Remar en barca tiene un precio aparte, pero merece mucho la pena.'
+          }
+        },
+        tabs: {
+          history: {
+            adult: 'El estanque existe desde el reinado de Felipe IV: un primer estanque se levantó entre 1634 y 1636, y poco después se excavó uno mayor —el que ha llegado hasta hoy— que se terminó el 13 de abril de 1638. Ha sido el centro social del parque desde el siglo XVII.',
+            kids: '¡Este lago tiene casi 400 años! Lo mandó hacer un rey hace muchísimo tiempo, y desde entonces ha sido el lugar favorito para pasear y remar en Madrid.'
+          },
+          architecture: {
+            adult: 'El monumento a Alfonso XII, en el extremo este del estanque, lo diseñó José Grases Riera en 1902 y se construyó entre 1902 y 1922: un hemiciclo de columnas jónicas rematado por la estatua ecuestre del rey, obra del escultor Mariano Benlliure. El conjunto completo mide 30 metros de alto, 86 de largo y 58 de ancho, y participaron más de veinte escultores.',
+            kids: '¡Es un monumento gigante, tan alto como un edificio de diez pisos! Tiene un montón de columnas y, arriba del todo, una estatua de un rey a caballo. Más de veinte artistas ayudaron a construirlo.'
+          }
+        }
+      },
+      {
         id: 'plaza-mayor-madrid',
         name: {
           adult: 'Plaza Mayor',
