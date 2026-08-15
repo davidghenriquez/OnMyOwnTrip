@@ -1749,7 +1749,6 @@
     STATE.audio.currentTime = 0;
     $('.audio-title', els.sheet).textContent = pickDual(poi.audio.title);
     updateAudioUi();
-    refreshVoicePicker();
   };
 
   /* =========================================================
@@ -1768,25 +1767,17 @@
 
     // Nombres que en la práctica suenan mucho menos "robóticas" que las voces
     // clásicas offline de cada sistema (Windows SAPI, etc.): voces neuronales/
-    // online de Google, Microsoft Edge, Amazon o Apple.
+    // online de Google, Microsoft Edge, Amazon o Apple. La elección es siempre
+    // automática (mejor voz española disponible en el sistema del usuario),
+    // sin selector manual: menos que decidir, y evita ofrecer una voz que
+    // luego no siga instalada en otro dispositivo.
     const QUALITY_NAME_RE = /online|natural|neural|enhanced|premium|wavenet|google/i;
-
-    // Voz elegida a mano por el usuario (selector en el reproductor), si la
-    // hay: se guarda solo el nombre (las voces del navegador no son
-    // serializables) y tiene prioridad sobre la heurística automática de
-    // más abajo, siempre que siga estando disponible en este dispositivo.
-    const VOICE_PREF_KEY = 'omot_voice_pref_v1';
-    try { S.preferredVoiceName = localStorage.getItem(VOICE_PREF_KEY) || null; } catch (_) { S.preferredVoiceName = null; }
 
     const pickSpanishVoice = () => {
       if (!S.supported) return null;
       try {
         const all = (synth.getVoices && synth.getVoices()) || [];
         S.voices = all;
-        if (S.preferredVoiceName) {
-          const chosen = all.find((v) => v.name === S.preferredVoiceName);
-          if (chosen) { S.pickedVoice = chosen; return chosen; }
-        }
         const prefer = [
           (v) => /^es/i.test(v.lang) && QUALITY_NAME_RE.test(v.name || ''),
           (v) => /es[-_]ES/i.test(v.lang) && /Monica|Jorge|Diego|sabina|lucia|paulina/i.test(v.name || ''),
@@ -1801,25 +1792,6 @@
         S.pickedVoice = all[0] || null;
         return S.pickedVoice;
       } catch (_) { return S.pickedVoice || null; }
-    };
-
-    // Voces candidatas para el selector: españolas si hay al menos dos,
-    // o todas las disponibles como último recurso (algunos navegadores/SO
-    // no traen ninguna voz "es*" instalada).
-    const listVoices = () => {
-      const all = S.voices && S.voices.length ? S.voices : ((synth && synth.getVoices && synth.getVoices()) || []);
-      const spanish = all.filter((v) => /^es/i.test(v.lang));
-      return spanish.length >= 2 ? spanish : all;
-    };
-
-    const setPreferredVoice = (name) => {
-      const all = S.voices && S.voices.length ? S.voices : ((synth && synth.getVoices && synth.getVoices()) || []);
-      const chosen = all.find((v) => v.name === name);
-      if (!chosen) return false;
-      S.preferredVoiceName = name;
-      S.pickedVoice = chosen;
-      try { localStorage.setItem(VOICE_PREF_KEY, name); } catch (_) {}
-      return true;
     };
 
     let warmedUp = false;
@@ -2051,27 +2023,9 @@
       isSupported: () => S.supported,
       isSpeaking: () => S.supported ? synth.speaking : false,
       getText: buildNarrativeText,
-      speak, pause, resume, cancel, warmUp,
-      listVoices, setPreferredVoice,
-      getPickedVoiceName: () => (S.pickedVoice && S.pickedVoice.name) || null
+      speak, pause, resume, cancel, warmUp
     };
   })();
-
-  // Rellena/oculta el selector de voz del reproductor según las voces que
-  // el navegador tenga disponibles en ESTE momento (getVoices() suele
-  // llegar de forma asíncrona, así que se reintenta desde varios puntos:
-  // apertura de ficha, onvoiceschanged, y los reintentos de pickSpanishVoice).
-  const refreshVoicePicker = () => {
-    const picker = $('#voicePicker'), select = $('#voiceSelect');
-    if (!picker || !select || !SPEECH.isSupported()) return;
-    const voices = SPEECH.listVoices();
-    if (voices.length < 2) { picker.hidden = true; return; }
-    const current = SPEECH.getPickedVoiceName();
-    select.innerHTML = voices.map((v) =>
-      `<option value="${v.name.replace(/"/g, '&quot;')}"${v.name === current ? ' selected' : ''}>${v.name} (${v.lang})</option>`
-    ).join('');
-    picker.hidden = false;
-  };
 
   /* =========================================================
    * AUDIO PLAYER (visual + real speech when available)
@@ -2223,24 +2177,6 @@
       STATE.audio.currentTime = ratio * (STATE.audio.duration || 0);
       updateAudioUi();
     });
-
-    $('#voiceSelect')?.addEventListener('change', (e) => {
-      const wasPlaying = STATE.audio.playing;
-      if (!SPEECH.setPreferredVoice(e.target.value)) return;
-      if (wasPlaying) {
-        // No se puede "seguir" a mitad de frase con otra voz: se reinicia
-        // la narración desde el principio, ya con la voz elegida.
-        stopAudio();
-        STATE.audio.currentTime = 0;
-        startAudio(false);
-      }
-    });
-    // getVoices() suele llegar de forma asíncrona tras la carga: si el
-    // selector de ciudad/POI se abrió antes de que las voces estuvieran
-    // listas, esto lo repuebla en cuanto el navegador avisa.
-    if (SPEECH.isSupported() && typeof speechSynthesis !== 'undefined') {
-      try { speechSynthesis.addEventListener('voiceschanged', refreshVoicePicker); } catch (_) {}
-    }
 
     $('.sheet-thumb', els.sheet).addEventListener('click', (e) => {
       openLightbox(e.currentTarget.src, e.currentTarget.alt);
