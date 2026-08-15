@@ -224,7 +224,7 @@ const AI_PROMPTS = {
   options: [
     {
       id: 'secret-history',
-      label: { adult: '🤫 Historia secreta', kids: '🤫 Historia secreta' },
+      label: { adult: 'Historia secreta', kids: 'Historia secreta' },
       prompt: {
         adult: (p, cityName) =>
           `Cuéntame con detalle una historia poco conocida, oscura o inesperada sobre ${pick(p.name, 'adult')} (${cityName}). Asegúrate de que sea un episodio real, poco divulgado, y desarróllalo en varios párrafos con contexto. Unas 190-220 palabras. Añade una frase final con la fuente histórica más fiable si la conoces.`,
@@ -234,7 +234,7 @@ const AI_PROMPTS = {
     },
     {
       id: 'architecture',
-      label: { adult: '🏛️ Arquitectura', kids: '🏗️ Trucos de arquitectura' },
+      label: { adult: 'Arquitectura', kids: 'Trucos de arquitectura' },
       prompt: {
         adult: (p, cityName) =>
           `Analiza en profundidad la arquitectura de ${pick(p.name, 'adult')} como si fueras un guía especializado: estilo, material estrella, dimensión poco visible (bóvedas, cimentación, simetrías ocultas) y por qué esta obra es única frente a otras de ${cityName}. Unas 190-220 palabras, en varios párrafos.`,
@@ -244,7 +244,7 @@ const AI_PROMPTS = {
     },
     {
       id: 'legends',
-      label: { adult: '👻 Leyendas', kids: '🧙‍♂️ Leyendas divertidas' },
+      label: { adult: 'Leyendas', kids: 'Leyendas divertidas' },
       prompt: {
         adult: (p, cityName) =>
           `Narra con detalle la leyenda más antigua y verosímil asociada a ${pick(p.name, 'adult')} de ${cityName}, citando su origen documental si existe. Desarróllala en varios párrafos. Unas 190-220 palabras. Termina con tu interpretación: ¿qué hecho real pudo inspirarla?`,
@@ -253,8 +253,8 @@ const AI_PROMPTS = {
       }
     }
   ],
-  deepenLabel: { adult: '🔍 Profundiza más', kids: '🔍 ¡Cuéntame más!' },
-  resetLabel: { adult: '🔄 Ver otros temas', kids: '🔄 ¡Otras sorpresas!' },
+  deepenLabel: { adult: 'Profundiza más', kids: '¡Cuéntame más!' },
+  resetLabel: { adult: 'Ver otros temas', kids: '¡Otras sorpresas!' },
   deepen: {
     adult: (p, topicLabel) =>
       `Sigue profundizando sobre ${topicLabel} en ${pick(p.name, 'adult')}. Da dos datos nuevos, más concretos y menos conocidos que no hayas mencionado antes, sin repetirte, desarrollados con detalle. Unas 150-180 palabras.`,

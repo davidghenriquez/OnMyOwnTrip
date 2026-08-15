@@ -558,6 +558,29 @@
   );
   const getCategoryPinIconSvg = (cat) => PIN_ICON_SVG[cat] || PIN_ICON_SVG[CATEGORIES.HISTORY];
 
+  // Iconos SVG para los chips de sugerencia del chat IA (mismo criterio que
+  // arriba: nada de emoji, que cada sistema operativo los pinta distinto).
+  // "deepen" usa un destello de dos puntas, el símbolo habitual de "generado
+  // por IA" en el resto de apps.
+  const SUGGEST_ICON_SVG = {
+    ticket: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a1.5 1.5 0 0 0 0 3V15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1.5a1.5 1.5 0 0 0 0-3V9Z"/><path d="M9 7.5v9" stroke-dasharray="1.5 2.2"/></svg>`,
+    deepen: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.5 2c.5 3 1.2 5 2.2 6s3 1.7 6 2.2c-3 .5-5 1.2-6 2.2s-1.7 3-2.2 6c-.5-3-1.2-5-2.2-6s-3-1.7-6-2.2c3-.5 5-1.2 6-2.2s1.7-3 2.2-6Z"/><path d="M19 15c.3 1.3.6 2.1 1.1 2.6s1.3.8 2.6 1.1c-1.3.3-2.1.6-2.6 1.1s-.8 1.3-1.1 2.6c-.3-1.3-.6-2.1-1.1-2.6s-1.3-.8-2.6-1.1c1.3-.3 2.1-.6 2.6-1.1s.8-1.3 1.1-2.6Z"/></svg>`,
+    'secret-history': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.4" r="1.3" fill="currentColor" stroke="none"/></svg>`,
+    architecture: CATEGORY_ICON_PATHS[CATEGORIES.HISTORY],
+    legends: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13Z"/></svg>`,
+    reset: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.3 6.4L3 16"/><path d="M3 21v-5h5"/></svg>`
+  };
+  const suggestIconSvg = (kind) => {
+    const inner = SUGGEST_ICON_SVG[kind];
+    if (!inner) return '';
+    // "architecture"/"legends" y el resto de categorías reutilizan el mismo
+    // formato <path>...</path> que CATEGORY_ICON_PATHS: hace falta envolverlos
+    // en <svg>; deepen/ticket/secret-history ya traen su propio <svg>.
+    return inner.startsWith('<svg')
+      ? inner
+      : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
+  };
+
   // Icono de la píldora "Ruta imprescindible" (bandera de meta)
   const ROUTE_ICON_SVG = (color = 'currentColor') =>
     `<svg viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"/><path d="M5 4h13l-3 4 3 4H5"/></svg>`;
@@ -1305,7 +1328,7 @@
     // práctica fija (horario/precio), solo se muestra si el propio POI la
     // trae (poi.visitInfo) y va siempre primero, antes que "Profundiza más".
     const chips = [];
-    if (poi && poi.visitInfo) chips.push({ id: 'ticket', kind: 'ticket', label: '🎟️ Entrada: horario y precio' });
+    if (poi && poi.visitInfo) chips.push({ id: 'ticket', kind: 'ticket', label: 'Entrada: horario y precio' });
     // "Profundiza más" va siempre el primero de los de IA, incluso antes de
     // elegir un tema (en ese caso profundiza sobre el resumen inicial, no
     // sobre un tema concreto); luego, hasta 2 temas sin explorar todavía.
@@ -1318,7 +1341,8 @@
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'suggest-chip';
-      b.textContent = chip.label;
+      const iconKind = chip.kind === 'option' ? chip.id : chip.kind;
+      b.innerHTML = `<span class="suggest-chip-icon">${suggestIconSvg(iconKind)}</span><span>${chip.label}</span>`;
       if (disabled) b.setAttribute('disabled', 'true');
       b.addEventListener('click', () => {
         if (!STATE.activePoiId || STATE.ai.pending) return;
