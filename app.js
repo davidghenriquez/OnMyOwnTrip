@@ -1104,6 +1104,27 @@
         if (!els.routePicker.contains(e.target) && !(essentialPill && essentialPill.contains(e.target))) closeRoutePicker();
       }
     }, true);
+
+    if (els.filters) {
+      els.filters.addEventListener('scroll', updateFiltersScrollHint, { passive: true });
+      // Detecta cambios de ancho del propio contenido (cambia de idioma/modo,
+      // la píldora "Recomendaciones" cambia de texto, etc.) sin tener que
+      // acordarse de llamar a esto a mano desde cada sitio que las toca.
+      if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(updateFiltersScrollHint).observe(els.filters);
+      }
+      updateFiltersScrollHint();
+    }
+  };
+
+  // Solo visible mientras quede contenido sin ver a la derecha: evita dejar
+  // la flecha puesta cuando el usuario ya ha llegado al final de la lista.
+  const updateFiltersScrollHint = () => {
+    const filters = els.filters;
+    const hint = $('#filtersMore');
+    if (!filters || !hint) return;
+    const hasMore = filters.scrollWidth - filters.scrollLeft - filters.clientWidth > 4;
+    hint.classList.toggle('-visible', hasMore);
   };
   const updatePills = () => $$('.pill', els.filters)
     .forEach((p) => p.dataset.active = p.dataset.category === STATE.category ? 'true' : 'false');

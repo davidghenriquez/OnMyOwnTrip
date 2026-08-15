@@ -711,6 +711,31 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   min-width: 0;
 }
 .filters::-webkit-scrollbar { display: none; }
+
+/* Aviso de que hay más categorías por la derecha: solo visible mientras
+   quede scroll pendiente (ver updateFiltersScrollHint en app.js), para no
+   dejarlo puesto cuando ya se ve el final de la lista. */
+.filters-more {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  right: 4px;
+  width: 34px;
+  border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 6px;
+  background: linear-gradient(to right,
+    transparent,
+    color-mix(in srgb, var(--color-surface) 65%, transparent) 60%);
+  color: var(--color-text-soft);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.filters-more.-visible { opacity: 1; }
+.filters-more svg { width: 15px; height: 15px; }
 .pill {
   flex-shrink: 0;
   display: inline-flex;
