@@ -79,8 +79,16 @@
     // mismo endpoint, pero con el content como array (texto + image_url), el
     // formato multimodal estándar que Gemini expone vía su capa compatible
     // con OpenAI. El Worker no distingue esto de una petición normal, así
-    // que no necesita ningún cambio. reasoning_effort/extraBody se omiten a
-    // propósito: aquí solo queremos un id corto, no una narración.
+    // que no necesita ningún cambio.
+    //
+    // IMPORTANTE: aunque la respuesta que queremos es corta (un id), hay que
+    // mandar el mismo extraBody (reasoning_effort) que la llamada normal y
+    // un max_tokens generoso: los modelos "razonadores" (p.ej. Gemini vía
+    // este endpoint) gastan tokens en pensamiento interno ANTES de escribir
+    // nada visible, así que un max_tokens bajo (p.ej. 20) puede agotarse
+    // entero en ese pensamiento y devolver contenido vacío sin dar ningún
+    // error — parece que la app "no responde" cuando en realidad la API
+    // respondió 200 OK con la respuesta cortada a la nada.
     const fetchOpenAIVision = async (sys, usrText, imageDataUrl, maxTokens) => {
       const url = (CFG.baseUrl || 'https://api.openai.com/v1') + '/chat/completions';
       const model = CFG.model || 'gpt-4o-mini';
@@ -93,14 +101,15 @@
         body: JSON.stringify({
           model,
           temperature: 0.2,
-          max_tokens: maxTokens || 20,
+          max_tokens: maxTokens || 300,
           messages: [
             { role: 'system', content: sys },
             { role: 'user', content: [
               { type: 'text', text: usrText },
               { type: 'image_url', image_url: { url: imageDataUrl } }
             ] }
-          ]
+          ],
+          ...(CFG.extraBody || {})
         })
       });
       if (!res.ok) {
@@ -122,9 +131,16 @@
       const sys = 'Eres un sistema de reconocimiento visual de monumentos turísticos. Se te da una foto y una lista corta de lugares candidatos (id, nombre y descripción). Responde ÚNICAMENTE con el id EXACTO del candidato que mejor coincida con la foto, sin explicaciones ni signos de puntuación extra. Si la foto no coincide claramente con ninguno, responde exactamente: NINGUNO';
       const list = candidates.map((c) => `- id:${c.id} | ${c.name} — ${c.subtitle}`).join('\n');
       const usrText = `Candidatos cercanos a la ubicación del usuario en ${cityName}:\n${list}\n\n¿Cuál de estos candidatos (o NINGUNO) coincide con la foto? Responde solo con el id o NINGUNO.`;
-      const raw = await fetchOpenAIVision(sys, usrText, imageDataUrl, 20);
+      const raw = await fetchOpenAIVision(sys, usrText, imageDataUrl, 300);
       const cleaned = raw.trim().replace(/^id:/i, '').replace(/["'.:\s]+$/, '');
-      const match = candidates.find((c) => c.id.toLowerCase() === cleaned.toLowerCase());
+      // Coincidencia exacta primero; si el modelo se ha ido de madre con
+      // explicaciones pese a la instrucción, buscamos el id como palabra
+      // suelta dentro de la respuesta en vez de descartarlo sin más.
+      let match = candidates.find((c) => c.id.toLowerCase() === cleaned.toLowerCase());
+      if (!match) {
+        const lower = cleaned.toLowerCase();
+        match = candidates.find((c) => new RegExp(`\\b${c.id.toLowerCase()}\\b`).test(lower));
+      }
       return { supported: true, poiId: match ? match.id : null };
     };
 
@@ -977,6 +993,10 @@
   const scanForPoi = async (file) => {
     if (!file || !CURRENT_CITY) return;
     setScanning(true);
+    // Feedback inmediato: localizarte + que la IA mire la foto puede tardar
+    // varios segundos, y sin esto el único indicio de que algo está
+    // pasando es el pulso sutil del botón — fácil de no notar.
+    showToast(STATE.mode === 'kids' ? 'Mirando tu foto… 🔍' : 'Analizando tu foto…', 4000);
     try {
       let coords = STATE.userLocation;
       try {
