@@ -118,6 +118,10 @@ CITIES.madrid.pois = [
             kids: '¡Aventura Sonora: El Mercado de Hierro y Sabores!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Domingo a miércoles 10:00-24:00; jueves a sábado 10:00-01:00.', kids: 'Abre todos los días, hasta bien entrada la noche.' },
+          price: { adult: 'Gratis entrar; solo se paga lo que compres en los puestos.', kids: 'Entrar es gratis, ¡solo se paga lo que compres!' }
+        },
         tabs: {
           history: {
             adult: 'En este solar hubo antes una iglesia parroquial, San Miguel de los Octoes, derribada a principios del siglo XIX. En su lugar se instaló un mercado al aire libre que no se cubrió hasta 1916, cuando se inauguró la actual estructura de hierro, inspirada en los mercados parisinos de la época. Fue el último de los grandes mercados de hierro de Madrid en sobrevivir, tras la desaparición de los de la Cebada y los Mostenses. En 2009 se reconvirtió en mercado gourmet, el primero de su tipo en España.',
@@ -153,6 +157,10 @@ CITIES.madrid.pois = [
             adult: 'Audioguía: Puerta del Sol',
             kids: '¡Aventura Sonora: La Plaza del Kilómetro Cero!'
           }
+        },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
         },
         tabs: {
           history: {
@@ -237,6 +245,10 @@ CITIES.madrid.pois = [
             kids: '¡Aventura Sonora: El Bosque de las Mil Plantas!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'De 10:00 hasta las 21:00 (mayo-agosto), 19:00 (marzo y octubre) o 18:00 (noviembre-febrero), según la época del año.', kids: 'Abre todos los días; en verano cierra más tarde que en invierno.' },
+          price: { adult: '4€ entrada general, 2€ reducida (estudiantes, familias numerosas), 0,50€ mayores de 65. Gratis para menores de 18 y los martes de 10:00 a 13:00.', kids: '4€, pero gratis si tienes menos de 18 años.' }
+        },
         tabs: {
           history: {
             adult: 'Fundado en 1755 por el rey Fernando VI junto al río Manzanares, el Real Jardín Botánico se trasladó en 1781, por orden de Carlos III, a su ubicación actual junto al Paseo del Prado, dentro del gran proyecto ilustrado del "Salón del Prado" que incluía también el propio Museo del Prado y el Observatorio Astronómico. Concebido como centro científico para catalogar y aclimatar las especies traídas de las expediciones botánicas a América, hoy conserva un herbario con más de un millón de pliegos.',
@@ -293,6 +305,10 @@ CITIES.madrid.pois = [
             kids: '¡Aventura Sonora: El Parque del Ángel Malo!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Abril a septiembre 6:00-24:00; octubre a marzo 6:00-22:00.', kids: 'Abre muy temprano y cierra tarde, ¡casi todo el día!' },
+          price: { adult: 'Gratis, no requiere entrada (algunas exposiciones puntuales dentro del parque pueden ser de pago).', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Los jardines nacieron en 1630 por iniciativa del valido Gaspar de Guzmán, conde-duque de Olivares, quien impulsó la construcción de un gran palacio de recreo para Felipe IV: el Palacio del Buen Retiro, obra del arquitecto Alonso Carbonel. Tras el incendio del Alcázar en 1734, llegó a servir como residencia oficial de los primeros Borbones, pero perdió protagonismo tras la apertura del actual Palacio Real en 1764. Del antiguo palacio apenas sobreviven hoy el Casón del Buen Retiro y el Salón de Reinos.',
@@ -329,6 +345,10 @@ CITIES.madrid.pois = [
             kids: '¡Aventura Sonora: La Plaza del Rey a Caballo!'
           }
         },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Felipe II encargó a Juan de Herrera transformar este espacio, y en 1619, bajo Felipe III, Juan Gómez de Mora terminó de darle su fisonomía definitiva. Ha sufrido tres grandes incendios (1631, 1672 y 1790); tras el último, el arquitecto Juan de Villanueva la reconstruyó respetando el trazado original, aunque redujo la altura de los edificios de cinco a tres plantas. Durante siglos acogió corridas de toros, representaciones teatrales, autos de fe de la Inquisición e incluso ejecuciones públicas, todo ello presenciado desde los balcones.',
@@ -356,6 +376,10 @@ CITIES.madrid.pois = [
         coords: [40.420438, -3.706293],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_%28Madrid%29_%2823815769052%29.jpg/330px-Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_%28Madrid%29_%2823815769052%29.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Gran Vía', kids: '¡Aventura Sonora: La Avenida de los Rascacielos!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública); las tiendas suelen abrir de 10:00 a 21:00.', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Sus obras comenzaron el 4 de abril de 1910, cuando Alfonso XIII rompió simbólicamente el primer muro con una piqueta de plata, iniciando la demolición de cientos de viviendas del trazado medieval. Se construyó en tres tramos sucesivos a lo largo de 21 años: el primero, de influencia francesa; el segundo, hasta Callao, de inspiración estadounidense; y el tercero, hasta Plaza de España, ya en pleno estilo art déco. La obra no se dio por concluida hasta 1931.',
@@ -496,6 +520,10 @@ CITIES.madrid.pois = [
         coords: [40.419331, -3.693093],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Fuente_de_Cibeles_-_Dec_2024.jpg/330px-Fuente_de_Cibeles_-_Dec_2024.jpg',
         audio: { duration: 148, title: { adult: 'Audioguía: Plaza de Cibeles', kids: '¡Aventura Sonora: La Diosa que se Disfrazó de Piedra!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La fuente, inaugurada en 1782 por iniciativa de Carlos III dentro de su plan de embellecimiento neoclásico de Madrid, representa a la diosa Cibeles sobre un carro tirado por leones, obra del arquitecto Francisco Gutiérrez y el escultor Vicente Crespí. Originalmente se ubicaba frente al Palacio de Buenavista, y no se trasladó al centro exacto de la plaza hasta 1895.',
@@ -522,6 +550,10 @@ CITIES.madrid.pois = [
         coords: [40.420024, -3.688727],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Puerta_de_Alcal%C3%A1_2025.jpg/330px-Puerta_de_Alcal%C3%A1_2025.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Puerta de Alcalá', kids: '¡Aventura Sonora: El Arco con Dos Caras Distintas!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (monumento exterior).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Construida entre 1769 y 1778 por encargo de Carlos III, el "rey alcalde", según proyecto del arquitecto italiano Francisco Sabatini, ganador de un concurso frente a José de Hermosilla y Ventura Rodríguez. Con 19,5 metros de altura y cinco vanos, está considerada el primer arco de triunfo construido en Europa desde la caída del Imperio Romano, un regalo del monarca a la ciudad para simbolizar el esplendor de la nueva dinastía borbónica.',
@@ -549,6 +581,10 @@ CITIES.madrid.pois = [
         coords: [40.415324, -3.710195],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/%C2%A92021_Antonello_Dellanotte_Plaza_de_la_Villa_y_Torre_de_los_Lujanes_IMG_2491.jpg/330px-%C2%A92021_Antonello_Dellanotte_Plaza_de_la_Villa_y_Torre_de_los_Lujanes_IMG_2491.jpg',
         audio: { duration: 158, title: { adult: 'Audioguía: Plaza de la Villa', kids: '¡Aventura Sonora: La Plaza que Encerró a un Rey Francés!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Fue el centro administrativo de Madrid desde la Edad Media hasta principios del siglo XXI: la Casa de la Villa, de estilo herreriano con fachadas barrocas, albergó el Ayuntamiento durante más de 300 años, hasta su traslado en 2007 al Palacio de Cibeles. La plaza reúne edificios de los siglos XV al XVII, entre ellos la Torre de los Lujanes, en estilo gótico-mudéjar, y la Casa de Cisneros, joya del plateresco construida en 1537.',
@@ -576,6 +612,10 @@ CITIES.madrid.pois = [
         coords: [40.42405, -3.71778],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Templo_de_Debod_in_Madrid.jpg/330px-Templo_de_Debod_in_Madrid.jpg',
         audio: { duration: 160, title: { adult: 'Audioguía: Templo de Debod', kids: '¡Aventura Sonora: El Templo Egipcio que Cruzó el Mar!' } },
+        visitInfo: {
+          hours: { adult: 'El recinto exterior (pórticos, estanque y explanada) es de acceso libre a cualquier hora. El interior del templo abre martes a domingo 10:00-20:00 (cerrado lunes), con aforo limitado a 10 personas; se recomienda reserva gratuita previa en madrid.es/debodreservas.', kids: 'Por fuera se puede ver siempre; para entrar dentro del templo hay que reservar antes, ¡es gratis pero caben pocas personas a la vez!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Erigido a principios del siglo II a.C. por el rey meroita Adijalamani como capilla dedicada a Amón de Debod e Isis de Filé, y ampliado después por los soberanos ptolemaicos. En 1954 Egipto comenzó a construir la presa de Asuán, que amenazaba con inundar numerosos templos de Nubia; España colaboró en el salvamento internacional promovido por la Unesco, y en 1968 Egipto donó este templo en agradecimiento. Sus bloques viajaron por barco hasta Valencia en 1969 y fueron reconstruidos junto al Parque del Oeste, inaugurándose el 20 de julio de 1972.',
@@ -603,6 +643,10 @@ CITIES.madrid.pois = [
         coords: [40.42339, -3.71223],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Plaza_de_Espa%C3%B1a_de_Madrid_-_02.jpg/330px-Plaza_de_Espa%C3%B1a_de_Madrid_-_02.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Plaza de España', kids: '¡Aventura Sonora: La Plaza de Don Quijote y Sancho!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El actual monumento a Cervantes se erigió en 1929, tras un concurso nacional convocado en 1915 con motivo del tercer centenario de la muerte del escritor. Con los años se completó con las esculturas en bronce de Don Quijote y Sancho Panza cabalgando sobre Rocinante y su burro, y las figuras de Dulcinea y Aldonza Lorenzo. La plaza se sometió a una profunda remodelación entre 2019 y 2021, que sacó a la luz numerosos restos arqueológicos y transformó la zona en un gran eje peatonal con más zonas verdes.',
@@ -629,6 +673,10 @@ CITIES.madrid.pois = [
         coords: [40.418307, -3.696575],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/C%C3%ADrculo_de_Bellas_Artes_%28Madrid%29_06.jpg/330px-C%C3%ADrculo_de_Bellas_Artes_%28Madrid%29_06.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Círculo de Bellas Artes', kids: '¡Aventura Sonora: La Azotea de la Diosa Sabia!' } },
+        visitInfo: {
+          hours: { adult: 'La azotea-mirador abre domingo a jueves 10:00-01:00, viernes y sábados hasta las 02:00.', kids: 'Abre todos los días, ¡hasta tarde por la noche!' },
+          price: { adult: '5€ entrada general (incluye las salas de exposiciones), 4€ con carné joven. Gratis los martes de 11:00 a 14:00 para desempleados.', kids: '5€, o 4€ si tienes el carné joven.' }
+        },
         tabs: {
           history: {
             adult: 'Fundado como institución artística en 1880, el Círculo de Bellas Artes estrenó su actual sede, obra del arquitecto Antonio Palacios, en 1926, inaugurada por el propio Alfonso XIII en la confluencia de la calle de Alcalá con la Gran Vía. Desde entonces se ha consolidado como uno de los centros culturales privados más activos de Madrid, con exposiciones, cine, teatro y conciertos.',
@@ -694,6 +742,10 @@ CITIES.madrid.pois = [
         coords: [40.418222, -3.712222],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Plaza_de_Oriente_%28Madrid%29._Monumento_a_Felipe_IV.jpg/330px-Plaza_de_Oriente_%28Madrid%29._Monumento_a_Felipe_IV.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Plaza de Oriente', kids: '¡Aventura Sonora: La Plaza del Rey que Casi se Cae!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El trazado definitivo de la plaza responde a un diseño de 1844 del arquitecto Narciso Pascual Colomer, por iniciativa de la reina Isabel II. Está flanqueada por veinte estatuas de reyes visigodos y de los primeros reinos cristianos, esculpidas entre 1750 y 1753 para decorar originalmente la cornisa del Palacio Real, aunque nunca llegaron a colocarse allí y acabaron repartidas por distintos jardines y plazas de la ciudad.',
@@ -720,6 +772,10 @@ CITIES.madrid.pois = [
         coords: [40.4124, -3.7092],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Fiestas_de_la_Paloma_2023_-_Calle_de_la_Cava_Baja_-_Madrid_07.jpg/330px-Fiestas_de_la_Paloma_2023_-_Calle_de_la_Cava_Baja_-_Madrid_07.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Barrio de La Latina', kids: '¡Aventura Sonora: El Barrio de la Maestra Sabia!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (barrio con calles públicas).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El barrio debe su nombre a Beatriz Galindo, humanista nacida en Salamanca en 1465 y apodada "La Latina" por su dominio del latín clásico desde muy joven. Fue maestra de la reina Isabel la Católica y de sus hijos, un reconocimiento excepcional a la capacidad intelectual femenina en su época. Junto a su marido, Francisco Ramírez, fundó en 1499 un hospital en la actual calle de Toledo, junto a la Plaza de la Cebada, que acabó dando nombre a todo el barrio.',
@@ -746,6 +802,10 @@ CITIES.madrid.pois = [
         coords: [40.4227, -3.6976],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Madrid_-_Plaza_de_Chueca_2.jpg/330px-Madrid_-_Plaza_de_Chueca_2.jpg',
         audio: { duration: 140, title: { adult: 'Audioguía: Barrio de Chueca', kids: '¡Aventura Sonora: El Barrio Más Alegre y Colorido!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (barrio con calles públicas).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El barrio toma su nombre de una pequeña plaza dedicada al compositor de zarzuelas Federico Chueca, nacido en Madrid en 1846. Durante buena parte del siglo XX vivió un fuerte deterioro y despoblación, hasta que a finales de los años 80 comenzó a acoger a la comunidad gay y lesbiana, atraída por los bajos alquileres. En apenas una década, un movimiento social organizado en torno a asociaciones como COGAM (fundada en 1986) transformó por completo un barrio degradado en uno de los ejes más vitales del centro de Madrid.',
@@ -772,6 +832,10 @@ CITIES.madrid.pois = [
         coords: [40.428681, -3.703169],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Calle_de_Manuela_Malasa%C3%B1a_south.JPG/330px-Calle_de_Manuela_Malasa%C3%B1a_south.JPG',
         audio: { duration: 155, title: { adult: 'Audioguía: Barrio de Malasaña', kids: '¡Aventura Sonora: El Barrio de la Joven Valiente!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (barrio con calles públicas).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El barrio, antiguamente llamado Maravillas, cambió su nombre popular en honor a Manuela Malasaña, una joven costurera de 17 años que murió el 2 de mayo de 1808 durante el levantamiento popular de Madrid contra la ocupación napoleónica. Existen dos versiones sobre su muerte: que cayó abasteciendo de munición a su padre durante el combate, o que fue ejecutada en la misma plaza tras ser sorprendida con unas tijeras de costurera, confundidas con un arma.',
@@ -798,6 +862,10 @@ CITIES.madrid.pois = [
         coords: [40.4133, -3.6974],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Barrio_de_las_Letras_%28Madrid%29_01.jpg/330px-Barrio_de_las_Letras_%28Madrid%29_01.jpg',
         audio: { duration: 158, title: { adult: 'Audioguía: Barrio de las Letras', kids: '¡Aventura Sonora: El Barrio de los Escritores Rivales!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (barrio con calles públicas).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'En los siglos XVI y XVII, este barrio periférico junto al arroyo del Recoletos y el olivar de Atocha se convirtió en residencia de los grandes escritores del Siglo de Oro español: Miguel de Cervantes, Lope de Vega, Francisco de Quevedo y Luis de Góngora vivieron todos ellos en estas calles, entre corrales de comedias, conventos e imprentas. Lope de Vega compró una casa con jardín en la que ahora es la calle de Cervantes, donde vivió entre 1610 y 1635.',
@@ -824,6 +892,10 @@ CITIES.madrid.pois = [
         coords: [40.414863, -3.700600],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Plaza_de_Santa_Ana%2C_Madrid_01.jpg/330px-Plaza_de_Santa_Ana%2C_Madrid_01.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Plaza de Santa Ana', kids: '¡Aventura Sonora: La Plaza de los Poetas Rivales!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La plaza actual nació en 1810, cuando José I Bonaparte ordenó derribar el antiguo convento carmelita de Santa Ana, que le da nombre, dentro de sus reformas urbanísticas de Madrid. Pero la zona ya era, desde los siglos XVI y XVII, lugar de paso habitual de Lope de Vega, Cervantes y Calderón de la Barca. En su lado este se alza el Teatro Español, el más antiguo de Madrid, construido sobre el antiguo Corral del Príncipe, uno de los corrales de comedias donde se estrenaban las grandes obras del Siglo de Oro.',
@@ -851,6 +923,10 @@ CITIES.madrid.pois = [
         coords: [40.41256389, -3.71113611],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Visual_Plaza_de_la_Paja.jpg/330px-Visual_Plaza_de_la_Paja.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza de la Paja', kids: '¡Aventura Sonora: La Plaza Antes de la Plaza Mayor!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Durante los siglos XIII y XIV, la Plaza de la Paja fue el gran mercado y auténtico centro neurálgico de Madrid, mucho antes de que existiera la Plaza Mayor. Su nombre proviene de la venta de paja para alimentar a las mulas de los sacerdotes que servían en la cercana Capilla del Obispo, construida entre 1520 y 1535 por la familia Vargas para albergar los restos de San Isidro, patrón de la ciudad. La plaza perdió protagonismo comercial a partir del siglo XV, cuando la nueva Plaza Mayor desplazó la actividad mercantil.',
@@ -878,6 +954,10 @@ CITIES.madrid.pois = [
         coords: [40.41410556, -3.70810278],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Calle_de_Cuchilleros_%28Madrid%29_01.jpg/330px-Calle_de_Cuchilleros_%28Madrid%29_01.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Calle de Cuchilleros', kids: '¡Aventura Sonora: La Calle de los Fabricantes de Cuchillos!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La calle debe su nombre al gremio de cuchilleros, artesanos dedicados a fabricar y vender cuchillos, que se instaló aquí desde el siglo XVII por su cercanía con el mercado de carnicería de la Plaza Mayor. Para salvar el pronunciado desnivel entre la plaza y esta zona, el arquitecto Juan Gómez de Mora diseñó en 1617 la escalinata y el Arco de Cuchilleros. En el número 17 se encuentra el Sobrino de Botín, fundado como hostería en 1725, reconocido por el Libro Guinness de los Récords como el restaurante más antiguo del mundo en funcionamiento continuo.',
@@ -905,6 +985,11 @@ CITIES.madrid.pois = [
         coords: [40.4186602, -3.7062538],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Monasterio_de_las_Descalzas_Reales_%28Madrid%29_01.jpg/330px-Monasterio_de_las_Descalzas_Reales_%28Madrid%29_01.jpg',
         audio: { duration: 160, title: { adult: 'Audioguía: Monasterio de las Descalzas Reales', kids: '¡Aventura Sonora: El Convento del Tesoro Escondido!' } },
+        visitInfo: {
+          hours: { adult: 'Martes a sábado 10:00-14:00 y 16:00-18:30; domingos y festivos 10:00-15:00. Cerrado los lunes. Solo se visita con guía (incluida en el precio).', kids: 'Abre de martes a domingo. Los lunes está cerrado. Se visita con un guía.' },
+          price: { adult: '8€ entrada general. Gratis miércoles y jueves de 16:00 a 18:30 para ciudadanos de la UE e Iberoamérica.', kids: '8€, pero es gratis los miércoles y jueves por la tarde.' },
+          link: 'https://tickets.patrimonionacional.es/es/tickets/monasterio-descalzas'
+        },
         tabs: {
           history: {
             adult: 'Fundado en 1559 por Juana de Austria, hija de Carlos V y hermana de Felipe II, sobre el palacio del siglo XVI donde ella misma había nacido. Tras enviudar joven, Juana transformó su antigua residencia en un convento de clarisas franciscanas. El maestro de obras Antonio Sillero dirigió las reformas entre 1559 y 1564, y Juan Bautista de Toledo añadió elementos renacentistas, entre ellos la notable escalera monumental. Juana de Austria murió en 1573 y está enterrada en una capilla de mármol del propio monasterio.',
@@ -969,6 +1054,10 @@ CITIES.madrid.pois = [
         coords: [40.425833, -3.700833],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Museo_de_Historia_de_Madrid_%28Espa%C3%B1a%29_03.jpg/330px-Museo_de_Historia_de_Madrid_%28Espa%C3%B1a%29_03.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Museo de Historia de Madrid', kids: '¡Aventura Sonora: El Museo de la Portada de Piedra Tallada!' } },
+        visitInfo: {
+          hours: { adult: 'Martes a domingo 10:00-20:00. Cerrado los lunes.', kids: 'Abre de martes a domingo. Los lunes está cerrado.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El edificio fue el antiguo Real Hospicio de San Fernando, construido entre 1721 y 1726 bajo el reinado de Felipe V para acoger a pobres y niños abandonados. Pedro de Ribera diseñó la fachada y portada principal, con el conjunto escultórico obra de Juan Ron. En 1929 se inauguró aquí el Museo Municipal, renombrado Museo de Historia de Madrid en 2007.',
@@ -1105,6 +1194,10 @@ CITIES.madrid.pois = [
         coords: [40.4250435, -3.6969586],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Palacio_Longoria_%28Madrid%29_08.jpg/330px-Palacio_Longoria_%28Madrid%29_08.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Palacio de Longoria', kids: '¡Aventura Sonora: La Casa Tarta!' } },
+        visitInfo: {
+          hours: { adult: 'Edificio de propiedad privada (sede de la SGAE): no tiene horario turístico regular. Solo se ve la fachada desde la calle.', kids: 'Es la sede de una empresa, así que solo se puede ver por fuera.' },
+          price: { adult: 'Gratis ver la fachada; no se visita el interior.', kids: '¡Gratis mirarlo por fuera!' }
+        },
         tabs: {
           history: {
             adult: 'Construido entre 1902 y 1904 por el arquitecto catalán José Grases Riera por encargo del financiero y político Francisco Javier González Longoria. Desde 1950 es la sede de la SGAE, la Sociedad General de Autores y Editores, que custodia aquí el principal archivo de obras líricas de España.',
@@ -1131,6 +1224,10 @@ CITIES.madrid.pois = [
         coords: [40.41877778, -3.69746667],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edificio_Metr%C3%B3polis_%286_de_diciembre_de_2005%2C_Madrid%29.JPG/330px-Edificio_Metr%C3%B3polis_%286_de_diciembre_de_2005%2C_Madrid%29.JPG',
         audio: { duration: 155, title: { adult: 'Audioguía: Edificio Metrópolis', kids: '¡Aventura Sonora: El Edificio de la Estatua que Cambió!' } },
+        visitInfo: {
+          hours: { adult: 'Edificio de propiedad privada (uso de oficinas): no se visita el interior. Se ve la fachada desde la calle en cualquier momento.', kids: 'Es un edificio de oficinas, ¡así que solo se puede ver por fuera!' },
+          price: { adult: 'Gratis ver la fachada; no se visita el interior.', kids: '¡Gratis mirarlo por fuera!' }
+        },
         tabs: {
           history: {
             adult: 'Encargado por la aseguradora La Unión y el Fénix, que convocó un concurso internacional ganado por los arquitectos franceses Jules y Raymond Février, se construyó entre 1907 y 1911, con una cúpula de pizarra de 45 metros. El acabado final corrió a cargo del arquitecto español Luis Esteve.',
@@ -1157,6 +1254,10 @@ CITIES.madrid.pois = [
         coords: [40.418611, -3.691667],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Palacio_de_Comunicaciones_-_46.jpg/330px-Palacio_de_Comunicaciones_-_46.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Palacio de Cibeles', kids: '¡Aventura Sonora: Nuestra Señora de las Comunicaciones!' } },
+        visitInfo: {
+          hours: { adult: 'El edificio y sus exposiciones son de acceso libre en horario del centro cultural. El mirador de la azotea abre martes a domingo 10:30-14:00 y 16:00-19:30 (pases cada media hora); cerrado los lunes.', kids: 'El edificio se visita gratis; para subir al mirador de arriba hay que pagar un poquito.' },
+          price: { adult: 'Entrada al edificio gratis. Subir al mirador: 3€ general (tarifas reducidas para niños, mayores y desempleados).', kids: 'El edificio es gratis; subir arriba al mirador cuesta 3€ (¡menos si eres niño!).' }
+        },
         tabs: {
           history: {
             adult: 'Ganó el concurso de 1904 la propuesta de dos jóvenes arquitectos de apenas treinta años, Antonio Palacios y Joaquín Otamendi. Se construyó entre 1907 y 1917 como sede central de Correos y Telégrafos, sobre terrenos que antes ocupaban los jardines de recreo del Buen Retiro. En 2007 el Ayuntamiento de Madrid adquirió el edificio y lo transformó en centro cultural y sede consistorial.',
@@ -1183,6 +1284,10 @@ CITIES.madrid.pois = [
         coords: [40.4276958, -3.6957454],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Madrid_-_Plaza_de_Alonso_Mart%C3%ADnez_1.jpg/330px-Madrid_-_Plaza_de_Alonso_Mart%C3%ADnez_1.jpg',
         audio: { duration: 140, title: { adult: 'Audioguía: Plaza de Alonso Martínez', kids: '¡Aventura Sonora: La Rotonda del Jurista!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Surgió durante la expansión decimonónica de Madrid tras derribarse la cerca de Felipe IV en 1868; se llamó primero Glorieta de Santa Bárbara y, desde 1891, tomó el nombre del jurista y político Manuel Alonso Martínez, artífice del Código Civil español e impulsor del Canal de Isabel II.',
@@ -1209,6 +1314,10 @@ CITIES.madrid.pois = [
         coords: [40.42479167, -3.70076111],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Calle_de_Fuencarral_%28Madrid%29_01.jpg/330px-Calle_de_Fuencarral_%28Madrid%29_01.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Calle de Fuencarral', kids: '¡Aventura Sonora: La Calle que Une Dos Barrios Distintos!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública); las tiendas suelen abrir de 10:00 a 21:00.', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Nació como camino rural que conectaba Madrid con el entonces pueblo de Fuencarral, tomando su nombre de una fuente situada junto a esa ruta. Durante los reinados de Felipe II y Felipe III se fue urbanizando hasta convertirse en una de las calles más largas de la ciudad.',
@@ -1235,6 +1344,10 @@ CITIES.madrid.pois = [
         coords: [40.4185955, -3.7023065],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Calle_de_la_Montera_%28Madrid%29_01.jpg/330px-Calle_de_la_Montera_%28Madrid%29_01.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Calle de la Montera', kids: '¡Aventura Sonora: La Calle del Gorro Perdido!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Calle histórica junto a la Puerta del Sol que en siglos pasados tuvo cierto carácter de lujo y elegancia. Desde principios del siglo XX se asocia también a la prostitución visible, aunque actualmente vive un proceso de transformación urbana y comercial.',
@@ -1261,6 +1374,10 @@ CITIES.madrid.pois = [
         coords: [40.419953, -3.705799],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/City_of_Madrid_%2818038988892%29.jpg/330px-City_of_Madrid_%2818038988892%29.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza del Callao', kids: '¡Aventura Sonora: La Plaza de las Pantallas Gigantes!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Se construyó entre 1917 y 1927 dentro del proyecto urbanístico de la Gran Vía. Su nombre conmemora el Combate del Callao, una batalla naval de 1866 en Perú entre la Armada española y la escuadra aliada de Perú y Chile.',
@@ -1287,6 +1404,10 @@ CITIES.madrid.pois = [
         coords: [40.42038889, -3.70190278],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Edificio_Telefonica_Madrid.jpg/330px-Edificio_Telefonica_Madrid.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Edificio Telefónica', kids: '¡Aventura Sonora: El Primer Rascacielos de Europa!' } },
+        visitInfo: {
+          hours: { adult: 'Edificio de oficinas: la fachada se ve desde la calle en cualquier momento. Su espacio de exposiciones en planta baja (Fundación Telefónica) suele abrir martes a domingo, con entrada gratuita.', kids: 'Por fuera se ve siempre; abajo del todo hay veces que hay exposiciones gratis.' },
+          price: { adult: 'Gratis ver la fachada; las exposiciones de la planta baja también suelen ser gratuitas.', kids: '¡Gratis mirarlo por fuera!' }
+        },
         tabs: {
           history: {
             adult: 'Su construcción se inició en 1926, dirigida por el arquitecto español Ignacio de Cárdenas con el apoyo técnico del ingeniero estadounidense Lewis S. Weeks, representante de la International Telephone and Telegraph Company. Se levantó en apenas tres años combinando acero, hormigón y vidrio con ornamentación artesanal española.',
@@ -1313,6 +1434,10 @@ CITIES.madrid.pois = [
         coords: [40.4110037, -3.7170498],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Parque_de_las_Vistillas_-Madrid_%286952903529%29.jpg/330px-Parque_de_las_Vistillas_-Madrid_%286952903529%29.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Parque de las Vistillas', kids: '¡Aventura Sonora: El Mirador de las Trincheras!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, parque público abierto en horario diurno.', kids: '¡Se puede visitar en cualquier momento del día!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Debe su nombre a las magníficas vistas que ofrece sobre el río Manzanares, la Catedral de la Almudena y la Casa de Campo. Es escenario tradicional de las verbenas populares madrileñas.',
@@ -1340,6 +1465,10 @@ CITIES.madrid.pois = [
         coords: [40.4129877, -3.7115786],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Jardines_del_Principe_de_Anglona_%289%29_%2811983191794%29.jpg/330px-Jardines_del_Principe_de_Anglona_%289%29_%2811983191794%29.jpg',
         audio: { duration: 140, title: { adult: 'Audioguía: Jardines del Príncipe de Anglona', kids: '¡Aventura Sonora: El Jardín Secreto de La Latina!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, jardín público abierto en horario diurno (suele cerrar al anochecer).', kids: '¡Se puede visitar durante el día!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Vinculado al Palacio del Príncipe de Anglona, construido hacia 1530 como residencia de Francisco de Vargas, consejero de los Reyes Católicos y Carlos I. El jardín se trazó en el siglo XVIII según diseño de 1761 de Nicolas Chalmandrier, en estilo neoclásico con toques de jardinería hispanoárabe; su fisonomía actual procede de un encargo de 1920 al jardinero Javier de Winthuysen, y fue restaurado en 2002.',
@@ -1367,6 +1496,10 @@ CITIES.madrid.pois = [
         coords: [40.4170539, -3.7069889],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Iglesia_de_San_Gin%C3%A9s_%28Madrid%29_06.jpg/330px-Iglesia_de_San_Gin%C3%A9s_%28Madrid%29_06.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Iglesia de San Ginés', kids: '¡Aventura Sonora: La Iglesia del Cuadro Escondido!' } },
+        visitInfo: {
+          hours: { adult: 'Iglesia parroquial activa: suele abrir a diario, aproximadamente de 8:00 a 13:00 y de 18:00 a 21:00 (fuera de horario de misa).', kids: 'Abre casi todos los días, por la mañana y por la tarde.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Dedicada a San Ginés de Arlés, la iglesia actual se construyó en 1645 sobre lo que se cree fue una antigua ermita mozárabe, siendo una de las parroquias más antiguas de Madrid. Su fachada actual, en ladrillo y piedra, data de una reforma de 1870.',
@@ -1394,6 +1527,10 @@ CITIES.madrid.pois = [
         coords: [40.4108476, -3.7138633],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Exterior_-_Real_basilica_de_San_Francisco_el_Grande_-_Madrid_01.jpg/330px-Exterior_-_Real_basilica_de_San_Francisco_el_Grande_-_Madrid_01.jpg',
         audio: { duration: 160, title: { adult: 'Audioguía: Basílica de San Francisco el Grande', kids: '¡Aventura Sonora: La Cúpula Gigante de Goya!' } },
+        visitInfo: {
+          hours: { adult: 'Martes a sábado 10:30-14:30 y 16:00-18:30 (en julio, agosto y septiembre, horario reducido de 10:30 a 15:30). Cerrada domingos y lunes.', kids: 'Abre de martes a sábado. Los domingos y lunes está cerrada.' },
+          price: { adult: '6€ entrada general, 3,50€ reducida (menores, jubilados, grupos). Gratis los jueves.', kids: '6€, pero gratis los jueves.' }
+        },
         tabs: {
           history: {
             adult: 'La tradición sitúa el origen del templo hacia 1214-1217, cuando San Francisco de Asís, de paso por Madrid en su peregrinación a Santiago, habría fundado una ermita en este solar. El edificio actual se construyó entre 1776 y 1784 bajo la dirección del arquitecto Francisco Sabatini.',
@@ -1420,6 +1557,10 @@ CITIES.madrid.pois = [
         coords: [40.4070507, -3.7110664],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Puerta_de_Toledo_-_detalles_-_Madrid_01.jpg/330px-Puerta_de_Toledo_-_detalles_-_Madrid_01.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Puerta de Toledo', kids: '¡Aventura Sonora: La Última Puerta Monumental de Madrid!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (monumento exterior).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'El proyecto original lo ordenó José Bonaparte en 1808 para conmemorar su acceso al trono; tras la expulsión de los franceses, el Ayuntamiento encargó un nuevo diseño al arquitecto Antonio López Aguado, que la reconvirtió en arco triunfal dedicado al restaurado Fernando VII. Se construyó entre 1813 y 1827, siendo la última puerta monumental erigida en el antiguo recinto de Madrid.',
@@ -1447,6 +1588,10 @@ CITIES.madrid.pois = [
         coords: [40.4122, -3.71093056],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Museo_de_San_Isidro.jpg/330px-Museo_de_San_Isidro.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Museo de San Isidro', kids: '¡Aventura Sonora: El Museo del Pozo Milagroso!' } },
+        visitInfo: {
+          hours: { adult: 'Martes a domingo 10:00-20:00 (10:00-19:00 del 15 de junio al 15 de septiembre). Cerrado los lunes.', kids: 'Abre de martes a domingo. Los lunes está cerrado.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Inaugurado el 15 de mayo de 2000, este museo municipal gratuito recorre la historia de Madrid desde la Prehistoria hasta el establecimiento de la Corte. Conserva del edificio original un patio renacentista del siglo XVI y una capilla del siglo XVII.',
@@ -1474,6 +1619,10 @@ CITIES.madrid.pois = [
         coords: [40.410905, -3.692897],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Caixaforum_Madrid_2024.jpg/330px-Caixaforum_Madrid_2024.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: CaixaForum Madrid', kids: '¡Aventura Sonora: El Edificio que Flota!' } },
+        visitInfo: {
+          hours: { adult: 'Todos los días 10:00-20:00 (24 y 31 de diciembre y 5 de enero, hasta las 18:00).', kids: 'Abre todos los días, por la mañana y por la tarde.' },
+          price: { adult: '6€ entrada general. Gratis para menores de 16 años, y para todos el 15, 17 (desde las 19:00) y 18 de mayo, y el 9 de noviembre.', kids: '6€, ¡pero gratis si tienes menos de 16 años!' }
+        },
         tabs: {
           history: {
             adult: 'El edificio ocupaba originalmente la antigua Central Eléctrica del Mediodía, de principios del siglo XX. Los arquitectos suizos Herzog y de Meuron lo transformaron entre 2001 y 2007, y el centro cultural de la Fundación la Caixa abrió sus puertas en 2008.',
@@ -1500,6 +1649,10 @@ CITIES.madrid.pois = [
         coords: [40.42693333, -3.70407222],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Plaza_del_Dos_de_Mayo%2C_Madrid.jpg/330px-Plaza_del_Dos_de_Mayo%2C_Madrid.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Plaza del Dos de Mayo', kids: '¡Aventura Sonora: La Plaza de los Héroes Valientes!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La plaza toma su nombre de la resistencia frente al ataque francés protagonizada por Luis Daoíz y Pedro Velarde la mañana del 2 de mayo de 1808, un levantamiento popular contra las tropas napoleónicas que marcó el inicio de la Guerra de la Independencia española. Donde hoy está la plaza se encontraba el Cuartel de Monteleón, donde unos doscientos patriotas se atrincheraron y lucharon sin esperanza contra el mejor ejército del mundo de aquel momento.',
@@ -1526,6 +1679,10 @@ CITIES.madrid.pois = [
         coords: [40.41109722, -3.70968889],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Plaza_de_la_Cebada_%28Madrid%29_01.jpg/330px-Plaza_de_la_Cebada_%28Madrid%29_01.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza de la Cebada', kids: '¡Aventura Sonora: La Plaza del Cereal para los Caballos!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Desde el siglo XVI, la Plaza de la Cebada ha sido escenario de comercio, ferias y otros episodios de la vida madrileña. El nombre se debe a que aquí se separaba la cebada destinada a los caballos del rey de la de los regimientos de caballería, cereal con el que se comerciaba en este emplazamiento.',
@@ -1552,6 +1709,10 @@ CITIES.madrid.pois = [
         coords: [40.41228611, -3.70501111],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Plaza_de_Tirso_de_Molina_%28Madrid%29_02.jpg/330px-Plaza_de_Tirso_de_Molina_%28Madrid%29_02.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza de Tirso de Molina', kids: '¡Aventura Sonora: La Plaza de las Flores y el Convento Desaparecido!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La plaza ocupa el solar del antiguo Convento de la Merced, fundado en 1564, uno de los templos más frecuentados de la capital hasta el siglo XIX, con un claustro y una fuente considerada la joya de Madrid. El convento, desamortizado y demolido en 1836 durante el gobierno de Mendizábal, dio paso a la creación de la plaza, llamada inicialmente Plaza del Progreso. El dramaturgo Tirso de Molina, que da nombre actual a la plaza, residió en este convento.',
@@ -1578,6 +1739,10 @@ CITIES.madrid.pois = [
         coords: [40.40889722, -3.70115833],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Plaza_Lavapies%2C_Madrid%2C_13.08.14.jpg/330px-Plaza_Lavapies%2C_Madrid%2C_13.08.14.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza de Lavapiés', kids: '¡Aventura Sonora: La Plaza del Nombre Misterioso!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Con más de 500 años de vida, el barrio de Lavapiés es uno de los más antiguos de la capital. El origen del topónimo es incierto, aunque se argumenta que procedería de una fuente que existió antiguamente en la plaza, ya que todas las plazoletas del Madrid antiguo contaban con fuentes para suministrar agua y para lavar la ropa.',
@@ -1604,6 +1769,10 @@ CITIES.madrid.pois = [
         coords: [40.411575, -3.69871944],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Mercado_de_Ant%C3%B3n_Mart%C3%ADn%2C_fachada_calle_Santa_Isabel.JPG/330px-Mercado_de_Ant%C3%B3n_Mart%C3%ADn%2C_fachada_calle_Santa_Isabel.JPG',
         audio: { duration: 145, title: { adult: 'Audioguía: Mercado de Antón Martín', kids: '¡Aventura Sonora: El Mercado con Escuela de Flamenco!' } },
+        visitInfo: {
+          hours: { adult: 'Lunes a sábado, aproximadamente 9:00-21:00 (horarios pueden variar por puesto).', kids: 'Abre de lunes a sábado, por la mañana y por la tarde.' },
+          price: { adult: 'Gratis entrar; solo se paga lo que compres.', kids: 'Entrar es gratis, ¡solo se paga lo que compres!' }
+        },
         tabs: {
           history: {
             adult: 'Durante el siglo XVIII, la plaza de Antón Martín tenía el sobrenombre de plazuela del Mercado, ya que allí se reunían puestos ambulantes de alimentación. En 1933 el Ayuntamiento de Madrid encargó al arquitecto Gonzalo Domínguez Espúñez el diseño del mercado actual, cuyo proyecto se ejecutó tras la Guerra Civil, siendo inaugurado en 1941.',
@@ -1631,6 +1800,10 @@ CITIES.madrid.pois = [
         coords: [40.41111111, -3.70975],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Madrid_-_Mercado_de_la_Cebada_-_outside.jpg/330px-Madrid_-_Mercado_de_la_Cebada_-_outside.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Mercado de la Cebada', kids: '¡Aventura Sonora: El Mercado que Reemplazó a un Palacio de Hierro!' } },
+        visitInfo: {
+          hours: { adult: 'Lunes a sábado, aproximadamente 9:00-14:00 y 17:00-20:00 (horarios pueden variar por puesto).', kids: 'Abre de lunes a sábado, por la mañana y por la tarde.' },
+          price: { adult: 'Gratis entrar; solo se paga lo que compres.', kids: 'Entrar es gratis, ¡solo se paga lo que compres!' }
+        },
         tabs: {
           history: {
             adult: 'A finales del siglo XVIII, el aumento de la población de Madrid llevó a crear un mercado capaz de abastecer a la ciudad con garantías de higiene. En 1868 el arquitecto Mariano Calvo y Pereira diseñó un edificio de hierro y cristal, con 166 columnas de hierro forjado traídas directamente desde Londres, inaugurado en 1875 por el rey Alfonso XII. Por problemas de higiene, aquel edificio se demolió en 1956 y se construyó el mercado más funcional que existe hoy, terminado en 1958.',
@@ -1658,6 +1831,10 @@ CITIES.madrid.pois = [
         coords: [40.413425, -3.70905278],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_%28Madrid%29_01.jpg/330px-Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_%28Madrid%29_01.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Calle del Nuncio', kids: '¡Aventura Sonora: La Calle del Embajador del Papa!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Esta calle del barrio de La Latina, en pleno casco histórico de Madrid, debe su nombre a la circunstancia de que en ella residieron, hasta mediados del siglo XX, los embajadores apostólicos del Vaticano. Durante los reinados de los Austrias, en los siglos XVI y XVII, el representante papal, o nuncio, se convirtió en una figura clave en la Corte de Madrid.',
@@ -1684,6 +1861,10 @@ CITIES.madrid.pois = [
         coords: [40.4252956, -3.7039468],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Madrid_-_Malasa%C3%B1a%2C_Plaza_Juan_Pujol_1.jpg/330px-Madrid_-_Malasa%C3%B1a%2C_Plaza_Juan_Pujol_1.jpg',
         audio: { duration: 140, title: { adult: 'Audioguía: Plaza del Rastrillo', kids: '¡Aventura Sonora: La Plaza del Mercadillo Antiguo!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Esta pequeña plaza de Malasaña albergó desde al menos el siglo XVII un mercadillo al aire libre, conocido popularmente entre los vecinos como el Rastrillo, que se abastecía de los puestos cercanos del mercado de San Ildefonso. Hacia finales de la década de 1960, con la apertura del mercado de Barceló, los vendedores callejeros fueron desapareciendo poco a poco.',
@@ -1710,6 +1891,10 @@ CITIES.madrid.pois = [
         coords: [40.4276489, -3.6938919],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Palacete_en_la_calle_Zurbano.JPG/330px-Palacete_en_la_calle_Zurbano.JPG',
         audio: { duration: 140, title: { adult: 'Audioguía: Calle de Zurbano', kids: '¡Aventura Sonora: La Calle de los Palacetes Elegantes!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Calle arbolada de un único carril que atraviesa el distrito de Chamberí, urbanizada tras la parcelación de la antigua huerta de Loinaz a finales del siglo XIX. En ella se construyeron elegantes casas-palacio destinadas a la alta nobleza que se instaló en la zona, por iniciativa del visionario duque de Santo Mauro.',
@@ -1736,6 +1921,10 @@ CITIES.madrid.pois = [
         coords: [40.42452778, -3.69387222],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Salesas-fachada.jpg/330px-Salesas-fachada.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza de Santa Bárbara', kids: '¡Aventura Sonora: La Plaza de la Reina que Fundó un Convento!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (plaza pública al aire libre).', kids: '¡Se puede visitar en cualquier momento, no tiene horario!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La plaza toma su nombre de la Iglesia de Santa Bárbara, parte del Monasterio Real de la Visitación de Nuestra Señora, conocido como las Salesas Reales, fundado en 1748 por la reina Bárbara de Braganza, esposa de Fernando VI, con el propósito de educar a jóvenes nobles y servir de lugar de retiro. El convento fue diseñado por François Carlier y completado por Francisco Moradillo, que añadió las torres campanario, en 1758.',
@@ -1762,6 +1951,10 @@ CITIES.madrid.pois = [
         coords: [40.41345556, -3.69793056],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Calle_Huertas_%285876701988%29.jpg/330px-Calle_Huertas_%285876701988%29.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Calle de Huertas', kids: '¡Aventura Sonora: La Calle de los Versos Dorados en el Suelo!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'La calle toma su nombre de las huertas del Prado que existían en el siglo XVII en los terrenos vecinos al Prado de los Jerónimos. El Barrio de las Letras, conocido simplemente como Huertas, fue morada o lugar de encuentro de grandes escritores de los siglos XVI y XVII, entre ellos Cervantes, Lope de Vega, Tirso de Molina, Calderón de la Barca y Quevedo.',
@@ -1789,6 +1982,10 @@ CITIES.madrid.pois = [
         coords: [40.42021, -3.71394],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Estanque_Central_-_Jardines_de_Sabatini_-_Madrid_01.jpg/330px-Estanque_Central_-_Jardines_de_Sabatini_-_Madrid_01.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Jardines de Sabatini', kids: '¡Aventura Sonora: El Jardín que Reemplazó a las Caballerizas Reales!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, jardín público abierto en horario diurno (suele cerrar al anochecer).', kids: '¡Se puede visitar durante el día!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis! No hace falta pagar entrada.' }
+        },
         tabs: {
           history: {
             adult: 'Los Jardines de Sabatini se construyeron en la década de 1930, tras la proclamación de la Segunda República, sobre el solar que ocupaban las caballerizas reales, levantadas en el siglo XVIII por el arquitecto italiano Francesco Sabatini junto al Palacio Real. El Ayuntamiento de Madrid convocó un concurso abierto en 1932 para transformar el espacio, y el proyecto se asignó finalmente al arquitecto Fernando García Mercadal.',
