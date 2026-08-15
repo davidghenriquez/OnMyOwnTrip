@@ -37,7 +37,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   --radius-lg: 20px;
   --radius-xl: 26px;
   --radius-pill: 999px;
-  --map-filter: brightness(0.62) invert(1) contrast(3.1) hue-rotate(200deg) saturate(0.35);
+  --map-filter: none;
 }
 :root[data-mode="kids"] {
   --color-primary: #6366F1;
@@ -428,16 +428,16 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   position: absolute;
   top: 0; left: 0; right: 0;
   z-index: 2100;
-  padding: 16px 16px 12px;
+  padding: 16px 16px 14px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   background: linear-gradient(180deg,
-    color-mix(in srgb, var(--color-bg) 92%, transparent) 0%,
-    color-mix(in srgb, var(--color-bg) 55%, transparent) 65%,
+    color-mix(in srgb, var(--color-bg) 94%, transparent) 0%,
+    color-mix(in srgb, var(--color-bg) 60%, transparent) 65%,
     transparent 100%);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: background 0.4s ease;
 }
 .header-top {
@@ -455,9 +455,15 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   min-width: 0;
 }
 .brand-icon {
-  font-size: 20px;
+  width: 34px;
+  height: 34px;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-primary) 55%, transparent));
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-primary) 24%, var(--color-surface));
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-primary) 35%, transparent);
 }
 .brand-text {
   display: flex;
@@ -466,11 +472,11 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   min-width: 0;
 }
 .brand-mark {
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 800;
+  font-size: 17px;
   line-height: 1.1;
   color: #FFFFFF;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.3px;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -570,32 +576,33 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 }
 
 .change-city-btn {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  border: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-surface) 90%, black);
+  border: 0;
+  background: transparent;
   color: var(--color-text-soft);
   display: grid;
   place-items: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 0.15s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.15s ease, color 0.2s ease, background 0.2s ease;
 }
 .change-city-btn svg { width: 18px; height: 18px; }
 .change-city-btn:active { transform: scale(0.92); }
-.change-city-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
+.change-city-btn:hover { color: var(--color-primary); background: color-mix(in srgb, var(--color-primary) 14%, transparent); }
 
 .mode-toggle {
   display: inline-flex;
-  background: color-mix(in srgb, var(--color-surface) 90%, black);
+  background: color-mix(in srgb, var(--color-surface) 92%, black);
   border-radius: var(--radius-pill);
   padding: 4px;
   position: relative;
   border: 1px solid var(--color-border);
   min-width: 156px;
-  height: 36px;
+  height: 38px;
   flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 .mode-toggle-option {
@@ -638,6 +645,13 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   align-items: center;
   gap: 8px;
   position: relative;
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 /* ---------- SELECTOR DE CIRCUITOS (rutas imprescindibles) ----------
@@ -686,10 +700,12 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 /* ---------- FILTERS ---------- */
 .filters {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 6px;
   overflow-x: auto;
-  padding: 2px 2px 2px;
+  padding: 2px 2px 2px 10px;
   margin: 0 -4px;
+  border-left: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
   scrollbar-width: none;
   flex: 1;
   min-width: 0;
@@ -700,27 +716,26 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 32px;
-  padding: 0 13px;
+  height: 34px;
+  padding: 0 14px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+  border: 1px solid transparent;
+  background: transparent;
   color: var(--color-text-soft);
   font-family: inherit;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.22s ease;
   white-space: nowrap;
-  backdrop-filter: blur(4px);
 }
-.pill:hover { transform: translateY(-1px); }
-.pill:active { transform: translateY(0); }
+.pill:hover { background: color-mix(in srgb, var(--color-surface) 90%, transparent); }
+.pill:active { transform: scale(0.96); }
 .pill[data-active="true"] {
   background: var(--pill-color, var(--color-primary));
   color: #0B1120;
   border-color: var(--pill-color, var(--color-primary));
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--pill-color, var(--color-primary)) 35%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--pill-color, var(--color-primary)) 40%, transparent);
 }
 .pill-icon {
   display: inline-flex;
@@ -737,7 +752,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 #map {
   position: absolute;
   inset: 0;
-  background: #0b1220;
+  background: #E6E0D3;
 }
 .leaflet-control-zoom, .leaflet-control-attribution {
   display: none !important;
@@ -807,7 +822,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   height: 38px;
   border-radius: 50%;
   background: var(--pin-color, var(--color-primary));
-  border: 3px solid var(--color-bg);
+  border: 2px solid var(--color-bg);
   display: grid;
   place-items: center;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
@@ -847,7 +862,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   color: #fff;
   line-height: 1;
   background: var(--color-primary);
-  border-width: 4px;
+  border-width: 2px;
 }
 .custom-pin.-cluster:hover { transform: scale(calc(var(--pin-scale, 1) * 1.08)); }
 
