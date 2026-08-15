@@ -75,6 +75,59 @@
       return json?.choices?.[0]?.message?.content?.trim() ?? '';
     };
 
+    // Variante con foto para "¿qué estoy viendo?" (ver scanForPoi en la UI):
+    // mismo endpoint, pero con el content como array (texto + image_url), el
+    // formato multimodal estándar que Gemini expone vía su capa compatible
+    // con OpenAI. El Worker no distingue esto de una petición normal, así
+    // que no necesita ningún cambio. reasoning_effort/extraBody se omiten a
+    // propósito: aquí solo queremos un id corto, no una narración.
+    const fetchOpenAIVision = async (sys, usrText, imageDataUrl, maxTokens) => {
+      const url = (CFG.baseUrl || 'https://api.openai.com/v1') + '/chat/completions';
+      const model = CFG.model || 'gpt-4o-mini';
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${CFG.apiKey}`
+        },
+        body: JSON.stringify({
+          model,
+          temperature: 0.2,
+          max_tokens: maxTokens || 20,
+          messages: [
+            { role: 'system', content: sys },
+            { role: 'user', content: [
+              { type: 'text', text: usrText },
+              { type: 'image_url', image_url: { url: imageDataUrl } }
+            ] }
+          ]
+        })
+      });
+      if (!res.ok) {
+        const err = new Error(`OpenAI ${res.status}`);
+        err.status = res.status;
+        throw err;
+      }
+      const json = await res.json();
+      return json?.choices?.[0]?.message?.content?.trim() ?? '';
+    };
+
+    // Reconocimiento visual: dada una foto y una lista corta de POIs
+    // cercanos (ya acotada por GPS, ver scanForPoi), le pide a la IA que
+    // elija cuál de esos candidatos concretos coincide, o NINGUNO. Nunca se
+    // le deja adivinar en abierto: así no puede "alucinar" un monumento que
+    // no está en la lista, solo confirmar o descartar los reales.
+    const identifyPoi = async ({ imageDataUrl, candidates, cityName }) => {
+      if (!CFG || !CFG.apiKey || CFG.provider !== 'openai') return { supported: false };
+      const sys = 'Eres un sistema de reconocimiento visual de monumentos turísticos. Se te da una foto y una lista corta de lugares candidatos (id, nombre y descripción). Responde ÚNICAMENTE con el id EXACTO del candidato que mejor coincida con la foto, sin explicaciones ni signos de puntuación extra. Si la foto no coincide claramente con ninguno, responde exactamente: NINGUNO';
+      const list = candidates.map((c) => `- id:${c.id} | ${c.name} — ${c.subtitle}`).join('\n');
+      const usrText = `Candidatos cercanos a la ubicación del usuario en ${cityName}:\n${list}\n\n¿Cuál de estos candidatos (o NINGUNO) coincide con la foto? Responde solo con el id o NINGUNO.`;
+      const raw = await fetchOpenAIVision(sys, usrText, imageDataUrl, 20);
+      const cleaned = raw.trim().replace(/^id:/i, '').replace(/["'.:\s]+$/, '');
+      const match = candidates.find((c) => c.id.toLowerCase() === cleaned.toLowerCase());
+      return { supported: true, poiId: match ? match.id : null };
+    };
+
     const fetchAnthropic = async (sys, usr) => {
       const url = (CFG.baseUrl || 'https://api.anthropic.com') + '/v1/messages';
       const model = CFG.model || 'claude-3-5-sonnet-20240620';
@@ -358,6 +411,7 @@
 
     return {
       generate,
+      identifyPoi,
       summaryGreet: (poi, m) => SIM.greet(poi, m),
       isReal: () => !!(CFG && CFG.apiKey)
     };
@@ -804,6 +858,192 @@
     const meters = haversineMeters([STATE.userLocation.lat, STATE.userLocation.lng], poi.coords);
     el.hidden = false;
     el.textContent = (STATE.mode === 'kids' ? '📍 A ' : '📍 A ') + formatDistance(meters) + (STATE.mode === 'kids' ? ' de ti' : '');
+  };
+
+  /* =========================================================
+   * "¿QUÉ ESTOY VIENDO?": identifica un POI a partir de una foto + GPS.
+   * La foto NUNCA se manda sola: siempre va acompañada de los POIs reales
+   * más cercanos al usuario, y la IA solo puede elegir entre esos (o decir
+   * que no reconoce ninguno). Así no puede "inventarse" un monumento que
+   * no está en nuestros datos.
+   * =======================================================*/
+  const getCurrentLocationOnce = () => new Promise((resolve, reject) => {
+    if (!navigator.geolocation) { reject(new Error('no-geolocation')); return; }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+      (err) => reject(err),
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
+    );
+  });
+
+  // Reduce la foto (los móviles hacen fotos de varios MB) antes de mandarla:
+  // más rápido de subir y de menos coste en tokens, sin perder detalle
+  // relevante para reconocer un edificio.
+  const resizeImageFile = (file, maxDim = 768, quality = 0.72) => new Promise((resolve, reject) => {
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      let { width, height } = img;
+      if (width > height && width > maxDim) { height = Math.round((height * maxDim) / width); width = maxDim; }
+      else if (height >= width && height > maxDim) { width = Math.round((width * maxDim) / height); height = maxDim; }
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+      URL.revokeObjectURL(objectUrl);
+      resolve(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error('image-load-failed')); };
+    img.src = objectUrl;
+  });
+
+  // Candidatos: los POIs más cercanos al usuario en la ciudad actual, sin
+  // depender del filtro de categoría activo (si vas caminando y sacas la
+  // foto, tiene que poder reconocer cualquier punto, esté o no filtrado).
+  const nearbyPoiCandidates = (coords, limit = 5) => {
+    if (!POIS || !POIS.length) return [];
+    return POIS
+      .map((p) => ({ poi: p, dist: haversineMeters([coords.lat, coords.lng], p.coords) }))
+      .sort((a, b) => a.dist - b.dist)
+      .slice(0, limit)
+      .map(({ poi }) => ({ id: poi.id, name: pickDual(poi.name), subtitle: pickDual(poi.subtitle) }));
+  };
+
+  const setScanning = (on) => {
+    const btn = $('#scanBtn');
+    btn?.classList.toggle('-scanning', on);
+    btn?.toggleAttribute('disabled', on);
+  };
+
+  // Cámara en vivo (getUserMedia) para el botón de "¿qué estoy viendo?": en
+  // escritorio (y algún navegador que no honre bien el atributo "capture"
+  // del input file) el input por sí solo no abre ninguna cámara, así que
+  // esta es la vía principal; el input de archivo queda como último recurso
+  // si getUserMedia no está disponible o el usuario deniega el permiso.
+  let cameraStream = null;
+  // Tras un intento de cámara fallido (denegada, sin hardware...) los
+  // navegadores suelen haber perdido ya la "activación" del toque original
+  // (por la espera async del permiso), así que un click() encadenado al
+  // input de archivo puede no abrir nada y fallar en silencio. Mejor avisar
+  // y dejar que el siguiente toque —uno nuevo, sin espera de por medio—
+  // vaya directo al selector de archivos.
+  let cameraUnavailable = false;
+
+  const closeCameraCapture = () => {
+    if (cameraStream) {
+      cameraStream.getTracks().forEach((t) => t.stop());
+      cameraStream = null;
+    }
+    const modal = $('#cameraModal');
+    modal?.classList.remove('-open');
+    modal?.setAttribute('aria-hidden', 'true');
+  };
+
+  const openCameraCapture = async () => {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return false;
+    let stream;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+    } catch (_) {
+      return false;
+    }
+    // A partir de aquí ya tenemos la cámara: cualquier fallo pintando el
+    // modal (elemento no encontrado, srcObject rechazado, etc.) no debe
+    // dejar colgada la promesa sin caer al input de archivo de respaldo.
+    try {
+      const modal = $('#cameraModal');
+      const video = $('#cameraVideo');
+      if (!modal || !video) throw new Error('camera-modal-missing');
+      cameraStream = stream;
+      video.srcObject = stream;
+      modal.classList.add('-open');
+      modal.setAttribute('aria-hidden', 'false');
+    } catch (_) {
+      stream.getTracks().forEach((t) => t.stop());
+      cameraStream = null;
+      return false;
+    }
+    return true;
+  };
+
+  const captureCameraPhoto = () => {
+    const video = $('#cameraVideo');
+    if (!video || !video.videoWidth) return;
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0);
+    canvas.toBlob((blob) => {
+      closeCameraCapture();
+      if (blob) scanForPoi(blob);
+    }, 'image/jpeg', 0.85);
+  };
+
+  const scanForPoi = async (file) => {
+    if (!file || !CURRENT_CITY) return;
+    setScanning(true);
+    try {
+      let coords = STATE.userLocation;
+      try {
+        coords = await getCurrentLocationOnce();
+        STATE.userLocation = coords;
+        updateUserMarker();
+      } catch (_) {
+        // Si falla el GPS pero ya teníamos una ubicación previa (p.ej. de
+        // "Cerca de mí"), seguimos con esa en vez de abortar del todo.
+        if (!coords) {
+          showToast(STATE.mode === 'kids'
+            ? 'Necesito saber dónde estás para reconocer la foto 🗺️'
+            : 'No se pudo obtener tu ubicación; actívala para usar esta función.', 3200);
+          return;
+        }
+      }
+
+      const candidates = nearbyPoiCandidates(coords, 5);
+      if (!candidates.length) {
+        showToast(STATE.mode === 'kids' ? 'No encuentro puntos cerca de ti todavía 🤔' : 'No hay puntos de interés cerca de tu ubicación.');
+        return;
+      }
+
+      const imageDataUrl = await resizeImageFile(file);
+
+      if (!LLM.isReal()) {
+        // Sin IA real configurada: no hay reconocimiento visual posible,
+        // pero el GPS por sí solo ya es útil como aproximación honesta.
+        openScannedPoi(candidates[0].id, { gpsOnly: true });
+        return;
+      }
+
+      const result = await LLM.identifyPoi({ imageDataUrl, candidates, cityName: CURRENT_CITY.name });
+      if (!result.supported) {
+        openScannedPoi(candidates[0].id, { gpsOnly: true });
+        return;
+      }
+      if (result.poiId) {
+        openScannedPoi(result.poiId, { gpsOnly: false });
+      } else {
+        showToast(STATE.mode === 'kids'
+          ? '¡No he reconocido este sitio! Prueba a acercarte más 🔍'
+          : 'No he reconocido este lugar entre los puntos cercanos. Prueba a acercarte más o a otro ángulo.', 3200);
+      }
+    } catch (e) {
+      console.warn('[Scan] Error identificando POI:', e);
+      showToast(STATE.mode === 'kids' ? '¡Uy! Algo ha fallado con la foto 😅' : 'No se pudo analizar la foto. Inténtalo de nuevo.', 3000);
+    } finally {
+      setScanning(false);
+    }
+  };
+
+  const openScannedPoi = (poiId, { gpsOnly }) => {
+    const poi = POIS.find((p) => p.id === poiId);
+    if (!poi) return;
+    selectPoi(poiId, true);
+    showToast(
+      gpsOnly
+        ? (STATE.mode === 'kids' ? `📍 El punto más cercano es: ${pickDual(poi.name)}` : `📍 Sin reconocimiento visual disponible: te muestro el punto más cercano, ${pickDual(poi.name)}.`)
+        : (STATE.mode === 'kids' ? `¡Es ${pickDual(poi.name)}! 🎉` : `¡Reconocido! Es ${pickDual(poi.name)}.`),
+      2800
+    );
   };
 
   /* =========================================================
@@ -2249,6 +2489,24 @@
     els.backdrop.addEventListener('click', closeSheet);
 
     $('#locateBtn')?.addEventListener('click', () => requestLocation(true));
+
+    $('#scanBtn')?.addEventListener('click', async () => {
+      if (cameraUnavailable) { $('#scanInput')?.click(); return; }
+      const opened = await openCameraCapture();
+      if (!opened) {
+        cameraUnavailable = true;
+        showToast(STATE.mode === 'kids'
+          ? 'No pude abrir la cámara. ¡Toca otra vez para elegir una foto! 📷'
+          : 'No se pudo abrir la cámara. Toca de nuevo para elegir una foto.', 3200);
+      }
+    });
+    $('#cameraShutterBtn')?.addEventListener('click', captureCameraPhoto);
+    $('#cameraCloseBtn')?.addEventListener('click', closeCameraCapture);
+    $('#scanInput')?.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = ''; // permite volver a elegir la misma foto una segunda vez
+      if (file) scanForPoi(file);
+    });
 
     $('#changeCityBtn')?.addEventListener('click', () => {
       STATE.cityId = null;

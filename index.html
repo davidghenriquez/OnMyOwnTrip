@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="stylesheet" href="styles.css?v=20" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -225,6 +225,13 @@
           <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
         </svg>
       </button>
+      <button type="button" class="locate-btn -camera" id="scanBtn" aria-label="Identificar lo que estoy viendo con una foto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 8a2 2 0 0 1 2-2h1.2l.9-1.4A2 2 0 0 1 9.8 3.6h4.4a2 2 0 0 1 1.7 1L16.8 6H18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"></path>
+          <circle cx="12" cy="13" r="3.4"></circle>
+        </svg>
+      </button>
+      <input type="file" id="scanInput" accept="image/*" capture="environment" hidden />
     </div>
 
     <!-- BACKDROP -->
@@ -294,6 +301,19 @@
       <section class="kids-quiz-card" id="kidsQuizCard" hidden aria-live="polite"></section>
     </aside>
 
+    <!-- CÁMARA: captura en vivo para "¿qué estoy viendo?" (fallback: input de archivo con capture) -->
+    <div class="camera-modal" id="cameraModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Tomar foto">
+      <video id="cameraVideo" autoplay playsinline muted></video>
+      <button type="button" class="camera-modal-close" id="cameraCloseBtn" aria-label="Cerrar cámara">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <button type="button" class="camera-shutter" id="cameraShutterBtn" aria-label="Tomar foto"></button>
+    </div>
+
     <!-- LIGHTBOX: imagen ampliada del punto de interés -->
     <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
       <button type="button" class="lightbox-close" aria-label="Cerrar imagen">
@@ -349,7 +369,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=9"></script>
-  <script src="app.js?v=36"></script>
+  <script src="app.js?v=40"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
