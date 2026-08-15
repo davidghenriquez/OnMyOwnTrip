@@ -775,6 +775,18 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   color: #fff;
   line-height: 1;
 }
+.custom-pin.-cluster {
+  width: var(--pin-size, 40px);
+  height: var(--pin-size, 40px);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  background: var(--color-primary);
+  border-width: 4px;
+}
+.custom-pin.-cluster:hover { transform: scale(calc(var(--pin-scale, 1) * 1.08)); }
 
 /* ---------- DISTANCIA ENTRE PARADAS DE LA RUTA ---------- */
 .route-distance-wrap { pointer-events: none; }
