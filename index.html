@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=20" />
+  <link rel="stylesheet" href="styles.css?v=21" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -225,13 +225,30 @@
           <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
         </svg>
       </button>
-      <button type="button" class="locate-btn -camera" id="scanBtn" aria-label="Identificar lo que estoy viendo con una foto">
+      <button type="button" class="locate-btn -camera" id="scanBtn" aria-label="Identificar lo que estoy viendo" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M4 8a2 2 0 0 1 2-2h1.2l.9-1.4A2 2 0 0 1 9.8 3.6h4.4a2 2 0 0 1 1.7 1L16.8 6H18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"></path>
           <circle cx="12" cy="13" r="3.4"></circle>
         </svg>
       </button>
-      <input type="file" id="scanInput" accept="image/*" capture="environment" hidden />
+      <div class="dropdown-menu scan-menu" id="scanMenu" hidden>
+        <button type="button" class="dropdown-option" id="scanTakePhoto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+            <path d="M4 8a2 2 0 0 1 2-2h1.2l.9-1.4A2 2 0 0 1 9.8 3.6h4.4a2 2 0 0 1 1.7 1L16.8 6H18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"></path>
+            <circle cx="12" cy="13" r="3.4"></circle>
+          </svg>
+          <span>Tomar foto</span>
+        </button>
+        <button type="button" class="dropdown-option" id="scanUploadPhoto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
+            <rect x="3" y="4" width="18" height="16" rx="2.5"></rect>
+            <circle cx="8.5" cy="9.5" r="1.6"></circle>
+            <path d="m4 17 5-5 3.5 3.5L17 11l4 4"></path>
+          </svg>
+          <span>Subir foto</span>
+        </button>
+      </div>
+      <input type="file" id="scanInput" accept="image/*" hidden />
     </div>
 
     <!-- BACKDROP -->
@@ -369,7 +386,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=9"></script>
-  <script src="app.js?v=40"></script>
+  <script src="app.js?v=41"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
