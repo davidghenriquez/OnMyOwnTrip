@@ -915,19 +915,14 @@
     btn?.toggleAttribute('disabled', on);
   };
 
-  // Cámara en vivo (getUserMedia) para el botón de "¿qué estoy viendo?": en
-  // escritorio (y algún navegador que no honre bien el atributo "capture"
-  // del input file) el input por sí solo no abre ninguna cámara, así que
-  // esta es la vía principal; el input de archivo queda como último recurso
-  // si getUserMedia no está disponible o el usuario deniega el permiso.
+  // Cámara en vivo (getUserMedia) para "Tomar foto": en escritorio (y algún
+  // navegador que no honre bien el atributo "capture" del input file) el
+  // input por sí solo no abre ninguna cámara real. "Subir foto" usa en
+  // cambio el input de archivo normal (ver wireEvents), como opción
+  // explícita e independiente, no como fallback automático encadenado: así
+  // no depende de la "activación" del toque original, que puede haberse
+  // perdido tras la espera async del permiso de cámara.
   let cameraStream = null;
-  // Tras un intento de cámara fallido (denegada, sin hardware...) los
-  // navegadores suelen haber perdido ya la "activación" del toque original
-  // (por la espera async del permiso), así que un click() encadenado al
-  // input de archivo puede no abrir nada y fallar en silencio. Mejor avisar
-  // y dejar que el siguiente toque —uno nuevo, sin espera de por medio—
-  // vaya directo al selector de archivos.
-  let cameraUnavailable = false;
 
   const closeCameraCapture = () => {
     if (cameraStream) {
@@ -1342,6 +1337,13 @@
       if (els.routePicker && !els.routePicker.hidden) {
         const essentialPill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
         if (!els.routePicker.contains(e.target) && !(essentialPill && essentialPill.contains(e.target))) closeRoutePicker();
+      }
+      const scanMenu = $('#scanMenu'), scanBtn = $('#scanBtn');
+      if (scanMenu && !scanMenu.hidden) {
+        if (!scanMenu.contains(e.target) && !(scanBtn && scanBtn.contains(e.target))) {
+          scanMenu.hidden = true;
+          scanBtn?.setAttribute('aria-expanded', 'false');
+        }
       }
     }, true);
 
@@ -2490,15 +2492,26 @@
 
     $('#locateBtn')?.addEventListener('click', () => requestLocation(true));
 
-    $('#scanBtn')?.addEventListener('click', async () => {
-      if (cameraUnavailable) { $('#scanInput')?.click(); return; }
+    $('#scanBtn')?.addEventListener('click', () => {
+      const menu = $('#scanMenu'), btn = $('#scanBtn');
+      const willOpen = menu?.hidden;
+      if (menu) menu.hidden = !willOpen;
+      btn?.setAttribute('aria-expanded', String(!!willOpen));
+    });
+    $('#scanTakePhoto')?.addEventListener('click', async () => {
+      $('#scanMenu').hidden = true;
+      $('#scanBtn')?.setAttribute('aria-expanded', 'false');
       const opened = await openCameraCapture();
       if (!opened) {
-        cameraUnavailable = true;
         showToast(STATE.mode === 'kids'
-          ? 'No pude abrir la cámara. ¡Toca otra vez para elegir una foto! 📷'
-          : 'No se pudo abrir la cámara. Toca de nuevo para elegir una foto.', 3200);
+          ? '¡No pude abrir la cámara! Prueba a subir una foto 📷'
+          : 'No se pudo abrir la cámara. Prueba a subir una foto en su lugar.', 3200);
       }
+    });
+    $('#scanUploadPhoto')?.addEventListener('click', () => {
+      $('#scanMenu').hidden = true;
+      $('#scanBtn')?.setAttribute('aria-expanded', 'false');
+      $('#scanInput')?.click();
     });
     $('#cameraShutterBtn')?.addEventListener('click', captureCameraPhoto);
     $('#cameraCloseBtn')?.addEventListener('click', closeCameraCapture);

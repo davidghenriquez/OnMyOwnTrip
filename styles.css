@@ -820,6 +820,14 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 }
 @keyframes locateSpin { to { transform: rotate(360deg); } }
 
+.scan-menu {
+  position: absolute;
+  right: 14px;
+  bottom: 274px;
+  z-index: 700;
+}
+.scan-menu .dropdown-option svg { flex-shrink: 0; color: var(--color-text-soft); }
+
 /* ---------- MARCADOR "MI POSICIÓN" ---------- */
 .user-location-dot {
   width: 16px;
