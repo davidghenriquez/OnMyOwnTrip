@@ -92,26 +92,41 @@
     const fetchOpenAIVision = async (sys, usrText, imageDataUrl, maxTokens) => {
       const url = (CFG.baseUrl || 'https://api.openai.com/v1') + '/chat/completions';
       const model = CFG.model || 'gpt-4o-mini';
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${CFG.apiKey}`
-        },
-        body: JSON.stringify({
-          model,
-          temperature: 0.2,
-          max_tokens: maxTokens || 300,
-          messages: [
-            { role: 'system', content: sys },
-            { role: 'user', content: [
-              { type: 'text', text: usrText },
-              { type: 'image_url', image_url: { url: imageDataUrl } }
-            ] }
-          ],
-          ...(CFG.extraBody || {})
-        })
-      });
+      // Sin timeout, un fetch que se queda colgado (red inestable, el
+      // Worker o el modelo tardando de más) deja la promesa pendiente para
+      // siempre: ni error ni respuesta, así que la app parece no responder
+      // aunque en realidad sigue "esperando" sin que el usuario lo sepa.
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 25000);
+      let res;
+      try {
+        res = await fetch(url, {
+          method: 'POST',
+          signal: controller.signal,
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${CFG.apiKey}`
+          },
+          body: JSON.stringify({
+            model,
+            temperature: 0.2,
+            max_tokens: maxTokens || 300,
+            messages: [
+              { role: 'system', content: sys },
+              { role: 'user', content: [
+                { type: 'text', text: usrText },
+                { type: 'image_url', image_url: { url: imageDataUrl } }
+              ] }
+            ],
+            ...(CFG.extraBody || {})
+          })
+        });
+      } catch (e) {
+        if (e.name === 'AbortError') throw new Error('vision-timeout');
+        throw e;
+      } finally {
+        clearTimeout(timeoutId);
+      }
       if (!res.ok) {
         const err = new Error(`OpenAI ${res.status}`);
         err.status = res.status;
@@ -898,7 +913,15 @@
   const resizeImageFile = (file, maxDim = 768, quality = 0.72) => new Promise((resolve, reject) => {
     const img = new Image();
     const objectUrl = URL.createObjectURL(file);
+    // Por si el formato (p.ej. HEIC en algún navegador) no dispara ni
+    // onload ni onerror: sin esto la promesa se queda pendiente para
+    // siempre y el "Analizando tu foto…" no llega a ningún sitio.
+    const timeoutId = setTimeout(() => {
+      URL.revokeObjectURL(objectUrl);
+      reject(new Error('image-load-timeout'));
+    }, 8000);
     img.onload = () => {
+      clearTimeout(timeoutId);
       let { width, height } = img;
       if (width > height && width > maxDim) { height = Math.round((height * maxDim) / width); width = maxDim; }
       else if (height >= width && height > maxDim) { width = Math.round((width * maxDim) / height); height = maxDim; }
@@ -909,7 +932,7 @@
       URL.revokeObjectURL(objectUrl);
       resolve(canvas.toDataURL('image/jpeg', quality));
     };
-    img.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error('image-load-failed')); };
+    img.onerror = () => { clearTimeout(timeoutId); URL.revokeObjectURL(objectUrl); reject(new Error('image-load-failed')); };
     img.src = objectUrl;
   });
 
