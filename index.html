@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=15" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -249,20 +249,6 @@
         </button>
       </div>
 
-      <section class="ai-messages" id="aiMessages" aria-label="Conversación con la guía IA"></section>
-
-      <div class="ai-suggestions" id="aiSuggestions"></div>
-
-      <div class="ai-input-wrap">
-        <input type="text" class="ai-input" id="aiInput" placeholder="Escribe tu pregunta…" aria-label="Escribe tu pregunta a la guía IA" autocomplete="off" />
-        <button type="button" class="ai-send" id="aiSend" aria-label="Enviar pregunta" disabled>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
-        </button>
-      </div>
-
       <section class="audio-player" aria-label="Reproductor de audio">
         <div class="audio-card">
           <button type="button" class="play-btn" aria-label="Reproducir audioguía">
@@ -278,11 +264,21 @@
             <div class="audio-time" aria-live="polite">0:00 / 0:00</div>
           </div>
         </div>
-        <div class="voice-picker" id="voicePicker" hidden>
-          <label for="voiceSelect" class="voice-picker-label">Voz</label>
-          <select id="voiceSelect" class="voice-select" aria-label="Elegir voz del audioguía"></select>
-        </div>
       </section>
+
+      <section class="ai-messages" id="aiMessages" aria-label="Conversación con la guía IA"></section>
+
+      <div class="ai-suggestions" id="aiSuggestions"></div>
+
+      <div class="ai-input-wrap">
+        <input type="text" class="ai-input" id="aiInput" placeholder="Escribe tu pregunta…" aria-label="Escribe tu pregunta a la guía IA" autocomplete="off" />
+        <button type="button" class="ai-send" id="aiSend" aria-label="Enviar pregunta" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
 
       <section class="kids-quiz-card" id="kidsQuizCard" hidden aria-live="polite"></section>
     </aside>
@@ -342,7 +338,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=8"></script>
-  <script src="app.js?v=31"></script>
+  <script src="app.js?v=33"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
