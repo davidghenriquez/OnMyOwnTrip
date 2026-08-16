@@ -2386,7 +2386,12 @@
     // automática (mejor voz española disponible en el sistema del usuario),
     // sin selector manual: menos que decidir, y evita ofrecer una voz que
     // luego no siga instalada en otro dispositivo.
-    const QUALITY_NAME_RE = /online|natural|neural|enhanced|premium|wavenet|google/i;
+    const QUALITY_NAME_RE = /online|natural|neural|enhanced|premium|wavenet|google|chirp|journey|studio|plus|siri/i;
+    // Voces "compactas" offline: son las más robóticas de todas (motor SAPI
+    // muy antiguo en iOS/Android si no se ha descargado una voz mejorada).
+    // Se evitan activamente aunque sean la única voz "es-ES" disponible, y
+    // solo se usan como último recurso si no queda ninguna otra opción.
+    const LOW_QUALITY_NAME_RE = /compact/i;
 
     const pickSpanishVoice = () => {
       if (!S.supported) return null;
@@ -2395,7 +2400,9 @@
         S.voices = all;
         const prefer = [
           (v) => /^es/i.test(v.lang) && QUALITY_NAME_RE.test(v.name || ''),
-          (v) => /es[-_]ES/i.test(v.lang) && /Monica|Jorge|Diego|sabina|lucia|paulina/i.test(v.name || ''),
+          (v) => /es[-_]ES/i.test(v.lang) && /Monica|Jorge|Diego|sabina|lucia|paulina|elvira|alvaro|isabela/i.test(v.name || ''),
+          (v) => /es[-_]ES/i.test(v.lang) && !LOW_QUALITY_NAME_RE.test(v.name || ''),
+          (v) => /^es/i.test(v.lang) && !LOW_QUALITY_NAME_RE.test(v.name || ''),
           (v) => /es[-_]ES/i.test(v.lang),
           (v) => /^es/i.test(v.lang),
           (v) => !!v
@@ -2564,8 +2571,11 @@
       const makeUtt = (usePickedVoice = true) => {
         const u = new SpeechSynthesisUtterance(text);
         u.lang = 'es-ES';
-        u.rate = STATE.mode === 'kids' ? 1.08 : 0.96;
-        u.pitch = STATE.mode === 'kids' ? 1.22 : 1.0;
+        // Ritmo y tono algo más pausados y graves que el neutro (1/1) leen
+        // como una voz más cálida y menos robótica en la mayoría de motores;
+        // en niños se mantiene la energía pero se suaviza el agudo "chillón".
+        u.rate = STATE.mode === 'kids' ? 1.05 : 0.93;
+        u.pitch = STATE.mode === 'kids' ? 1.14 : 0.95;
         u.volume = 1;
         if (usePickedVoice && S.pickedVoice) {
           try { u.voice = S.pickedVoice; } catch (_) {}
