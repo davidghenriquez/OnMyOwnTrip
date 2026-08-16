@@ -13,7 +13,7 @@
 //   provider: 'openai',
 //   baseUrl: 'https://generativelanguage.googleapis.com/v1beta/openai',
 //   apiKey: 'TU_KEY_AQUI',
-//   model: 'gemini-flash-latest',
+//   model: 'gemini-3.6-flash', // estable; evita "gemini-flash-latest" (experimental, 503 frecuentes)
 //   maxTokens: 3500,
 //   extraBody: { reasoning_effort: 'low' }
 // };
@@ -24,7 +24,7 @@ window.LLM_CONFIG = {
   provider: 'openai',
   baseUrl: 'https://TU-WORKER.TU-USUARIO.workers.dev',
   apiKey: 'proxy', // no autentica nada real, el Worker ignora este valor
-  model: 'gemini-flash-latest',
+  model: 'gemini-3.6-flash', // estable; evita "gemini-flash-latest" (experimental, 503 frecuentes)
   maxTokens: 3500,
   extraBody: { reasoning_effort: 'low' }
 };

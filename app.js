@@ -128,8 +128,17 @@
         clearTimeout(timeoutId);
       }
       if (!res.ok) {
+        // El cuerpo del error de Gemini distingue "modelo saturado en este
+        // instante" (RESOURCE_EXHAUSTED por rate-limit puntual, se
+        // resuelve solo) de "cuota del día/mes agotada" (mismo código,
+        // pero el mensaje lo aclara) — sin esto solo se ve "503" y no hay
+        // forma de saber cuál de las dos es.
+        let detail = '';
+        try { detail = (await res.text()).slice(0, 300); } catch (_) {}
+        console.warn('[Vision] Error de la API, cuerpo de la respuesta:', detail);
         const err = new Error(`OpenAI ${res.status}`);
         err.status = res.status;
+        err.detail = detail;
         throw err;
       }
       const json = await res.json();
