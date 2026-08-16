@@ -87,8 +87,8 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 }
 .onboarding[hidden] { display: none; }
 
-/* Carrusel de fotos reales de las 4 ciudades: 4 capas apiladas, cada una
-   se desvanece dentro/fuera con un retraso escalonado (24s / 4 = 6s cada
+/* Carrusel de fotos reales de las 5 ciudades: 5 capas apiladas, cada una
+   se desvanece dentro/fuera con un retraso escalonado (30s / 5 = 6s cada
    una) para que el fondo cambie de ciudad sin cortes ni parpadeos. */
 .onboarding-hero {
   position: absolute;
@@ -101,7 +101,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   background-size: cover;
   background-position: center 42%;
   opacity: 0;
-  animation: onboardingHeroFade 24s ease-in-out infinite;
+  animation: onboardingHeroFade 30s ease-in-out infinite;
 }
 .onboarding-hero-img.-toledo {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Toledo_Skyline_Panorama%2C_Spain_-_Dec_2006.jpg/1280px-Toledo_Skyline_Panorama%2C_Spain_-_Dec_2006.jpg');
@@ -119,10 +119,14 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Palaco_de_Bellas_Artes%2C_Mexico_City%2C_from_across_Eje_Central_Lazaro_Cardenas_in_evening.jpg/1280px-Palaco_de_Bellas_Artes%2C_Mexico_City%2C_from_across_Eje_Central_Lazaro_Cardenas_in_evening.jpg');
   animation-delay: 18s;
 }
+.onboarding-hero-img.-berlin {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Brandenburger_Tor%2C_Berlin%2C_Germany.jpg/1280px-Brandenburger_Tor%2C_Berlin%2C_Germany.jpg');
+  animation-delay: 24s;
+}
 @keyframes onboardingHeroFade {
-  0%, 2% { opacity: 0; }
-  8%, 22% { opacity: 1; }
-  28%, 100% { opacity: 0; }
+  0%, 1.5% { opacity: 0; }
+  6.5%, 17.5% { opacity: 1; }
+  22%, 100% { opacity: 0; }
 }
 /* Oscurece un poco la parte de arriba (donde va la marca y el titular en
    blanco) sin necesidad de que el degradado llegue a blanco sólido: la

@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=21" />
+  <link rel="stylesheet" href="styles.css?v=22" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -40,6 +40,7 @@
       <div class="onboarding-hero-img -madrid"></div>
       <div class="onboarding-hero-img -peniscola"></div>
       <div class="onboarding-hero-img -cdmx"></div>
+      <div class="onboarding-hero-img -berlin"></div>
     </div>
 
     <div class="onboarding-scroll">
@@ -105,7 +106,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V10.1</span>
+    <span class="onboarding-version" id="appVersion">Beta V11</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
   </div>
 
@@ -390,7 +391,7 @@
   <!-- El "?v=N" de data.js/app.js/styles.css evita que el móvil se quede con
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
-  <script src="data/core.js?v=9"></script>
+  <script src="data/core.js?v=10"></script>
   <script src="app.js?v=52"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
