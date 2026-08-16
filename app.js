@@ -137,26 +137,59 @@
     };
 
     // Reconocimiento visual: dada una foto y una lista corta de POIs
-    // cercanos (ya acotada por GPS, ver scanForPoi), le pide a la IA que
-    // elija cuál de esos candidatos concretos coincide, o NINGUNO. Nunca se
-    // le deja adivinar en abierto: así no puede "alucinar" un monumento que
-    // no está en la lista, solo confirmar o descartar los reales.
+    // cercanos (ya acotada por GPS, ver scanForPoi): primero intenta que la
+    // IA confirme cuál de esos candidatos concretos es (nunca le dejamos
+    // adivinar un candidato inventado). Si la foto NO es ninguno de los
+    // candidatos pero la IA aun así reconoce el lugar (aunque no esté en
+    // nuestros datos), lo dice igual, con un resumen — ver scanForPoi para
+    // cómo se presenta eso después con un aviso de "sin verificar", ya que
+    // ese dato no está curado como el resto de la app.
     const identifyPoi = async ({ imageDataUrl, candidates, cityName }) => {
       if (!CFG || !CFG.apiKey || CFG.provider !== 'openai') return { supported: false };
-      const sys = 'Eres un sistema de reconocimiento visual de monumentos turísticos. Se te da una foto y una lista corta de lugares candidatos (id, nombre y descripción). Responde ÚNICAMENTE con el id EXACTO del candidato que mejor coincida con la foto, sin explicaciones ni signos de puntuación extra. Si la foto no coincide claramente con ninguno, responde exactamente: NINGUNO';
       const list = candidates.map((c) => `- id:${c.id} | ${c.name} — ${c.subtitle}`).join('\n');
-      const usrText = `Candidatos cercanos a la ubicación del usuario en ${cityName}:\n${list}\n\n¿Cuál de estos candidatos (o NINGUNO) coincide con la foto? Responde solo con el id o NINGUNO.`;
-      const raw = await fetchOpenAIVision(sys, usrText, imageDataUrl, 300);
-      const cleaned = raw.trim().replace(/^id:/i, '').replace(/["'.:\s]+$/, '');
-      // Coincidencia exacta primero; si el modelo se ha ido de madre con
-      // explicaciones pese a la instrucción, buscamos el id como palabra
-      // suelta dentro de la respuesta en vez de descartarlo sin más.
-      let match = candidates.find((c) => c.id.toLowerCase() === cleaned.toLowerCase());
-      if (!match) {
-        const lower = cleaned.toLowerCase();
-        match = candidates.find((c) => new RegExp(`\\b${c.id.toLowerCase()}\\b`).test(lower));
+      const sys = [
+        'Eres un sistema de reconocimiento visual de monumentos turísticos.',
+        'Se te da una foto y, si las hay, una lista de lugares candidatos cercanos (con id).',
+        'Responde ÚNICAMENTE en uno de estos formatos, sin texto extra:',
+        '1) Si la foto coincide claramente con uno de los candidatos: MATCH:<id exacto>',
+        '2) Si NO coincide con ningún candidato de la lista (o no había lista), pero aun así reconoces con razonable confianza qué edificio/monumento/lugar es:',
+        'NOMBRE: <nombre corto>',
+        'RESUMEN: <una frase breve>',
+        'INFO: <2-3 frases con datos concretos y contrastables: qué es, época o autor, algo destacable>',
+        '3) Si no puedes identificarlo con una confianza razonable: DESCONOCIDO'
+      ].join('\n');
+      const usrText = candidates.length
+        ? `Foto tomada cerca de ${cityName}. Candidatos cercanos:\n${list}\n\n¿Cuál coincide (MATCH:<id>)? Si no coincide ninguno, identifica igualmente el lugar si puedes (formato NOMBRE/RESUMEN/INFO), o responde DESCONOCIDO.`
+        : `Foto tomada cerca de ${cityName}, sin candidatos cercanos conocidos. Identifica qué edificio, monumento o lugar es (formato NOMBRE/RESUMEN/INFO), o responde DESCONOCIDO si no puedes.`;
+      const raw = await fetchOpenAIVision(sys, usrText, imageDataUrl, 400);
+      const trimmed = raw.trim();
+      if (/^DESCONOCIDO/i.test(trimmed)) return { supported: true, type: 'none' };
+      const matchTag = trimmed.match(/^MATCH:\s*(.+)/i);
+      if (matchTag) {
+        const cleaned = matchTag[1].trim().replace(/["'.:\s]+$/, '');
+        // Coincidencia exacta primero; si el modelo se ha ido de madre con
+        // explicaciones pese a la instrucción, buscamos el id como palabra
+        // suelta dentro de la respuesta en vez de descartarlo sin más.
+        let match = candidates.find((c) => c.id.toLowerCase() === cleaned.toLowerCase());
+        if (!match) {
+          const lower = cleaned.toLowerCase();
+          match = candidates.find((c) => new RegExp(`\\b${c.id.toLowerCase()}\\b`).test(lower));
+        }
+        if (match) return { supported: true, type: 'match', poiId: match.id };
       }
-      return { supported: true, poiId: match ? match.id : null };
+      const nameMatch = trimmed.match(/NOMBRE:\s*(.+)/i);
+      if (nameMatch) {
+        const summaryMatch = trimmed.match(/RESUMEN:\s*(.+)/i);
+        const infoMatch = trimmed.match(/INFO:\s*([\s\S]+)/i);
+        return {
+          supported: true,
+          type: 'openended',
+          name: nameMatch[1].trim(),
+          subtitle: summaryMatch ? summaryMatch[1].trim() : '',
+          info: infoMatch ? infoMatch[1].trim() : ''
+        };
+      }
+      return { supported: true, type: 'none' };
     };
 
     const fetchAnthropic = async (sys, usr) => {
@@ -776,9 +809,14 @@
     const targetLayer = routeMode ? markersLayer : clusterLayer;
     const routeMeta = routeMode && getCityRoutes().find((r) => r.id === STATE.activeRoute);
     const routeColor = (routeMeta && routeMeta.color) || getCssVar('--color-primary') || '#F59E0B';
+    // Las fichas efímeras de "¿qué estoy viendo?" (ver openAdHocScanResult)
+    // viven en POIS para que el resto del flujo (chat, audioguía) funcione
+    // igual que con un POI real, pero nunca deben aparecer como pin: no son
+    // datos de la ciudad, son un resultado de una foto concreta.
+    const scannablePois = POIS.filter((p) => !p.isAdHocScan);
     const list = routeMode && routeMeta
-      ? POIS.filter(isPoiInActiveRoute).sort((a, b) => a.essential.order - b.essential.order)
-      : (routeMode ? [] : POIS);
+      ? scannablePois.filter(isPoiInActiveRoute).sort((a, b) => a.essential.order - b.essential.order)
+      : (routeMode ? [] : scannablePois);
     if (routeMode && list.length > 1) {
       L.polyline(list.map((p) => p.coords), {
         color: routeColor,
@@ -1037,32 +1075,36 @@
         }
       }
 
+      // Sin candidatos cercanos no abortamos: seguimos para que la IA
+      // intente igual una identificación abierta (ver más abajo), solo que
+      // sin nada conocido con lo que confirmarla primero.
       const candidates = nearbyPoiCandidates(coords, 5);
-      if (!candidates.length) {
-        showToast(STATE.mode === 'kids' ? 'No encuentro puntos cerca de ti todavía 🤔' : 'No hay puntos de interés cerca de tu ubicación.');
-        return;
-      }
 
       const imageDataUrl = await resizeImageFile(file);
 
       if (!LLM.isReal()) {
-        // Sin IA real configurada: no hay reconocimiento visual posible,
-        // pero el GPS por sí solo ya es útil como aproximación honesta.
-        openScannedPoi(candidates[0].id, { gpsOnly: true });
+        // Sin IA real configurada no hay reconocimiento visual posible: el
+        // GPS por sí solo, si hay algo cerca, es la única aproximación
+        // honesta que podemos ofrecer.
+        if (candidates.length) openScannedPoi(candidates[0].id, { gpsOnly: true });
+        else showToast(STATE.mode === 'kids' ? 'No puedo analizar fotos sin conexión a la IA 😅' : 'No se puede analizar la foto sin conexión a la IA.', 3000);
         return;
       }
 
       const result = await LLM.identifyPoi({ imageDataUrl, candidates, cityName: CURRENT_CITY.name });
       if (!result.supported) {
-        openScannedPoi(candidates[0].id, { gpsOnly: true });
+        if (candidates.length) openScannedPoi(candidates[0].id, { gpsOnly: true });
+        else showToast(STATE.mode === 'kids' ? '¡Uy! Algo ha fallado con la foto 😅' : 'No se pudo analizar la foto. Inténtalo de nuevo.', 3000);
         return;
       }
-      if (result.poiId) {
+      if (result.type === 'match') {
         openScannedPoi(result.poiId, { gpsOnly: false });
+      } else if (result.type === 'openended') {
+        openAdHocScanResult(result, imageDataUrl, coords);
       } else {
         showToast(STATE.mode === 'kids'
           ? '¡No he reconocido este sitio! Prueba a acercarte más 🔍'
-          : 'No he reconocido este lugar entre los puntos cercanos. Prueba a acercarte más o a otro ángulo.', 3200);
+          : 'No he podido identificar este lugar. Prueba a acercarte más o a otro ángulo.', 3200);
       }
     } catch (e) {
       console.warn('[Scan] Error identificando POI:', e);
@@ -1082,6 +1124,55 @@
         : (STATE.mode === 'kids' ? `¡Es ${pickDual(poi.name)}! 🎉` : `¡Reconocido! Es ${pickDual(poi.name)}.`),
       2800
     );
+  };
+
+  // Cuando la foto no es ninguno de los POIs curados de la app pero la IA
+  // reconoce igual qué es, se construye una ficha "efímera" (no forma parte
+  // de los datos de la ciudad, no aparece como pin en el mapa) reutilizando
+  // toda la infraestructura de la ficha normal: imagen (la propia foto del
+  // usuario), audioguía narrada y chat para seguir preguntando. Se marca
+  // claramente como "sin verificar" porque, a diferencia del resto de la
+  // app, aquí ni siquiera los datos base están curados a mano.
+  const openAdHocScanResult = (info, imageDataUrl, coords) => {
+    const id = `scan-adhoc-${Date.now()}`;
+    const disclaimer = STATE.mode === 'kids'
+      ? '¡Identificado por IA, puede que no sea exacto!'
+      : '⚠️ Identificado por IA a partir de tu foto — sin verificar, puede contener errores.';
+    const poi = {
+      id,
+      name: { adult: info.name, kids: info.name },
+      subtitle: { adult: disclaimer, kids: disclaimer },
+      category: CATEGORIES.HIDDEN,
+      coords: [coords.lat, coords.lng],
+      image: imageDataUrl,
+      audio: {
+        duration: Math.max(40, Math.round((info.info || info.subtitle || '').split(/\s+/).length / 2.3)),
+        title: { adult: `Análisis IA: ${info.name}`, kids: `Análisis IA: ${info.name}` }
+      },
+      tabs: {
+        history: {
+          adult: info.info || info.subtitle || 'Sin más datos disponibles.',
+          kids: info.info || info.subtitle || 'Sin más datos disponibles.'
+        }
+      },
+      isAdHocScan: true
+    };
+    POIS.push(poi);
+    selectPoi(id, true);
+    const badge = $('.sheet-cat-badge', els.sheet);
+    if (badge) badge.textContent = STATE.mode === 'kids' ? 'IA · SIN VERIFICAR' : 'ANÁLISIS IA · SIN VERIFICAR';
+    showToast(STATE.mode === 'kids'
+      ? `¡Creo que es ${info.name}! (sin verificar) 🔍`
+      : `No estaba en mis datos, pero creo que es: ${info.name} (sin verificar).`, 3200);
+  };
+
+  // Las fichas efímeras del escaneo no deben quedarse coladas en POIS: si
+  // no se limpian, podrían reaparecer como un pin fantasma en el mapa la
+  // próxima vez que se recalculen los marcadores (cambio de filtro, etc.).
+  const cleanupAdHocScanIfNeeded = (poiId) => {
+    if (!poiId) return;
+    const idx = POIS.findIndex((p) => p.id === poiId && p.isAdHocScan);
+    if (idx >= 0) POIS.splice(idx, 1);
   };
 
   /* =========================================================
@@ -2002,6 +2093,10 @@
    * POI SELECTION + SHEET
    * =======================================================*/
   const selectPoi = (id, centerMap = false) => {
+    // Si había una ficha efímera de escaneo abierta y se salta directo a
+    // otro POI sin cerrarla antes, hay que limpiarla igual (closeSheet no
+    // llega a ejecutarse en ese camino).
+    if (STATE.activePoiId && STATE.activePoiId !== id) cleanupAdHocScanIfNeeded(STATE.activePoiId);
     STATE.activePoiId = id;
     const poi = POIS.find((p) => p.id === id);
     if (!poi) return;
@@ -2023,6 +2118,7 @@
     try { els.sheet.setAttribute('aria-hidden', 'false'); } catch (_) {}
   };
   const closeSheet = () => {
+    cleanupAdHocScanIfNeeded(STATE.activePoiId);
     STATE.sheet = 'closed';
     STATE.activePoiId = null;
     els.backdrop.classList.remove('-open');
@@ -2067,8 +2163,11 @@
   // en vez de guardarse aparte, para no duplicar estado.
   const openVisitSummary = () => {
     if (!els.visitSummary || !CURRENT_CITY) return;
-    const visited = POIS.filter((p) => (STATE.ai.perPoiHistory[p.id] || []).length > 0);
-    const total = POIS.length;
+    // Igual que en renderMarkers: las fichas efímeras de escaneo no son
+    // POIs de la ciudad y no deben contar aquí.
+    const realPois = POIS.filter((p) => !p.isAdHocScan);
+    const visited = realPois.filter((p) => (STATE.ai.perPoiHistory[p.id] || []).length > 0);
+    const total = realPois.length;
     const level = getExplorerLevel(STATE.game.points);
 
     $('#visitSummaryTitle', els.visitSummary).textContent = `Tu aventura por ${CURRENT_CITY.name}`;
@@ -2081,7 +2180,7 @@
     pointsEl.style.setProperty('--explorer-color', level.color);
 
     const list = $('#visitSummaryList', els.visitSummary);
-    list.innerHTML = POIS.map((p) => {
+    list.innerHTML = realPois.map((p) => {
       const isVisited = (STATE.ai.perPoiHistory[p.id] || []).length > 0;
       return `<li data-visited="${isVisited}">
         <span class="visit-summary-check" aria-hidden="true">${isVisited ? '✅' : '⬜'}</span>
