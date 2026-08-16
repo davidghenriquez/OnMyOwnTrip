@@ -105,7 +105,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V9.6</span>
+    <span class="onboarding-version" id="appVersion">Beta V10</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
   </div>
 
@@ -374,7 +374,12 @@
       provider: 'openai',
       baseUrl: 'https://damp-unit-7cc9onmyowntrip-proxy.davidg-henriquez.workers.dev',
       apiKey: 'proxy',
-      model: 'gemini-flash-latest',
+      // "gemini-flash-latest" apunta a un modelo experimental, no pensado
+      // para producción, con límites de peticiones más estrictos que los
+      // modelos estables — de ahí los 503 "Service Unavailable" frecuentes
+      // vistos en el panel de uso, incluso con cuota de pago de sobra.
+      // "gemini-3.6-flash" es la versión estable equivalente.
+      model: 'gemini-3.6-flash',
       maxTokens: 3500,
       extraBody: { reasoning_effort: 'low' }
     };
@@ -386,7 +391,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=9"></script>
-  <script src="app.js?v=50"></script>
+  <script src="app.js?v=51"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
