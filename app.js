@@ -936,17 +936,30 @@
    * que no reconoce ninguno). Así no puede "inventarse" un monumento que
    * no está en nuestros datos.
    * =======================================================*/
-  const getCurrentLocationOnce = () => new Promise((resolve, reject) => {
-    if (!navigator.geolocation) { reject(new Error('no-geolocation')); return; }
-    // Sin alta precisión: solo hace falta acertar el barrio para acotar
-    // candidatos, y así se responde en 1-2s en vez de esperar a que el GPS
-    // "caliente" para una posición exacta (que aquí no aporta nada extra).
-    navigator.geolocation.getCurrentPosition(
-      (pos) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-      (err) => reject(err),
-      { enableHighAccuracy: false, timeout: 6000, maximumAge: 60000 }
-    );
-  });
+  const getCurrentLocationOnce = () => {
+    if (!navigator.geolocation) return Promise.reject(new Error('no-geolocation'));
+    const geoPromise = new Promise((resolve, reject) => {
+      // Sin alta precisión: solo hace falta acertar el barrio para acotar
+      // candidatos, y así se responde en 1-2s en vez de esperar a que el
+      // GPS "caliente" para una posición exacta (que aquí no aporta nada).
+      navigator.geolocation.getCurrentPosition(
+        (pos) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+        (err) => reject(err),
+        { enableHighAccuracy: false, timeout: 6000, maximumAge: 60000 }
+      );
+    });
+    // El "timeout" de arriba es solo una petición al navegador, no una
+    // garantía: en algunas combinaciones de SO/navegador (visto en iOS
+    // Chrome) ni éxito ni error llegan a dispararse nunca si el servicio
+    // de localización del sistema no responde, dejando la promesa
+    // pendiente para siempre pase lo que pase en la opción "timeout". Este
+    // segundo timeout, propio y forzado, garantiza que esta función SIEMPRE
+    // se resuelve o rechaza antes de 7s, ocurra lo que ocurra por debajo.
+    const hardTimeout = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('geolocation-hard-timeout')), 7000);
+    });
+    return Promise.race([geoPromise, hardTimeout]);
+  };
 
   // Dispara la petición de ubicación en el momento del toque (ver
   // scanUploadPhoto/scanTakePhoto), sin esperar a su resultado: solo deja
