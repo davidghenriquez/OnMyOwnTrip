@@ -514,6 +514,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 .quiz-question {
   font-weight: 700;
   margin-bottom: 10px;
+  color: var(--color-text);
 }
 .quiz-options {
   display: flex;
@@ -1681,6 +1682,7 @@ html[data-mode="kids"] .ai-input-wrap {
   font-weight: 700;
   text-align: center;
   margin: 0;
+  color: var(--color-text);
 }
 .quiz-reveal {
   margin: 12px 0 0;
@@ -1688,6 +1690,7 @@ html[data-mode="kids"] .ai-input-wrap {
   border-top: 1px solid var(--color-border);
   font-size: 13.5px;
   line-height: 1.5;
+  color: var(--color-text);
 }
 .quiz-next-btn {
   display: block;
