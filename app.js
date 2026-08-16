@@ -1004,7 +1004,7 @@
   // depender del filtro de categoría activo (si vas caminando y sacas la
   // foto, tiene que poder reconocer cualquier punto, esté o no filtrado).
   const nearbyPoiCandidates = (coords, limit = 5) => {
-    if (!POIS || !POIS.length) return [];
+    if (!coords || !POIS || !POIS.length) return [];
     return POIS
       .map((p) => ({ poi: p, dist: haversineMeters([coords.lat, coords.lng], p.coords) }))
       .sort((a, b) => a.dist - b.dist)
@@ -1091,13 +1091,16 @@
         STATE.userLocation = coords;
         updateUserMarker();
       } catch (_) {
-        // Si falla el GPS pero ya teníamos una ubicación previa (p.ej. de
-        // "Cerca de mí"), seguimos con esa en vez de abortar del todo.
+        // Sin ubicación no abortamos: seguimos sin candidatos cercanos que
+        // confirmar, pero la IA puede identificar la foto igual en abierto
+        // (ver más abajo). La ubicación aquí es una ayuda para acotar, no
+        // un requisito — sobre todo porque en algunos dispositivos falla
+        // de forma persistente y bloquear la función entera por eso sería
+        // peor que ofrecer un resultado sin ubicación confirmada.
         if (!coords) {
           showToast(STATE.mode === 'kids'
-            ? 'Necesito saber dónde estás para reconocer la foto 🗺️'
-            : 'No se pudo obtener tu ubicación; actívala para usar esta función.', 3200);
-          return;
+            ? 'No sé dónde estás, pero miro la foto igual 🔍'
+            : 'No se pudo obtener tu ubicación; analizo la foto de todos modos.', 2600);
         }
       }
 
@@ -1169,7 +1172,11 @@
       name: { adult: info.name, kids: info.name },
       subtitle: { adult: disclaimer, kids: disclaimer },
       category: CATEGORIES.HIDDEN,
-      coords: [coords.lat, coords.lng],
+      // Sin ubicación real, se usa el centro de la ciudad como posición de
+      // relleno: nunca se muestra como pin (ver renderMarkers), así que
+      // solo afecta al cálculo de distancia, que ya no tiene sentido mostrar
+      // aquí de todas formas.
+      coords: coords ? [coords.lat, coords.lng] : CURRENT_CITY.center,
       image: imageDataUrl,
       audio: {
         duration: Math.max(40, Math.round((info.info || info.subtitle || '').split(/\s+/).length / 2.3)),
