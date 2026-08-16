@@ -948,6 +948,16 @@
     );
   });
 
+  // Dispara la petición de ubicación en el momento del toque (ver
+  // scanUploadPhoto/scanTakePhoto), sin esperar a su resultado: solo deja
+  // el permiso resuelto y STATE.userLocation ya actualizado de fondo para
+  // cuando scanForPoi lo necesite después.
+  const prefetchLocation = () => {
+    getCurrentLocationOnce()
+      .then((coords) => { STATE.userLocation = coords; updateUserMarker(); })
+      .catch(() => {});
+  };
+
   // Reduce la foto (los móviles hacen fotos de varios MB) antes de mandarla:
   // más rápido de subir y de menos coste en tokens, sin perder detalle
   // relevante para reconocer un edificio.
@@ -2646,6 +2656,7 @@
     $('#scanTakePhoto')?.addEventListener('click', async () => {
       $('#scanMenu').hidden = true;
       $('#scanBtn')?.setAttribute('aria-expanded', 'false');
+      prefetchLocation(); // ver comentario en scanUploadPhoto
       const opened = await openCameraCapture();
       if (!opened) {
         showToast(STATE.mode === 'kids'
@@ -2656,6 +2667,14 @@
     $('#scanUploadPhoto')?.addEventListener('click', () => {
       $('#scanMenu').hidden = true;
       $('#scanBtn')?.setAttribute('aria-expanded', 'false');
+      // Pide la ubicación YA, en este toque directo, en vez de esperar a
+      // después de elegir la foto: en iOS, tras cerrarse el selector nativo
+      // de fotos, el toque original ya no cuenta como "reciente" y el
+      // permiso de geolocalización puede fallar o comportarse mal si se
+      // pide en ese momento. Pedirlo aquí dispara el diálogo de permiso (si
+      // hace falta) mientras el toque sigue "fresco"; para cuando scanForPoi
+      // la necesite, ya estará resuelta o en curso.
+      prefetchLocation();
       $('#scanInput')?.click();
     });
     $('#cameraShutterBtn')?.addEventListener('click', captureCameraPhoto);
