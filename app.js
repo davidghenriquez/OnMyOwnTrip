@@ -2745,6 +2745,35 @@
   // Elemento compartido para reproducir el audio de CLOUD_TTS cuando está
   // disponible; con Web Speech (el camino de siempre) no se usa.
   const cloudAudioEl = (typeof Audio !== 'undefined') ? new Audio() : null;
+
+  // Desbloqueo de audio en iOS Safari: un <audio> solo puede empezar a
+  // sonar por su cuenta (fuera de un toque directo) si YA se llamó a
+  // play() alguna vez dentro de un toque directo del usuario, igual que
+  // SPEECH ya hace para la voz del navegador (ver "Fix crítico iOS Safari"
+  // más arriba). El resumen de CLOUD_TTS llega tras esperar a la IA, así
+  // que sin este desbloqueo previo, en iPhone se bloquearía en silencio y
+  // caería siempre a Web Speech aunque el audio esté listo. Se reproduce
+  // un WAV silencioso mínimo una sola vez, sobre este mismo elemento (el
+  // desbloqueo es por elemento, no global) — luego se le cambia el "src"
+  // real cuando toque, sin perder el desbloqueo.
+  const SILENT_WAV = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+  let cloudAudioUnlocked = false;
+  const unlockCloudAudioOnce = () => {
+    if (cloudAudioUnlocked || !cloudAudioEl) return;
+    cloudAudioUnlocked = true;
+    try {
+      cloudAudioEl.src = SILENT_WAV;
+      const p = cloudAudioEl.play();
+      if (p && p.catch) p.catch(() => {});
+      cloudAudioEl.pause();
+    } catch (_) {}
+    document.removeEventListener('click', unlockCloudAudioOnce, true);
+    document.removeEventListener('touchstart', unlockCloudAudioOnce, true);
+  };
+  if (cloudAudioEl) {
+    document.addEventListener('click', unlockCloudAudioOnce, true);
+    document.addEventListener('touchstart', unlockCloudAudioOnce, true);
+  }
   const toggleAudio = () => {
     if (!STATE.activePoiId) return;
     if (STATE.audio.playing) {
