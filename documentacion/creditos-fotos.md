@@ -87,6 +87,23 @@ como exige cada licencia.
 | Plaza de Santa Bárbara (Iglesia de las Salesas Reales) | Enrique Cordero | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Salesas-fachada.jpg) |
 | Calle de Huertas | Frans Drewniak | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_Huertas_(5876701988).jpg) |
 | Jardines de Sabatini | Javier Perez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Estanque_Central_-_Jardines_de_Sabatini_-_Madrid_01.jpg) |
+| Calle de Postas y Posada del Peine | Draceane | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid,_Posada_del_Peine,_2024.jpg) |
+| Calle de San Cristóbal (foto del cartel cerámico de la calle — no hay foto libre de la calle en sí) | Brian Snelson | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calle_de_San_Crist%C3%B3bal_(Madrid)_01.jpg) |
+| Plaza de Santa Cruz (Palacio de Santa Cruz) | Gryffindor | Dominio público | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_de_Santa_Cruz,_Madrid_4.jpg) |
+| Colegiata de San Isidro | Fernando | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Main_facade_of_the_Colegiata_de_San_Isidro_2022.jpg) |
+| Calle Botoneras (foto genérica de la calle — no hay foto libre del restaurante Los Galayos) | Vasyatka1 | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:View_of_house_No.8_at_Calle_de_Botoneras,_Madrid.jpg) |
+| Calle del Siete de Julio | Sergei Gussev | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_(22216555508).jpg) |
+| Calle Ciudad Rodrigo | Carlos Delgado | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_desde_calle_Ciudad_Rodrigo_-_03.jpg) |
+| Calle del Duque de Nájera (Palacio de Cañete) | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_de_Ca%C3%B1ete_(Madrid)_01.jpg) |
+| Catedral Castrense (Iglesia del Sacramento) | Francesco Bini (Sailko) | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid,_iglesia_catedral_castrense_del_sacramento_(cattedrale_delle_forze_armate),_facciata_02.jpg) |
+| Mirador de la Muralla Árabe | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Palacio del Senado | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_-_Senado_de_Espa%C3%B1a_2.jpg) |
+| Antigua sede de la Real Compañía Asturiana de Minas | Luis García (Zaqarbal) | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Real_Compa%C3%B1%C3%ADa_Asturiana_de_Minas_(Madrid)_03.jpg) |
+| Mirador del Edificio España (Hotel RIU Plaza España) | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Templo de Santa Teresa y San José (Carmelitas Descalzas) | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Fuente de la Concha | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Monumento al Pueblo del Dos de Mayo de 1808 | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Caídos del Cuartel de la Montaña | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
 | Cuevas de Hércules (Toledo) | Carlos Delgado | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cueva_de_H%C3%A9rcules_-_01.jpg) |
 | Callejón del Pozo Amargo | Jose Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:El_Pozo_Amargo._Toledo_(Espa%C3%B1a).jpg) |
 | Circo Romano de Toledo | Antonio.velez | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Espa%C3%B1a_-_Toledo_-_Ruinas_del_Circo_Romano_003.JPG) |

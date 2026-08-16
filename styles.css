@@ -818,6 +818,27 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   border-color: var(--color-primary);
   animation: scanPulse 1.1s ease-in-out infinite;
 }
+.locate-btn.-fountains { bottom: 272px; }
+.locate-btn.-fountains.-active { color: #38BDF8; border-color: #38BDF8; }
+
+/* ---------- CAPA DE FUENTES DE AGUA POTABLE ---------- */
+/* Icono deliberadamente pequeño (12px, frente a los 38px de un POI) y por
+   detrás de los pines turísticos (ver zIndexOffset en renderFountains, app.js),
+   para que se lean como una capa aparte sin competir con los pines de POI. */
+.fountain-pin-wrap { background: transparent; border: none; }
+.fountain-pin {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  display: grid;
+  place-items: center;
+  color: #38BDF8;
+}
+.fountain-pin svg { width: 8px; height: 8px; }
+.fountain-pin.-off { color: #94A3B8; opacity: 0.75; }
 @keyframes scanPulse {
   0%, 100% { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 0 0 color-mix(in srgb, var(--color-primary) 45%, transparent); }
   50% { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45), 0 0 0 7px transparent; }
