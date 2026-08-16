@@ -1137,7 +1137,16 @@
       }
     } catch (e) {
       console.warn('[Scan] Error identificando POI:', e);
-      showToast(STATE.mode === 'kids' ? '¡Uy! Algo ha fallado con la foto 😅' : 'No se pudo analizar la foto. Inténtalo de nuevo.', 3000);
+      // Se incluye el motivo real y corto en el propio aviso (no solo en
+      // consola, que en el móvil nadie mira): así un fallo se puede
+      // reportar con una captura de pantalla en vez de tener que
+      // adivinarlo a ciegas otra vez.
+      const code = e && e.status ? `HTTP ${e.status}`
+        : (e && (e.name === 'AbortError' || e.message === 'vision-timeout')) ? 'tiempo agotado con la IA'
+        : (e && (e.message === 'image-load-timeout' || e.message === 'image-load-failed')) ? 'no se pudo procesar la imagen'
+        : (e && e.message) ? e.message
+        : 'error desconocido';
+      showToast(STATE.mode === 'kids' ? `¡Uy! Algo ha fallado con la foto (${code}) 😅` : `No se pudo analizar la foto (${code}). Inténtalo de nuevo.`, 4200);
     } finally {
       setScanning(false);
     }
