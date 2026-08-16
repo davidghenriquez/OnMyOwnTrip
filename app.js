@@ -576,6 +576,7 @@
   let map, markersLayer, clusterLayer, markerLookup = {}, userMarker = null;
   let POIS = []; // POIs de la ciudad activa (CURRENT_CITY.pois) — se rellena al elegir ciudad
   let CURRENT_CITY = null;
+  let fountainsLayer = null, fountainsVisible = false;
 
   /* =========================================================
    * HELPERS
@@ -727,6 +728,15 @@
     });
   };
 
+  // Pin de las fuentes de agua potable: mucho más pequeño que un pin de POI
+  // (16px frente a 38px) y de otro color, para que se lea a simple vista
+  // como una capa aparte y no compita visualmente con los POIs turísticos.
+  const makeFountainIcon = (status) => L.divIcon({
+    className: 'fountain-pin-wrap',
+    html: `<div class="fountain-pin${status === 'fuera-de-servicio' ? ' -off' : ''}"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C12 2 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-7-13-7-13Z"/></svg></div>`,
+    iconSize: [12, 12], iconAnchor: [6, 6], popupAnchor: [0, -6]
+  });
+
   // Burbuja de agrupación (cluster): mismo lenguaje visual que .custom-pin,
   // pero con el número de POIs agrupados dentro. Crece un poco con la
   // cantidad para que se note de un vistazo si hay 3 o 30 ahí dentro.
@@ -780,6 +790,17 @@
       maxClusterRadius: 55,
       iconCreateFunction: makeClusterIcon
     });
+    // Capa independiente de fuentes de agua potable: no se agrupa con
+    // markersLayer/clusterLayer ni se excluyen entre sí — convive con
+    // cualquiera de los dos modos y se activa/desactiva aparte con su
+    // propio botón (ver toggleFountains).
+    fountainsLayer = L.layerGroup();
+    if (fountainsVisible) {
+      loadWaterFountains(STATE.cityId).then(() => {
+        renderFountains();
+        if (map && fountainsLayer) fountainsLayer.addTo(map);
+      });
+    }
     map.on('zoom', updatePinScale);
     updatePinScale();
     renderMarkers();
@@ -1289,7 +1310,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=18`;
+    const src = `data/cities/${cityId}.js?v=19`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
@@ -1303,6 +1324,52 @@
       }
     }
     throw lastError;
+  };
+
+  // Carga bajo demanda de data/layers/water-fountains-<id>.js: solo se pide
+  // la primera vez que el usuario activa el toggle de bebederos (no en
+  // selectCity), para no penalizar a quien nunca usa esta capa.
+  const loadedFountainScripts = new Set();
+  const loadWaterFountains = async (cityId) => {
+    if (window.WATER_FOUNTAINS && window.WATER_FOUNTAINS[cityId]) return;
+    if (loadedFountainScripts.has(cityId)) return;
+    try {
+      await loadScriptOnce(`data/layers/water-fountains-${cityId}.js?v=1`);
+      loadedFountainScripts.add(cityId);
+    } catch (e) {
+      console.warn(`No se pudieron cargar las fuentes de agua de ${cityId}`, e);
+    }
+  };
+
+  const renderFountains = () => {
+    if (!fountainsLayer) return;
+    fountainsLayer.clearLayers();
+    const list = (window.WATER_FOUNTAINS && window.WATER_FOUNTAINS[STATE.cityId]) || [];
+    list.forEach((f) => {
+      // zIndexOffset muy negativo: mantiene los bebederos siempre por
+      // detrás de los pines de POI (offset 0) cuando coinciden en el mapa.
+      const marker = L.marker(f.coords, { icon: makeFountainIcon(f.status), zIndexOffset: -1000 });
+      const offNote = f.status === 'fuera-de-servicio' ? '<br><em>Fuera de servicio</em>' : '';
+      marker.bindPopup(`<strong>Fuente de agua potable</strong><br>${f.address}${offNote}`);
+      marker.addTo(fountainsLayer);
+    });
+  };
+
+  // Toggle del botón de bebederos: carga los datos la primera vez (si hace
+  // falta) y añade/quita fountainsLayer del mapa sin tocar markersLayer ni
+  // clusterLayer.
+  const toggleFountains = async () => {
+    fountainsVisible = !fountainsVisible;
+    const btn = $('#fountainsBtn');
+    btn?.classList.toggle('-active', fountainsVisible);
+    if (!map || !fountainsLayer) return;
+    if (fountainsVisible) {
+      await loadWaterFountains(STATE.cityId);
+      renderFountains();
+      if (!map.hasLayer(fountainsLayer)) fountainsLayer.addTo(map);
+    } else if (map.hasLayer(fountainsLayer)) {
+      map.removeLayer(fountainsLayer);
+    }
   };
 
   // Cambia de ciudad: recarga POIs, mapa y cabecera. Si la app ya estaba
@@ -2711,6 +2778,8 @@
     els.backdrop.addEventListener('click', closeSheet);
 
     $('#locateBtn')?.addEventListener('click', () => requestLocation(true));
+
+    $('#fountainsBtn')?.addEventListener('click', () => toggleFountains());
 
     $('#scanBtn')?.addEventListener('click', () => {
       const menu = $('#scanMenu'), btn = $('#scanBtn');

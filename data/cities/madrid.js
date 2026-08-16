@@ -556,12 +556,12 @@ CITIES.madrid.pois = [
         },
         tabs: {
           history: {
-            adult: 'Felipe II encargó a Juan de Herrera transformar este espacio, y en 1619, bajo Felipe III, Juan Gómez de Mora terminó de darle su fisonomía definitiva. Ha sufrido tres grandes incendios (1631, 1672 y 1790); tras el último, el arquitecto Juan de Villanueva la reconstruyó respetando el trazado original, aunque redujo la altura de los edificios de cinco a tres plantas. Durante siglos acogió corridas de toros, representaciones teatrales, autos de fe de la Inquisición e incluso ejecuciones públicas, todo ello presenciado desde los balcones.',
-            kids: '¡Esta plaza se ha quemado tres veces a lo largo de su historia! Cada vez la reconstruyeron. Hace muchos siglos aquí se hacían fiestas, obras de teatro ¡y hasta corridas de toros, todo en la misma plaza!'
+            adult: 'Felipe II encargó a Juan de Herrera transformar este espacio, y en 1619, bajo Felipe III, Juan Gómez de Mora terminó de darle su fisonomía definitiva. Ha sufrido tres grandes incendios (1631, 1672 y 1790); tras el último, el arquitecto Juan de Villanueva la reconstruyó respetando el trazado original, aunque redujo la altura de los edificios de cinco a tres plantas. Durante siglos acogió corridas de toros, representaciones teatrales, autos de fe de la Inquisición e incluso ejecuciones públicas, todo ello presenciado desde los balcones. Fue también el gran mercado de la ciudad, con cada gremio de comerciantes instalado en su rincón asignado, una tradición que hoy pervive en el mercadillo navideño que se instala aquí cada diciembre, el más concurrido de Madrid.',
+            kids: '¡Esta plaza se ha quemado tres veces a lo largo de su historia! Cada vez la reconstruyeron. Hace muchos siglos aquí se hacían fiestas, obras de teatro ¡y hasta corridas de toros, todo en la misma plaza! También fue durante siglos el mercado más grande de la ciudad, con cada tipo de tienda en su propia esquina — ¡esa tradición sigue viva hoy, porque cada diciembre se instala aquí el mercadillo de Navidad más famoso de Madrid!'
           },
           legends: {
-            adult: 'La estatua ecuestre de Felipe III que preside la plaza desde 1848 tuvo una vida itinerante: fue esculpida originalmente por Juan de Bolonia y Pietro Tacca para colocarse en la Casa de Campo, y solo llegó a su emplazamiento actual dos siglos después de su fundición, por decisión de la reina Isabel II.',
-            kids: '¡La estatua del rey a caballo que ves en el medio de la plaza estuvo primero en otro sitio totalmente distinto durante 200 años, antes de que la trajeran aquí! Imagina una estatua tan pesada mudándose de casa.'
+            adult: 'La estatua ecuestre de Felipe III que preside la plaza desde 1848 tuvo una vida itinerante: fue esculpida originalmente por Juan de Bolonia y Pietro Tacca para colocarse en la Casa de Campo, y solo llegó a su emplazamiento actual dos siglos después de su fundición, por decisión de la reina Isabel II. Bajo los soportales se cuentan 97 arcadas o entradas numeradas, entre ellas el célebre Arco de Cuchilleros, que baja directo hacia el Madrid más castizo; la tradición asegura además que bajo la plaza se conservan túneles y pasadizos antiguos, hoy sellados, que conectaban antaño con edificios cercanos.',
+            kids: '¡La estatua del rey a caballo que ves en el medio de la plaza estuvo primero en otro sitio totalmente distinto durante 200 años, antes de que la trajeran aquí! Imagina una estatua tan pesada mudándose de casa. Bajo los soportales hay 97 arcos numerados: uno de ellos, el Arco de Cuchilleros, baja hacia unas calles antiguas muy típicas. ¡Cuentan que debajo de la plaza hay túneles secretos, aunque hoy están todos cerrados!'
           },
           architecture: {
             adult: 'La Casa de la Panadería, el edificio más emblemático de la plaza, luce desde 1992 una espectacular fachada pintada al fresco por Carlos Franco, con un programa mitológico propio poblado de dioses clásicos como Cibeles y personajes inventados por el propio pintor. La plaza, de planta rectangular y soportales continuos, conserva 237 balcones que antiguamente se alquilaban para presenciar los espectáculos que allí se celebraban.',
@@ -709,8 +709,8 @@ CITIES.madrid.pois = [
             kids: '¡Por fuera esta catedral parece clásica y seria, pero por dentro el techo está pintado de un montón de colores brillantes, casi como un cómic! Es una de las sorpresas que más gustan a los niños que la visitan. Levanta la vista en cuanto entres.'
           },
           architecture: {
-            adult: 'La cripta neorrománica, terminada en 1911, es la parte más antigua del conjunto y contrasta con la nave neoclásica superior. Las vidrieras, de diseño no figurativo, dialogan con el policromado techo y con los mosaicos del padre Marko Rupnik en la capilla del Santísimo, creando un conjunto que combina tradición constructiva centenaria con un programa decorativo plenamente contemporáneo.',
-            kids: '¡Baja a la cripta, la parte más antigua de toda la catedral! Después sube arriba y compara: verás una mezcla de estilos muy distintos en el mismo edificio, ¡como si hubieran construido dos iglesias en una!'
+            adult: 'La cripta neorrománica, terminada en 1911, es la parte más antigua del conjunto y contrasta con la nave neoclásica superior. Las vidrieras, de diseño no figurativo, dialogan con el policromado techo y con los mosaicos del padre Marko Rupnik en la capilla del Santísimo, creando un conjunto que combina tradición constructiva centenaria con un programa decorativo plenamente contemporáneo. En las hornacinas de la fachada pueden identificarse las estatuas de San Pedro —con la inscripción «PETRUS», las llaves del Reino de los Cielos y una red de pescador— y San Pablo —«PAVLVS», con un relieve que representa su conversión camino a Damasco—, ambos considerados columnas de la Iglesia.',
+            kids: '¡Baja a la cripta, la parte más antigua de toda la catedral! Después sube arriba y compara: verás una mezcla de estilos muy distintos en el mismo edificio, ¡como si hubieran construido dos iglesias en una! Busca también en la fachada dos estatuas con nombres tallados debajo: una es San Pedro, con unas llaves enormes y una red de pescar; la otra es San Pablo, con una escena tallada al lado.'
           }
         }
       },
@@ -792,12 +792,12 @@ CITIES.madrid.pois = [
         },
         tabs: {
           history: {
-            adult: 'Fue el centro administrativo de Madrid desde la Edad Media hasta principios del siglo XXI: la Casa de la Villa, de estilo herreriano con fachadas barrocas, albergó el Ayuntamiento durante más de 300 años, hasta su traslado en 2007 al Palacio de Cibeles. La plaza reúne edificios de los siglos XV al XVII, entre ellos la Torre de los Lujanes, en estilo gótico-mudéjar, y la Casa de Cisneros, joya del plateresco construida en 1537.',
-            kids: '¡Esta plaza fue el centro de gobierno de Madrid durante más de 300 años seguidos! Tiene edificios de hace 500 y hasta 600 años, ¡de los más antiguos de toda la ciudad!'
+            adult: 'Fue el centro administrativo de Madrid desde la Edad Media hasta principios del siglo XXI: la Casa de la Villa, de estilo herreriano con fachadas barrocas, albergó el Ayuntamiento durante más de 300 años, hasta su traslado en 2007 al Palacio de Cibeles. La plaza reúne edificios de los siglos XV al XVII, entre ellos la Torre de los Lujanes, en estilo gótico-mudéjar, y la Casa de Cisneros, joya del plateresco construida en 1537. En el centro se alza una estatua del almirante Álvaro de Bazán, que nunca perdió una batalla naval.',
+            kids: '¡Esta plaza fue el centro de gobierno de Madrid durante más de 300 años seguidos! Tiene edificios de hace 500 y hasta 600 años, ¡de los más antiguos de toda la ciudad! En el centro hay una estatua de un almirante que nunca perdió ni una sola batalla en el mar.'
           },
           legends: {
-            adult: 'Tras la derrota francesa en la batalla de Pavía (24 de febrero de 1525), el rey Francisco I de Francia fue trasladado prisionero a Madrid, llegando el 12 de agosto de 1525. La tradición sostiene que permaneció custodiado en la Torre de los Lujanes, aunque los historiadores no descartan que solo fuera su primer alojamiento mientras se le preparaba una estancia en el Alcázar. No sería liberado hasta enero de 1526, tras renunciar a extensos territorios en Italia y Flandes.',
-            kids: '¡Un rey de Francia estuvo prisionero aquí, en esta misma plaza, después de perder una batalla hace 500 años! Se cuenta que lo guardaron en esa torre tan alta. Tardó casi un año entero en poder volver a su país.'
+            adult: 'Tras la derrota francesa en la batalla de Pavía (24 de febrero de 1525), el rey Francisco I de Francia fue trasladado prisionero a Madrid, llegando el 12 de agosto de 1525. La tradición sostiene que permaneció custodiado en la Torre de los Lujanes, aunque los historiadores no descartan que solo fuera su primer alojamiento mientras se le preparaba una estancia en el Alcázar. No sería liberado hasta enero de 1526, tras renunciar a extensos territorios en Italia y Flandes. La Casa de Cisneros está unida a la Casa de la Villa por un puente elevado que cruza sobre la calle; pese a su aspecto antiguo, se construyó en la década de 1910 para que los concejales pudieran pasar de un edificio a otro sin salir a la calle. La propia plaza ocupa además el solar del antiguo cementerio de la desaparecida parroquia de San Salvador.',
+            kids: '¡Un rey de Francia estuvo prisionero aquí, en esta misma plaza, después de perder una batalla hace 500 años! Se cuenta que lo guardaron en esa torre tan alta. Tardó casi un año entero en poder volver a su país. ¡La Casa de Cisneros está conectada con la Casa de la Villa por un puente elevado que cruza por encima de la calle! Aunque parece muy antiguo, en realidad se construyó hace poco más de 100 años, para que los concejales no tuvieran que salir a la calle para pasar de un edificio a otro. Y bajo esta plaza estuvo antes el cementerio de una iglesia que ya no existe.'
           },
           architecture: {
             adult: 'La Torre de los Lujanes, del siglo XV, es uno de los escasos ejemplos de arquitectura civil gótica conservados en Madrid, hoy sede de la Real Academia de Ciencias Morales y Políticas. La Casa de Cisneros combina elementos góticos, mudéjares y renacentistas en un estilo exclusivamente español conocido como plateresco, por el parecido de su ornamentación con el trabajo de los plateros.',
@@ -831,8 +831,8 @@ CITIES.madrid.pois = [
             kids: '¡El regalo tenía una condición secreta que casi nadie conoce: Egipto pidió que el templo NUNCA estuviera al aire libre, sino protegido dentro de un edificio! Pues resulta que llevan más de 50 años sin cumplir esa promesa, y el templo sigue fuera, ¡lloviendo y todo!'
           },
           architecture: {
-            adult: 'El conjunto conserva su puerta monumental y dos pilonos de acceso, junto con relieves originales que representan a los faraones ptolemaicos realizando ofrendas a las divinidades egipcias. Se ubica sobre una pequeña colina del antiguo Cuartel de la Montaña, orientado deliberadamente para ofrecer una de las mejores puestas de sol de la ciudad sobre la Casa de Campo, en un guiño a su función original de templo solar.',
-            kids: '¡Fíjate en los dibujos tallados en la piedra! Muestran a antiguos reyes egipcios haciendo regalos a sus dioses. Este templo está en una colina perfecta para ver la puesta de sol, ¡casi como si siguiera mirando al sol como hacía en Egipto!'
+            adult: 'El conjunto conserva su puerta monumental y dos pilonos de acceso, junto con relieves originales que representan a los faraones ptolemaicos realizando ofrendas a las divinidades egipcias. Se ubica sobre una pequeña colina del antiguo Cuartel de la Montaña, orientado deliberadamente para ofrecer una de las mejores puestas de sol de la ciudad sobre la Casa de Campo, en un guiño a su función original de templo solar. Minutos después de la puesta de sol llega la llamada «hora azul», cuando el templo se ilumina y se refleja en el estanque frente a él, una de las imágenes más fotografiadas de Madrid.',
+            kids: '¡Fíjate en los dibujos tallados en la piedra! Muestran a antiguos reyes egipcios haciendo regalos a sus dioses. Este templo está en una colina perfecta para ver la puesta de sol, ¡casi como si siguiera mirando al sol como hacía en Egipto! Un rato después de que se ponga el sol llega la "hora azul": el templo se ilumina y se refleja en el agua del estanque de delante, ¡una de las fotos más bonitas de todo Madrid!'
           }
         }
       },
@@ -854,8 +854,8 @@ CITIES.madrid.pois = [
         },
         tabs: {
           history: {
-            adult: 'El actual monumento a Cervantes se erigió en 1929, tras un concurso nacional convocado en 1915 con motivo del tercer centenario de la muerte del escritor. Con los años se completó con las esculturas en bronce de Don Quijote y Sancho Panza cabalgando sobre Rocinante y su burro, y las figuras de Dulcinea y Aldonza Lorenzo. La plaza se sometió a una profunda remodelación entre 2019 y 2021, que sacó a la luz numerosos restos arqueológicos y transformó la zona en un gran eje peatonal con más zonas verdes.',
-            kids: '¡En el centro de esta plaza hay un monumento gigante dedicado al escritor Cervantes! Abajo del todo puedes ver sus dos personajes más famosos, Don Quijote y Sancho Panza, montados en sus animales. Hace pocos años arreglaron toda la plaza y encontraron restos muy antiguos escondidos bajo tierra.'
+            adult: 'El actual monumento a Cervantes se erigió en 1929, tras un concurso nacional convocado en 1915 con motivo del tercer centenario de la muerte del escritor. Con los años se completó con las esculturas en bronce de Don Quijote y Sancho Panza cabalgando sobre Rocinante y su burro, y las figuras de Dulcinea y Aldonza Lorenzo, además de los pícaros Rinconete y Cortadillo y la protagonista de La Gitanilla, otros personajes cervantinos. La plaza se sometió a una profunda remodelación entre 2019 y 2021, que sacó a la luz numerosos restos arqueológicos y transformó la zona en un gran eje peatonal con más zonas verdes.',
+            kids: '¡En el centro de esta plaza hay un monumento gigante dedicado al escritor Cervantes! Abajo del todo puedes ver sus dos personajes más famosos, Don Quijote y Sancho Panza, montados en sus animales. También hay otros personajes de sus historias, como los pícaros Rinconete y Cortadillo. Hace pocos años arreglaron toda la plaza y encontraron restos muy antiguos escondidos bajo tierra.'
           },
           legends: {
             adult: 'El concurso de 1915 para elegir el diseño del monumento se convocó al cumplirse tres siglos de la muerte de Cervantes en 1616, aunque las obras no se completaron hasta 1929: casi 15 años de gestación para un homenaje que reúne alrededor del escritor a sus criaturas más universales, incluyendo también a Dulcinea, mostrando cómo unos personajes de ficción llegaron a ser tan reales para Madrid como cualquier figura histórica.',
@@ -953,8 +953,8 @@ CITIES.madrid.pois = [
         },
         tabs: {
           history: {
-            adult: 'El trazado definitivo de la plaza responde a un diseño de 1844 del arquitecto Narciso Pascual Colomer, por iniciativa de la reina Isabel II. Está flanqueada por veinte estatuas de reyes visigodos y de los primeros reinos cristianos, esculpidas entre 1750 y 1753 para decorar originalmente la cornisa del Palacio Real, aunque nunca llegaron a colocarse allí y acabaron repartidas por distintos jardines y plazas de la ciudad.',
-            kids: '¡Esta plaza está rodeada de veinte estatuas de reyes muy antiguos! Estaban pensadas para ir encima del Palacio Real, pero al final nunca las pusieron ahí, y las repartieron por distintos sitios de la ciudad, incluida esta plaza.'
+            adult: 'El trazado definitivo de la plaza responde a un diseño de 1844 del arquitecto Narciso Pascual Colomer, por iniciativa de la reina Isabel II. Está flanqueada por veinte estatuas de reyes visigodos y de los primeros reinos cristianos, esculpidas entre 1750 y 1753 para decorar originalmente la cornisa del Palacio Real, aunque nunca llegaron a colocarse allí y acabaron repartidas por distintos jardines y plazas de la ciudad. En total se tallaron 44 estatuas de esta serie de reyes, de las cuales solo veinte se repartieron finalmente por esta plaza; el resto se reparte hoy por otros jardines y ciudades españolas.',
+            kids: '¡Esta plaza está rodeada de veinte estatuas de reyes muy antiguos! Estaban pensadas para ir encima del Palacio Real, pero al final nunca las pusieron ahí, y las repartieron por distintos sitios de la ciudad, incluida esta plaza. ¡En total se hicieron 44 estatuas de esta serie, pero solo veinte acabaron aquí! Las demás están repartidas por otros parques y ciudades de España.'
           },
           legends: {
             adult: 'El monumento central, una estatua ecuestre de Felipe IV, es una obra maestra de ingeniería del siglo XVII: fue realizada en bronce por el escultor italiano Pietro Tacca a partir de un boceto pictórico de Diego Velázquez, y el propio Galileo Galilei asesoró científicamente su estabilidad para lograr que el caballo se sostuviera únicamente sobre sus dos patas traseras. Está considerada la primera estatua ecuestre del mundo sujeta solo por las patas de atrás.',
@@ -2203,6 +2203,465 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Jardines de trazado neoclásico y geometría simétrica, con setos recortados, estanques y estatuas de reyes españoles, situados en la fachada norte del Palacio Real.',
             kids: '¡Sus setos están recortados con formas muy geométricas, como un laberinto verde! Es un lugar perfecto para pasear tranquilamente junto al Palacio Real.'
+          }
+        }
+      },
+      {
+        id: 'calle-postas-posada-peine',
+        name: { adult: 'Calle de Postas y Posada del Peine', kids: 'Calle de Postas — La Posada del Peine Encadenado 🪮' },
+        subtitle: { adult: 'La antigua estación de postas junto a la Plaza Mayor', kids: '¡Aquí había un peine de metal encadenado en la puerta!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41573, -3.70599],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Madrid%2C_Posada_del_Peine%2C_2024.jpg/330px-Madrid%2C_Posada_del_Peine%2C_2024.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Calle de Postas y Posada del Peine', kids: '¡Aventura Sonora: La Posada del Peine Encadenado!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre a la calle en cualquier momento; la Posada del Peine funciona hoy como hotel privado.', kids: '¡Se puede pasear por la calle a cualquier hora!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'La calle debe su nombre a que en el siglo XVI aquí se ubicaba la Casa de Postas, una estación de correos donde los caballos del servicio postal descansaban y se cambiaban antes de seguir viaje. En ese mismo tramo se encuentra hoy la Posada del Peine, una de las posadas más antiguas de Madrid, con orígenes en el siglo XVII y una fachada muy cuidada que corona un pequeño templete con reloj instalado en 1892 para conmemorar el IV centenario del Descubrimiento de América.',
+            kids: '¡Esta calle se llama así porque hace siglos había aquí una estación donde los caballos del correo paraban a descansar antes de seguir viaje! En esa misma calle está la Posada del Peine, una posada muy antigua, del siglo XVII, que hoy sigue siendo un hotel.'
+          },
+          legends: {
+            adult: 'En el portal de la antigua Casa de Postas había una hornacina con una imagen de la Virgen de la Soledad, muy venerada por los madrileños de la época. La Posada del Peine se hizo famosa porque, según la tradición, fue de las primeras en tener un peine de metal encadenado en la entrada para que los huéspedes se peinaran antes de entrar, algo insólito para la higiene de la época.',
+            kids: '¡En la puerta de la posada colgaba un peine de metal, sujeto con una cadena, para que los viajeros se peinaran antes de entrar! Es de las primeras veces que se hizo algo así en toda la ciudad.'
+          },
+          architecture: {
+            adult: 'El edificio actual, hoy convertido en hotel, une tres construcciones de épocas distintas bajo una misma fachada. Conserva el empedrado original de la entrada y la escalera principal de madera de pino, además del templete con reloj que remata el tejado, uno de los elementos más reconocibles de toda la calle.',
+            kids: '¡Mira hacia arriba! En lo alto del edificio hay un pequeño templete con un reloj, puesto hace más de 130 años. Dentro se conserva todavía la escalera de madera y el suelo empedrado de la entrada, tal y como eran hace siglos.'
+          }
+        }
+      },
+      {
+        id: 'calle-san-cristobal',
+        name: { adult: 'Calle de San Cristóbal', kids: 'Calle de San Cristóbal — El Santo que Cruzaba Ríos 🌊' },
+        subtitle: { adult: 'Una calle corta con nombre de santo gigante', kids: '¡Lleva el nombre de un santo que ayudaba a cruzar ríos!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41594, -3.70567],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Calle_de_San_Crist%C3%B3bal_%28Madrid%29_01.jpg/330px-Calle_de_San_Crist%C3%B3bal_%28Madrid%29_01.jpg',
+        audio: { duration: 115, title: { adult: 'Audioguía: Calle de San Cristóbal', kids: '¡Aventura Sonora: El Santo que Cruzaba Ríos!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Esta calle corta, de apenas un centenar de metros, debe su nombre a una antigua capillita dedicada a San Cristóbal, el santo gigante que, según la tradición, ayudaba a los viajeros a cruzar los ríos cargándolos sobre sus hombros. Forma parte de la misma manzana que el Palacio de Santa Cruz y conecta con la plaza del mismo nombre, dentro del trazado estrecho e irregular típico del Madrid de los Austrias.',
+            kids: '¡Esta calle tan cortita lleva el nombre de un santo gigante que, según cuentan, cargaba a la gente sobre sus hombros para cruzar los ríos! Está justo al lado del Palacio de Santa Cruz.'
+          },
+          legends: {
+            adult: 'Es un cruce de paso obligado entre varios puntos del casco histórico: desde aquí se llega en pocos minutos tanto a la Posada del Peine como a la Plaza Mayor, en un recorrido de calles estrechas que apenas ha cambiado de trazado desde el siglo XVI.',
+            kids: '¡Desde aquí se llega andando en un momento tanto a la Posada del Peine como a la Plaza Mayor! Las calles de esta zona son casi iguales a como eran hace 500 años.'
+          },
+          architecture: {
+            adult: 'No conserva ningún edificio propio destacado ni resto visible de la antigua capilla que le dio nombre; su interés está en el propio trazado, estrecho y sinuoso, heredado del Madrid medieval que se articula alrededor de la Plaza de Santa Cruz.',
+            kids: 'Ya no queda nada de la capilla del santo, pero la calle conserva su forma estrecha y torcida de hace cientos de años. ¡Así eran casi todas las calles del Madrid antiguo!'
+          }
+        }
+      },
+      {
+        id: 'plaza-santa-cruz',
+        name: { adult: 'Plaza de Santa Cruz', kids: 'Plaza de Santa Cruz — El Palacio que Fue Cárcel 🔑' },
+        subtitle: { adult: 'Una joya escondida del Madrid de los Austrias', kids: '¡Este palacio fue cárcel antes que ministerio!' },
+        category: CATEGORIES.HISTORY,
+        coords: [40.4147, -3.70603],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Palacio_de_Santa_Cruz%2C_Madrid_4.jpg/330px-Palacio_de_Santa_Cruz%2C_Madrid_4.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Plaza de Santa Cruz', kids: '¡Aventura Sonora: El Palacio que Fue Cárcel!' } },
+        visitInfo: {
+          hours: { adult: 'La plaza es de acceso libre; el interior del Palacio de Santa Cruz, sede del Ministerio de Asuntos Exteriores, no es visitable.', kids: 'Se puede pasear por la plaza en cualquier momento, ¡pero no se puede entrar al edificio!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Su gran protagonista es el antiguo Palacio de Santa Cruz, construido entre 1629 y 1643 bajo Felipe IV según diseño de Juan Gómez de Mora, el mismo arquitecto que dio su fisonomía definitiva a la Plaza Mayor. Sirvió como cárcel de la Corte durante siglos y hoy es la sede del Ministerio de Asuntos Exteriores.',
+            kids: 'El edificio más importante de esta plaza es el Palacio de Santa Cruz, construido hace casi 400 años. ¡Durante mucho tiempo fue una cárcel! Hoy es la sede de un ministerio del gobierno.'
+          },
+          legends: {
+            adult: 'Es una de las joyas escondidas del Madrid de los Austrias: vale la pena fijarse en su fachada simétrica de ladrillo rojo y granito y en sus torres angulares rematadas en chapiteles de pizarra, muy fotogénicas y a menudo pasadas por alto por quien solo visita la cercana Plaza Mayor.',
+            kids: '¡Fíjate en las torres puntiagudas del palacio! Están hechas con un tipo de piedra oscura llamada pizarra. Mucha gente pasa cerca sin darse cuenta de lo bonito que es este edificio.'
+          },
+          architecture: {
+            adult: 'Presenta una portada central de triple vano con superposición de cuerpos y un ático coronado por el escudo real. Su planta rectangular organiza dos patios interiores simétricos, inspirados en el Hospital Tavera de Toledo.',
+            kids: 'La entrada principal tiene tres huecos, uno encima de otro, con el escudo del rey arriba del todo. Por dentro tiene dos patios iguales, inspirados en un hospital de Toledo.'
+          }
+        }
+      },
+      {
+        id: 'colegiata-san-isidro',
+        name: { adult: 'Colegiata de San Isidro', kids: 'Colegiata de San Isidro — La Catedral Antes de la Catedral ⛪' },
+        subtitle: { adult: 'La catedral de Madrid antes de la Almudena', kids: '¡Fue la catedral de Madrid antes de que existiera la Almudena!' },
+        category: CATEGORIES.HISTORY,
+        coords: [40.41278, -3.70694],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Main_facade_of_the_Colegiata_de_San_Isidro_2022.jpg/330px-Main_facade_of_the_Colegiata_de_San_Isidro_2022.jpg',
+        audio: { duration: 155, title: { adult: 'Audioguía: Colegiata de San Isidro', kids: '¡Aventura Sonora: La Catedral Antes de la Catedral!' } },
+        visitInfo: {
+          hours: { adult: 'Abre en horario de culto, normalmente por la mañana y por la tarde.', kids: 'Se puede visitar en horario de misa.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'A lo largo de la Calle de Toledo, una de las vías más antiguas de Madrid —históricamente el camino que conectaba con Toledo cuando esta era capital—, se alza la Colegiata de San Isidro, que durante un tiempo fue la catedral de Madrid antes de que se construyera la Almudena. Proyectada en 1620 por el jesuita Pedro Sánchez, la obra se prolongó hasta 1664 bajo Francisco Bautista y Melchor de Bueras.',
+            kids: 'Esta iglesia está en la Calle de Toledo, una de las calles más antiguas de la ciudad, que antes llevaba directo hasta la ciudad de Toledo. ¡Esta iglesia fue la catedral de Madrid antes de que existiera la que hay ahora!'
+          },
+          legends: {
+            adult: 'Es una joya barroca del siglo XVII, inspirada en la iglesia del Gesù de Roma, que guarda las reliquias de San Isidro y Santa María de la Cabeza, patrones de Madrid. La calle desemboca en la zona de El Rastro, el mercadillo dominical más famoso de la ciudad, cuyo nombre viene de los rastros de sangre que dejaban las pieles de los animales que se curtían y vendían antiguamente allí.',
+            kids: 'Dentro se guardan los restos de San Isidro y su mujer, los patrones de Madrid. Si sigues caminando por esta calle llegas al Rastro, el mercadillo más famoso de la ciudad, ¡que tiene un nombre con una historia un poco sangrienta!'
+          },
+          architecture: {
+            adult: 'Su modelo es la iglesia del Gesù de Roma: planta de cruz latina, una sola nave con capillas laterales, crucero y cúpula. La fachada de piedra de granito presenta un cuerpo central de cuatro columnas corintias y un grupo escultórico de San Isidro y Santa María de la Cabeza.',
+            kids: '¡Cuenta las columnas de la entrada! Son cuatro, muy altas, y arriba hay estatuas de los dos santos patrones de Madrid. La iglesia tiene forma de cruz, como muchas iglesias grandes.'
+          }
+        }
+      },
+      {
+        id: 'calle-botoneras',
+        name: { adult: 'Calle Botoneras', kids: 'Calle Botoneras — La Calle de los Botones de Plata 🔘' },
+        subtitle: { adult: 'Una calle gremial junto a la Plaza Mayor', kids: '¡Aquí se hacían botones de plata a medida!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41482, -3.70677],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/View_of_house_No.8_at_Calle_de_Botoneras%2C_Madrid.jpg/330px-View_of_house_No.8_at_Calle_de_Botoneras%2C_Madrid.jpg',
+        audio: { duration: 130, title: { adult: 'Audioguía: Calle Botoneras', kids: '¡Aventura Sonora: La Calle de los Botones de Plata!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Calle pequeña pero con mucha historia gremial: en el siglo XVII se instalaron aquí mujeres que fabricaban y vendían botones a medida, de plata, hueso y marfil, de donde toma su nombre actual. Antes se llamaba Arco Imperial.',
+            kids: '¡Esta calle se llama así porque hace siglos aquí se hacían y vendían botones hechos a mano, algunos hasta de plata! Antes tenía otro nombre: Arco Imperial.'
+          },
+          legends: {
+            adult: 'En el número 5 está el restaurante Los Galayos, que existe desde 1894 y conserva la barra tallada a mano de principios del siglo XIX, procedente de otro local familiar, y el llamado Salón Ávila, con vigas de madera vistas y azulejería de motivos quijotescos.',
+            kids: '¡En esta calle hay un restaurante que lleva abierto desde 1894! Dentro guarda una barra de madera tallada a mano y azulejos pintados con dibujos de Don Quijote.'
+          },
+          architecture: {
+            adult: 'Forma parte del entramado de calles porticadas que Juan Gómez de Mora extendió alrededor de la Plaza Mayor, con soportales continuos que conectan directamente con los de la plaza.',
+            kids: '¡Esta calle tiene soportales, como la Plaza Mayor, que está justo al lado! Así puedes caminar protegido de la lluvia o del sol.'
+          }
+        }
+      },
+      {
+        id: 'calle-siete-de-julio',
+        name: { adult: 'Calle del Siete de Julio', kids: 'Calle del Siete de Julio — La Calle de la Amargura 😢' },
+        subtitle: { adult: 'De camino de condenados a escenario de un alzamiento', kids: '¡Antes se llamaba la Calle de la Amargura!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41593, -3.70797],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Madrid_%2822216555508%29.jpg/330px-Madrid_%2822216555508%29.jpg',
+        audio: { duration: 130, title: { adult: 'Audioguía: Calle del Siete de Julio', kids: '¡Aventura Sonora: La Calle de la Amargura!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Antiguamente se llamaba Calle de la Amargura, porque era el camino que recorrían los condenados hacia su ejecución pública en la Plaza Mayor. Cambió de nombre por un enfrentamiento real ocurrido aquí el 7 de julio de 1822, cuando la Milicia Nacional se enfrentó a la Guardia Real de Fernando VII en defensa de la Constitución liberal de la época; el cambio se oficializó por acuerdo municipal el 23 de noviembre de 1823.',
+            kids: 'Esta calle antes se llamaba "Calle de la Amargura", porque por aquí pasaban los presos camino de su castigo en la Plaza Mayor. Le cambiaron el nombre después de una pelea de verdad que pasó aquí, ¡un 7 de julio!'
+          },
+          legends: {
+            adult: 'Es una calle corta pero que fue escenario de un intento de golpe de estado real. Conserva una de las clásicas placas cerámicas del callejero madrileño, con el nombre de la calle pintado a mano.',
+            kids: '¡En esta calle tan cortita pasó un enfrentamiento de verdad entre soldados! Fíjate en la placa de cerámica con el nombre de la calle, pintada a mano como las de todo el centro de Madrid.'
+          },
+          architecture: {
+            adult: 'Conecta la Calle Mayor con la Plaza Mayor a través de uno de los tramos más estrechos del entramado original diseñado por Juan Gómez de Mora en el siglo XVII.',
+            kids: 'Es una calle muy estrecha, tal y como se diseñaron muchas calles de esta zona hace 400 años.'
+          }
+        }
+      },
+      {
+        id: 'calle-ciudad-rodrigo',
+        name: { adult: 'Calle Ciudad Rodrigo', kids: 'Calle Ciudad Rodrigo — La Puerta del Cortejo Real 👑' },
+        subtitle: { adult: 'Una de las diez entradas históricas a la Plaza Mayor', kids: '¡Se abrió para que pasara el cortejo del rey!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41574, -3.7084],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Plaza_Mayor_de_Madrid_desde_calle_Ciudad_Rodrigo_-_03.jpg/330px-Plaza_Mayor_de_Madrid_desde_calle_Ciudad_Rodrigo_-_03.jpg',
+        audio: { duration: 125, title: { adult: 'Audioguía: Calle Ciudad Rodrigo', kids: '¡Aventura Sonora: La Puerta del Cortejo Real!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Es una de las diez entradas históricas a la Plaza Mayor. Antes se llamaba Calle Nueva, y se abrió especialmente para que el cortejo real pudiera ir desde la Plaza Mayor hasta la iglesia de Atocha sin rodear por la Puerta del Sol.',
+            kids: '¡Esta calle es una de las diez entradas antiguas a la Plaza Mayor! Se abrió para que el rey pudiera pasar directo hacia otra iglesia, sin dar rodeos.'
+          },
+          legends: {
+            adult: 'Le cambiaron el nombre en honor a la ciudad de Ciudad Rodrigo (Salamanca), que resistió heroicamente el asedio de las tropas napoleónicas durante la Guerra de la Independencia.',
+            kids: 'Le pusieron el nombre de otra ciudad española, Ciudad Rodrigo, que resistió muy valientemente cuando la invadieron los soldados franceses hace más de 200 años.'
+          },
+          architecture: {
+            adult: 'Es una de las calles porticadas que enlazan con los soportales de la Plaza Mayor, dentro del modelo unificado que Juan Gómez de Mora extendió a las calles adyacentes en el siglo XVII.',
+            kids: '¡Esta calle también tiene soportales, igual que la Plaza Mayor! Todas estas calles de alrededor se construyeron con el mismo estilo hace 400 años.'
+          }
+        }
+      },
+      {
+        id: 'calle-duque-de-najera',
+        name: { adult: 'Calle del Duque de Nájera', kids: 'Calle del Duque de Nájera — El Palacio Maldito 👻' },
+        subtitle: { adult: 'La calle del palacio con fama de embrujado', kids: '¡Rodea un palacio con fama de estar maldito!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41496, -3.71114],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Palacio_de_Ca%C3%B1ete_%28Madrid%29_01.jpg/330px-Palacio_de_Ca%C3%B1ete_%28Madrid%29_01.jpg',
+        audio: { duration: 140, title: { adult: 'Audioguía: Calle del Duque de Nájera', kids: '¡Aventura Sonora: El Palacio Maldito!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (calle pública).', kids: '¡Se puede pasear por aquí en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Va desde la Calle Mayor hasta la Calle de Sacramento, rodeando el antiguo Palacio de Cañete, construido entre finales del siglo XVI y principios del XVII en estilo herreriano, con ladrillo visto, zócalos de piedra, cuatro plantas y dos torres laterales rematadas en chapiteles.',
+            kids: 'Esta calle rodea un palacio antiguo, el Palacio de Cañete, construido hace más de 400 años, con dos torres con tejados puntiagudos.'
+          },
+          legends: {
+            adult: 'El palacio se ganó fama de estar maldito, con apariciones y ruidos extraños, hasta que se descubrió que un criado había asesinado al dueño anterior. La viuda no soportó seguir viviendo allí y vendió el palacio; quien lo compró fue el Duque de Nájera, de ahí el nombre de la calle.',
+            kids: '¡Dicen que este palacio estaba embrujado, con ruidos raros por las noches! Al final se descubrió que un criado había hecho algo terrible ahí dentro. La viuda del dueño no quiso seguir viviendo allí y lo vendió a un duque, que le dio su nombre a la calle.'
+          },
+          architecture: {
+            adult: 'El palacio, de estilo herreriano y casi sin ornamentación, conserva una portada principal con molduras rectas de granito, pilastras dóricas y un remate de triglifos y metopas.',
+            kids: 'La entrada del palacio es muy sobria, sin apenas decoración, con columnas sencillas talladas en piedra. Así eran los edificios serios de la época de Felipe II.'
+          }
+        }
+      },
+      {
+        id: 'catedral-castrense',
+        name: { adult: 'Catedral Castrense (Iglesia del Sacramento)', kids: 'Catedral Castrense — La Catedral de los Soldados ⚔️' },
+        subtitle: { adult: 'La catedral de las Fuerzas Armadas españolas', kids: '¡Guarda una lanza que atravesó a Cristo, según la tradición!' },
+        category: CATEGORIES.HISTORY,
+        coords: [40.41477, -3.71231],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Madrid%2C_iglesia_catedral_castrense_del_sacramento_%28cattedrale_delle_forze_armate%29%2C_facciata_02.jpg/330px-Madrid%2C_iglesia_catedral_castrense_del_sacramento_%28cattedrale_delle_forze_armate%29%2C_facciata_02.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Catedral Castrense', kids: '¡Aventura Sonora: La Catedral de los Soldados!' } },
+        visitInfo: {
+          hours: { adult: 'Abre en horario de culto, normalmente por la mañana y por la tarde.', kids: 'Se puede visitar en horario de misa.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'En origen fue el convento de las monjas bernardas del Santísimo Sacramento, fundado en 1615. La iglesia, proyectada en cruz latina por Juan Gómez de Mora, tardó décadas en construirse: la obra, dirigida principalmente por Bartolomé Hurtado García con intervención de Francisco Bautista y Manuel del Olmo, se terminó en 1744. No se convirtió en Catedral de las Fuerzas Armadas hasta 1986.',
+            kids: 'Esta iglesia empezó siendo un convento de monjas, hace más de 400 años. Tardaron muchísimos años en construirla del todo. Hace relativamente poco, en 1986, se convirtió en la catedral de los soldados españoles.'
+          },
+          legends: {
+            adult: 'Guarda una reliquia curiosa: una lanza que la tradición atribuye al centurión romano que atravesó el costado de Cristo.',
+            kids: '¡Dentro guardan una lanza que, según cuentan, es la misma que usó un soldado romano hace 2.000 años! Es una de las reliquias más curiosas de todo Madrid.'
+          },
+          architecture: {
+            adult: 'La fachada de granito, con tres arcos y un bajorrelieve de San Benito y San Bernardo adorando el Santísimo, es obra del arquitecto Pedro de Ribera, hacia 1744; la decoración interior es de Francisco Esteban, del mismo año.',
+            kids: 'La entrada tiene tres arcos de piedra gris, con una escena tallada encima. Por dentro, la decoración es de la misma época, ¡de hace casi 300 años!'
+          }
+        }
+      },
+      {
+        id: 'mirador-muralla-arabe',
+        name: { adult: 'Mirador de la Muralla Árabe', kids: 'Mirador de la Muralla Árabe — Donde Nació Madrid 🏰' },
+        subtitle: { adult: 'Los restos más antiguos de la ciudad, al aire libre', kids: '¡Aquí empezó Madrid, hace más de 1.100 años!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.41493, -3.71457],
+        image: 'assets/photos/madrid/mirador-muralla-arabe.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Mirador de la Muralla Árabe', kids: '¡Aventura Sonora: Donde Nació Madrid!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (mirador y parque al aire libre).', kids: '¡Se puede visitar en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'En el Parque del Emir Mohamed I, en la Cuesta de la Vega y frente al ábside de la Catedral de la Almudena, se conservan restos de la muralla emiral de Madrid, construida en el siglo IX, cuando la ciudad era una pequeña alcazaba árabe llamada Mayrit, fundada por el emir Mohamed I para vigilar el valle del Manzanares y proteger Toledo. Es una de las construcciones más antiguas conservadas en toda la ciudad, hecha con mampostería de piedra caliza y sílex.',
+            kids: '¡Aquí se conservan trozos de la muralla más antigua de Madrid, de hace más de 1.100 años! En esa época Madrid era solo una pequeña fortaleza árabe llamada Mayrit, construida para vigilar el valle y proteger el camino hacia Toledo.'
+          },
+          legends: {
+            adult: 'Bajo el cristal que la protege también se puede ver parte del foso defensivo. Junto a la muralla hay una escultura de bronce de un hombre asomado a la cristalera, obra del artista Antonio López García, que representa la mirada de la ciudad hacia su propio pasado enterrado. Este punto marca literalmente el límite de lo que fue la Madrid musulmana original.',
+            kids: '¡Bajo un cristal se puede ver también el foso que protegía la muralla! Al lado hay una estatua de bronce de un hombre asomado, como si estuviera mirando el pasado escondido de la ciudad. ¡Aquí terminaba la Madrid árabe de hace mil años!'
+          },
+          architecture: {
+            adult: 'La muralla combina hiladas de mampostería con verdugadas de ladrillo en algunos tramos, una técnica constructiva típica de la arquitectura defensiva andalusí de los siglos IX y X, muy anterior a las murallas cristianas posteriores que rodearían la ciudad.',
+            kids: 'Fíjate en cómo está hecha la muralla: piedras puestas en filas, con algunas líneas de ladrillo entre medias. Así construían las murallas árabes hace más de mil años, mucho antes de las murallas cristianas que vinieron después.'
+          }
+        }
+      },
+      {
+        id: 'palacio-senado',
+        name: { adult: 'Palacio del Senado', kids: 'Palacio del Senado — Dos Edificios en Uno 🏛️' },
+        subtitle: { adult: 'Cámara alta española en un convento reconvertido', kids: '¡Un edificio antiguo y otro moderno, pegados!' },
+        category: CATEGORIES.HISTORY,
+        coords: [40.42118, -3.71182],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Madrid_-_Senado_de_Espa%C3%B1a_2.jpg/330px-Madrid_-_Senado_de_Espa%C3%B1a_2.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Palacio del Senado', kids: '¡Aventura Sonora: Dos Edificios en Uno!' } },
+        visitInfo: {
+          hours: { adult: 'Se puede visitar por dentro en jornadas de puertas abiertas o con cita previa organizada por el propio Senado; por fuera, acceso libre a la plaza.', kids: 'Por fuera se puede ver siempre; para entrar hay que apuntarse a una visita organizada.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Combina dos edificios bien diferenciados por su color: el histórico, de fachada rosa, es el antiguo Colegio de Doña María de Aragón, del siglo XVI, reformado en estilo neoclásico en el siglo XIX por Aníbal Álvarez Bouquel; el arquitecto Antonio Prat transformó después la antigua iglesia conventual, de planta rectangular, en el actual Salón de Sesiones.',
+            kids: 'Este edificio en realidad son dos pegados: uno antiguo, de color rosa, que antes fue un colegio religioso, y otro más moderno. ¡La sala donde se reúnen los senadores estaba antes dentro de una iglesia!'
+          },
+          legends: {
+            adult: 'El edificio de Ampliación, de planta circular en la calle Bailén, se construyó entre 1987 y 1991, obra conjunta de los arquitectos Salvador Gayarre, José Ramos y Antonio García Vereda; su hemiciclo moderno muestra una fachada curva hacia la calle.',
+            kids: 'La parte más nueva del edificio es redonda y se terminó hace poco más de 30 años. ¡Fíjate en su forma curva, muy distinta del edificio rosa de al lado!'
+          },
+          architecture: {
+            adult: 'La combinación de un edificio conventual reformado en el siglo XIX con una ampliación circular de finales del XX convierte al Palacio del Senado en un ejemplo poco habitual de arquitectura institucional construida en dos tiempos muy distintos, sin ocultar ninguno de los dos.',
+            kids: 'Es raro ver un edificio de gobierno hecho de dos partes tan diferentes: una muy antigua y otra bastante moderna, ¡sin intentar disimular ninguna de las dos!'
+          }
+        }
+      },
+      {
+        id: 'real-compania-asturiana-minas',
+        name: { adult: 'Antigua sede de la Real Compañía Asturiana de Minas', kids: 'La Casa de la Compañía de Minas ⛏️' },
+        subtitle: { adult: 'Un palacio ecléctico camino de convertirse en centro cultural', kids: '¡Un edificio precioso que antes era de una empresa minera!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.42194, -3.7125],
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Real_Compa%C3%B1%C3%ADa_Asturiana_de_Minas_%28Madrid%29_03.jpg/330px-Real_Compa%C3%B1%C3%ADa_Asturiana_de_Minas_%28Madrid%29_03.jpg',
+        audio: { duration: 140, title: { adult: 'Audioguía: Real Compañía Asturiana de Minas', kids: '¡Aventura Sonora: La Casa de la Compañía de Minas!' } },
+        visitInfo: {
+          hours: { adult: 'En rehabilitación: no es visitable por dentro; se puede ver la fachada desde la calle.', kids: 'Ahora mismo está en obras, así que solo se puede ver por fuera.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Este edificio ecléctico, construido entre 1895 y 1899 por el arquitecto Manuel Martínez Ángel, fue la sede histórica de la Real Compañía Asturiana de Minas, una importante compañía minera española. Actualmente está en rehabilitación para convertirse en centro cultural de la Fundación Mutua Madrileña.',
+            kids: 'Este edificio tan bonito, de hace más de 125 años, era la sede de una empresa que se dedicaba a las minas. Ahora lo están arreglando para convertirlo en un centro de cultura.'
+          },
+          legends: {
+            adult: 'Con 3.800 metros cuadrados construidos en estilo ecléctico monumental de gusto francés, sus dos alas rectangulares flanquean un cuerpo central rematado por una torre con cúpula, que alberga en su interior una escalinata imperial.',
+            kids: '¡Es un edificio enorme, con una torre en el medio rematada por una cúpula! Dentro tiene una escalera muy grande y elegante, de las que suben en varias direcciones.'
+          },
+          architecture: {
+            adult: 'Combina piedra y ladrillo en las dos primeras plantas y conserva vidrieras clasicistas de la casa Maumejean, de 1899, en la escalera y en la entrada, un detalle decorativo poco frecuente en los edificios de oficinas de la época.',
+            kids: 'Fíjate en las vidrieras de colores de la entrada y de la escalera: ¡tienen más de 125 años y son un lujo poco habitual para un edificio de oficinas!'
+          }
+        }
+      },
+      {
+        id: 'mirador-edificio-espana',
+        name: { adult: 'Mirador del Edificio España (Hotel RIU Plaza España)', kids: 'El Rascacielos con Balcón Infinito 🌆' },
+        subtitle: { adult: 'Vistas de 360º desde uno de los primeros rascacielos de España', kids: '¡Tiene un balcón de cristal que parece flotar en el aire!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.42417, -3.71194],
+        image: 'assets/photos/madrid/riu-plaza-espana.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Mirador del Edificio España', kids: '¡Aventura Sonora: El Rascacielos con Balcón Infinito!' } },
+        visitInfo: {
+          hours: { adult: 'El mirador de la planta 27 es de acceso libre para clientes del hotel; conviene consultar horario y disponibilidad in situ.', kids: 'Para subir al mirador hay que ser cliente del hotel.' },
+          price: { adult: 'Gratis para clientes del hotel; puede haber consumición mínima en la terraza.', kids: 'Depende del hotel, ¡pregunta antes de subir!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Este rascacielos, construido en 1953 por los hermanos Otamendi, tiene 117 metros de altura y 27 plantas. Fue uno de los primeros grandes rascacielos de España y hoy funciona como hotel, el RIU Plaza España.',
+            kids: '¡Este edificio tan alto se construyó hace más de 70 años y fue uno de los primeros rascacielos de toda España! Ahora es un hotel.'
+          },
+          legends: {
+            adult: 'Tiene el llamado "balcón infinito" de cristal en la planta 26, y una terraza con vistas de 360 grados en la planta 27, dos de los miradores más solicitados de la ciudad.',
+            kids: '¡Tiene un balcón de cristal en un piso muy alto, que parece que no tiene fin! Y arriba del todo, una terraza desde la que se ve Madrid entero, en todas direcciones.'
+          },
+          architecture: {
+            adult: 'Comparte protagonismo con la Torre de Madrid (1957) como uno de los dos grandes símbolos de la arquitectura de posguerra española que flanquean la Plaza de España, ambos entre los edificios más altos de Europa en el momento de su construcción.',
+            kids: 'Este edificio y su vecino, la Torre de Madrid, fueron durante años de los edificios más altos de toda Europa. ¡Los dos vigilan la Plaza de España desde arriba!'
+          }
+        }
+      },
+      {
+        id: 'carmelitas-descalzas-plaza-espana',
+        name: { adult: 'Templo de Santa Teresa y San José (Carmelitas Descalzas)', kids: 'La Iglesia con Forma de Castillo 🏰' },
+        subtitle: { adult: 'La primera iglesia de Madrid en hormigón armado', kids: '¡Una iglesia con almenas, como un castillo!' },
+        category: CATEGORIES.HISTORY,
+        coords: [40.42236, -3.71491],
+        image: 'assets/photos/madrid/carmelitas-descalzas.jpg',
+        audio: { duration: 150, title: { adult: 'Audioguía: Templo de Santa Teresa y San José', kids: '¡Aventura Sonora: La Iglesia con Forma de Castillo!' } },
+        visitInfo: {
+          hours: { adult: 'Abre en horario de culto, normalmente por la mañana y por la tarde.', kids: 'Se puede visitar en horario de misa.' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Financiada por Alfonso XIII y la reina Victoria Eugenia, se colocó la primera piedra el 28 de marzo de 1916; las obras, dirigidas por el arquitecto Jesús Carrasco-Muñoz, comenzaron en 1923 y el templo se inauguró el 26 de mayo de 1928. Fue la primera iglesia de Madrid construida en hormigón armado.',
+            kids: 'Esta iglesia la pagaron un rey y una reina, hace más de 100 años. Tardaron años en construirla y fue la primera iglesia de Madrid hecha con hormigón, un material muy moderno para la época.'
+          },
+          legends: {
+            adult: 'Su diseño se inspira en "Las Moradas" de Santa Teresa de Jesús, y tiene aspecto de castillo, con almenas en su fachada, una imagen poco habitual para un templo religioso.',
+            kids: '¡Tiene almenas en la fachada, como un castillo de verdad! Es rarísimo ver una iglesia con esa forma. Su diseño está inspirado en un libro escrito por una santa hace siglos.'
+          },
+          architecture: {
+            adult: 'El uso pionero del hormigón armado permitió resolver con un lenguaje casi militar —torreones, almenas— un edificio religioso, un contraste poco frecuente en la arquitectura sacra madrileña del primer tercio del siglo XX.',
+            kids: 'Usar hormigón para construir una iglesia era una idea muy nueva para la época. ¡Por eso pudieron hacerle esos torreones y almenas, como si fuera una fortaleza!'
+          }
+        }
+      },
+      {
+        id: 'fuente-de-la-concha',
+        name: { adult: 'Fuente de la Concha (o del Nacimiento del Agua)', kids: 'La Fuente de las Ninfas 🧜' },
+        subtitle: { adult: 'Una fuente con ninfas de bronce, trasladada en 2021', kids: '¡Esta fuente se mudó de sitio hace pocos años!' },
+        category: CATEGORIES.HIDDEN,
+        coords: [40.4227, -3.7146],
+        image: 'assets/photos/madrid/fuente-concha.jpg',
+        audio: { duration: 130, title: { adult: 'Audioguía: Fuente de la Concha', kids: '¡Aventura Sonora: La Fuente de las Ninfas!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (fuente al aire libre).', kids: '¡Se puede visitar en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'De 1970, con diseño de Manuel Herrera Palacios y ninfas de bronce obra del escultor Antonio Campillo, se ubicaba originalmente en el borde este de la Plaza de España. Durante la remodelación de la plaza entre 2019 y 2021 se trasladó a su ubicación actual, cerca de la Iglesia de las Carmelitas Descalzas, camino del Templo de Debod.',
+            kids: 'Esta fuente tiene más de 50 años y tiene ninfas de bronce decorándola. Hace pocos años, cuando arreglaron toda la Plaza de España, la cambiaron de sitio.'
+          },
+          legends: {
+            adult: 'El cambio de ubicación, poco conocido incluso entre los propios madrileños, hace que algunas fotos y planos antiguos de la plaza ya no coincidan con la posición actual de la fuente, un pequeño rompecabezas para quien intente localizarla con una foto vieja en la mano.',
+            kids: '¡Si alguien busca esta fuente con una foto antigua, puede que se despiste! Como la movieron de sitio hace poco, ya no está donde estaba antes.'
+          },
+          architecture: {
+            adult: 'Las ninfas de bronce, dispuestas alrededor del cuerpo central de la fuente, representan alegorías del nacimiento del agua, un tema clásico de la fontanería ornamental española del siglo XX.',
+            kids: 'Las figuras de bronce que rodean la fuente representan el nacimiento del agua, como si contaran una pequeña historia con estatuas.'
+          }
+        }
+      },
+      {
+        id: 'monumento-dos-de-mayo',
+        name: { adult: 'Monumento al Pueblo del Dos de Mayo de 1808', kids: 'El Monumento a los Héroes del Dos de Mayo ⚔️' },
+        subtitle: { adult: 'Homenaje al levantamiento popular contra Napoleón', kids: '¡Recuerda a la gente que se rebeló contra un ejército entero!' },
+        category: CATEGORIES.HISTORY,
+        coords: [40.42315, -3.71491],
+        image: 'assets/photos/madrid/monumento-2-mayo.jpg',
+        audio: { duration: 165, title: { adult: 'Audioguía: Monumento al Dos de Mayo', kids: '¡Aventura Sonora: Los Héroes del Dos de Mayo!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (monumento al aire libre).', kids: '¡Se puede visitar en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Obra del escultor Aniceto Marinas, esculpida originalmente en Roma en 1891, conmemora el levantamiento popular de Madrid contra las tropas napoleónicas el 2 de mayo de 1808. El monumento definitivo en bronce se inauguró en 1908, coincidiendo con el centenario, y representa al teniente Luis Daoíz herido sobre un cañón inutilizado, al chispero Juan Manuel Malasaña y a su hija Manuela Malasaña, junto a un niño anónimo que la sujeta de la mano con gesto de rabia, coronado por una figura alada con bandera que simboliza la Gloria o la Victoria.',
+            kids: 'Este monumento recuerda un día en que la gente de Madrid se enfrentó, casi sin armas, a un ejército entero, el 2 de mayo de 1808. Un escultor lo hizo hace más de 100 años, y muestra a varios de esos vecinos valientes.'
+          },
+          legends: {
+            adult: 'Tuvo un recorrido bastante viajero antes de llegar a su ubicación actual: pasó por la Glorieta de San Bernardo, luego Moncloa, después la Plaza del Dos de Mayo, hasta terminar, ya en los años 60, junto a la Plaza de España.',
+            kids: '¡Esta estatua se ha mudado de sitio varias veces! Estuvo en al menos tres lugares distintos de Madrid antes de quedarse en el sitio donde está ahora, cerca de la Plaza de España.'
+          },
+          architecture: {
+            adult: 'El conjunto escultórico combina piedra y bronce en un lenguaje realista y dramático, típico de la escultura monumental española de finales del siglo XIX, pensado para transmitir el sufrimiento y la determinación de sus protagonistas populares, no militares de carrera.',
+            kids: 'Fíjate en las caras de las figuras: están hechas para que se note el dolor y el valor de esas personas normales, que no eran soldados profesionales, ¡pero se enfrentaron igual a un ejército entero!'
+          }
+        }
+      },
+      {
+        id: 'caidos-cuartel-montana',
+        name: { adult: 'Caídos del Cuartel de la Montaña', kids: 'El Monumento del Cuartel Desaparecido 🎖️' },
+        subtitle: { adult: 'Homenaje escultórico a los combates de julio de 1936', kids: '¡Aquí hubo un cuartel que ya no existe!' },
+        category: CATEGORIES.HISTORY,
+        coords: [40.42427, -3.71646],
+        image: 'assets/photos/madrid/caidos-cuartel-montana.jpg',
+        audio: { duration: 145, title: { adult: 'Audioguía: Caídos del Cuartel de la Montaña', kids: '¡Aventura Sonora: El Monumento del Cuartel Desaparecido!' } },
+        visitInfo: {
+          hours: { adult: 'Acceso libre, sin horario fijo (monumento al aire libre, en el parque del Templo de Debod).', kids: '¡Se puede visitar en cualquier momento!' },
+          price: { adult: 'Gratis, no requiere entrada.', kids: '¡Gratis!' }
+        },
+        tabs: {
+          history: {
+            adult: 'Este monumento, obra del artista Joaquín Vaquero Turcios, se inauguró en 1972 en el eje del Templo de Debod, en la bifurcación de la escalinata que sube desde la calle Ferraz hacia los jardines. El antiguo Cuartel de la Montaña estaba precisamente en esta zona —donde hoy se alza el Templo de Debod— y fue escenario de duros combates al inicio de la Guerra Civil, en julio de 1936.',
+            kids: 'Este monumento recuerda un cuartel militar que ya no existe: estaba justo donde hoy está el Templo de Debod. Allí hubo combates muy duros al principio de una guerra, en julio de 1936. El monumento se hizo bastantes años después, en 1972.'
+          },
+          legends: {
+            adult: 'Consiste en un talud sostenido por un parapeto de sacos terreros tallados en piedra arenisca rosada, sobre el que se recorta una figura de bronce mutilada, de carácter expresionista y colgada en horizontal, que rinde homenaje a las víctimas caídas en el cuartel. La inscripción en el suelo, en una placa de bronce, dice: "1936 · A los Caídos en el Cuartel de la Montaña · 1972".',
+            kids: 'El monumento parece un muro hecho de sacos de arena, pero está tallado en piedra. Encima hay una figura de bronce tumbada, con una placa en el suelo que recuerda ese año tan duro.'
+          },
+          architecture: {
+            adult: 'El uso de la piedra arenisca rosada tallada para imitar sacos terreros es un recurso escultórico poco habitual, que busca fundir la memoria de una fortificación militar real con el lenguaje de un monumento conmemorativo.',
+            kids: '¡Es un truco muy ingenioso! La piedra está tallada para que parezca de verdad una pared hecha de sacos de arena apilados, como los que se usaban para protegerse en la guerra.'
           }
         }
       }
