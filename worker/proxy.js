@@ -18,6 +18,14 @@ const ALLOWED_ORIGINS = [
 ];
 
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
+const GOOGLE_TTS_URL = 'https://texttospeech.googleapis.com/v1/text:synthesize';
+
+// Voz de audioguía: WaveNet en español de España, la más barata de las
+// voces "de calidad" de Google (ver worker/README.md). Ritmo ligeramente
+// más pausado que el neutro (1.0), a juego con el ajuste ya aplicado a la
+// voz del navegador (SPEECH.speak en app.js).
+const TTS_VOICE = { languageCode: 'es-ES', name: 'es-ES-Wavenet-B' };
+const TTS_SPEAKING_RATE = 0.95;
 
 function corsHeaders(origin) {
   const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
@@ -38,7 +46,10 @@ export default {
     }
 
     const url = new URL(request.url);
-    if (request.method !== 'POST' || !url.pathname.endsWith('/chat/completions')) {
+    const isChat = url.pathname.endsWith('/chat/completions');
+    const isTts = url.pathname.endsWith('/tts');
+
+    if (request.method !== 'POST' || (!isChat && !isTts)) {
       return new Response(JSON.stringify({ error: 'not found' }), {
         status: 404,
         headers: { ...headers, 'Content-Type': 'application/json' }
@@ -51,6 +62,8 @@ export default {
         headers: { ...headers, 'Content-Type': 'application/json' }
       });
     }
+
+    if (isTts) return handleTts(request, env, headers);
 
     let body;
     try {
@@ -78,3 +91,79 @@ export default {
     });
   }
 };
+
+// Audioguía en voz real (Google Cloud Text-to-Speech). Solo se usa para el
+// resumen narrado de cada POI (texto fijo, cacheado en el navegador de
+// quien lo pide — ver CLOUD_TTS en app.js), nunca para el chat con la IA.
+// Requiere el secret "GOOGLE_TTS_API_KEY" en el Worker (ver worker/README.md);
+// si no está configurado, responde 501 y la app cae automáticamente a la
+// voz del navegador (Web Speech API) sin que el usuario note un error.
+async function handleTts(request, env, headers) {
+  if (!env.GOOGLE_TTS_API_KEY) {
+    return new Response(JSON.stringify({ error: 'TTS not configured' }), {
+      status: 501,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  let payload;
+  try {
+    payload = await request.json();
+  } catch (e) {
+    return new Response(JSON.stringify({ error: 'invalid request body' }), {
+      status: 400,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  // Tope de caracteres por petición: ninguna narración de la app se acerca
+  // a esto (el límite real de la propia API de Google es 5000), es solo un
+  // cinturón de seguridad extra ante un uso indebido del endpoint.
+  const text = String((payload && payload.text) || '').slice(0, 3000);
+  if (!text.trim()) {
+    return new Response(JSON.stringify({ error: 'missing text' }), {
+      status: 400,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  let ttsRes;
+  try {
+    ttsRes = await fetch(`${GOOGLE_TTS_URL}?key=${env.GOOGLE_TTS_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        input: { text },
+        voice: TTS_VOICE,
+        audioConfig: { audioEncoding: 'MP3', speakingRate: TTS_SPEAKING_RATE }
+      })
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: 'tts request failed' }), {
+      status: 502,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  if (!ttsRes.ok) {
+    // Aquí llega también un 429/403 de Google si se agota la cuota gratis
+    // (o el límite de caracteres que hayas puesto tú en la consola de
+    // Google Cloud): se reenvía tal cual, el cliente lo trata como "no
+    // disponible" y cae a la voz del navegador sin romper la audioguía.
+    const errText = await ttsRes.text();
+    return new Response(errText, {
+      status: ttsRes.status,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const data = await ttsRes.json();
+  const binary = atob(data.audioContent);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+
+  return new Response(bytes, {
+    status: 200,
+    headers: { ...headers, 'Content-Type': 'audio/mpeg' }
+  });
+}
