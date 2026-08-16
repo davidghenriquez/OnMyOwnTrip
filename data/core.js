@@ -211,6 +211,29 @@ const CITIES = {
         }
       }
     ]
+  },
+
+  berlin: {
+    id: 'berlin',
+    name: 'Berlín',
+    country: 'Alemania',
+    continent: 'Europa',
+    subtitle: { adult: 'Historia, muros y memoria', kids: '¡La Ciudad del Oso y el Muro! 🐻' },
+    center: [52.5145, 13.3888],
+    zoom: 12.6,
+    minZoom: 11.5,
+    bounds: [[52.493, 13.27], [52.535, 13.47]],
+    routes: [
+      {
+        id: 'main',
+        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
+        color: '#F59E0B',
+        intro: {
+          adult: 'La ruta imprescindible de Berlín reúne los grandes símbolos de una ciudad marcada por el siglo XX: dictadura, guerra, muro y reunificación. Empezarás en la Puerta de Brandeburgo, subirás a la cúpula de cristal del Reichstag, cruzarás el inquietante Monumento a los Judíos de Europa Asesinados y llegarás hasta Checkpoint Charlie, el paso fronterizo más famoso de la Guerra Fría. Seguirás hasta la Catedral de Berlín y el Museo de Pérgamo, en la Isla de los Museos, y terminarás con las vistas de toda la ciudad desde la Torre de Televisión de Alexanderplatz. Al ser una ruta más extensa que en otras ciudades, algunos tramos te convendrá hacerlos en metro o bus en lugar de a pie. Al acabar entenderás por qué Berlín es, quizás, la capital europea que más abiertamente convive con su propia historia. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Prepárate para conocer una ciudad que tiene un oso como símbolo, igual que Madrid! 🐻 Vas a pasar por una puerta gigante con un carro de oro encima, subir a una cúpula de cristal desde la que se ve todo el Parlamento, cruzar un lugar muy especial que recuerda a millones de personas, y visitar el puesto fronterizo más famoso de cuando la ciudad estaba dividida por un muro. También verás una catedral enorme, un museo con puertas gigantes de hace miles de años y una torre altísima con las mejores vistas de toda la ciudad. Como Berlín es una ciudad grande, ¡en algunos tramos os convendrá coger el metro! ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      }
+    ]
   }
 };
 
