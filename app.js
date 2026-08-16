@@ -502,6 +502,9 @@
     sheet: 'closed',
     audio: {
       playing: false, currentTime: 0, duration: 0, timer: null,
+      // 'cloud' mientras suena/está en pausa un audio de CLOUD_TTS; null
+      // en cualquier otro caso (incluido "sonando con Web Speech").
+      engine: null,
       // Texto puntual a narrar a continuación (p.ej. la revelación de una
       // pregunta del quiz), en vez del resumen inicial. Se limpia cada vez
       // que se abre una ficha para que el audio inicial vuelva a sonar.
@@ -2142,6 +2145,18 @@
       // que el audio principal en modo niño siempre lo identifique bien sin
       // depender de su posición en el historial (ver buildNarrativeText).
       hist.push({ role: 'assistant', text, isSummary: kind === 'summary' });
+      // Solo el resumen inicial intenta CLOUD_TTS: es la única narración
+      // que vale la pena cachear (el chat y las revelaciones del quiz son
+      // texto de un solo uso). Si no está configurado o falla, no añade
+      // espera real (fetchAndCache resuelve al momento en ese caso).
+      // Importante: se pide con SPEECH.getText() (evaluado ya con este
+      // mensaje metido en el historial), no con la variable "text" suelta
+      // — buildNarrativeText le añade la intro ("¡Hola! Vamos a descubrir…")
+      // que también se narra, así que hay que cachear el texto completo tal
+      // cual lo va a pedir startAudio, o la caché nunca haría match.
+      if (kind === 'summary' && STATE.activePoiId === poi.id && CLOUD_TTS.isConfigured()) {
+        await CLOUD_TTS.fetchAndCache(SPEECH.getText());
+      }
       // Autoplay de la respuesta recién generada. Se dispara fuera del gesto
       // directo del usuario (tras el await), así que en iOS Safari puede no
       // arrancar la primera vez; por eso "silent" evita un toast de error y
@@ -2653,12 +2668,88 @@
   })();
 
   /* =========================================================
+   * CLOUD TTS (Google Cloud Text-to-Speech, vía el Worker propio)
+   * Prototipo opcional en prueba: si no hay window.LLM_CONFIG.baseUrl
+   * configurado, o el Worker no tiene la key de Google puesta, o falla la
+   * petición (incluida cuota agotada), todo esto queda inactivo sin más y
+   * la app sigue funcionando con SPEECH (Web Speech API) como hasta ahora
+   * — nunca se rompe la audioguía por esto.
+   *
+   * Solo se intenta para el resumen narrado que genera la IA al abrir un
+   * POI (kind: 'summary' en queueAiMessage), nunca para el chat ni las
+   * revelaciones del quiz: ese texto es dinámico y no compensa cachearlo,
+   * así que se queda directamente en Web Speech.
+   *
+   * El audio se pide una vez por texto exacto (se cachea por hash del
+   * texto, no por POI, para que un mismo resumen nunca se vuelva a pagar)
+   * y se guarda en Cache Storage — sobrevive a recargas de página, no solo
+   * a la sesión actual.
+   * =======================================================*/
+  const CLOUD_TTS = (() => {
+    const baseUrl = (typeof window !== 'undefined' && window.LLM_CONFIG && window.LLM_CONFIG.baseUrl) || '';
+    const endpoint = baseUrl ? `${baseUrl.replace(/\/$/, '')}/tts` : '';
+    const CACHE_NAME = 'omot-tts-v1';
+    // hash(texto) -> URL de objeto ya lista para reproducir sin esperar red
+    // ni Cache Storage (que también es async): así startAudio puede mirar
+    // esto de forma síncrona en el momento del toque del usuario.
+    const readyUrls = new Map();
+
+    // Hash corto no criptográfico: solo hace falta que el mismo texto
+    // exacto produzca siempre la misma clave de caché.
+    const hashText = (text) => {
+      let h = 0;
+      for (let i = 0; i < text.length; i++) h = (Math.imul(31, h) + text.charCodeAt(i)) | 0;
+      return 'h' + (h >>> 0).toString(36);
+    };
+
+    const fetchAndCache = async (text) => {
+      if (!endpoint || !text) return null;
+      const key = hashText(text);
+      if (readyUrls.has(key)) return readyUrls.get(key);
+      const cacheKey = `https://tts.cache.local/${key}`;
+      try {
+        const cache = await caches.open(CACHE_NAME);
+        const cached = await cache.match(cacheKey);
+        if (cached) {
+          const url = URL.createObjectURL(await cached.blob());
+          readyUrls.set(key, url);
+          return url;
+        }
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text }),
+          signal: controller.signal
+        }).finally(() => clearTimeout(timeout));
+        if (!res.ok) return null; // 501 sin configurar, 429/403 sin cuota, etc.
+        const blob = await res.blob();
+        await cache.put(cacheKey, new Response(blob, { headers: { 'Content-Type': 'audio/mpeg' } }));
+        const url = URL.createObjectURL(blob);
+        readyUrls.set(key, url);
+        return url;
+      } catch (_) {
+        return null; // red caída, timeout, etc.: se cae a Web Speech
+      }
+    };
+
+    const getReadyUrl = (text) => (text ? readyUrls.get(hashText(text)) || null : null);
+
+    return { isConfigured: () => !!endpoint, fetchAndCache, getReadyUrl };
+  })();
+
+  /* =========================================================
    * AUDIO PLAYER (visual + real speech when available)
    * =======================================================*/
+  // Elemento compartido para reproducir el audio de CLOUD_TTS cuando está
+  // disponible; con Web Speech (el camino de siempre) no se usa.
+  const cloudAudioEl = (typeof Audio !== 'undefined') ? new Audio() : null;
   const toggleAudio = () => {
     if (!STATE.activePoiId) return;
     if (STATE.audio.playing) {
-      if (SPEECH.isSupported() && STATE.audio.currentTime > 0 && STATE.audio.currentTime < STATE.audio.duration) {
+      const canPause = STATE.audio.engine === 'cloud' || SPEECH.isSupported();
+      if (canPause && STATE.audio.currentTime > 0 && STATE.audio.currentTime < STATE.audio.duration) {
         pauseAudio();
       } else {
         stopAudio();
@@ -2678,23 +2769,69 @@
     STATE.audio.playing = false;
     clearInterval(STATE.audio.timer);
     STATE.audio.timer = null;
-    SPEECH.pause();
+    if (STATE.audio.engine === 'cloud') {
+      cloudAudioEl.pause();
+    } else {
+      SPEECH.pause();
+    }
     updateAudioUi();
   };
 
   // Estima cuánto durará la narración a partir del nº de palabras, para que
   // la barra de progreso corresponda al texto real (que ahora varía en
-  // longitud) en vez de a una duración fija inventada por POI.
+  // longitud) en vez de a una duración fija inventada por POI. Solo se usa
+  // con Web Speech: el audio de CLOUD_TTS trae su propia duración real.
   const estimateSpeechDuration = (text) => {
     const words = (text || '').trim().split(/\s+/).filter(Boolean).length;
-    const rate = STATE.mode === 'kids' ? 1.08 : 0.96;
+    const rate = STATE.mode === 'kids' ? 1.05 : 0.93;
     const wpm = 150 * rate;
     return Math.max(8, Math.round((words / wpm) * 60));
+  };
+
+  // Reproduce un audio ya resuelto de CLOUD_TTS. Comparte STATE.audio y
+  // updateAudioUi con el camino de Web Speech: la barra de progreso no
+  // sabe (ni le importa) qué motor está sonando.
+  const startCloudAudio = (url, silent) => {
+    STATE.audio.engine = 'cloud';
+    cloudAudioEl.onloadedmetadata = () => {
+      if (isFinite(cloudAudioEl.duration)) STATE.audio.duration = cloudAudioEl.duration;
+      updateAudioUi();
+    };
+    cloudAudioEl.ontimeupdate = () => {
+      STATE.audio.currentTime = cloudAudioEl.currentTime;
+      updateAudioUi();
+    };
+    cloudAudioEl.onended = () => {
+      stopAudio();
+      if (!silent) showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
+      if (STATE.mode === 'kids') maybeShowFirstKidsQuiz();
+    };
+    // Si el audio en caché falla al reproducir (blob corrupto, formato no
+    // soportado, etc.) se reintenta ya mismo con Web Speech en vez de dejar
+    // la audioguía muda.
+    const fallbackToSpeech = () => { STATE.audio.engine = null; startAudio(false, silent); };
+    cloudAudioEl.onerror = fallbackToSpeech;
+    cloudAudioEl.src = url;
+    cloudAudioEl.currentTime = 0;
+    const p = cloudAudioEl.play();
+    if (p && p.catch) p.catch(fallbackToSpeech);
+    updateAudioUi();
   };
 
   const startAudio = (isResume = false, silent = false) => {
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
+
+    if (!isResume) {
+      const cloudUrl = CLOUD_TTS.getReadyUrl(SPEECH.getText());
+      if (cloudUrl) { startCloudAudio(cloudUrl, silent); return; }
+      STATE.audio.engine = null;
+    } else if (STATE.audio.engine === 'cloud') {
+      cloudAudioEl.play().catch(() => {});
+      updateAudioUi();
+      return;
+    }
+
     if (!isResume && SPEECH.isSupported()) {
       STATE.audio.duration = estimateSpeechDuration(SPEECH.getText());
     }
@@ -2759,6 +2896,11 @@
     clearInterval(STATE.audio.timer);
     STATE.audio.timer = null;
     SPEECH.cancel();
+    if (cloudAudioEl) {
+      cloudAudioEl.pause();
+      cloudAudioEl.onended = cloudAudioEl.onerror = cloudAudioEl.ontimeupdate = cloudAudioEl.onloadedmetadata = null;
+    }
+    STATE.audio.engine = null;
     updateAudioUi();
   };
 
