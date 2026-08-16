@@ -1206,13 +1206,16 @@
   // app, aquí ni siquiera los datos base están curados a mano.
   const openAdHocScanResult = (info, imageDataUrl, coords) => {
     const id = `scan-adhoc-${Date.now()}`;
-    const disclaimer = STATE.mode === 'kids'
-      ? '¡Identificado por IA, puede que no sea exacto!'
-      : '⚠️ Identificado por IA a partir de tu foto — sin verificar, puede contener errores.';
+    // El aviso de "sin verificar" NO va en subtitle: la primera narración
+    // dice en voz alta el nombre + subtítulo (ver buildNarrativeText), así
+    // que si el aviso viviera ahí la audioguía leería literalmente "sin
+    // verificar, puede contener errores" como si fuera parte del relato.
+    // Se deja solo en el badge y en el aviso emergente, que son visuales.
+    const tagline = info.subtitle || (STATE.mode === 'kids' ? '¡Descubierto con tu foto!' : 'Identificado a partir de tu foto');
     const poi = {
       id,
       name: { adult: info.name, kids: info.name },
-      subtitle: { adult: disclaimer, kids: disclaimer },
+      subtitle: { adult: tagline, kids: tagline },
       category: CATEGORIES.HIDDEN,
       // Sin ubicación real, se usa el centro de la ciudad como posición de
       // relleno: nunca se muestra como pin (ver renderMarkers), así que
