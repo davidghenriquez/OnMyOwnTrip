@@ -97,7 +97,7 @@
       // siempre: ni error ni respuesta, así que la app parece no responder
       // aunque en realidad sigue "esperando" sin que el usuario lo sepa.
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 25000);
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
       let res;
       try {
         res = await fetch(url, {
@@ -938,10 +938,13 @@
    * =======================================================*/
   const getCurrentLocationOnce = () => new Promise((resolve, reject) => {
     if (!navigator.geolocation) { reject(new Error('no-geolocation')); return; }
+    // Sin alta precisión: solo hace falta acertar el barrio para acotar
+    // candidatos, y así se responde en 1-2s en vez de esperar a que el GPS
+    // "caliente" para una posición exacta (que aquí no aporta nada extra).
     navigator.geolocation.getCurrentPosition(
       (pos) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
       (err) => reject(err),
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
+      { enableHighAccuracy: false, timeout: 6000, maximumAge: 60000 }
     );
   });
 
@@ -1057,7 +1060,7 @@
     // Feedback inmediato: localizarte + que la IA mire la foto puede tardar
     // varios segundos, y sin esto el único indicio de que algo está
     // pasando es el pulso sutil del botón — fácil de no notar.
-    showToast(STATE.mode === 'kids' ? 'Mirando tu foto… 🔍' : 'Analizando tu foto…', 4000);
+    showToast(STATE.mode === 'kids' ? 'Mirando tu foto… 🔍' : 'Analizando tu foto…', 6000);
     try {
       let coords = STATE.userLocation;
       try {
