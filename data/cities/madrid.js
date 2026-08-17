@@ -2537,6 +2537,26 @@ CITIES.madrid.pois = [
             adult: 'Uno de los pocos jardines nobiliarios del siglo XVIII conservados en Madrid; un rincón escondido y tranquilo junto a la Plaza de la Paja, en pleno Madrid de los Austrias.',
             kids: '¡Es un rincón tranquilo y verde escondido en pleno centro de Madrid! Perfecto para descansar un rato entre tanta calle de piedra.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿A qué palacio está vinculado este jardín?',
+            options: ['Al Palacio del Príncipe de Anglona', 'Al Palacio Real', 'A la Torre de los Lujanes'],
+            correct: 0,
+            reveal: '¡Al Palacio del Príncipe de Anglona! Se diseñó hace más de 250 años. 🌿'
+          },
+          legends: {
+            question: '¿Por qué se dice que parte de este jardín es "colgante"?',
+            options: ['Porque está construido en una zona con mucho desnivel', 'Porque flota en el aire de verdad', 'Porque está sobre un puente'],
+            correct: 0,
+            reveal: '¡Por el desnivel del terreno! En algunas zonas parece un jardín "colgante".'
+          },
+          architecture: {
+            question: '¿Cómo es este jardín?',
+            options: ['Un rincón tranquilo y escondido', 'Un jardín enorme y ruidoso', 'Un jardín solo de piedra, sin plantas'],
+            correct: 0,
+            reveal: '¡Tranquilo y escondido! Perfecto para descansar entre tanta calle de piedra.'
+          }
         }
       },
       {
@@ -2567,6 +2587,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Junto a la iglesia, en un pasadizo lateral, se encuentra la histórica Chocolatería San Ginés, célebre por su chocolate con churros a cualquier hora, parada obligada tras una noche de fiesta en Madrid.',
             kids: '¡Justo al lado hay una chocolatería famosísima donde puedes tomar chocolate con churros a cualquier hora del día o de la noche!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Desde cuándo existe una iglesia en este lugar?',
+            options: ['Desde hace casi 400 años', 'Desde hace 50 años', 'Desde hace 20 años'],
+            correct: 0,
+            reveal: '¡Casi 400 años! Es una de las parroquias más antiguas de Madrid. 🖼️'
+          },
+          legends: {
+            question: '¿Qué famoso pintor tiene un cuadro guardado en esta iglesia?',
+            options: ['El Greco', 'Goya', 'Velázquez'],
+            correct: 0,
+            reveal: '¡El Greco! Pintó "La expulsión de los mercaderes del templo", que se guarda aquí.'
+          },
+          architecture: {
+            question: '¿Qué hay justo al lado de esta iglesia, muy famoso?',
+            options: ['Una chocolatería con churros', 'Un cine', 'Un mercado de pescado'],
+            correct: 0,
+            reveal: '¡Una chocolatería! Puedes tomar chocolate con churros a cualquier hora.'
           }
         }
       },
@@ -2599,6 +2639,26 @@ CITIES.madrid.pois = [
             adult: 'Basílica neoclásica de planta circular bajo cúpula; la cúpula fue pintada en 1917 por Luis Menéndez Pidal con la Apoteosis de las Virtudes.',
             kids: '¡Al entrar y mirar hacia arriba, la cúpula pintada parece un cielo entero lleno de personajes!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién cuenta la tradición que fundó este templo hace más de 800 años?',
+            options: ['San Francisco de Asís', 'Un rey español', 'Un Papa'],
+            correct: 0,
+            reveal: '¡San Francisco de Asís! De paso por Madrid camino de Santiago. ⛪'
+          },
+          legends: {
+            question: '¿Qué pintor se autorretrató escondido entre la gente en un cuadro de aquí?',
+            options: ['Goya', 'Velázquez', 'El Greco'],
+            correct: 0,
+            reveal: '¡Goya! Se pintó a sí mismo vestido de amarillo entre la multitud.'
+          },
+          architecture: {
+            question: '¿Qué lugar ocupa la cúpula de esta basílica en tamaño en Europa?',
+            options: ['Es la cuarta más grande', 'Es la más pequeña', 'Es la número 20'],
+            correct: 0,
+            reveal: '¡La cuarta más grande de Europa! Solo detrás de San Pedro del Vaticano y otras dos.'
+          }
         }
       },
       {
@@ -2628,6 +2688,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Arco triunfal de 19 metros de altura, en bloques de granito con elementos decorativos de piedra caliza; arco central de medio punto flanqueado por dos puertas adinteladas y grupo escultórico en lo alto.',
             kids: '¡Es un arco enorme de piedra gris, con estatuas en lo más alto! Antiguamente marcaba el límite de la ciudad de Madrid.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se construyó originalmente esta puerta, antes de cambiar de plan?',
+            options: ['Para celebrar a un rey francés', 'Para defender la ciudad', 'Para ser una iglesia'],
+            correct: 0,
+            reveal: '¡Para un rey francés! Pero antes de terminarse, se rediseñó para otro rey distinto. 🚪'
+          },
+          legends: {
+            question: '¿Qué se enterró debajo de la primera piedra de esta puerta?',
+            options: ['Una caja con monedas y documentos', 'Un tesoro de oro', 'Nada, quedó vacío'],
+            correct: 0,
+            reveal: '¡Una caja con monedas y documentos! Se cambió por otra distinta cuando cambió el rey.'
+          },
+          architecture: {
+            question: '¿De qué material está hecha principalmente esta puerta?',
+            options: ['De granito', 'De madera', 'De cristal'],
+            correct: 0,
+            reveal: '¡De granito! Un arco enorme de piedra gris que marcaba el límite de la ciudad.'
           }
         }
       },
@@ -2660,6 +2740,26 @@ CITIES.madrid.pois = [
             adult: 'Museo gratuito con jardín arqueobotánico y almacén visitable; recorre tres áreas temáticas: Antes de Madrid, Mayrit/Madrid y San Isidro.',
             kids: '¡Tiene hasta un jardín con plantas antiguas y una zona donde puedes ver cómo se guardan los objetos del museo!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Desde qué época cuenta este museo la historia de Madrid?',
+            options: ['Desde la Prehistoria', 'Solo desde hace 100 años', 'Solo desde la Edad Media'],
+            correct: 0,
+            reveal: '¡Desde la Prehistoria! Incluso desde antes de que existieran las ciudades. 💧'
+          },
+          legends: {
+            question: '¿Qué cuenta la leyenda sobre el pozo de este museo?',
+            options: ['Que el agua subió sola para salvar a un niño', 'Que da monedas de oro', 'Que nunca se seca'],
+            correct: 0,
+            reveal: '¡Que el agua subió sola! Gracias a las oraciones de los padres del santo patrón de Madrid.'
+          },
+          architecture: {
+            question: '¿Qué tiene este museo además de las salas normales?',
+            options: ['Un jardín con plantas antiguas', 'Una piscina', 'Un zoo'],
+            correct: 0,
+            reveal: '¡Un jardín con plantas antiguas! Y una zona donde se pueden ver los objetos guardados.'
+          }
         }
       },
       {
@@ -2691,6 +2791,26 @@ CITIES.madrid.pois = [
             adult: 'Estructura histórica de ladrillo conservada, coronada por una ampliación revestida de acero corten; junto al edificio, el jardín vertical de 460 metros cuadrados diseñado por el botánico francés Patrick Blanc, con cerca de 15.000 plantas de unas 300 especies.',
             kids: '¡Al lado del edificio hay un jardín vertical gigante, con miles de plantas creciendo directamente sobre una pared! Parece una selva pegada al edificio.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué era este edificio antes de ser un centro cultural?',
+            options: ['Una antigua central eléctrica', 'Un antiguo mercado', 'Una antigua fábrica de chocolate'],
+            correct: 0,
+            reveal: '¡Una central eléctrica! De principios del siglo XX, transformada hace menos de 20 años. 🪴'
+          },
+          legends: {
+            question: '¿Qué truco hicieron los arquitectos para que el edificio parezca flotar?',
+            options: ['Quitaron la parte de abajo del edificio', 'Lo pintaron de blanco', 'Lo pusieron sobre ruedas'],
+            correct: 0,
+            reveal: '¡Quitaron la base de ladrillo! Así el edificio parece suspendido sobre la plaza.'
+          },
+          architecture: {
+            question: '¿Qué hay al lado de este edificio, cubierto de miles de plantas?',
+            options: ['Un jardín vertical', 'Una piscina', 'Un aparcamiento'],
+            correct: 0,
+            reveal: '¡Un jardín vertical! Con cerca de 15.000 plantas de unas 300 especies distintas.'
+          }
         }
       },
       {
@@ -2720,6 +2840,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Hoy la plaza es el corazón social de Malasaña, rodeada de terrazas, bares y ambiente joven, sin perder su valor simbólico como lugar de memoria histórica.',
             kids: '¡Ahora esta plaza está siempre llena de gente sentada en las terrazas! Es uno de los puntos de encuentro favoritos del barrio.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué recuerda esta plaza, ocurrido hace más de 200 años?',
+            options: ['Un levantamiento valiente contra un ejército invasor', 'Una boda real', 'Un partido de fútbol'],
+            correct: 0,
+            reveal: '¡Un levantamiento valiente! Un grupo de vecinos se enfrentó a un ejército extranjero. ⚔️'
+          },
+          legends: {
+            question: '¿Qué se conserva del antiguo cuartel donde lucharon los héroes?',
+            options: ['Un arco de piedra', 'El cuartel entero', 'Nada, desapareció todo'],
+            correct: 0,
+            reveal: '¡Un arco de piedra! El Arco de Monteleón, el único resto que queda.'
+          },
+          architecture: {
+            question: '¿Cómo es esta plaza hoy en día?',
+            options: ['El corazón social de Malasaña, con terrazas', 'Un lugar solitario y vacío', 'Un aparcamiento'],
+            correct: 0,
+            reveal: '¡El corazón de Malasaña! Siempre llena de gente en las terrazas.'
           }
         }
       },
@@ -2751,6 +2891,26 @@ CITIES.madrid.pois = [
             adult: 'Hoy la plaza conserva su vocación comercial junto al moderno edificio del Mercado de la Cebada, en pleno corazón del castizo barrio de La Latina.',
             kids: '¡Hoy en día la plaza sigue siendo un lugar de mercado, aunque ya no se venden caballos ni cebada!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Por qué se llama así esta plaza?',
+            options: ['Por un cereal que se vendía para los caballos', 'Por un rey llamado Cebada', 'Por un color'],
+            correct: 0,
+            reveal: '¡Por la cebada! Se vendía aquí para dar de comer a los caballos del rey y del ejército. 🌾'
+          },
+          legends: {
+            question: '¿Qué otra función tuvo esta plaza además de mercado, hace mucho tiempo?',
+            options: ['Un lugar donde se castigaba a quien rompía la ley', 'Un teatro', 'Una escuela'],
+            correct: 0,
+            reveal: '¡Un lugar de castigo público! Algo muy distinto a lo que vemos en las plazas de hoy.'
+          },
+          architecture: {
+            question: '¿Qué sigue habiendo hoy en esta plaza?',
+            options: ['Un mercado moderno', 'Un castillo', 'Un zoo'],
+            correct: 0,
+            reveal: '¡Un mercado moderno! Aunque ya no se venden caballos ni cebada.'
+          }
         }
       },
       {
@@ -2780,6 +2940,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Actualmente la plaza cuenta con un mercado permanente de flores, formado por ocho módulos de metal y madera de diseño moderno, abierto todos los días del año, en el que cada puesto lleva el nombre de una obra de Tirso de Molina.',
             kids: '¡Toda la plaza está llena de puestos de flores de colores! Cada puesto tiene el nombre de una obra escrita por el autor que da nombre a la plaza.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había antes en el lugar de esta plaza?',
+            options: ['Un convento enorme', 'Un castillo', 'Un teatro romano'],
+            correct: 0,
+            reveal: '¡Un convento enorme! Se derribó hace casi 200 años. 🌷'
+          },
+          legends: {
+            question: '¿Qué se dice que todavía descansa bajo la estación de metro de esta plaza?',
+            options: ['Los restos de antiguos frailes', 'Un tesoro escondido', 'Un río subterráneo'],
+            correct: 0,
+            reveal: '¡Los restos de antiguos frailes! Del convento que había aquí hace siglos.'
+          },
+          architecture: {
+            question: '¿Qué se vende hoy en los puestos de esta plaza?',
+            options: ['Flores', 'Fruta', 'Ropa'],
+            correct: 0,
+            reveal: '¡Flores! Cada puesto lleva el nombre de una obra del escritor Tirso de Molina.'
           }
         }
       },
