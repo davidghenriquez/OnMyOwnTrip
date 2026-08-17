@@ -987,14 +987,26 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 .scan-menu .dropdown-option svg { flex-shrink: 0; color: var(--color-text-soft); }
 
 /* ---------- MARCADOR "MI POSICIÓN" ---------- */
+/* El wrap (ver iconSize en updateUserMarker) es más grande que el punto en
+   sí (46x46 vs 16x16) para dejar sitio al cono de orientación alrededor;
+   el punto se centra dentro por posición absoluta en vez de ocupar todo
+   el wrap como antes. */
+.user-location-wrap {
+  position: relative;
+  width: 46px;
+  height: 46px;
+}
 .user-location-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 16px;
   height: 16px;
+  margin: -8px 0 0 -8px;
   border-radius: 50%;
   background: #3B82F6;
   border: 3px solid white;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4);
-  position: relative;
 }
 .user-location-dot::after {
   content: '';
@@ -1007,6 +1019,28 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 @keyframes userPulse {
   0% { transform: scale(0.4); opacity: 0.8; }
   100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Cono de orientación (rumbo del dispositivo): solo visible cuando hay
+   lectura de brújula (ver updateUserHeadingUi en app.js). Apunta "hacia
+   arriba" por defecto (0°=norte) y se rota vía transform según el rumbo
+   real; el mapa en sí no gira (ver evaluación de la ruta 3), así que el
+   norte del cono siempre coincide con el norte del mapa. */
+.user-heading-cone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  transform-origin: 50% 50%;
+  background: conic-gradient(from -20deg at 50% 50%, rgba(59, 130, 246, 0.55) 0deg, rgba(59, 130, 246, 0.55) 40deg, transparent 41deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.user-heading-cone.-visible {
+  opacity: 1;
 }
 
 /* ---------- DISTANCIA EN LA FICHA ---------- */

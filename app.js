@@ -642,7 +642,8 @@
     // qué combinaciones "poiId:topicId" ya sumaron puntos, para no poder
     // "granjear" puntos repitiendo la misma pregunta una y otra vez.
     game: { points: 0, answered: {} },
-    userLocation: null // { lat, lng } una vez que el usuario comparte su ubicación
+    userLocation: null, // { lat, lng } una vez que el usuario comparte su ubicación
+    userHeading: null // grados 0-360 (0 = norte), null si el dispositivo no lo reporta
   };
 
   /* =========================================================
@@ -1112,6 +1113,23 @@
     return `${(meters / 1000).toFixed(1)} km`;
   };
 
+  // El cono de orientación vive siempre en el HTML del icono (oculto por
+  // defecto vía CSS hasta que se le pone la clase "-visible"), y se rota
+  // mutando su estilo directamente en el DOM en cada lectura de la brújula
+  // (ver watchHeading), sin recrear el marcador — recrearlo en cada lectura
+  // (varias por segundo) sería un desperdicio y podría dar parpadeos.
+  const updateUserHeadingUi = () => {
+    const el = userMarker?.getElement();
+    const cone = el?.querySelector('.user-heading-cone');
+    if (!cone) return;
+    if (typeof STATE.userHeading === 'number') {
+      cone.classList.add('-visible');
+      cone.style.transform = `rotate(${STATE.userHeading}deg)`;
+    } else {
+      cone.classList.remove('-visible');
+    }
+  };
+
   const updateUserMarker = () => {
     if (!STATE.userLocation || !map) return;
     const pos = [STATE.userLocation.lat, STATE.userLocation.lng];
@@ -1119,10 +1137,16 @@
       userMarker.setLatLng(pos);
     } else {
       userMarker = L.marker(pos, {
-        icon: L.divIcon({ className: 'user-location-wrap', html: '<div class="user-location-dot"></div>', iconSize: [16, 16], iconAnchor: [8, 8] }),
+        icon: L.divIcon({
+          className: 'user-location-wrap',
+          html: '<div class="user-heading-cone"></div><div class="user-location-dot"></div>',
+          iconSize: [46, 46],
+          iconAnchor: [23, 23]
+        }),
         interactive: false,
         zIndexOffset: -100
       }).addTo(map);
+      updateUserHeadingUi();
     }
   };
 
@@ -1150,7 +1174,51 @@
     );
   };
 
+  // Triangulito de orientación (ver updateUserHeadingUi): necesita el
+  // rumbo del dispositivo vía DeviceOrientationEvent. En iOS 13+ el
+  // permiso solo puede pedirse dentro de un gesto de usuario, por eso se
+  // arranca aquí, desde el mismo toque de "Mostrar mi ubicación", no de
+  // forma automática al cargar la página. Si el navegador no lo soporta o
+  // el permiso se deniega, no pasa nada especial: el mapa sigue igual,
+  // simplemente sin cono, como ya era el comportamiento hasta ahora.
+  let headingWatchStarted = false;
+  const handleOrientationEvent = (e) => {
+    let heading = null;
+    if (typeof e.webkitCompassHeading === 'number') {
+      // iOS Safari: ya viene como rumbo de brújula real (0 = norte).
+      heading = e.webkitCompassHeading;
+    } else if (typeof e.alpha === 'number') {
+      // Resto de navegadores: alpha crece en sentido contrario a las
+      // agujas del reloj desde la orientación inicial del dispositivo, así
+      // que el rumbo real es 360-alpha; se corrige además con el ángulo de
+      // rotación de la pantalla para no desviarse si el móvil está en
+      // horizontal. Es una aproximación razonable, no un cálculo exacto de
+      // brújula profesional (para eso haría falta compensar inclinación).
+      const screenAngle = (screen.orientation && screen.orientation.angle) || 0;
+      heading = (360 - e.alpha + screenAngle) % 360;
+    }
+    if (heading === null || Number.isNaN(heading)) return;
+    STATE.userHeading = heading;
+    updateUserHeadingUi();
+  };
+  const startHeadingWatch = () => {
+    if (headingWatchStarted || typeof DeviceOrientationEvent === 'undefined') return;
+    headingWatchStarted = true;
+    const attach = () => {
+      const eventName = 'ondeviceorientationabsolute' in window ? 'deviceorientationabsolute' : 'deviceorientation';
+      window.addEventListener(eventName, handleOrientationEvent);
+    };
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission().then((result) => {
+        if (result === 'granted') attach();
+      }).catch(() => {});
+    } else {
+      attach();
+    }
+  };
+
   const requestLocation = (centerOnResult = true) => {
+    startHeadingWatch();
     const btn = $('#locateBtn');
     if (!navigator.geolocation) {
       showToast(STATE.mode === 'kids' ? 'Tu navegador no sabe dónde estás 😅' : 'La geolocalización no está disponible en este navegador.');
