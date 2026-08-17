@@ -702,6 +702,112 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
 }
 
+/* ---------- COFRE DEL TESORO (modo niño) ---------- */
+.reward-chest-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  background: color-mix(in srgb, #F5B942 20%, transparent);
+  font-size: 17px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+.reward-chest-btn[hidden] { display: none; }
+.reward-chest-btn:active { transform: scale(0.9); }
+.reward-chest-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 6100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 7, 13, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.reward-chest-modal.-open {
+  opacity: 1;
+  visibility: visible;
+}
+.reward-chest-card {
+  width: min(92vw, 460px);
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.reward-chest-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.reward-chest-title { font-size: 15px; font-weight: 800; margin: 0; }
+.reward-chest-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 13px;
+}
+.reward-chest-hint {
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--color-text-soft);
+  margin: 6px 0 14px;
+}
+.reward-item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 10px;
+  overflow-y: auto;
+}
+.reward-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px 8px;
+  border-radius: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  text-align: center;
+}
+.reward-item-icon {
+  width: 56px;
+  height: 56px;
+}
+.reward-item-label {
+  font-size: 10px;
+  line-height: 1.25;
+  color: var(--color-text-soft);
+}
+.reward-item.-unlocked {
+  border-color: color-mix(in srgb, #F5B942 45%, var(--color-border));
+  background: color-mix(in srgb, #F5B942 10%, var(--color-surface));
+}
+.reward-item.-unlocked .reward-item-label {
+  color: var(--color-text);
+  font-weight: 700;
+}
+.reward-item.-locked .reward-item-icon {
+  filter: grayscale(1) brightness(0.65);
+  opacity: 0.6;
+}
+
 .change-city-btn {
   width: 34px;
   height: 34px;

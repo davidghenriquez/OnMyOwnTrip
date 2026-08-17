@@ -862,6 +862,9 @@
     if (!modal) return;
     $('#scanLogClose')?.addEventListener('click', closeScanLogModal);
     $('#scanLogExport')?.addEventListener('click', exportScanLog);
+    $('#rewardChestBtn')?.addEventListener('click', openRewardChest);
+    $('#rewardChestClose')?.addEventListener('click', closeRewardChest);
+    $('#rewardChestModal')?.addEventListener('click', (e) => { if (e.target === $('#rewardChestModal')) closeRewardChest(); });
     $('#scanLogClear')?.addEventListener('click', clearScanLog);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeScanLogModal(); });
     window.addEventListener('keydown', (e) => {
@@ -2062,19 +2065,41 @@
     { id: 'intermedio',   min: 50,  label: 'Intermedio',   color: '#F5B942', img: 'assets/explorer/intermedio.png' },
     { id: 'avanzado',     min: 150, label: 'Avanzado',     color: '#EF4444', img: 'assets/explorer/avanzado.png' }
   ];
+
+  // Cofre del tesoro (modo niño): objetos coleccionables que se van
+  // desbloqueando con los mismos puntos del quiz (ver STATE.game.points),
+  // en orden ascendente para que el cofre lea como una progresión natural
+  // de "primeros pasos" a "expedición completa". Los umbrales están
+  // pensados para solaparse con EXPLORER_LEVELS de arriba (0/50/150): los
+  // primeros objetos caen en la etapa Principiante, los de en medio en
+  // Intermedio, y los últimos exigen ya estar en Avanzado.
+  const REWARD_ITEMS = [
+    { id: 'brujula', name: 'Brújula', points: 10, img: 'assets/rewards/brujula.png' },
+    { id: 'mapa-tesoro', name: 'Mapa del tesoro', points: 20, img: 'assets/rewards/mapa-tesoro.png' },
+    { id: 'linterna', name: 'Linterna', points: 40, img: 'assets/rewards/linterna.png' },
+    { id: 'cuerda', name: 'Cuerda', points: 60, img: 'assets/rewards/cuerda.png' },
+    { id: 'walkie-talkie', name: 'Walkie-talkies', points: 80, img: 'assets/rewards/walkie-talkie.png' },
+    { id: 'botas', name: 'Botas de explorador', points: 100, img: 'assets/rewards/botas.png' },
+    { id: 'chubasquero', name: 'Chubasquero', points: 130, img: 'assets/rewards/chubasquero.png' },
+    { id: 'hornillo', name: 'Hornillo de campamento', points: 160, img: 'assets/rewards/hornillo.png' },
+    { id: 'chaqueta', name: 'Chaqueta de explorador', points: 200, img: 'assets/rewards/chaqueta.png' },
+    { id: 'tienda', name: 'Tienda de campaña', points: 250, img: 'assets/rewards/tienda.png' }
+  ];
   const getExplorerLevel = (points) =>
     [...EXPLORER_LEVELS].reverse().find((lv) => points >= lv.min) || EXPLORER_LEVELS[0];
 
-  // Los stickers del explorador se guardaron sin transparencia real: el
-  // "fondo a cuadros" que se ve en el editor de imágenes quedó grabado como
+  // Tanto los stickers del explorador como los del cofre del tesoro (ver
+  // REWARD_ITEMS) se guardaron sin transparencia real: el "fondo a
+  // cuadros" que se ve en el editor de imágenes quedó grabado como
   // píxeles opacos de verdad (negro/gris alternados), no como transparencia.
   // Sin editor de imagen disponible aquí, se recorta en el propio navegador
   // con un flood fill: partiendo de todo el borde exterior del lienzo, se
   // va "caminando" por píxeles vecinos mientras sean neutros (gris/negro/
   // blanco, poca diferencia entre R, G y B) —eso cubre tanto el cuadriculado
   // como el borde blanco del sticker— y se detiene en cuanto encuentra color
-  // real del dibujo (piel, pelo, ropa...), que sí tiene saturación. Se
-  // cachea por URL para no repetir el procesado cada vez que cambia de nivel.
+  // real del dibujo (piel, ropa, metal...), que sí tiene saturación. Se
+  // cachea por URL para no repetir el procesado cada vez que hace falta el
+  // mismo sprite (cambio de nivel, reabrir el cofre...).
   const explorerSpriteCache = {};
   const loadExplorerSprite = (src) => {
     if (explorerSpriteCache[src]) return explorerSpriteCache[src];
@@ -2090,9 +2115,29 @@
         ctx.drawImage(img, 0, 0);
         const frame = ctx.getImageData(0, 0, W, H);
         const d = frame.data;
-
-        const NEUTRAL_TOL = 26; // max(R,G,B) - min(R,G,B) por debajo de esto = "neutro"
         const idx = (x, y) => (y * W + x) * 4;
+
+        // Si el PNG ya trae transparencia real de verdad (comprobado mirando
+        // el borde: si ya hay píxeles con alpha bajo ahí, es que a esta
+        // imagen ya se le quitó el fondo de otra forma, p.ej. a mano fuera
+        // del navegador), el flood fill por color de abajo sobra y encima
+        // hace daño: el objeto puede ser tan neutro en color como el propio
+        // cuadriculado (una linterna gris metalizada, por ejemplo) y el
+        // flood fill se comería el dibujo entero sin distinguirlo del
+        // fondo, porque no mira el canal alfa, solo el color. Con el borde
+        // ya transparente de antemano, se salta directo al recorte de abajo.
+        let borderAlreadyTransparent = true;
+        for (let x = 0; x < W && borderAlreadyTransparent; x++) {
+          if (d[idx(x, 0) + 3] > 20 || d[idx(x, H - 1) + 3] > 20) borderAlreadyTransparent = false;
+        }
+        if (borderAlreadyTransparent) {
+          for (let y = 0; y < H && borderAlreadyTransparent; y++) {
+            if (d[idx(0, y) + 3] > 20 || d[idx(W - 1, y) + 3] > 20) borderAlreadyTransparent = false;
+          }
+        }
+
+        if (!borderAlreadyTransparent) {
+        const NEUTRAL_TOL = 26; // max(R,G,B) - min(R,G,B) por debajo de esto = "neutro"
         const isNeutral = (i) => {
           const r = d[i], g = d[i + 1], b = d[i + 2];
           return (Math.max(r, g, b) - Math.min(r, g, b)) <= NEUTRAL_TOL;
@@ -2114,6 +2159,7 @@
           if (y > 0) stack.push(x, y - 1);
           if (y < H - 1) stack.push(x, y + 1);
         }
+        } // fin if (!borderAlreadyTransparent)
 
         ctx.putImageData(frame, 0, 0);
 
@@ -2135,6 +2181,21 @@
         }
         if (maxX < minX || maxY < minY) { resolve(off); return; } // no se detectó contenido: se usa tal cual
         const cropW = maxX - minX + 1, cropH = maxY - minY + 1;
+        // Red de seguridad: si lo que sobrevivió al flood fill es
+        // sospechosamente pequeño (menos del 3% del lienzo), lo más
+        // probable es que el dibujo fuera tan neutro en color como el
+        // propio fondo (un objeto gris/metálico, por ejemplo) y el flood
+        // fill se lo haya comido casi entero en vez de solo el fondo.
+        // Mejor mostrar el icono original sin recortar el fondo que un
+        // icono prácticamente invisible.
+        if (cropW * cropH < W * H * 0.03) {
+          const fresh = document.createElement('canvas');
+          fresh.width = W;
+          fresh.height = H;
+          fresh.getContext('2d').drawImage(img, 0, 0);
+          resolve(fresh);
+          return;
+        }
         const cropped = document.createElement('canvas');
         cropped.width = cropW;
         cropped.height = cropH;
@@ -2184,6 +2245,56 @@
     }).catch(() => {});
   };
 
+  // Cofre del tesoro: pinta un icono por objeto (ver REWARD_ITEMS), a color
+  // y con su nombre si ya está desbloqueado, en gris con un candado y los
+  // puntos que faltan si no. Se repinta entero cada vez que se abre el
+  // modal en vez de mantener el DOM vivo entre aperturas: son solo 10
+  // objetos, y así no hay que preocuparse de sincronizar altas/bajas.
+  const renderRewardChest = () => {
+    const list = $('#rewardChestList');
+    if (!list) return;
+    list.innerHTML = '';
+    const points = STATE.game.points;
+    REWARD_ITEMS.forEach((item) => {
+      const unlocked = points >= item.points;
+      const card = document.createElement('div');
+      card.className = 'reward-item' + (unlocked ? ' -unlocked' : ' -locked');
+      const canvas = document.createElement('canvas');
+      canvas.width = 96;
+      canvas.height = 96;
+      canvas.className = 'reward-item-icon';
+      canvas.setAttribute('aria-hidden', 'true');
+      const label = document.createElement('span');
+      label.className = 'reward-item-label';
+      label.textContent = unlocked ? item.name : `🔒 Faltan ${item.points - points} ⭐`;
+      card.appendChild(canvas);
+      card.appendChild(label);
+      card.setAttribute('aria-label', unlocked ? item.name : `${item.name}, bloqueado, faltan ${item.points - points} puntos`);
+      list.appendChild(card);
+      loadExplorerSprite(item.img).then((sprite) => {
+        const ctx = canvas.getContext('2d');
+        const scale = Math.min(canvas.width / sprite.width, canvas.height / sprite.height);
+        const w = sprite.width * scale, h = sprite.height * scale;
+        const dx = (canvas.width - w) / 2, dy = (canvas.height - h) / 2;
+        ctx.drawImage(sprite, dx, dy, w, h);
+      }).catch(() => {});
+    });
+  };
+
+  const openRewardChest = () => {
+    const modal = $('#rewardChestModal');
+    if (!modal) return;
+    renderRewardChest();
+    modal.classList.add('-open');
+    modal.setAttribute('aria-hidden', 'false');
+  };
+
+  const closeRewardChest = () => {
+    const modal = $('#rewardChestModal');
+    modal?.classList.remove('-open');
+    modal?.setAttribute('aria-hidden', 'true');
+  };
+
   const setStateMode = (mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     document.documentElement.dataset.mode = STATE.mode;
@@ -2210,6 +2321,8 @@
     }
     updatePointsBadge();
     updateExplorerBadge();
+    const chestBtn = $('#rewardChestBtn');
+    if (chestBtn) chestBtn.hidden = !isKids;
     $$('.pill').forEach((p) => {
       const cat = p.dataset.category;
       if (cat === CATEGORIES.ALL) {
