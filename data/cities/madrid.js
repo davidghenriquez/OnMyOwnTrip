@@ -3817,6 +3817,26 @@ CITIES.madrid.pois = [
             adult: 'La fachada de granito, con tres arcos y un bajorrelieve de San Benito y San Bernardo adorando el Santísimo, es obra del arquitecto Pedro de Ribera, hacia 1744; la decoración interior es de Francisco Esteban, del mismo año.',
             kids: 'La entrada tiene tres arcos de piedra gris, con una escena tallada encima. Por dentro, la decoración es de la misma época, ¡de hace casi 300 años!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué fue este edificio antes de ser catedral?',
+            options: ['Un convento de monjas', 'Un cuartel militar', 'Un hospital'],
+            correct: 0,
+            reveal: '¡Un convento de monjas! Fundado hace más de 400 años. ⚔️'
+          },
+          legends: {
+            question: '¿Qué reliquia curiosa guarda esta catedral?',
+            options: ['Una lanza', 'Una corona', 'Un anillo'],
+            correct: 0,
+            reveal: '¡Una lanza! La tradición dice que es la del centurión romano que atravesó a Cristo.'
+          },
+          architecture: {
+            question: '¿Cuántos arcos tiene la fachada de esta catedral?',
+            options: ['Tres', 'Uno', 'Cinco'],
+            correct: 0,
+            reveal: '¡Tres arcos! Con una escena tallada encima, de hace casi 300 años.'
+          }
         }
       },
       {
@@ -3843,6 +3863,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La muralla combina hiladas de mampostería con verdugadas de ladrillo en algunos tramos, una técnica constructiva típica de la arquitectura defensiva andalusí de los siglos IX y X, muy anterior a las murallas cristianas posteriores que rodearían la ciudad.',
             kids: 'Fíjate en cómo está hecha la muralla: piedras puestas en filas, con algunas líneas de ladrillo entre medias. Así construían las murallas árabes hace más de mil años, mucho antes de las murallas cristianas que vinieron después.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De qué época son los restos de muralla de este mirador?',
+            options: ['Del siglo IX', 'Del siglo XX', 'De la Edad Media tardía'],
+            correct: 0,
+            reveal: '¡Del siglo IX! Cuando Madrid era una pequeña fortaleza árabe llamada Mayrit. 🏰'
+          },
+          legends: {
+            question: '¿Qué representa la escultura de bronce junto a la muralla?',
+            options: ['Un hombre mirando el pasado de la ciudad', 'Un rey a caballo', 'Un animal mitológico'],
+            correct: 0,
+            reveal: '¡Un hombre asomado! Representa la mirada de la ciudad hacia su propio pasado.'
+          },
+          architecture: {
+            question: '¿De qué materiales está hecha esta muralla?',
+            options: ['Piedra caliza y sílex', 'Solo ladrillo', 'Solo madera'],
+            correct: 0,
+            reveal: '¡Piedra caliza y sílex! Con líneas de ladrillo entre medias, técnica árabe muy antigua.'
           }
         }
       },
@@ -3871,6 +3911,26 @@ CITIES.madrid.pois = [
             adult: 'La combinación de un edificio conventual reformado en el siglo XIX con una ampliación circular de finales del XX convierte al Palacio del Senado en un ejemplo poco habitual de arquitectura institucional construida en dos tiempos muy distintos, sin ocultar ninguno de los dos.',
             kids: 'Es raro ver un edificio de gobierno hecho de dos partes tan diferentes: una muy antigua y otra bastante moderna, ¡sin intentar disimular ninguna de las dos!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué era antes el edificio histórico de este palacio?',
+            options: ['Un colegio religioso', 'Un mercado', 'Una fábrica'],
+            correct: 0,
+            reveal: '¡Un colegio religioso! La sala de los senadores estaba antes dentro de una iglesia. 🏛️'
+          },
+          legends: {
+            question: '¿De qué forma es el edificio de Ampliación de este palacio?',
+            options: ['Circular', 'Cuadrada', 'Triangular'],
+            correct: 0,
+            reveal: '¡Circular! Se terminó hace poco más de 30 años, muy distinto del edificio antiguo.'
+          },
+          architecture: {
+            question: '¿De qué color es la fachada del edificio histórico?',
+            options: ['Rosa', 'Azul', 'Verde'],
+            correct: 0,
+            reveal: '¡Rosa! El antiguo Colegio de Doña María de Aragón, del siglo XVI.'
+          }
         }
       },
       {
@@ -3897,6 +3957,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Combina piedra y ladrillo en las dos primeras plantas y conserva vidrieras clasicistas de la casa Maumejean, de 1899, en la escalera y en la entrada, un detalle decorativo poco frecuente en los edificios de oficinas de la época.',
             kids: 'Fíjate en las vidrieras de colores de la entrada y de la escalera: ¡tienen más de 125 años y son un lujo poco habitual para un edificio de oficinas!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿A qué se dedicaba la compañía que tenía su sede en este edificio?',
+            options: ['A las minas', 'A la banca', 'Al transporte'],
+            correct: 0,
+            reveal: '¡A las minas! Era una importante compañía minera española. ⛏️'
+          },
+          legends: {
+            question: '¿En qué se va a convertir este edificio?',
+            options: ['En un centro cultural', 'En un hotel', 'En un hospital'],
+            correct: 0,
+            reveal: '¡En un centro cultural! Ahora mismo está en obras.'
+          },
+          architecture: {
+            question: '¿Qué corona el cuerpo central de este edificio?',
+            options: ['Una torre con cúpula', 'Una estatua', 'Un reloj gigante'],
+            correct: 0,
+            reveal: '¡Una torre con cúpula! Con una escalinata imperial por dentro.'
           }
         }
       },
@@ -3925,6 +4005,26 @@ CITIES.madrid.pois = [
             adult: 'Comparte protagonismo con la Torre de Madrid (1957) como uno de los dos grandes símbolos de la arquitectura de posguerra española que flanquean la Plaza de España, ambos entre los edificios más altos de Europa en el momento de su construcción.',
             kids: 'Este edificio y su vecino, la Torre de Madrid, fueron durante años de los edificios más altos de toda Europa. ¡Los dos vigilan la Plaza de España desde arriba!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué año se construyó este rascacielos?',
+            options: ['1953', '1900', '2000'],
+            correct: 0,
+            reveal: '¡1953! Fue uno de los primeros grandes rascacielos de España. 🌆'
+          },
+          legends: {
+            question: '¿Cómo se llama el balcón de cristal de la planta 26?',
+            options: ['El balcón infinito', 'El balcón dorado', 'El balcón secreto'],
+            correct: 0,
+            reveal: '¡El balcón infinito! Parece que no tiene fin, uno de los miradores más solicitados.'
+          },
+          architecture: {
+            question: '¿Qué otro edificio famoso comparte protagonismo con este en la plaza?',
+            options: ['La Torre de Madrid', 'El Palacio Real', 'La Puerta de Alcalá'],
+            correct: 0,
+            reveal: '¡La Torre de Madrid! Los dos fueron de los edificios más altos de Europa.'
+          }
         }
       },
       {
@@ -3952,6 +4052,26 @@ CITIES.madrid.pois = [
             adult: 'El uso pionero del hormigón armado permitió resolver con un lenguaje casi militar —torreones, almenas— un edificio religioso, un contraste poco frecuente en la arquitectura sacra madrileña del primer tercio del siglo XX.',
             kids: 'Usar hormigón para construir una iglesia era una idea muy nueva para la época. ¡Por eso pudieron hacerle esos torreones y almenas, como si fuera una fortaleza!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quiénes financiaron la construcción de esta iglesia?',
+            options: ['Un rey y una reina', 'Un Papa', 'Una empresa'],
+            correct: 0,
+            reveal: '¡Un rey y una reina! Alfonso XIII y Victoria Eugenia, hace más de 100 años. 🏰'
+          },
+          legends: {
+            question: '¿Qué tiene esta iglesia que la hace parecer un castillo?',
+            options: ['Almenas en la fachada', 'Un foso', 'Un puente levadizo'],
+            correct: 0,
+            reveal: '¡Almenas! Algo rarísimo de ver en un templo religioso.'
+          },
+          architecture: {
+            question: '¿Con qué material se construyó por primera vez en Madrid esta iglesia?',
+            options: ['Hormigón armado', 'Solo madera', 'Solo cristal'],
+            correct: 0,
+            reveal: '¡Hormigón armado! Un material muy moderno para la época que permitió hacer torreones y almenas.'
+          }
         }
       },
       {
@@ -3978,6 +4098,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Las ninfas de bronce, dispuestas alrededor del cuerpo central de la fuente, representan alegorías del nacimiento del agua, un tema clásico de la fontanería ornamental española del siglo XX.',
             kids: 'Las figuras de bronce que rodean la fuente representan el nacimiento del agua, como si contaran una pequeña historia con estatuas.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De qué año es esta fuente?',
+            options: ['De 1970', 'De hace 500 años', 'De este mismo año'],
+            correct: 0,
+            reveal: '¡De 1970! Tiene ninfas de bronce decorándola. 🧜'
+          },
+          legends: {
+            question: '¿Qué le pasó a esta fuente hace pocos años?',
+            options: ['La cambiaron de sitio', 'Desapareció', 'Se rompió del todo'],
+            correct: 0,
+            reveal: '¡La cambiaron de sitio! Durante la reforma de la Plaza de España.'
+          },
+          architecture: {
+            question: '¿Qué representan las figuras de bronce de esta fuente?',
+            options: ['El nacimiento del agua', 'Animales marinos', 'Dioses griegos'],
+            correct: 0,
+            reveal: '¡El nacimiento del agua! Como si contaran una pequeña historia con estatuas.'
           }
         }
       },
