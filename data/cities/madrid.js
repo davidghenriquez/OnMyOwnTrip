@@ -3441,6 +3441,26 @@ CITIES.madrid.pois = [
             adult: 'El edificio actual, hoy convertido en hotel, une tres construcciones de épocas distintas bajo una misma fachada. Conserva el empedrado original de la entrada y la escalera principal de madera de pino, además del templete con reloj que remata el tejado, uno de los elementos más reconocibles de toda la calle.',
             kids: '¡Mira hacia arriba! En lo alto del edificio hay un pequeño templete con un reloj, puesto hace más de 130 años. Dentro se conserva todavía la escalera de madera y el suelo empedrado de la entrada, tal y como eran hace siglos.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había en esta calle en el siglo XVI?',
+            options: ['Una estación de correos', 'Un mercado de pescado', 'Una plaza de toros'],
+            correct: 0,
+            reveal: '¡Una estación de correos! Los caballos del servicio postal descansaban aquí. 🪮'
+          },
+          legends: {
+            question: '¿Qué colgaba en la puerta de la Posada del Peine para que los huéspedes se peinaran?',
+            options: ['Un peine de metal encadenado', 'Un espejo mágico', 'Una campana'],
+            correct: 0,
+            reveal: '¡Un peine de metal! Sujeto con una cadena, algo insólito para la higiene de la época.'
+          },
+          architecture: {
+            question: '¿Qué corona el tejado de este edificio?',
+            options: ['Un templete con un reloj', 'Una torre de vigilancia', 'Una estatua dorada'],
+            correct: 0,
+            reveal: '¡Un templete con reloj! Puesto hace más de 130 años.'
+          }
         }
       },
       {
@@ -3467,6 +3487,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'No conserva ningún edificio propio destacado ni resto visible de la antigua capilla que le dio nombre; su interés está en el propio trazado, estrecho y sinuoso, heredado del Madrid medieval que se articula alrededor de la Plaza de Santa Cruz.',
             kids: 'Ya no queda nada de la capilla del santo, pero la calle conserva su forma estrecha y torcida de hace cientos de años. ¡Así eran casi todas las calles del Madrid antiguo!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿A quién está dedicada la capilla que dio nombre a esta calle?',
+            options: ['A San Cristóbal', 'A San Isidro', 'A la Virgen de la Almudena'],
+            correct: 0,
+            reveal: '¡A San Cristóbal! El santo gigante que ayudaba a cruzar ríos. 🌊'
+          },
+          legends: {
+            question: '¿A qué dos sitios famosos se llega rápido desde esta calle?',
+            options: ['A la Posada del Peine y la Plaza Mayor', 'Al Palacio Real y el Retiro', 'Al Prado y Cibeles'],
+            correct: 0,
+            reveal: '¡A la Posada del Peine y la Plaza Mayor! En pocos minutos andando.'
+          },
+          architecture: {
+            question: '¿Cómo son las calles de esta zona desde hace siglos?',
+            options: ['Casi iguales a como eran', 'Completamente distintas', 'Mucho más anchas'],
+            correct: 0,
+            reveal: '¡Casi iguales! Así eran casi todas las calles del Madrid antiguo.'
           }
         }
       },
@@ -3495,6 +3535,26 @@ CITIES.madrid.pois = [
             adult: 'Presenta una portada central de triple vano con superposición de cuerpos y un ático coronado por el escudo real. Su planta rectangular organiza dos patios interiores simétricos, inspirados en el Hospital Tavera de Toledo.',
             kids: 'La entrada principal tiene tres huecos, uno encima de otro, con el escudo del rey arriba del todo. Por dentro tiene dos patios iguales, inspirados en un hospital de Toledo.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué fue el Palacio de Santa Cruz durante mucho tiempo?',
+            options: ['Una cárcel', 'Un hospital', 'Una escuela'],
+            correct: 0,
+            reveal: '¡Una cárcel! Hoy es la sede de un ministerio del gobierno. 🔑'
+          },
+          legends: {
+            question: '¿De qué color es la fachada de este palacio?',
+            options: ['Ladrillo rojo y granito', 'Todo blanco', 'Todo dorado'],
+            correct: 0,
+            reveal: '¡Ladrillo rojo y granito! Con torres rematadas en chapiteles de pizarra.'
+          },
+          architecture: {
+            question: '¿Cuántos patios interiores tiene este palacio?',
+            options: ['Dos, simétricos', 'Uno solo', 'Cinco'],
+            correct: 0,
+            reveal: '¡Dos patios simétricos! Inspirados en un hospital de Toledo.'
+          }
         }
       },
       {
@@ -3521,6 +3581,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Su modelo es la iglesia del Gesù de Roma: planta de cruz latina, una sola nave con capillas laterales, crucero y cúpula. La fachada de piedra de granito presenta un cuerpo central de cuatro columnas corintias y un grupo escultórico de San Isidro y Santa María de la Cabeza.',
             kids: '¡Cuenta las columnas de la entrada! Son cuatro, muy altas, y arriba hay estatuas de los dos santos patrones de Madrid. La iglesia tiene forma de cruz, como muchas iglesias grandes.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué fue esta iglesia antes de que existiera la Almudena?',
+            options: ['La catedral de Madrid', 'Un mercado', 'Un palacio real'],
+            correct: 0,
+            reveal: '¡La catedral de Madrid! Antes de que se construyera la Almudena. ⛪'
+          },
+          legends: {
+            question: '¿De quiénes guarda las reliquias esta iglesia?',
+            options: ['De San Isidro y su mujer', 'De un rey', 'De un Papa'],
+            correct: 0,
+            reveal: '¡De San Isidro y Santa María de la Cabeza! Los patrones de Madrid.'
+          },
+          architecture: {
+            question: '¿Cuántas columnas tiene la entrada principal?',
+            options: ['Cuatro', 'Dos', 'Diez'],
+            correct: 0,
+            reveal: '¡Cuatro! Muy altas, con estatuas de los santos patrones arriba.'
           }
         }
       },
