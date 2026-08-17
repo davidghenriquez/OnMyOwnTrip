@@ -2148,12 +2148,10 @@
       : `Bienvenido a ${name}. ${subtitle}. ${firstSentenceText}`;
   };
 
-  // Narra la intro básica local (ver buildBasicIntroText) de un POI. Se usa
-  // tanto al abrir el lugar por primera vez (ensureAiPanelInitialGreet)
-  // como para "reanudar" tras una pausa (ver toggleAudio): en vez de fiarse
-  // de synth.resume() — nada fiable en Safari/iOS, donde a veces no
-  // continúa la narración tras pausarla — reanudar vuelve a narrar la
-  // intro entera desde el principio. Nunca se salta: siempre se llega a
+  // Narra la intro básica local (ver buildBasicIntroText) al abrir un POI
+  // por primera vez (ensureAiPanelInitialGreet). Pausar/reanudar mientras
+  // suena usa pause()/resume() reales de la síntesis de voz (ver
+  // toggleAudio), no esta función — nunca se salta: siempre se llega a
   // oírla completa antes del resumen real de la IA.
   const speakBasicIntroFor = (poi) => {
     if (!SPEECH.isSupported() || !poi) return;
@@ -3553,17 +3551,17 @@
   const toggleAudio = () => {
     if (!STATE.activePoiId) return;
     // Mientras suena la intro básica local (ver speakBasicIntroFor) el botón
-    // permite pausar/reanudar — nunca saltarla, siempre se llega a oírla
-    // entera antes de la información complementaria de la IA. Reanudar
-    // vuelve a narrarla desde el principio (no synth.resume(): confirmado
-    // poco fiable en Safari/iOS, a veces se queda pausada sin continuar).
+    // permite pausar/reanudar de verdad (pause()/resume() reales) — nunca
+    // saltarla, siempre se llega a oírla entera antes de la información
+    // complementaria de la IA.
     if (STATE.audio.introPlaying) {
       if (STATE.audio.introPaused) {
-        const poi = POIS.find((p) => p.id === STATE.activePoiId);
-        if (poi) speakBasicIntroFor(poi);
+        STATE.audio.introPaused = false;
+        SPEECH.resume();
+        updateAudioUi();
       } else {
         STATE.audio.introPaused = true;
-        SPEECH.cancel();
+        SPEECH.pause();
         updateAudioUi();
       }
       return;
