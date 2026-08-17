@@ -2186,6 +2186,26 @@ CITIES.madrid.pois = [
             adult: 'Estilo ecléctico que combina el neoplateresco, el modernismo y la secesión vienesa, con fachada de piedra de Novelda y un cimborrio octogonal rematado con reloj. Hoy tiene mirador panorámico, exposiciones y terraza-restaurante abiertos al público.',
             kids: '¡Puedes subir hasta arriba del todo y ver Madrid entero desde su mirador! Es una de las mejores vistas de toda la ciudad.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se construyó originalmente este edificio?',
+            options: ['Para repartir cartas y telegramas', 'Para ser un teatro', 'Para ser un hospital'],
+            correct: 0,
+            reveal: '¡Para repartir el correo! Se construyó hace más de 100 años, y hoy es el ayuntamiento de Madrid. 📮'
+          },
+          legends: {
+            question: '¿Qué apodo cariñoso le pusieron los madrileños a este edificio?',
+            options: ['"Nuestra Señora de las Comunicaciones"', '"El gigante dormido"', '"La casa de cristal"'],
+            correct: 0,
+            reveal: '¡"Nuestra Señora de las Comunicaciones"! Es tan grande y bonito que parece una catedral.'
+          },
+          architecture: {
+            question: '¿Qué se puede hacer hoy en la azotea de este edificio?',
+            options: ['Subir a un mirador y ver Madrid entero', 'Nadar', 'Montar en atracciones'],
+            correct: 0,
+            reveal: '¡Subir al mirador! Es una de las mejores vistas de toda la ciudad.'
+          }
         }
       },
       {
@@ -2215,6 +2235,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Rotonda de tráfico donde confluyen las calles de Génova, Almagro, Santa Engracia y Sagasta; zona de ambiente universitario y de ocio nocturno, con numerosos bares y buena comunicación de metro.',
             kids: '¡Aquí se juntan varias calles importantes de Madrid! Es una zona con muchos bares y mucho ambiente, sobre todo por las noches.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿A quién recuerda el nombre de esta plaza?',
+            options: ['A un abogado importante', 'A un rey', 'A un pintor'],
+            correct: 0,
+            reveal: '¡A un abogado! Ayudó a escribir las leyes más importantes de España. 👨‍⚖️'
+          },
+          legends: {
+            question: '¿Cuántos chorros de agua tiene aproximadamente la fuente del centro de esta plaza?',
+            options: ['Casi cien', 'Solo uno', 'Diez'],
+            correct: 0,
+            reveal: '¡Casi cien! Se instaló hace unos 30 años para embellecer la plaza.'
+          },
+          architecture: {
+            question: '¿Cuántas calles importantes se juntan en esta plaza?',
+            options: ['Varias, es una rotonda con muchos cruces', 'Ninguna', 'Solo dos'],
+            correct: 0,
+            reveal: '¡Varias! Es una rotonda con mucho ambiente, sobre todo por las noches.'
           }
         }
       },
@@ -2246,6 +2286,26 @@ CITIES.madrid.pois = [
             adult: 'Arteria que enlaza Malasaña, de espíritu bohemio y alternativo, con Chueca, barrio LGTBI animado y diverso; concentra comercio de moda, desde marcas internacionales hasta tiendas vintage y alternativas.',
             kids: '¡Caminar por esta calle es como pasar por dos barrios muy distintos a la vez! Está llena de tiendas de ropa de todo tipo, desde las más modernas hasta las más originales.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cómo empezó esta calle, hace muchos siglos?',
+            options: ['Como un simple camino de tierra', 'Como un canal', 'Como una plaza de toros'],
+            correct: 0,
+            reveal: '¡Como un camino de tierra! Llevaba hasta un pueblo cercano llamado Fuencarral. 🛍️'
+          },
+          legends: {
+            question: '¿Qué había cerca de esta calle hace casi 200 años?',
+            options: ['El primer mercado cubierto de Madrid', 'Un castillo', 'Un teatro romano'],
+            correct: 0,
+            reveal: '¡El primer mercado cubierto! Hoy se ha transformado en un mercado moderno de comida.'
+          },
+          architecture: {
+            question: '¿Qué dos barrios conecta esta calle?',
+            options: ['Malasaña y Chueca', 'Retiro y Salamanca', 'Sol y Lavapiés'],
+            correct: 0,
+            reveal: '¡Malasaña y Chueca! Caminar por aquí es pasar por dos barrios muy distintos a la vez.'
+          }
         }
       },
       {
@@ -2275,6 +2335,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Calle peatonal estrecha que conecta Sol con Gran Vía; barrio en transformación, con comercios nuevos y renovación de viviendas conviviendo aún con su pasado.',
             kids: '¡Es una calle estrecha y peatonal que conecta dos zonas muy famosas de Madrid! Cada vez tiene más tiendas nuevas.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿A qué plaza muy famosa está pegada esta calle?',
+            options: ['A la Puerta del Sol', 'A la Plaza Mayor', 'A la Plaza de España'],
+            correct: 0,
+            reveal: '¡A la Puerta del Sol! Esta calle ha cambiado mucho a lo largo de los siglos. 🎩'
+          },
+          legends: {
+            question: '¿Cuántas leyendas distintas existen sobre por qué se llama así esta calle?',
+            options: ['Tres', 'Una', 'Ninguna'],
+            correct: 0,
+            reveal: '¡Tres! Una habla de un rey que perdió aquí su gorro montado a caballo.'
+          },
+          architecture: {
+            question: '¿Qué dos zonas conecta esta calle peatonal?',
+            options: ['Sol y Gran Vía', 'El Retiro y el Prado', 'Chueca y Malasaña'],
+            correct: 0,
+            reveal: '¡Sol y Gran Vía! Cada vez tiene más tiendas nuevas.'
           }
         }
       },
@@ -2306,6 +2386,26 @@ CITIES.madrid.pois = [
             adult: 'Confluencia emblemática de Gran Vía, flanqueada por el Edificio Carrión y el Cine Callao; uno de los cruces más transitados de Madrid, epicentro del comercio y el ocio cinematográfico.',
             kids: '¡Es una de las plazas con más gente pasando de todo Madrid! Está rodeada de tiendas, cines y pantallas gigantes de publicidad.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De dónde viene el nombre de esta plaza?',
+            options: ['De una batalla naval en Perú', 'De un rey español', 'De un pintor famoso'],
+            correct: 0,
+            reveal: '¡De una batalla naval! Ocurrió muy lejos de aquí, en Sudamérica, hace más de 150 años. 🎬'
+          },
+          legends: {
+            question: '¿En qué fue de los primeros en España el cine de esta plaza?',
+            options: ['En proyectar películas con sonido', 'En tener pantalla gigante', 'En cobrar entrada'],
+            correct: 0,
+            reveal: '¡En proyectar películas con sonido! Se construyó en solo ocho meses, hace casi 100 años.'
+          },
+          architecture: {
+            question: '¿Cómo es esta plaza?',
+            options: ['Una de las más transitadas de Madrid', 'Muy tranquila y vacía', 'Solo para peatones sin tiendas'],
+            correct: 0,
+            reveal: '¡Una de las más transitadas! Está rodeada de tiendas, cines y pantallas gigantes.'
+          }
         }
       },
       {
@@ -2336,6 +2436,26 @@ CITIES.madrid.pois = [
             adult: 'Rascacielos de influencia estadounidense adaptado con detalles decorativos españoles; su silueta sigue dominando el perfil de Gran Vía.',
             kids: '¡Su silueta sigue siendo una de las más reconocibles de toda la Gran Vía! Se ve desde muy lejos.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué fue este edificio cuando se construyó?',
+            options: ['El primer rascacielos de Europa', 'El primer rascacielos de España solamente', 'Un simple edificio de dos pisos'],
+            correct: 0,
+            reveal: '¡El primer rascacielos de Europa! Se construyó en solo tres años, hace unos 100 años. 📞'
+          },
+          legends: {
+            question: '¿Quiénes usaron este edificio para contar al mundo lo que pasaba en Madrid en una época difícil?',
+            options: ['Periodistas extranjeros famosos', 'Solo soldados', 'Nadie, estuvo cerrado'],
+            correct: 0,
+            reveal: '¡Periodistas famosos! Como Ernest Hemingway, que enviaba sus crónicas desde aquí.'
+          },
+          architecture: {
+            question: '¿De dónde viene el estilo de este rascacielos?',
+            options: ['De Estados Unidos, con detalles españoles', 'De Francia', 'De Italia'],
+            correct: 0,
+            reveal: '¡De Estados Unidos! Combinado con decoraciones típicas españolas.'
+          }
         }
       },
       {
@@ -2365,6 +2485,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Mirador ajardinado escalonado sobre el Manzanares; aquí se celebran cada año la Fiesta de la Paloma y la Fiesta de San Isidro, con terrazas y ambiente muy castizo en verano.',
             kids: '¡En verano este parque se llena de terrazas y música! Es uno de los sitios favoritos de los madrileños para ver atardecer.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Sobre qué río tiene vistas este parque?',
+            options: ['El Manzanares', 'El Ebro', 'El Tajo'],
+            correct: 0,
+            reveal: '¡El Manzanares! También se ve la Catedral de la Almudena desde aquí. 🌅'
+          },
+          legends: {
+            question: '¿Qué se conserva todavía en este parque de una época difícil?',
+            options: ['Restos de trincheras', 'Un castillo entero', 'Un barco antiguo'],
+            correct: 0,
+            reveal: '¡Restos de trincheras! De hace casi 90 años, muy bien conservadas.'
+          },
+          architecture: {
+            question: '¿Qué se celebra cada verano en este parque?',
+            options: ['Fiestas populares con terrazas y música', 'Carreras de caballos', 'Un mercado de invierno'],
+            correct: 0,
+            reveal: '¡Fiestas populares! Es uno de los sitios favoritos de los madrileños para ver atardecer.'
           }
         }
       },
