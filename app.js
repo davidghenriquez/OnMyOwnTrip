@@ -922,10 +922,40 @@
     }
   };
 
+  // watchId del seguimiento continuo de posición: una vez que el usuario
+  // localiza con éxito una vez, se deja un watchPosition corriendo de fondo
+  // para que el punto azul se mueva solo mientras camina, en vez de quedarse
+  // fijo hasta que vuelva a tocar el botón (comportamiento anterior).
+  let locationWatchId = null;
+
+  const startLocationWatch = () => {
+    if (locationWatchId !== null || !navigator.geolocation) return;
+    locationWatchId = navigator.geolocation.watchPosition(
+      (pos) => {
+        STATE.userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        $('#locateBtn')?.classList.add('-active');
+        updateUserMarker();
+        if (STATE.activePoiId) updateSheetDistance(STATE.activePoiId);
+      },
+      // Errores intermitentes del watch (señal débil momentánea, etc.) se
+      // ignoran en silencio: el usuario ya vio el aviso de error, si lo
+      // hubo, en el intento inicial de requestLocation. Avisar en cada
+      // fallo puntual del watch sería machacar con toasts sin motivo.
+      () => {},
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 15000 }
+    );
+  };
+
   const requestLocation = (centerOnResult = true) => {
     const btn = $('#locateBtn');
     if (!navigator.geolocation) {
       showToast(STATE.mode === 'kids' ? 'Tu navegador no sabe dónde estás 😅' : 'La geolocalización no está disponible en este navegador.');
+      return;
+    }
+    // Si el seguimiento continuo ya está activo y tenemos una posición
+    // reciente, no hace falta pedir una nueva: solo recentra el mapa.
+    if (locationWatchId !== null && STATE.userLocation) {
+      if (centerOnResult && map) map.flyTo([STATE.userLocation.lat, STATE.userLocation.lng], 16, { duration: 0.7 });
       return;
     }
     btn?.classList.add('-locating');
@@ -937,6 +967,7 @@
         updateUserMarker();
         if (centerOnResult && map) map.flyTo([STATE.userLocation.lat, STATE.userLocation.lng], 16, { duration: 0.7 });
         if (STATE.activePoiId) updateSheetDistance(STATE.activePoiId);
+        startLocationWatch();
       },
       (err) => {
         btn?.classList.remove('-locating');
