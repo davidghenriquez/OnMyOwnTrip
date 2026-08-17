@@ -240,6 +240,128 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 }
 .reset-confirm-ok:active,
 .reset-confirm-cancel:active { transform: scale(0.97); }
+
+/* Registro (oculto) de fotos escaneadas sin match curado: se abre tocando
+   varias veces seguidas la etiqueta "Beta VXX" de la portada (ver
+   wireScanLogTrigger en app.js). Pensado solo para el propio desarrollador,
+   no es una función de cara al usuario final. */
+.scan-log-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 6100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 7, 13, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.scan-log-modal.-open {
+  opacity: 1;
+  visibility: visible;
+}
+.scan-log-card {
+  width: min(92vw, 420px);
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.scan-log-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.scan-log-title { font-size: 15px; font-weight: 800; margin: 0; }
+.scan-log-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 13px;
+}
+.scan-log-hint {
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--color-text-soft);
+  margin: 6px 0 12px;
+}
+.scan-log-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-height: 40px;
+}
+.scan-log-empty {
+  font-size: 12px;
+  color: var(--color-text-soft);
+  text-align: center;
+  padding: 20px 0;
+}
+.scan-log-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 8px;
+}
+.scan-log-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--color-border);
+}
+.scan-log-item-text { min-width: 0; flex: 1; }
+.scan-log-item-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.scan-log-item-meta {
+  font-size: 10.5px;
+  color: var(--color-text-soft);
+}
+.scan-log-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+.scan-log-export,
+.scan-log-clear {
+  flex: 1;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  font-weight: 700;
+  font-size: 12.5px;
+  cursor: pointer;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+.scan-log-clear { color: #DC2626; }
+.scan-log-export:active,
+.scan-log-clear:active { transform: scale(0.97); }
 .onboarding-brand {
   position: relative;
   z-index: 1;
