@@ -1225,12 +1225,56 @@ html[data-mode="kids"] .bottom-sheet {
   opacity: 1;
   visibility: visible;
 }
+.camera-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
 #cameraVideo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform-origin: 50% 50%;
+  /* El zoom en sí (transform: scale) lo aplica applyCameraZoom en app.js;
+     esta transición solo suaviza los saltos de los botones +/-, no el
+     pellizco en vivo (ahí interesa que responda al instante). */
+  transition: transform 0.15s ease;
+}
+.camera-zoom-controls {
+  position: absolute;
+  left: 50%;
+  bottom: max(120px, calc(env(safe-area-inset-bottom) + 110px));
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+.camera-zoom-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.camera-zoom-btn:active { background: rgba(255, 255, 255, 0.2); }
+.camera-zoom-label {
+  min-width: 34px;
+  text-align: center;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .camera-modal-close {
   position: absolute;
