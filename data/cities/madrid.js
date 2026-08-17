@@ -3629,6 +3629,26 @@ CITIES.madrid.pois = [
             adult: 'Forma parte del entramado de calles porticadas que Juan Gómez de Mora extendió alrededor de la Plaza Mayor, con soportales continuos que conectan directamente con los de la plaza.',
             kids: '¡Esta calle tiene soportales, como la Plaza Mayor, que está justo al lado! Así puedes caminar protegido de la lluvia o del sol.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué se fabricaba en esta calle hace siglos?',
+            options: ['Botones', 'Zapatos', 'Sombreros'],
+            correct: 0,
+            reveal: '¡Botones! De plata, hueso y marfil, hechos a medida. 🔘'
+          },
+          legends: {
+            question: '¿Desde cuándo existe el restaurante Los Galayos en esta calle?',
+            options: ['Desde 1894', 'Desde el año 2000', 'Desde hace 10 años'],
+            correct: 0,
+            reveal: '¡Desde 1894! Conserva una barra tallada a mano de aquella época.'
+          },
+          architecture: {
+            question: '¿Qué tiene esta calle, igual que la Plaza Mayor?',
+            options: ['Soportales', 'Una fuente', 'Un mercado'],
+            correct: 0,
+            reveal: '¡Soportales! Conectan directamente con los de la plaza de al lado.'
+          }
         }
       },
       {
@@ -3655,6 +3675,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Conecta la Calle Mayor con la Plaza Mayor a través de uno de los tramos más estrechos del entramado original diseñado por Juan Gómez de Mora en el siglo XVII.',
             kids: 'Es una calle muy estrecha, tal y como se diseñaron muchas calles de esta zona hace 400 años.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cómo se llamaba antes esta calle?',
+            options: ['Calle de la Amargura', 'Calle del Sol', 'Calle Nueva'],
+            correct: 0,
+            reveal: '¡Calle de la Amargura! Era el camino de los condenados hacia su ejecución. 😢'
+          },
+          legends: {
+            question: '¿Qué pasó aquí un 7 de julio de 1822?',
+            options: ['Un enfrentamiento entre soldados', 'Una boda real', 'Un incendio'],
+            correct: 0,
+            reveal: '¡Un enfrentamiento! Entre la Milicia Nacional y la Guardia Real.'
+          },
+          architecture: {
+            question: '¿Cómo es esta calle?',
+            options: ['Muy estrecha', 'Muy ancha', 'Circular'],
+            correct: 0,
+            reveal: '¡Muy estrecha! Así se diseñaron muchas calles de esta zona hace 400 años.'
           }
         }
       },
@@ -3683,6 +3723,26 @@ CITIES.madrid.pois = [
             adult: 'Es una de las calles porticadas que enlazan con los soportales de la Plaza Mayor, dentro del modelo unificado que Juan Gómez de Mora extendió a las calles adyacentes en el siglo XVII.',
             kids: '¡Esta calle también tiene soportales, igual que la Plaza Mayor! Todas estas calles de alrededor se construyeron con el mismo estilo hace 400 años.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se abrió originalmente esta calle?',
+            options: ['Para que pasara el cortejo real', 'Para vender animales', 'Para hacer desfiles militares'],
+            correct: 0,
+            reveal: '¡Para el cortejo real! Así podía ir de la Plaza Mayor a Atocha sin rodeos. 👑'
+          },
+          legends: {
+            question: '¿Por qué lleva el nombre de una ciudad de Salamanca?',
+            options: ['Por resistir a las tropas napoleónicas', 'Por ser la ciudad natal de un rey', 'Por casualidad'],
+            correct: 0,
+            reveal: '¡Por resistir! Ciudad Rodrigo aguantó heroicamente durante la Guerra de la Independencia.'
+          },
+          architecture: {
+            question: '¿Qué tiene esta calle, como la Plaza Mayor?',
+            options: ['Soportales', 'Un lago', 'Un puente'],
+            correct: 0,
+            reveal: '¡Soportales! Construidos con el mismo estilo que la plaza, hace 400 años.'
+          }
         }
       },
       {
@@ -3709,6 +3769,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El palacio, de estilo herreriano y casi sin ornamentación, conserva una portada principal con molduras rectas de granito, pilastras dóricas y un remate de triglifos y metopas.',
             kids: 'La entrada del palacio es muy sobria, sin apenas decoración, con columnas sencillas talladas en piedra. Así eran los edificios serios de la época de Felipe II.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué palacio rodea esta calle?',
+            options: ['El Palacio de Cañete', 'El Palacio Real', 'El Palacio de Cristal'],
+            correct: 0,
+            reveal: '¡El Palacio de Cañete! Construido hace más de 400 años. 👻'
+          },
+          legends: {
+            question: '¿Qué fama tenía este palacio?',
+            options: ['Fama de estar maldito, con ruidos raros', 'Fama de ser el más bonito', 'Fama de tener un tesoro'],
+            correct: 0,
+            reveal: '¡Fama de maldito! Hasta que se descubrió lo que había pasado de verdad ahí dentro.'
+          },
+          architecture: {
+            question: '¿Cómo es la decoración de la entrada de este palacio?',
+            options: ['Muy sobria, casi sin decoración', 'Llena de oro', 'Llena de flores talladas'],
+            correct: 0,
+            reveal: '¡Muy sobria! Así eran los edificios serios de la época de Felipe II.'
           }
         }
       },
