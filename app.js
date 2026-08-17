@@ -2615,7 +2615,14 @@
       stopCallInterruptWatch();
       STATE.audio.overrideText = null;
       setCallAvatarState(null);
-      onDone && onDone();
+      // Margen antes de seguir (normalmente, volver a escuchar): parar un
+      // reconocimiento de voz (el "oído de fondo" de la interrupción) y
+      // arrancar otro inmediatamente después (el de escucha real) en el
+      // mismo instante falla en la práctica en varios navegadores — el
+      // anterior no ha soltado el micrófono todavía — y el intento de
+      // escuchar caía a texto sin motivo real. Con este margen se evita
+      // esa carrera; se aplica siempre, no solo si hubo interrupción.
+      setTimeout(() => { onDone && onDone(); }, 300);
     });
   };
 
