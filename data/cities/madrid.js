@@ -228,7 +228,7 @@ CITIES.madrid.pois = [
           kids: '¡Miles de cuadros famosísimos bajo un mismo techo!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'arte', order: 2 },
+        essential: { route: 'arte', order: 4 },
         coords: [40.4139, -3.6922],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Museo_del_Prado_2016_%2825185969599%29.jpg/330px-Museo_del_Prado_2016_%2825185969599%29.jpg',
         audio: {
@@ -295,7 +295,7 @@ CITIES.madrid.pois = [
           kids: '¡Un jardín con plantas de todo el mundo, justo al lado del museo!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'arte', order: 3 },
+        essential: { route: 'arte', order: 5 },
         coords: [40.4111, -3.6917],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/RJB_-_Puerta_Real_%28Madrid%29_01.jpg/330px-RJB_-_Puerta_Real_%28Madrid%29_01.jpg',
         audio: {
@@ -355,7 +355,7 @@ CITIES.madrid.pois = [
           kids: '¡Tiene una estatua del diablo, única en el mundo!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'arte', order: 4 },
+        essential: { route: 'arte', order: 6 },
         coords: [40.4150, -3.6839],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Palacio_de_Cristal.jpg/330px-Palacio_de_Cristal.jpg',
         audio: {
@@ -415,6 +415,7 @@ CITIES.madrid.pois = [
           kids: '¡Un palacio casi todo transparente!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'arte', order: 8 },
         coords: [40.413556, -3.682056],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg/330px-Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg',
         audio: {
@@ -442,6 +443,10 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Es una estructura metálica cubierta casi por completo de cristal, con planta de cruz griega de tres naves: la cúpula central alcanza 22,60 metros de altura. La cerámica decorativa, obra de Daniel Zuloaga, incluye grutescos con cabezas de pato en frisos y remates. Le rodea un estanque artificial con cipreses calvos, elegido para que el edificio se reflejase en el agua.',
             kids: 'Está hecho de hierro y cristal, ¡como un gran invernadero de casi 23 metros de altura! Fíjate en la cerámica de colores con dibujos de patos raros, y en el estanque de delante: el palacio se refleja entero en el agua.'
+          },
+          legends: {
+            adult: 'Desde 1990 el edificio pertenece al Museo Reina Sofía, que lo usa como sala de exposiciones temporales: en vez de colgar cuadros en sus paredes de cristal, invita a artistas internacionales de primer nivel a crear instalaciones pensadas específicamente para este espacio tan singular, que cambian cada pocos meses. Así, el propio Palacio de Cristal se ha convertido en una obra de arte que dialoga con la que alberga en cada momento, algo poco habitual en un museo tradicional.',
+            kids: '¡Desde hace más de 30 años, artistas de todo el mundo usan este palacio como si fuera su lienzo! En vez de colgar cuadros normales, crean instalaciones de arte gigantes hechas a medida para este edificio tan especial, y van cambiando cada pocos meses.'
           }
         },
         quiz: {
@@ -456,6 +461,12 @@ CITIES.madrid.pois = [
             options: ['Casi 23 metros', 'Casi 5 metros', 'Casi 100 metros'],
             correct: 0,
             reveal: '¡Casi 23 metros! Está hecho casi todo de hierro y cristal, con un estanque delante donde se refleja entero.'
+          },
+          legends: {
+            question: '¿Cómo se usa hoy en día el Palacio de Cristal?',
+            options: ['Como sala de arte con instalaciones que cambian cada pocos meses', 'Como restaurante', 'Como estación de tren'],
+            correct: 0,
+            reveal: '¡Como sala de exposiciones del Museo Reina Sofía! Artistas de todo el mundo crean instalaciones hechas a medida para este espacio tan especial.'
           }
         }
       },
@@ -635,6 +646,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí puedes alquilar una barca de remos!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'arte', order: 7 },
         coords: [40.417151, -3.683971],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Monumento_a_Alfonso_XII_%28Madrid%29_13.jpg/330px-Monumento_a_Alfonso_XII_%28Madrid%29_13.jpg',
         audio: {
@@ -662,6 +674,10 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El monumento a Alfonso XII, en el extremo este del estanque, lo diseñó José Grases Riera en 1902 y se construyó entre 1902 y 1922: un hemiciclo de columnas jónicas rematado por la estatua ecuestre del rey, obra del escultor Mariano Benlliure. El conjunto completo mide 30 metros de alto, 86 de largo y 58 de ancho, y participaron más de veinte escultores.',
             kids: '¡Es un monumento gigante, tan alto como un edificio de diez pisos! Tiene un montón de columnas y, arriba del todo, una estatua de un rey a caballo. Más de veinte artistas ayudaron a construirlo.'
+          },
+          legends: {
+            adult: 'En el siglo XVII, Felipe IV organizaba aquí naumaquias, auténticas batallas navales en miniatura recreadas con barcos reales a escala, como espectáculo de poder ante toda la corte. El estanque también acogió representaciones teatrales sobre el agua, con tramoyas espectaculares para la época, y una docena de lujosas góndolas forradas de plata y oro, traídas expresamente desde Nápoles junto con sus gondoleros, en las que paseaba la familia real mientras la corte observaba desde la orilla.',
+            kids: '¡Hace casi 400 años, un rey organizaba aquí batallas navales de mentira con barcos de verdad, para impresionar a toda su corte! También traían góndolas doradas desde Italia, ¡con gondoleros y todo!, para que la familia real paseara por el agua mientras todos miraban.'
           }
         },
         quiz: {
@@ -670,6 +686,12 @@ CITIES.madrid.pois = [
             options: ['Desde hace casi 400 años', 'Desde hace 50 años', 'Desde hace 1.000 años'],
             correct: 0,
             reveal: '¡Casi 400 años! Lo mandó hacer un rey, Felipe IV, y desde entonces es el lugar favorito para pasear y remar en Madrid. 🚣'
+          },
+          legends: {
+            question: '¿Qué organizaba el rey Felipe IV en este estanque en el siglo XVII?',
+            options: ['Batallas navales en miniatura, para impresionar a la corte', 'Carreras de caballos', 'Concursos de pesca'],
+            correct: 0,
+            reveal: '¡Batallas navales de mentira, con barcos reales a escala! También traían góndolas doradas desde Nápoles para pasear por el agua.'
           },
           architecture: {
             question: '¿Qué se puede hacer en este lago además de pasear alrededor?',
@@ -747,7 +769,7 @@ CITIES.madrid.pois = [
           kids: '¡Una avenida que tardó 21 años en construirse entera!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'main', order: 8 },
+        essential: { route: 'main', order: 10 },
         coords: [40.420438, -3.706293],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_%28Madrid%29_%2823815769052%29.jpg/330px-Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_%28Madrid%29_%2823815769052%29.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Gran Vía', kids: '¡Aventura Sonora: La Avenida de los Rascacielos!' } },
@@ -798,7 +820,7 @@ CITIES.madrid.pois = [
           kids: '¡España "ganó" esta colección a otros dos países!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'arte', order: 1 },
+        essential: { route: 'arte', order: 3 },
         coords: [40.4160, -3.6944],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Museo_Thyssen-Bornemisza_%28Madrid%29_07.jpg/330px-Museo_Thyssen-Bornemisza_%28Madrid%29_07.jpg',
         audio: { duration: 165, title: { adult: 'Audioguía: Museo Thyssen-Bornemisza', kids: '¡Aventura Sonora: El Museo de la Colección Ganadora!' } },
@@ -856,7 +878,7 @@ CITIES.madrid.pois = [
           kids: '¡Antes de ser museo, este edificio curaba enfermos!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'arte', order: 6 },
+        essential: { route: 'arte', order: 10 },
         coords: [40.408798, -3.693648],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Museo_Reina_Sofia%2C_Madrid_%286394654203%29.jpg/330px-Museo_Reina_Sofia%2C_Madrid_%286394654203%29.jpg',
         audio: { duration: 172, title: { adult: 'Audioguía: Museo Reina Sofía', kids: '¡Aventura Sonora: El Hospital Convertido en Museo!' } },
@@ -972,6 +994,7 @@ CITIES.madrid.pois = [
           kids: '¡Una diosa en un carro tirado por leones!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'arte', order: 1 },
         coords: [40.419331, -3.693093],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Fuente_de_Cibeles_-_Dec_2024.jpg/330px-Fuente_de_Cibeles_-_Dec_2024.jpg',
         audio: { duration: 148, title: { adult: 'Audioguía: Plaza de Cibeles', kids: '¡Aventura Sonora: La Diosa que se Disfrazó de Piedra!' } },
@@ -1022,6 +1045,7 @@ CITIES.madrid.pois = [
           kids: '¡Sus dos lados son ligeramente diferentes!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'arte', order: 2 },
         coords: [40.420024, -3.688727],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Puerta_de_Alcal%C3%A1_2025.jpg/330px-Puerta_de_Alcal%C3%A1_2025.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Puerta de Alcalá', kids: '¡Aventura Sonora: El Arco con Dos Caras Distintas!' } },
@@ -1174,7 +1198,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí están Don Quijote y Sancho Panza en bronce!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'palacio', order: 6 },
+        essential: { route: 'palacio', order: 8 },
         coords: [40.42339, -3.71223],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Plaza_de_Espa%C3%B1a_de_Madrid_-_02.jpg/330px-Plaza_de_Espa%C3%B1a_de_Madrid_-_02.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Plaza de España', kids: '¡Aventura Sonora: La Plaza de Don Quijote y Sancho!' } },
@@ -1384,6 +1408,7 @@ CITIES.madrid.pois = [
           kids: '¡Lleva el nombre de una profesora superlista!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'austrias', order: 2 },
         coords: [40.4124, -3.7092],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Fiestas_de_la_Paloma_2023_-_Calle_de_la_Cava_Baja_-_Madrid_07.jpg/330px-Fiestas_de_la_Paloma_2023_-_Calle_de_la_Cava_Baja_-_Madrid_07.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Barrio de La Latina', kids: '¡Aventura Sonora: El Barrio de la Maestra Sabia!' } },
@@ -1634,7 +1659,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí compraban paja para las mulas de los curas!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'austrias', order: 4 },
+        essential: { route: 'austrias', order: 5 },
         coords: [40.41256389, -3.71113611],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Visual_Plaza_de_la_Paja.jpg/330px-Visual_Plaza_de_la_Paja.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza de la Paja', kids: '¡Aventura Sonora: La Plaza Antes de la Plaza Mayor!' } },
@@ -1685,7 +1710,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí está el restaurante más viejo del mundo entero!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'austrias', order: 2 },
+        essential: { route: 'austrias', order: 3 },
         coords: [40.41410556, -3.70810278],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Calle_de_Cuchilleros_%28Madrid%29_01.jpg/330px-Calle_de_Cuchilleros_%28Madrid%29_01.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Calle de Cuchilleros', kids: '¡Aventura Sonora: La Calle de los Fabricantes de Cuchillos!' } },
@@ -1736,7 +1761,7 @@ CITIES.madrid.pois = [
           kids: '¡Por fuera parece sencillo, pero por dentro esconde un tesoro!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'main', order: 7 },
+        essential: { route: 'main', order: 8 },
         coords: [40.4186602, -3.7062538],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Monasterio_de_las_Descalzas_Reales_%28Madrid%29_01.jpg/330px-Monasterio_de_las_Descalzas_Reales_%28Madrid%29_01.jpg',
         audio: { duration: 160, title: { adult: 'Audioguía: Monasterio de las Descalzas Reales', kids: '¡Aventura Sonora: El Convento del Tesoro Escondido!' } },
@@ -1788,7 +1813,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí guardan una reliquia que "cambia" una vez al año!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'palacio', order: 7 },
+        essential: { route: 'palacio', order: 9 },
         coords: [40.4200041, -3.7115521],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Real_Monasterio_de_la_Encarnaci%C3%B3n_%28Madrid%29_01.jpg/330px-Real_Monasterio_de_la_Encarnaci%C3%B3n_%28Madrid%29_01.jpg',
         audio: { duration: 165, title: { adult: 'Audioguía: Real Monasterio de la Encarnación', kids: '¡Aventura Sonora: El Convento de la Sangre Milagrosa!' } },
@@ -1952,7 +1977,7 @@ CITIES.madrid.pois = [
           kids: '¡Un marqués guardó aquí más de 50.000 objetos curiosos!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'palacio', order: 5 },
+        essential: { route: 'palacio', order: 6 },
         coords: [40.423684, -3.714577],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Palacio_del_Marqu%C3%A9s_de_Cerralbo_%28Madrid%29_01.jpg/330px-Palacio_del_Marqu%C3%A9s_de_Cerralbo_%28Madrid%29_01.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Museo Cerralbo', kids: '¡Aventura Sonora: El Palacio del Marqués Coleccionista!' } },
@@ -2366,6 +2391,7 @@ CITIES.madrid.pois = [
           kids: '¡Su nombre viene de una batalla en el mar, muy lejos de Madrid!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 9 },
         coords: [40.419953, -3.705799],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/City_of_Madrid_%2818038988892%29.jpg/330px-City_of_Madrid_%2818038988892%29.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Plaza del Callao', kids: '¡Aventura Sonora: La Plaza de las Pantallas Gigantes!' } },
@@ -2416,6 +2442,7 @@ CITIES.madrid.pois = [
           kids: '¡Fue el edificio más alto de todo un continente!'
         },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'main', order: 11 },
         coords: [40.42038889, -3.70190278],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Edificio_Telefonica_Madrid.jpg/330px-Edificio_Telefonica_Madrid.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Edificio Telefónica', kids: '¡Aventura Sonora: El Primer Rascacielos de Europa!' } },
@@ -2466,6 +2493,7 @@ CITIES.madrid.pois = [
           kids: '¡Un mirador precioso que también guarda huellas de una guerra!'
         },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'austrias', order: 10 },
         coords: [40.4110037, -3.7170498],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Parque_de_las_Vistillas_-Madrid_%286952903529%29.jpg/330px-Parque_de_las_Vistillas_-Madrid_%286952903529%29.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Parque de las Vistillas', kids: '¡Aventura Sonora: El Mirador de las Trincheras!' } },
@@ -2516,7 +2544,7 @@ CITIES.madrid.pois = [
           kids: '¡Un jardín escondido que casi nadie conoce!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'austrias', order: 5 },
+        essential: { route: 'austrias', order: 6 },
         coords: [40.4129877, -3.7115786],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Jardines_del_Principe_de_Anglona_%289%29_%2811983191794%29.jpg/330px-Jardines_del_Principe_de_Anglona_%289%29_%2811983191794%29.jpg',
         audio: { duration: 140, title: { adult: 'Audioguía: Jardines del Príncipe de Anglona', kids: '¡Aventura Sonora: El Jardín Secreto de La Latina!' } },
@@ -2618,7 +2646,7 @@ CITIES.madrid.pois = [
           kids: '¡Tiene una de las cúpulas más grandes de toda Europa!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'austrias', order: 7 },
+        essential: { route: 'austrias', order: 9 },
         coords: [40.4108476, -3.7138633],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Exterior_-_Real_basilica_de_San_Francisco_el_Grande_-_Madrid_01.jpg/330px-Exterior_-_Real_basilica_de_San_Francisco_el_Grande_-_Madrid_01.jpg',
         audio: { duration: 160, title: { adult: 'Audioguía: Basílica de San Francisco el Grande', kids: '¡Aventura Sonora: La Cúpula Gigante de Goya!' } },
@@ -2719,7 +2747,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí se cuenta una leyenda sobre un pozo mágico!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'austrias', order: 6 },
+        essential: { route: 'austrias', order: 7 },
         coords: [40.4122, -3.71093056],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Museo_de_San_Isidro.jpg/330px-Museo_de_San_Isidro.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Museo de San Isidro', kids: '¡Aventura Sonora: El Museo del Pozo Milagroso!' } },
@@ -2770,7 +2798,7 @@ CITIES.madrid.pois = [
           kids: '¡Este edificio parece flotar en el aire, sin apoyarse en el suelo!'
         },
         category: CATEGORIES.HISTORY,
-        essential: { route: 'arte', order: 5 },
+        essential: { route: 'arte', order: 9 },
         coords: [40.410905, -3.692897],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Caixaforum_Madrid_2024.jpg/330px-Caixaforum_Madrid_2024.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: CaixaForum Madrid', kids: '¡Aventura Sonora: El Edificio que Flota!' } },
@@ -3071,7 +3099,7 @@ CITIES.madrid.pois = [
           kids: '¡Antes hubo aquí un mercado hecho de hierro traído desde Londres!'
         },
         category: CATEGORIES.GASTRONOMY,
-        essential: { route: 'austrias', order: 8 },
+        essential: { route: 'austrias', order: 11 },
         coords: [40.41111111, -3.70975],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Madrid_-_Mercado_de_la_Cebada_-_outside.jpg/330px-Madrid_-_Mercado_de_la_Cebada_-_outside.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Mercado de la Cebada', kids: '¡Aventura Sonora: El Mercado que Reemplazó a un Palacio de Hierro!' } },
@@ -3122,7 +3150,7 @@ CITIES.madrid.pois = [
           kids: '¡Aquí vivían los representantes del Papa en España!'
         },
         category: CATEGORIES.HIDDEN,
-        essential: { route: 'austrias', order: 3 },
+        essential: { route: 'austrias', order: 4 },
         coords: [40.413425, -3.70905278],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_%28Madrid%29_01.jpg/330px-Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_%28Madrid%29_01.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Calle del Nuncio', kids: '¡Aventura Sonora: La Calle del Embajador del Papa!' } },
@@ -3562,6 +3590,7 @@ CITIES.madrid.pois = [
         name: { adult: 'Colegiata de San Isidro', kids: 'Colegiata de San Isidro — La Catedral Antes de la Catedral ⛪' },
         subtitle: { adult: 'La catedral de Madrid antes de la Almudena', kids: '¡Fue la catedral de Madrid antes de que existiera la Almudena!' },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'austrias', order: 8 },
         coords: [40.41278, -3.70694],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Main_facade_of_the_Colegiata_de_San_Isidro_2022.jpg/330px-Main_facade_of_the_Colegiata_de_San_Isidro_2022.jpg',
         audio: { duration: 155, title: { adult: 'Audioguía: Colegiata de San Isidro', kids: '¡Aventura Sonora: La Catedral Antes de la Catedral!' } },
@@ -3844,6 +3873,7 @@ CITIES.madrid.pois = [
         name: { adult: 'Mirador de la Muralla Árabe', kids: 'Mirador de la Muralla Árabe — Donde Nació Madrid 🏰' },
         subtitle: { adult: 'Los restos más antiguos de la ciudad, al aire libre', kids: '¡Aquí empezó Madrid, hace más de 1.100 años!' },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'main', order: 7 },
         coords: [40.41493, -3.71457],
         image: 'assets/photos/madrid/mirador-muralla-arabe.jpg',
         audio: { duration: 145, title: { adult: 'Audioguía: Mirador de la Muralla Árabe', kids: '¡Aventura Sonora: Donde Nació Madrid!' } },
@@ -3891,6 +3921,7 @@ CITIES.madrid.pois = [
         name: { adult: 'Palacio del Senado', kids: 'Palacio del Senado — Dos Edificios en Uno 🏛️' },
         subtitle: { adult: 'Cámara alta española en un convento reconvertido', kids: '¡Un edificio antiguo y otro moderno, pegados!' },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'palacio', order: 10 },
         coords: [40.42118, -3.71182],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Madrid_-_Senado_de_Espa%C3%B1a_2.jpg/330px-Madrid_-_Senado_de_Espa%C3%B1a_2.jpg',
         audio: { duration: 150, title: { adult: 'Audioguía: Palacio del Senado', kids: '¡Aventura Sonora: Dos Edificios en Uno!' } },
@@ -3938,6 +3969,7 @@ CITIES.madrid.pois = [
         name: { adult: 'Antigua sede de la Real Compañía Asturiana de Minas', kids: 'La Casa de la Compañía de Minas ⛏️' },
         subtitle: { adult: 'Un palacio ecléctico camino de convertirse en centro cultural', kids: '¡Un edificio precioso que antes era de una empresa minera!' },
         category: CATEGORIES.HIDDEN,
+        essential: { route: 'palacio', order: 7 },
         coords: [40.42194, -3.7125],
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Real_Compa%C3%B1%C3%ADa_Asturiana_de_Minas_%28Madrid%29_03.jpg/330px-Real_Compa%C3%B1%C3%ADa_Asturiana_de_Minas_%28Madrid%29_03.jpg',
         audio: { duration: 140, title: { adult: 'Audioguía: Real Compañía Asturiana de Minas', kids: '¡Aventura Sonora: La Casa de la Compañía de Minas!' } },
@@ -4126,6 +4158,7 @@ CITIES.madrid.pois = [
         name: { adult: 'Monumento al Pueblo del Dos de Mayo de 1808', kids: 'El Monumento a los Héroes del Dos de Mayo ⚔️' },
         subtitle: { adult: 'Homenaje al levantamiento popular contra Napoleón', kids: '¡Recuerda a la gente que se rebeló contra un ejército entero!' },
         category: CATEGORIES.HISTORY,
+        essential: { route: 'palacio', order: 5 },
         coords: [40.42315, -3.71491],
         image: 'assets/photos/madrid/monumento-2-mayo.jpg',
         audio: { duration: 165, title: { adult: 'Audioguía: Monumento al Dos de Mayo', kids: '¡Aventura Sonora: Los Héroes del Dos de Mayo!' } },

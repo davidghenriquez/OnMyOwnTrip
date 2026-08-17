@@ -99,15 +99,18 @@ const CITIES = {
     // POIs reales como el Museo del Prado o el Parque del Retiro (detectado
     // por scripts/validate-data.js). Con las nuevas rutas "Paseo del Arte"
     // y "Palacio y Plaza de España" tocaba corregirlo ya.
-    bounds: [[40.404, -3.723], [40.432, -3.680]],
+    // Lado este ampliado de nuevo a -3.680 -> -3.677: dejaba fuera del mapa
+    // un par de rincones del Retiro (Jardines de Cecilio Rodríguez, Casa de
+    // Fieras) detectados con la misma validación al añadir nuevas paradas.
+    bounds: [[40.404, -3.723], [40.432, -3.677]],
     routes: [
       {
         id: 'main',
         name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
         color: '#F59E0B',
         intro: {
-          adult: 'La ruta imprescindible de Madrid reúne sus seis grandes símbolos en un paseo corto y muy caminable. Visitarás el Palacio Real, uno de los más grandes de Europa, probarás el ambiente del Mercado de San Miguel, pisarás el kilómetro cero de España en la Puerta del Sol, cruzarás la Plaza Mayor, recorrerás la Gran Vía y terminarás junto a la Catedral de la Almudena. Al acabar tendrás una primera fotografía completa de Madrid: la capital de un imperio, convertida siglos después en una ciudad moderna y cosmopolita. Toca cada parada en el mapa para ver la información específica de ese lugar.',
-          kids: '¡Esta es la ruta top de Madrid! 🚩 Vas a ver un palacio gigante con más de 3.000 habitaciones, un mercado lleno de comida rica, la plaza donde empiezan todas las carreteras de España, una plaza mayor preciosa y una calle enorme llena de luces y teatros. ¡Y terminarás junto a una catedral con la fachada de muchos colores! Al final habrás visto lo mejor de Madrid en un solo paseo. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+          adult: 'La ruta imprescindible de Madrid reúne sus grandes símbolos en un paseo corto y muy caminable. Visitarás el Palacio Real, uno de los más grandes de Europa, probarás el ambiente del Mercado de San Miguel, pisarás el kilómetro cero de España en la Puerta del Sol y cruzarás la Plaza Mayor. Junto a la Catedral de la Almudena verás los restos de muralla árabe más antiguos de la ciudad, y terminarás recorriendo la Gran Vía, entre la Plaza del Callao y el Edificio Telefónica, el primer rascacielos de Europa. Al acabar tendrás una primera fotografía completa de Madrid: la capital de un imperio, convertida siglos después en una ciudad moderna y cosmopolita. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta es la ruta top de Madrid! 🚩 Vas a ver un palacio gigante con más de 3.000 habitaciones, un mercado lleno de comida rica, la plaza donde empiezan todas las carreteras de España y una plaza mayor preciosa. Junto a la catedral verás las piedras más viejas de todo Madrid, ¡de hace más de 1.100 años! Y terminarás en una calle enorme llena de luces y teatros, con el primer rascacielos que hubo en toda Europa. Al final habrás visto lo mejor de Madrid en un solo paseo. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
         }
       },
       {
@@ -115,8 +118,8 @@ const CITIES = {
         name: { adult: 'Paseo del Arte', kids: '¡El Paseo de los Museos! 🎨' },
         color: '#E11D48',
         intro: {
-          adult: 'El Paseo del Arte es el eje cultural más importante de España: en poco más de un kilómetro se concentran algunos de los museos más visitados del mundo. Empezarás en el Museo Thyssen-Bornemisza, seguirás por el Museo del Prado, cruzarás el Real Jardín Botánico, te tomarás un respiro entre los jardines del Retiro, pasarás por la fachada vegetal del CaixaForum y terminarás en el Museo Reina Sofía, hogar del Guernica de Picasso. Al terminar habrás recorrido ocho siglos de historia del arte, del Románico a la vanguardia del siglo XX, sin salir de un mismo paseo. Toca cada parada en el mapa para ver la información específica de ese lugar.',
-          kids: '¡Esta ruta es puro arte! 🎨 Vas a pasar por tres museos gigantes, cada uno con cuadros y tesoros distintos, un jardín con plantas de todo el mundo, un parque enorme para descansar en medio, y un edificio con una pared cubierta de plantas de verdad. Al terminar habrás visto pinturas hechas hace cientos de años y otras hechas hace muy poquito tiempo, ¡todo en el mismo paseo! ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+          adult: 'El Paseo del Arte es el eje cultural más importante de España: en poco más de un kilómetro se concentran algunos de los museos más visitados del mundo. Empezarás junto a la diosa Cibeles y bajo la Puerta de Alcalá, seguirás por el Museo Thyssen-Bornemisza, el Museo del Prado y el Real Jardín Botánico, te adentrarás en el Retiro hasta el Estanque Grande y el Palacio de Cristal, pasarás por la fachada vegetal del CaixaForum y terminarás en el Museo Reina Sofía, hogar del Guernica de Picasso. Al terminar habrás recorrido ocho siglos de historia del arte, del Románico a la vanguardia del siglo XX, sin salir de un mismo paseo. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta es puro arte! 🎨 Empezarás junto a una diosa de piedra y una puerta gigante, pasarás por tres museos con cuadros y tesoros distintos, un jardín con plantas de todo el mundo, y un lago del Retiro donde hace siglos un rey organizaba batallas navales de mentira. Terminarás en un edificio con una pared cubierta de plantas de verdad. Al final habrás visto pinturas hechas hace cientos de años y otras hechas hace muy poquito tiempo, ¡todo en el mismo paseo! ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
         }
       },
       {
@@ -124,8 +127,8 @@ const CITIES = {
         name: { adult: 'Madrid de los Austrias', kids: '¡El Madrid Antiguo! 🏰' },
         color: '#16A34A',
         intro: {
-          adult: 'Esta ruta recorre el Madrid más antiguo, el de los Austrias, con sus calles estrechas y sus plazas escondidas. Pasarás por la Iglesia de San Ginés, bajarás por la Calle Cuchilleros, llegarás a la Plaza de la Paja y los Jardines de Anglona, visitarás la basílica de San Francisco el Grande y terminarás en el castizo Mercado de la Cebada. Al terminar habrás visto el Madrid medieval y renacentista que sobrevive, casi intacto, a la sombra de la Plaza Mayor. Toca cada parada en el mapa para ver la información específica de ese lugar.',
-          kids: '¡Esta ruta te lleva al Madrid más antiguo de todos! 🏰 Vas a caminar por calles estrechitas y empinadas, como las de un pueblo de hace cientos de años, con plazas escondidas y jardines tranquilos. Terminarás en un mercado con mucho ambiente. Al final habrás descubierto un Madrid que casi nadie ve porque está escondido detrás de la Plaza Mayor. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+          adult: 'Esta ruta recorre el Madrid más antiguo, el de los Austrias, con sus calles estrechas y sus plazas escondidas. Pasarás por la Iglesia de San Ginés y el barrio de La Latina, bajarás por la Calle Cuchilleros, llegarás a la Plaza de la Paja y los Jardines de Anglona, visitarás la Colegiata de San Isidro —la catedral de Madrid antes de la Almudena— y la basílica de San Francisco el Grande, subirás al mirador del Parque de las Vistillas y terminarás en el castizo Mercado de la Cebada. Al terminar habrás visto el Madrid medieval y renacentista que sobrevive, casi intacto, a la sombra de la Plaza Mayor. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta te lleva al Madrid más antiguo de todos! 🏰 Vas a caminar por el barrio más castizo de la ciudad, por calles estrechitas y empinadas, como las de un pueblo de hace cientos de años, con plazas escondidas y jardines tranquilos. Visitarás la iglesia que fue catedral de Madrid antes de que existiera la Almudena, subirás a un mirador con vistas preciosas y terminarás en un mercado con mucho ambiente. Al final habrás descubierto un Madrid que casi nadie ve porque está escondido detrás de la Plaza Mayor. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
         }
       },
       {
@@ -133,8 +136,8 @@ const CITIES = {
         name: { adult: 'Palacio y Plaza de España', kids: '¡El Barrio del Rey! 👑' },
         color: '#0EA5E9',
         intro: {
-          adult: 'Una ruta por el Madrid más monumental, alrededor del Palacio Real. Empezarás en el Teatro Real, cruzarás la Plaza de Oriente y los Jardines de Sabatini, subirás hasta el Templo de Debod —un templo egipcio real, regalado a España hace más de 2.000 años—, pasarás por la Plaza de España y terminarás en el Monasterio de la Encarnación. Al terminar habrás visto cómo Madrid combina la grandeza de sus palacios con un templo egipcio original, algo que no se ve en ninguna otra capital europea. Toca cada parada en el mapa para ver la información específica de ese lugar.',
-          kids: '¡Esta ruta es la del rey! 👑 Vas a pasar por un teatro enorme, unos jardines preciosos, ¡y hasta un templo egipcio de verdad, con miles de años, que le regalaron a España! Terminarás en un monasterio tranquilo cerca del Palacio Real. Al final sabrás que en Madrid hay un pedacito de Egipto, ¡y pocos niños lo saben! ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+          adult: 'Una ruta por el Madrid más monumental, alrededor del Palacio Real. Empezarás en el Teatro Real, cruzarás la Plaza de Oriente y los Jardines de Sabatini, subirás hasta el Templo de Debod —un templo egipcio real, regalado a España hace más de 2.000 años— y el Monumento al Dos de Mayo de 1808, visitarás el Museo Cerralbo y terminarás en la Plaza de España, el Monasterio de la Encarnación y el Palacio del Senado. Al terminar habrás visto cómo Madrid combina la grandeza de sus palacios con un templo egipcio original, algo que no se ve en ninguna otra capital europea. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta es la del rey! 👑 Vas a pasar por un teatro enorme, unos jardines preciosos, ¡y hasta un templo egipcio de verdad, con miles de años, que le regalaron a España! También verás un monumento a un grupo de valientes que se enfrentaron a un ejército entero. Terminarás en una plaza con Don Quijote y Sancho Panza, un monasterio tranquilo y el edificio donde trabajan los senadores. Al final sabrás que en Madrid hay un pedacito de Egipto, ¡y pocos niños lo saben! ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
         }
       }
     ]
