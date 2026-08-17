@@ -1866,6 +1866,26 @@ CITIES.madrid.pois = [
             adult: 'Barroco madrileño de Pedro de Ribera, con la fachada-portada como pieza más fotografiada del edificio. Hoy alberga la colección municipal que recorre la historia de Madrid desde 1561, año en que se convirtió en capital, hasta inicios del siglo XX.',
             kids: '¡Dentro puedes ver cómo era Madrid hace siglos, con planos, cuadros y objetos antiguos de la ciudad!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se usaba este edificio antes de ser museo?',
+            options: ['Era un hospicio para niños sin familia', 'Era una cárcel', 'Era un mercado'],
+            correct: 0,
+            reveal: '¡Un hospicio! Acogía a niños que no tenían familia, hace unos 300 años. 🏛️'
+          },
+          legends: {
+            question: '¿Cómo es la entrada de este museo?',
+            options: ['Tallada en piedra como un decorado de teatro', 'Totalmente lisa', 'Hecha de cristal'],
+            correct: 0,
+            reveal: '¡Como un decorado de teatro! Con ángeles tallados en piedra descorriendo cortinas.'
+          },
+          architecture: {
+            question: '¿Qué se puede ver dentro de este museo?',
+            options: ['Cómo era Madrid hace siglos', 'Animales vivos', 'Naves espaciales'],
+            correct: 0,
+            reveal: '¡Cómo era Madrid hace siglos! Con planos, cuadros y objetos antiguos de la ciudad.'
+          }
         }
       },
       {
@@ -1901,6 +1921,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Palacete de trazas neoclásicas reformado y ornamentado a lo largo del siglo XIX. Sus salas recrean ambientes domésticos del Romanticismo español, salón, alcoba, gabinete, con mobiliario, pintura y objetos originales de la época.',
             kids: '¡Al entrar en cada sala parece que viajas atrás en el tiempo! Los muebles, los cuadros y hasta los objetos de decoración son de verdad de hace 200 años.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién donó su colección para crear este museo?',
+            options: ['Un marqués español', 'Un rey', 'Una universidad'],
+            correct: 0,
+            reveal: '¡Un marqués! Donó toda su colección al Estado hace justo un siglo. 🕰️'
+          },
+          legends: {
+            question: '¿De qué fue de los primeros el fundador de este museo?',
+            options: ['El primer responsable de turismo de España', 'El primer alcalde de Madrid', 'El primer director de un banco'],
+            correct: 0,
+            reveal: '¡El primer responsable de turismo! Fue pionero en pensar que visitar sitios históricos podía ser un plan divertido.'
+          },
+          architecture: {
+            question: '¿Qué recrean las salas de este museo?',
+            options: ['Cómo vivía la gente hace 200 años', 'Una nave espacial', 'Un castillo medieval'],
+            correct: 0,
+            reveal: '¡Cómo vivía la gente hace 200 años! Con muebles y objetos originales de esa época.'
           }
         }
       },
@@ -1939,6 +1979,26 @@ CITIES.madrid.pois = [
             adult: 'Palacio historicista del siglo XIX que conserva intacta la instalación museográfica original del propio marqués, con más de 50.000 obras repartidas en salones que recrean la vida aristocrática decimonónica.',
             kids: '¡Cada sala está llena hasta arriba de objetos curiosos: armaduras, cuadros, relojes y muchísimas cosas más, tal y como las dejó el marqués!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién mandó construir este palacio, pensando ya en que fuera museo?',
+            options: ['Un marqués', 'Un pintor', 'Un arquitecto famoso'],
+            correct: 0,
+            reveal: '¡Un marqués! Lo construyó para vivir en él, pero pensando desde el principio en convertirlo en museo. 🗝️'
+          },
+          legends: {
+            question: '¿Qué tiene de especial el Salón de Baile de este palacio?',
+            options: ['Espejos gigantes que repiten la luz', 'Un suelo de oro', 'Un techo de cristal'],
+            correct: 0,
+            reveal: '¡Espejos gigantes! Multiplican la luz y los reflejos como si no se acabaran nunca.'
+          },
+          architecture: {
+            question: '¿Cuántos objetos hay aproximadamente en este museo?',
+            options: ['Más de 50.000', 'Unos 100', 'Unos 1.000'],
+            correct: 0,
+            reveal: '¡Más de 50.000! Armaduras, cuadros, relojes y muchísimas cosas más, tal y como las dejó el marqués.'
+          }
         }
       },
       {
@@ -1976,6 +2036,26 @@ CITIES.madrid.pois = [
             adult: 'El arquitecto Diego de Villanueva eliminó posteriormente los elementos barrocos originales para adaptar el edificio al gusto neoclásico. Hoy alberga una pinacoteca con obras de Goya, Zurbarán, Rubens y otros grandes maestros.',
             kids: '¡Dentro de esta escuela hay un museo con cuadros pintados por artistas súper famosos, incluidos algunos que estudiaron aquí mismo!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién compró este edificio para convertirlo en escuela de arte?',
+            options: ['Un rey, Carlos III', 'Un Papa', 'Un marqués'],
+            correct: 0,
+            reveal: '¡Un rey, Carlos III! Antes había sido la casa de un rico financiero. 🎨'
+          },
+          legends: {
+            question: '¿Qué le pasó al pintor Goya al intentar entrar en esta escuela?',
+            options: ['Suspendió el examen', 'Ganó un premio', 'Se hizo profesor enseguida'],
+            correct: 0,
+            reveal: '¡Suspendió! Años después, la misma escuela lo nombró su director de pintura.'
+          },
+          architecture: {
+            question: '¿Qué se puede ver hoy dentro de esta escuela?',
+            options: ['Un museo con cuadros de artistas famosos', 'Solo aulas vacías', 'Una piscina'],
+            correct: 0,
+            reveal: '¡Un museo! Con obras de Goya, Zurbarán y otros grandes maestros.'
+          }
         }
       },
       {
@@ -2006,6 +2086,26 @@ CITIES.madrid.pois = [
             adult: 'El edificio modernista más representativo de Madrid, con fachadas de piedra artificial de formas orgánicas y vegetales que envuelven toda la superficie; en la galería trasera destacan soportes tallados en hierro con forma de palmera.',
             kids: '¡Sus paredes están talladas con formas que parecen olas y plantas, nada de líneas rectas! Es de los edificios más originales de todo Madrid.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para quién se construyó este edificio?',
+            options: ['Para un financiero español', 'Para un rey', 'Para una universidad'],
+            correct: 0,
+            reveal: '¡Para un financiero! Hoy es la sede de la organización que protege a autores y compositores. 🎂'
+          },
+          legends: {
+            question: '¿A qué arquitecto famoso se confunde a veces con el autor de este edificio?',
+            options: ['A Gaudí', 'A Rafael Moneo', 'A Antonio Palacios'],
+            correct: 0,
+            reveal: '¡A Gaudí! En realidad fueron compañeros de estudios, no maestro y alumno.'
+          },
+          architecture: {
+            question: '¿Cómo son las formas de las paredes de este edificio?',
+            options: ['Onduladas, como olas y plantas', 'Todo líneas rectas', 'Cuadradas y simples'],
+            correct: 0,
+            reveal: '¡Onduladas! Los madrileños lo llaman cariñosamente "la casa tarta".'
+          }
         }
       },
       {
@@ -2035,6 +2135,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Estilo afrancesado con cúpula de pizarra dorada visible desde gran parte de Madrid; ocupa la esquina entre Gran Vía y Alcalá con una fachada profusamente esculpida.',
             kids: '¡Su cúpula dorada brilla tanto que se ve desde muy lejos! Está justo en una esquina muy importante, donde se encuentran dos calles famosas de Madrid.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién encargó la construcción de este edificio?',
+            options: ['Una compañía de seguros', 'Un rey', 'Un banco'],
+            correct: 0,
+            reveal: '¡Una compañía de seguros! Ganó un concurso internacional de arquitectura hace más de un siglo. 🗽'
+          },
+          legends: {
+            question: '¿Es la estatua dorada de hoy la primera que tuvo este edificio?',
+            options: ['No, la primera se la llevaron a otro sitio', 'Sí, es la original', 'Nunca tuvo estatua antes'],
+            correct: 0,
+            reveal: '¡No! La empresa que lo construyó se llevó la estatua original cuando vendió el edificio.'
+          },
+          architecture: {
+            question: '¿De qué color es la cúpula de este edificio?',
+            options: ['Dorada', 'Verde', 'Roja'],
+            correct: 0,
+            reveal: '¡Dorada! Brilla tanto que se ve desde muy lejos, en una esquina muy famosa de Madrid.'
           }
         }
       },
