@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=33" />
+  <link rel="stylesheet" href="styles.css?v=34" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V20.4</span>
+    <span class="onboarding-version" id="appVersion">Beta V21</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
   </div>
 
@@ -151,6 +151,24 @@
       </div>
       <p class="reward-chest-hint">Responde bien a las preguntas de cada sitio para ganar ⭐ y desbloquear objetos de exploradora o explorador.</p>
       <div class="reward-item-grid" id="rewardChestList"></div>
+    </div>
+  </div>
+
+  <!-- TUTORIAL (modo niño, primera vez): recorrido guiado con "foco" sobre
+       cada elemento clave, fondo oscurecido alrededor. Se puede repetir
+       tocando a Billy en la cabecera (ver wireTutorial en app.js). -->
+  <div class="tutorial-overlay" id="tutorialOverlay" hidden role="dialog" aria-modal="true" aria-label="Tutorial de la aventura">
+    <div class="tutorial-spotlight" id="tutorialSpotlight" aria-hidden="true"></div>
+    <div class="tutorial-tooltip" id="tutorialTooltip">
+      <button type="button" class="tutorial-skip" id="tutorialSkip">Saltar tutorial ✕</button>
+      <div class="tutorial-tooltip-body">
+        <h3 class="tutorial-title" id="tutorialTitle"></h3>
+        <p class="tutorial-text" id="tutorialText"></p>
+      </div>
+      <div class="tutorial-footer">
+        <div class="tutorial-dots" id="tutorialDots"></div>
+        <button type="button" class="tutorial-next" id="tutorialNext">Siguiente</button>
+      </div>
     </div>
   </div>
 
@@ -473,7 +491,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=13"></script>
-  <script src="app.js?v=91"></script>
+  <script src="app.js?v=92"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa

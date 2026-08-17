@@ -694,8 +694,10 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   flex-shrink: 0;
   display: grid;
   place-items: center;
+  cursor: pointer; /* tocar a Billy repite el tutorial (ver wireTutorial) */
 }
 .explorer-avatar-wrap[hidden] { display: none; }
+.explorer-avatar-wrap:active { transform: scale(0.92); }
 .explorer-avatar {
   width: 48px;
   height: 48px;
@@ -2227,6 +2229,82 @@ html[data-mode="kids"] .ai-input-wrap {
     border-top-right-radius: 32px;
   }
 }
+
+/* ---------- TUTORIAL GUIADO (modo niño, primera vez) ---------- */
+.tutorial-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 6300;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+}
+.tutorial-overlay.-open {
+  opacity: 1;
+  visibility: visible;
+}
+/* El "agujero" iluminado: un elemento invisible posicionado justo sobre el
+   objetivo de cada paso (ver positionTutorialSpotlight en app.js), cuyo
+   propio box-shadow con un spread enorme oscurece el resto de la pantalla
+   a su alrededor. No hace falta overlay + clip-path aparte: este único
+   truco CSS resuelve el "todo opaco menos el icono que se explica". */
+.tutorial-spotlight {
+  position: fixed;
+  border-radius: 18px;
+  box-shadow: 0 0 0 9999px rgba(5, 7, 13, 0.8);
+  transition: top 0.35s ease, left 0.35s ease, width 0.35s ease, height 0.35s ease, border-radius 0.35s ease;
+  pointer-events: none;
+}
+.tutorial-tooltip {
+  position: fixed;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  width: min(92vw, 420px);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 16px 18px 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.tutorial-skip {
+  display: block;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-soft);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 0 8px;
+}
+.tutorial-title { font-size: 16px; font-weight: 800; margin: 0 0 6px; }
+.tutorial-text { font-size: 13px; line-height: 1.45; color: var(--color-text-soft); margin: 0; }
+.tutorial-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.tutorial-dots { display: flex; gap: 6px; }
+.tutorial-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+.tutorial-dots span.-active { background: #F5B942; }
+.tutorial-next {
+  border: 0;
+  background: #F5B942;
+  color: #1a1300;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+.tutorial-next:active { transform: scale(0.96); }
 
 /* reduce motion */
 @media (prefers-reduced-motion: reduce) {
