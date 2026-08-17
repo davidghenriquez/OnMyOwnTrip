@@ -2167,6 +2167,7 @@
         STATE.audio.introPlaying = true;
         STATE.ai.localIntroSpoken[poi.id] = true;
         STATE.audio.overrideText = buildBasicIntroText(poi, STATE.mode);
+        if (STATE.activePoiId === poi.id) updateAudioUi(); // refleja el icono de pausa (ver updateAudioUi)
         const proceedToReal = () => {
           STATE.audio.introPlaying = false;
           // Si para este punto la respuesta real ya había llegado, su
@@ -2174,11 +2175,17 @@
           // seguía activo — se dispara ahora que ya ha terminado de hablar.
           if (!STATE.ai.pending && STATE.activePoiId === poi.id && !STATE.audio.playing) {
             startAudio(false, true);
+          } else if (STATE.activePoiId === poi.id) {
+            updateAudioUi();
           }
         };
         SPEECH.speak(({ finished } = {}) => {
           STATE.audio.overrideText = null;
-          if (!finished) { STATE.audio.introPlaying = false; return; }
+          if (!finished) {
+            STATE.audio.introPlaying = false;
+            if (STATE.activePoiId === poi.id) updateAudioUi();
+            return;
+          }
           // Si la intro termina y la IA TODAVÍA no ha respondido, un puente
           // corto antes de quedarse esperando en silencio — mejor que un
           // silencio sin ningún aviso de que se sigue trabajando.
@@ -3209,12 +3216,29 @@
       return true;
     }).join('');
 
+    // La IA a veces devuelve el texto con formato markdown (**negrita**,
+    // # títulos, listas con "-", etc.), pensado para leerse en pantalla —
+    // pero la síntesis de voz lee los símbolos literalmente ("asterisco
+    // asterisco"). Se quitan solo de cara a la narración; el texto que se
+    // muestra en el chat conserva el markdown tal cual (por si algún día se
+    // renderiza con formato).
+    const stripMarkdownForSpeech = (text) => (text || '')
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      .replace(/__(.*?)__/g, '$1')
+      .replace(/\*(.*?)\*/g, '$1')
+      .replace(/_(.*?)_/g, '$1')
+      .replace(/~~(.*?)~~/g, '$1')
+      .replace(/`{1,3}([^`]*?)`{1,3}/g, '$1')
+      .replace(/^#{1,6}\s+/gm, '')
+      .replace(/^[-*+]\s+/gm, '')
+      .replace(/^\d+\.\s+/gm, '');
+
     const buildNarrativeText = () => {
       // Texto puntual (revelación de una pregunta del quiz, o la intro de
       // una ruta): se dice directo, sin depender de que haya un POI activo
       // (una intro de ruta se narra antes de elegir ningún lugar concreto).
       if (STATE.audio.overrideText) {
-        return stripEmojiForSpeech(STATE.audio.overrideText).replace(/\s+/g, ' ').trim().slice(0, 1800);
+        return stripEmojiForSpeech(stripMarkdownForSpeech(STATE.audio.overrideText)).replace(/\s+/g, ' ').trim().slice(0, 1800);
       }
       const poi = POIS.find((p) => p.id === STATE.activePoiId);
       if (!poi) return '';
@@ -3262,7 +3286,7 @@
       const intro = (!isFirstNarration || localIntroAlreadySpoken) ? '' : (m === 'kids')
         ? `¡Hola! Vamos a descubrir ${name}. ${subtitle}. ¡Pon mucha atención! `
         : `Audioguía de ${name}. ${subtitle}. `;
-      return stripEmojiForSpeech(intro + body).replace(/\s+/g, ' ').trim().slice(0, 1800);
+      return stripEmojiForSpeech(stripMarkdownForSpeech(intro + body)).replace(/\s+/g, ' ').trim().slice(0, 1800);
     };
 
     let delayedCancelTimer = null;
@@ -3508,6 +3532,16 @@
   }
   const toggleAudio = () => {
     if (!STATE.activePoiId) return;
+    // Mientras suena la intro básica local (ver ensureAiPanelInitialGreet)
+    // el botón muestra el icono de pausa (updateAudioUi) para no dar la
+    // sensación de que no está pasando nada, pero no hay un STATE.audio.playing
+    // "de verdad" que pausar/reanudar — tocarlo aquí se interpreta como
+    // "quiero saltarme la intro": la corta y se queda esperando a que
+    // llegue el resumen real, que se autorreproduce en cuanto esté listo.
+    if (STATE.audio.introPlaying) {
+      stopAudio();
+      return;
+    }
     if (STATE.audio.playing) {
       const canPause = STATE.audio.engine === 'cloud' || SPEECH.isSupported();
       if (canPause && STATE.audio.currentTime > 0 && STATE.audio.currentTime < STATE.audio.duration) {
@@ -3681,7 +3715,11 @@
     const c = els.sheet;
     const player = $('.audio-player', c), btn = $('.play-btn', c), fill = $('.progress-fill', c), time = $('.audio-time', c);
     if (!player || !btn || !fill || !time) return;
-    btn.innerHTML = STATE.audio.playing ? ICONS.pause : ICONS.play;
+    // La intro básica local (ver ensureAiPanelInitialGreet) suena por fuera
+    // de STATE.audio.playing, pero de cara al usuario SÍ hay audio sonando
+    // — mostrar el icono de play ahí (como si no pasara nada) confundía,
+    // así que también cuenta como "reproduciendo" para el icono.
+    btn.innerHTML = (STATE.audio.playing || STATE.audio.introPlaying) ? ICONS.pause : ICONS.play;
     // Mientras se está generando una respuesta nueva (STATE.ai.pending) y
     // no hay nada sonando todavía, se deshabilita el play: si se pudiera
     // arrancar en ese hueco, sonaría con el texto de respaldo (tabs.history)
@@ -3689,7 +3727,9 @@
     // solo con el texto correcto — el "audio que se refresca a los 8s"
     // que reportó un usuario. Una vez playing=true no se vuelve a tocar
     // este disabled, para no bloquear pausar/reanudar mientras suena.
-    btn.disabled = STATE.ai.pending && !STATE.audio.playing;
+    // Tampoco se deshabilita mientras suena la intro: se deja tocable a
+    // propósito, para poder saltársela (ver toggleAudio).
+    btn.disabled = STATE.ai.pending && !STATE.audio.playing && !STATE.audio.introPlaying;
     const dur = STATE.audio.duration || 1;
     fill.style.width = `${Math.min(100, (STATE.audio.currentTime / dur) * 100)}%`;
     time.textContent = `${fmtTime(STATE.audio.currentTime)} / ${fmtTime(dur)}`;
