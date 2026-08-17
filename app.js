@@ -2329,6 +2329,128 @@
     }).catch(() => {});
   };
 
+  /* =========================================================
+   * TUTORIAL GUIADO (modo niño, primera vez): recorrido con un "foco"
+   * (ver .tutorial-spotlight en CSS) que va iluminando, paso a paso, los
+   * elementos clave para entender el juego — el propio Billy, el mapa,
+   * las estrellas y la mochila —, con el resto de la pantalla oscurecida.
+   * No es interactivo de verdad (no hace falta tocar el elemento
+   * iluminado para avanzar): es solo un recorrido guiado con "Siguiente".
+   * Se guarda en localStorage que ya se vio para no repetirlo cada vez
+   * que un niño que ya juega vuelve a abrir la app; se puede repetir
+   * siempre a mano tocando a Billy en la cabecera.
+   * =======================================================*/
+  const TUTORIAL_SEEN_KEY = 'omot_tutorial_seen_v1';
+  const TUTORIAL_STEPS = [
+    {
+      target: '#explorerBadge',
+      title: '¡Hola, soy Billy! 👋',
+      text: 'Voy a explorar contigo. Te cuento rápido cómo funciona todo antes de empezar la aventura.'
+    },
+    {
+      target: '#map',
+      title: 'Toca los puntos del mapa 🗺️',
+      text: 'Cada punto brillante esconde una historia, una leyenda o un secreto. ¡Tócalo para descubrirlo!'
+    },
+    {
+      target: '#pointsBadge',
+      title: 'Gana estrellas ⭐',
+      text: 'En cada lugar puedes responder preguntas. Si aciertas, ganas estrellas — ¡cuantas más lugares visites, más estrellas!'
+    },
+    {
+      target: '#rewardChestBtn',
+      title: 'Llena mi mochila 🎒',
+      text: 'Con esas estrellas desbloqueas objetos de exploradora o explorador para mi mochila de viaje. ¡Ayúdame a conseguirlos todos!'
+    }
+  ];
+  let tutorialStepIndex = 0;
+  let tutorialResizeHandler = null;
+
+  const positionTutorialSpotlight = () => {
+    const spotlight = $('#tutorialSpotlight');
+    const step = TUTORIAL_STEPS[tutorialStepIndex];
+    if (!spotlight || !step) return;
+    const target = $(step.target);
+    if (!target) { spotlight.style.opacity = '0'; return; }
+    const rect = target.getBoundingClientRect();
+    const pad = 8;
+    spotlight.style.opacity = '1';
+    spotlight.style.top = `${rect.top - pad}px`;
+    spotlight.style.left = `${rect.left - pad}px`;
+    spotlight.style.width = `${rect.width + pad * 2}px`;
+    spotlight.style.height = `${rect.height + pad * 2}px`;
+    // El mapa es un rectángulo grande: un radio pequeño basta. Los
+    // botones/insignias son más redondos, así que se ilumina con un
+    // círculo casi perfecto (mitad del lado más corto).
+    spotlight.style.borderRadius = step.target === '#map' ? '18px' : `${Math.min(rect.width, rect.height) / 2 + pad}px`;
+  };
+
+  const showTutorialStep = (index) => {
+    tutorialStepIndex = Math.max(0, Math.min(index, TUTORIAL_STEPS.length - 1));
+    const step = TUTORIAL_STEPS[tutorialStepIndex];
+    $('#tutorialTitle').textContent = step.title;
+    $('#tutorialText').textContent = step.text;
+    $('#tutorialNext').textContent = tutorialStepIndex === TUTORIAL_STEPS.length - 1 ? '¡Vamos allá! 🚀' : 'Siguiente';
+    const dots = $('#tutorialDots');
+    if (dots) {
+      dots.innerHTML = '';
+      TUTORIAL_STEPS.forEach((_, i) => {
+        const dot = document.createElement('span');
+        if (i === tutorialStepIndex) dot.className = '-active';
+        dots.appendChild(dot);
+      });
+    }
+    // Reposicionar después del próximo frame: si el paso anterior venía de
+    // abrir la app recién ahora, el layout (mapa, cabecera) puede no estar
+    // del todo asentado todavía en este mismo tick.
+    requestAnimationFrame(positionTutorialSpotlight);
+  };
+
+  const closeTutorial = (markSeen = true) => {
+    const overlay = $('#tutorialOverlay');
+    overlay?.classList.remove('-open');
+    if (overlay) overlay.hidden = true;
+    if (markSeen) {
+      try { localStorage.setItem(TUTORIAL_SEEN_KEY, '1'); } catch (_) {}
+    }
+    if (tutorialResizeHandler) {
+      window.removeEventListener('resize', tutorialResizeHandler);
+      tutorialResizeHandler = null;
+    }
+  };
+
+  const startTutorial = () => {
+    const overlay = $('#tutorialOverlay');
+    if (!overlay) return;
+    overlay.hidden = false;
+    // classList.add en el frame siguiente para que la transición de
+    // opacidad (ver CSS) se dispare de verdad, en vez de empezar ya
+    // visible por haber cambiado "hidden" y la clase en el mismo tick.
+    requestAnimationFrame(() => overlay.classList.add('-open'));
+    showTutorialStep(0);
+    tutorialResizeHandler = () => positionTutorialSpotlight();
+    window.addEventListener('resize', tutorialResizeHandler);
+  };
+
+  const maybeAutoStartTutorial = () => {
+    if (STATE.mode !== 'kids') return;
+    let seen = false;
+    try { seen = localStorage.getItem(TUTORIAL_SEEN_KEY) === '1'; } catch (_) {}
+    if (!seen) startTutorial();
+  };
+
+  const wireTutorial = () => {
+    $('#tutorialNext')?.addEventListener('click', () => {
+      if (tutorialStepIndex >= TUTORIAL_STEPS.length - 1) closeTutorial(true);
+      else showTutorialStep(tutorialStepIndex + 1);
+    });
+    $('#tutorialSkip')?.addEventListener('click', () => closeTutorial(true));
+    // Volver a ver el tutorial en cualquier momento tocando a Billy.
+    $('#explorerBadge')?.addEventListener('click', () => {
+      if (STATE.mode === 'kids') startTutorial();
+    });
+  };
+
   const setStateMode = (mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     document.documentElement.dataset.mode = STATE.mode;
@@ -4366,15 +4488,27 @@
     wireAiInput();
     wireMicInput();
     wireAiCallModal();
+    wireTutorial();
 
     setStateMode(STATE.mode);
     updatePills();
 
-    setTimeout(() => {
-      showToast(STATE.mode === 'kids'
-        ? '¡Hola aventurero! Toca los pines 🏰'
-        : `Bienvenido a ${CURRENT_CITY.name} · Toca un pin`);
-    }, 600);
+    // El tutorial (primera vez en modo niño) y el toast de bienvenida
+    // compiten por la atención en el mismo instante: si va a arrancar el
+    // tutorial, se salta el toast por completo en vez de solaparlos.
+    let seenTutorial = true;
+    try { seenTutorial = localStorage.getItem(TUTORIAL_SEEN_KEY) === '1'; } catch (_) {}
+    const willShowTutorial = STATE.mode === 'kids' && !seenTutorial;
+
+    if (willShowTutorial) {
+      setTimeout(() => maybeAutoStartTutorial(), 600);
+    } else {
+      setTimeout(() => {
+        showToast(STATE.mode === 'kids'
+          ? '¡Hola aventurero! Toca los pines 🏰'
+          : `Bienvenido a ${CURRENT_CITY.name} · Toca un pin`);
+      }, 600);
+    }
   };
 
   const init = () => {
