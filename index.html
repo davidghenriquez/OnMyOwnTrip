@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=28" />
+  <link rel="stylesheet" href="styles.css?v=29" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V15.5</span>
+    <span class="onboarding-version" id="appVersion">Beta V16</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
   </div>
 
@@ -336,10 +336,44 @@
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
         </button>
+        <button type="button" class="ai-call-open" id="aiCallBtn" aria-label="Hablar con la guía IA">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <line x1="5" y1="10" x2="5" y2="14"></line>
+            <line x1="9" y1="6" x2="9" y2="18"></line>
+            <line x1="13" y1="3" x2="13" y2="21"></line>
+            <line x1="17" y1="7" x2="17" y2="17"></line>
+            <line x1="21" y1="10" x2="21" y2="14"></line>
+          </svg>
+        </button>
       </div>
 
       <section class="kids-quiz-card" id="kidsQuizCard" hidden aria-live="polite"></section>
     </aside>
+
+    <!-- CONVERSACIÓN POR VOZ: se abre desde el icono de ondas junto al chat
+         de texto. La IA responde siempre hablado; el usuario le habla si su
+         navegador soporta reconocimiento de voz (no en Safari/iOS) o, si
+         no, escribe cada turno aquí mismo — la llamada sigue igual, solo
+         cambia cómo entra la pregunta. Se queda abierta hasta que el
+         usuario dice/escribe algo como "no" o pulsa "Colgar". -->
+    <div class="ai-call-modal" id="aiCallModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Conversación por voz con la guía IA">
+      <div class="ai-call-card">
+        <button type="button" class="ai-call-close" id="aiCallClose" aria-label="Terminar conversación">✕</button>
+        <div class="ai-call-avatar" id="aiCallAvatar" aria-hidden="true">✨</div>
+        <div class="ai-call-status" id="aiCallStatus" aria-live="polite">Te escucho…</div>
+        <div class="ai-call-transcript" id="aiCallTranscript"></div>
+        <div class="ai-call-textrow" id="aiCallTextRow" hidden>
+          <input type="text" class="ai-call-input" id="aiCallInput" placeholder="Escribe tu pregunta…" aria-label="Escribe tu pregunta" autocomplete="off" />
+          <button type="button" class="ai-call-send" id="aiCallSend" aria-label="Enviar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+        <button type="button" class="ai-call-end" id="aiCallEnd">Colgar</button>
+      </div>
+    </div>
 
     <!-- CÁMARA: captura en vivo para "¿qué estoy viendo?" (fallback: input de archivo con capture) -->
     <div class="camera-modal" id="cameraModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Tomar foto">
@@ -414,7 +448,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=11"></script>
-  <script src="app.js?v=63"></script>
+  <script src="app.js?v=64"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
