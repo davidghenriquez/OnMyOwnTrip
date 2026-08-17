@@ -3143,6 +3143,26 @@ CITIES.madrid.pois = [
             adult: 'Calle de trazado irregular y pronunciada pendiente, que discurre desde la plaza de Puerta Cerrada hasta la costanilla de San Pedro, en pleno Madrid de los Austrias.',
             kids: '¡Es una calle tan empinada que parece una pequeña cuesta! Está en pleno barrio más antiguo de Madrid.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién vivió en esta calle hasta hace relativamente poco?',
+            options: ['Los embajadores del Papa', 'Los reyes de España', 'Los alcaldes de Madrid'],
+            correct: 0,
+            reveal: '¡Los embajadores del Papa! Vivieron aquí desde los siglos XVI y XVII. ⛪'
+          },
+          legends: {
+            question: '¿Qué le pasó a un noble poderoso que vivió antes en este mismo lugar?',
+            options: ['Acabó ejecutado en la Plaza Mayor', 'Se hizo muy rico y feliz', 'Se mudó a otro país'],
+            correct: 0,
+            reveal: '¡Acabó ejecutado! Era un favorito del rey que perdió su posición en la Corte.'
+          },
+          architecture: {
+            question: '¿Cómo es esta calle?',
+            options: ['Muy empinada, como una cuesta', 'Totalmente plana', 'Muy ancha'],
+            correct: 0,
+            reveal: '¡Muy empinada! Está en pleno barrio más antiguo de Madrid.'
+          }
         }
       },
       {
@@ -3172,6 +3192,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Pequeña y animada plaza del corazón de Malasaña, rodeada de terrazas y bares, y muy popular como punto de encuentro entre vecinos y visitantes.',
             kids: '¡Es una plaza pequeñita pero con mucho ambiente! Está siempre llena de gente sentada charlando en las terrazas.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había antiguamente en esta plaza?',
+            options: ['Un mercadillo al aire libre', 'Un teatro', 'Una iglesia'],
+            correct: 0,
+            reveal: '¡Un mercadillo! Los vecinos lo conocían como "el Rastrillo" desde hace siglos. 🛒'
+          },
+          legends: {
+            question: '¿Qué pasó con el nombre de esta plaza a lo largo de los años?',
+            options: ['Cambió y luego recuperó su nombre popular', 'Nunca cambió', 'Cambia cada año'],
+            correct: 0,
+            reveal: '¡Cambió y volvió! El Ayuntamiento recuperó su nombre histórico hace poco.'
+          },
+          architecture: {
+            question: '¿Cómo es esta plaza?',
+            options: ['Pequeña pero con mucho ambiente', 'Enorme y vacía', 'Solo de paso'],
+            correct: 0,
+            reveal: '¡Pequeña y animada! Siempre llena de gente charlando en las terrazas.'
           }
         }
       },
@@ -3203,6 +3243,26 @@ CITIES.madrid.pois = [
             adult: 'La calle combina comercio de proximidad tradicional con casas señoriales de balconadas y algunos palacetes de estilo Belle Époque, en una de las estampas más elegantes del Madrid clásico.',
             kids: '¡Caminar por esta calle es como pasear entre casas de cuento, con balcones y fachadas muy elegantes!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había antes en el terreno de esta calle?',
+            options: ['Una gran huerta', 'Un río', 'Un cementerio'],
+            correct: 0,
+            reveal: '¡Una gran huerta! Se urbanizó hace más de 100 años para familias nobles. 🏘️'
+          },
+          legends: {
+            question: '¿Quién mandó construir uno de los palacetes más notables de esta calle?',
+            options: ['Un conde', 'Un rey', 'Un pintor'],
+            correct: 0,
+            reveal: '¡Un conde! Hace casi 150 años, y todavía se conserva su fachada.'
+          },
+          architecture: {
+            question: '¿Cómo son las casas de esta calle?',
+            options: ['Elegantes, como pequeños palacios', 'Sencillas y modernas', 'Todas iguales'],
+            correct: 0,
+            reveal: '¡Como pequeños palacios! Con balcones y fachadas muy elegantes.'
+          }
         }
       },
       {
@@ -3232,6 +3292,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Una de las iglesias más notables y hermosas de Madrid, declarada Bien de Interés Cultural en 1979, espléndido ejemplo del arte del siglo XVIII con elementos franceses, italianos y españoles. Junto a ella se encuentra el Palacio de Justicia, antigua sede del convento.',
             kids: '¡Esta iglesia es tan bonita que está protegida como un tesoro artístico! Junto a ella hay un edificio enorme que antes era parte del mismo convento.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién fundó la iglesia que da nombre a esta plaza?',
+            options: ['Una reina española', 'Un Papa', 'Un noble extranjero'],
+            correct: 0,
+            reveal: '¡Una reina, Bárbara de Braganza! La fundó hace casi 300 años para educar a jóvenes nobles. 👸'
+          },
+          legends: {
+            question: '¿Dónde está enterrada la reina que fundó este lugar?',
+            options: ['Dentro de la propia iglesia', 'En el Palacio Real', 'En otro país'],
+            correct: 0,
+            reveal: '¡Dentro de la iglesia! En un mausoleo diseñado por un arquitecto muy famoso.'
+          },
+          architecture: {
+            question: '¿Cómo está considerada esta iglesia?',
+            options: ['Una de las más bonitas de Madrid', 'Una iglesia sencilla', 'Un edificio abandonado'],
+            correct: 0,
+            reveal: '¡Una de las más bonitas! Está protegida como un tesoro artístico desde 1979.'
           }
         }
       },
@@ -3263,6 +3343,26 @@ CITIES.madrid.pois = [
             adult: 'Eje cultural del Barrio de las Letras, con ambiente animado de bares y restaurantes, que conserva su identidad literaria como ninguna otra calle de Madrid.',
             kids: '¡Es una calle llena de vida, con bares y restaurantes, pero que no ha olvidado a los escritores que la hicieron famosa!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De dónde viene el nombre de esta calle?',
+            options: ['De unos huertos antiguos', 'De un río', 'De un rey llamado Huertas'],
+            correct: 0,
+            reveal: '¡De unos huertos! Existían aquí hace siglos, junto al Prado de los Jerónimos. ✨'
+          },
+          legends: {
+            question: '¿De qué color están escritos los versos en el suelo de esta calle?',
+            options: ['Dorado', 'Plateado', 'Rojo'],
+            correct: 0,
+            reveal: '¡Dorado! Versos de escritores del Siglo de Oro grabados en el pavimento.'
+          },
+          architecture: {
+            question: '¿Qué tipo de barrio es este?',
+            options: ['Un barrio literario, lleno de bares y restaurantes', 'Un barrio industrial', 'Un barrio sin tiendas'],
+            correct: 0,
+            reveal: '¡Un barrio literario! Lleno de vida sin olvidar a los escritores que lo hicieron famoso.'
+          }
         }
       },
       {
@@ -3293,6 +3393,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Jardines de trazado neoclásico y geometría simétrica, con setos recortados, estanques y estatuas de reyes españoles, situados en la fachada norte del Palacio Real.',
             kids: '¡Sus setos están recortados con formas muy geométricas, como un laberinto verde! Es un lugar perfecto para pasear tranquilamente junto al Palacio Real.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había antes donde hoy hay estos jardines?',
+            options: ['Las caballerizas del rey', 'Un lago', 'Un mercado'],
+            correct: 0,
+            reveal: '¡Las caballerizas del rey! Ahí vivían los caballos, hace más de 250 años. 🐎'
+          },
+          legends: {
+            question: '¿A quién recuerda el nombre de estos jardines?',
+            options: ['Al arquitecto de las antiguas caballerizas', 'A un rey', 'A un jardinero'],
+            correct: 0,
+            reveal: '¡A Sabatini, el arquitecto! Para no olvidar lo que hubo antes en este lugar.'
+          },
+          architecture: {
+            question: '¿Cómo son los setos de estos jardines?',
+            options: ['Recortados con formas geométricas', 'Sin cuidar, salvajes', 'No hay setos'],
+            correct: 0,
+            reveal: '¡Recortados con formas geométricas! Como un laberinto verde junto al Palacio Real.'
           }
         }
       },
