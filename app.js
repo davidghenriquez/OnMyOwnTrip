@@ -2448,6 +2448,219 @@
   };
 
   /* =========================================================
+   * CONVERSACIÓN POR VOZ ("llamada" con la IA)
+   * Distinto del dictado puntual de arriba (wireMicInput): aquí se abre un
+   * modal a pantalla completa que se queda activo turno tras turno, con la
+   * IA respondiendo siempre en voz alta y preguntando "¿algo más?" al
+   * terminar, hasta que el usuario dice/escribe que no o pulsa "Colgar".
+   * Reutiliza LLM.generate directamente (mismo contexto de POI/ciudad que
+   * el chat normal, así que las respuestas ya vienen acotadas a la zona) y
+   * guarda cada turno en el historial normal del lugar (aiHistoryFor), para
+   * que quede visible también en el chat de texto si se reabre después.
+   *
+   * Si el navegador soporta SpeechRecognition (no en Safari/iOS) escucha
+   * cada turno por voz; si no, muestra un input de texto dentro del propio
+   * modal como respaldo — la IA sigue respondiendo hablado en ambos casos,
+   * y el flujo de "llamada" (turnos + cierre) es idéntico.
+   * =======================================================*/
+  const CALL_END_RE = /^(no|nada|nada m[aá]s|gracias|ya est[aá]|para|termina|terminar|cierra|cuelga|colgar|adi[oó]s|chao|eso es todo)[.!¡¿?\s]*$/i;
+
+  const callState = { active: false, poi: null };
+  let callRecognition = null;
+
+  const hasSpeechRecognition = () => !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+
+  const setCallStatus = (text) => {
+    const el = $('#aiCallStatus');
+    if (el) el.textContent = text;
+  };
+  const setCallAvatarState = (cls) => {
+    const el = $('#aiCallAvatar');
+    if (!el) return;
+    el.classList.remove('-listening', '-speaking');
+    if (cls) el.classList.add(cls);
+  };
+  const appendCallBubble = (role, text) => {
+    const box = $('#aiCallTranscript');
+    if (!box) return;
+    const b = document.createElement('div');
+    b.className = 'ai-call-bubble' + (role === 'user' ? ' -user' : '');
+    b.textContent = text;
+    box.appendChild(b);
+    box.scrollTo({ top: box.scrollHeight, behavior: 'smooth' });
+  };
+  const focusCallTextInput = () => {
+    setCallAvatarState(null);
+    const row = $('#aiCallTextRow');
+    if (row) row.hidden = false;
+    $('#aiCallInput')?.focus();
+  };
+
+  // Habla usando el mismo motor SPEECH (Web Speech API) que la audioguía,
+  // reutilizando el mecanismo de "texto puntual" (overrideText) ya probado
+  // con las revelaciones del quiz — así no hay que duplicar lógica de voces/
+  // ritmo/pitch. No usa STATE.audio.playing/timer: la llamada tiene su
+  // propio estado (callState), independiente del reproductor de la ficha.
+  const speakCallText = (text, onDone) => {
+    setCallAvatarState('-speaking');
+    if (!SPEECH.isSupported()) { setCallAvatarState(null); onDone && onDone(); return; }
+    STATE.audio.overrideText = text;
+    SPEECH.speak(() => {
+      STATE.audio.overrideText = null;
+      setCallAvatarState(null);
+      onDone && onDone();
+    });
+  };
+
+  const startCallListening = () => {
+    if (!callState.active) return;
+    const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!Recognition) { focusCallTextInput(); return; }
+    $('#aiCallTextRow').hidden = true;
+    setCallStatus(STATE.mode === 'kids' ? 'Te escucho… 🎙️' : 'Te escucho…');
+    setCallAvatarState('-listening');
+    try {
+      callRecognition = new Recognition();
+      callRecognition.lang = 'es-ES';
+      callRecognition.interimResults = false;
+      callRecognition.continuous = false;
+      callRecognition.onresult = (e) => {
+        let transcript = '';
+        for (let i = 0; i < e.results.length; i++) transcript += e.results[i][0].transcript;
+        handleCallUserInput(transcript);
+      };
+      callRecognition.onerror = () => { if (callState.active) focusCallTextInput(); };
+      callRecognition.onend = () => setCallAvatarState(null);
+      callRecognition.start();
+    } catch (_) {
+      focusCallTextInput();
+    }
+  };
+
+  const askCallForMore = (poi) => {
+    if (!callState.active) return;
+    const more = STATE.mode === 'kids' ? '¿Quieres preguntarme algo más?' : '¿Quieres preguntar algo más?';
+    setCallStatus(more);
+    speakCallText(more, () => {
+      if (!callState.active) return;
+      if (hasSpeechRecognition()) startCallListening();
+      else focusCallTextInput();
+    });
+  };
+
+  const queueCallTurn = async (userText) => {
+    if (!callState.active || !callState.poi) return;
+    const poi = callState.poi;
+    setCallStatus(STATE.mode === 'kids' ? 'Pensando… 🤔' : 'Pensando…');
+    setCallAvatarState(null);
+    STATE.ai.pending = true;
+    if (STATE.activePoiId === poi.id) updateAudioUi();
+    aiHistoryFor(poi.id).push({ role: 'user', text: userText });
+    let text;
+    try {
+      text = await LLM.generate({
+        poi,
+        mode: STATE.mode,
+        userQuery: userText,
+        optionId: null,
+        cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad'
+      });
+      aiHistoryFor(poi.id).push({ role: 'assistant', text });
+      saveState();
+    } catch (e) {
+      text = STATE.mode === 'kids'
+        ? '¡Ups! Mi cajita mágica está un poquito lenta. ¿Lo intentamos otra vez?'
+        : 'No he podido generar una respuesta. ¿Lo intentamos de nuevo?';
+    } finally {
+      STATE.ai.pending = false;
+      if (STATE.activePoiId === poi.id) updateAudioUi();
+    }
+    if (!callState.active) return; // se colgó mientras esperaba la respuesta
+    appendCallBubble('assistant', text);
+    setCallStatus(STATE.mode === 'kids' ? 'Hablando…' : 'Respondiendo…');
+    speakCallText(text, () => askCallForMore(poi));
+  };
+
+  const handleCallUserInput = (raw) => {
+    const t = (raw || '').trim();
+    if (!t) {
+      // No se capturó nada (silencio, ruido): reintenta escuchar en vez de
+      // dejar la llamada colgada sin más.
+      if (hasSpeechRecognition()) startCallListening();
+      else focusCallTextInput();
+      return;
+    }
+    appendCallBubble('user', t);
+    if (CALL_END_RE.test(t)) {
+      const bye = STATE.mode === 'kids' ? '¡Hasta la próxima aventura! 👋' : 'Hasta luego, que disfrutes la visita.';
+      setCallStatus(bye);
+      speakCallText(bye, () => closeAiCallMode());
+      return;
+    }
+    queueCallTurn(t);
+  };
+
+  const closeAiCallMode = () => {
+    callState.active = false;
+    callState.poi = null;
+    try { callRecognition?.stop(); } catch (_) {}
+    callRecognition = null;
+    SPEECH.cancel();
+    STATE.audio.overrideText = null;
+    const modal = $('#aiCallModal');
+    if (modal) { modal.classList.remove('-open'); modal.setAttribute('aria-hidden', 'true'); }
+  };
+
+  const openAiCallMode = () => {
+    if (!STATE.activePoiId) return;
+    const poi = POIS.find((p) => p.id === STATE.activePoiId);
+    if (!poi) return;
+    const modal = $('#aiCallModal');
+    if (!modal) return;
+    stopAudio(); // la audioguía y la llamada no deben sonar a la vez
+    callState.active = true;
+    callState.poi = poi;
+    $('#aiCallTranscript').innerHTML = '';
+    $('#aiCallTextRow').hidden = true;
+    $('#aiCallInput').value = '';
+    modal.classList.add('-open');
+    modal.setAttribute('aria-hidden', 'false');
+    const greet = STATE.mode === 'kids'
+      ? `¡Hola! Pregúntame lo que quieras sobre ${pickDual(poi.name)}.`
+      : `Te escucho. Pregúntame lo que quieras sobre ${pickDual(poi.name)}.`;
+    setCallStatus(greet);
+    appendCallBubble('assistant', greet);
+    speakCallText(greet, () => {
+      if (!callState.active) return;
+      if (hasSpeechRecognition()) startCallListening();
+      else focusCallTextInput();
+    });
+  };
+
+  const wireAiCallModal = () => {
+    const modal = $('#aiCallModal');
+    if (!modal) return;
+    $('#aiCallBtn')?.addEventListener('click', openAiCallMode);
+    $('#aiCallClose')?.addEventListener('click', closeAiCallMode);
+    $('#aiCallEnd')?.addEventListener('click', closeAiCallMode);
+    const input = $('#aiCallInput');
+    const submit = () => {
+      const t = (input.value || '').trim();
+      if (!t) return;
+      input.value = '';
+      handleCallUserInput(t);
+    };
+    $('#aiCallSend')?.addEventListener('click', submit);
+    input?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); submit(); }
+    });
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeAiCallMode(); });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('-open')) closeAiCallMode();
+    });
+  };
+
+  /* =========================================================
    * POI SELECTION + SHEET
    * =======================================================*/
   const selectPoi = (id, centerMap = false) => {
@@ -3469,6 +3682,7 @@
     wireEvents();
     wireAiInput();
     wireMicInput();
+    wireAiCallModal();
 
     setStateMode(STATE.mode);
     updatePills();

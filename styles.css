@@ -1562,7 +1562,7 @@ html[data-mode="kids"] .bottom-sheet {
 /* ---------- PREGUNTA LIBRE ---------- */
 .ai-input-wrap {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto auto auto;
   gap: 8px;
   padding: 0 16px 12px;
   flex-shrink: 0;
@@ -1626,6 +1626,176 @@ html[data-mode="kids"] .bottom-sheet {
   0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.45); }
   50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
 }
+
+/* Botón de "hablar con la IA" (abre el modal de conversación, ver
+   .ai-call-modal): a diferencia de .ai-mic (dictado puntual dentro del
+   propio input), este abre una conversación completa que se queda activa
+   hasta que el usuario la cierra. Se destaca con el color primario relleno,
+   como una tercera opción clara junto a escribir/dictar. */
+.ai-call-open {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--color-primary);
+  color: #0B1120;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.ai-call-open svg { width: 18px; height: 18px; }
+.ai-call-open:active { transform: scale(0.92); }
+
+/* ---------- CONVERSACIÓN POR VOZ (modal de "llamada") ---------- */
+.ai-call-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 6200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 7, 13, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.ai-call-modal.-open {
+  opacity: 1;
+  visibility: visible;
+}
+.ai-call-card {
+  position: relative;
+  width: min(92vw, 380px);
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 44px 20px 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.ai-call-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 13px;
+}
+.ai-call-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #0B1120;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s ease;
+}
+.ai-call-avatar.-listening {
+  animation: aiCallPulse 1.3s ease-in-out infinite;
+}
+.ai-call-avatar.-speaking {
+  animation: aiCallPulse 0.8s ease-in-out infinite;
+}
+@keyframes aiCallPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 45%, transparent); }
+  50% { box-shadow: 0 0 0 14px color-mix(in srgb, var(--color-primary) 0%, transparent); }
+}
+.ai-call-status {
+  margin-top: 14px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  min-height: 18px;
+}
+.ai-call-transcript {
+  width: 100%;
+  max-height: 32vh;
+  overflow-y: auto;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ai-call-transcript:empty { display: none; }
+.ai-call-bubble {
+  max-width: 88%;
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  align-self: flex-start;
+}
+.ai-call-bubble.-user {
+  align-self: flex-end;
+  background: var(--color-primary);
+  color: #0B1120;
+  border-color: transparent;
+}
+.ai-call-textrow {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+.ai-call-textrow[hidden] { display: none; }
+.ai-call-input {
+  flex: 1;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+}
+.ai-call-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+.ai-call-send {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--color-primary);
+  color: #0B1120;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.ai-call-send svg { width: 17px; height: 17px; }
+.ai-call-end {
+  margin-top: 18px;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: 0;
+  background: #DC2626;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.ai-call-end:active { transform: scale(0.96); }
 
 /* ---------- AUDIO PLAYER ---------- */
 .audio-player {
