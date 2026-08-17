@@ -22,10 +22,20 @@
   const LLM = (() => {
     const CFG = typeof window !== 'undefined' ? (window.LLM_CONFIG || null) : null;
 
-    const systemPromptFor = (mode, cityName = 'la ciudad') =>
-      mode === 'kids'
+    // "concise" lo usa la conversación por voz (ver queueCallTurn en app.js):
+    // en una llamada nadie quiere escuchar un párrafo entero solo para saber
+    // cuánto mide algo, así que ahí se pide expresamente lo contrario que en
+    // el chat de texto normal (que sí busca respuestas ricas y extensas).
+    const systemPromptFor = (mode, cityName = 'la ciudad', concise = false) => {
+      if (concise) {
+        return mode === 'kids'
+          ? `Eres "${cityName} Junior", un guía turístico divertido para niños de 7 a 11 años, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato exacto que se pregunta (una medida, un nombre, un número) y, como mucho, UNA frase corta más con un dato relacionado curioso o relevante. Máximo 2-3 frases en total, nunca listas ni resúmenes largos.`
+          : `Eres "Guía ${cityName}", un guía turístico experto de ${cityName}, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato concreto que se pregunta (una cifra, un nombre, una fecha) y, como mucho, añade UNA frase corta con un dato relacionado relevante (por ejemplo, si preguntan una medida, la cifra y, si aporta valor, una comparación conocida). Máximo 2-3 frases en total, nunca párrafos largos ni resúmenes.`;
+      }
+      return mode === 'kids'
         ? `Eres "${cityName} Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita ${cityName}. Responde siempre en español, con frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Da una respuesta extensa y detallada, de unas 190-220 palabras (equivalente a un minuto largo hablado, tan larga como para un adulto), no la resumas. Hazlo memorable.`
         : `Eres "Guía ${cityName}", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de ${cityName}. Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ.`;
+    };
 
     const buildUserText = (poi, mode, userQuery, cityName = 'la ciudad') => {
       // Se usa siempre el nombre real (no el apodo de modo niño) como contexto
@@ -400,6 +410,7 @@
         }
       },
       generic(poi, m, query) {
+        const n = poi.name.adult;
         const q = (query || '').toLowerCase();
         const has = (arr) => arr.some((w) => q.includes(w));
         if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
@@ -426,10 +437,39 @@
           `Una perspectiva personal: creo que el valor de este lugar está menos en lo que ves y más en la superposición de épocas — puedes ver 10 siglos en 20 metros cuadrados.`
         ];
         return `${SIM.option(poi, 'adult', null)}\n\n${this.pick(extras)}`;
+      },
+      // Versión corta de generic(), para la conversación por voz (ver
+      // queueCallTurn): nadie quiere escuchar un párrafo entero por voz solo
+      // para saber un horario o cuánto mide algo — aquí se prioriza dar el
+      // dato directo y como mucho una frase más, igual que se le pide a la
+      // IA real vía systemPromptFor(mode, cityName, concise: true).
+      genericConcise(poi, m, query) {
+        const n = poi.name.adult;
+        const q = (query || '').toLowerCase();
+        const has = (arr) => arr.some((w) => q.includes(w));
+        if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
+          return m === 'kids'
+            ? '⏰ Abre de martes a sábado, de 10:00 a 18:30. Los domingos solo por la mañana, ¡y los lunes descansa!'
+            : '🕒 De martes a sábado, 10:00–18:30. Domingos 10:00–14:00. Lunes cerrado (confirma en la web oficial por si hay festivos).';
+        }
+        if (has(['precio', 'entrada', 'dinero', 'cuesta', 'euro'])) {
+          return m === 'kids'
+            ? '💰 Cuesta poquito, ¡y los niños casi siempre entran gratis o casi gratis!'
+            : '💶 Entrada general orientativa: unos 10 €, reducida unos 5 €. Confirma el precio exacto en la web oficial.';
+        }
+        if (has(['llegar', 'cómo voy', 'autobús', 'bus', 'parking', 'coche', 'aparcamiento'])) {
+          return m === 'kids'
+            ? '🚶 Casi siempre se va andando, ¡las calles del centro son solo para caminar!'
+            : '🚶 Mejor a pie desde el centro histórico, unos 5-10 minutos; es una zona muy peatonal.';
+        }
+        const firstFact = (poi.tabs.history.adult || '').split('.')[0];
+        return m === 'kids'
+          ? `¡Buena pregunta! De ${n} lo más curioso es que tiene siglos de historia escondidos en cada rincón. 🕰️`
+          : `Sobre ${n}: ${firstFact}.`;
       }
     };
 
-    const simulated = async (poi, mode, userQuery, optionId) => {
+    const simulated = async (poi, mode, userQuery, optionId, concise) => {
       // simulate latency, natural
       const wait = 900 + Math.floor(Math.random() * 1100);
       await new Promise((r) => setTimeout(r, wait));
@@ -438,7 +478,7 @@
         : (userQuery === null || userQuery === undefined ? 'summary' : 'generic');
       if (kind === 'summary') return SIM.summary(poi, mode);
       if (kind === 'option')  return SIM.option(poi, mode, optionId);
-      return SIM.generic(poi, mode, userQuery);
+      return concise ? SIM.genericConcise(poi, mode, userQuery) : SIM.generic(poi, mode, userQuery);
     };
 
       // Usa los prompts específicos ya escritos en data.js (AI_PROMPTS) para
@@ -467,8 +507,8 @@
         return typeof summaryFn === 'function' ? summaryFn(poi, cityName) : 'Haz un resumen inicial del lugar.';
       };
 
-    const generate = async ({ poi, mode, userQuery, optionId, cityName }) => {
-      const sys = systemPromptFor(mode, cityName);
+    const generate = async ({ poi, mode, userQuery, optionId, cityName, concise }) => {
+      const sys = systemPromptFor(mode, cityName, concise);
       const usr = buildUserText(poi, mode, queryFor(poi, mode, userQuery, optionId, cityName), cityName);
       if (CFG && CFG.apiKey && CFG.provider) {
         try {
@@ -487,10 +527,10 @@
             : (mode === 'kids'
                 ? '\n\n⚠️ (Modo offline: la IA real respondió con error)'
                 : '\n\n⚠️ (Modo offline. Error al conectar con la API, se ha usado el simulador local.)');
-          return await simulated(poi, mode, userQuery, optionId) + suffix;
+          return await simulated(poi, mode, userQuery, optionId, concise) + suffix;
         }
       }
-      return simulated(poi, mode, userQuery, optionId);
+      return simulated(poi, mode, userQuery, optionId, concise);
     };
 
     return {
@@ -2464,9 +2504,21 @@
    * y el flujo de "llamada" (turnos + cierre) es idéntico.
    * =======================================================*/
   const CALL_END_RE = /^(no|nada|nada m[aá]s|gracias|ya est[aá]|para|termina|terminar|cierra|cuelga|colgar|adi[oó]s|chao|eso es todo)[.!¡¿?\s]*$/i;
+  // Respuesta a "¿quieres decirme algo, o continúo?" tras una interrupción
+  // (ver handleCallInterruption): si el usuario no quería decir nada nuevo,
+  // no se re-narra la respuesta cortada (complicaría el flujo innecesariamente
+  // — si le interesa ese dato puede volver a preguntarlo), simplemente se
+  // pasa a preguntar si quiere algo más.
+  const CALL_CONTINUE_RE = /^(sigue|contin[uú]a|nada|no,? sigue|no,? contin[uú]a|prosigue|adelante|vale,? sigue|nada,? sigue)[.!¡¿?\s]*$/i;
 
-  const callState = { active: false, poi: null };
+  // nextHandler: a qué función debe ir el próximo texto reconocido/escrito
+  // (una pregunta normal, o la respuesta a "¿quieres decirme algo?" tras una
+  // interrupción) — tanto el reconocimiento de voz como el input de texto de
+  // respaldo consultan este mismo valor, así el flujo es idéntico entre los
+  // dos caminos de entrada.
+  const callState = { active: false, poi: null, nextHandler: null };
   let callRecognition = null;
+  let callInterruptRecognition = null;
 
   const hasSpeechRecognition = () => !!(window.SpeechRecognition || window.webkitSpeechRecognition);
 
@@ -2489,11 +2541,52 @@
     box.appendChild(b);
     box.scrollTo({ top: box.scrollHeight, behavior: 'smooth' });
   };
-  const focusCallTextInput = () => {
+  const focusCallTextInput = (handler) => {
+    callState.nextHandler = handler || handleCallUserInput;
     setCallAvatarState(null);
     const row = $('#aiCallTextRow');
     if (row) row.hidden = false;
     $('#aiCallInput')?.focus();
+  };
+
+  // "Oído" de fondo que escucha MIENTRAS la IA habla, solo para detectar que
+  // el usuario ha empezado a decir algo (barge-in): en cuanto llega cualquier
+  // resultado (aunque sea provisional) se corta la voz y se pregunta si quería
+  // decir algo. Aviso: sin cancelación de eco garantizada, en algunos
+  // dispositivos podría confundir la propia voz de la IA saliendo por el
+  // altavoz con la del usuario — pendiente de afinar con pruebas reales en
+  // un móvil, no se ha podido verificar este camino concreto en este entorno
+  // (sin acceso a micrófono real).
+  const stopCallInterruptWatch = () => {
+    if (!callInterruptRecognition) return;
+    try {
+      callInterruptRecognition.onresult = null;
+      callInterruptRecognition.onerror = null;
+      callInterruptRecognition.onend = null;
+      callInterruptRecognition.stop();
+    } catch (_) {}
+    callInterruptRecognition = null;
+  };
+  const startCallInterruptWatch = (onInterrupt) => {
+    if (!hasSpeechRecognition() || !callState.active) return;
+    const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    try {
+      callInterruptRecognition = new Recognition();
+      callInterruptRecognition.lang = 'es-ES';
+      callInterruptRecognition.interimResults = true;
+      callInterruptRecognition.continuous = true;
+      let triggered = false;
+      callInterruptRecognition.onresult = (e) => {
+        if (triggered) return;
+        const hasSpeech = Array.from(e.results).some((r) => (r[0]?.transcript || '').trim().length > 0);
+        if (hasSpeech) { triggered = true; onInterrupt(); }
+      };
+      callInterruptRecognition.onerror = () => {}; // ruido/silencio: se ignora, es solo un oído de fondo
+      callInterruptRecognition.onend = () => {};
+      callInterruptRecognition.start();
+    } catch (_) {
+      callInterruptRecognition = null;
+    }
   };
 
   // Habla usando el mismo motor SPEECH (Web Speech API) que la audioguía,
@@ -2501,21 +2594,36 @@
   // con las revelaciones del quiz — así no hay que duplicar lógica de voces/
   // ritmo/pitch. No usa STATE.audio.playing/timer: la llamada tiene su
   // propio estado (callState), independiente del reproductor de la ficha.
-  const speakCallText = (text, onDone) => {
+  // interruptible: si el usuario empieza a hablar mientras esto suena, se
+  // corta y se gestiona como interrupción (ver handleCallInterruption) en
+  // vez de esperar a que termine todo el parlamento.
+  const speakCallText = (text, onDone, { interruptible = false } = {}) => {
     setCallAvatarState('-speaking');
     if (!SPEECH.isSupported()) { setCallAvatarState(null); onDone && onDone(); return; }
     STATE.audio.overrideText = text;
+    if (interruptible) {
+      startCallInterruptWatch(() => {
+        stopCallInterruptWatch();
+        // SPEECH.cancel() dispara un evento "canceled" que el propio motor
+        // SPEECH ignora a propósito (no llama a onEndCallback), así que la
+        // interrupción se gestiona aquí mismo, no esperando ese callback.
+        SPEECH.cancel();
+        handleCallInterruption();
+      });
+    }
     SPEECH.speak(() => {
+      stopCallInterruptWatch();
       STATE.audio.overrideText = null;
       setCallAvatarState(null);
       onDone && onDone();
     });
   };
 
-  const startCallListening = () => {
+  const startCallListening = (handler) => {
     if (!callState.active) return;
+    callState.nextHandler = handler || handleCallUserInput;
     const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!Recognition) { focusCallTextInput(); return; }
+    if (!Recognition) { focusCallTextInput(callState.nextHandler); return; }
     $('#aiCallTextRow').hidden = true;
     setCallStatus(STATE.mode === 'kids' ? 'Te escucho… 🎙️' : 'Te escucho…');
     setCallAvatarState('-listening');
@@ -2527,13 +2635,13 @@
       callRecognition.onresult = (e) => {
         let transcript = '';
         for (let i = 0; i < e.results.length; i++) transcript += e.results[i][0].transcript;
-        handleCallUserInput(transcript);
+        callState.nextHandler(transcript);
       };
-      callRecognition.onerror = () => { if (callState.active) focusCallTextInput(); };
+      callRecognition.onerror = () => { if (callState.active) focusCallTextInput(callState.nextHandler); };
       callRecognition.onend = () => setCallAvatarState(null);
       callRecognition.start();
     } catch (_) {
-      focusCallTextInput();
+      focusCallTextInput(callState.nextHandler);
     }
   };
 
@@ -2543,9 +2651,44 @@
     setCallStatus(more);
     speakCallText(more, () => {
       if (!callState.active) return;
-      if (hasSpeechRecognition()) startCallListening();
-      else focusCallTextInput();
-    });
+      if (hasSpeechRecognition()) startCallListening(handleCallUserInput);
+      else focusCallTextInput(handleCallUserInput);
+    }, { interruptible: true });
+  };
+
+  // Se llama cuando el "oído" de fondo detecta que el usuario ha empezado a
+  // hablar mientras la IA respondía: corta, pregunta si quería decir algo, y
+  // el siguiente turno se enruta a handleInterruptionReply (no directamente
+  // a queueCallTurn) para distinguir "quería seguir escuchando" de "tenía
+  // una pregunta nueva".
+  const handleCallInterruption = () => {
+    if (!callState.active) return;
+    STATE.audio.overrideText = null;
+    setCallAvatarState(null);
+    const ask = STATE.mode === 'kids' ? '¡Ups! ¿Querías decirme algo, o sigo? 👂' : 'Disculpa, ¿quieres decirme algo, o continúo?';
+    appendCallBubble('assistant', ask);
+    setCallStatus(ask);
+    speakCallText(ask, () => {
+      if (!callState.active) return;
+      if (hasSpeechRecognition()) startCallListening(handleInterruptionReply);
+      else focusCallTextInput(handleInterruptionReply);
+    }, { interruptible: true });
+  };
+
+  const handleInterruptionReply = (raw) => {
+    const t = (raw || '').trim();
+    if (!t || CALL_CONTINUE_RE.test(t)) {
+      askCallForMore(callState.poi);
+      return;
+    }
+    appendCallBubble('user', t);
+    if (CALL_END_RE.test(t)) {
+      const bye = STATE.mode === 'kids' ? '¡Hasta la próxima aventura! 👋' : 'Hasta luego, que disfrutes la visita.';
+      setCallStatus(bye);
+      speakCallText(bye, () => closeAiCallMode());
+      return;
+    }
+    queueCallTurn(t);
   };
 
   const queueCallTurn = async (userText) => {
@@ -2558,12 +2701,16 @@
     aiHistoryFor(poi.id).push({ role: 'user', text: userText });
     let text;
     try {
+      // concise: en una llamada de voz nadie quiere un párrafo entero para
+      // saber, por ejemplo, cuánto mide algo (ver systemPromptFor) — a
+      // diferencia del chat de texto normal, que sí busca respuestas ricas.
       text = await LLM.generate({
         poi,
         mode: STATE.mode,
         userQuery: userText,
         optionId: null,
-        cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad'
+        cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad',
+        concise: true
       });
       aiHistoryFor(poi.id).push({ role: 'assistant', text });
       saveState();
@@ -2578,7 +2725,7 @@
     if (!callState.active) return; // se colgó mientras esperaba la respuesta
     appendCallBubble('assistant', text);
     setCallStatus(STATE.mode === 'kids' ? 'Hablando…' : 'Respondiendo…');
-    speakCallText(text, () => askCallForMore(poi));
+    speakCallText(text, () => askCallForMore(poi), { interruptible: true });
   };
 
   const handleCallUserInput = (raw) => {
@@ -2586,8 +2733,8 @@
     if (!t) {
       // No se capturó nada (silencio, ruido): reintenta escuchar en vez de
       // dejar la llamada colgada sin más.
-      if (hasSpeechRecognition()) startCallListening();
-      else focusCallTextInput();
+      if (hasSpeechRecognition()) startCallListening(handleCallUserInput);
+      else focusCallTextInput(handleCallUserInput);
       return;
     }
     appendCallBubble('user', t);
@@ -2603,8 +2750,10 @@
   const closeAiCallMode = () => {
     callState.active = false;
     callState.poi = null;
+    callState.nextHandler = null;
     try { callRecognition?.stop(); } catch (_) {}
     callRecognition = null;
+    stopCallInterruptWatch();
     SPEECH.cancel();
     STATE.audio.overrideText = null;
     const modal = $('#aiCallModal');
@@ -2620,6 +2769,7 @@
     stopAudio(); // la audioguía y la llamada no deben sonar a la vez
     callState.active = true;
     callState.poi = poi;
+    callState.nextHandler = handleCallUserInput;
     $('#aiCallTranscript').innerHTML = '';
     $('#aiCallTextRow').hidden = true;
     $('#aiCallInput').value = '';
@@ -2632,9 +2782,9 @@
     appendCallBubble('assistant', greet);
     speakCallText(greet, () => {
       if (!callState.active) return;
-      if (hasSpeechRecognition()) startCallListening();
-      else focusCallTextInput();
-    });
+      if (hasSpeechRecognition()) startCallListening(handleCallUserInput);
+      else focusCallTextInput(handleCallUserInput);
+    }, { interruptible: true });
   };
 
   const wireAiCallModal = () => {
@@ -2648,7 +2798,7 @@
       const t = (input.value || '').trim();
       if (!t) return;
       input.value = '';
-      handleCallUserInput(t);
+      (callState.nextHandler || handleCallUserInput)(t);
     };
     $('#aiCallSend')?.addEventListener('click', submit);
     input?.addEventListener('keydown', (e) => {
