@@ -135,6 +135,26 @@ CITIES.madrid.pois = [
             adult: 'Es el único mercado de estructura íntegramente metálica que se conserva en Madrid: columnas de fundición, una nave diáfana y una llamativa crestería de cerámica que remata la cubierta, un detalle decorativo típico de la arquitectura de hierro de principios del siglo XX. Bajo la planta principal se conserva un sótano que originalmente se usaba como almacén y cámara frigorífica para los puestos de pescado y carne.',
             kids: '¡Fíjate en las columnas de metal y en el techo! Son de hierro, como los mercados antiguos de París. Arriba del todo hay una especie de cresta de cerámica decorada, ¡como si fuera la cresta de un gallo pero hecha de azulejos!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había antes en el lugar donde está este mercado?',
+            options: ['Una iglesia antigua', 'Un castillo', 'Una plaza de toros'],
+            correct: 0,
+            reveal: '¡Una iglesia! Se llamaba San Miguel de los Octoes. La derribaron hace mucho tiempo y en su lugar se puso el mercado. 🏛️'
+          },
+          legends: {
+            question: '¿Qué cuenta la gente que pasa por las noches cerca de este mercado?',
+            options: ['Que se oyen ruidos raros', 'Que aparece un fantasma pirata', 'Que suena música antigua'],
+            correct: 0,
+            reveal: '¡Ruidos raros! 👻 Cuentan que entre los soportales de la Plaza Mayor, al lado, a veces se oyen cosas que nadie sabe explicar.'
+          },
+          architecture: {
+            question: '¿De qué material está hecha la estructura de este mercado?',
+            options: ['De hierro', 'De madera', 'De piedra'],
+            correct: 0,
+            reveal: '¡De hierro! Es el único mercado de este tipo que queda en Madrid, con más de 100 años.'
+          }
         }
       },
       {
@@ -174,6 +194,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La Real Casa de Correos combina un estilo neoclásico sobrio con la torre del reloj como único elemento vertical destacado de toda la plaza. La remodelación de 2022-2023 rediseñó el pavimento del Kilómetro 0, rodeando la placa original de 2009 con una rosa de los vientos que señala los nombres de todas las capitales de provincia y ciudades autónomas de España.',
             kids: '¡Busca la rosa de los vientos en el suelo! Es un dibujo con los nombres de todas las capitales de España alrededor de la placa del Kilómetro 0. La pusieron hace pocos años, cuando arreglaron toda la plaza.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué se come tradicionalmente en Nochevieja mientras suena el reloj de esta plaza?',
+            options: ['Doce uvas', 'Turrón', 'Doce mandarinas'],
+            correct: 0,
+            reveal: '¡Doce uvas! 🍇 Una por cada campanada, y millones de personas lo ven en directo por la tele cada Nochevieja.'
+          },
+          legends: {
+            question: '¿Qué animal aparece en la estatua símbolo de Madrid en esta plaza?',
+            options: ['Un oso', 'Un león', 'Un águila'],
+            correct: 0,
+            reveal: '¡Un oso! 🐻 Está subido a un árbol llamado madroño, y es el símbolo de Madrid desde la Edad Media.'
+          },
+          architecture: {
+            question: '¿Qué marca la placa que hay en el suelo delante del edificio del reloj?',
+            options: ['El Kilómetro 0 de España', 'El centro exacto de Madrid', 'El punto más alto de la ciudad'],
+            correct: 0,
+            reveal: '¡El Kilómetro 0! Desde ahí se miden todas las carreteras que salen de España.'
           }
         }
       },
@@ -221,6 +261,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio de Villanueva, uno de los ejemplos más depurados del neoclasicismo español, se organiza en tres cuerpos diferenciados originalmente destinados a distintos fines científicos, hoy reconvertidos en salas de exposición. Sus fachadas de piedra granítica, con pórticos jónicos y dóricos, reflejan el ideal ilustrado de un edificio dedicado al conocimiento, aunque acabara consagrado a la pintura en lugar de a las ciencias naturales.',
             kids: '¡Fíjate en las columnas de piedra de la entrada! El edificio iba a ser para guardar animales y plantas de estudio, por eso es tan grande y con tantas salas — ¡perfecto para guardar en su lugar miles de cuadros!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se construyó originalmente el edificio del Museo del Prado?',
+            options: ['Para guardar plantas y animales de estudio', 'Para ser un palacio real', 'Para ser una iglesia'],
+            correct: 0,
+            reveal: '¡Para guardar plantas y animales! Se iba a llamar Gabinete de Historia Natural, pero una reina decidió usarlo para arte. 🖼️'
+          },
+          legends: {
+            question: '¿Qué pintó Goya directamente sobre las paredes de su propia casa?',
+            options: ['Unos cuadros gigantes', 'Un mapa del mundo', 'Su autorretrato'],
+            correct: 0,
+            reveal: '¡Cuadros gigantes! Se llaman las Pinturas Negras. Años después alguien tuvo que despegarlas con muchísimo cuidado para traerlas aquí.'
+          },
+          architecture: {
+            question: '¿De qué material son las columnas de la entrada del museo?',
+            options: ['De piedra', 'De madera', 'De metal'],
+            correct: 0,
+            reveal: '¡De piedra granítica! El edificio tiene pórticos con columnas muy altas, típicas del estilo neoclásico.'
           }
         }
       },
@@ -322,6 +382,26 @@ CITIES.madrid.pois = [
             adult: 'Entre sus elementos más destacados sobresale el Palacio de Cristal, una estructura de hierro y vidrio construida en 1887 para exponer flora y fauna de Filipinas, inspirada en el Palacio de Cristal de Londres. Junto al Estanque Grande, existente ya desde tiempos de Felipe II, se alza el monumento a Alfonso XII, un gran hemiciclo de columnas rematado por una estatua ecuestre del monarca.',
             kids: '¡El Palacio de Cristal es casi todo de vidrio, como un gran invernadero brillante! Se construyó para enseñar plantas y animales de un lugar muy lejano, Filipinas. Al lado hay un estanque enorme donde puedes alquilar una barca.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había antes en este parque, hace casi 400 años?',
+            options: ['El jardín de un palacio real', 'Un bosque salvaje', 'Una granja'],
+            correct: 0,
+            reveal: '¡El jardín de un palacio! Se llamaba Palacio del Buen Retiro, y casi ha desaparecido, pero el parque que lo rodeaba sigue siendo precioso. 🌳'
+          },
+          legends: {
+            question: '¿A quién representa la estatua rara que hay en la Glorieta del Ángel Caído?',
+            options: ['Al diablo', 'A un héroe', 'A un rey'],
+            correct: 0,
+            reveal: '¡Al diablo! 😈 Es uno de los pocos monumentos del mundo dedicados a él, y está en un sitio que casualmente tiene 666 metros de altura.'
+          },
+          architecture: {
+            question: '¿De qué está hecho casi por completo el Palacio de Cristal?',
+            options: ['De vidrio', 'De piedra', 'De ladrillo'],
+            correct: 0,
+            reveal: '¡De vidrio y hierro! Como un gran invernadero brillante, construido para mostrar plantas y animales de Filipinas.'
+          }
         }
       },
       {
@@ -362,6 +442,20 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Es una estructura metálica cubierta casi por completo de cristal, con planta de cruz griega de tres naves: la cúpula central alcanza 22,60 metros de altura. La cerámica decorativa, obra de Daniel Zuloaga, incluye grutescos con cabezas de pato en frisos y remates. Le rodea un estanque artificial con cipreses calvos, elegido para que el edificio se reflejase en el agua.',
             kids: 'Está hecho de hierro y cristal, ¡como un gran invernadero de casi 23 metros de altura! Fíjate en la cerámica de colores con dibujos de patos raros, y en el estanque de delante: el palacio se refleja entero en el agua.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se construyó el Palacio de Cristal?',
+            options: ['Para enseñar plantas y animales de Filipinas', 'Para ser un teatro', 'Para ser una biblioteca'],
+            correct: 0,
+            reveal: '¡Para enseñar plantas y animales de Filipinas! Iba a ser algo temporal, pero gustó tanto que se quedó para siempre. 🌿'
+          },
+          architecture: {
+            question: '¿Cuántos metros de altura tiene aproximadamente su cúpula central?',
+            options: ['Casi 23 metros', 'Casi 5 metros', 'Casi 100 metros'],
+            correct: 0,
+            reveal: '¡Casi 23 metros! Está hecho casi todo de hierro y cristal, con un estanque delante donde se refleja entero.'
           }
         }
       },
@@ -404,6 +498,20 @@ CITIES.madrid.pois = [
             adult: 'Obra de Ricardo Velázquez Bosco, el mismo arquitecto del Palacio de Cristal, con bóvedas de hierro y cristal que iluminan las salas con luz natural. Mide 73,80 por 28,75 metros, construido en ladrillo de dos tonos traído de Zaragoza y decorado con azulejos de la Real Fábrica de la Moncloa.',
             kids: '¡Es como el hermano mayor del Palacio de Cristal, pero vestido de ladrillo en vez de cristal! Por dentro también tiene techos de cristal que dejan entrar la luz del sol.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se usó este edificio antes de ser sala de arte moderno?',
+            options: ['Para exposiciones de minerales y de Filipinas', 'Para ser un hospital', 'Para ser un cuartel'],
+            correct: 0,
+            reveal: '¡Minerales y cosas de Filipinas! Este edificio ha cambiado de uso más veces que nadie que conozcas. ⛏️'
+          },
+          architecture: {
+            question: '¿Quién diseñó este edificio, el mismo arquitecto de otro edificio del Retiro?',
+            options: ['El arquitecto del Palacio de Cristal', 'El arquitecto del Museo del Prado', 'El arquitecto de la Puerta de Alcalá'],
+            correct: 0,
+            reveal: '¡El mismo que el Palacio de Cristal, Ricardo Velázquez Bosco! Por eso los dos tienen techos de cristal que dejan pasar la luz.'
+          }
         }
       },
       {
@@ -444,6 +552,20 @@ CITIES.madrid.pois = [
           legends: {
             adult: 'Mezclan un trazado clásico con influencia andaluza: junto a la entrada norte hay una escultura de Venus romana, y la Fuente de las Gaviotas, regalo de la embajada de Noruega a los madrileños en 1962. Los vistosos pavos reales que pasean sueltos por el recinto son la seña de identidad del lugar, y forman parte del "Paisaje de la Luz", declarado Patrimonio de la Humanidad por la UNESCO en 2021.',
             kids: '¡Los pavos reales caminan sueltos por todo el jardín, como si fueran los dueños! Si tienes suerte, verás a alguno abrir su cola en forma de abanico lleno de colores. Este jardín es tan especial que la UNESCO lo declaró tesoro de la humanidad.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿A qué edad empezó a trabajar el jardinero que da nombre a este jardín?',
+            options: ['A los 8 años', 'A los 18 años', 'A los 25 años'],
+            correct: 0,
+            reveal: '¡A los 8 años! Y siguió cuidando plantas hasta que cumplió 88 — casi toda su vida entera. 🌷'
+          },
+          legends: {
+            question: '¿Qué animales pasean sueltos por este jardín?',
+            options: ['Pavos reales', 'Ciervos', 'Flamencos'],
+            correct: 0,
+            reveal: '¡Pavos reales! 🦚 Si tienes suerte, verás a alguno abrir su cola llena de colores como un abanico.'
           }
         }
       },
@@ -486,6 +608,20 @@ CITIES.madrid.pois = [
             adult: 'Hoy el espacio lo ocupa la Biblioteca Pública Eugenio Trías (2013), que integró a propósito restos del antiguo zoo en su diseño: la "Leonera" de dos plantas y las rejas de hierro por las que se alimentaba a los animales desde arriba. Cerca, en los Jardines de Herrera Palacios, todavía se conserva el llamado "Foso de los Monos".',
             kids: 'Aunque ahora es una biblioteca, todavía se pueden ver restos de verdad del zoo antiguo: una jaula de dos pisos donde vivían los leones, y un foso donde antes vivían los monos. ¡Como un zoo fantasma escondido en la biblioteca!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había antes en el lugar donde hoy hay una biblioteca?',
+            options: ['Un zoológico de verdad', 'Un mercado', 'Un hospital'],
+            correct: 0,
+            reveal: '¡Un zoo de verdad! Tuvo más de 550 animales, hasta que se mudaron a otro zoo de Madrid hace más de 50 años. 🦁'
+          },
+          legends: {
+            question: '¿Qué se conserva todavía del antiguo zoo dentro de la biblioteca?',
+            options: ['Una jaula de dos pisos donde vivían los leones', 'Una jaula de pájaros', 'El estanque de los peces'],
+            correct: 0,
+            reveal: '¡La jaula de los leones! Tiene dos pisos, y también se conserva un foso donde antes vivían los monos.'
+          }
         }
       },
       {
@@ -527,6 +663,20 @@ CITIES.madrid.pois = [
             adult: 'El monumento a Alfonso XII, en el extremo este del estanque, lo diseñó José Grases Riera en 1902 y se construyó entre 1902 y 1922: un hemiciclo de columnas jónicas rematado por la estatua ecuestre del rey, obra del escultor Mariano Benlliure. El conjunto completo mide 30 metros de alto, 86 de largo y 58 de ancho, y participaron más de veinte escultores.',
             kids: '¡Es un monumento gigante, tan alto como un edificio de diez pisos! Tiene un montón de columnas y, arriba del todo, una estatua de un rey a caballo. Más de veinte artistas ayudaron a construirlo.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Desde cuándo existe este lago?',
+            options: ['Desde hace casi 400 años', 'Desde hace 50 años', 'Desde hace 1.000 años'],
+            correct: 0,
+            reveal: '¡Casi 400 años! Lo mandó hacer un rey, Felipe IV, y desde entonces es el lugar favorito para pasear y remar en Madrid. 🚣'
+          },
+          architecture: {
+            question: '¿Qué se puede hacer en este lago además de pasear alrededor?',
+            options: ['Alquilar una barca de remos', 'Nadar', 'Pescar'],
+            correct: 0,
+            reveal: '¡Alquilar una barca! Al lado hay también un monumento gigante, tan alto como un edificio de diez pisos.'
+          }
         }
       },
       {
@@ -566,6 +716,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La Casa de la Panadería, el edificio más emblemático de la plaza, luce desde 1992 una espectacular fachada pintada al fresco por Carlos Franco, con un programa mitológico propio poblado de dioses clásicos como Cibeles y personajes inventados por el propio pintor. La plaza, de planta rectangular y soportales continuos, conserva 237 balcones que antiguamente se alquilaban para presenciar los espectáculos que allí se celebraban.',
             kids: '¡Mira la fachada llena de colores del edificio del fondo! Está pintada con dioses y personajes inventados, pintada hace poco más de 30 años. Cuenta los balcones que puedas ver — ¡hay más de 200 en toda la plaza!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántas veces se ha incendiado esta plaza a lo largo de la historia?',
+            options: ['Tres veces', 'Una vez', 'Nunca'],
+            correct: 0,
+            reveal: '¡Tres veces! Cada vez la reconstruyeron, y hoy además es el mercado de Navidad más famoso de Madrid cada diciembre. 🔥'
+          },
+          legends: {
+            question: '¿Cuántos arcos o entradas numeradas hay bajo los soportales de la plaza?',
+            options: ['97', '10', '50'],
+            correct: 0,
+            reveal: '¡97 arcadas! Una de ellas, el Arco de Cuchilleros, baja hacia las calles más típicas de Madrid.'
+          },
+          architecture: {
+            question: '¿Cuántos balcones tiene aproximadamente la Plaza Mayor?',
+            options: ['Más de 200', 'Unos 20', 'Unos 50'],
+            correct: 0,
+            reveal: '¡Más de 200! La Casa de la Panadería, al fondo, tiene además una fachada pintada llena de colores.'
           }
         }
       },
