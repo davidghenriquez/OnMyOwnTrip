@@ -1454,6 +1454,26 @@ CITIES.madrid.pois = [
             adult: 'El barrio conserva un caserío de finales del siglo XIX y principios del XX, hoy rehabilitado, que combina comercios independientes, galerías, terrazas y locales de ocio en torno a la Plaza de Chueca, cuyos discos de colores iluminados por la noche se han convertido en una imagen característica del barrio.',
             kids: '¡Por la noche, la plaza principal del barrio se llena de luces de colores en el suelo! Los edificios son de hace más de 100 años, pero ahora están llenos de tiendas y bares muy animados.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De quién lleva el nombre este barrio?',
+            options: ['De un compositor de música, Federico Chueca', 'De un rey', 'De un pintor'],
+            correct: 0,
+            reveal: '¡De un compositor de zarzuelas! El barrio estuvo abandonado durante un tiempo, hasta que se llenó de vida y color. 🎶'
+          },
+          legends: {
+            question: '¿Qué se celebra aquí cada año con banderas de arcoíris?',
+            options: ['El Orgullo LGTBI', 'El día de la música', 'El carnaval'],
+            correct: 0,
+            reveal: '¡El Orgullo! Una de las celebraciones más grandes de toda Europa, para celebrar que cada persona puede ser como es.'
+          },
+          architecture: {
+            question: '¿Qué se ilumina de colores por la noche en la plaza principal del barrio?',
+            options: ['Los discos del suelo', 'Las farolas', 'Los árboles'],
+            correct: 0,
+            reveal: '¡Los discos de colores del suelo! Rodeados de edificios de más de 100 años llenos de tiendas y bares.'
+          }
         }
       },
       {
@@ -1484,6 +1504,26 @@ CITIES.madrid.pois = [
             adult: 'El barrio conserva un trazado de calles estrechas del siglo XVIII y XIX, hoy salpicado de comercios vintage, cafés alternativos y galerías, en un contraste constante entre edificios históricos rehabilitados y una vida cultural marcadamente contemporánea, heredera directa del espíritu de los años 80.',
             kids: '¡Las calles de este barrio son antiguas, pero están llenas de tiendas modernas y curiosas! Es una mezcla muy especial entre lo de siempre y lo nuevo.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántos años tenía Manuela Malasaña, la joven que da nombre a este barrio?',
+            options: ['17 años', '30 años', '50 años'],
+            correct: 0,
+            reveal: '¡17 años! Fue muy valiente durante un momento muy difícil para Madrid, hace más de 200 años. 🎗️'
+          },
+          legends: {
+            question: '¿Qué movimiento artístico y musical nació en este barrio hace unos 40 años?',
+            options: ['La Movida Madrileña', 'El Flamenco', 'El Rock and Roll español'],
+            correct: 0,
+            reveal: '¡La Movida Madrileña! Se llenó de músicos y artistas con ganas de crear cosas nuevas.'
+          },
+          architecture: {
+            question: '¿Qué tipo de tiendas hay hoy en las calles antiguas de este barrio?',
+            options: ['Tiendas modernas y curiosas', 'Solo tiendas de siempre', 'Ninguna tienda'],
+            correct: 0,
+            reveal: '¡Tiendas modernas y curiosas! Una mezcla especial entre lo de siempre y lo nuevo.'
+          }
         }
       },
       {
@@ -1513,6 +1553,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La calle de las Huertas, peatonal y adoquinada, concentra la seña de identidad más visible del barrio: citas y versos de Cervantes, Lope, Quevedo, Góngora y otros autores del Siglo de Oro grabados directamente en el pavimento, convirtiendo el simple paseo en un recorrido de lectura al aire libre.',
             kids: '¡Mira bien al suelo mientras caminas por esta calle! Verás frases y versos escritos por escritores muy famosos de hace siglos, grabados directamente en las piedras. ¡Una calle que se lee con los pies!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué famoso escritor de Don Quijote vivió en este barrio?',
+            options: ['Miguel de Cervantes', 'Federico García Lorca', 'Antonio Machado'],
+            correct: 0,
+            reveal: '¡Miguel de Cervantes! Vivió aquí junto a otros grandes escritores de la misma época. ✒️'
+          },
+          legends: {
+            question: '¿Qué se cuenta que hicieron dos escritores rivales de este barrio?',
+            options: ['Uno pudo ayudar a escribir una copia falsa del libro del otro', 'Se batieron en duelo', 'Se hicieron muy amigos'],
+            correct: 0,
+            reveal: '¡Una copia falsa! Cervantes y Lope de Vega, casi vecinos, en realidad no se llevaban nada bien.'
+          },
+          architecture: {
+            question: '¿Qué se puede leer grabado en el suelo de una calle de este barrio?',
+            options: ['Versos de escritores famosos', 'Nombres de reyes', 'Fechas importantes'],
+            correct: 0,
+            reveal: '¡Versos de escritores famosos! Una calle que se lee con los pies mientras paseas.'
           }
         }
       },
