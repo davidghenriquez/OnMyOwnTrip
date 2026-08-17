@@ -2991,6 +2991,26 @@ CITIES.madrid.pois = [
             adult: 'Hoy es el epicentro multicultural, artístico y alternativo del castizo barrio de Lavapiés, con una intensa mezcla de comercios de todo el mundo, arte urbano y ambiente diverso.',
             kids: '¡Esta plaza está llena de gente de todo el mundo! Es uno de los barrios más multiculturales y con más ambiente de todo Madrid.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántos años de historia tiene aproximadamente este barrio?',
+            options: ['Más de 500 años', 'Menos de 50 años', 'Más de 2.000 años'],
+            correct: 0,
+            reveal: '¡Más de 500 años! Es uno de los barrios más antiguos de toda la capital. 🧩'
+          },
+          legends: {
+            question: '¿Qué leyenda popular explica el nombre de esta plaza?',
+            options: ['Una fuente donde se lavaban los pies', 'Un río que pasaba por aquí', 'Un rey que se bañaba aquí'],
+            correct: 0,
+            reveal: '¡Una fuente para lavarse los pies! Aunque nadie ha podido demostrarlo del todo.'
+          },
+          architecture: {
+            question: '¿Cómo es esta plaza hoy?',
+            options: ['Multicultural y llena de gente de todo el mundo', 'Vacía y silenciosa', 'Solo para turistas'],
+            correct: 0,
+            reveal: '¡Multicultural! Uno de los barrios con más ambiente de todo Madrid.'
+          }
         }
       },
       {
@@ -3020,6 +3040,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El mercado tiene tres plantas: en las dos primeras conviven puestos tradicionales de pescado, carne y verdura junto a espacios gastronómicos modernos, mientras que en la tercera se combina la actividad comercial con la cultural.',
             kids: '¡Puedes recorrer el mercado y encontrar de todo: pescado, fruta, y también sitios para comer platos de todo el mundo!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuándo se construyó el edificio actual de este mercado?',
+            options: ['Hace más de 80 años', 'Hace 10 años', 'Hace 500 años'],
+            correct: 0,
+            reveal: '¡Hace más de 80 años! Antes de eso, aquí ya se vendía comida en puestos ambulantes desde hacía siglos. 💃'
+          },
+          legends: {
+            question: '¿Qué hay en el piso de arriba de este mercado, algo muy especial?',
+            options: ['Una escuela de flamenco', 'Un cine', 'Una piscina'],
+            correct: 0,
+            reveal: '¡Una escuela de flamenco! Una de las más prestigiosas de España, justo encima de los puestos.'
+          },
+          architecture: {
+            question: '¿Cuántas plantas tiene este mercado?',
+            options: ['Tres', 'Una', 'Diez'],
+            correct: 0,
+            reveal: '¡Tres plantas! Con puestos tradicionales y también espacios para comer de todo el mundo.'
           }
         }
       },
@@ -3051,6 +3091,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Es, junto con el de Antón Martín, uno de los mercados de abastos más grandes y tradicionales del centro histórico, corazón comercial del castizo barrio de La Latina.',
             kids: '¡Sigue siendo uno de los mercados más grandes de todo el centro de Madrid! Aquí los vecinos del barrio hacen la compra desde hace generaciones.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De dónde venían las columnas del primer edificio de este mercado?',
+            options: ['De Londres', 'De París', 'De Roma'],
+            correct: 0,
+            reveal: '¡De Londres! Ese primer mercado de hierro y cristal se demolió hace más de 60 años. 🏗️'
+          },
+          legends: {
+            question: '¿Cómo era la cúpula del primer mercado que hubo aquí?',
+            options: ['Muy alta, como un edificio de cinco pisos', 'Muy pequeña', 'No tenía cúpula'],
+            correct: 0,
+            reveal: '¡Muy alta! Toda una maravilla de la ingeniería de su época, aunque hoy ya no existe.'
+          },
+          architecture: {
+            question: '¿Qué es hoy este lugar?',
+            options: ['Uno de los mercados más grandes del centro', 'Un aparcamiento', 'Un parque'],
+            correct: 0,
+            reveal: '¡Uno de los mercados más grandes! Los vecinos hacen aquí la compra desde hace generaciones.'
           }
         }
       },
