@@ -2383,12 +2383,19 @@
     scrollAiToBottom();
 
     try {
+      // concise solo para preguntas sueltas escritas por el usuario
+      // (kind: 'text'): si pregunta algo puntual como "¿a qué hora abre?"
+      // o "¿cuánto mide?", no tiene sentido que la IA responda con un
+      // párrafo entero de historia detrás — eso es justo lo que se pide en
+      // los botones de tema (Historia secreta, Arquitectura, Leyendas,
+      // Profundiza más), que sí deben seguir siendo extensos por diseño.
       const text = await LLM.generate({
         poi,
         mode: STATE.mode,
         userQuery: userText ?? null,
         optionId: optionId ?? null,
-        cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad'
+        cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad',
+        concise: kind === 'text'
       });
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
