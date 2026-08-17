@@ -220,9 +220,13 @@ const CITIES = {
     continent: 'Europa',
     subtitle: { adult: 'Historia, muros y memoria', kids: '¡La Ciudad del Oso y el Muro! 🐻' },
     center: [52.5145, 13.3888],
-    zoom: 12.6,
-    minZoom: 11.5,
-    bounds: [[52.493, 13.27], [52.535, 13.47]],
+    zoom: 12.3,
+    // Ampliados respecto a los originales ([[52.493,13.27],[52.535,13.47]]):
+    // se quedaban fuera POIs reales de las rutas nuevas "Isla de los Museos"
+    // y "Muro y Guerra Fría" (Mauerpark al norte, Tempelhofer Feld y Curry 36
+    // al sur), igual que se corrigió antes en Madrid.
+    minZoom: 11,
+    bounds: [[52.468, 13.27], [52.548, 13.47]],
     routes: [
       {
         id: 'main',
@@ -231,6 +235,24 @@ const CITIES = {
         intro: {
           adult: 'La ruta imprescindible de Berlín reúne los grandes símbolos de una ciudad marcada por el siglo XX: dictadura, guerra, muro y reunificación. Empezarás en la Puerta de Brandeburgo, subirás a la cúpula de cristal del Reichstag, cruzarás el inquietante Monumento a los Judíos de Europa Asesinados y llegarás hasta Checkpoint Charlie, el paso fronterizo más famoso de la Guerra Fría. Seguirás hasta la Catedral de Berlín y el Museo de Pérgamo, en la Isla de los Museos, y terminarás con las vistas de toda la ciudad desde la Torre de Televisión de Alexanderplatz. Al ser una ruta más extensa que en otras ciudades, algunos tramos te convendrá hacerlos en metro o bus en lugar de a pie. Al acabar entenderás por qué Berlín es, quizás, la capital europea que más abiertamente convive con su propia historia. Toca cada parada en el mapa para ver la información específica de ese lugar.',
           kids: '¡Prepárate para conocer una ciudad que tiene un oso como símbolo, igual que Madrid! 🐻 Vas a pasar por una puerta gigante con un carro de oro encima, subir a una cúpula de cristal desde la que se ve todo el Parlamento, cruzar un lugar muy especial que recuerda a millones de personas, y visitar el puesto fronterizo más famoso de cuando la ciudad estaba dividida por un muro. También verás una catedral enorme, un museo con puertas gigantes de hace miles de años y una torre altísima con las mejores vistas de toda la ciudad. Como Berlín es una ciudad grande, ¡en algunos tramos os convendrá coger el metro! ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      },
+      {
+        id: 'museos',
+        name: { adult: 'Isla de los Museos y Centro Histórico', kids: '¡La Isla de los Tesoros! 🏛️' },
+        color: '#7C3AED',
+        intro: {
+          adult: 'Esta ruta recorre el corazón monumental de Berlín, apenas un kilómetro y medio a pie por la Isla de los Museos —Patrimonio de la Humanidad de la UNESCO— y sus alrededores en el barrio de Mitte. Empezarás en Bebelplatz y la Neue Wache, en pleno bulevar Unter den Linden, entrarás en el Humboldt Forum, el antiguo palacio real reconstruido, y recorrerás cuatro de los cinco grandes museos de la isla: el Altes Museum, el Neues Museum (con el busto de Nefertiti), la Alte Nationalgalerie y el Bode Museum. Cruzarás después hasta los pintorescos patios de las Hackesche Höfe y el Nikolaiviertel, el barrio más antiguo de Berlín, pasarás junto al Ayuntamiento Rojo y el DDR Museum, y terminarás en la elegante plaza del Gendarmenmarkt. Al acabar habrás visto ocho siglos de historia y algunas de las colecciones de arte antiguo más importantes del mundo, todo sin salir de un mismo paseo. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta te lleva a una isla llena de museos con tesoros de miles de años! 🏛️ Vas a entrar en un palacio reconstruido, ver momias y bustos egipcios antiquísimos, cuadros gigantes y hasta el mármol de un templo griego entero. Después cruzarás unos patios preciosos escondidos, pasarás por el barrio más viejo de todo Berlín, junto al ayuntamiento con la torre roja, y aprenderás cómo vivía la gente cuando Alemania estaba dividida en dos países. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      },
+      {
+        id: 'muro',
+        name: { adult: 'Muro y Guerra Fría', kids: '¡La Ruta del Muro! 🧱' },
+        color: '#DC2626',
+        intro: {
+          adult: 'Una ruta por los lugares que mejor explican cómo fue vivir en una ciudad partida en dos durante casi 30 años. Empezarás en la Topografía del Terror, sobre el antiguo cuartel general de la Gestapo y las SS, seguirás hasta la Potsdamer Platz, una plaza que renació de la nada tras pasar cuatro décadas como tierra de nadie junto al Muro. Después te convendrá coger el metro o el bus hasta el Memorial del Muro de Berlín en la calle Bernauer, el lugar que mejor conserva cómo era realmente la frontera, y hasta el cercano Mauerpark, construido literalmente sobre la antigua "franja de la muerte". Terminarás muy al este, en la East Side Gallery y el puente de Oberbaum, junto al Molecule Man, sobre el río Spree. Al acabar habrás recorrido, de punta a punta de la ciudad, la historia de un muro que dividió familias enteras y que hoy es uno de los grandes símbolos de la reunificación europea. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta te cuenta la historia del muro que partió Berlín en dos durante casi 30 años! 🧱 Vas a ver el lugar donde tenía su cuartel la policía secreta más temida, una plaza que estuvo vacía durante 40 años y ahora está llena de rascacielos, y el sitio que mejor conserva cómo era el muro de verdad, con sus torres de vigilancia. Como está lejos, ¡tocará coger el metro! Terminarás junto a un trozo de muro pintado con colores y un puente precioso sobre el río. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
         }
       }
     ]
