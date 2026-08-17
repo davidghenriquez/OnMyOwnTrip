@@ -1313,7 +1313,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=19`;
+    const src = `data/cities/${cityId}.js?v=20`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
