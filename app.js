@@ -2066,21 +2066,26 @@
     { id: 'avanzado',     min: 150, label: 'Avanzado',     color: '#EF4444', img: 'assets/explorer/avanzado.png' }
   ];
 
-  // Cofre del tesoro (modo niño): objetos coleccionables que se van
+  // Mochila de viaje (modo niño): objetos coleccionables que se van
   // desbloqueando con los mismos puntos del quiz (ver STATE.game.points),
-  // en orden ascendente para que el cofre lea como una progresión natural
-  // de "primeros pasos" a "expedición completa". Los umbrales están
-  // pensados para solaparse con EXPLORER_LEVELS de arriba (0/50/150): los
-  // primeros objetos caen en la etapa Principiante, los de en medio en
-  // Intermedio, y los últimos exigen ya estar en Avanzado.
+  // en orden ascendente para que la mochila lea como una progresión
+  // natural de "primeros pasos" a "expedición completa". Los umbrales
+  // están pensados para solaparse con EXPLORER_LEVELS de arriba (0/50/150):
+  // los primeros objetos caen en la etapa Principiante, los de en medio en
+  // Intermedio, y los últimos exigen ya estar en Avanzado. Las tres
+  // insignias circulares (a juego con los propios niveles) se colocan
+  // justo en esos umbrales exactos, como eco visual de cada ascenso.
   const REWARD_ITEMS = [
+    { id: 'insignia-principiante', name: 'Insignia de Principiante', points: 0, img: 'assets/rewards/insignia-principiante.png' },
     { id: 'brujula', name: 'Brújula', points: 10, img: 'assets/rewards/brujula.png' },
     { id: 'mapa-tesoro', name: 'Mapa del tesoro', points: 20, img: 'assets/rewards/mapa-tesoro.png' },
     { id: 'linterna', name: 'Linterna', points: 40, img: 'assets/rewards/linterna.png' },
+    { id: 'insignia-intermedio', name: 'Insignia de Intermedio', points: 50, img: 'assets/rewards/insignia-intermedio.png' },
     { id: 'cuerda', name: 'Cuerda', points: 60, img: 'assets/rewards/cuerda.png' },
     { id: 'walkie-talkie', name: 'Walkie-talkies', points: 80, img: 'assets/rewards/walkie-talkie.png' },
     { id: 'botas', name: 'Botas de explorador', points: 100, img: 'assets/rewards/botas.png' },
     { id: 'chubasquero', name: 'Chubasquero', points: 130, img: 'assets/rewards/chubasquero.png' },
+    { id: 'insignia-avanzado', name: 'Insignia de Avanzado', points: 150, img: 'assets/rewards/insignia-avanzado.png' },
     { id: 'hornillo', name: 'Hornillo de campamento', points: 160, img: 'assets/rewards/hornillo.png' },
     { id: 'chaqueta', name: 'Chaqueta de explorador', points: 200, img: 'assets/rewards/chaqueta.png' },
     { id: 'tienda', name: 'Tienda de campaña', points: 250, img: 'assets/rewards/tienda.png' }
@@ -2088,7 +2093,7 @@
   const getExplorerLevel = (points) =>
     [...EXPLORER_LEVELS].reverse().find((lv) => points >= lv.min) || EXPLORER_LEVELS[0];
 
-  // Tanto los stickers del explorador como los del cofre del tesoro (ver
+  // Tanto los stickers del explorador como los de la mochila de viaje (ver
   // REWARD_ITEMS) se guardaron sin transparencia real: el "fondo a
   // cuadros" que se ve en el editor de imágenes quedó grabado como
   // píxeles opacos de verdad (negro/gris alternados), no como transparencia.
@@ -2245,11 +2250,13 @@
     }).catch(() => {});
   };
 
-  // Cofre del tesoro: pinta un icono por objeto (ver REWARD_ITEMS), a color
+  // Mochila de viaje: pinta un icono por objeto (ver REWARD_ITEMS), a color
   // y con su nombre si ya está desbloqueado, en gris con un candado y los
-  // puntos que faltan si no. Se repinta entero cada vez que se abre el
-  // modal en vez de mantener el DOM vivo entre aperturas: son solo 10
+  // puntos que faltan si no. Se repinta entera cada vez que se abre el
+  // modal en vez de mantener el DOM vivo entre aperturas: son pocos
   // objetos, y así no hay que preocuparse de sincronizar altas/bajas.
+  // (Nombres internos "rewardChest"/"reward-chest-*" se mantienen tal
+  // cual, aunque de cara al usuario ahora se llame "mochila de viaje".)
   const renderRewardChest = () => {
     const list = $('#rewardChestList');
     if (!list) return;
