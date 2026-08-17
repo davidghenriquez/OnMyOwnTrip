@@ -664,6 +664,84 @@
     box.select();
   };
 
+  // Panel oculto del registro de escaneos sin match (ver ScanLog): se abre
+  // con 6 toques sobre la versión (ver wireOnboarding). Pensado solo para
+  // revisión propia, no es una función de cara al usuario final.
+  const renderScanLogList = () => {
+    const list = $('#scanLogList');
+    if (!list) return;
+    const entries = ScanLog.read();
+    list.innerHTML = '';
+    if (!entries.length) {
+      const empty = document.createElement('li');
+      empty.className = 'scan-log-empty';
+      empty.textContent = 'Todavía no hay ninguna foto registrada.';
+      list.appendChild(empty);
+      return;
+    }
+    entries.forEach((e) => {
+      const li = document.createElement('li');
+      li.className = 'scan-log-item';
+      const img = document.createElement('img');
+      img.src = e.thumb || '';
+      img.alt = '';
+      const textWrap = document.createElement('div');
+      textWrap.className = 'scan-log-item-text';
+      const nameEl = document.createElement('div');
+      nameEl.className = 'scan-log-item-name';
+      nameEl.textContent = e.name || (e.type === 'none' ? 'No identificado por la IA' : 'Sin nombre');
+      const metaEl = document.createElement('div');
+      metaEl.className = 'scan-log-item-meta';
+      const d = new Date(e.ts);
+      metaEl.textContent = `${e.city || '?'} · ${d.toLocaleDateString()} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+      textWrap.appendChild(nameEl);
+      textWrap.appendChild(metaEl);
+      li.appendChild(img);
+      li.appendChild(textWrap);
+      list.appendChild(li);
+    });
+  };
+  const openScanLogModal = () => {
+    const modal = $('#scanLogModal');
+    if (!modal) return;
+    renderScanLogList();
+    modal.classList.add('-open');
+    modal.setAttribute('aria-hidden', 'false');
+  };
+  const closeScanLogModal = () => {
+    const modal = $('#scanLogModal');
+    if (!modal) return;
+    modal.classList.remove('-open');
+    modal.setAttribute('aria-hidden', 'true');
+  };
+  const exportScanLog = () => {
+    const entries = ScanLog.read();
+    const blob = new Blob([JSON.stringify(entries, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `omot-scan-log-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  };
+  const clearScanLog = () => {
+    ScanLog.clear();
+    renderScanLogList();
+  };
+  const wireScanLogModal = () => {
+    const modal = $('#scanLogModal');
+    if (!modal) return;
+    $('#scanLogClose')?.addEventListener('click', closeScanLogModal);
+    $('#scanLogExport')?.addEventListener('click', exportScanLog);
+    $('#scanLogClear')?.addEventListener('click', clearScanLog);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeScanLogModal(); });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('-open')) closeScanLogModal();
+    });
+  };
+
   const getCategoryPinColor = (cat) => {
     if (cat === CATEGORIES.HISTORY) return '#3B82F6'; // monumentos y museos: azul
     if (cat === CATEGORIES.GASTRONOMY) return '#EAB308'; // restauración: amarillo
@@ -1064,6 +1142,73 @@
     img.src = objectUrl;
   });
 
+  // Reduce una imagen ya en memoria (data URL) a una miniatura pequeña, sin
+  // volver a tocar red ni el archivo original: se usa solo para el registro
+  // de escaneos sin match (ver ScanLog más abajo), donde guardar la foto ya
+  // redimensionada a 768px en localStorage para cientos de entradas se
+  // llenaría el almacenamiento en poco tiempo.
+  const shrinkDataUrl = (dataUrl, maxDim, quality) => new Promise((resolve, reject) => {
+    const img = new Image();
+    const timeoutId = setTimeout(() => reject(new Error('thumb-timeout')), 4000);
+    img.onload = () => {
+      clearTimeout(timeoutId);
+      let { width, height } = img;
+      if (width > height && width > maxDim) { height = Math.round((height * maxDim) / width); width = maxDim; }
+      else if (height >= width && height > maxDim) { width = Math.round((width * maxDim) / height); height = maxDim; }
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+      resolve(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.onerror = () => { clearTimeout(timeoutId); reject(new Error('thumb-failed')); };
+    img.src = dataUrl;
+  });
+
+  // Registro local (localStorage) de fotos escaneadas que no encontraron
+  // match curado (ni "openended" ni "none"): pensado para que, con el
+  // tiempo, se pueda revisar qué está fotografiando la gente que la app
+  // todavía no reconoce, y decidir si merece la pena curarlo como POI
+  // nuevo. Nunca se envía a ningún sitio: vive solo en este dispositivo,
+  // y se exporta a mano como JSON desde el panel oculto (ver
+  // wireScanLogTrigger). Acotado a SCAN_LOG_MAX entradas (con miniaturas
+  // pequeñas) para no arriesgarse a llenar la cuota de localStorage.
+  const SCAN_LOG_KEY = 'omot_scan_log';
+  const SCAN_LOG_MAX = 150;
+  const ScanLog = {
+    read() {
+      try { return JSON.parse(localStorage.getItem(SCAN_LOG_KEY)) || []; } catch (_) { return []; }
+    },
+    write(list) {
+      try { localStorage.setItem(SCAN_LOG_KEY, JSON.stringify(list)); } catch (_) {}
+    },
+    add(entry) {
+      const list = this.read();
+      list.unshift(entry);
+      if (list.length > SCAN_LOG_MAX) list.length = SCAN_LOG_MAX;
+      this.write(list);
+    },
+    clear() { this.write([]); }
+  };
+
+  // Se llama sin esperar su resultado (no debe retrasar mostrar el
+  // resultado del escaneo al usuario): cualquier fallo generando la
+  // miniatura o escribiendo en localStorage se ignora en silencio, es un
+  // extra de depuración, nunca debe romper el flujo normal de escaneo.
+  const logUnrecognizedScan = async ({ type, name, coords, imageDataUrl }) => {
+    try {
+      const thumb = await shrinkDataUrl(imageDataUrl, 96, 0.5);
+      ScanLog.add({
+        ts: Date.now(),
+        city: CURRENT_CITY ? CURRENT_CITY.id : null,
+        type,
+        name: name || null,
+        coords: coords ? { lat: coords.lat, lng: coords.lng } : null,
+        thumb
+      });
+    } catch (_) {}
+  };
+
   // Candidatos: los POIs más cercanos al usuario en la ciudad actual, sin
   // depender del filtro de categoría activo (si vas caminando y sacas la
   // foto, tiene que poder reconocer cualquier punto, esté o no filtrado).
@@ -1208,8 +1353,10 @@
       if (result.type === 'match') {
         openScannedPoi(result.poiId, { gpsOnly: false });
       } else if (result.type === 'openended') {
+        logUnrecognizedScan({ type: 'openended', name: result.name, coords, imageDataUrl });
         openAdHocScanResult(result, imageDataUrl, coords);
       } else {
+        logUnrecognizedScan({ type: 'none', name: null, coords, imageDataUrl });
         showToast(STATE.mode === 'kids'
           ? '¡No he reconocido este sitio! Prueba a acercarte más 🔍'
           : 'No he podido identificar este lugar. Prueba a acercarte más o a otro ángulo.', 3200);
@@ -3107,7 +3254,11 @@
     // muestran los datos guardados en un cuadro directamente en la página
     // (no window.prompt, que algunos navegadores móviles bloquean sobre
     // todo en modo "añadido a pantalla de inicio"), para poder revisar de
-    // verdad qué hay guardado en un dispositivo concreto.
+    // verdad qué hay guardado en un dispositivo concreto. Si se sigue
+    // tocando hasta 6 toques seguidos (sin que pase el temporizador), se
+    // abre además el registro de fotos sin reconocer (ver ScanLog): no se
+    // resetea el contador al llegar a 3 para poder seguir sumando toques
+    // dentro de la misma ventana de tiempo.
     const versionEl = $('#appVersion');
     if (versionEl) {
       let tapCount = 0;
@@ -3116,12 +3267,15 @@
         tapCount++;
         clearTimeout(tapTimer);
         tapTimer = setTimeout(() => { tapCount = 0; }, 2500);
-        if (tapCount >= 3) {
-          tapCount = 0;
+        if (tapCount === 3) {
           try {
             const raw = localStorage.getItem(STORAGE_KEY) || '(vacío)';
             showDebugDump(raw);
           } catch (_) {}
+        } else if (tapCount >= 6) {
+          tapCount = 0;
+          clearTimeout(tapTimer);
+          openScanLogModal();
         }
       });
     }
@@ -3307,6 +3461,7 @@
     const ob = $('#onboarding');
     if (ob) { ob.hidden = false; ob.setAttribute('aria-hidden', 'false'); }
     wireOnboarding();
+    wireScanLogModal();
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
