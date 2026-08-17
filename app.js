@@ -2143,9 +2143,18 @@
 
         if (!borderAlreadyTransparent) {
         const NEUTRAL_TOL = 26; // max(R,G,B) - min(R,G,B) por debajo de esto = "neutro"
+        const WHITE_FLOOR = 200; // por encima de esto en el canal más oscuro = "blanco", no fondo
         const isNeutral = (i) => {
           const r = d[i], g = d[i + 1], b = d[i + 2];
-          return (Math.max(r, g, b) - Math.min(r, g, b)) <= NEUTRAL_TOL;
+          const minc = Math.min(r, g, b);
+          // El borde blanco del propio sticker es tan neutro en color como el
+          // cuadriculado (R≈G≈B en ambos), así que sin esta excepción el
+          // flood fill se lo come igual que el fondo. El cuadriculado nunca
+          // llega a blanco puro (sus dos tonos rondan negro y gris medio),
+          // así que cortar aquí preserva el contorno blanco sin dejar de
+          // quitar el fondo real.
+          if (minc > WHITE_FLOOR) return false;
+          return (Math.max(r, g, b) - minc) <= NEUTRAL_TOL;
         };
         const visited = new Uint8Array(W * H);
         const stack = [];
