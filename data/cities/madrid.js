@@ -768,6 +768,26 @@ CITIES.madrid.pois = [
             adult: 'El edificio Metrópolis (1911), en la confluencia con la calle de Alcalá, luce una cúpula rematada por la escultura de la Victoria Alada. El edificio Telefónica (1929), con sus 89 metros, fue durante años el más alto de Madrid. En el número 60 se conserva un llamativo ejemplo de art déco, testimonio del tercer y último tramo de la avenida, ya construido en pleno siglo XX.',
             kids: '¡Busca la estatua dorada con alas encima de una de las cúpulas! Y fíjate en el edificio de Telefónica, que durante años fue el más alto de toda la ciudad. Cada trozo de esta avenida tiene edificios de un estilo distinto.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Con qué rompió el rey el primer muro para empezar las obras de esta avenida?',
+            options: ['Con una piqueta de plata', 'Con un martillo de oro', 'Con una espada'],
+            correct: 0,
+            reveal: '¡Con una piqueta de plata! Fue Alfonso XIII, en 1910. La avenida tardó 21 años en construirse entera, en tres partes distintas.'
+          },
+          legends: {
+            question: '¿Qué apodo le pusieron los madrileños a esta avenida en una época difícil?',
+            options: ['"La avenida de los obuses"', '"La avenida del miedo"', '"La avenida rota"'],
+            correct: 0,
+            reveal: '¡"La avenida de los obuses"! A pesar de todo, el edificio Telefónica resistió siempre entero. 🏢'
+          },
+          architecture: {
+            question: '¿Qué edificio fue durante años el más alto de Madrid, en esta avenida?',
+            options: ['El edificio Telefónica', 'El edificio Metrópolis', 'La Puerta de Alcalá'],
+            correct: 0,
+            reveal: '¡El edificio Telefónica, con 89 metros! Busca también la estatua dorada con alas sobre la cúpula del Metrópolis.'
+          }
         }
       },
       {
@@ -805,6 +825,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El museo ocupa el Palacio de Villahermosa, un edificio neoclásico del siglo XVIII remodelado por el arquitecto Rafael Moneo para adaptarlo a su nueva función museística, conservando su fachada histórica frente al Paseo del Prado mientras reorganizaba por completo sus espacios interiores en salas cronológicas.',
             kids: '¡Por fuera este museo parece un palacio antiguo, porque lo era! Por dentro lo cambiaron todo para poder colocar los cuadros ordenados por época, ¡como un viaje en el tiempo que recorres caminando!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántos siglos de pintura reúne este museo?',
+            options: ['Siete siglos', 'Dos siglos', 'Veinte siglos'],
+            correct: 0,
+            reveal: '¡Siete siglos! Desde los primeros pintores italianos hasta el arte más moderno, todo en el mismo museo. 🖼️'
+          },
+          legends: {
+            question: '¿Qué había sido antes la mujer que ayudó a traer esta colección a España?',
+            options: ['Miss España', 'Una científica famosa', 'Una futbolista'],
+            correct: 0,
+            reveal: '¡Miss España! Después se convirtió en una gran experta en arte. Nunca se sabe qué caminos puede tomar una vida.'
+          },
+          architecture: {
+            question: '¿Qué tipo de edificio ocupa este museo?',
+            options: ['Un antiguo palacio', 'Un antiguo mercado', 'Un antiguo teatro'],
+            correct: 0,
+            reveal: '¡Un antiguo palacio! Por dentro lo cambiaron todo para colocar los cuadros ordenados por época.'
           }
         }
       },
@@ -844,6 +884,26 @@ CITIES.madrid.pois = [
             adult: 'El edificio Sabatini conserva la planta original del antiguo hospital dieciochesco, con sus grandes patios y fachadas de ladrillo y granito. Frente a él, dos torres de cristal transparentes —instaladas en los años 80 como ascensores panorámicos— rompieron deliberadamente con la sobriedad clasicista del conjunto, anticipando el diálogo entre tradición y modernidad que después ampliaría el edificio Nouvel.',
             kids: '¡Mira los ascensores de cristal por fuera del edificio! Se ven desde la calle mientras suben y bajan. Contrastan mucho con el edificio antiguo de ladrillo, ¡como si fueran de dos épocas completamente distintas!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se usaba este edificio antes de ser un museo?',
+            options: ['Era un hospital', 'Era una fábrica', 'Era una estación de tren'],
+            correct: 0,
+            reveal: '¡Era un hospital enorme, hace más de 200 años! Luego lo convirtieron en museo de arte moderno. 🏥'
+          },
+          legends: {
+            question: '¿Cuál es el cuadro más famoso que se puede ver en este museo?',
+            options: ['El Guernica', 'La Mona Lisa', 'Las Meninas'],
+            correct: 0,
+            reveal: '¡El Guernica, de Picasso! Tardó muchísimos años en poder llegar aquí desde donde estaba guardado.'
+          },
+          architecture: {
+            question: '¿Qué se ve por fuera del edificio, subiendo y bajando?',
+            options: ['Ascensores de cristal', 'Escaleras de piedra', 'Puentes colgantes'],
+            correct: 0,
+            reveal: '¡Ascensores de cristal! Contrastan mucho con el edificio antiguo de ladrillo que hay detrás.'
+          }
         }
       },
       {
@@ -882,6 +942,26 @@ CITIES.madrid.pois = [
             adult: 'La cripta neorrománica, terminada en 1911, es la parte más antigua del conjunto y contrasta con la nave neoclásica superior. Las vidrieras, de diseño no figurativo, dialogan con el policromado techo y con los mosaicos del padre Marko Rupnik en la capilla del Santísimo, creando un conjunto que combina tradición constructiva centenaria con un programa decorativo plenamente contemporáneo. En las hornacinas de la fachada pueden identificarse las estatuas de San Pedro —con la inscripción «PETRUS», las llaves del Reino de los Cielos y una red de pescador— y San Pablo —«PAVLVS», con un relieve que representa su conversión camino a Damasco—, ambos considerados columnas de la Iglesia.',
             kids: '¡Baja a la cripta, la parte más antigua de toda la catedral! Después sube arriba y compara: verás una mezcla de estilos muy distintos en el mismo edificio, ¡como si hubieran construido dos iglesias en una! Busca también en la fachada dos estatuas con nombres tallados debajo: una es San Pedro, con unas llaves enormes y una red de pescar; la otra es San Pablo, con una escena tallada al lado.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántos años tardaron en construir esta catedral?',
+            options: ['110 años', '20 años', '5 años'],
+            correct: 0,
+            reveal: '¡110 años! Al final, un Papa la vino a bendecir en persona, algo que no ha pasado con ninguna otra catedral española. ⛪'
+          },
+          legends: {
+            question: '¿Cómo es el techo por dentro de esta catedral?',
+            options: ['Pintado de muchos colores brillantes', 'Todo blanco y liso', 'Cubierto de espejos'],
+            correct: 0,
+            reveal: '¡Lleno de colores, casi como un cómic! Es una de las sorpresas que más gustan a quien la visita.'
+          },
+          architecture: {
+            question: '¿Qué parte de la catedral es la más antigua de todas?',
+            options: ['La cripta', 'La cúpula', 'La torre del reloj'],
+            correct: 0,
+            reveal: '¡La cripta! Busca también en la fachada las estatuas de San Pedro y San Pablo, con sus nombres tallados debajo.'
+          }
         }
       },
       {
@@ -912,6 +992,26 @@ CITIES.madrid.pois = [
             adult: 'En el siglo XX, la plaza se convirtió en el punto de celebración deportiva del Real Madrid, cuyo estadio se encuentra en las inmediaciones: cada título se festeja envolviendo el monumento con una bandera del club, una tradición tan arraigada como la propia fuente. La plaza está rodeada de algunos de los edificios más monumentales de la capital, entre ellos el antiguo Palacio de Comunicaciones.',
             kids: '¡Cuando el equipo de fútbol Real Madrid gana algo importante, sus aficionados vienen aquí a celebrarlo y le ponen una bandera gigante a la diosa! Es una tradición que lleva ya muchísimos años.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué tira del carro de la diosa Cibeles en esta fuente?',
+            options: ['Dos leones', 'Dos caballos', 'Dos toros'],
+            correct: 0,
+            reveal: '¡Dos leones! La fuente se hizo hace más de 240 años y es uno de los símbolos más fotografiados de Madrid. 🦁'
+          },
+          legends: {
+            question: '¿Qué apodo cariñoso le pusieron a esta fuente cuando la taparon para protegerla?',
+            options: ['"La linda tapada"', '"La dama escondida"', '"La fuente fantasma"'],
+            correct: 0,
+            reveal: '¡"La linda tapada"! La cubrieron con ladrillos y sacos para que no se rompiera del todo en una época difícil.'
+          },
+          architecture: {
+            question: '¿Qué hacen los aficionados del Real Madrid en esta plaza cuando ganan un título?',
+            options: ['Ponen una bandera gigante a la diosa', 'Encienden fuegos artificiales', 'Se bañan en la fuente'],
+            correct: 0,
+            reveal: '¡Le ponen una bandera gigante! Es una tradición que lleva ya muchísimos años en esta plaza tan famosa.'
+          }
         }
       },
       {
@@ -941,6 +1041,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'De granito, presenta una estructura horizontal de cinco vanos: los tres centrales de medio punto, con el central más elevado, y los dos laterales adintelados. Rompe deliberadamente con el concepto tradicional de puerta como parte de una muralla defensiva, recuperando en su lugar la monumentalidad pura del arco de triunfo romano, sin función militar alguna.',
             kids: '¡Cuenta los huecos del arco, son 5 en total! El del medio es más alto que los demás. Esta puerta nunca sirvió para defender la ciudad, como las puertas antiguas — ¡era solo para presumir de lo bonita que era!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué tipo de monumento es la Puerta de Alcalá?',
+            options: ['Un arco de triunfo', 'Una puerta de muralla', 'Una torre vigía'],
+            correct: 0,
+            reveal: '¡Un arco de triunfo! Fue el primero de su tipo construido en toda Europa desde la época de los romanos. 🎉'
+          },
+          legends: {
+            question: '¿Qué tiene de curioso esta puerta si te fijas bien en sus dos lados?',
+            options: ['Los dos lados son ligeramente distintos', 'Es transparente por un lado', 'Tiene un reloj escondido'],
+            correct: 0,
+            reveal: '¡Los dos lados son distintos! Dicen que el rey aprobó sin darse cuenta dos diseños diferentes para la misma puerta.'
+          },
+          architecture: {
+            question: '¿Cuántos huecos o vanos tiene la Puerta de Alcalá?',
+            options: ['5', '3', '10'],
+            correct: 0,
+            reveal: '¡5! El del medio es más alto que los demás. Esta puerta nunca sirvió para defender la ciudad, solo para presumir.'
           }
         }
       },
@@ -973,6 +1093,26 @@ CITIES.madrid.pois = [
             adult: 'La Torre de los Lujanes, del siglo XV, es uno de los escasos ejemplos de arquitectura civil gótica conservados en Madrid, hoy sede de la Real Academia de Ciencias Morales y Políticas. La Casa de Cisneros combina elementos góticos, mudéjares y renacentistas en un estilo exclusivamente español conocido como plateresco, por el parecido de su ornamentación con el trabajo de los plateros.',
             kids: '¡Mira la torre puntiaguda, es una de las construcciones más antiguas de todo Madrid! El otro edificio bonito de al lado se llama así porque su decoración de piedra parece hecha por un joyero, ¡tallada con muchísimo detalle!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué edificio de esta plaza fue el ayuntamiento de Madrid durante más de 300 años?',
+            options: ['La Casa de la Villa', 'El Palacio Real', 'La Torre de los Lujanes'],
+            correct: 0,
+            reveal: '¡La Casa de la Villa! Estuvo aquí hasta 2007, cuando el ayuntamiento se mudó al Palacio de Cibeles. 🏛️'
+          },
+          legends: {
+            question: '¿Qué rey extranjero estuvo prisionero en esta plaza hace 500 años?',
+            options: ['El rey de Francia', 'El rey de Inglaterra', 'El rey de Portugal'],
+            correct: 0,
+            reveal: '¡El rey de Francia, Francisco I! Se cuenta que lo guardaron en la Torre de los Lujanes tras perder una batalla.'
+          },
+          architecture: {
+            question: '¿Cómo se llama la torre gótica más antigua de esta plaza?',
+            options: ['La Torre de los Lujanes', 'La Torre del Oro', 'La Torre Eiffel'],
+            correct: 0,
+            reveal: '¡La Torre de los Lujanes! Es del siglo XV, una de las construcciones más antiguas de todo Madrid.'
+          }
         }
       },
       {
@@ -1003,6 +1143,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El conjunto conserva su puerta monumental y dos pilonos de acceso, junto con relieves originales que representan a los faraones ptolemaicos realizando ofrendas a las divinidades egipcias. Se ubica sobre una pequeña colina del antiguo Cuartel de la Montaña, orientado deliberadamente para ofrecer una de las mejores puestas de sol de la ciudad sobre la Casa de Campo, en un guiño a su función original de templo solar. Minutos después de la puesta de sol llega la llamada «hora azul», cuando el templo se ilumina y se refleja en el estanque frente a él, una de las imágenes más fotografiadas de Madrid.',
             kids: '¡Fíjate en los dibujos tallados en la piedra! Muestran a antiguos reyes egipcios haciendo regalos a sus dioses. Este templo está en una colina perfecta para ver la puesta de sol, ¡casi como si siguiera mirando al sol como hacía en Egipto! Un rato después de que se ponga el sol llega la "hora azul": el templo se ilumina y se refleja en el agua del estanque de delante, ¡una de las fotos más bonitas de todo Madrid!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De qué país vino este templo como regalo?',
+            options: ['De Egipto', 'De Grecia', 'De Roma'],
+            correct: 0,
+            reveal: '¡De Egipto! Vino en barco, piedra a piedra, como agradecimiento por ayudar a salvar templos de una presa. 🐪'
+          },
+          legends: {
+            question: '¿Qué condición secreta pedía el regalo del templo, que nunca se ha cumplido?',
+            options: ['Que nunca estuviera al aire libre', 'Que solo lo vieran los reyes', 'Que se pintara de dorado'],
+            correct: 0,
+            reveal: '¡Que nunca estuviera al aire libre! Pero lleva más de 50 años fuera, lloviendo y todo.'
+          },
+          architecture: {
+            question: '¿Para qué momento del día está especialmente orientado este templo?',
+            options: ['Para ver la puesta de sol', 'Para ver el amanecer', 'Para ver las estrellas'],
+            correct: 0,
+            reveal: '¡Para la puesta de sol! Minutos después llega la "hora azul", cuando se refleja en el estanque de delante.'
           }
         }
       },
@@ -1035,6 +1195,26 @@ CITIES.madrid.pois = [
             adult: 'La plaza está flanqueada por dos de los primeros rascacielos de España: el Edificio España (1953) y la Torre de Madrid (1957), ambos símbolos de la arquitectura de posguerra. Tras la remodelación de 2021, la plaza incorporó más arbolado, fuentes, carriles bici y amplias zonas peatonales, integrando mejor el monumento histórico con los usos contemporáneos del espacio.',
             kids: '¡Mira hacia arriba! Los dos edificios altísimos que rodean la plaza fueron, durante muchos años, los rascacielos más altos de España. Ahora la plaza tiene también fuentes y mucho espacio para pasear sin coches.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿A qué escritor está dedicado el monumento central de esta plaza?',
+            options: ['A Cervantes', 'A Lope de Vega', 'A García Lorca'],
+            correct: 0,
+            reveal: '¡A Cervantes! Tardaron casi 15 años en decidir cómo iba a ser este monumento tan especial. 📖'
+          },
+          legends: {
+            question: '¿Qué personajes de un libro tienen sus propias estatuas en esta plaza?',
+            options: ['Don Quijote y Sancho Panza', 'Romeo y Julieta', 'Peter Pan'],
+            correct: 0,
+            reveal: '¡Don Quijote y Sancho Panza! Como si hubieran existido de verdad, montados en sus animales.'
+          },
+          architecture: {
+            question: '¿Qué dos edificios altísimos rodean esta plaza?',
+            options: ['El Edificio España y la Torre de Madrid', 'Dos catedrales', 'Dos museos'],
+            correct: 0,
+            reveal: '¡El Edificio España y la Torre de Madrid! Durante años fueron los rascacielos más altos de todo el país.'
+          }
         }
       },
       {
@@ -1064,6 +1244,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio de Antonio Palacios combina influencias eclécticas con elementos modernistas y neobarrocos, característicos del llamado "estilo Palacios" que definió buena parte de la arquitectura madrileña de principios del siglo XX. Su azotea, hoy habilitada como terraza con cafetería, se ha convertido en uno de los miradores urbanos más solicitados de la capital.',
             kids: '¡Sube hasta la azotea y podrás tomar algo mientras ves toda la ciudad desde las alturas! El edificio mezcla varios estilos distintos, es difícil decir de qué época exacta parece.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién inauguró este edificio en persona?',
+            options: ['Un rey, Alfonso XIII', 'Un Papa', 'Un presidente'],
+            correct: 0,
+            reveal: '¡Un rey, Alfonso XIII! Desde entonces es uno de los centros culturales más activos de Madrid. 👑'
+          },
+          legends: {
+            question: '¿A qué diosa representa la estatua que corona la azotea de este edificio?',
+            options: ['A Minerva, diosa de la sabiduría', 'A Cibeles', 'A Venus'],
+            correct: 0,
+            reveal: '¡A Minerva! Tardaron 40 años en colocarla, aunque estaba planeada desde el principio.'
+          },
+          architecture: {
+            question: '¿Qué se puede hacer hoy en la azotea de este edificio?',
+            options: ['Tomar algo mientras ves toda la ciudad', 'Nadar en una piscina', 'Ver una película'],
+            correct: 0,
+            reveal: '¡Tomar algo con vistas! Es uno de los miradores más solicitados de Madrid.'
           }
         }
       },
@@ -1103,6 +1303,26 @@ CITIES.madrid.pois = [
             adult: 'Tras las obras de consolidación, el edificio combina su fachada neoclásica original con una estructura interior completamente renovada, capaz de albergar más de 1.700 espectadores. El foso de la orquesta y la maquinaria escénica se cuentan entre las más avanzadas de Europa, resultado de la profunda reconstrucción acometida a finales del siglo XX.',
             kids: '¡Por fuera parece un teatro clásico y elegante, pero por dentro tiene máquinas y tecnología modernísima para mover los decorados durante las funciones! Caben más de 1.700 personas viendo la ópera a la vez.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántos años tardaron en construir este teatro, con muchas paradas por falta de dinero?',
+            options: ['32 años', '5 años', '100 años'],
+            correct: 0,
+            reveal: '¡32 años! Lo inauguró una reina, Isabel II, casi 30 años después de que se pusiera la primera piedra. 🎭'
+          },
+          legends: {
+            question: '¿Qué problema escondido casi hace que este teatro se derrumbara?',
+            options: ['Un río escondido bajo los cimientos', 'Un incendio', 'Un terremoto'],
+            correct: 0,
+            reveal: '¡Un río escondido! Tuvieron que hacer obras muy complicadas para salvar el teatro, construyendo una base nueva.'
+          },
+          architecture: {
+            question: '¿Cuántas personas caben aproximadamente en este teatro?',
+            options: ['Más de 1.700', 'Unas 100', 'Unas 500'],
+            correct: 0,
+            reveal: '¡Más de 1.700! Por dentro tiene máquinas modernísimas para mover los decorados durante las funciones.'
+          }
         }
       },
       {
@@ -1134,6 +1354,26 @@ CITIES.madrid.pois = [
             adult: 'De trazado rectangular con cabecera curvada, los jardines combinan setos recortados, fuentes y las citadas estatuas reales en un diseño neoclásico decimonónico que armoniza con la fachada oeste del Palacio Real y con el Teatro Real, situado en uno de sus extremos.',
             kids: '¡Pasea entre los setos bien recortados y busca cuántas estatuas de reyes puedes contar! Desde aquí se ve muy bien el Palacio Real por un lado y el Teatro Real por el otro.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cuántas estatuas de reyes rodean esta plaza?',
+            options: ['Veinte', 'Cinco', 'Cien'],
+            correct: 0,
+            reveal: '¡Veinte! Estaban pensadas para ir encima del Palacio Real, pero nunca se colocaron ahí. 👑'
+          },
+          legends: {
+            question: '¿Quién ayudó a diseñar el equilibrio de la estatua del rey a caballo de esta plaza?',
+            options: ['El científico Galileo Galilei', 'El pintor Goya', 'El arquitecto Gaudí'],
+            correct: 0,
+            reveal: '¡Galileo Galilei! Ayudó a que el caballo se sostuviera solo con las dos patas traseras, algo rarísimo.'
+          },
+          architecture: {
+            question: '¿Qué dos edificios importantes se ven desde estos jardines?',
+            options: ['El Palacio Real y el Teatro Real', 'El Museo del Prado y el Retiro', 'La Puerta del Sol y la Gran Vía'],
+            correct: 0,
+            reveal: '¡El Palacio Real y el Teatro Real! Uno a cada lado de estos jardines tan bien cuidados.'
+          }
         }
       },
       {
@@ -1163,6 +1403,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El barrio conserva un trazado medieval de calles estrechas y sinuosas, con desniveles pronunciados heredados de su topografía original junto al antiguo cauce del arroyo del Arenal. Sus fachadas combinan casas populares de varios siglos con algunos palacetes, en un conjunto declarado de interés histórico-artístico.',
             kids: '¡Fíjate en lo estrechas y torcidas que son las calles, y en las cuestas que tiene el barrio! Así eran las calles de Madrid hace muchísimos siglos, y aquí se han conservado casi igual.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Por qué se llama así este barrio?',
+            options: ['Por una mujer que sabía mucho latín', 'Por una antigua tribu romana', 'Por un idioma que se hablaba aquí'],
+            correct: 0,
+            reveal: '¡Por Beatriz Galindo, "La Latina"! Fue maestra nada menos que de los hijos de una reina. 📚'
+          },
+          legends: {
+            question: '¿Qué se paraba antiguamente en la calle más famosa de este barrio?',
+            options: ['Los carruajes de viajeros', 'Los barcos', 'Los trenes'],
+            correct: 0,
+            reveal: '¡Los carruajes de viajeros! Por eso se llenó de posadas, una tradición de comer bien que sigue viva hoy.'
+          },
+          architecture: {
+            question: '¿Cómo son las calles de este barrio?',
+            options: ['Estrechas y con cuestas', 'Anchas y rectas', 'Todas iguales'],
+            correct: 0,
+            reveal: '¡Estrechas y con cuestas! Así eran las calles de Madrid hace muchísimos siglos.'
           }
         }
       },
