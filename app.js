@@ -2739,7 +2739,11 @@
       callInterruptRecognition.onresult = null;
       callInterruptRecognition.onerror = null;
       callInterruptRecognition.onend = null;
-      callInterruptRecognition.stop();
+      // abort() en vez de stop(): en Safari/iOS, stop() espera a que la
+      // sesión de reconocimiento "termine con educación" antes de soltar
+      // el micrófono, y en la práctica a veces no llega a soltarlo del
+      // todo. abort() cancela en el acto, sin esperar resultado final.
+      callInterruptRecognition.abort();
     } catch (_) {}
     callInterruptRecognition = null;
   };
@@ -2946,7 +2950,9 @@
     callState.active = false;
     callState.poi = null;
     callState.nextHandler = null;
-    try { callRecognition?.stop(); } catch (_) {}
+    // abort() en vez de stop(), mismo motivo que en stopCallInterruptWatch:
+    // más fiable soltando el micrófono en Safari/iOS al colgar.
+    try { callRecognition?.abort(); } catch (_) {}
     callRecognition = null;
     stopCallInterruptWatch();
     SPEECH.cancel();
