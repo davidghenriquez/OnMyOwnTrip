@@ -156,12 +156,23 @@
     const identifyPoi = async ({ imageDataUrl, candidates, cityName }) => {
       if (!CFG || !CFG.apiKey || CFG.provider !== 'openai') return { supported: false };
       const list = candidates.map((c) => `- id:${c.id} | ${c.name} — ${c.subtitle}`).join('\n');
+      // Prompt reforzado tras detectar un caso real de confusión: una foto de
+      // la estatua del Oso y el Madroño (en plena Puerta del Sol de Madrid)
+      // se identificó como "Puerta del Sol" — el modelo confundió cercanía
+      // geográfica con identidad visual, algo muy fácil de que pase cuando
+      // dos candidatos distintos comparten la misma plaza o están a pocos
+      // metros (una escultura pequeña justo delante de un edificio grande,
+      // por ejemplo). Las instrucciones de abajo separan explícitamente
+      // ambos conceptos y piden identificar primero el objeto/edificio
+      // protagonista de la foto antes de intentar hacer coincidir un id.
       const sys = [
-        'Eres un sistema de reconocimiento visual de monumentos turísticos.',
-        'Se te da una foto y, si las hay, una lista de lugares candidatos cercanos (con id).',
+        'Eres un sistema experto de reconocimiento visual de monumentos y lugares turísticos.',
+        'Se te da una foto real tomada por un turista y, si las hay, una lista de lugares candidatos cercanos por GPS (con id y una breve descripción).',
+        'IMPORTANTE: la lista de candidatos es solo una acotación por cercanía geográfica, NO una lista de opciones garantizadas. Es muy habitual que dos o más candidatos distintos estén en la misma plaza o a pocos metros entre sí (por ejemplo, una estatua o fuente pequeña justo delante de un edificio monumental, o un monumento dentro de una plaza más grande). Que la foto se haya tomado CERCA de un candidato no significa que la foto SEA ese candidato.',
+        'Antes de responder, identifica primero qué objeto, escultura o edificio concreto es el protagonista real de la foto (su forma, tamaño, materiales, si es una pieza pequeña aislada o una fachada completa), y solo después compáralo con la descripción de cada candidato.',
         'Responde ÚNICAMENTE en uno de estos formatos, sin texto extra:',
-        '1) Si la foto coincide claramente con uno de los candidatos: MATCH:<id exacto>',
-        '2) Si NO coincide con ningún candidato de la lista (o no había lista), pero aun así reconoces con razonable confianza qué edificio/monumento/lugar es:',
+        '1) Si el protagonista de la foto coincide visualmente, de forma clara, con la DESCRIPCIÓN de uno de los candidatos (no solo con la cercanía del lugar donde se tomó): MATCH:<id exacto>',
+        '2) Si el protagonista de la foto NO coincide visualmente con ningún candidato de la lista (aunque la foto se haya tomado cerca de alguno), o no había lista, pero aun así reconoces con razonable confianza qué edificio/monumento/escultura/lugar es en realidad:',
         'NOMBRE: <nombre corto>',
         'RESUMEN: <una frase breve>',
         'INFO: <2-3 frases con datos concretos y contrastables: qué es, época o autor, algo destacable>',
