@@ -715,9 +715,12 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   cursor: pointer;
   flex-shrink: 0;
   transition: transform 0.15s ease;
+  padding: 0;
 }
 .reward-chest-btn[hidden] { display: none; }
 .reward-chest-btn:active { transform: scale(0.9); }
+#rewardChestBtnIcon { width: 26px; height: 26px; }
+#rewardChestTitleIcon { width: 22px; height: 22px; vertical-align: -5px; }
 .reward-chest-modal {
   position: fixed;
   inset: 0;

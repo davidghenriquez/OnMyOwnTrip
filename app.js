@@ -2302,6 +2302,24 @@
     modal?.setAttribute('aria-hidden', 'true');
   };
 
+  // Icono de la mochila (botón de cabecera + título del modal): mismo
+  // sprite recortado, dibujado en dos canvas distintos. Solo hace falta
+  // cargarlo una vez por sesión (loadExplorerSprite ya cachea por URL),
+  // así que estas dos llamadas son baratas aunque se repitan.
+  const BACKPACK_ICON_SRC = 'assets/rewards/mochila-icon.png';
+  const renderBackpackIcons = () => {
+    loadExplorerSprite(BACKPACK_ICON_SRC).then((sprite) => {
+      [$('#rewardChestBtnIcon'), $('#rewardChestTitleIcon')].forEach((canvas) => {
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const scale = Math.min(canvas.width / sprite.width, canvas.height / sprite.height);
+        const w = sprite.width * scale, h = sprite.height * scale;
+        ctx.drawImage(sprite, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
+      });
+    }).catch(() => {});
+  };
+
   const setStateMode = (mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     document.documentElement.dataset.mode = STATE.mode;
@@ -2330,6 +2348,7 @@
     updateExplorerBadge();
     const chestBtn = $('#rewardChestBtn');
     if (chestBtn) chestBtn.hidden = !isKids;
+    if (isKids) renderBackpackIcons();
     $$('.pill').forEach((p) => {
       const cat = p.dataset.category;
       if (cat === CATEGORIES.ALL) {
