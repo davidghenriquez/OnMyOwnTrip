@@ -51,31 +51,52 @@
       return `${context}. Usuario pregunta: ${userQuery}`;
     };
 
-    const fetchOpenAI = async (sys, usr) => {
+    const fetchOpenAI = async (sys, usr, maxTokensOverride) => {
       const url = (CFG.baseUrl || 'https://api.openai.com/v1') + '/chat/completions';
       const model = CFG.model || 'gpt-4o-mini';
-      // maxTokens/extraBody son opcionales en window.LLM_CONFIG: algunos
-      // modelos "razonadores" (p.ej. Gemini 3.x vía el endpoint compatible
-      // con OpenAI) consumen muchos tokens en pensamiento interno antes de
-      // responder, así que necesitan un max_tokens mucho más alto y a veces
-      // un reasoning_effort bajo para no cortar la respuesta a medias.
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${CFG.apiKey}`
-        },
-        body: JSON.stringify({
-          model,
-          temperature: 0.6,
-          max_tokens: CFG.maxTokens || 700,
-          messages: [
-            { role: 'system', content: sys },
-            { role: 'user', content: usr }
-          ],
-          ...(CFG.extraBody || {})
-        })
-      });
+      // Sin timeout, un fetch que se queda colgado (red inestable, el Worker
+      // o el modelo tardando de más) deja la promesa pendiente para
+      // siempre: ni error ni respuesta, así que "Pensando…" se queda ahí
+      // sin que el usuario sepa si sigue trabajando o se ha roto (mismo
+      // motivo que fetchOpenAIVision, más abajo, que ya tenía este límite).
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 25000);
+      let res;
+      try {
+        res = await fetch(url, {
+          method: 'POST',
+          signal: controller.signal,
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${CFG.apiKey}`
+          },
+          body: JSON.stringify({
+            model,
+            temperature: 0.6,
+            // maxTokens/extraBody son opcionales en window.LLM_CONFIG:
+            // algunos modelos "razonadores" (p.ej. Gemini 3.x vía el
+            // endpoint compatible con OpenAI) consumen muchos tokens en
+            // pensamiento interno antes de responder, así que necesitan un
+            // max_tokens mucho más alto y a veces un reasoning_effort bajo
+            // para no cortar la respuesta a medias. maxTokensOverride
+            // permite bajarlo para peticiones que ya piden ser breves (ver
+            // la llamada de voz, concise en LLM.generate): con menos
+            // margen el modelo tiene menos "hueco" para pensar de más, lo
+            // que en la práctica también suele acelerar la respuesta.
+            max_tokens: maxTokensOverride || CFG.maxTokens || 700,
+            messages: [
+              { role: 'system', content: sys },
+              { role: 'user', content: usr }
+            ],
+            ...(CFG.extraBody || {})
+          })
+        });
+      } catch (e) {
+        if (e.name === 'AbortError') throw new Error('chat-timeout');
+        throw e;
+      } finally {
+        clearTimeout(timeoutId);
+      }
       if (!res.ok) {
         const err = new Error(`OpenAI ${res.status}`);
         err.status = res.status;
@@ -513,7 +534,7 @@
       if (CFG && CFG.apiKey && CFG.provider) {
         try {
           if (CFG.provider === 'anthropic') return await fetchAnthropic(sys, usr);
-          return await fetchOpenAI(sys, usr);
+          return await fetchOpenAI(sys, usr, concise ? 300 : undefined);
         } catch (e) {
           console.warn('[LLM] Fallo API, usando simulador local:', e);
           // 429 = cuota agotada, 503 = modelo saturado: son la misma causa de
@@ -2706,11 +2727,22 @@
     STATE.ai.pending = true;
     if (STATE.activePoiId === poi.id) updateAudioUi();
     aiHistoryFor(poi.id).push({ role: 'user', text: userText });
+    // La IA real puede tardar bastantes segundos en responder (más aún si
+    // hay que reintentar por saturación): sin este aviso, "Pensando…" se
+    // queda ahí quieto y parece que la llamada se ha colgado sin más.
+    const slowTimer = setTimeout(() => {
+      if (callState.active) {
+        setCallStatus(STATE.mode === 'kids' ? 'Sigo pensando… dame un segundo más 🤔' : 'Sigo pensando, un momento…');
+      }
+    }, 6000);
     let text;
     try {
       // concise: en una llamada de voz nadie quiere un párrafo entero para
       // saber, por ejemplo, cuánto mide algo (ver systemPromptFor) — a
       // diferencia del chat de texto normal, que sí busca respuestas ricas.
+      // También se pide un max_tokens menor (ver fetchOpenAI): con menos
+      // margen el modelo tiene menos "hueco" para pensar de más, lo que en
+      // la práctica también ayuda a que responda antes.
       text = await LLM.generate({
         poi,
         mode: STATE.mode,
@@ -2726,6 +2758,7 @@
         ? '¡Ups! Mi cajita mágica está un poquito lenta. ¿Lo intentamos otra vez?'
         : 'No he podido generar una respuesta. ¿Lo intentamos de nuevo?';
     } finally {
+      clearTimeout(slowTimer);
       STATE.ai.pending = false;
       if (STATE.activePoiId === poi.id) updateAudioUi();
     }
