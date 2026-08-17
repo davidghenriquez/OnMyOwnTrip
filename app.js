@@ -88,7 +88,17 @@
               { role: 'system', content: sys },
               { role: 'user', content: usr }
             ],
-            ...(CFG.extraBody || {})
+            ...(CFG.extraBody || {}),
+            // Para las peticiones concisas (maxTokensOverride viene puesto
+            // desde LLM.generate cuando concise=true) se desactiva del todo
+            // el razonamiento interno del modelo: para una respuesta de
+            // 2-3 frases no aporta nada y es la parte que más tiempo real
+            // consume (varios segundos de "pensamiento" invisible antes de
+            // escribir una sola palabra visible) — va DESPUÉS de
+            // CFG.extraBody a propósito, para pisar el "low" general solo
+            // aquí. Las respuestas largas (resumen, temas, profundizar)
+            // mantienen el reasoning_effort normal de la configuración.
+            ...(maxTokensOverride ? { reasoning_effort: 'none' } : {})
           })
         });
       } catch (e) {
