@@ -535,12 +535,13 @@
         try {
           if (CFG.provider === 'anthropic') return await fetchAnthropic(sys, usr);
           // concise pide un max_tokens menor para acelerar la respuesta,
-          // pero no demasiado bajo: los modelos "razonadores" gastan tokens
+          // pero no demasiado bajo: probado contra la API real, 500 cortaba
+          // a mitad de frase (finish_reason: "length") en respuestas que
+          // mencionaban más de un dato — el modelo gasta parte del margen
           // en pensamiento interno antes de escribir nada visible (ver
-          // fetchOpenAIVision), así que un tope muy ajustado corre el mismo
-          // riesgo que tuvo esa otra ruta. 500 deja margen de sobra para
-          // 2-3 frases mientras sigue siendo mucho menor que el general.
-          return await fetchOpenAI(sys, usr, concise ? 500 : undefined);
+          // fetchOpenAIVision), así que hace falta más colchón del que
+          // parece. 800 completó bien esas mismas respuestas en las pruebas.
+          return await fetchOpenAI(sys, usr, concise ? 800 : undefined);
         } catch (e) {
           console.warn('[LLM] Fallo API, usando simulador local:', e);
           // 429 = cuota agotada, 503 = modelo saturado: son la misma causa de
