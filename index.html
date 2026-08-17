@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=30" />
+  <link rel="stylesheet" href="styles.css?v=31" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V19.3</span>
+    <span class="onboarding-version" id="appVersion">Beta V19.4</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
   </div>
 
@@ -377,7 +377,9 @@
 
     <!-- CÁMARA: captura en vivo para "¿qué estoy viendo?" (fallback: input de archivo con capture) -->
     <div class="camera-modal" id="cameraModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Tomar foto">
-      <video id="cameraVideo" autoplay playsinline muted></video>
+      <div class="camera-video-wrap" id="cameraVideoWrap">
+        <video id="cameraVideo" autoplay playsinline muted></video>
+      </div>
       <button type="button" class="camera-modal-close" id="cameraCloseBtn" aria-label="Cerrar cámara">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -385,6 +387,14 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
+      <!-- Zoom digital: pellizcar sobre el vídeo, o estos botones +/- como
+           alternativa visible (el gesto de pellizco no es descubrible por
+           sí solo). Ver applyCameraZoom en app.js. -->
+      <div class="camera-zoom-controls" id="cameraZoomControls">
+        <button type="button" class="camera-zoom-btn" id="cameraZoomOutBtn" aria-label="Alejar">−</button>
+        <span class="camera-zoom-label" id="cameraZoomLabel">1.0×</span>
+        <button type="button" class="camera-zoom-btn" id="cameraZoomInBtn" aria-label="Acercar">+</button>
+      </div>
       <button type="button" class="camera-shutter" id="cameraShutterBtn" aria-label="Tomar foto"></button>
     </div>
 
@@ -448,7 +458,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=13"></script>
-  <script src="app.js?v=85"></script>
+  <script src="app.js?v=86"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa

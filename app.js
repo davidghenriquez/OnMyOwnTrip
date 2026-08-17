@@ -1430,6 +1430,26 @@
   // perdido tras la espera async del permiso de cámara.
   let cameraStream = null;
 
+  // Zoom digital de la cámara en vivo: no hay control alguno sobre el
+  // encuadre en el getUserMedia por defecto, así que se simula escalando
+  // el propio <video> (transform: scale) para la vista previa, y recortando
+  // la región central equivalente del frame real al capturar (ver más
+  // abajo), para que la foto exportada coincida con lo que se veía en
+  // pantalla. CAMERA_ZOOM_MAX a 3x es un límite razonable: más allá de eso
+  // el digital zoom se ve demasiado pixelado para servir de ayuda real a
+  // la identificación por IA.
+  const CAMERA_ZOOM_MIN = 1;
+  const CAMERA_ZOOM_MAX = 3;
+  let cameraZoom = 1;
+
+  const applyCameraZoom = (zoom) => {
+    cameraZoom = Math.min(CAMERA_ZOOM_MAX, Math.max(CAMERA_ZOOM_MIN, zoom));
+    const video = $('#cameraVideo');
+    if (video) video.style.transform = `scale(${cameraZoom})`;
+    const label = $('#cameraZoomLabel');
+    if (label) label.textContent = `${cameraZoom.toFixed(1)}×`;
+  };
+
   const closeCameraCapture = () => {
     if (cameraStream) {
       cameraStream.getTracks().forEach((t) => t.stop());
@@ -1457,6 +1477,7 @@
       if (!modal || !video) throw new Error('camera-modal-missing');
       cameraStream = stream;
       video.srcObject = stream;
+      applyCameraZoom(1); // cada apertura empieza sin zoom, no arrastra el de la vez anterior
       modal.classList.add('-open');
       modal.setAttribute('aria-hidden', 'false');
     } catch (_) {
@@ -1473,7 +1494,16 @@
     const canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
+    // Recorta la región central equivalente al zoom aplicado en la vista
+    // previa (a más zoom, región de origen más pequeña) y la escala para
+    // rellenar el canvas entero, así la foto capturada coincide con lo que
+    // se veía en pantalla en vez de mandar siempre el frame completo sin
+    // recortar a la IA.
+    const srcW = video.videoWidth / cameraZoom;
+    const srcH = video.videoHeight / cameraZoom;
+    const srcX = (video.videoWidth - srcW) / 2;
+    const srcY = (video.videoHeight - srcH) / 2;
+    canvas.getContext('2d').drawImage(video, srcX, srcY, srcW, srcH, 0, 0, canvas.width, canvas.height);
     canvas.toBlob((blob) => {
       closeCameraCapture();
       if (blob) scanForPoi(blob);
@@ -3888,6 +3918,36 @@
     });
     $('#cameraShutterBtn')?.addEventListener('click', captureCameraPhoto);
     $('#cameraCloseBtn')?.addEventListener('click', closeCameraCapture);
+    $('#cameraZoomInBtn')?.addEventListener('click', () => applyCameraZoom(cameraZoom + 0.5));
+    $('#cameraZoomOutBtn')?.addEventListener('click', () => applyCameraZoom(cameraZoom - 0.5));
+    // Pellizco (pinch) sobre el propio vídeo para hacer zoom con dos dedos,
+    // el gesto habitual en cualquier app de cámara. Los botones +/- de
+    // arriba son el respaldo "descubrible" para quien no pruebe a pellizcar.
+    (() => {
+      const wrap = $('#cameraVideoWrap');
+      if (!wrap) return;
+      let pinchStartDist = null;
+      let pinchStartZoom = 1;
+      const touchDistance = (touches) => {
+        const [a, b] = touches;
+        return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+      };
+      wrap.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 2) {
+          pinchStartDist = touchDistance(e.touches);
+          pinchStartZoom = cameraZoom;
+        }
+      }, { passive: true });
+      wrap.addEventListener('touchmove', (e) => {
+        if (e.touches.length !== 2 || pinchStartDist === null) return;
+        e.preventDefault(); // evita que el navegador intente hacer scroll/zoom de página a la vez
+        const factor = touchDistance(e.touches) / pinchStartDist;
+        applyCameraZoom(pinchStartZoom * factor);
+      }, { passive: false });
+      wrap.addEventListener('touchend', (e) => {
+        if (e.touches.length < 2) pinchStartDist = null;
+      });
+    })();
     $('#scanInput')?.addEventListener('change', (e) => {
       const file = e.target.files && e.target.files[0];
       e.target.value = ''; // permite volver a elegir la misma foto una segunda vez
