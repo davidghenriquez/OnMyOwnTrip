@@ -4146,6 +4146,26 @@ CITIES.madrid.pois = [
             adult: 'El conjunto escultórico combina piedra y bronce en un lenguaje realista y dramático, típico de la escultura monumental española de finales del siglo XIX, pensado para transmitir el sufrimiento y la determinación de sus protagonistas populares, no militares de carrera.',
             kids: 'Fíjate en las caras de las figuras: están hechas para que se note el dolor y el valor de esas personas normales, que no eran soldados profesionales, ¡pero se enfrentaron igual a un ejército entero!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué recuerda este monumento, ocurrido hace más de 200 años?',
+            options: ['Un levantamiento valiente contra un ejército invasor', 'Una boda real', 'Un partido de fútbol'],
+            correct: 0,
+            reveal: '¡Un levantamiento valiente! El pueblo de Madrid se enfrentó casi sin armas a un ejército entero. ⚔️'
+          },
+          legends: {
+            question: '¿Cuántas veces se mudó de sitio esta estatua antes de quedarse aquí?',
+            options: ['Varias veces', 'Nunca se movió', 'Una sola vez'],
+            correct: 0,
+            reveal: '¡Varias veces! Pasó por al menos tres lugares distintos de Madrid.'
+          },
+          architecture: {
+            question: '¿De qué materiales está hecho este monumento?',
+            options: ['Piedra y bronce', 'Solo oro', 'Solo cristal'],
+            correct: 0,
+            reveal: '¡Piedra y bronce! Hechos para mostrar el valor de esas personas normales.'
+          }
         }
       },
       {
@@ -4172,6 +4192,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El uso de la piedra arenisca rosada tallada para imitar sacos terreros es un recurso escultórico poco habitual, que busca fundir la memoria de una fortificación militar real con el lenguaje de un monumento conmemorativo.',
             kids: '¡Es un truco muy ingenioso! La piedra está tallada para que parezca de verdad una pared hecha de sacos de arena apilados, como los que se usaban para protegerse en la guerra.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué había antes donde hoy está el Templo de Debod?',
+            options: ['El Cuartel de la Montaña', 'Un palacio', 'Un mercado'],
+            correct: 0,
+            reveal: '¡El Cuartel de la Montaña! Fue escenario de combates en julio de 1936. 🎖️'
+          },
+          legends: {
+            question: '¿De qué está tallado este monumento para parecer sacos de arena?',
+            options: ['Piedra arenisca rosada', 'Ladrillo', 'Madera'],
+            correct: 0,
+            reveal: '¡Piedra arenisca rosada! Tallada con muchísimo detalle para imitar sacos de verdad.'
+          },
+          architecture: {
+            question: '¿Qué años aparecen en la inscripción de la placa de este monumento?',
+            options: ['1936 y 1972', '1808', '2000'],
+            correct: 0,
+            reveal: '¡1936 y 1972! El año de los combates y el año en que se inauguró el monumento.'
           }
         }
       }
