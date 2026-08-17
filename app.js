@@ -2106,8 +2106,26 @@
     if (!poi) return;
     const history = aiHistoryFor(poi.id);
     if (history.length === 0) {
-      history.push({ role: 'greet', text: LLM.summaryGreet(poi, STATE.mode) });
+      const greetText = LLM.summaryGreet(poi, STATE.mode);
+      history.push({ role: 'greet', text: greetText });
       saveState();
+      // El resumen real (queueAiMessage) tarda unos segundos en llegar de
+      // la IA, y hasta entonces no sonaba nada — silencio incómodo con solo
+      // el saludo escrito en pantalla. El saludo no depende de la IA (es
+      // texto local, LLM.summaryGreet), así que se narra ya mismo para
+      // llenar esa espera. Se llama directo aquí (sin await/setTimeout de
+      // por medio: selectPoi → ensureAiPanelInitialGreet ocurre dentro del
+      // propio gesto de tocar el pin), importante para que speak()
+      // funcione a la primera en iOS Safari. Usa SPEECH directo (como la
+      // llamada de voz) en vez de startAudio/STATE.audio: así, cuando
+      // llegue el resumen real, startAudio lo interrumpe limpiamente
+      // (SPEECH.speak cancela lo anterior) sin que esto cuente como "ya
+      // hay algo sonando" y bloquee su autoplay (ver STATE.audio.playing
+      // en queueAiMessage).
+      if (SPEECH.isSupported() && !STATE.audio.playing) {
+        STATE.audio.overrideText = greetText;
+        SPEECH.speak(() => { STATE.audio.overrideText = null; });
+      }
       queueAiMessage({ poi, kind: 'summary' });
     }
     renderAiMessages();
