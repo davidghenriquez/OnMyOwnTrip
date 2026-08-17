@@ -534,20 +534,34 @@
       if (CFG && CFG.apiKey && CFG.provider) {
         try {
           if (CFG.provider === 'anthropic') return await fetchAnthropic(sys, usr);
-          return await fetchOpenAI(sys, usr, concise ? 300 : undefined);
+          // concise pide un max_tokens menor para acelerar la respuesta,
+          // pero no demasiado bajo: los modelos "razonadores" gastan tokens
+          // en pensamiento interno antes de escribir nada visible (ver
+          // fetchOpenAIVision), así que un tope muy ajustado corre el mismo
+          // riesgo que tuvo esa otra ruta. 500 deja margen de sobra para
+          // 2-3 frases mientras sigue siendo mucho menor que el general.
+          return await fetchOpenAI(sys, usr, concise ? 500 : undefined);
         } catch (e) {
           console.warn('[LLM] Fallo API, usando simulador local:', e);
           // 429 = cuota agotada, 503 = modelo saturado: son la misma causa de
           // cara al usuario ("hay demasiada gente usando la IA ahora mismo"),
           // así que merecen un aviso distinto del genérico de "error de conexión".
           const isQuotaError = e && (e.status === 429 || e.status === 503);
+          // Se incluye el motivo real y corto del fallo, no solo en consola
+          // (en el móvil nadie la mira): así un fallo se puede diagnosticar
+          // con una captura de pantalla en vez de adivinarlo a ciegas (mismo
+          // motivo que en scanForPoi para el escaneo de fotos).
+          const code = e && e.status ? `HTTP ${e.status}`
+            : (e && (e.name === 'AbortError' || e.message === 'chat-timeout')) ? 'tiempo agotado'
+            : (e && e.message) ? e.message
+            : 'error desconocido';
           const suffix = isQuotaError
             ? (mode === 'kids'
                 ? '\n\n⚠️ (¡La IA está muy solicitada ahora mismo! Se ha usado el modo sin conexión mientras se libera hueco.)'
                 : '\n\n⚠️ (La IA está saturada de peticiones en este momento —no es un fallo de la app—, se ha usado el simulador local mientras tanto.)')
             : (mode === 'kids'
-                ? '\n\n⚠️ (Modo offline: la IA real respondió con error)'
-                : '\n\n⚠️ (Modo offline. Error al conectar con la API, se ha usado el simulador local.)');
+                ? `\n\n⚠️ (Modo offline: la IA real respondió con error — ${code})`
+                : `\n\n⚠️ (Modo offline. Error al conectar con la API (${code}), se ha usado el simulador local.)`);
           return await simulated(poi, mode, userQuery, optionId, concise) + suffix;
         }
       }
