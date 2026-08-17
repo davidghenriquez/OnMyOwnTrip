@@ -615,6 +615,11 @@
       // resumen real de la IA (queueAiMessage) se aplaza hasta que esta
       // secuencia termine sola, en vez de cortarla a mitad de frase.
       introPlaying: false,
+      // true si el usuario ha pulsado pausa mientras sonaba esa intro (ver
+      // toggleAudio): a diferencia del resto de la app, aquí SÍ se permite
+      // pausar/reanudar de verdad en vez de solo cortar, para no perderse
+      // el contenido ni saltarse el aviso de que la IA sigue complementando.
+      introPaused: false,
       speech: { supported: false, utterance: null, voices: [], pickedVoice: null }
     },
     // localIntroSpoken: qué POIs ya oyeron la intro básica local narrada al
@@ -2165,9 +2170,13 @@
       // queueAiMessage) para que complemente en vez de repetir lo mismo.
       if (SPEECH.isSupported() && !STATE.audio.playing) {
         STATE.audio.introPlaying = true;
+        STATE.audio.introPaused = false;
         STATE.ai.localIntroSpoken[poi.id] = true;
         STATE.audio.overrideText = buildBasicIntroText(poi, STATE.mode);
         if (STATE.activePoiId === poi.id) updateAudioUi(); // refleja el icono de pausa (ver updateAudioUi)
+        // Intenta desbloquear el motor de voz ya, dentro del propio gesto de
+        // tocar el pin (importante para iOS Safari, ver más abajo).
+        SPEECH.warmUp();
         const proceedToReal = () => {
           STATE.audio.introPlaying = false;
           // Si para este punto la respuesta real ya había llegado, su
@@ -2179,26 +2188,42 @@
             updateAudioUi();
           }
         };
-        SPEECH.speak(({ finished } = {}) => {
-          STATE.audio.overrideText = null;
-          if (!finished) {
-            STATE.audio.introPlaying = false;
-            if (STATE.activePoiId === poi.id) updateAudioUi();
-            return;
-          }
-          // Si la intro termina y la IA TODAVÍA no ha respondido, un puente
-          // corto antes de quedarse esperando en silencio — mejor que un
-          // silencio sin ningún aviso de que se sigue trabajando.
-          if (STATE.ai.pending && STATE.activePoiId === poi.id) {
-            const bridgeText = STATE.mode === 'kids'
-              ? 'Dame un momento para completar esto con un poquito más de magia de IA…'
-              : 'Dame un momento para complementar esta información con IA…';
-            STATE.audio.overrideText = bridgeText;
-            SPEECH.speak(() => { STATE.audio.overrideText = null; proceedToReal(); });
-          } else {
-            proceedToReal();
-          }
-        });
+        const speakIntro = () => {
+          // Si se cerró la ficha o se cambió de lugar durante la espera de
+          // abajo, no arrancar a hablar sobre un POI que ya no es el activo.
+          if (!STATE.audio.introPlaying || STATE.activePoiId !== poi.id) return;
+          SPEECH.speak(({ finished } = {}) => {
+            STATE.audio.overrideText = null;
+            if (!finished) {
+              STATE.audio.introPlaying = false;
+              if (STATE.activePoiId === poi.id) updateAudioUi();
+              return;
+            }
+            // Si la intro termina y la IA TODAVÍA no ha respondido, un puente
+            // corto antes de quedarse esperando en silencio — mejor que un
+            // silencio sin ningún aviso de que se sigue trabajando.
+            if (STATE.ai.pending && STATE.activePoiId === poi.id) {
+              const bridgeText = STATE.mode === 'kids'
+                ? 'Dame un momento para completar esto con un poquito más de magia de IA…'
+                : 'Dame un momento para complementar esta información con IA…';
+              STATE.audio.overrideText = bridgeText;
+              SPEECH.speak(() => { STATE.audio.overrideText = null; proceedToReal(); });
+            } else {
+              proceedToReal();
+            }
+          });
+        };
+        // 2s de silencio antes de empezar a hablar: en algunos dispositivos
+        // (visto en iPhone) la primera fracción de segundo de una narración
+        // "en frío" suena a volumen más bajo de lo normal — parece el motor
+        // de audio del sistema arrancando. Empezar tras una breve espera
+        // evita que se note ese arranque flojo. warmUp() ya se llamó arriba
+        // dentro del propio gesto (por si acaso hiciera falta para iOS); el
+        // habla real llega aquí, fuera de ese gesto directo, pero al no ser
+        // la primera vez que se usa la síntesis de voz en la página (el
+        // usuario ya tocó ciudad/modo antes de llegar aquí) debería seguir
+        // funcionando igual.
+        setTimeout(speakIntro, 2000);
       }
       queueAiMessage({ poi, kind: 'summary', alreadySaid: buildBasicIntroText(poi, STATE.mode) });
     }
@@ -3418,6 +3443,7 @@
     return {
       isSupported: () => S.supported,
       isSpeaking: () => S.supported ? synth.speaking : false,
+      isPaused: () => S.supported ? synth.paused : false,
       getText: buildNarrativeText,
       speak, pause, resume, cancel, warmUp
     };
@@ -3533,13 +3559,19 @@
   const toggleAudio = () => {
     if (!STATE.activePoiId) return;
     // Mientras suena la intro básica local (ver ensureAiPanelInitialGreet)
-    // el botón muestra el icono de pausa (updateAudioUi) para no dar la
-    // sensación de que no está pasando nada, pero no hay un STATE.audio.playing
-    // "de verdad" que pausar/reanudar — tocarlo aquí se interpreta como
-    // "quiero saltarme la intro": la corta y se queda esperando a que
-    // llegue el resumen real, que se autorreproduce en cuanto esté listo.
+    // el botón permite pausar/reanudar de verdad (pause()/resume() reales
+    // de la síntesis de voz, igual que ya se usa para la audioguía normal
+    // más abajo) — nunca saltarla: siempre se deja terminar entera para
+    // poder llegar a la información complementaria de la IA.
     if (STATE.audio.introPlaying) {
-      stopAudio();
+      if (SPEECH.isPaused()) {
+        SPEECH.resume();
+        STATE.audio.introPaused = false;
+      } else {
+        SPEECH.pause();
+        STATE.audio.introPaused = true;
+      }
+      updateAudioUi();
       return;
     }
     if (STATE.audio.playing) {
@@ -3693,6 +3725,7 @@
     // quedaría "encallado" a true y bloquearía para siempre el autoplay
     // del resumen real del lugar que se abra después.
     STATE.audio.introPlaying = false;
+    STATE.audio.introPaused = false;
     clearInterval(STATE.audio.timer);
     STATE.audio.timer = null;
     SPEECH.cancel();
@@ -3718,8 +3751,10 @@
     // La intro básica local (ver ensureAiPanelInitialGreet) suena por fuera
     // de STATE.audio.playing, pero de cara al usuario SÍ hay audio sonando
     // — mostrar el icono de play ahí (como si no pasara nada) confundía,
-    // así que también cuenta como "reproduciendo" para el icono.
-    btn.innerHTML = (STATE.audio.playing || STATE.audio.introPlaying) ? ICONS.pause : ICONS.play;
+    // así que también cuenta como "reproduciendo" para el icono (salvo que
+    // esté en pausa de verdad, ver toggleAudio).
+    const introActivelyPlaying = STATE.audio.introPlaying && !STATE.audio.introPaused;
+    btn.innerHTML = (STATE.audio.playing || introActivelyPlaying) ? ICONS.pause : ICONS.play;
     // Mientras se está generando una respuesta nueva (STATE.ai.pending) y
     // no hay nada sonando todavía, se deshabilita el play: si se pudiera
     // arrancar en ese hueco, sonaría con el texto de respaldo (tabs.history)
