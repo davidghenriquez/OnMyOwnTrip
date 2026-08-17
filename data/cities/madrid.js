@@ -1604,6 +1604,26 @@ CITIES.madrid.pois = [
             adult: 'La plaza combina edificios decimonónicos con la fachada neoclásica del Teatro Español. Hoy es uno de los núcleos de ocio del Barrio de las Letras, con terrazas, bares de tapas y ambiente nocturno animado, sin perder su vínculo con el mundo del teatro y la literatura.',
             kids: '¡Esta plaza está siempre llena de vida! De día y de noche hay gente sentada en las terrazas, cerca del teatro más antiguo de Madrid.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué edificio de esta plaza es el teatro más antiguo de Madrid?',
+            options: ['El Teatro Español', 'El Teatro Real', 'El Teatro Real Coliseo'],
+            correct: 0,
+            reveal: '¡El Teatro Español! Se construyó sobre un antiguo corral de comedias del Siglo de Oro. 🎭'
+          },
+          legends: {
+            question: '¿Qué sostiene una de las estatuas de escritores de esta plaza, a punto de volar?',
+            options: ['Un pajarillo', 'Una espada', 'Un libro'],
+            correct: 0,
+            reveal: '¡Un pajarillo! Es la estatua de Federico García Lorca, que parece a punto de soltarlo hacia el teatro.'
+          },
+          architecture: {
+            question: '¿Cómo está esta plaza de día y de noche?',
+            options: ['Siempre llena de vida, con gente en las terrazas', 'Siempre vacía', 'Solo abierta de noche'],
+            correct: 0,
+            reveal: '¡Siempre llena de vida! Con terrazas y bares muy animados junto al teatro más antiguo de Madrid.'
+          }
         }
       },
       {
@@ -1634,6 +1654,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Es una de las plazas de aspecto más medieval de Madrid, de trazado irregular y escala reducida, flanqueada por el Palacio de los Vargas y la Capilla del Obispo. Conserva un ambiente recogido y castizo en pleno barrio de La Latina, muy popular para el tapeo y como punto de partida para pasear por el Madrid de los Austrias.',
             kids: '¡Esta plaza parece sacada de un cuento medieval! Sus calles estrechas y curvas te hacen sentir como si viajaras varios siglos atrás.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué se vendía antiguamente en esta plaza, antes de que existiera la Plaza Mayor?',
+            options: ['Paja para las mulas', 'Pescado', 'Ropa'],
+            correct: 0,
+            reveal: '¡Paja! Se la daban de comer a las mulas de los sacerdotes que servían en la capilla de al lado. 🌾'
+          },
+          legends: {
+            question: '¿Qué se dice que se descubrió cerca de esta plaza sobre el patrón de Madrid?',
+            options: ['Que su cuerpo estaba sorprendentemente conservado', 'Que nunca existió', 'Que vivía en un castillo'],
+            correct: 0,
+            reveal: '¡Que estaba conservado! Se cuenta que no tenía signos de haber pasado el tiempo, algo que alimentó su fama de santo.'
+          },
+          architecture: {
+            question: '¿De qué época parece esta plaza, por su aspecto?',
+            options: ['Medieval', 'Moderna', 'Futurista'],
+            correct: 0,
+            reveal: '¡Medieval! Sus calles estrechas y curvas te hacen sentir como si viajaras varios siglos atrás.'
           }
         }
       },
@@ -1666,6 +1706,26 @@ CITIES.madrid.pois = [
             adult: 'Calle empedrada, estrecha y en pronunciada pendiente, con soportales y el característico Arco de Cuchilleros como umbral hacia la Plaza Mayor. Conserva un aire castizo y decimonónico que la convierte en una de las estampas más fotografiadas del Madrid de los Austrias.',
             kids: '¡Esta calle es tan empinada que parece una pequeña montaña! Pasar bajo su arco de piedra es como entrar en un Madrid de hace siglos.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué récord Guinness tiene el restaurante de esta calle?',
+            options: ['Es el restaurante más antiguo del mundo', 'Es el más grande del mundo', 'Es el más caro del mundo'],
+            correct: 0,
+            reveal: '¡El más antiguo del mundo! Lleva funcionando sin parar desde 1725. 🔪'
+          },
+          legends: {
+            question: '¿Quién se dice que trabajó aquí lavando platos antes de ser famoso?',
+            options: ['El pintor Goya', 'El escritor Cervantes', 'El rey Felipe II'],
+            correct: 0,
+            reveal: '¡El pintor Goya! Aunque es más leyenda popular que un hecho totalmente comprobado.'
+          },
+          architecture: {
+            question: '¿Cómo es esta calle?',
+            options: ['Muy empinada, como una pequeña montaña', 'Totalmente plana', 'Muy ancha'],
+            correct: 0,
+            reveal: '¡Muy empinada! Su famoso arco de piedra es la entrada hacia la Plaza Mayor.'
+          }
         }
       },
       {
@@ -1697,6 +1757,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Combina una fachada exterior sobria, casi anónima, con un interior de extraordinaria riqueza: la célebre escalera monumental decorada con frescos del siglo XVII y la colección de tapices flamencos El Triunfo de la Eucaristía, tejidos en Bruselas a partir de diseños de Rubens y donados por la infanta Isabel Clara Eugenia.',
             kids: '¡Es un edificio de sorpresas! Por fuera no parece gran cosa, pero al entrar descubres escaleras pintadas y telas gigantes bordadas hace siglos.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién fundó este convento, en el mismo palacio donde había nacido?',
+            options: ['Una princesa española, Juana de Austria', 'Un rey', 'Un Papa'],
+            correct: 0,
+            reveal: '¡Juana de Austria! Al quedarse viuda joven, convirtió su propia casa en un convento. 👑'
+          },
+          legends: {
+            question: '¿Qué trajeron muchas mujeres nobles al entrar en este convento?',
+            options: ['Joyas y obras de arte muy valiosas', 'Solo ropa sencilla', 'Animales de compañía'],
+            correct: 0,
+            reveal: '¡Joyas y obras de arte! Por eso guarda tesoros tan grandes, a pesar de su fachada tan sencilla.'
+          },
+          architecture: {
+            question: '¿Cómo es la fachada de este edificio comparada con su interior?',
+            options: ['Sencilla por fuera, muy rica por dentro', 'Igual de sencilla en ambos', 'Muy decorada por fuera y sencilla por dentro'],
+            correct: 0,
+            reveal: '¡Sencilla por fuera, rica por dentro! Escaleras pintadas y tapices gigantes esperan a quien entra.'
           }
         }
       },
@@ -1735,6 +1815,26 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Fachada herreriana sobria de granito y ladrillo, típica de la arquitectura religiosa madrileña del siglo XVII, con un interior que combina la severidad exterior con salas ricamente decoradas donde se exhiben pinturas, esculturas y el relicario.',
             kids: '¡Por fuera es un edificio serio y de piedra gris, pero dentro esconde salas llenas de objetos religiosos antiguos y misteriosos!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién mandó construir este convento?',
+            options: ['Una reina española', 'Un Papa', 'Un noble extranjero'],
+            correct: 0,
+            reveal: '¡Una reina, Margarita de Austria! Lo mandó hacer muy cerca del Palacio Real hace más de 400 años. 👑'
+          },
+          legends: {
+            question: '¿Qué se dice que pasa cada 27 de julio con una reliquia de este convento?',
+            options: ['Cambia de sólida a líquida', 'Desaparece', 'Cambia de color a azul'],
+            correct: 0,
+            reveal: '¡Cambia de sólida a líquida! Nadie ha podido explicar por qué, y lleva pasando así desde hace siglos.'
+          },
+          architecture: {
+            question: '¿Cómo es la fachada de este monasterio?',
+            options: ['Sobria, de piedra gris', 'Llena de colores', 'De cristal'],
+            correct: 0,
+            reveal: '¡Sobria y de piedra gris! Pero por dentro esconde salas llenas de objetos antiguos y misteriosos.'
           }
         }
       },
