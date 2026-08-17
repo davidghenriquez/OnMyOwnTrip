@@ -2303,6 +2303,7 @@
   const queueAiMessage = async ({ poi, kind, userText, optionId }) => {
     if (!poi || STATE.ai.pending) return;
     STATE.ai.pending = true;
+    if (STATE.activePoiId === poi.id) updateAudioUi(); // refleja el play deshabilitado (ver updateAudioUi)
     const hist = aiHistoryFor(poi.id);
     hist.push({ role: 'typing' });
     renderAiMessages();
@@ -2339,7 +2340,14 @@
       // directo del usuario (tras el await), así que en iOS Safari puede no
       // arrancar la primera vez; por eso "silent" evita un toast de error y
       // el botón de play queda listo para un toque manual como respaldo.
-      if (STATE.activePoiId === poi.id) startAudio(false, true);
+      // Ojo: solo si no hay ya algo sonando. El botón de play se deshabilita
+      // mientras STATE.ai.pending está activo (ver updateAudioUi) para que
+      // no se pueda arrancar de forma manual con el texto de respaldo
+      // mientras esto carga, pero por si acaso (p.ej. una pestaña que
+      // quedó reproduciendo audio de otro momento) no forzamos nunca un
+      // reinicio en pleno play: eso es justo lo que sonaba como un audio
+      // que "se refresca solo" a los pocos segundos.
+      if (STATE.activePoiId === poi.id && !STATE.audio.playing) startAudio(false, true);
     } catch (e) {
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
@@ -2348,6 +2356,7 @@
         : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).' });
     } finally {
       STATE.ai.pending = false;
+      if (STATE.activePoiId === poi.id) updateAudioUi(); // reactiva el play si se había deshabilitado (ver arriba)
       renderAiMessages();
       renderAiSuggestions();
       scrollAiToBottom();
@@ -3123,6 +3132,14 @@
     const player = $('.audio-player', c), btn = $('.play-btn', c), fill = $('.progress-fill', c), time = $('.audio-time', c);
     if (!player || !btn || !fill || !time) return;
     btn.innerHTML = STATE.audio.playing ? ICONS.pause : ICONS.play;
+    // Mientras se está generando una respuesta nueva (STATE.ai.pending) y
+    // no hay nada sonando todavía, se deshabilita el play: si se pudiera
+    // arrancar en ese hueco, sonaría con el texto de respaldo (tabs.history)
+    // y unos segundos después, al llegar la respuesta real, se reiniciaría
+    // solo con el texto correcto — el "audio que se refresca a los 8s"
+    // que reportó un usuario. Una vez playing=true no se vuelve a tocar
+    // este disabled, para no bloquear pausar/reanudar mientras suena.
+    btn.disabled = STATE.ai.pending && !STATE.audio.playing;
     const dur = STATE.audio.duration || 1;
     fill.style.width = `${Math.min(100, (STATE.audio.currentTime / dur) * 100)}%`;
     time.textContent = `${fmtTime(STATE.audio.currentTime)} / ${fmtTime(dur)}`;
