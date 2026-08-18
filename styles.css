@@ -1349,6 +1349,7 @@ html[data-mode="kids"] .bottom-sheet {
 }
 .sheet-thumb-retry svg { width: 22px; height: 22px; }
 .sheet-thumb-retry:active { transform: scale(0.92); }
+.sheet-thumb-retry[hidden] { display: none; }
 
 /* ---------- CÁMARA: captura en vivo para "¿qué estoy viendo?" ---------- */
 .camera-modal {
@@ -1517,6 +1518,7 @@ html[data-mode="kids"] .bottom-sheet {
 }
 .lightbox-retry svg { width: 28px; height: 28px; }
 .lightbox-retry:active { transform: scale(0.96); }
+.lightbox-retry[hidden] { display: none; }
 
 /* ---------- RESUMEN DE VISITA (modo niño, se abre desde la insignia de puntos) ---------- */
 .visit-summary-modal {
