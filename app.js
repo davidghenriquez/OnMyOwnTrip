@@ -597,6 +597,10 @@
       generate,
       identifyPoi,
       summaryGreet: (poi, m) => SIM.greet(poi, m),
+      // Un párrafo "profundiza" local, generado al instante sin red: se usa
+      // como relleno mientras se espera la respuesta real (ver
+      // queueDeepenWithFillers), no como sustituto definitivo de la IA.
+      localDeepen: (poi, m, topicId) => SIM.deepen(poi, m, topicId),
       isReal: () => !!(CFG && CFG.apiKey)
     };
   })();
@@ -3143,7 +3147,91 @@
     if (STATE.activePoiId === poi.id) startAudio(false, true);
   };
 
+  // "Profundiza más" con IA real puede tardar bastante (el modelo actual
+  // ronda los 45s con la configuración de max_tokens que usamos, ver el
+  // timeout de fetchOpenAI): en vez de dejar al usuario mirando el
+  // indicador de "escribiendo…" todo ese rato, se reproduce al instante un
+  // párrafo "profundiza" ya armado en local (mismo pool de datos que usa
+  // el simulador offline, SIM.deepen vía LLM.localDeepen) mientras la
+  // respuesta real llega de fondo. Si al terminar ese primer relleno la
+  // IA real todavía no ha contestado, se reproduce un segundo relleno
+  // distinto antes de rendirse y esperar sin más relleno. Nunca se corta
+  // un audio a mitad de frase: la comprobación de si ya llegó la
+  // respuesta real solo se hace al terminar de forma natural el audio en
+  // curso, nunca a mitad.
+  // "pregen: true" en el historial es solo una marca interna — no se
+  // muestra en ningún sitio de la interfaz (renderAiMessages la ignora) —
+  // para poder distinguir más adelante, si hace falta depurar algo, qué
+  // burbujas fueron relleno local y cuál fue la respuesta real.
+  const queueDeepenWithFillers = async ({ poi, optionId, userText }) => {
+    if (!poi || STATE.ai.pending) return;
+    STATE.ai.pending = true;
+    if (STATE.activePoiId === poi.id) updateAudioUi();
+    const hist = aiHistoryFor(poi.id);
+    renderAiSuggestions();
+
+    const topicId = (optionId && optionId.startsWith('deepen:')) ? optionId.slice(7) : 'architecture';
+    const fallbackText = STATE.mode === 'kids'
+      ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
+      : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).';
+
+    let aiSettled = false;
+    const aiPromise = LLM.generate({
+      poi,
+      mode: STATE.mode,
+      userQuery: userText ?? null,
+      optionId: optionId ?? null,
+      cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad',
+      concise: false,
+      alreadySaid: null
+    }).catch(() => fallbackText)
+      .then((text) => { aiSettled = true; return text; });
+
+    // Reproduce un relleno y no resuelve hasta que termina de sonar del
+    // todo (o no hay narración posible, p.ej. sin soporte de voz): así el
+    // llamador nunca comprueba aiSettled a mitad de una frase.
+    const playSegment = (text) => new Promise((resolve) => {
+      hist.push({ role: 'assistant', text, pregen: true });
+      renderAiMessages();
+      scrollAiToBottom();
+      if (STATE.activePoiId !== poi.id) { resolve(); return; }
+      STATE.audio.overrideText = null;
+      startAudio(false, true, resolve);
+    });
+
+    await playSegment(LLM.localDeepen(poi, STATE.mode, topicId));
+    if (!aiSettled) {
+      await playSegment(LLM.localDeepen(poi, STATE.mode, topicId));
+    }
+    if (!aiSettled) {
+      hist.push({ role: 'typing' });
+      renderAiMessages();
+      scrollAiToBottom();
+    }
+
+    const finalText = await aiPromise;
+    const idx = hist.findIndex((m) => m.role === 'typing');
+    if (idx >= 0) hist.splice(idx, 1);
+    hist.push({ role: 'assistant', text: finalText, pregen: false });
+    STATE.audio.overrideText = null;
+    if (STATE.activePoiId === poi.id && !STATE.audio.playing) startAudio(false, true);
+
+    STATE.ai.pending = false;
+    if (STATE.activePoiId === poi.id) updateAudioUi();
+    renderAiMessages();
+    renderAiSuggestions();
+    scrollAiToBottom();
+    saveState();
+  };
+
   const queueAiMessage = async ({ poi, kind, userText, optionId, alreadySaid }) => {
+    // "Profundiza más" tiene su propio flujo con rellenos locales mientras
+    // espera a la IA real (ver arriba) — solo tiene sentido cuando hay una
+    // API real configurada: sin ella, LLM.generate ya resuelve al instante
+    // y el relleno solo añadiría una espera artificial sin necesidad.
+    if (kind === 'deepen' && LLM.isReal()) {
+      return queueDeepenWithFillers({ poi, optionId, userText });
+    }
     if (!poi || STATE.ai.pending) return;
     STATE.ai.pending = true;
     if (STATE.activePoiId === poi.id) updateAudioUi(); // refleja el play deshabilitado (ver updateAudioUi)
@@ -4313,9 +4401,22 @@
     updateAudioUi();
   };
 
-  const startAudio = (isResume = false, silent = false) => {
+  // onSegmentEnd (opcional): se dispara una sola vez cuando esta narración
+  // concreta termina (bien o mal) — lo usa queueDeepenWithFillers para
+  // encadenar el siguiente relleno o la respuesta real justo cuando el
+  // audio anterior deja de sonar, sin cortarlo a medias. No se propaga al
+  // camino de CLOUD_TTS (startCloudAudio): los rellenos locales nunca
+  // tienen audio en caché, así que ese camino no aplica aquí.
+  const startAudio = (isResume = false, silent = false, onSegmentEnd = null) => {
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
+    let segmentEndCb = onSegmentEnd;
+    const notifySegmentEnd = () => {
+      if (typeof segmentEndCb !== 'function') return;
+      const cb = segmentEndCb;
+      segmentEndCb = null;
+      cb();
+    };
 
     if (!isResume) {
       const cloudUrl = CLOUD_TTS.getReadyUrl(SPEECH.getText());
@@ -4342,6 +4443,7 @@
           updateAudioUi();
           if (!silent) showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
           if (STATE.mode === 'kids') maybeShowFirstKidsQuiz();
+          notifySegmentEnd();
           return;
         }
         if (error || startFailed) {
@@ -4359,11 +4461,13 @@
               3200
             );
           }
+          notifySegmentEnd();
         }
       });
       if (!spokeOk) {
         STATE.audio.playing = false;
         updateAudioUi();
+        notifySegmentEnd();
         return;
       }
     } else {
@@ -4379,6 +4483,7 @@
         updateAudioUi();
         showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
         if (STATE.mode === 'kids') maybeShowFirstKidsQuiz();
+        notifySegmentEnd();
         return;
       }
       updateAudioUi();
