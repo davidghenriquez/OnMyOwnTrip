@@ -67,12 +67,19 @@
       // siempre: ni error ni respuesta, así que "Pensando…" se queda ahí
       // sin que el usuario sepa si sigue trabajando o se ha roto (mismo
       // motivo que fetchOpenAIVision, más abajo, que ya tenía este límite).
-      // 25s se quedaba corto: medido en directo, una respuesta real de
-      // "profundiza más" (max_tokens 3500, modelo actual) tarda ~45s, así
-      // que con 25s el aviso de "modo offline" saltaba SIEMPRE aunque la
-      // IA sí estaba respondiendo, solo que más despacio de lo esperado.
+      // VERSIÓN DE DEPURACIÓN TEMPORAL: el límite de 60s (ya subido una vez
+      // desde 25s) se sube aquí a 10 minutos — no es un timeout con
+      // intención real, es solo la red de seguridad para no quedarse
+      // colgado literalmente para siempre. El objetivo es medir, sin que la
+      // propia app corte la espera antes de tiempo, cuánto tarda de verdad
+      // el proxy/modelo en una respuesta de "profundiza más". Con el
+      // sistema de rellenos locales (ver queueDeepenWithFillers) la espera
+      // ya no bloquea al usuario, así que no hay coste real en dejarlo tan
+      // alto mientras se recoge este dato. Revisar/revertir a un valor
+      // razonable en cuanto se tenga la medición.
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 60000);
+      const timeoutId = setTimeout(() => controller.abort(), 600000);
+      const debugStart = performance.now();
       let res;
       try {
         res = await fetch(url, {
@@ -104,11 +111,15 @@
           })
         });
       } catch (e) {
+        const debugElapsedSec = ((performance.now() - debugStart) / 1000).toFixed(1);
+        console.info(`[LLM][DEBUG] fetchOpenAI falló tras ${debugElapsedSec}s: ${e && e.message}`);
         if (e.name === 'AbortError') throw new Error('chat-timeout');
         throw e;
       } finally {
         clearTimeout(timeoutId);
       }
+      const debugElapsedSec = ((performance.now() - debugStart) / 1000).toFixed(1);
+      console.info(`[LLM][DEBUG] fetchOpenAI respondió en ${debugElapsedSec}s (status ${res.status})`);
       if (!res.ok) {
         const err = new Error(`OpenAI ${res.status}`);
         err.status = res.status;
