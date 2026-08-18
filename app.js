@@ -3135,7 +3135,7 @@
     box.innerHTML = '';
     history.forEach((msg) => {
       if (msg.role === 'typing') {
-        box.appendChild(makeTypingEl());
+        box.appendChild(makeTypingEl(msg.statusText));
         return;
       }
       const user = msg.role === 'user';
@@ -3184,7 +3184,12 @@
     });
   };
 
-  const makeTypingEl = () => {
+  // statusText (opcional): pasados unos segundos sin respuesta (ver el
+  // setTimeout en queueAiMessage), los puntos de "escribiendo…" se
+  // cambian por un aviso de texto — sin esto, una espera larga (la IA
+  // real puede tardar 45-90s) se siente como que la app se ha quedado
+  // colgada, ya que los puntos no comunican que sigue en marcha.
+  const makeTypingEl = (statusText) => {
     const wrap = document.createElement('div');
     wrap.className = 'ai-msg -typing';
     const av = document.createElement('div');
@@ -3192,7 +3197,11 @@
     av.textContent = '✨';
     const b = document.createElement('div');
     b.className = 'ai-msg-bubble';
-    b.innerHTML = `<span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>`;
+    if (statusText) {
+      b.textContent = statusText;
+    } else {
+      b.innerHTML = `<span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>`;
+    }
     wrap.appendChild(av);
     wrap.appendChild(b);
     return wrap;
@@ -3473,10 +3482,24 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     STATE.ai.pending = true;
     if (STATE.activePoiId === poi.id) updateAudioUi(); // refleja el play deshabilitado (ver updateAudioUi)
     const hist = aiHistoryFor(poi.id);
-    hist.push({ role: 'typing' });
+    const typingMsg = { role: 'typing' };
+    hist.push(typingMsg);
     renderAiMessages();
     renderAiSuggestions();
     scrollAiToBottom();
+
+    // Igual que en la llamada de voz (ver queueCallTurn): a los pocos
+    // segundos, si la IA real sigue sin contestar, se cambia el indicador
+    // de "escribiendo…" por un aviso de texto — sin esto, una espera
+    // larga (hasta 90s con el modelo actual, ver el timeout de
+    // fetchOpenAI) se siente como que la app se ha quedado colgada, ya
+    // que los puntos por sí solos no comunican que sigue en marcha.
+    const slowTimer = setTimeout(() => {
+      typingMsg.statusText = STATE.mode === 'kids'
+        ? 'Sigo pensando… dame un segundo más 🤔'
+        : 'Sigo pensando, un momento…';
+      renderAiMessages();
+    }, 6000);
 
     try {
       // concise solo para preguntas sueltas escritas por el usuario
@@ -3542,6 +3565,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
         ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
         : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).' });
     } finally {
+      clearTimeout(slowTimer);
       STATE.ai.pending = false;
       if (STATE.activePoiId === poi.id) updateAudioUi(); // reactiva el play si se había deshabilitado (ver arriba)
       renderAiMessages();
