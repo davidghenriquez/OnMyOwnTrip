@@ -2342,6 +2342,10 @@
    * =======================================================*/
   const TUTORIAL_SEEN_KEY_KIDS = 'omot_tutorial_seen_v1';
   const TUTORIAL_SEEN_KEY_ADULT = 'omot_tutorial_adult_seen_v1';
+  // Selector de "un pin cualquiera, nunca una burbuja de agrupación" (ver
+  // el paso "Los puntos del mapa" en ADULT_TUTORIAL_STEPS, más abajo).
+  // Declarado antes de los pasos porque uno de ellos ya lo referencia.
+  const TUTORIAL_MAP_PIN_TARGET = '.custom-pin:not(.-cluster)';
   const KIDS_TUTORIAL_STEPS = [
     {
       target: '#explorerBadge',
@@ -2415,7 +2419,11 @@
       text: 'Recomendaciones gastronómicas: bares, restaurantes y sitios donde parar a comer, cerca de cada zona.'
     },
     {
-      target: '#map',
+      // Ilumina un único pin real (nunca una burbuja de agrupación, de ahí
+      // el :not(.-cluster)) en vez de todo #map: si se iluminara el mapa
+      // entero se vería exactamente igual que la interfaz normal ya
+      // interactiva, y podría parecer que hay que tocar algo ahora mismo.
+      target: TUTORIAL_MAP_PIN_TARGET,
       title: 'Los puntos del mapa',
       text: 'Cada marcador del mapa abre su historia, contexto y curiosidades, con la opción de escucharlo narrado en lugar de leerlo.'
     },
@@ -2461,6 +2469,25 @@
   // redondeada discreta; el resto (pastillas, botones) son pequeños y se
   // iluminan casi como un círculo perfecto (ver fórmula más abajo).
   const TUTORIAL_BIG_RECT_TARGETS = new Set(['#map', '#bottomSheet']);
+
+  // querySelector se quedaría con el primer pin en orden del DOM, que
+  // puede caer pegado a un borde de la pantalla (medio tapado por la
+  // cabecera o las herramientas del mapa). Se prefiere uno que quede
+  // cómodamente dentro de una franja central y segura; si ninguno cumple,
+  // se usa igualmente el primero antes que no iluminar nada.
+  const pickTutorialMapPin = () => {
+    const pins = Array.from(document.querySelectorAll(TUTORIAL_MAP_PIN_TARGET));
+    if (!pins.length) return null;
+    const safeTop = 100;
+    const safeBottom = window.innerHeight - 180;
+    const margin = 40;
+    const inSafeBand = pins.find((el) => {
+      const r = el.getBoundingClientRect();
+      return r.top >= safeTop && r.bottom <= safeBottom
+        && r.left >= margin && r.right <= window.innerWidth - margin;
+    });
+    return inSafeBand || pins[0];
+  };
 
   // Icono de "museo/monumento" genérico (mismo trazo que CATEGORY_META.historia
   // en data/core.js) sobre un fondo de color, para que la ficha de ejemplo del
@@ -2566,7 +2593,7 @@
       tooltip?.classList.remove('-top');
       return;
     }
-    const target = $(step.target);
+    const target = step.target === TUTORIAL_MAP_PIN_TARGET ? pickTutorialMapPin() : $(step.target);
     if (!target) { spotlight.style.opacity = '0'; return; }
     // Las pastillas de filtro pueden estar fuera de la vista (la barra
     // hace scroll horizontal): tráela al centro antes de medir su rect.
