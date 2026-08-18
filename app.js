@@ -67,19 +67,17 @@
       // siempre: ni error ni respuesta, así que "Pensando…" se queda ahí
       // sin que el usuario sepa si sigue trabajando o se ha roto (mismo
       // motivo que fetchOpenAIVision, más abajo, que ya tenía este límite).
-      // VERSIÓN DE DEPURACIÓN TEMPORAL: el límite de 60s (ya subido una vez
-      // desde 25s) se sube aquí a 10 minutos — no es un timeout con
-      // intención real, es solo la red de seguridad para no quedarse
-      // colgado literalmente para siempre. El objetivo es medir, sin que la
-      // propia app corte la espera antes de tiempo, cuánto tarda de verdad
-      // el proxy/modelo en una respuesta de "profundiza más". Con el
-      // sistema de rellenos locales (ver queueDeepenWithFillers) la espera
-      // ya no bloquea al usuario, así que no hay coste real en dejarlo tan
-      // alto mientras se recoge este dato. Revisar/revertir a un valor
-      // razonable en cuanto se tenga la medición.
+      // Medido en directo sin límite artificial (ver versión de depuración
+      // V23.2): una respuesta real de "profundiza más" tarda ~42-45s con la
+      // configuración actual (max_tokens 3500, modelo gemini-3.6-flash).
+      // 90s da un margen cómodo sobre eso para variaciones normales de red/
+      // carga del modelo, sin quedarse corto como pasaba con 25s y luego
+      // con 60s. Con el sistema de rellenos locales (ver
+      // queueDeepenWithFillers) la espera ya no bloquea al usuario, así que
+      // no hay coste real en dejarlo generoso.
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 600000);
-      const debugStart = performance.now();
+      const timeoutId = setTimeout(() => controller.abort(), 90000);
+      const fetchStart = performance.now();
       let res;
       try {
         res = await fetch(url, {
@@ -111,15 +109,15 @@
           })
         });
       } catch (e) {
-        const debugElapsedSec = ((performance.now() - debugStart) / 1000).toFixed(1);
-        console.info(`[LLM][DEBUG] fetchOpenAI falló tras ${debugElapsedSec}s: ${e && e.message}`);
+        const elapsedSec = ((performance.now() - fetchStart) / 1000).toFixed(1);
+        console.info(`[LLM] fetchOpenAI falló tras ${elapsedSec}s: ${e && e.message}`);
         if (e.name === 'AbortError') throw new Error('chat-timeout');
         throw e;
       } finally {
         clearTimeout(timeoutId);
       }
-      const debugElapsedSec = ((performance.now() - debugStart) / 1000).toFixed(1);
-      console.info(`[LLM][DEBUG] fetchOpenAI respondió en ${debugElapsedSec}s (status ${res.status})`);
+      const elapsedSec = ((performance.now() - fetchStart) / 1000).toFixed(1);
+      console.info(`[LLM] fetchOpenAI respondió en ${elapsedSec}s (status ${res.status})`);
       if (!res.ok) {
         const err = new Error(`OpenAI ${res.status}`);
         err.status = res.status;
