@@ -344,7 +344,7 @@
           ];
           return `${this.pick(this.introsKids)}\n\n${historyForSummary}\n\n${this.pick(this.closingsKids)}\n\n${this.pick(challenges)}`;
         }
-        const src = `📌 Fuente guía: ${this.pick(['Crónicas locales (s. XVI)', 'Academia de la Historia', 'Inventario General de Bienes de Interés Cultural'])}`;
+        const src = `Fuente guía: ${this.pick(['Crónicas locales (s. XVI)', 'Academia de la Historia', 'Inventario General de Bienes de Interés Cultural'])}`;
         return `${this.pick(this.introsAdult)}\n\n${historyForSummary}\n\n${this.pick(this.closingsAdult)}\n\n${src}.`;
       },
       pickDistinct(arr, count) {
@@ -407,7 +407,7 @@
           return `✨ ¡Sigo contándote sobre ${topic}!\n\n${a}\n\n${b}\n\n${c || ''}\n\n${this.pick(this.closingsKids)}\n\n¿Quieres que siga profundizando? 🔍`;
         }
         const [factA, factB, factC] = this.pickDistinct(pool, Math.min(3, pool.length));
-        return `🔍 Profundizando en ${topic}:\n\n${factA.charAt(0).toUpperCase()}${factA.slice(1)}.\n\nAdemás, ${factB}.\n\nY otro detalle poco conocido: ${factC || ''}.\n\n${this.pick(this.closingsAdult)}\n\n¿Sigo profundizando?`;
+        return `Profundizando en ${topic}:\n\n${factA.charAt(0).toUpperCase()}${factA.slice(1)}.\n\nAdemás, ${factB}.\n\nY otro detalle poco conocido: ${factC || ''}.\n\n${this.pick(this.closingsAdult)}\n\n¿Sigo profundizando?`;
       },
       option(poi, m, optionId) {
         if (optionId && optionId.startsWith('deepen:')) {
@@ -424,21 +424,21 @@
             const legendText = poi.tabs.legends[m] || poi.tabs.legends.adult || '';
             return m === 'kids'
               ? `🤫 HISTORIA SECRETA\n\n${this.pick(this.secretIntrosKids)}\n\n${legendText}\n\n${this.pick(this.closingsKids)}\n\n🕵️‍♂️ ¿Te atreves a contarle este secreto a tu familia?`
-              : `🤫 HISTORIA POCO CONOCIDA\n\n${this.pick(this.secretIntrosAdult)}\n\n${legendText}\n\n${this.pick(this.closingsAdult)}`;
+              : `HISTORIA POCO CONOCIDA\n\n${this.pick(this.secretIntrosAdult)}\n\n${legendText}\n\n${this.pick(this.closingsAdult)}`;
           }
           case 'architecture':
             return m === 'kids'
               ? `🏗️ ¡TRUCOS DE ARQUITECTURA!\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
-              : `🏛️ ARQUITECTURA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
+              : `ARQUITECTURA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
           case 'legends':
             return m === 'kids'
               ? `🧙‍♂️ LEYENDA\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids)}`
-              : `👻 LEYENDA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.legends.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
+              : `LEYENDA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.legends.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
           default: {
             if (m === 'kids') {
               return `¡Vaya, qué buena pregunta! 🤔 Pues mira, te cuento un secreto: en ${n} hay ${this.pick(['ventanas invisibles', 'escaleras que giran', 'colores secretos'])} y solo los niños atentos lo descubren. ¡Pasea con los ojos MUY ABIERTOS! 👀 ¿Qué has visto tú que nadie más vea?`;
             }
-            return `Buena pregunta. En el contexto de ${n}, lo más relevante es lo siguiente: ${(poi.tabs.history.adult || '').slice(0, 200)}\n\n💡 Si deseas profundizar, pregunta por un periodo concreto (época romana, califal, medieval, renacentista) o por un autor (El Greco, Covarrubias, Berruguete).`;
+            return `Buena pregunta. En el contexto de ${n}, lo más relevante es lo siguiente: ${(poi.tabs.history.adult || '').slice(0, 200)}\n\nSi deseas profundizar, pregunta por un periodo concreto (época romana, califal, medieval, renacentista) o por un autor (El Greco, Covarrubias, Berruguete).`;
           }
         }
       },
@@ -449,17 +449,17 @@
         if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
           return m === 'kids'
             ? `⏰ Horario MUY FÁCIL:\n\nDe martes a sábado: desde que te despiertas hasta la merienda (¡10:00 a 18:30!).\nDomingos: ¡solo por la mañana! ☀️\nLunes: el castillo descansa 🌙 (como los osos 🐻).\n\nCuentaselo a papá o mamá y mirad la web oficial por si cambian un día de fiesta 🎊.`
-            : `🕒 Horario orientativo (puede variar en festivos, conviene confirmar en la web oficial del lugar):\nMartes–Sábado: 10:00 – 18:30 (último acceso 17:45)\nDomingos y festivos: 10:00 – 14:00\nLunes: cerrado (salvo lunes festivos).\n\n🎟️ Entrada reducida si llevas carné joven, familia numerosa o carné de estudiante. Consejo: comprála online con antelación y ahorras la cola.`;
+            : `Horario orientativo (puede variar en festivos, conviene confirmar en la web oficial del lugar):\nMartes–Sábado: 10:00 – 18:30 (último acceso 17:45)\nDomingos y festivos: 10:00 – 14:00\nLunes: cerrado (salvo lunes festivos).\n\nEntrada reducida si llevas carné joven, familia numerosa o carné de estudiante. Consejo: comprála online con antelación y ahorras la cola.`;
         }
         if (has(['precio', 'entrada', 'dinero', 'cuesta', 'euro'])) {
           return m === 'kids'
             ? `💰 Cuesta casi lo mismo que un menú de hamburguesas 🍔 para los mayores.\n\nLos niños de tu edad ¡entran GRATIS o casi nada! 🎉\n\nPide a papá que pida "entrada familiar" que sale más barato 👨‍👩‍👧‍👦. `
-            : `💶 Entrada general orientativa: ~10 € (moneda local equivalente). Reducida (estudiante, >65, familia numerosa): ~5 €. Menores de 12 años: gratuita en muchos casos. Muchas ciudades ofrecen bonos conjuntos con otros monumentos cercanos que permiten ahorrar hasta un 30% — merece la pena preguntar en taquilla o mirar la web oficial.`;
+            : `Entrada general orientativa: ~10 € (moneda local equivalente). Reducida (estudiante, >65, familia numerosa): ~5 €. Menores de 12 años: gratuita en muchos casos. Muchas ciudades ofrecen bonos conjuntos con otros monumentos cercanos que permiten ahorrar hasta un 30% — merece la pena preguntar en taquilla o mirar la web oficial.`;
         }
         if (has(['llegar', 'cómo voy', 'autobús', 'bus', 'parking', 'coche', 'aparcamiento'])) {
           return m === 'kids'
             ? `🚶 ¡Casi siempre vas ANDANDO! Los mejores tesoros de esta ciudad están en calles estrechas donde no pasan coches 🏘️.\n\nSi venís en coche 🚗 lo dejáis en un parking cerca del centro y luego entráis caminando. ¡Las vistas son de película! 🎬`
-            : `🚶 Acceso recomendado: a pie desde la zona monumental más cercana (5–10 min); el núcleo histórico suele ser 100% peatonal. Si viajas en coche, usa algún parking disuasorio en el perímetro y evita entrar en el casco histórico con vehículo — calles estrechas, limitaciones y horarios de acceso muy estrictos. El transporte público local suele cubrir el recorrido exterior en unos 15 min.`;
+            : `Acceso recomendado: a pie desde la zona monumental más cercana (5–10 min); el núcleo histórico suele ser 100% peatonal. Si viajas en coche, usa algún parking disuasorio en el perímetro y evita entrar en el casco histórico con vehículo — calles estrechas, limitaciones y horarios de acceso muy estrictos. El transporte público local suele cubrir el recorrido exterior en unos 15 min.`;
         }
         if (m === 'kids') {
           return `¡Guau, qué curioso/a! 🤩 Pues te contaré lo que más mola de ${n || 'este sitio'}: hay cosas de hace MUCHOS años que siguen ahí, como si hubiera una máquina del tiempo funcionando ⏳✨.\n\n¿Sabes qué? Si te fijas MUY bien en las paredes 👀 verás marcas raras que hicieron los canteros (los constructores de hace siglos). ¡Busca una "X" pequeña! ¿La encuentras?`;
@@ -483,17 +483,17 @@
         if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
           return m === 'kids'
             ? '⏰ Abre de martes a sábado, de 10:00 a 18:30. Los domingos solo por la mañana, ¡y los lunes descansa!'
-            : '🕒 De martes a sábado, 10:00–18:30. Domingos 10:00–14:00. Lunes cerrado (confirma en la web oficial por si hay festivos).';
+            : 'De martes a sábado, 10:00–18:30. Domingos 10:00–14:00. Lunes cerrado (confirma en la web oficial por si hay festivos).';
         }
         if (has(['precio', 'entrada', 'dinero', 'cuesta', 'euro'])) {
           return m === 'kids'
             ? '💰 Cuesta poquito, ¡y los niños casi siempre entran gratis o casi gratis!'
-            : '💶 Entrada general orientativa: unos 10 €, reducida unos 5 €. Confirma el precio exacto en la web oficial.';
+            : 'Entrada general orientativa: unos 10 €, reducida unos 5 €. Confirma el precio exacto en la web oficial.';
         }
         if (has(['llegar', 'cómo voy', 'autobús', 'bus', 'parking', 'coche', 'aparcamiento'])) {
           return m === 'kids'
             ? '🚶 Casi siempre se va andando, ¡las calles del centro son solo para caminar!'
-            : '🚶 Mejor a pie desde el centro histórico, unos 5-10 minutos; es una zona muy peatonal.';
+            : 'Mejor a pie desde el centro histórico, unos 5-10 minutos; es una zona muy peatonal.';
         }
         const firstFact = (poi.tabs.history.adult || '').split('.')[0];
         return m === 'kids'
@@ -3682,25 +3682,44 @@
     closeLightbox();
   };
 
+  // Últimos src/alt pedidos, para que el botón de reintentar (fijo en el
+  // DOM, cableado una sola vez en wireEvents) pueda volver a arrancar todo
+  // el proceso sin depender del cierre de esta función.
+  let lastLightboxSrc = null, lastLightboxAlt = '';
   const openLightbox = (smallSrc, alt) => {
     if (!els.lightbox || !smallSrc) return;
+    lastLightboxSrc = smallSrc;
+    lastLightboxAlt = alt || '';
     const img = $('.lightbox-img', els.lightbox);
+    const retryBtn = $('.lightbox-retry', els.lightbox);
     const originalSrc = getOriginalImageUrl(smallSrc);
-    // Cadena de fallback: 1200px → original sin recortar → miniatura pequeña
-    // (esta última garantizada, ya que es la que se ve en la ficha).
+    let retriedSmall = false;
+    const tryLoad = (stage, src) => {
+      img.dataset.stage = stage;
+      img.hidden = false;
+      if (retryBtn) retryBtn.hidden = true;
+      img.src = src;
+    };
+    // Cadena de fallback: 1200px → original sin recortar → miniatura
+    // pequeña (esta última garantizada, ya que es la que se ve en la
+    // ficha). Si incluso esa falla — típico con cobertura floja en cascos
+    // históricos — se reintenta una vez tras 1s antes de rendirse y dejar
+    // un botón para reintentar a mano en vez de un icono de imagen rota.
     img.onerror = () => {
       if (img.dataset.stage === 'large') {
-        img.dataset.stage = 'original';
-        img.src = originalSrc;
-      } else if (img.dataset.stage !== 'small') {
-        img.dataset.stage = 'small';
-        img.onerror = null;
-        img.src = smallSrc;
+        tryLoad('original', originalSrc);
+      } else if (img.dataset.stage === 'original') {
+        tryLoad('small', smallSrc);
+      } else if (!retriedSmall) {
+        retriedSmall = true;
+        setTimeout(() => tryLoad('small', smallSrc), 1000);
+      } else {
+        img.hidden = true;
+        if (retryBtn) retryBtn.hidden = false;
       }
     };
-    img.dataset.stage = 'large';
-    img.alt = alt || '';
-    img.src = getLargeImageUrl(smallSrc);
+    img.alt = lastLightboxAlt;
+    tryLoad('large', getLargeImageUrl(smallSrc));
     els.lightbox.classList.add('-open');
     els.lightbox.setAttribute('aria-hidden', 'false');
   };
@@ -3750,13 +3769,37 @@
     els.visitSummary.setAttribute('aria-hidden', 'true');
   };
 
+  // Reintento de la miniatura de la ficha: con cobertura floja (típico en
+  // cascos históricos) a veces la primera petición a Wikimedia no llega a
+  // tiempo. Un solo reintento automático al segundo suele bastar; si
+  // también falla, se deja un botón de recarga a mano en vez de dejar el
+  // icono de imagen rota del navegador.
+  const setSheetThumbImage = (src, alt) => {
+    const img = $('.sheet-thumb', els.sheet);
+    const retryBtn = $('.sheet-thumb-retry', els.sheet);
+    if (!img) return;
+    img.alt = alt || '';
+    if (retryBtn) retryBtn.hidden = true;
+    let retried = false;
+    img.onerror = () => {
+      if (!retried) {
+        retried = true;
+        setTimeout(() => { img.src = src; }, 1000);
+      } else {
+        img.onerror = null;
+        if (retryBtn) retryBtn.hidden = false;
+      }
+    };
+    img.onload = () => { if (retryBtn) retryBtn.hidden = true; };
+    img.src = src;
+  };
+
   const populateSheetContent = (id) => {
     const poi = POIS.find((p) => p.id === id);
     if (!poi) return;
     const meta = CATEGORY_META[poi.category];
 
-    $('.sheet-thumb', els.sheet).src = poi.image;
-    $('.sheet-thumb', els.sheet).alt = pickDual(poi.name);
+    setSheetThumbImage(poi.image, pickDual(poi.name));
     $('.sheet-cat-badge', els.sheet).textContent = pickDual(meta.label)
       + (poi.fictional ? (STATE.mode === 'kids' ? ' · Imaginado' : ' · Ilustrativo') : '');
     $('.sheet-title', els.sheet).textContent = pickDual(poi.name);
@@ -4474,10 +4517,17 @@
     $('.sheet-thumb', els.sheet).addEventListener('click', (e) => {
       openLightbox(e.currentTarget.src, e.currentTarget.alt);
     });
+    $('.sheet-thumb-retry', els.sheet)?.addEventListener('click', () => {
+      const poi = POIS.find((p) => p.id === STATE.activePoiId);
+      if (poi) setSheetThumbImage(poi.image, pickDual(poi.name));
+    });
     if (els.lightbox) {
       $('.lightbox-close', els.lightbox).addEventListener('click', closeLightbox);
       els.lightbox.addEventListener('click', (e) => {
         if (e.target === els.lightbox) closeLightbox();
+      });
+      $('.lightbox-retry', els.lightbox)?.addEventListener('click', () => {
+        if (lastLightboxSrc) openLightbox(lastLightboxSrc, lastLightboxAlt);
       });
     }
 
