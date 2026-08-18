@@ -4314,14 +4314,25 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       try { synth.resume(); } catch (_) {}
     };
 
-    const speak = (onEndCallback) => {
+    // startRatio (0-1, ver seekAudioTo): Web Speech no permite saltar a un
+    // punto exacto de una narración ya en marcha, a diferencia de un
+    // <audio> real — se aproxima recortando el texto a partir de la
+    // palabra que le correspondería a ese punto y empezando ahí una
+    // utterance nueva. No es exacto al segundo, pero usa el mismo cálculo
+    // de palabras/minuto que ya alimenta la barra de progreso
+    // (estimateSpeechDuration), así que queda consistente con lo que se
+    // ve en pantalla.
+    const speak = (onEndCallback, startRatio = 0) => {
       if (!S.supported) return false;
       warmUp();
       pickSpanishVoice();
       try { synth.resume(); } catch (_) {}
 
-      const text = buildNarrativeText();
-      if (!text) return false;
+      const fullText = buildNarrativeText();
+      if (!fullText) return false;
+      const words = fullText.split(/\s+/).filter(Boolean);
+      const startWordIndex = startRatio > 0 ? Math.min(words.length - 1, Math.floor(startRatio * words.length)) : 0;
+      const text = startWordIndex > 0 ? words.slice(startWordIndex).join(' ') : fullText;
       cancel(false);
 
       const makeUtt = (usePickedVoice = true) => {
@@ -4548,6 +4559,32 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     updateAudioUi();
   };
 
+  // Salta a un punto concreto de la narración al tocar la barra de
+  // progreso (ver el listener de .progress-wrap en wireEvents). Con
+  // CLOUD_TTS (un <audio> real) es un salto nativo trivial; con Web
+  // Speech (el motor habitual, sin soporte real de "seek") se arranca una
+  // narración nueva desde ese punto (ver el comentario de startRatio en
+  // SPEECH.speak) — siempre pasa a reproducir, aunque estuviera en pausa,
+  // igual que al arrastrar la barra de un pódcast.
+  const seekAudioTo = (ratio) => {
+    if (!STATE.activePoiId) return;
+    const duration = STATE.audio.duration || 0;
+    if (!duration) return;
+    const targetTime = Math.min(duration, Math.max(0, ratio * duration));
+
+    if (STATE.audio.engine === 'cloud' && cloudAudioEl) {
+      cloudAudioEl.currentTime = targetTime;
+      STATE.audio.currentTime = targetTime;
+      STATE.audio.playing = true;
+      cloudAudioEl.play().catch(() => {});
+      updateAudioUi();
+      return;
+    }
+
+    if (!SPEECH.isSupported()) return;
+    startAudio(false, false, null, ratio);
+  };
+
   // Estima cuánto durará la narración a partir del nº de palabras, para que
   // la barra de progreso corresponda al texto real (que ahora varía en
   // longitud) en vez de a una duración fija inventada por POI. Solo se usa
@@ -4595,7 +4632,11 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   // audio anterior deja de sonar, sin cortarlo a medias. No se propaga al
   // camino de CLOUD_TTS (startCloudAudio): los rellenos locales nunca
   // tienen audio en caché, así que ese camino no aplica aquí.
-  const startAudio = (isResume = false, silent = false, onSegmentEnd = null) => {
+  // seekRatio (opcional, 0-1, ver seekAudioTo): en vez de arrancar desde
+  // el principio, la narración empieza aproximadamente en ese punto — la
+  // barra de progreso arranca ya ahí (en vez de en 0) y SPEECH.speak
+  // recorta el texto por palabras hasta ese punto (ver su comentario).
+  const startAudio = (isResume = false, silent = false, onSegmentEnd = null, seekRatio = null) => {
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
     let segmentEndCb = onSegmentEnd;
@@ -4621,6 +4662,9 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     }
     const duration = STATE.audio.duration;
     clearInterval(STATE.audio.timer);
+    if (seekRatio !== null) {
+      STATE.audio.currentTime = Math.min(duration, Math.max(0, seekRatio * duration));
+    }
 
     if (!isResume) {
       const spokeOk = SPEECH.isSupported() && SPEECH.speak(({ finished, error, startFailed }) => {
@@ -4651,7 +4695,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
           }
           notifySegmentEnd();
         }
-      });
+      }, seekRatio || 0);
       if (!spokeOk) {
         STATE.audio.playing = false;
         updateAudioUi();
@@ -4807,8 +4851,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     $('.progress-wrap', els.sheet).addEventListener('click', (e) => {
       const rect = e.currentTarget.getBoundingClientRect();
       const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
-      STATE.audio.currentTime = ratio * (STATE.audio.duration || 0);
-      updateAudioUi();
+      seekAudioTo(ratio);
     });
 
     $('.sheet-thumb', els.sheet).addEventListener('click', (e) => {
