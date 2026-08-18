@@ -35,14 +35,20 @@
       // prompts de los botones de tema (esos siempre son sobre el sitio).
       const offTopicGuardKids = 'Si te preguntan algo que no tiene nada que ver con este lugar (deberes, otro tema, cualquier cosa random), no te lo inventes: dilo con humor y anímale a preguntar sobre lo que le rodea.';
       const offTopicGuardAdult = 'Si la pregunta del usuario no tiene relación con este lugar concreto, no te la inventes: indícaselo con amabilidad y sugiere qué sí puedes contarle sobre el sitio.';
+      // Guardarraíl de contenido (mismo para las 4 variantes): pedido
+      // explícitamente para que ninguna respuesta real de la IA —ni
+      // siquiera ante una pregunta suelta del usuario con lenguaje
+      // grosero o provocador— devuelva palabrotas, contenido obsceno o
+      // un tono agresivo, sea cual sea la pregunta.
+      const contentSafetyGuard = 'No uses nunca palabrotas, insultos, lenguaje obsceno ni un tono agresivo, aunque la pregunta del usuario los use o los busque a propósito: responde siempre con un tono respetuoso.';
       if (concise) {
         return mode === 'kids'
-          ? `Eres "${cityName} Junior", un guía turístico divertido para niños de 7 a 11 años, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato exacto que se pregunta (una medida, un nombre, un número) y, como mucho, UNA frase corta más con un dato relacionado curioso o relevante. Máximo 2-3 frases en total, nunca listas ni resúmenes largos. ${offTopicGuardKids} (también corto, 1 frase).`
-          : `Eres "Guía ${cityName}", un guía turístico experto de ${cityName}, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato concreto que se pregunta (una cifra, un nombre, una fecha) y, como mucho, añade UNA frase corta con un dato relacionado relevante (por ejemplo, si preguntan una medida, la cifra y, si aporta valor, una comparación conocida). Máximo 2-3 frases en total, nunca párrafos largos ni resúmenes. ${offTopicGuardAdult} (también corto, 1 frase).`;
+          ? `Eres "${cityName} Junior", un guía turístico divertido para niños de 7 a 11 años, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato exacto que se pregunta (una medida, un nombre, un número) y, como mucho, UNA frase corta más con un dato relacionado curioso o relevante. Máximo 2-3 frases en total, nunca listas ni resúmenes largos. ${offTopicGuardKids} (también corto, 1 frase). ${contentSafetyGuard}`
+          : `Eres "Guía ${cityName}", un guía turístico experto de ${cityName}, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato concreto que se pregunta (una cifra, un nombre, una fecha) y, como mucho, añade UNA frase corta con un dato relacionado relevante (por ejemplo, si preguntan una medida, la cifra y, si aporta valor, una comparación conocida). Máximo 2-3 frases en total, nunca párrafos largos ni resúmenes. ${offTopicGuardAdult} (también corto, 1 frase). ${contentSafetyGuard}`;
       }
       return mode === 'kids'
-        ? `Eres "${cityName} Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita ${cityName}. Responde siempre en español, con frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Da una respuesta extensa y detallada, de unas 190-220 palabras (equivalente a un minuto largo hablado, tan larga como para un adulto), no la resumas. Hazlo memorable. ${offTopicGuardKids}`
-        : `Eres "Guía ${cityName}", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de ${cityName}. Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ. ${offTopicGuardAdult}`;
+        ? `Eres "${cityName} Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita ${cityName}. Responde siempre en español, con frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Da una respuesta extensa y detallada, de unas 190-220 palabras (equivalente a un minuto largo hablado, tan larga como para un adulto), no la resumas. Hazlo memorable. ${offTopicGuardKids} ${contentSafetyGuard}`
+        : `Eres "Guía ${cityName}", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de ${cityName}. Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ. ${offTopicGuardAdult} ${contentSafetyGuard}`;
     };
 
     const buildUserText = (poi, mode, userQuery, cityName = 'la ciudad') => {
@@ -228,7 +234,8 @@
         'NOMBRE: <nombre corto>',
         'RESUMEN: <una frase breve>',
         'INFO: <2-3 frases con datos concretos y contrastables: qué es, época o autor, algo destacable>',
-        '3) Si no puedes identificarlo con una confianza razonable: DESCONOCIDO'
+        '3) Si no puedes identificarlo con una confianza razonable: DESCONOCIDO',
+        'No uses nunca palabrotas, insultos ni lenguaje obsceno en ninguna parte de la respuesta.'
       ].join('\n');
       const usrText = candidates.length
         ? `Foto tomada cerca de ${cityName}. Candidatos cercanos:\n${list}\n\n¿Cuál coincide (MATCH:<id>)? Si no coincide ninguno, identifica igualmente el lugar si puedes (formato NOMBRE/RESUMEN/INFO), o responde DESCONOCIDO.`
@@ -668,7 +675,13 @@
     // se mostraron los 10, el chip queda deshabilitado) y fallback (la
     // respuesta inicial no se pudo interpretar como títulos+desarrollo,
     // así que este POI vuelve al sistema anterior sin tope de 10).
-    ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {}, localIntroSpoken: {}, deepenProgress: {} },
+    // deepenBusy: como pending, pero solo para la tanda de "profundiza
+    // más" en curso — separado de pending para que EL RESTO de chips
+    // (Entrada, temas, pregunta libre) sigan disponibles mientras
+    // "profundiza más" está sonando/esperando a la IA; solo el propio
+    // chip de "profundiza más" se bloquea con esto (ver
+    // renderAiSuggestions y el click handler de los chips).
+    ai: { perPoiHistory: {}, pending: false, deepenBusy: false, currentTopic: {}, explored: {}, localIntroSpoken: {}, deepenProgress: {} },
     // Gamificación (modo niño): puntos por preguntas acertadas. "answered" guarda
     // qué combinaciones "poiId:topicId" ya sumaron puntos, para no poder
     // "granjear" puntos repitiendo la misma pregunta una y otra vez.
@@ -2915,6 +2928,12 @@
     const poi = POIS.find((p) => p.id === poiId);
     const topic = STATE.ai.currentTopic[poiId] || null;
     const exploredSet = STATE.ai.explored[poiId] || new Set();
+    // "disabled" (general) bloquea todos los chips EXCEPTO "profundiza
+    // más", que tiene su propio candado independiente (deepenBusy): así,
+    // mientras un párrafo de "profundiza más" suena o espera a la IA, el
+    // resto de chips (Entrada, temas, pregunta libre) siguen disponibles
+    // — antes se bloqueaban todos por igual, que era justo lo que se
+    // pidió arreglar.
     const disabled = STATE.ai.pending;
 
     // El chip de "Entrada" no es una de las opciones de IA: es información
@@ -2928,9 +2947,11 @@
     // Se deshabilita en cuanto se agotan los 10 puntos programados (ver
     // queueDeepenWithFillers): a partir de ahí, seguir pulsando no daría
     // nada nuevo con garantías, así que se redirige a la pregunta libre
-    // (el propio texto del punto 10 ya se lo indica al usuario).
+    // (el propio texto del punto 10 ya se lo indica al usuario). También
+    // se deshabilita mientras su propia tanda está en curso (deepenBusy),
+    // aunque el resto de chips (disabled, de arriba) no lo estén.
     const deepenExhausted = !!(STATE.ai.deepenProgress[poiId] && STATE.ai.deepenProgress[poiId].exhausted);
-    chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel), disabled: deepenExhausted });
+    chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel), disabled: deepenExhausted || STATE.ai.deepenBusy });
     const remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
     remaining.slice(0, 2).forEach((o) => chips.push({ id: o.id, kind: 'option', label: pickDual(o.label) }));
     if (remaining.length === 0) chips.push({ id: 'reset', kind: 'reset', label: pickDual(AI_PROMPTS.resetLabel) });
@@ -2944,6 +2965,7 @@
       if (disabled || chip.disabled) b.setAttribute('disabled', 'true');
       b.addEventListener('click', () => {
         if (!STATE.activePoiId || STATE.ai.pending) return;
+        if (chip.kind === 'deepen' && STATE.ai.deepenBusy) return;
         const poi = POIS.find((p) => p.id === STATE.activePoiId);
 
         if (chip.kind === 'reset') {
@@ -2953,6 +2975,12 @@
           renderAiSuggestions();
           return;
         }
+
+        // Si había un párrafo de "profundiza más" en curso (relleno local
+        // sonando, o esperando a la IA real) y el usuario elige OTRO
+        // chip mientras tanto, se abandona limpiamente antes de seguir —
+        // ver el comentario de abandonDeepenFlow.
+        if (chip.kind !== 'deepen' && STATE.ai.deepenBusy) abandonDeepenFlow();
 
         // Corta el audio en curso al instante: no tiene sentido seguir oyendo
         // la respuesta anterior mientras se genera la nueva.
@@ -3302,7 +3330,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   };
 
   const queueDeepenWithFillers = async ({ poi, optionId, userText }) => {
-    if (!poi || STATE.ai.pending) return;
+    if (!poi || STATE.ai.deepenBusy) return;
     const hist = aiHistoryFor(poi.id);
     const topicId = (optionId && optionId.startsWith('deepen:')) ? optionId.slice(7) : 'architecture';
     const fallbackText = STATE.mode === 'kids'
@@ -3350,7 +3378,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     let entry = deepenInFlight[poi.id];
     if (!entry) entry = launchAiQuery();
 
-    STATE.ai.pending = true;
+    STATE.ai.deepenBusy = true;
     if (STATE.activePoiId === poi.id) updateAudioUi();
     renderAiSuggestions();
 
@@ -3404,7 +3432,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       startAudio(false, true, resolve);
     });
 
-    STATE.ai.pending = false;
+    STATE.ai.deepenBusy = false;
     if (STATE.activePoiId === poi.id) updateAudioUi();
     renderAiMessages();
     renderAiSuggestions();
@@ -3508,6 +3536,12 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const text = (input.value || '').trim();
     if (!text || STATE.ai.pending || !STATE.activePoiId) return;
     const poi = POIS.find((p) => p.id === STATE.activePoiId);
+    // Igual que con los chips: si había un párrafo de "profundiza más" en
+    // curso, se abandona limpiamente antes de mandar la pregunta suelta
+    // (ver abandonDeepenFlow) — el input de texto nunca se bloqueó por
+    // deepenBusy (solo por pending), así que sin esto la tanda de
+    // profundizar se quedaría huérfana.
+    if (STATE.ai.deepenBusy) abandonDeepenFlow();
     stopAudio();
     aiHistoryFor(poi.id).push({ role: 'user', text });
     input.value = '';
@@ -4563,6 +4597,23 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       SPEECH.pause();
     }
     updateAudioUi();
+  };
+
+  // Abandona limpiamente un párrafo de "profundiza más" en curso (relleno
+  // local sonando, o esperando a la IA real) cuando el usuario elige otro
+  // chip mientras tanto (ver el click handler de los chips en
+  // wireEvents). Sin esto, la promesa pendiente de queueDeepenWithFillers
+  // (su "await new Promise" a la espera de que termine el audio) se
+  // quedaría colgada para siempre — SPEECH.cancel() no dispara el
+  // callback de fin a propósito (ver su comentario) — y STATE.ai.deepenBusy
+  // nunca volvería a false, dejando el chip "Profundiza más" bloqueado
+  // sin que nada lo desbloqueara. Solo resuelve esa promesa pendiente; no
+  // toca el audio en sí (eso ya lo hace stopAudio, llamado aparte).
+  const abandonDeepenFlow = () => {
+    if (typeof STATE.audio.onSegmentEnd !== 'function') return;
+    const cb = STATE.audio.onSegmentEnd;
+    STATE.audio.onSegmentEnd = null;
+    cb();
   };
 
   // Salta a un punto concreto de la narración al tocar la barra de
