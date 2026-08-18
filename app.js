@@ -2856,29 +2856,72 @@
     });
   };
 
+  // Continúa justo donde se quedó buildBasicIntroText (nombre, subtítulo y
+  // primera frase de la historia, ya narrados aparte): el resto de la
+  // historia, un dato curioso (leyenda), un apunte de arquitectura, si se
+  // puede visitar o no, y cómo seguir explorando. Ya NO depende de la IA —
+  // usa contenido propio del POI, escrito y verificado igual que el resto
+  // de tabs — así que el resumen inicial funciona sin conexión, siempre
+  // igual de rápido y sin gastar cuota. La IA se reserva para "Profundiza
+  // más" y las preguntas sueltas (ver queueAiMessage), que sí necesitan
+  // generar algo que no está ya guardado.
+  const buildFullIntroRest = (poi, mode) => {
+    const historyFull = pickDual(poi.tabs.history) || '';
+    const firstSentenceEnd = historyFull.indexOf('.');
+    const historyRest = (firstSentenceEnd >= 0 ? historyFull.slice(firstSentenceEnd + 1) : '').trim();
+    const legends = poi.tabs.legends ? pickDual(poi.tabs.legends) : '';
+    const architecture = poi.tabs.architecture ? pickDual(poi.tabs.architecture) : '';
+
+    const legendBridge = legends
+      ? (mode === 'kids' ? ` Aquí va un dato curioso: ${legends}` : ` Un dato curioso: ${legends}`)
+      : '';
+    const archBridge = architecture
+      ? (mode === 'kids' ? ` Y por fuera, fíjate: ${architecture}` : ` En cuanto a su arquitectura: ${architecture}`)
+      : '';
+
+    // "Visitable o no": se deduce del propio texto de horario/precio ya
+    // escrito para cada POI (poi.visitInfo), en vez de añadir un campo de
+    // datos nuevo — un espacio "de acceso libre, sin horario" (una plaza,
+    // una calle) se trata distinto de uno con horario y entrada (un museo,
+    // un palacio).
+    let visitLine = '';
+    if (poi.visitInfo) {
+      const priceText = pickDual(poi.visitInfo.price) || '';
+      const hoursText = pickDual(poi.visitInfo.hours) || '';
+      const freeAccess = /gratis|acceso libre|sin horario/i.test(`${priceText} ${hoursText}`);
+      visitLine = mode === 'kids'
+        ? (freeAccess ? ' ¡Puedes verlo cuando quieras, es de acceso libre!' : ' Se puede entrar, aunque tiene su horario.')
+        : (freeAccess ? ' Es un espacio de acceso libre: puedes visitarlo cuando quieras.' : ' Se puede visitar por dentro, con su horario y su entrada.');
+    }
+
+    const cta = mode === 'kids'
+      ? ' Si quieres, toca "¡Cuéntame más!" para seguir descubriendo cosas. Y si necesitas el horario y el precio, tienes un botón aquí abajo.'
+      : ' Si quieres profundizar en algún tema, tienes el botón "Profundiza más" aquí abajo. Y si buscas el horario y el precio exactos, ahí tienes el botón de entradas.';
+
+    return `${historyRest}${legendBridge}${archBridge}${visitLine}${cta}`;
+  };
+
   const ensureAiPanelInitialGreet = (poi) => {
     if (!poi) return;
     const history = aiHistoryFor(poi.id);
     if (history.length === 0) {
       history.push({ role: 'greet', text: LLM.summaryGreet(poi, STATE.mode) });
+      // isSummary marca de forma explícita cuál es el resumen inicial, para
+      // que el audio principal en modo niño siempre lo identifique bien sin
+      // depender de su posición en el historial (ver buildNarrativeText).
+      // Se guarda ya mismo (síncrono, sin esperar a ninguna IA): así, en
+      // cuanto termine de sonar la intro local de abajo, ya está listo
+      // para reproducirse sin ningún hueco de silencio de por medio.
+      history.push({ role: 'assistant', text: buildFullIntroRest(poi, STATE.mode), isSummary: true });
       saveState();
       STATE.ai.localIntroSpoken[poi.id] = true;
-      // El resumen real (queueAiMessage) tarda unos segundos en llegar de
-      // la IA, y hasta entonces no sonaba nada — silencio incómodo. Este
-      // relleno no depende de la IA (son datos locales del propio POI), así
-      // que se narra ya mismo para llenar esa espera. Se llama directo aquí
-      // (sin await/setTimeout de por medio: selectPoi → ensureAiPanelInitialGreet
-      // ocurre dentro del propio gesto de tocar el pin), importante para
-      // que speak() funcione a la primera en iOS Safari.
-      //
-      // A propósito NO se corta a mitad de frase si la respuesta real llega
-      // antes de que termine: se deja hablar entera (introPlaying bloquea el
-      // autoplay de queueAiMessage mientras tanto, ver speakBasicIntroFor) y,
-      // al acabar, dispara el resumen real si ya estaba listo. El texto de
-      // la intro se le pasa también a la IA (ver alreadySaid abajo) para que
-      // complemente en vez de repetir lo mismo.
+      // Narra primero la intro local corta (nombre, subtítulo, primera
+      // frase) y, en cuanto termine, su propio "proceedToReal" dispara la
+      // reproducción del resumen completo que se acaba de guardar arriba
+      // (ver speakBasicIntroFor) — se mantiene esta división en dos aunque
+      // ya no haga falta esperar a ninguna IA, porque toggleAudio ya sabe
+      // pausar/reanudar cada una de las dos partes por separado.
       if (SPEECH.isSupported() && !STATE.audio.playing) speakBasicIntroFor(poi);
-      queueAiMessage({ poi, kind: 'summary', alreadySaid: buildBasicIntroText(poi, STATE.mode) });
     }
     renderAiMessages();
     scrollAiToBottom();
