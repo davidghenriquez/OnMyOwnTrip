@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=39" />
+  <link rel="stylesheet" href="styles.css?v=40" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V22.2</span>
+    <span class="onboarding-version" id="appVersion">Beta V22.3</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
   </div>
 
@@ -319,7 +319,16 @@
       </div>
 
       <div class="sheet-head">
-        <img class="sheet-thumb" src="" alt="" loading="eager" draggable="false" />
+        <div class="sheet-thumb-wrap">
+          <img class="sheet-thumb" src="" alt="" loading="eager" draggable="false" />
+          <button type="button" class="sheet-thumb-retry" hidden aria-label="Reintentar cargar la imagen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12a9 9 0 0 1 15.5-6.3M21 12a9 9 0 0 1-15.5 6.3"></path>
+              <path d="M3 5v5h5M21 19v-5h-5"></path>
+            </svg>
+          </button>
+        </div>
         <div class="sheet-head-text">
           <span class="sheet-cat-badge">—</span>
           <h2 class="sheet-title">—</h2>
@@ -442,6 +451,14 @@
         </svg>
       </button>
       <img class="lightbox-img" src="" alt="" draggable="false" />
+      <button type="button" class="lightbox-retry" hidden aria-label="Reintentar cargar la imagen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12a9 9 0 0 1 15.5-6.3M21 12a9 9 0 0 1-15.5 6.3"></path>
+          <path d="M3 5v5h5M21 19v-5h-5"></path>
+        </svg>
+        <span>Reintentar</span>
+      </button>
     </div>
 
     <div class="visit-summary-modal" id="visitSummaryModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Resumen de tu visita">
@@ -502,7 +519,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=13"></script>
-  <script src="app.js?v=101"></script>
+  <script src="app.js?v=102"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
