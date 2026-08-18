@@ -3329,6 +3329,19 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     return STATE.ai.deepenProgress[poiId];
   };
 
+  // Quita el aviso final "(Modo offline...)" / "(La IA está saturada...)"
+  // que LLM.generate pega al final del texto cuando la IA real falla y
+  // cae al simulador local (ver su suffix). Se usa solo cuando ese texto
+  // va a ir seguido de la despedida del punto 10 de "profundiza más": ahí
+  // el aviso ya no aporta nada y sumado a la despedida quedaba redundante.
+  // El texto que reemplaza (${code}) puede traer sus propios paréntesis
+  // ("API (Load failed)"), así que en vez de intentar casar paréntesis
+  // equilibrados se corta todo lo que queda desde el aviso hasta el final
+  // — construction garantiza que el aviso es siempre lo último del texto.
+  const stripOfflineSuffix = (text) => (text || '')
+    .replace(/\n\n(?:⚠️)?\s?\((?:¡La IA está muy solicitada|La IA está saturada|Modo offline)[\s\S]*$/, '')
+    .trimEnd();
+
   const queueDeepenWithFillers = async ({ poi, optionId, userText }) => {
     if (!poi || STATE.ai.deepenBusy) return;
     const hist = aiHistoryFor(poi.id);
@@ -3410,6 +3423,14 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
         progress.nextIndex += 1;
         if (progress.nextIndex > progress.titles.length) {
           progress.exhausted = true;
+          // Si esta última consulta falló y cayó al simulador local, su
+          // texto ya lleva pegado el aviso "(Modo offline...)" (ver
+          // LLM.generate) — sumarle encima la despedida quedaba raro y
+          // redundante ("no hay conexión... por cierto, esto es todo,
+          // pregúntame algo"). En este punto concreto ese aviso ya no
+          // aporta nada (el usuario va a ver la despedida igualmente), así
+          // que se quita antes de cerrar el guion.
+          text = stripOfflineSuffix(text);
           const closing = STATE.mode === 'kids'
             ? '\n\n¡Eso es todo lo que tengo preparado sobre este lugar! Si quieres saber algo muy concreto, escríbeme tu pregunta aquí abajo.'
             : '\n\nEso es todo lo que tengo preparado sobre este lugar. Si quieres saber algo muy concreto, escríbeme tu pregunta aquí abajo.';
