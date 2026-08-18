@@ -2272,6 +2272,13 @@ html[data-mode="kids"] .ai-input-wrap {
   padding: 16px 18px 14px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
+/* Cuando el elemento iluminado está pegado a la parte baja de la pantalla
+   (herramientas del mapa, ficha de ejemplo…), el tooltip se ancla arriba
+   en su lugar para no taparlo (ver positionTutorialSpotlight en app.js). */
+.tutorial-tooltip.-top {
+  bottom: auto;
+  top: max(20px, env(safe-area-inset-top));
+}
 .tutorial-skip {
   display: block;
   margin-left: auto;
