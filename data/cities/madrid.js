@@ -2204,8 +2204,8 @@ CITIES.madrid.pois = [
             kids: 'Este edificio tan grande se construyó hace más de 100 años para repartir todas las cartas y telegramas de España. Hoy es el ayuntamiento de Madrid y también un centro cultural que se puede visitar.'
           },
           legends: {
-            adult: 'Por su monumentalidad, similar a la de una catedral, los madrileños lo bautizaron con el apodo cariñoso de Nuestra Señora de las Comunicaciones.',
-            kids: '¡Este edificio es tan enorme y bonito que parece una catedral! Por eso los madrileños le pusieron un mote muy cariñoso, como si fuera una señora importante.'
+            adult: 'Por su monumentalidad, comparable a la de una catedral, los madrileños lo bautizaron con el apodo cariñoso de Nuestra Señora de las Comunicaciones, aunque en su época también recibió críticas de quienes lo consideraban un derroche excesivo para un simple edificio de Correos. Su escalinata imperial interior, con dos tramos simétricos que confluyen en uno central, se ha convertido con los años en uno de los rincones favoritos de Madrid para fotografías de bodas y celebraciones.',
+            kids: '¡Este edificio es tan enorme y bonito que parece una catedral! Por eso los madrileños le pusieron un mote muy cariñoso, como si fuera una señora importante. Cuando se construyó, algunos vecinos pensaban que era demasiado lujoso solo para repartir cartas. Hoy en día, su escalera gigante de dentro, que se separa en dos y luego se junta, es uno de los rincones favoritos para hacerse fotos de boda.'
           },
           architecture: {
             adult: 'Estilo ecléctico que combina el neoplateresco, el modernismo y la secesión vienesa, con fachada de piedra de Novelda y un cimborrio octogonal rematado con reloj. Hoy tiene mirador panorámico, exposiciones y terraza-restaurante abiertos al público.',
@@ -2258,8 +2258,8 @@ CITIES.madrid.pois = [
             kids: '¡La fuente que ves en el centro de la plaza tiene casi cien chorros de agua distintos! Se instaló hace unos 30 años para embellecer la plaza.'
           },
           architecture: {
-            adult: 'Rotonda de tráfico donde confluyen las calles de Génova, Almagro, Santa Engracia y Sagasta; zona de ambiente universitario y de ocio nocturno, con numerosos bares y buena comunicación de metro.',
-            kids: '¡Aquí se juntan varias calles importantes de Madrid! Es una zona con muchos bares y mucho ambiente, sobre todo por las noches.'
+            adult: 'Rotonda de tráfico donde confluyen las calles de Génova, Almagro, Santa Engracia y Sagasta, rodeada de edificios de finales del siglo XIX y principios del XX propios del Ensanche madrileño. Es zona de ambiente universitario y de ocio nocturno, con numerosos bares, terrazas y buena comunicación de metro, al confluir aquí varias líneas.',
+            kids: '¡Aquí se juntan varias calles importantes de Madrid, como si fuera una estrella con muchos brazos! Está rodeada de edificios antiguos, de hace más de cien años. Es una zona con muchos bares y mucho ambiente, sobre todo por las noches, y hay varias líneas de metro que paran aquí.'
           }
         },
         quiz: {
@@ -2308,8 +2308,8 @@ CITIES.madrid.pois = [
             kids: '¡Cerca de aquí estuvo el primer mercado cubierto de todo Madrid, hace casi 200 años! Hoy en día se ha transformado en un mercado moderno de comida.'
           },
           architecture: {
-            adult: 'Arteria que enlaza Malasaña, de espíritu bohemio y alternativo, con Chueca, barrio LGTBI animado y diverso; concentra comercio de moda, desde marcas internacionales hasta tiendas vintage y alternativas.',
-            kids: '¡Caminar por esta calle es como pasar por dos barrios muy distintos a la vez! Está llena de tiendas de ropa de todo tipo, desde las más modernas hasta las más originales.'
+            adult: 'Arteria larga y bulliciosa que enlaza Malasaña, de espíritu bohemio y alternativo, con Chueca, barrio LGTBI animado y diverso, atravesando edificios de distintas épocas, desde casas decimonónicas hasta locales comerciales reformados. Concentra comercio de moda, desde marcas internacionales hasta tiendas vintage y alternativas, conviviendo con las boutiques originales que le dieron fama.',
+            kids: '¡Caminar por esta calle es como pasar por dos barrios muy distintos a la vez! Tiene edificios de épocas distintas, desde casas de hace más de cien años hasta tiendas reformadas hace poco. Está llena de tiendas de ropa de todo tipo, desde las más modernas hasta las más originales.'
           }
         },
         quiz: {
@@ -2358,8 +2358,8 @@ CITIES.madrid.pois = [
             kids: '¡Hay tres leyendas distintas sobre por qué esta calle se llama así! Una dice que un rey perdió aquí su gorro montado a caballo, otra habla de una mujer tan guapa que los hombres se retaban a duelo por ella. ¡Elige la que más te guste!'
           },
           architecture: {
-            adult: 'Calle peatonal estrecha que conecta Sol con Gran Vía; barrio en transformación, con comercios nuevos y renovación de viviendas conviviendo aún con su pasado.',
-            kids: '¡Es una calle estrecha y peatonal que conecta dos zonas muy famosas de Madrid! Cada vez tiene más tiendas nuevas.'
+            adult: 'Calle peatonal estrecha que conecta la Puerta del Sol con Gran Vía, con edificios de los siglos XIX y XX en distintos estados de conservación. En los últimos años, un plan municipal de rehabilitación viene renovando fachadas y locales, conviviendo los comercios nuevos con las viviendas históricas y el pasado más singular de la calle.',
+            kids: 'Es una calle estrecha y peatonal que conecta dos zonas muy famosas de Madrid, con edificios antiguos de hace más de cien años. Últimamente el Ayuntamiento está arreglando muchas fachadas y tiendas, así que cada vez tiene más comercios nuevos conviviendo con las casas de siempre.'
           }
         },
         quiz: {
@@ -2460,8 +2460,8 @@ CITIES.madrid.pois = [
             kids: '¡Este fue el primer rascacielos de toda Europa! Muchos años después de construirse, escritores famosos como Ernest Hemingway lo usaron para contar al mundo lo que pasaba en Madrid durante una guerra.'
           },
           architecture: {
-            adult: 'Rascacielos de influencia estadounidense adaptado con detalles decorativos españoles; su silueta sigue dominando el perfil de Gran Vía.',
-            kids: '¡Su silueta sigue siendo una de las más reconocibles de toda la Gran Vía! Se ve desde muy lejos.'
+            adult: 'Fue el primer edificio de Europa construido con esqueleto de acero al estilo de los rascacielos neoyorquinos, revestido después con piedra caliza y profusa decoración barroca-plateresca de guirnaldas, escudos y motivos vegetales. Su volumen se escalona en varios cuerpos retranqueados hasta rematar en una linterna con chapitel, un perfil que mantuvo el título de edificio más alto de Europa hasta 1953.',
+            kids: '¡Fue el primer edificio de Europa construido como los rascacielos de Nueva York, con un esqueleto de acero por dentro! Por fuera lo vistieron de piedra con decoraciones talladas, como guirnaldas y escudos. Se va estrechando poco a poco hacia arriba, como una tarta de varios pisos, hasta terminar en una puntita. ¡Fue el edificio más alto de Europa durante casi 30 años!'
           }
         },
         quiz: {
@@ -2613,8 +2613,8 @@ CITIES.madrid.pois = [
             kids: '¡Dentro se guarda un cuadro pintado por El Greco, uno de los pintores más importantes de la historia de España! Y en sus archivos hay documentos de hace más de 500 años, con los nombres de escritores muy famosos.'
           },
           architecture: {
-            adult: 'Junto a la iglesia, en un pasadizo lateral, se encuentra la histórica Chocolatería San Ginés, célebre por su chocolate con churros a cualquier hora, parada obligada tras una noche de fiesta en Madrid.',
-            kids: '¡Justo al lado hay una chocolatería famosísima donde puedes tomar chocolate con churros a cualquier hora del día o de la noche!'
+            adult: 'La fachada actual, de ladrillo y piedra caliza, procede de la reforma neogótica de 1870, con arcos apuntados y una portada escalonada que sustituyó el aspecto barroco original. Junto a la iglesia, en un pasadizo lateral, se encuentra la histórica Chocolatería San Ginés, célebre por su chocolate con churros a cualquier hora, parada obligada tras una noche de fiesta en Madrid.',
+            kids: 'La fachada que ves hoy, de ladrillo y piedra, es de una reforma de hace más de 150 años, con arcos puntiagudos como los de los castillos de cuento. Justo al lado hay una chocolatería famosísima donde puedes tomar chocolate con churros a cualquier hora del día o de la noche.'
           }
         },
         quiz: {
@@ -2664,8 +2664,8 @@ CITIES.madrid.pois = [
             kids: '¡Esta cúpula es tan grande que es la cuarta más grande de toda Europa! Y en una de las capillas, el pintor Goya se pintó a sí mismo escondido entre la gente del cuadro, vestido de amarillo. ¿Te atreves a buscarlo?'
           },
           architecture: {
-            adult: 'Basílica neoclásica de planta circular bajo cúpula; la cúpula fue pintada en 1917 por Luis Menéndez Pidal con la Apoteosis de las Virtudes.',
-            kids: '¡Al entrar y mirar hacia arriba, la cúpula pintada parece un cielo entero lleno de personajes!'
+            adult: 'Francisco Sabatini concibió la basílica inspirándose en el Panteón de Roma y en Les Invalides de París: una rotonda central rodeada de seis capillas radiales, precedida por un pórtico de columnas dóricas y flanqueada por dos torres campanario simétricas. La cúpula, pintada en 1917 por Luis Menéndez Pidal con la Apoteosis de las Virtudes, corona este conjunto neoclásico construido en piedra y ladrillo.',
+            kids: '¡El arquitecto que la diseñó se inspiró en templos famosos de Roma y de París! Por fuera tiene dos torres iguales, como dos hermanas gemelas, y una entrada con columnas. Por dentro, seis capillas rodean la gran sala circular, y al mirar hacia arriba, la cúpula pintada parece un cielo entero lleno de personajes.'
           }
         },
         quiz: {
@@ -2765,8 +2765,8 @@ CITIES.madrid.pois = [
             kids: '¡Aquí se cuenta la leyenda de un pozo mágico! Se dice que el hijo del santo patrón de Madrid cayó dentro, y que el agua subió sola hasta arriba para salvarlo, gracias a las oraciones de sus padres.'
           },
           architecture: {
-            adult: 'Museo gratuito con jardín arqueobotánico y almacén visitable; recorre tres áreas temáticas: Antes de Madrid, Mayrit/Madrid y San Isidro.',
-            kids: '¡Tiene hasta un jardín con plantas antiguas y una zona donde puedes ver cómo se guardan los objetos del museo!'
+            adult: 'El edificio conserva del antiguo caserón un patio renacentista del siglo XVI, con dos plantas de arcadas sobre columnas de piedra, y una capilla barroca del XVII construida junto al pozo tradicionalmente ligado a San Isidro. La museografía moderna, con estructuras de vidrio y acero, se inserta con discreción entre estos elementos históricos, sin ocultarlos, y se completa con un jardín arqueobotánico y un almacén visitable.',
+            kids: 'El edificio guarda un patio antiguo con arcos de piedra de hace 500 años, ¡y hasta una pequeña capilla junto al pozo de la leyenda! Las salas modernas, con cristal y metal, se han construido con mucho cuidado alrededor de estas partes tan viejas, para no taparlas. Tiene hasta un jardín con plantas antiguas y una zona donde puedes ver cómo se guardan los objetos del museo.'
           }
         },
         quiz: {
@@ -2866,8 +2866,8 @@ CITIES.madrid.pois = [
             kids: '¡El arco de piedra que ves en la plaza es el único trozo que queda del cuartel donde lucharon los héroes! Las estatuas que los recuerdan las hizo un escultor español que vivía en Roma, hace ya 200 años.'
           },
           architecture: {
-            adult: 'Hoy la plaza es el corazón social de Malasaña, rodeada de terrazas, bares y ambiente joven, sin perder su valor simbólico como lugar de memoria histórica.',
-            kids: '¡Ahora esta plaza está siempre llena de gente sentada en las terrazas! Es uno de los puntos de encuentro favoritos del barrio.'
+            adult: 'La plaza se organiza en torno al Arco de Monteleón y las esculturas de Daoíz y Velarde, con una zona ajardinada central y un área infantil, rodeada de bloques de viviendas del siglo XIX típicos del ensanche de Malasaña. Hoy es el corazón social del barrio, con terrazas, bares y ambiente joven, sin perder su valor simbólico como lugar de memoria histórica.',
+            kids: 'La plaza tiene el arco de piedra y las estatuas de los héroes justo en el centro, rodeadas de un jardín y una zona de juegos. A su alrededor hay edificios de viviendas de hace más de 150 años. ¡Ahora esta plaza está siempre llena de gente sentada en las terrazas! Es uno de los puntos de encuentro favoritos del barrio.'
           }
         },
         quiz: {
@@ -2916,8 +2916,8 @@ CITIES.madrid.pois = [
             kids: 'Hace mucho tiempo, esta plaza no solo era un mercado: también era el lugar donde se castigaba públicamente a quienes rompían la ley, algo muy distinto a lo que vemos en las plazas de hoy.'
           },
           architecture: {
-            adult: 'Hoy la plaza conserva su vocación comercial junto al moderno edificio del Mercado de la Cebada, en pleno corazón del castizo barrio de La Latina.',
-            kids: '¡Hoy en día la plaza sigue siendo un lugar de mercado, aunque ya no se venden caballos ni cebada!'
+            adult: 'La plaza conserva su vocación comercial junto al moderno edificio del Mercado de la Cebada, reconstruido en hormigón y líneas funcionales en 1958 tras la demolición del antiguo mercado de hierro y cristal del siglo XIX. A su alrededor se conservan casas tradicionales de pocas alturas, con miradores y balconadas, típicas del castizo barrio de La Latina, que contrastan con la sobriedad del edificio comercial.',
+            kids: '¡Hoy en día la plaza sigue siendo un lugar de mercado, aunque ya no se venden caballos ni cebada! El edificio del mercado que ves ahora es de hormigón, construido hace más de 60 años. A su alrededor todavía quedan casas antiguas y bajitas, con balcones y miradores, típicas de este barrio tan castizo de Madrid.'
           }
         },
         quiz: {
@@ -3117,8 +3117,8 @@ CITIES.madrid.pois = [
             kids: '¡Imagina un mercado fantasma hecho de hierro y cristal, con una cúpula tan alta como un edificio de cinco pisos y columnas traídas en barco desde muy lejos! Ese primer mercado ya no existe, pero fue toda una maravilla de la ingeniería en su época, mucho antes de que se construyera el que ves hoy. 👻'
           },
           architecture: {
-            adult: 'Es, junto con el de Antón Martín, uno de los mercados de abastos más grandes y tradicionales del centro histórico, corazón comercial del castizo barrio de La Latina.',
-            kids: '¡Sigue siendo uno de los mercados más grandes de todo el centro de Madrid! Aquí los vecinos del barrio hacen la compra desde hace generaciones.'
+            adult: 'El edificio actual, terminado en 1958, sustituyó por razones de higiene al vistoso mercado de hierro y cristal del siglo XIX; se construyó en hormigón armado con una gran nave diáfana de planta rectangular, priorizando la funcionalidad sobre el ornamento. Es, junto con el de Antón Martín, uno de los mercados de abastos más grandes y tradicionales del centro histórico, corazón comercial del castizo barrio de La Latina.',
+            kids: 'El edificio que ves hoy se terminó en 1958 y sustituyó al antiguo mercado de hierro y cristal, que ya no cumplía las normas de limpieza. Está hecho de hormigón, con una nave enorme y sin muchos adornos, pensada para que quepa todo lo necesario. Sigue siendo uno de los mercados más grandes de todo el centro de Madrid, donde los vecinos hacen la compra desde hace generaciones.'
           }
         },
         quiz: {
@@ -3218,8 +3218,8 @@ CITIES.madrid.pois = [
             kids: '¡Esta plaza ha cambiado de nombre oficial más de una vez! Los vecinos siempre la llamaron por su nombre popular, y hace poco el Ayuntamiento decidió recuperarlo oficialmente.'
           },
           architecture: {
-            adult: 'Pequeña y animada plaza del corazón de Malasaña, rodeada de terrazas y bares, y muy popular como punto de encuentro entre vecinos y visitantes.',
-            kids: '¡Es una plaza pequeñita pero con mucho ambiente! Está siempre llena de gente sentada charlando en las terrazas.'
+            adult: 'Plaza de trazado irregular y reducidas dimensiones, típica del urbanismo popular de Malasaña, rodeada de edificios bajos de los siglos XIX y principios del XX con balcones de forja y fachadas encaladas. Su suelo empedrado y la confluencia de calles estrechas conservan la escala íntima de un barrio pensado para pasear, hoy animado por terrazas y bares.',
+            kids: '¡Esta plaza es tan pequeña que parece un salón al aire libre! Está rodeada de edificios bajitos con balcones de hierro forjado, típicos del barrio de Malasaña, y el suelo está hecho de adoquines. Varias calles estrechas se juntan aquí, como los brazos de una estrella.'
           }
         },
         quiz: {
@@ -3368,8 +3368,8 @@ CITIES.madrid.pois = [
             kids: '¡Mira bien al suelo mientras caminas! Hay frases y versos escritos en letras doradas, escritos por autores que vivieron hace 400 años.'
           },
           architecture: {
-            adult: 'Eje cultural del Barrio de las Letras, con ambiente animado de bares y restaurantes, que conserva su identidad literaria como ninguna otra calle de Madrid.',
-            kids: '¡Es una calle llena de vida, con bares y restaurantes, pero que no ha olvidado a los escritores que la hicieron famosa!'
+            adult: 'Calle estrecha de trazado irregular, flanqueada por casas de los siglos XVII a XIX de fachadas sobrias y balcones de forja, muy propias del antiguo Madrid de los escritores. Convertida en eje cultural del Barrio de las Letras, con ambiente animado de bares y restaurantes, conserva su identidad literaria como ninguna otra calle de Madrid, reforzada por el diseño urbano que integró los versos dorados en su pavimento.',
+            kids: 'Es una calle estrecha con casas antiguas de los tiempos de los escritores, con balcones de hierro forjado. Está llena de vida, con bares y restaurantes, pero no ha olvidado a los escritores que la hicieron famosa: hasta el propio suelo por el que caminas fue diseñado para recordarlos.'
           }
         },
         quiz: {
@@ -3419,8 +3419,8 @@ CITIES.madrid.pois = [
             kids: '¡Los jardines llevan el nombre del arquitecto que construyó las caballerizas de los caballos del rey, para no olvidar lo que hubo antes en este lugar!'
           },
           architecture: {
-            adult: 'Jardines de trazado neoclásico y geometría simétrica, con setos recortados, estanques y estatuas de reyes españoles, situados en la fachada norte del Palacio Real.',
-            kids: '¡Sus setos están recortados con formas muy geométricas, como un laberinto verde! Es un lugar perfecto para pasear tranquilamente junto al Palacio Real.'
+            adult: 'Jardines de trazado neoclásico y geometría simétrica, con setos de boj recortados en formas geométricas, un estanque central rectangular y terrazas escalonadas que salvan el desnivel del terreno. Las veinte estatuas de reyes españoles que los decoran formaban parte de una serie mayor pensada originalmente para coronar la balaustrada del Palacio Real, y que nunca llegó a instalarse allí en su totalidad.',
+            kids: '¡Sus setos están recortados con formas muy geométricas, como un laberinto verde! Hay un estanque grande en el centro y el jardín está construido en varios niveles, como escalones gigantes. Las veinte estatuas de reyes que lo decoran iban a ponerse en un principio arriba del todo del Palacio Real, ¡pero nunca llegaron a colocarlas allí!'
           }
         },
         quiz: {
@@ -3839,8 +3839,8 @@ CITIES.madrid.pois = [
             kids: 'Esta iglesia empezó siendo un convento de monjas, hace más de 400 años. Tardaron muchísimos años en construirla del todo. Hace relativamente poco, en 1986, se convirtió en la catedral de los soldados españoles.'
           },
           legends: {
-            adult: 'Guarda una reliquia curiosa: una lanza que la tradición atribuye al centurión romano que atravesó el costado de Cristo.',
-            kids: '¡Dentro guardan una lanza que, según cuentan, es la misma que usó un soldado romano hace 2.000 años! Es una de las reliquias más curiosas de todo Madrid.'
+            adult: 'Guarda una reliquia singular: una lanza que la tradición vincula al centurión romano Longinos, quien según los Evangelios atravesó el costado de Cristo en la cruz y, convertido después al cristianismo, acabó venerado como santo. La punta de hierro, engastada en una funda de plata, se expone en una capilla lateral y protagoniza cada año una procesión militar en su honor.',
+            kids: '¡Dentro guardan una lanza que, según cuentan, es la misma que usó un soldado romano hace 2.000 años! La leyenda dice que aquel soldado, llamado Longinos, se convirtió después al cristianismo y hasta acabó siendo considerado santo. La lanza se guarda en una funda de plata y cada año sale en una procesión de los soldados.'
           },
           architecture: {
             adult: 'La fachada de granito, con tres arcos y un bajorrelieve de San Benito y San Bernardo adorando el Santísimo, es obra del arquitecto Pedro de Ribera, hacia 1744; la decoración interior es de Francisco Esteban, del mismo año.',
