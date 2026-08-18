@@ -2298,6 +2298,20 @@ html[data-mode="kids"] .ai-input-wrap {
   justify-content: space-between;
   margin-top: 14px;
 }
+.tutorial-back {
+  border: 0;
+  background: transparent;
+  color: var(--color-text-soft);
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 9px 4px;
+  cursor: pointer;
+}
+.tutorial-back:active { transform: scale(0.96); }
+/* En el primer paso no hay a dónde volver: se oculta con visibility (no
+   display) para que los puntos y "Siguiente" no salten de sitio al
+   aparecer/desaparecer entre pasos (ver showTutorialStep en app.js). */
+.tutorial-back[data-hidden="true"] { visibility: hidden; }
 .tutorial-dots { display: flex; gap: 6px; }
 .tutorial-dots span {
   width: 7px;
