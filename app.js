@@ -329,12 +329,11 @@
         }
         return `Bienvenido a ${n}. Soy tu guía local personalizada. A continuación un resumen ágil para que aproveches al máximo tu visita, sin perderte ningún detalle.`;
       },
+      // Nota: ya no se usa para el resumen inicial de un POI (ver
+      // buildIntroText/ensureAiPanelInitialGreet, que no depende de la IA);
+      // queda como fallback si algún día "summary" volviera a pedirse a la IA.
       summary(poi, m) {
         const historyFull = poi.tabs.history[m] || poi.tabs.history.adult || '';
-        // La primera frase ya se narró en la intro local antes de llegar
-        // aquí (ver buildBasicIntroText/ensureAiPanelInitialGreet), así que
-        // se omite para no repetirla — este resumen debe complementar, no
-        // volver a contar lo mismo que el usuario ya ha oído.
         const historyRest = historyFull.split('.').slice(1).join('.').trim();
         const historyForSummary = historyRest || historyFull;
         if (m === 'kids') {
@@ -617,17 +616,6 @@
       // pregunta del quiz), en vez del resumen inicial. Se limpia cada vez
       // que se abre una ficha para que el audio inicial vuelva a sonar.
       overrideText: null,
-      // true mientras suena la intro básica local (o el puente "dame un
-      // momento…") al abrir un lugar por primera vez, ver
-      // ensureAiPanelInitialGreet: mientras esté activo, el autoplay del
-      // resumen real de la IA (queueAiMessage) se aplaza hasta que esta
-      // secuencia termine sola, en vez de cortarla a mitad de frase.
-      introPlaying: false,
-      // true si el usuario ha pulsado pausa mientras sonaba esa intro (ver
-      // toggleAudio): a diferencia del resto de la app, aquí SÍ se permite
-      // pausar/reanudar de verdad en vez de solo cortar, para no perderse
-      // el contenido ni saltarse el aviso de que la IA sigue complementando.
-      introPaused: false,
       speech: { supported: false, utterance: null, voices: [], pickedVoice: null }
     },
     // localIntroSpoken: qué POIs ya oyeron la intro básica local narrada al
@@ -2698,7 +2686,7 @@
     // Si se repite el tutorial con un audioguía real ya sonando, se corta
     // primero (stopAudio deja bien STATE.audio y su UI, no solo la voz)
     // para no solapar dos narraciones a la vez.
-    if (STATE.audio.playing || STATE.audio.introPlaying) stopAudio();
+    if (STATE.audio.playing) stopAudio();
     overlay.hidden = false;
     // classList.add en el frame siguiente para que la transición de
     // opacidad (ver CSS) se dispare de verdad, en vez de empezar ya
@@ -2794,84 +2782,27 @@
     return STATE.ai.perPoiHistory[poiId];
   };
 
-  // Relleno narrado mientras se espera el resumen real de la IA: en vez de
-  // un saludo genérico, usa datos que ya tenemos sin depender de ninguna
-  // llamada (nombre, subtítulo y la primera frase de la historia curada de
-  // poi.tabs.history) — información real y útil, no una frase de cortesía.
-  const buildBasicIntroText = (poi, mode) => {
+  // Arma el resumen inicial completo de un POI: nombre, subtítulo e
+  // historia entera, un dato curioso (leyenda), un apunte de arquitectura,
+  // si se puede visitar o no, y cómo seguir explorando. Ya NO depende de
+  // la IA — usa contenido propio del POI, escrito y verificado igual que
+  // el resto de tabs — así que el resumen inicial funciona sin conexión,
+  // siempre igual de rápido y sin gastar cuota. La IA se reserva para
+  // "Profundiza más" y las preguntas sueltas (ver queueAiMessage), que sí
+  // necesitan generar algo que no está ya guardado.
+  //
+  // Un único texto para todo (nada de dividirlo en un "adelanto" hablado
+  // aparte y un "resto" mostrado en pantalla): lo que se narra en voz alta
+  // debe ser exactamente lo que aparece en la burbuja del chat, ni una
+  // palabra de más ni de menos.
+  const buildIntroText = (poi, mode) => {
     const name = poi.name.adult;
     const subtitle = pickDual(poi.subtitle);
     const historyFull = pickDual(poi.tabs.history) || '';
-    const firstSentence = (historyFull.split('.')[0] || '').trim();
-    const firstSentenceText = firstSentence ? `${firstSentence}.` : '';
-    return mode === 'kids'
-      ? `¡Hola! Estás en ${name}. ${subtitle}. ${firstSentenceText}`
-      : `Bienvenido a ${name}. ${subtitle}. ${firstSentenceText}`;
-  };
-
-  // Narra la intro básica local (ver buildBasicIntroText) al abrir un POI
-  // por primera vez (ensureAiPanelInitialGreet). Pausar/reanudar mientras
-  // suena usa pause()/resume() reales de la síntesis de voz (ver
-  // toggleAudio), no esta función — nunca se salta: siempre se llega a
-  // oírla completa antes del resumen real de la IA.
-  const speakBasicIntroFor = (poi) => {
-    if (!SPEECH.isSupported() || !poi) return;
-    STATE.audio.introPlaying = true;
-    STATE.audio.introPaused = false;
-    STATE.audio.overrideText = buildBasicIntroText(poi, STATE.mode);
-    if (STATE.activePoiId === poi.id) updateAudioUi(); // refleja el icono de pausa (ver updateAudioUi)
-    const proceedToReal = () => {
-      STATE.audio.introPlaying = false;
-      // Si para este punto la respuesta real ya había llegado, su propio
-      // autoplay en queueAiMessage se saltó porque introPlaying seguía
-      // activo — se dispara ahora que ya ha terminado de hablar.
-      if (!STATE.ai.pending && STATE.activePoiId === poi.id && !STATE.audio.playing) {
-        startAudio(false, true);
-      } else if (STATE.activePoiId === poi.id) {
-        updateAudioUi();
-      }
-    };
-    SPEECH.speak(({ finished } = {}) => {
-      STATE.audio.overrideText = null;
-      if (!finished) {
-        // finished=false aquí es un cancel() nuestro (pausa) o un fallo real
-        // al arrancar — ambos casos ya se gestionan en quien llamó a
-        // cancel() (toggleAudio) o se quedan simplemente sin sonar, no hay
-        // nada más que limpiar.
-        if (STATE.activePoiId === poi.id) updateAudioUi();
-        return;
-      }
-      // Si la intro termina y la IA TODAVÍA no ha respondido, un puente
-      // corto antes de quedarse esperando en silencio — mejor que un
-      // silencio sin ningún aviso de que se sigue trabajando.
-      if (STATE.ai.pending && STATE.activePoiId === poi.id) {
-        const bridgeText = STATE.mode === 'kids'
-          ? 'Dame un momento para completar esto con un poquito más de magia de IA…'
-          : 'Dame un momento para complementar esta información con IA…';
-        STATE.audio.overrideText = bridgeText;
-        SPEECH.speak(() => { STATE.audio.overrideText = null; proceedToReal(); });
-      } else {
-        proceedToReal();
-      }
-    });
-  };
-
-  // Continúa justo donde se quedó buildBasicIntroText (nombre, subtítulo y
-  // primera frase de la historia, ya narrados aparte): el resto de la
-  // historia, un dato curioso (leyenda), un apunte de arquitectura, si se
-  // puede visitar o no, y cómo seguir explorando. Ya NO depende de la IA —
-  // usa contenido propio del POI, escrito y verificado igual que el resto
-  // de tabs — así que el resumen inicial funciona sin conexión, siempre
-  // igual de rápido y sin gastar cuota. La IA se reserva para "Profundiza
-  // más" y las preguntas sueltas (ver queueAiMessage), que sí necesitan
-  // generar algo que no está ya guardado.
-  const buildFullIntroRest = (poi, mode) => {
-    const historyFull = pickDual(poi.tabs.history) || '';
-    const firstSentenceEnd = historyFull.indexOf('.');
-    const historyRest = (firstSentenceEnd >= 0 ? historyFull.slice(firstSentenceEnd + 1) : '').trim();
     const legends = poi.tabs.legends ? pickDual(poi.tabs.legends) : '';
     const architecture = poi.tabs.architecture ? pickDual(poi.tabs.architecture) : '';
 
+    const opener = mode === 'kids' ? `¡Hola! Estás en ${name}. ${subtitle}.` : `Bienvenido a ${name}. ${subtitle}.`;
     const legendBridge = legends
       ? (mode === 'kids' ? ` Aquí va un dato curioso: ${legends}` : ` Un dato curioso: ${legends}`)
       : '';
@@ -2898,30 +2829,24 @@
       ? ' Si quieres, toca "¡Cuéntame más!" para seguir descubriendo cosas. Y si necesitas el horario y el precio, tienes un botón aquí abajo.'
       : ' Si quieres profundizar en algún tema, tienes el botón "Profundiza más" aquí abajo. Y si buscas el horario y el precio exactos, ahí tienes el botón de entradas.';
 
-    return `${historyRest}${legendBridge}${archBridge}${visitLine}${cta}`;
+    return `${opener} ${historyFull}${legendBridge}${archBridge}${visitLine}${cta}`;
   };
 
   const ensureAiPanelInitialGreet = (poi) => {
     if (!poi) return;
     const history = aiHistoryFor(poi.id);
     if (history.length === 0) {
-      history.push({ role: 'greet', text: LLM.summaryGreet(poi, STATE.mode) });
       // isSummary marca de forma explícita cuál es el resumen inicial, para
       // que el audio principal en modo niño siempre lo identifique bien sin
       // depender de su posición en el historial (ver buildNarrativeText).
-      // Se guarda ya mismo (síncrono, sin esperar a ninguna IA): así, en
-      // cuanto termine de sonar la intro local de abajo, ya está listo
-      // para reproducirse sin ningún hueco de silencio de por medio.
-      history.push({ role: 'assistant', text: buildFullIntroRest(poi, STATE.mode), isSummary: true });
+      history.push({ role: 'assistant', text: buildIntroText(poi, STATE.mode), isSummary: true });
       saveState();
       STATE.ai.localIntroSpoken[poi.id] = true;
-      // Narra primero la intro local corta (nombre, subtítulo, primera
-      // frase) y, en cuanto termine, su propio "proceedToReal" dispara la
-      // reproducción del resumen completo que se acaba de guardar arriba
-      // (ver speakBasicIntroFor) — se mantiene esta división en dos aunque
-      // ya no haga falta esperar a ninguna IA, porque toggleAudio ya sabe
-      // pausar/reanudar cada una de las dos partes por separado.
-      if (SPEECH.isSupported() && !STATE.audio.playing) speakBasicIntroFor(poi);
+      // Ya no hace falta ningún "adelanto" hablado aparte mientras se
+      // espera a la IA (el texto de arriba está listo al instante): se
+      // reproduce directo por el camino normal, igual que cualquier otra
+      // narración (ver startAudio).
+      if (SPEECH.isSupported() && !STATE.audio.playing) startAudio(false, true);
     }
     renderAiMessages();
     scrollAiToBottom();
@@ -3140,7 +3065,11 @@
       wrap.className = 'ai-msg' + (user ? ' -user' : '');
       const av = document.createElement('div');
       av.className = 'ai-msg-avatar';
-      av.textContent = user ? (STATE.mode === 'kids' ? '🧒' : '👤') : '✨';
+      // El resumen inicial (isSummary) ya no lo genera la IA — usa un icono
+      // de narración/altavoz para no dar a entender que es contenido de IA;
+      // el resto de respuestas (profundizar, preguntas sueltas) sí lo son,
+      // y mantienen el icono de IA.
+      av.textContent = user ? (STATE.mode === 'kids' ? '🧒' : '👤') : (msg.isSummary ? '🔊' : '✨');
       const bubble = document.createElement('div');
       bubble.className = 'ai-msg-bubble';
       bubble.textContent = msg.text || '';
@@ -3265,12 +3194,8 @@
       // mientras esto carga, pero por si acaso (p.ej. una pestaña que
       // quedó reproduciendo audio de otro momento) no forzamos nunca un
       // reinicio en pleno play: eso es justo lo que sonaba como un audio
-      // que "se refresca solo" a los pocos segundos. Tampoco si todavía
-      // suena la intro básica local (introPlaying, ver
-      // ensureAiPanelInitialGreet): se deja terminar entera en vez de
-      // cortarla — en cuanto acabe, ella misma dispara este autoplay si
-      // para entonces ya está lista la respuesta real.
-      if (STATE.activePoiId === poi.id && !STATE.audio.playing && !STATE.audio.introPlaying) startAudio(false, true);
+      // que "se refresca solo" a los pocos segundos.
+      if (STATE.activePoiId === poi.id && !STATE.audio.playing) startAudio(false, true);
     } catch (e) {
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
@@ -4260,22 +4185,6 @@
   }
   const toggleAudio = () => {
     if (!STATE.activePoiId) return;
-    // Mientras suena la intro básica local (ver speakBasicIntroFor) el botón
-    // permite pausar/reanudar de verdad (pause()/resume() reales) — nunca
-    // saltarla, siempre se llega a oírla entera antes de la información
-    // complementaria de la IA.
-    if (STATE.audio.introPlaying) {
-      if (STATE.audio.introPaused) {
-        STATE.audio.introPaused = false;
-        SPEECH.resume();
-        updateAudioUi();
-      } else {
-        STATE.audio.introPaused = true;
-        SPEECH.pause();
-        updateAudioUi();
-      }
-      return;
-    }
     if (STATE.audio.playing) {
       const canPause = STATE.audio.engine === 'cloud' || SPEECH.isSupported();
       if (canPause && STATE.audio.currentTime > 0 && STATE.audio.currentTime < STATE.audio.duration) {
@@ -4422,12 +4331,6 @@
 
   const stopAudio = () => {
     STATE.audio.playing = false;
-    // Por si se cierra la ficha o se cambia de lugar en pleno relleno
-    // narrado (ver ensureAiPanelInitialGreet): sin esto, este flag se
-    // quedaría "encallado" a true y bloquearía para siempre el autoplay
-    // del resumen real del lugar que se abra después.
-    STATE.audio.introPlaying = false;
-    STATE.audio.introPaused = false;
     clearInterval(STATE.audio.timer);
     STATE.audio.timer = null;
     SPEECH.cancel();
@@ -4450,13 +4353,7 @@
     const c = els.sheet;
     const player = $('.audio-player', c), btn = $('.play-btn', c), fill = $('.progress-fill', c), time = $('.audio-time', c);
     if (!player || !btn || !fill || !time) return;
-    // La intro básica local (ver ensureAiPanelInitialGreet) suena por fuera
-    // de STATE.audio.playing, pero de cara al usuario SÍ hay audio sonando
-    // — mostrar el icono de play ahí (como si no pasara nada) confundía,
-    // así que también cuenta como "reproduciendo" para el icono (salvo que
-    // esté en pausa de verdad, ver toggleAudio).
-    const introActivelyPlaying = STATE.audio.introPlaying && !STATE.audio.introPaused;
-    btn.innerHTML = (STATE.audio.playing || introActivelyPlaying) ? ICONS.pause : ICONS.play;
+    btn.innerHTML = STATE.audio.playing ? ICONS.pause : ICONS.play;
     // Mientras se está generando una respuesta nueva (STATE.ai.pending) y
     // no hay nada sonando todavía, se deshabilita el play: si se pudiera
     // arrancar en ese hueco, sonaría con el texto de respaldo (tabs.history)
@@ -4464,9 +4361,7 @@
     // solo con el texto correcto — el "audio que se refresca a los 8s"
     // que reportó un usuario. Una vez playing=true no se vuelve a tocar
     // este disabled, para no bloquear pausar/reanudar mientras suena.
-    // Tampoco se deshabilita mientras suena la intro: se deja tocable a
-    // propósito, para poder saltársela (ver toggleAudio).
-    btn.disabled = STATE.ai.pending && !STATE.audio.playing && !STATE.audio.introPlaying;
+    btn.disabled = STATE.ai.pending && !STATE.audio.playing;
     const dur = STATE.audio.duration || 1;
     fill.style.width = `${Math.min(100, (STATE.audio.currentTime / dur) * 100)}%`;
     time.textContent = `${fmtTime(STATE.audio.currentTime)} / ${fmtTime(dur)}`;
