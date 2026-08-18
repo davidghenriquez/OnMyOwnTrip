@@ -537,10 +537,23 @@
           const topicMeta = AI_TOPIC_NAMES[topicId];
           const topicLabel = topicMeta ? (topicMeta[mode] || topicMeta.adult) : (mode === 'kids' ? 'esto' : 'este tema');
           const fn = AI_PROMPTS.deepen && AI_PROMPTS.deepen[mode];
-          if (typeof fn === 'function') return fn(poi, topicLabel);
-          return mode === 'kids'
+          const base = typeof fn === 'function' ? fn(poi, topicLabel) : (mode === 'kids'
             ? `Sigue contándome más sobre ${topicLabel}, un dato nuevo que no hayas contado antes.`
-            : `Continúa profundizando sobre ${topicLabel}, con un dato nuevo, más concreto y que no hayas mencionado antes. No te repitas.`;
+            : `Continúa profundizando sobre ${topicLabel}, con un dato nuevo, más concreto y que no hayas mencionado antes. No te repitas.`);
+          // alreadySaid aquí es TODO lo que ya se ha narrado sobre este
+          // lugar en esta sesión (el resumen inicial + cada párrafo de
+          // "profundiza más" anterior, sea de la IA o de un relleno local
+          // — el usuario lo ha oído igual, ver queueDeepenWithFillers).
+          // Cada llamada a la IA es independiente y no tiene memoria de
+          // las anteriores, así que sin esto el modelo tiende a repetir
+          // una y otra vez los mismos datos "estrella" del sitio (los
+          // Stradivarius, la misma leyenda...), solo que con otras
+          // palabras — justo lo que se pide evitar al pulsar "profundiza
+          // más" varias veces seguidas.
+          if (alreadySaid) {
+            return `${base}\n\nIMPORTANTE: esto es TODO lo que ya se le ha contado al usuario sobre este lugar hasta ahora — no repitas nada de esto, ni los mismos datos con otras palabras: "${alreadySaid}"\n\nAporta información realmente nueva y distinta a todo lo anterior.`;
+          }
+          return base;
         }
         if (optionId) {
           const opt = (AI_PROMPTS.options || []).find((o) => o.id === optionId);
@@ -3204,6 +3217,14 @@
     const launchAiQuery = () => {
       const entry = { settled: false, text: null };
       deepenInFlight[poi.id] = entry;
+      // Todo lo narrado hasta este momento (resumen inicial + cada
+      // párrafo de "profundiza más" ya mostrado, IA o relleno local): se
+      // le pasa a la IA para que no se repita (ver queryFor). Se toma una
+      // instantánea AHORA, no en el momento en que se consuma la
+      // respuesta — lo que se diga DESPUÉS de lanzar esta consulta no
+      // puede conocerlo, es información que todavía no existe.
+      const saidSoFar = hist.filter((m) => m.role === 'assistant').map((m) => m.text).join('\n\n');
+      const alreadySaid = saidSoFar.length > 6000 ? saidSoFar.slice(-6000) : saidSoFar;
       LLM.generate({
         poi,
         mode: STATE.mode,
@@ -3211,7 +3232,7 @@
         optionId: optionId ?? null,
         cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad',
         concise: false,
-        alreadySaid: null
+        alreadySaid: alreadySaid || null
       }).catch(() => fallbackText).then((text) => { entry.settled = true; entry.text = text; });
       return entry;
     };
