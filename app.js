@@ -2344,23 +2344,23 @@
   const TUTORIAL_STEPS = [
     {
       target: '#explorerBadge',
-      title: '¡Hola! 👋',
-      text: 'Vamos a ayudar a Billy a conseguir objetos de explorador para su aventura. Te cuento rápido cómo funciona todo.'
+      title: '¡Hola, gran explorador! 🌟',
+      text: '¡Qué aventura nos espera! Vamos a ayudar a Billy a prepararse para su viaje. Escucha bien, que te cuento el secreto para conseguirlo.'
     },
     {
       target: '#map',
-      title: 'Toca los puntos del mapa 🗺️',
-      text: 'Cada punto brillante esconde una historia, una leyenda o un secreto. ¡Tócalo para descubrirlo!'
+      title: 'Cada punto esconde un secreto 🗺️',
+      text: 'Mira todos esos puntos brillantes del mapa: cada uno guarda una leyenda, un secreto... ¡y una pregunta para poner a prueba tu ingenio! Tócalos para descubrirlos.'
     },
     {
       target: '#pointsBadge',
-      title: 'Gana estrellas ⭐',
-      text: 'En cada lugar puedes responder preguntas. Si aciertas, ganas estrellas — ¡cuantas más lugares visites, más estrellas!'
+      title: '¡Responde bien y gana estrellas! ⭐',
+      text: 'Si aciertas la pregunta de un lugar, ganas estrellas. ¡Cuantos más secretos descubras, más estrellas brillarán aquí arriba!'
     },
     {
       target: '#rewardChestBtn',
-      title: 'Llena la mochila de Billy 🎒',
-      text: 'Con esas estrellas desbloqueáis objetos de explorador para su mochila de viaje. ¡Ayudemos a Billy a conseguirlos todos!'
+      title: 'Canjea tus estrellas 🎒',
+      text: 'Con esas estrellas puedes reclamar recompensas geniales para la mochila de Billy: una brújula, un mapa del tesoro ¡y muchas sorpresas más! ¿Le ayudamos a conseguirlas todas?'
     }
   ];
   let tutorialStepIndex = 0;
