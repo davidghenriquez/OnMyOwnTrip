@@ -16,7 +16,7 @@
 // Sube este número cuando cambies la lista SHELL_URLS de aquí abajo
 // (los propios archivos versionados con "?v=N" ya se cachean solos con
 // su nueva clave la primera vez que se piden, sin necesidad de tocar esto).
-const CACHE_VERSION = 'v105';
+const CACHE_VERSION = 'v107';
 const SHELL_CACHE = `omot-shell-${CACHE_VERSION}`;
 const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
 
@@ -35,7 +35,7 @@ const SHELL_URLS = [
   './index.html',
   './app.js?v=102',
   './data/core.js?v=13',
-  './styles.css?v=40',
+  './styles.css?v=41',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
   'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css',
@@ -93,7 +93,19 @@ self.addEventListener('fetch', (event) => {
       if (cached) return cached;
       try {
         const res = await fetch(request);
-        if (res && (res.ok || res.type === 'opaque')) cache.put(request, res.clone());
+        if (res && res.ok) {
+          cache.put(request, res.clone());
+        } else if (res && res.type === 'opaque') {
+          // Las imágenes de Wikimedia se piden sin CORS, así que la
+          // respuesta siempre llega "opaca": no se puede leer su status
+          // real, un fallo de red camuflado de opaca se ve exactamente
+          // igual que un éxito. Sin este chequeo, un fallo transitorio se
+          // cachearía como si fuera la imagen real y quedaría vacía para
+          // siempre (bug real: encontrado con una imagen cacheada a 0
+          // bytes que nunca volvía a reintentar red).
+          const blob = await res.clone().blob();
+          if (blob.size > 0) cache.put(request, res.clone());
+        }
         return res;
       } catch (e) {
         return cached || Response.error();
