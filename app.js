@@ -2344,8 +2344,8 @@
   const TUTORIAL_STEPS = [
     {
       target: '#explorerBadge',
-      title: '¡Hola, soy Billy! 👋',
-      text: 'Voy a explorar contigo. Te cuento rápido cómo funciona todo antes de empezar la aventura.'
+      title: '¡Hola! 👋',
+      text: 'Vamos a ayudar a Billy a conseguir objetos de explorador para su aventura. Te cuento rápido cómo funciona todo.'
     },
     {
       target: '#map',
@@ -2359,8 +2359,8 @@
     },
     {
       target: '#rewardChestBtn',
-      title: 'Llena mi mochila 🎒',
-      text: 'Con esas estrellas desbloqueas objetos de exploradora o explorador para mi mochila de viaje. ¡Ayúdame a conseguirlos todos!'
+      title: 'Llena la mochila de Billy 🎒',
+      text: 'Con esas estrellas desbloqueáis objetos de explorador para su mochila de viaje. ¡Ayudemos a Billy a conseguirlos todos!'
     }
   ];
   let tutorialStepIndex = 0;
@@ -2385,6 +2385,23 @@
     spotlight.style.borderRadius = step.target === '#map' ? '18px' : `${Math.min(rect.width, rect.height) / 2 + pad}px`;
   };
 
+  // Narra cada paso con el mismo motor SPEECH (Web Speech API) que ya usa
+  // el audioguía, reutilizando el mecanismo de "texto puntual" (ver
+  // overrideText/speakCallText) en vez de duplicar lógica de voces/ritmo.
+  // stopTutorialSpeech() limpia overrideText a mano en vez de esperar al
+  // callback de SPEECH.speak: un cancel() a mitad de frase dispara un
+  // "canceled" que el propio motor traga a propósito (no llama al
+  // callback), así que hay que soltar el texto puntual aquí mismo.
+  const stopTutorialSpeech = () => {
+    SPEECH.cancel();
+    STATE.audio.overrideText = null;
+  };
+  const speakTutorialStep = (step) => {
+    if (!SPEECH.isSupported()) return;
+    STATE.audio.overrideText = `${step.title}. ${step.text}`;
+    SPEECH.speak(() => { STATE.audio.overrideText = null; });
+  };
+
   const showTutorialStep = (index) => {
     tutorialStepIndex = Math.max(0, Math.min(index, TUTORIAL_STEPS.length - 1));
     const step = TUTORIAL_STEPS[tutorialStepIndex];
@@ -2404,12 +2421,15 @@
     // abrir la app recién ahora, el layout (mapa, cabecera) puede no estar
     // del todo asentado todavía en este mismo tick.
     requestAnimationFrame(positionTutorialSpotlight);
+    stopTutorialSpeech();
+    speakTutorialStep(step);
   };
 
   const closeTutorial = (markSeen = true) => {
     const overlay = $('#tutorialOverlay');
     overlay?.classList.remove('-open');
     if (overlay) overlay.hidden = true;
+    stopTutorialSpeech();
     if (markSeen) {
       try { localStorage.setItem(TUTORIAL_SEEN_KEY, '1'); } catch (_) {}
     }
@@ -2422,6 +2442,10 @@
   const startTutorial = () => {
     const overlay = $('#tutorialOverlay');
     if (!overlay) return;
+    // Si se repite el tutorial tocando a Billy con un audioguía real ya
+    // sonando, se corta primero (stopAudio deja bien STATE.audio y su UI,
+    // no solo la voz) para no solapar dos narraciones a la vez.
+    if (STATE.audio.playing || STATE.audio.introPlaying) stopAudio();
     overlay.hidden = false;
     // classList.add en el frame siguiente para que la transición de
     // opacidad (ver CSS) se dispare de verdad, en vez de empezar ya
