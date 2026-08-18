@@ -3066,10 +3066,20 @@
       const av = document.createElement('div');
       av.className = 'ai-msg-avatar';
       // El resumen inicial (isSummary) ya no lo genera la IA — usa un icono
-      // de narración/altavoz para no dar a entender que es contenido de IA;
-      // el resto de respuestas (profundizar, preguntas sueltas) sí lo son,
-      // y mantienen el icono de IA.
-      av.textContent = user ? (STATE.mode === 'kids' ? '🧒' : '👤') : (msg.isSummary ? '🔊' : '✨');
+      // propio de narración/altavoz para no dar a entender que es contenido
+      // de IA; el resto de respuestas (profundizar, preguntas sueltas) sí lo
+      // son, y mantienen el icono de IA (✨).
+      if (user) {
+        av.textContent = STATE.mode === 'kids' ? '🧒' : '👤';
+      } else if (msg.isSummary) {
+        const icon = document.createElement('img');
+        icon.className = 'ai-msg-avatar-icon';
+        icon.src = 'assets/icons/narration.png';
+        icon.alt = '';
+        av.appendChild(icon);
+      } else {
+        av.textContent = '✨';
+      }
       const bubble = document.createElement('div');
       bubble.className = 'ai-msg-bubble';
       bubble.textContent = msg.text || '';
