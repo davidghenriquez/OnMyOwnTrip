@@ -160,18 +160,17 @@ CITIES.berlin.pois = [
             kids: '¡Los 2.711 bloques de hormigón no siguen ningún plan que se pueda adivinar a simple vista! Puedes entrar por cualquier lado, no hay un camino marcado. Cuanto más te metes hacia el centro, más altos se vuelven los bloques y menos ves a la gente de alrededor: está pensado así a propósito, para que sientas algo distinto según por dónde camines.'
           }
         },
+        // Sin quiz de "legends": el único hecho contrastado y verificable
+        // de ese tab (el escándalo de 2003 de la empresa Degussa) exige
+        // nombrar las cámaras de gas nazis para tener sentido, un detalle
+        // que el propio texto kids de este tab evita a propósito — mejor
+        // no tener pregunta ahí que forzar una que reintroduzca ese dato.
         quiz: {
           'secret-history': {
             question: '¿A cuántas personas judías recuerda este monumento?',
             options: ['A los seis millones asesinados en el Holocausto', 'A mil soldados', 'A una sola familia'],
             correct: 0,
             reveal: 'A los seis millones de judíos europeos asesinados durante el Holocausto. El monumento se inauguró en 2005, tras casi dos décadas de debate sobre cómo recordarlos. 🕯️'
-          },
-          legends: {
-            question: '¿Por qué se paralizó la construcción unas semanas en 2003?',
-            options: ['Por el pasado de la empresa que fabricaba un recubrimiento para los bloques', 'Por falta de dinero', 'Por culpa del mal tiempo'],
-            correct: 0,
-            reveal: 'Se descubrió que esa empresa había sido matriz de la compañía que fabricó el gas usado en las cámaras de gas nazis. Tras el escándalo, decidieron continuar igualmente.'
           },
           architecture: {
             question: '¿Hay un camino marcado o una entrada única para recorrer los bloques?',
