@@ -655,7 +655,14 @@
     // a sonar (solo suena la primera vez que se crea su historial), así que
     // buildNarrativeText debe poder seguir añadiendo su propio saludo de
     // respaldo en ese caso, en vez de asumir que ya se dijo el nombre.
-    ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {}, localIntroSpoken: {} },
+    // deepenProgress: por POI, el "programa" de 10 puntos de "profundiza
+    // más" con IA real (ver queueDeepenWithFillers) — titles (los 10
+    // títulos ya pedidos a la IA, null hasta que llega esa respuesta),
+    // nextIndex (el próximo punto a desarrollar, 1-based), exhausted (ya
+    // se mostraron los 10, el chip queda deshabilitado) y fallback (la
+    // respuesta inicial no se pudo interpretar como títulos+desarrollo,
+    // así que este POI vuelve al sistema anterior sin tope de 10).
+    ai: { perPoiHistory: {}, pending: false, currentTopic: {}, explored: {}, localIntroSpoken: {}, deepenProgress: {} },
     // Gamificación (modo niño): puntos por preguntas acertadas. "answered" guarda
     // qué combinaciones "poiId:topicId" ya sumaron puntos, para no poder
     // "granjear" puntos repitiendo la misma pregunta una y otra vez.
@@ -683,7 +690,8 @@
         ai: {
           perPoiHistory: STATE.ai.perPoiHistory,
           currentTopic: STATE.ai.currentTopic,
-          explored
+          explored,
+          deepenProgress: STATE.ai.deepenProgress
         },
         game: STATE.game
       }));
@@ -704,6 +712,7 @@
           explored[poiId] = new Set(arr);
         });
         STATE.ai.explored = explored;
+        STATE.ai.deepenProgress = saved.ai.deepenProgress || {};
       }
       if (saved.game) {
         STATE.game.points = Number(saved.game.points) || 0;
@@ -2910,7 +2919,12 @@
     // "Profundiza más" va siempre el primero de los de IA, incluso antes de
     // elegir un tema (en ese caso profundiza sobre el resumen inicial, no
     // sobre un tema concreto); luego, hasta 2 temas sin explorar todavía.
-    chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel) });
+    // Se deshabilita en cuanto se agotan los 10 puntos programados (ver
+    // queueDeepenWithFillers): a partir de ahí, seguir pulsando no daría
+    // nada nuevo con garantías, así que se redirige a la pregunta libre
+    // (el propio texto del punto 10 ya se lo indica al usuario).
+    const deepenExhausted = !!(STATE.ai.deepenProgress[poiId] && STATE.ai.deepenProgress[poiId].exhausted);
+    chips.push({ id: 'deepen', kind: 'deepen', label: pickDual(AI_PROMPTS.deepenLabel), disabled: deepenExhausted });
     const remaining = (AI_PROMPTS?.options || []).filter((o) => !exploredSet.has(o.id));
     remaining.slice(0, 2).forEach((o) => chips.push({ id: o.id, kind: 'option', label: pickDual(o.label) }));
     if (remaining.length === 0) chips.push({ id: 'reset', kind: 'reset', label: pickDual(AI_PROMPTS.resetLabel) });
@@ -2921,7 +2935,7 @@
       b.className = 'suggest-chip';
       const iconKind = chip.kind === 'option' ? chip.id : chip.kind;
       b.innerHTML = `<span class="suggest-chip-icon">${suggestIconSvg(iconKind)}</span><span>${chip.label}</span>`;
-      if (disabled) b.setAttribute('disabled', 'true');
+      if (disabled || chip.disabled) b.setAttribute('disabled', 'true');
       b.addEventListener('click', () => {
         if (!STATE.activePoiId || STATE.ai.pending) return;
         const poi = POIS.find((p) => p.id === STATE.activePoiId);
@@ -3204,6 +3218,83 @@
   // significan esos dos iconos.
   const deepenInFlight = {};
 
+  // "Profundiza más" con IA real usa un guion fijo de 10 puntos en vez de
+  // pedirle a la IA en cada llamada que "no repita" lo ya dicho (eso era
+  // solo un ruego: en pruebas reales, la IA repetía igualmente el mismo
+  // dato "estrella" del sitio en 3 de 4 respuestas seguidas, ver historial
+  // de V23.5). Ahora:
+  //   1) La PRIMERA llamada real pide el TÍTULO de 10 datos distintos y
+  //      poco correlacionados sobre el lugar, y desarrolla solo el primero
+  //      en la misma respuesta (un único viaje de red).
+  //   2) Cada llamada siguiente pide desarrollar un punto concreto ya
+  //      titulado — al apuntar a un ángulo distinto por diseño, ya no hace
+  //      falta pedirle que "no repita", así que la garantía es estructural
+  //      y no depende de que la IA obedezca una instrucción.
+  //   3) Al mostrarse el desarrollo del punto 10, se cierra el guion: se
+  //      añade una frase invitando a preguntar algo concreto en el chat de
+  //      texto, y el chip se deshabilita para ese POI (ver
+  //      renderAiSuggestions).
+  // Si la respuesta inicial no llega en el formato esperado (la IA no
+  // siempre es disciplinada con el formato pedido), se descarta y este POI
+  // cae de forma permanente al sistema anterior de una sola tanda con
+  // "alreadySaid" — sin tope de 10, como red de seguridad.
+  const buildStructuredInitPrompt = (poi) => {
+    const name = poi.name.adult;
+    return `Quiero explorar ${name} en profundidad, en varias tandas cortas.
+
+Primero, dame el TÍTULO (muy corto, entre 3 y 8 palabras) de 10 datos o curiosidades DISTINTAS y poco correlacionadas entre sí sobre este lugar: mezcla historia, arquitectura, leyendas, anécdotas, detalles secretos, curiosidades poco conocidas... cuanto más variados los ángulos entre sí, mejor. No desarrolles nada todavía en esta lista, solo los títulos.
+
+Después, desarrolla en detalle SOLO el primero de esos 10 puntos (150-180 palabras, con datos concretos).
+
+Responde EXACTAMENTE con este formato, sin nada más antes ni después:
+
+TITULOS:
+1. (título)
+2. (título)
+3. (título)
+4. (título)
+5. (título)
+6. (título)
+7. (título)
+8. (título)
+9. (título)
+10. (título)
+
+DESARROLLO:
+(desarrollo del punto 1)`;
+  };
+  const buildStructuredPointPrompt = (poi, title) => {
+    const name = poi.name.adult;
+    return `Seguimos explorando ${name}. Desarrolla en detalle este punto concreto (150-180 palabras, con datos concretos): "${title}"
+
+Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no numeres nada, no añadas nada más antes ni después.`;
+  };
+  // Exige al menos 5 títulos bien formados (de los 10 pedidos) para
+  // aceptar la respuesta — con menos que eso, la variedad prometida no se
+  // cumple de verdad y es mejor cortar por el sistema de respaldo.
+  const parseStructuredInit = (text) => {
+    // Tolerante a que la IA "corrija" el acento aunque se pida sin él
+    // (TITULOS/TÍTULOS) — el resto del formato si debe respetarse.
+    const titlesMatch = (text || '').match(/T[IÍ]TULOS:\s*([\s\S]*?)DESARROLLO:/i);
+    const bodyMatch = (text || '').match(/DESARROLLO:\s*([\s\S]*)$/i);
+    if (!titlesMatch || !bodyMatch) return null;
+    const titles = titlesMatch[1].split('\n')
+      .map((l) => l.trim())
+      .map((l) => l.match(/^\d+[.)]\s*(.+)$/))
+      .filter(Boolean)
+      .map((m) => m[1].trim())
+      .filter(Boolean);
+    const body = bodyMatch[1].trim();
+    if (titles.length < 5 || !body) return null;
+    return { titles, body };
+  };
+  const deepenProgressFor = (poiId) => {
+    if (!STATE.ai.deepenProgress[poiId]) {
+      STATE.ai.deepenProgress[poiId] = { titles: null, nextIndex: 1, exhausted: false, fallback: false };
+    }
+    return STATE.ai.deepenProgress[poiId];
+  };
+
   const queueDeepenWithFillers = async ({ poi, optionId, userText }) => {
     if (!poi || STATE.ai.pending) return;
     const hist = aiHistoryFor(poi.id);
@@ -3211,29 +3302,42 @@
     const fallbackText = STATE.mode === 'kids'
       ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
       : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).';
+    const progress = deepenProgressFor(poi.id);
 
     // Lanza (sin esperar aquí) una consulta real nueva y la registra como
-    // la consulta en curso para este POI.
+    // la consulta en curso para este POI. Qué pide exactamente depende de
+    // en qué punto del guion de 10 vamos (ver comentario de arriba).
     const launchAiQuery = () => {
       const entry = { settled: false, text: null };
       deepenInFlight[poi.id] = entry;
-      // Todo lo narrado hasta este momento (resumen inicial + cada
-      // párrafo de "profundiza más" ya mostrado, IA o relleno local): se
-      // le pasa a la IA para que no se repita (ver queryFor). Se toma una
-      // instantánea AHORA, no en el momento en que se consuma la
-      // respuesta — lo que se diga DESPUÉS de lanzar esta consulta no
-      // puede conocerlo, es información que todavía no existe.
-      const saidSoFar = hist.filter((m) => m.role === 'assistant').map((m) => m.text).join('\n\n');
-      const alreadySaid = saidSoFar.length > 6000 ? saidSoFar.slice(-6000) : saidSoFar;
-      LLM.generate({
-        poi,
-        mode: STATE.mode,
-        userQuery: userText ?? null,
-        optionId: optionId ?? null,
-        cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad',
-        concise: false,
-        alreadySaid: alreadySaid || null
-      }).catch(() => fallbackText).then((text) => { entry.settled = true; entry.text = text; });
+
+      let genParams;
+      if (progress.fallback) {
+        // Red de seguridad: la respuesta inicial no se pudo interpretar
+        // como títulos+desarrollo, así que este POI vuelve al sistema
+        // anterior (una tanda suelta con todo lo narrado hasta ahora,
+        // pidiéndole a la IA que no lo repita).
+        const saidSoFar = hist.filter((m) => m.role === 'assistant').map((m) => m.text).join('\n\n');
+        const alreadySaid = saidSoFar.length > 6000 ? saidSoFar.slice(-6000) : saidSoFar;
+        genParams = {
+          poi, mode: STATE.mode, userQuery: userText ?? null, optionId: optionId ?? null,
+          cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad', concise: false,
+          alreadySaid: alreadySaid || null
+        };
+      } else if (!progress.titles) {
+        genParams = {
+          poi, mode: STATE.mode, userQuery: buildStructuredInitPrompt(poi), optionId: null,
+          cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad', concise: false, alreadySaid: null
+        };
+      } else {
+        const title = progress.titles[progress.nextIndex - 1];
+        genParams = {
+          poi, mode: STATE.mode, userQuery: buildStructuredPointPrompt(poi, title), optionId: null,
+          cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad', concise: false, alreadySaid: null
+        };
+      }
+
+      LLM.generate(genParams).catch(() => fallbackText).then((text) => { entry.settled = true; entry.text = text; });
       return entry;
     };
 
@@ -3246,13 +3350,40 @@
 
     let text, pregen;
     if (entry.settled) {
-      text = entry.text;
       pregen = false;
-      // Se consume esta respuesta: se lanza la siguiente consulta ya
-      // mismo, para que tenga de margen toda la duración de ESTE audio
-      // antes de que el usuario vuelva a pedir más (ver comentario de
-      // arriba).
-      launchAiQuery();
+      if (!progress.titles && !progress.fallback) {
+        const parsed = parseStructuredInit(entry.text);
+        if (parsed) {
+          progress.titles = parsed.titles;
+          progress.nextIndex = 2;
+          text = parsed.body;
+          launchAiQuery();
+        } else {
+          // No se pudo interpretar el formato: se descarta esta respuesta
+          // (podría venir a medio formar) y se cae al sistema de
+          // respaldo, mostrando relleno local en ESTE click mientras esa
+          // primera consulta de respaldo viaja.
+          progress.fallback = true;
+          launchAiQuery();
+          text = LLM.localDeepen(poi, STATE.mode, topicId);
+          pregen = true;
+        }
+      } else if (progress.fallback) {
+        text = entry.text;
+        launchAiQuery();
+      } else {
+        text = entry.text;
+        progress.nextIndex += 1;
+        if (progress.nextIndex > progress.titles.length) {
+          progress.exhausted = true;
+          const closing = STATE.mode === 'kids'
+            ? '\n\n¡Eso es todo lo que tengo preparado sobre este lugar! Si quieres saber algo muy concreto, escríbeme tu pregunta aquí abajo.'
+            : '\n\nEso es todo lo que tengo preparado sobre este lugar. Si quieres saber algo muy concreto, escríbeme tu pregunta aquí abajo.';
+          text += closing;
+        } else {
+          launchAiQuery();
+        }
+      }
     } else {
       text = LLM.localDeepen(poi, STATE.mode, topicId);
       pregen = true;
