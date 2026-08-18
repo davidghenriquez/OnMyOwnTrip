@@ -2380,6 +2380,16 @@
       text: 'Una herramienta pensada para ayudarte a aprender más de cada sitio turístico a tu propio ritmo: historia verificada, curiosidades y una guía IA siempre disponible, todo narrado mientras caminas. Te cuento en unos segundos cómo sacarle el máximo partido.'
     },
     {
+      target: '#changeCityBtn',
+      title: 'Vuelve al inicio cuando quieras',
+      text: 'Este botón te lleva al menú principal para cambiar de ciudad o de modo, adultos o niños. Tranquilo: tu progreso no se borra al volver.'
+    },
+    {
+      target: '#filters',
+      title: 'La barra de filtros',
+      text: 'Con estas pestañas filtras el mapa para ver solo lo que te interesa en cada momento. Repasemos cada opción:'
+    },
+    {
       target: '.pill[data-category="all"]',
       title: '«Todos»',
       text: 'Muestra en el mapa todos los puntos de interés de la ciudad, sin ningún filtro aplicado.'
@@ -2406,8 +2416,8 @@
     },
     {
       target: '#map',
-      title: 'Toca cualquier punto del mapa',
-      text: 'Cada marcador abre su historia, contexto y curiosidades, con la opción de escucharlo narrado en lugar de leerlo.'
+      title: 'Los puntos del mapa',
+      text: 'Cada marcador del mapa abre su historia, contexto y curiosidades, con la opción de escucharlo narrado en lugar de leerlo.'
     },
     {
       target: '#bottomSheet',
@@ -2420,6 +2430,11 @@
       demoSheet: true,
       title: 'Pregunta como prefieras',
       text: 'Escribe tu duda, pulsa el micrófono para preguntarla en voz alta, o toca el icono de ondas para iniciar una llamada de voz completa con la guía.'
+    },
+    {
+      target: '#mapTools',
+      title: 'Herramientas del mapa',
+      text: 'Abajo a la derecha tienes accesos rápidos para identificar lugares, encontrar agua o ubicarte. Vamos una a una:'
     },
     {
       target: '#fountainsBtn',
