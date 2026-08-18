@@ -3073,13 +3073,17 @@
       wrap.className = 'ai-msg' + (user ? ' -user' : '');
       const av = document.createElement('div');
       av.className = 'ai-msg-avatar';
-      // El resumen inicial (isSummary) ya no lo genera la IA — usa un icono
-      // propio de narración/altavoz para no dar a entender que es contenido
-      // de IA; el resto de respuestas (profundizar, preguntas sueltas) sí lo
-      // son, y mantienen el icono de IA (✨).
+      // El resumen inicial (isSummary) y los párrafos de relleno local de
+      // "profundiza más" (pregen, ver queueDeepenWithFillers) no los genera
+      // la IA — usan el icono propio de narración/altavoz para no dar a
+      // entender que es contenido de IA; el resto de respuestas (la
+      // respuesta real de profundizar, preguntas sueltas) sí lo son, y
+      // mantienen el icono de IA (✨). Es la única forma de diferenciarlos
+      // a simple vista, a propósito discreta: para un cliente son solo dos
+      // iconos distintos, sin que se entienda qué significan.
       if (user) {
         av.textContent = STATE.mode === 'kids' ? '🧒' : '👤';
-      } else if (msg.isSummary) {
+      } else if (msg.isSummary || msg.pregen) {
         const icon = document.createElement('img');
         icon.className = 'ai-msg-avatar-icon';
         icon.src = 'assets/icons/narration.png';
@@ -3147,74 +3151,79 @@
     if (STATE.activePoiId === poi.id) startAudio(false, true);
   };
 
-  // "Profundiza más" con IA real puede tardar bastante (el modelo actual
-  // ronda los 45s con la configuración de max_tokens que usamos, ver el
-  // timeout de fetchOpenAI): en vez de dejar al usuario mirando el
-  // indicador de "escribiendo…" todo ese rato, se reproduce al instante un
-  // párrafo "profundiza" ya armado en local (mismo pool de datos que usa
-  // el simulador offline, SIM.deepen vía LLM.localDeepen) mientras la
-  // respuesta real llega de fondo. Si al terminar ese primer relleno la
-  // IA real todavía no ha contestado, se reproduce un segundo relleno
-  // distinto antes de rendirse y esperar sin más relleno. Nunca se corta
-  // un audio a mitad de frase: la comprobación de si ya llegó la
-  // respuesta real solo se hace al terminar de forma natural el audio en
-  // curso, nunca a mitad.
-  // "pregen: true" en el historial es solo una marca interna — no se
-  // muestra en ningún sitio de la interfaz (renderAiMessages la ignora) —
-  // para poder distinguir más adelante, si hace falta depurar algo, qué
-  // burbujas fueron relleno local y cuál fue la respuesta real.
+  // Registro en memoria (a propósito NO va dentro de STATE: no tiene
+  // sentido intentar persistir una petición fetch en curso, y así no hay
+  // que preocuparse de serializarla) de la tanda de "profundiza más" real
+  // que está en curso para cada POI. Con IA real, la respuesta puede
+  // tardar bastante (el modelo actual ronda los 45s con la configuración
+  // de max_tokens que usamos, ver el timeout de fetchOpenAI): en vez de
+  // dejar al usuario mirando el indicador de "escribiendo…" todo ese
+  // rato, o encadenar rellenos en automático sin que lo pida, cada click
+  // en "Profundiza más" solo desvela UN párrafo:
+  //   - El primer click arranca la IA real de fondo (no se espera aquí) y
+  //     muestra un párrafo "profundiza" ya armado en local (mismo pool de
+  //     datos que usa el simulador offline, SIM.deepen vía
+  //     LLM.localDeepen).
+  //   - Cada click siguiente: si la IA real ya contestó, se muestra esa
+  //     respuesta y se cierra la tanda; si no, se muestra OTRO párrafo de
+  //     relleno distinto y se sigue esperando. El usuario decide cuándo
+  //     pedir el siguiente, lo que de paso le da a la IA más margen real
+  //     para ir terminando mientras tanto.
+  // "pregen: true" en el historial es solo una marca interna — se usa
+  // para el icono del avatar (bocina = relleno local, ✨ = IA real, ver
+  // renderAiMessages) a modo de guiño discreto para poder comprobar que
+  // esto funciona bien, sin que un cliente cualquiera entienda qué
+  // significan esos dos iconos.
+  const deepenInFlight = {};
+
   const queueDeepenWithFillers = async ({ poi, optionId, userText }) => {
     if (!poi || STATE.ai.pending) return;
+    const hist = aiHistoryFor(poi.id);
+    const topicId = (optionId && optionId.startsWith('deepen:')) ? optionId.slice(7) : 'architecture';
+    let entry = deepenInFlight[poi.id];
+
+    if (!entry) {
+      entry = { settled: false, text: null };
+      deepenInFlight[poi.id] = entry;
+      const fallbackText = STATE.mode === 'kids'
+        ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
+        : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).';
+      LLM.generate({
+        poi,
+        mode: STATE.mode,
+        userQuery: userText ?? null,
+        optionId: optionId ?? null,
+        cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad',
+        concise: false,
+        alreadySaid: null
+      }).catch(() => fallbackText).then((text) => { entry.settled = true; entry.text = text; });
+    }
+
     STATE.ai.pending = true;
     if (STATE.activePoiId === poi.id) updateAudioUi();
-    const hist = aiHistoryFor(poi.id);
     renderAiSuggestions();
 
-    const topicId = (optionId && optionId.startsWith('deepen:')) ? optionId.slice(7) : 'architecture';
-    const fallbackText = STATE.mode === 'kids'
-      ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
-      : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).';
+    // Si la IA real ya contestó, este click consume esa respuesta y cierra
+    // la tanda; si no, muestra otro párrafo de relleno y sigue esperando
+    // (el usuario tendrá que volver a pulsar para pedir el siguiente).
+    let text, pregen;
+    if (entry.settled) {
+      text = entry.text;
+      pregen = false;
+      delete deepenInFlight[poi.id];
+    } else {
+      text = LLM.localDeepen(poi, STATE.mode, topicId);
+      pregen = true;
+    }
 
-    let aiSettled = false;
-    const aiPromise = LLM.generate({
-      poi,
-      mode: STATE.mode,
-      userQuery: userText ?? null,
-      optionId: optionId ?? null,
-      cityName: CURRENT_CITY ? CURRENT_CITY.name : 'la ciudad',
-      concise: false,
-      alreadySaid: null
-    }).catch(() => fallbackText)
-      .then((text) => { aiSettled = true; return text; });
-
-    // Reproduce un relleno y no resuelve hasta que termina de sonar del
-    // todo (o no hay narración posible, p.ej. sin soporte de voz): así el
-    // llamador nunca comprueba aiSettled a mitad de una frase.
-    const playSegment = (text) => new Promise((resolve) => {
-      hist.push({ role: 'assistant', text, pregen: true });
+    await new Promise((resolve) => {
+      hist.push({ role: 'assistant', text, pregen });
       renderAiMessages();
       scrollAiToBottom();
       if (STATE.activePoiId !== poi.id) { resolve(); return; }
       STATE.audio.overrideText = null;
       startAudio(false, true, resolve);
     });
-
-    await playSegment(LLM.localDeepen(poi, STATE.mode, topicId));
-    if (!aiSettled) {
-      await playSegment(LLM.localDeepen(poi, STATE.mode, topicId));
-    }
-    if (!aiSettled) {
-      hist.push({ role: 'typing' });
-      renderAiMessages();
-      scrollAiToBottom();
-    }
-
-    const finalText = await aiPromise;
-    const idx = hist.findIndex((m) => m.role === 'typing');
-    if (idx >= 0) hist.splice(idx, 1);
-    hist.push({ role: 'assistant', text: finalText, pregen: false });
-    STATE.audio.overrideText = null;
-    if (STATE.activePoiId === poi.id && !STATE.audio.playing) startAudio(false, true);
 
     STATE.ai.pending = false;
     if (STATE.activePoiId === poi.id) updateAudioUi();
