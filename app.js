@@ -3162,22 +3162,28 @@
 
   // Registro en memoria (a propósito NO va dentro de STATE: no tiene
   // sentido intentar persistir una petición fetch en curso, y así no hay
-  // que preocuparse de serializarla) de la tanda de "profundiza más" real
-  // que está en curso para cada POI. Con IA real, la respuesta puede
-  // tardar bastante (el modelo actual ronda los 45s con la configuración
-  // de max_tokens que usamos, ver el timeout de fetchOpenAI): en vez de
+  // que preocuparse de serializarla) de la consulta real de "profundiza
+  // más" en curso para cada POI. Con IA real, la respuesta puede tardar
+  // bastante (medido en directo: ~42-45s con la configuración de
+  // max_tokens que usamos, ver el timeout de fetchOpenAI): en vez de
   // dejar al usuario mirando el indicador de "escribiendo…" todo ese
   // rato, o encadenar rellenos en automático sin que lo pida, cada click
   // en "Profundiza más" solo desvela UN párrafo:
   //   - El primer click arranca la IA real de fondo (no se espera aquí) y
   //     muestra un párrafo "profundiza" ya armado en local (mismo pool de
   //     datos que usa el simulador offline, SIM.deepen vía
-  //     LLM.localDeepen).
-  //   - Cada click siguiente: si la IA real ya contestó, se muestra esa
-  //     respuesta y se cierra la tanda; si no, se muestra OTRO párrafo de
-  //     relleno distinto y se sigue esperando. El usuario decide cuándo
-  //     pedir el siguiente, lo que de paso le da a la IA más margen real
-  //     para ir terminando mientras tanto.
+  //     LLM.localDeepen) — a esas alturas es imposible que la IA ya haya
+  //     contestado, así que este primer párrafo es SIEMPRE local.
+  //   - Cada click siguiente: si la consulta en curso ya contestó, se
+  //     muestra esa respuesta real Y, en el mismo momento, se lanza YA la
+  //     siguiente consulta a la IA (no se espera a un futuro click para
+  //     arrancarla) — así tiene de margen toda la duración de este audio
+  //     antes de que el usuario vuelva a pedir más. Si la consulta en
+  //     curso TODAVÍA no ha contestado, se muestra otro párrafo de relleno
+  //     local y se sigue esperando la misma respuesta (no se lanza una
+  //     segunda consulta en paralelo). Solo se recurre a relleno local
+  //     cuando, en el tiempo que ha tardado en reproducirse el párrafo
+  //     anterior, la IA de verdad no ha terminado todavía.
   // "pregen: true" en el historial es solo una marca interna — se usa
   // para el icono del avatar (bocina = relleno local, ✨ = IA real, ver
   // renderAiMessages) a modo de guiño discreto para poder comprobar que
@@ -3189,14 +3195,15 @@
     if (!poi || STATE.ai.pending) return;
     const hist = aiHistoryFor(poi.id);
     const topicId = (optionId && optionId.startsWith('deepen:')) ? optionId.slice(7) : 'architecture';
-    let entry = deepenInFlight[poi.id];
+    const fallbackText = STATE.mode === 'kids'
+      ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
+      : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).';
 
-    if (!entry) {
-      entry = { settled: false, text: null };
+    // Lanza (sin esperar aquí) una consulta real nueva y la registra como
+    // la consulta en curso para este POI.
+    const launchAiQuery = () => {
+      const entry = { settled: false, text: null };
       deepenInFlight[poi.id] = entry;
-      const fallbackText = STATE.mode === 'kids'
-        ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
-        : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).';
       LLM.generate({
         poi,
         mode: STATE.mode,
@@ -3206,20 +3213,25 @@
         concise: false,
         alreadySaid: null
       }).catch(() => fallbackText).then((text) => { entry.settled = true; entry.text = text; });
-    }
+      return entry;
+    };
+
+    let entry = deepenInFlight[poi.id];
+    if (!entry) entry = launchAiQuery();
 
     STATE.ai.pending = true;
     if (STATE.activePoiId === poi.id) updateAudioUi();
     renderAiSuggestions();
 
-    // Si la IA real ya contestó, este click consume esa respuesta y cierra
-    // la tanda; si no, muestra otro párrafo de relleno y sigue esperando
-    // (el usuario tendrá que volver a pulsar para pedir el siguiente).
     let text, pregen;
     if (entry.settled) {
       text = entry.text;
       pregen = false;
-      delete deepenInFlight[poi.id];
+      // Se consume esta respuesta: se lanza la siguiente consulta ya
+      // mismo, para que tenga de margen toda la duración de ESTE audio
+      // antes de que el usuario vuelva a pedir más (ver comentario de
+      // arriba).
+      launchAiQuery();
     } else {
       text = LLM.localDeepen(poi, STATE.mode, topicId);
       pregen = true;
@@ -4053,7 +4065,7 @@
       // una ruta): se dice directo, sin depender de que haya un POI activo
       // (una intro de ruta se narra antes de elegir ningún lugar concreto).
       if (STATE.audio.overrideText) {
-        return stripEmojiForSpeech(stripMarkdownForSpeech(STATE.audio.overrideText)).replace(/\s+/g, ' ').trim().slice(0, 1800);
+        return stripEmojiForSpeech(stripMarkdownForSpeech(STATE.audio.overrideText)).replace(/\s+/g, ' ').trim().slice(0, 6000);
       }
       const poi = POIS.find((p) => p.id === STATE.activePoiId);
       if (!poi) return '';
@@ -4101,7 +4113,13 @@
       const intro = (!isFirstNarration || localIntroAlreadySpoken) ? '' : (m === 'kids')
         ? `¡Hola! Vamos a descubrir ${name}. ${subtitle}. ¡Pon mucha atención! `
         : `Audioguía de ${name}. ${subtitle}. `;
-      return stripEmojiForSpeech(stripMarkdownForSpeech(intro + body)).replace(/\s+/g, ' ').trim().slice(0, 1800);
+      // El límite era 1800 y cortaba el audio a media frase en respuestas
+      // reales de "profundiza más" más largas de lo habitual (el texto
+      // mostrado en pantalla no tiene este límite, así que se veía más
+      // texto del que llegaba a narrarse). 6000 da margen de sobra incluso
+      // para una respuesta larga con max_tokens 3500, y sigue actuando de
+      // red de seguridad ante un texto verdaderamente desbocado.
+      return stripEmojiForSpeech(stripMarkdownForSpeech(intro + body)).replace(/\s+/g, ' ').trim().slice(0, 6000);
     };
 
     let delayedCancelTimer = null;
