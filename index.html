@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=37" />
+  <link rel="stylesheet" href="styles.css?v=38" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V21.6</span>
+    <span class="onboarding-version" id="appVersion">Beta V21.7</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
   </div>
 
@@ -463,6 +463,16 @@
     </div>
   </div>
 
+  <!-- AVISO DE VERSIÓN NUEVA: aparece cuando el Service Worker detecta que
+       hay una versión más reciente publicada que la que ya se está usando
+       (ver el script de registro más abajo). No se autorrecarga sola para
+       no interrumpir a media lectura/pregunta a la IA: solo se recarga si
+       el usuario pulsa "Actualizar". -->
+  <div class="update-banner" id="updateBanner" role="status" aria-live="polite">
+    <span class="update-banner-text">Nueva versión disponible</span>
+    <button type="button" class="update-banner-btn" id="updateBannerBtn">Actualizar</button>
+  </div>
+
   <!-- SCRIPTS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -500,8 +510,30 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch((e) => console.warn('[SW] Registro falló:', e));
+        navigator.serviceWorker.register('sw.js').then((reg) => {
+          // Si ya había un Service Worker controlando esta pestaña (es
+          // decir, no es la primera visita) y ahora se instala uno nuevo,
+          // es que se publicó una versión más reciente (CACHE_VERSION en
+          // sw.js cambió): avisa con el banner en vez de recargar sola,
+          // para no interrumpir a media lectura o a media pregunta a la IA.
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            if (!newWorker) return;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                document.getElementById('updateBanner')?.classList.add('-show');
+              }
+            });
+          });
+          // La pestaña puede llevar horas abierta: al volver a primer plano
+          // se comprueba si hay una versión nueva publicada mientras tanto
+          // (por defecto el navegador solo revisa de vez en cuando).
+          document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') reg.update().catch(() => {});
+          });
+        }).catch((e) => console.warn('[SW] Registro falló:', e));
       });
+      document.getElementById('updateBannerBtn')?.addEventListener('click', () => window.location.reload());
     }
   </script>
 </body>
