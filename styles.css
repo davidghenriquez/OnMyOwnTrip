@@ -1652,6 +1652,7 @@ html[data-mode="kids"] .bottom-sheet {
   box-shadow: 0 3px 8px color-mix(in srgb, var(--color-primary) 35%, transparent);
 }
 .ai-msg.-user .ai-msg-avatar { background: var(--color-border); color: var(--color-text); }
+.ai-msg-avatar-icon { width: 62%; height: 62%; object-fit: contain; }
 .ai-msg-bubble {
   padding: 9px 13px;
   border-radius: 15px;
