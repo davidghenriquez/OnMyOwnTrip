@@ -2642,6 +2642,8 @@
     $('#tutorialText').textContent = step.text;
     const isLast = tutorialStepIndex === tutorialSteps.length - 1;
     $('#tutorialNext').textContent = isLast ? (STATE.mode === 'kids' ? '¡Vamos allá! 🚀' : 'Entendido') : 'Siguiente';
+    const backBtn = $('#tutorialBack');
+    if (backBtn) backBtn.dataset.hidden = tutorialStepIndex === 0 ? 'true' : 'false';
     const dots = $('#tutorialDots');
     if (dots) {
       dots.innerHTML = '';
@@ -2718,6 +2720,9 @@
     $('#tutorialNext')?.addEventListener('click', () => {
       if (tutorialStepIndex >= tutorialSteps.length - 1) closeTutorial(true);
       else showTutorialStep(tutorialStepIndex + 1);
+    });
+    $('#tutorialBack')?.addEventListener('click', () => {
+      if (tutorialStepIndex > 0) showTutorialStep(tutorialStepIndex - 1);
     });
     $('#tutorialSkip')?.addEventListener('click', () => closeTutorial(true));
     // Volver a ver el tutorial en cualquier momento: tocando a Billy en
