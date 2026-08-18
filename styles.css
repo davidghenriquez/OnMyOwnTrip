@@ -591,6 +591,11 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   background: color-mix(in srgb, var(--color-primary) 24%, var(--color-surface));
   box-shadow: 0 2px 8px color-mix(in srgb, var(--color-primary) 35%, transparent);
 }
+/* En modo adultos no hay mascota persistente (Billy) para repetir el
+   tutorial tocándola: el logo hace de "botón de ayuda" (ver wireTutorial
+   en app.js). En modo niño sigue siendo solo decorativo. */
+[data-mode="adult"] .brand-icon { cursor: pointer; }
+[data-mode="adult"] .brand-icon:active { transform: scale(0.92); }
 .brand-text {
   display: flex;
   flex-direction: column;

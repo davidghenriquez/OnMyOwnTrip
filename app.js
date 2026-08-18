@@ -2340,8 +2340,9 @@
    * que un niño que ya juega vuelve a abrir la app; se puede repetir
    * siempre a mano tocando a Billy en la cabecera.
    * =======================================================*/
-  const TUTORIAL_SEEN_KEY = 'omot_tutorial_seen_v1';
-  const TUTORIAL_STEPS = [
+  const TUTORIAL_SEEN_KEY_KIDS = 'omot_tutorial_seen_v1';
+  const TUTORIAL_SEEN_KEY_ADULT = 'omot_tutorial_adult_seen_v1';
+  const KIDS_TUTORIAL_STEPS = [
     {
       target: '#explorerBadge',
       title: '¡Hola, gran explorador! 🌟',
@@ -2363,13 +2364,63 @@
       text: 'Con esas estrellas puedes reclamar recompensas geniales para la mochila de Billy: una brújula, un mapa del tesoro ¡y muchas sorpresas más! ¿Le ayudamos a conseguirlas todas?'
     }
   ];
+  // Versión para modo adultos: mismo motor (spotlight + tooltip + voz),
+  // pasos y tono propios — sin Billy, sin estrellas/recompensas (no
+  // existen en este modo), tono más sobrio acorde a "contenido experto y
+  // riguroso". El paso sobre la guía IA no ilumina nada (target: null):
+  // esa función vive dentro de la ficha de cada punto, que no está visible
+  // todavía en este momento del recorrido (ver positionTutorialSpotlight,
+  // ya soporta pasos sin target mostrando solo el tooltip centrado).
+  const ADULT_TUTORIAL_STEPS = [
+    {
+      target: '#brandIcon',
+      title: 'Bienvenido a OnMyOwnTrip',
+      text: 'Contenido riguroso y verificado sobre cada rincón, narrado mientras caminas. Te cuento en unos segundos cómo sacarle el máximo partido.'
+    },
+    {
+      target: '#filters',
+      title: 'Explora por temática o ruta',
+      text: 'Filtra los puntos por categoría — lo más destacado, secretos poco conocidos, edificios singulares — o elige una ruta guiada con recorrido y orden sugeridos.'
+    },
+    {
+      target: '#map',
+      title: 'Toca cualquier punto del mapa',
+      text: 'Cada marcador abre su historia, contexto y curiosidades, con la opción de escucharlo narrado en lugar de leerlo.'
+    },
+    {
+      target: null,
+      title: 'Pregunta a tu guía IA',
+      text: 'Dentro de cada punto puedes preguntarle lo que quieras a la guía IA, por texto o por voz, para profundizar o resolver dudas concretas sobre ese lugar.'
+    },
+    {
+      target: '#mapTools',
+      title: 'Herramientas útiles',
+      text: 'Identifica un monumento con la cámara, localiza fuentes de agua potable cercanas o comprueba tu posición en el mapa en cualquier momento.'
+    }
+  ];
+  let tutorialSteps = KIDS_TUTORIAL_STEPS;
+  let tutorialSeenKey = TUTORIAL_SEEN_KEY_KIDS;
   let tutorialStepIndex = 0;
   let tutorialResizeHandler = null;
 
   const positionTutorialSpotlight = () => {
     const spotlight = $('#tutorialSpotlight');
-    const step = TUTORIAL_STEPS[tutorialStepIndex];
+    const step = tutorialSteps[tutorialStepIndex];
     if (!spotlight || !step) return;
+    if (!step.target) {
+      // Paso informativo sin ningún elemento que iluminar (p.ej. "puedes
+      // preguntar a la IA", que vive dentro de la ficha de un punto, no
+      // visible en este momento del recorrido): un spotlight de tamaño
+      // cero centrado sigue generando el oscurecido vía su box-shadow,
+      // para no dejar la pantalla de golpe sin atenuar mientras se lee.
+      spotlight.style.opacity = '1';
+      spotlight.style.top = '50%';
+      spotlight.style.left = '50%';
+      spotlight.style.width = '0px';
+      spotlight.style.height = '0px';
+      spotlight.style.borderRadius = '0px';
+      return;
+    }
     const target = $(step.target);
     if (!target) { spotlight.style.opacity = '0'; return; }
     const rect = target.getBoundingClientRect();
@@ -2403,15 +2454,16 @@
   };
 
   const showTutorialStep = (index) => {
-    tutorialStepIndex = Math.max(0, Math.min(index, TUTORIAL_STEPS.length - 1));
-    const step = TUTORIAL_STEPS[tutorialStepIndex];
+    tutorialStepIndex = Math.max(0, Math.min(index, tutorialSteps.length - 1));
+    const step = tutorialSteps[tutorialStepIndex];
     $('#tutorialTitle').textContent = step.title;
     $('#tutorialText').textContent = step.text;
-    $('#tutorialNext').textContent = tutorialStepIndex === TUTORIAL_STEPS.length - 1 ? '¡Vamos allá! 🚀' : 'Siguiente';
+    const isLast = tutorialStepIndex === tutorialSteps.length - 1;
+    $('#tutorialNext').textContent = isLast ? (STATE.mode === 'kids' ? '¡Vamos allá! 🚀' : 'Entendido') : 'Siguiente';
     const dots = $('#tutorialDots');
     if (dots) {
       dots.innerHTML = '';
-      TUTORIAL_STEPS.forEach((_, i) => {
+      tutorialSteps.forEach((_, i) => {
         const dot = document.createElement('span');
         if (i === tutorialStepIndex) dot.className = '-active';
         dots.appendChild(dot);
@@ -2431,7 +2483,7 @@
     if (overlay) overlay.hidden = true;
     stopTutorialSpeech();
     if (markSeen) {
-      try { localStorage.setItem(TUTORIAL_SEEN_KEY, '1'); } catch (_) {}
+      try { localStorage.setItem(tutorialSeenKey, '1'); } catch (_) {}
     }
     if (tutorialResizeHandler) {
       window.removeEventListener('resize', tutorialResizeHandler);
@@ -2442,9 +2494,13 @@
   const startTutorial = () => {
     const overlay = $('#tutorialOverlay');
     if (!overlay) return;
-    // Si se repite el tutorial tocando a Billy con un audioguía real ya
-    // sonando, se corta primero (stopAudio deja bien STATE.audio y su UI,
-    // no solo la voz) para no solapar dos narraciones a la vez.
+    // Elige el guion según el modo activo en este momento: mismo motor de
+    // spotlight/tooltip/voz, pasos y clave de "ya visto" distintos.
+    tutorialSteps = STATE.mode === 'kids' ? KIDS_TUTORIAL_STEPS : ADULT_TUTORIAL_STEPS;
+    tutorialSeenKey = STATE.mode === 'kids' ? TUTORIAL_SEEN_KEY_KIDS : TUTORIAL_SEEN_KEY_ADULT;
+    // Si se repite el tutorial con un audioguía real ya sonando, se corta
+    // primero (stopAudio deja bien STATE.audio y su UI, no solo la voz)
+    // para no solapar dos narraciones a la vez.
     if (STATE.audio.playing || STATE.audio.introPlaying) stopAudio();
     overlay.hidden = false;
     // classList.add en el frame siguiente para que la transición de
@@ -2457,21 +2513,26 @@
   };
 
   const maybeAutoStartTutorial = () => {
-    if (STATE.mode !== 'kids') return;
+    const seenKey = STATE.mode === 'kids' ? TUTORIAL_SEEN_KEY_KIDS : TUTORIAL_SEEN_KEY_ADULT;
     let seen = false;
-    try { seen = localStorage.getItem(TUTORIAL_SEEN_KEY) === '1'; } catch (_) {}
+    try { seen = localStorage.getItem(seenKey) === '1'; } catch (_) {}
     if (!seen) startTutorial();
   };
 
   const wireTutorial = () => {
     $('#tutorialNext')?.addEventListener('click', () => {
-      if (tutorialStepIndex >= TUTORIAL_STEPS.length - 1) closeTutorial(true);
+      if (tutorialStepIndex >= tutorialSteps.length - 1) closeTutorial(true);
       else showTutorialStep(tutorialStepIndex + 1);
     });
     $('#tutorialSkip')?.addEventListener('click', () => closeTutorial(true));
-    // Volver a ver el tutorial en cualquier momento tocando a Billy.
+    // Volver a ver el tutorial en cualquier momento: tocando a Billy en
+    // modo niño, o el logo/icono de marca en modo adultos (no hay mascota
+    // persistente en ese modo, así que el logo hace de "botón de ayuda").
     $('#explorerBadge')?.addEventListener('click', () => {
       if (STATE.mode === 'kids') startTutorial();
+    });
+    $('#brandIcon')?.addEventListener('click', () => {
+      if (STATE.mode === 'adult') startTutorial();
     });
   };
 
@@ -4517,12 +4578,16 @@
     setStateMode(STATE.mode);
     updatePills();
 
-    // El tutorial (primera vez en modo niño) y el toast de bienvenida
-    // compiten por la atención en el mismo instante: si va a arrancar el
-    // tutorial, se salta el toast por completo en vez de solaparlos.
+    // El tutorial (primera vez en cada modo, niño o adultos) y el toast de
+    // bienvenida compiten por la atención en el mismo instante: si va a
+    // arrancar el tutorial, se salta el toast por completo en vez de
+    // solaparlos.
     let seenTutorial = true;
-    try { seenTutorial = localStorage.getItem(TUTORIAL_SEEN_KEY) === '1'; } catch (_) {}
-    const willShowTutorial = STATE.mode === 'kids' && !seenTutorial;
+    try {
+      const seenKey = STATE.mode === 'kids' ? TUTORIAL_SEEN_KEY_KIDS : TUTORIAL_SEEN_KEY_ADULT;
+      seenTutorial = localStorage.getItem(seenKey) === '1';
+    } catch (_) {}
+    const willShowTutorial = !seenTutorial;
 
     if (willShowTutorial) {
       setTimeout(() => maybeAutoStartTutorial(), 600);
