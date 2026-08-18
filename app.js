@@ -2367,20 +2367,42 @@
   // Versión para modo adultos: mismo motor (spotlight + tooltip + voz),
   // pasos y tono propios — sin Billy, sin estrellas/recompensas (no
   // existen en este modo), tono más sobrio acorde a "contenido experto y
-  // riguroso". El paso sobre la guía IA no ilumina nada (target: null):
-  // esa función vive dentro de la ficha de cada punto, que no está visible
-  // todavía en este momento del recorrido (ver positionTutorialSpotlight,
-  // ya soporta pasos sin target mostrando solo el tooltip centrado).
+  // riguroso". Recorre cada categoría de filtro una a una (no solo la
+  // barra en conjunto) y cada herramienta del mapa por separado, y los
+  // pasos marcados con demoSheet abren una ficha de ejemplo (ver
+  // openTutorialDemoSheet) con el mismo aspecto que una real, para
+  // explicar in situ las opciones de la guía IA sin depender de un POI
+  // real ni de ninguna llamada de red.
   const ADULT_TUTORIAL_STEPS = [
     {
       target: '#brandIcon',
       title: 'Bienvenido a OnMyOwnTrip',
-      text: 'Contenido riguroso y verificado sobre cada rincón, narrado mientras caminas. Te cuento en unos segundos cómo sacarle el máximo partido.'
+      text: 'Una herramienta pensada para ayudarte a aprender más de cada sitio turístico a tu propio ritmo: historia verificada, curiosidades y una guía IA siempre disponible, todo narrado mientras caminas. Te cuento en unos segundos cómo sacarle el máximo partido.'
     },
     {
-      target: '#filters',
-      title: 'Explora por temática o ruta',
-      text: 'Filtra los puntos por categoría — lo más destacado, secretos poco conocidos, edificios singulares — o elige una ruta guiada con recorrido y orden sugeridos.'
+      target: '.pill[data-category="all"]',
+      title: '«Todos»',
+      text: 'Muestra en el mapa todos los puntos de interés de la ciudad, sin ningún filtro aplicado.'
+    },
+    {
+      target: '.pill[data-category="essential"]',
+      title: '«Recomendaciones»',
+      text: 'Son rutas temáticas: agrupan varias paradas en un recorrido con un orden sugerido, para centrarte en un itinerario concreto en vez de explorar sin rumbo.'
+    },
+    {
+      target: '.pill[data-category="rincones-ocultos"]',
+      title: '«Interés»',
+      text: 'Rincones curiosos y menos conocidos: historias y detalles que se salen del recorrido turístico habitual.'
+    },
+    {
+      target: '.pill[data-category="historia"]',
+      title: '«Museos»',
+      text: 'Los monumentos, museos y edificios históricos más relevantes de la ciudad.'
+    },
+    {
+      target: '.pill[data-category="gastronomia"]',
+      title: '«Restauración»',
+      text: 'Recomendaciones gastronómicas: bares, restaurantes y sitios donde parar a comer, cerca de cada zona.'
     },
     {
       target: '#map',
@@ -2388,14 +2410,31 @@
       text: 'Cada marcador abre su historia, contexto y curiosidades, con la opción de escucharlo narrado en lugar de leerlo.'
     },
     {
-      target: null,
-      title: 'Pregunta a tu guía IA',
-      text: 'Dentro de cada punto puedes preguntarle lo que quieras a la guía IA, por texto o por voz, para profundizar o resolver dudas concretas sobre ese lugar.'
+      target: '#bottomSheet',
+      demoSheet: true,
+      title: 'Así es la ficha de cada punto',
+      text: 'Título, resumen narrado con audioguía, y un historial de conversación con tu guía IA. Así quedaría, por ejemplo, tras preguntar por una curiosidad del lugar.'
     },
     {
-      target: '#mapTools',
-      title: 'Herramientas útiles',
-      text: 'Identifica un monumento con la cámara, localiza fuentes de agua potable cercanas o comprueba tu posición en el mapa en cualquier momento.'
+      target: '.ai-input-wrap',
+      demoSheet: true,
+      title: 'Pregunta como prefieras',
+      text: 'Escribe tu duda, pulsa el micrófono para preguntarla en voz alta, o toca el icono de ondas para iniciar una llamada de voz completa con la guía.'
+    },
+    {
+      target: '#fountainsBtn',
+      title: 'Fuentes de agua potable',
+      text: 'Muestra en el mapa las fuentes más cercanas: útil para rellenar la botella mientras caminas.'
+    },
+    {
+      target: '#scanBtn',
+      title: 'Identifica lo que ves',
+      text: 'Apunta con la cámara a un monumento o edificio y la IA intentará identificarlo, aunque no sepas su nombre.'
+    },
+    {
+      target: '#locateBtn',
+      title: 'Tu ubicación',
+      text: 'Centra el mapa en tu posición actual en cualquier momento, para no perder la orientación.'
     }
   ];
   let tutorialSteps = KIDS_TUTORIAL_STEPS;
@@ -2403,26 +2442,120 @@
   let tutorialStepIndex = 0;
   let tutorialResizeHandler = null;
 
+  // Elementos grandes (mapa, ficha) que solo necesitan una esquina
+  // redondeada discreta; el resto (pastillas, botones) son pequeños y se
+  // iluminan casi como un círculo perfecto (ver fórmula más abajo).
+  const TUTORIAL_BIG_RECT_TARGETS = new Set(['#map', '#bottomSheet']);
+
+  // Icono de "museo/monumento" genérico (mismo trazo que CATEGORY_META.historia
+  // en data/core.js) sobre un fondo de color, para que la ficha de ejemplo del
+  // tutorial tenga una miniatura real sin depender de ninguna imagen de red.
+  const TUTORIAL_DEMO_THUMB_SRC = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">' +
+    '<rect width="56" height="56" rx="14" fill="#B8411E"/>' +
+    '<g transform="translate(14,15)" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M3 10 12 4l9 6"/><path d="M4 10v9M8 10v9M12 10v9M16 10v9M20 10v9"/><path d="M2 21h20"/>' +
+    '</g></svg>'
+  );
+
+  // Rellena la ficha inferior con contenido de ejemplo (nunca con un POI
+  // real ni con STATE.activePoiId, así no se dispara ninguna llamada a la
+  // IA ni se toca el historial real de conversación) para que el paso
+  // "pregunta a tu guía IA" del tutorial de adultos pueda mostrar la
+  // interfaz real de una ficha ya rellena, en vez de solo describirla.
+  let tutorialDemoSheetOpen = false;
+  const fillTutorialDemoSheetContent = () => {
+    if (!els.sheet) return;
+    const thumb = $('.sheet-thumb', els.sheet);
+    if (thumb) { thumb.src = TUTORIAL_DEMO_THUMB_SRC; thumb.alt = 'Ejemplo de punto de interés'; }
+    const badge = $('.sheet-cat-badge', els.sheet);
+    if (badge) badge.textContent = 'Museos · Ilustrativo';
+    const title = $('.sheet-title', els.sheet);
+    if (title) title.textContent = 'Nombre del lugar';
+    const sub = $('.sheet-sub', els.sheet);
+    if (sub) sub.textContent = 'Así se ve cualquier punto que abras';
+    const audioTitle = $('.audio-title', els.sheet);
+    if (audioTitle) audioTitle.textContent = 'Audioguía de ejemplo';
+    const progressFill = $('.progress-fill', els.sheet);
+    if (progressFill) progressFill.style.width = '40%';
+    const audioTime = $('.audio-time', els.sheet);
+    if (audioTime) audioTime.textContent = '1:10 / 2:45';
+
+    const box = $('#aiMessages');
+    if (box) {
+      box.innerHTML = '';
+      [
+        { user: false, text: '¡Hola! Este lugar tiene mucha historia detrás — te resumo lo esencial mientras lo recorres.' },
+        { user: true, text: '¿Sabes alguna curiosidad menos conocida?' },
+        { user: false, text: 'Así vería tu respuesta: contexto, anécdotas y datos verificados sobre el lugar que estés visitando.' }
+      ].forEach((msg) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'ai-msg' + (msg.user ? ' -user' : '');
+        const av = document.createElement('div');
+        av.className = 'ai-msg-avatar';
+        av.textContent = msg.user ? '👤' : '✨';
+        const bubble = document.createElement('div');
+        bubble.className = 'ai-msg-bubble';
+        bubble.textContent = msg.text;
+        wrap.appendChild(av);
+        wrap.appendChild(bubble);
+        box.appendChild(wrap);
+      });
+    }
+    const suggestBox = $('#aiSuggestions');
+    if (suggestBox) {
+      suggestBox.innerHTML = '';
+      ['Profundiza más', 'Cuéntame una curiosidad', 'Entrada: horario y precio'].forEach((label) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'suggest-chip';
+        b.textContent = label;
+        suggestBox.appendChild(b);
+      });
+    }
+  };
+  const openTutorialDemoSheet = () => {
+    if (!els.sheet || !els.backdrop) return;
+    fillTutorialDemoSheetContent();
+    els.backdrop.classList.add('-open');
+    els.sheet.classList.add('-open');
+    try { els.sheet.setAttribute('aria-hidden', 'false'); } catch (_) {}
+    tutorialDemoSheetOpen = true;
+  };
+  const closeTutorialDemoSheet = () => {
+    if (!tutorialDemoSheetOpen) return;
+    if (els.backdrop) els.backdrop.classList.remove('-open');
+    if (els.sheet) {
+      els.sheet.classList.remove('-open');
+      try { els.sheet.setAttribute('aria-hidden', 'true'); } catch (_) {}
+    }
+    tutorialDemoSheetOpen = false;
+  };
+
   const positionTutorialSpotlight = () => {
     const spotlight = $('#tutorialSpotlight');
+    const tooltip = $('#tutorialTooltip');
     const step = tutorialSteps[tutorialStepIndex];
     if (!spotlight || !step) return;
     if (!step.target) {
-      // Paso informativo sin ningún elemento que iluminar (p.ej. "puedes
-      // preguntar a la IA", que vive dentro de la ficha de un punto, no
-      // visible en este momento del recorrido): un spotlight de tamaño
-      // cero centrado sigue generando el oscurecido vía su box-shadow,
-      // para no dejar la pantalla de golpe sin atenuar mientras se lee.
+      // Paso informativo sin ningún elemento que iluminar: un spotlight de
+      // tamaño cero centrado sigue generando el oscurecido vía su
+      // box-shadow, para no dejar la pantalla de golpe sin atenuar
+      // mientras se lee.
       spotlight.style.opacity = '1';
       spotlight.style.top = '50%';
       spotlight.style.left = '50%';
       spotlight.style.width = '0px';
       spotlight.style.height = '0px';
       spotlight.style.borderRadius = '0px';
+      tooltip?.classList.remove('-top');
       return;
     }
     const target = $(step.target);
     if (!target) { spotlight.style.opacity = '0'; return; }
+    // Las pastillas de filtro pueden estar fuera de la vista (la barra
+    // hace scroll horizontal): tráela al centro antes de medir su rect.
+    if (target.closest('#filters')) target.scrollIntoView({ inline: 'center', block: 'nearest' });
     const rect = target.getBoundingClientRect();
     const pad = 8;
     spotlight.style.opacity = '1';
@@ -2430,10 +2563,17 @@
     spotlight.style.left = `${rect.left - pad}px`;
     spotlight.style.width = `${rect.width + pad * 2}px`;
     spotlight.style.height = `${rect.height + pad * 2}px`;
-    // El mapa es un rectángulo grande: un radio pequeño basta. Los
-    // botones/insignias son más redondos, así que se ilumina con un
-    // círculo casi perfecto (mitad del lado más corto).
-    spotlight.style.borderRadius = step.target === '#map' ? '18px' : `${Math.min(rect.width, rect.height) / 2 + pad}px`;
+    // El mapa y la ficha son rectángulos grandes: un radio pequeño basta.
+    // El resto son pastillas/botones más redondos, así que se iluminan
+    // casi como un círculo perfecto (mitad del lado más corto).
+    spotlight.style.borderRadius = TUTORIAL_BIG_RECT_TARGETS.has(step.target)
+      ? '18px' : `${Math.min(rect.width, rect.height) / 2 + pad}px`;
+    // El tooltip vive anclado abajo por defecto (ver CSS), pero si el
+    // objetivo iluminado está pegado a la parte baja de la pantalla (las
+    // herramientas del mapa, la ficha de ejemplo…) se taparían mutuamente:
+    // en ese caso se ancla arriba en su lugar.
+    const spaceBelow = window.innerHeight - rect.bottom;
+    tooltip?.classList.toggle('-top', spaceBelow < 200);
   };
 
   // Narra cada paso con el mismo motor SPEECH (Web Speech API) que ya usa
@@ -2469,10 +2609,22 @@
         dots.appendChild(dot);
       });
     }
-    // Reposicionar después del próximo frame: si el paso anterior venía de
-    // abrir la app recién ahora, el layout (mapa, cabecera) puede no estar
-    // del todo asentado todavía en este mismo tick.
-    requestAnimationFrame(positionTutorialSpotlight);
+    // La ficha de ejemplo (pasos demoSheet) se abre/cierra según la
+    // necesite el paso, con el mismo desplazamiento (0.38s) que una ficha
+    // real: si acaba de abrirse, el spotlight espera a que termine de
+    // entrar antes de medir su posición; si ya estaba abierta (dos pasos
+    // seguidos dentro de ella) o no hace falta, se reposiciona al vuelo.
+    const needsDemoSheet = !!step.demoSheet;
+    if (needsDemoSheet && !tutorialDemoSheetOpen) {
+      openTutorialDemoSheet();
+      setTimeout(positionTutorialSpotlight, 420);
+    } else {
+      if (!needsDemoSheet && tutorialDemoSheetOpen) closeTutorialDemoSheet();
+      // Reposicionar después del próximo frame: si el paso anterior venía
+      // de abrir la app recién ahora, el layout (mapa, cabecera) puede no
+      // estar del todo asentado todavía en este mismo tick.
+      requestAnimationFrame(positionTutorialSpotlight);
+    }
     stopTutorialSpeech();
     speakTutorialStep(step);
   };
@@ -2482,6 +2634,7 @@
     overlay?.classList.remove('-open');
     if (overlay) overlay.hidden = true;
     stopTutorialSpeech();
+    closeTutorialDemoSheet();
     if (markSeen) {
       try { localStorage.setItem(tutorialSeenKey, '1'); } catch (_) {}
     }
