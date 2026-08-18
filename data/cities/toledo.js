@@ -331,6 +331,26 @@ CITIES.toledo.pois = [
             adult: 'Construido sobre un lienzo de la muralla almohade del siglo XII, consta de una pequeña plaza de apenas 5 × 7 metros con suelo de adoquín y una barandilla de hierro forjado del siglo XIX. Desde aquí se divisa la ladera noreste del Tajo, el barrio de Santa Bárbara y el puente de Alcántara. Tiene un banco de piedra solo, pensado para dos personas y media. El acceso es a través de un estrecho callejón sin señalización.',
             kids: '¡Agáchate un poco y pasa por el callejón SUPERESTRECHO! 🤏 Cuando salgas, ¡zas! Tendrás unas vistas alucinantes. El banco de piedra está hecho para 2 personas… ¡tres si son muy amigos! Ponte de puntillas: a lo lejos se ve el puente de Alcántara.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De qué familia toma su nombre el Mirador del Azor?',
+            options: ['De la familia Azor, que tuvo aquí sus casas en el siglo XVII', 'De un ave rapaz que anidaba en la muralla', 'De un rey que paraba aquí a descansar'],
+            correct: 0,
+            reveal: '¡De la familia Azor! 🏠 Tuvo aquí sus casas hace 400 años, y por eso este balcón sobre la muralla heredó su apellido.'
+          },
+          legends: {
+            question: 'Según la leyenda, ¿qué hay que hacer con un papel bajo una piedra del murete para que se cumpla un deseo de amistad?',
+            options: ['Quemarlo al atardecer', 'Escribir un nombre y esconderlo debajo', 'Enterrarlo con una moneda de oro'],
+            correct: 1,
+            reveal: '¡Escribir un nombre y esconderlo bajo una piedra! 💖 Dicen que si vuelves dentro de un año, el deseo se habrá cumplido.'
+          },
+          architecture: {
+            question: '¿Sobre qué muralla está construido este pequeño mirador?',
+            options: ['La muralla romana', 'La muralla almohade del siglo XII', 'La muralla del siglo XIX'],
+            correct: 1,
+            reveal: '¡Sobre la muralla almohade del siglo XII! 🧱 Desde su barandilla de hierro forjado se llega a ver el puente de Alcántara a lo lejos.'
+          }
         }
       },
       {
@@ -377,6 +397,26 @@ CITIES.toledo.pois = [
           architecture: {
             adult: 'El museo ocupa dos edificios de la Judería: una vivienda típica toledana con patio mudéjar (fuente de azulejos, arcos de herradura, planta en L) y una ermita contigua. El patio, con plantas aromáticas y una fuente circular, es una de las reconstrucciones más fieles de la vivienda nobiliaria toledana del XVI. El taller, en la planta alta, tiene un lucernario norte idóneo para la luz difusa tan característica en sus cuadros.',
             kids: '¡En el patio hay una fuente de azulejos donde los gatos 🐈‍⬛ de Toledo van a beber! Los arcos son de herradura, como los de los cuentos de Aladino. Ve al piso de arriba y mira la ventana especial por donde pintaba El Greco — ¡tiene la luz PERFECTA para dibujar!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué año se inauguró la Casa-Museo de El Greco?',
+            options: ['En 1911', 'En 1614', 'En 1985'],
+            correct: 0,
+            reveal: '¡En 1911! 🏛️ Reconstruye el hogar que pudo tener el pintor en la Judería, donde vivió desde 1577 hasta su muerte.'
+          },
+          legends: {
+            question: '¿Qué le escribió El Greco a su amigo Miguel Ángel sobre la ciudad de Toledo?',
+            options: ['Que Toledo le daba la luz que Roma le había negado', 'Que echaba de menos su isla natal', 'Que quería mudarse a Madrid'],
+            correct: 0,
+            reveal: '¡Que Toledo le daba la luz que Roma le negaba! 🌟 Sus contemporáneos decían que dormía muy poco porque las musas le inspiraban por las noches.'
+          },
+          architecture: {
+            question: '¿Hacia dónde se abre el lucernario del taller de El Greco, en la planta alta?',
+            options: ['Hacia el norte', 'Hacia el sur', 'Hacia el este'],
+            correct: 0,
+            reveal: '¡Hacia el norte! ☀️ Esa orientación da una luz difusa y uniforme, ideal para pintar cuadros como los que hizo El Greco.'
           }
         }
       },
@@ -551,6 +591,26 @@ CITIES.toledo.pois = [
             adult: 'Es una de las obras cumbre del gótico isabelino, con una iglesia de una sola nave y crucero, y un claustro de dos pisos: el inferior gótico, con tracería calada, y el superior con techumbre de madera mudéjar. En el exterior cuelgan las cadenas de los cautivos cristianos liberados en la conquista de Granada (1492), un regalo simbólico de los Reyes Católicos a modo de ofrenda de gratitud, ya que finalmente no fueron enterrados aquí.',
             kids: '¡Mira las cadenas que cuelgan por fuera! ⛓️ Son de verdad, y eran de prisioneros que quedaron libres hace más de 500 años. Los reyes las pusieron aquí para dar las gracias. ¡Sube al piso de arriba del claustro y fíjate en el techo de madera tallada!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué victoria quisieron conmemorar los Reyes Católicos al encargar este monasterio?',
+            options: ['La conquista de Granada', 'La victoria de Toro frente a Portugal', 'La toma de Toledo'],
+            correct: 1,
+            reveal: '¡La victoria de Toro (1476)! 👑 Isabel la Católica lo encargó en 1477, aunque después decidió que su tumba estuviera en Granada.'
+          },
+          legends: {
+            question: 'Según un documento de 1568, ¿qué se decía que se conservaba en secreto en el monasterio tras la muerte de Isabel?',
+            options: ['Su corona', 'Sus entrañas, retiradas al embalsamarla', 'Su espada'],
+            correct: 1,
+            reveal: '¡Sus entrañas! 🤫 El guardián del monasterio aseguraba a Felipe II que se habían quedado allí, aunque el cuerpo de la reina reposa en Granada.'
+          },
+          architecture: {
+            question: '¿De dónde vienen las cadenas que cuelgan en la fachada exterior del monasterio?',
+            options: ['De prisioneros cristianos liberados en la conquista de Granada', 'De un antiguo puente levadizo', 'De un tesoro escondido'],
+            correct: 0,
+            reveal: '¡De los cautivos cristianos liberados en 1492! ⛓️ Los Reyes Católicos las colgaron aquí como ofrenda de gratitud.'
+          }
         }
       },
       {
@@ -597,6 +657,26 @@ CITIES.toledo.pois = [
           architecture: {
             adult: 'Sus cinco naves, separadas por arcos de herradura sobre pilares octogonales, están coronadas por capiteles decorados con motivos de piñas, típicos del arte almohade. Sobre las arcadas se despliegan arquerías ciegas de yeserías con lacerías geométricas y decoración vegetal en "sebka", consideradas el mejor conjunto de arte almohade conservado en España, pese a tratarse de un templo judío en su origen.',
             kids: '¡Cuenta las columnas blancas! Parece un bosque de piedra 🌳. Los arcos tienen forma de herradura, como los de un caballo. Fíjate en las decoraciones de arriba, ¡parecen encaje de piedra tallado a mano!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Durante cuántos años fue esta la Sinagoga Mayor de Toledo?',
+            options: ['211 años', '50 años', '20 años'],
+            correct: 0,
+            reveal: '¡211 años! 🕍 Se construyó hacia 1180, y en 1411 fue convertida en iglesia tras la predicación de san Vicente Ferrer.'
+          },
+          legends: {
+            question: '¿Qué dejó escrito el poeta hebreo Ya\'aqob Albeneh tras el pogromo de 1391?',
+            options: ['Una elegía lamentando la destrucción de las sinagogas', 'Un mapa del edificio', 'Una lista de tesoros escondidos'],
+            correct: 0,
+            reveal: '¡Una elegía! 📜 Es uno de los pocos testimonios en primera persona que sobreviven de aquella comunidad, y aún se conserva hoy.'
+          },
+          architecture: {
+            question: '¿Qué motivo decora los capiteles de sus columnas, típico del arte almohade?',
+            options: ['Piñas', 'Estrellas', 'Animales'],
+            correct: 0,
+            reveal: '¡Piñas! 🌲 Coronan las cinco naves separadas por arcos de herradura, consideradas el mejor conjunto de arte almohade conservado en España.'
           }
         }
       },
@@ -645,6 +725,26 @@ CITIES.toledo.pois = [
             adult: 'De reducidas dimensiones y planta casi cuadrada, su interior se organiza en nueve espacios abovedados con nueve cúpulas de nervios entrecruzados, ninguna igual a otra, sostenidas por columnas romanas y visigodas reutilizadas. La fachada exterior de ladrillo combina arcos de herradura entrelazados y una decoración de esquinillas escalonadas de clara influencia cordobesa, considerada una de las cumbres del arte califal fuera de Córdoba.',
             kids: '¡Fíjate en el techo! Tiene 9 cúpulas y ninguna es igual a las demás 🎨. Las columnas de dentro son tan viejas que las trajeron de otros edificios todavía más antiguos. ¡Por fuera los ladrillos forman dibujos como si fueran un rompecabezas!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué año se construyó esta mezquita, según la inscripción de su fachada?',
+            options: ['En el año 999', 'En el año 1492', 'En el año 711'],
+            correct: 0,
+            reveal: '¡En el año 999! 🕌 Es el edificio en pie más antiguo de Toledo, construido durante el califato de Córdoba bajo Hisham II.'
+          },
+          legends: {
+            question: '¿Cuántos años llevaba ardiendo la lámpara que se encontró escondida tras el muro?',
+            options: ['Más de 300 años', '30 años', '3 años'],
+            correct: 0,
+            reveal: '¡Más de 300 años sin apagarse! 🏮 Se encontró tras el muro que Alfonso VI mandó abrir cuando el caballo del Cid se arrodilló ante la mezquita.'
+          },
+          architecture: {
+            question: '¿Cuántas cúpulas distintas cubren el interior de la mezquita?',
+            options: ['Nueve, todas diferentes entre sí', 'Una única cúpula central', 'Cuatro cúpulas iguales'],
+            correct: 0,
+            reveal: '¡Nueve cúpulas, ninguna igual a otra! ✨ Se apoyan sobre columnas romanas y visigodas reutilizadas de edificios todavía más antiguos.'
+          }
         }
       },
       {
@@ -684,6 +784,26 @@ CITIES.toledo.pois = [
             adult: 'Conserva capas de distintas épocas superpuestas: cimientos romanos, reconstrucción andalusí y reformas cristianas medievales y renacentistas. Está flanqueado por una torre fortificada de acceso y un arco de triunfo con el escudo imperial de Carlos V, testigos de su función histórica como puerta de control de mercancías y viajeros que entraban en la ciudad.',
             kids: '¡Fíjate en la torre con almenas, como de castillo! Y en el escudo grande de piedra encima del arco. Antiguamente aquí se paraba a toda la gente que entraba en la ciudad para comprobar quién era. ¡Como un control de pasaportes de hace 500 años!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué significa la palabra "alcántara" en árabe?',
+            options: ['Puente', 'Río', 'Torre'],
+            correct: 0,
+            reveal: '¡Puente! 🌉 Los árabes reconstruyeron este puente romano en el año 997, y su nombre quedó grabado en la ciudad para siempre.'
+          },
+          legends: {
+            question: '¿Qué nombre recibe hoy el arroyo cercano donde termina la triste historia de amor de Rodrigo y Zahira?',
+            options: ['Arroyo de la Degollada', 'Arroyo de los Amantes', 'Arroyo Dorado'],
+            correct: 0,
+            reveal: 'Se llama Arroyo de la Degollada. 💔 Rodrigo bautizó allí a la joven agonizante, y después se hizo monje para rezar cada tarde junto a ese lugar.'
+          },
+          architecture: {
+            question: '¿Qué emperador dejó su escudo grabado sobre el arco de triunfo del puente?',
+            options: ['Carlos V', 'Felipe II', 'Alfonso X'],
+            correct: 0,
+            reveal: '¡Carlos V! 🛡️ Ordenó una restauración en el siglo XVI y dejó constancia de ella con el escudo imperial que corona el arco.'
+          }
         }
       },
       {
@@ -722,6 +842,26 @@ CITIES.toledo.pois = [
           architecture: {
             adult: 'El puente actual, obra del arzobispo Tenorio, presenta cinco arcos apuntados de fábrica de sillería, con dos torres hexagonales fortificadas y almenadas que flanquean sus extremos. En la cara que mira río abajo, sobre la clave del arco central, se conserva una pequeña estatua cuyo significado exacto se ha perdido con el tiempo.',
             kids: '¡Cuenta los arcos! Son 5, y las dos torres de los extremos tienen forma de hexágono (¡como un panal de abejas!). Busca una estatuilla pequeñita justo encima del arco del medio — nadie sabe muy bien qué significa.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué arzobispo reconstruyó este puente en 1390?',
+            options: ['Pedro Tenorio', 'Pedro González de Mendoza', 'Juan Pardo de Tavera'],
+            correct: 0,
+            reveal: '¡El arzobispo Pedro Tenorio! 🌉 Formaba parte del sistema defensivo occidental de Toledo, junto al Puente de Alcántara al otro lado de la ciudad.'
+          },
+          legends: {
+            question: '¿Qué hizo la esposa del maestro alarife para salvar a su marido, según la leyenda?',
+            options: ['Prendió fuego a los andamios de noche', 'Avisó al arzobispo del error', 'Reconstruyó ella misma el arco'],
+            correct: 0,
+            reveal: '¡Prendió fuego a los andamios en secreto! 🔥 Así ganó tiempo para que su marido corrigiera el error de cálculo sin que nadie lo descubriera.'
+          },
+          architecture: {
+            question: '¿Qué forma tienen las dos torres que flanquean los extremos del puente?',
+            options: ['Hexagonal', 'Cuadrada', 'Redonda'],
+            correct: 0,
+            reveal: '¡Hexagonal! 🏰 Están almenadas y fortificadas, y el puente tiene cinco arcos apuntados de sillería entre ambas.'
           }
         }
       },
@@ -769,6 +909,26 @@ CITIES.toledo.pois = [
           architecture: {
             adult: 'Su fachada-retablo, obra cumbre del barroco toledano, está flanqueada por dos torres gemelas de más de 50 metros, desde cuya azotea se contempla la panorámica más completa de la ciudad, con la Catedral y el Alcázar dominando el perfil urbano. El interior, de nave única con capillas laterales interconectadas, alberga una cúpula sobre el crucero y un retablo mayor pintado al fresco con efecto de trampantojo.',
             kids: '¡Sube las escaleras hasta arriba de las torres! Desde allí se ve TODO Toledo como si estuvieras volando 🦅. Dentro, fíjate en el techo pintado — parece que tiene columnas de verdad, ¡pero están pintadas para hacerte creer que son de piedra!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué año fue finalmente consagrada esta iglesia, tras más de un siglo de obras?',
+            options: ['En 1718', 'En 1629', 'En 1558'],
+            correct: 0,
+            reveal: '¡En 1718! ⛪ Las obras empezaron hacia 1629 con Pedro Sánchez, y varios arquitectos distintos se turnaron hasta terminar las torres gemelas.'
+          },
+          legends: {
+            question: '¿Por qué eligieron los jesuitas este solar exacto para construir la iglesia?',
+            options: ['Porque se creía que allí había nacido San Ildefonso', 'Porque era el punto más alto de Toledo', 'Porque pertenecía a un rey'],
+            correct: 0,
+            reveal: '¡Porque, según la tradición, allí nació San Ildefonso! 👑 Así lo explican los propios promotores en el documento fundacional que se conserva.'
+          },
+          architecture: {
+            question: '¿Cuántos metros de altura tienen las torres gemelas de esta iglesia?',
+            options: ['Más de 50 metros', 'Unos 10 metros', 'Más de 100 metros'],
+            correct: 0,
+            reveal: '¡Más de 50 metros! 🔭 Desde su azotea se contempla la panorámica más completa de Toledo, con la Catedral y el Alcázar dominando el perfil.'
           }
         }
       },
@@ -943,6 +1103,26 @@ CITIES.toledo.pois = [
             adult: 'De planta rectangular dividida en dos patios simétricos por una iglesia central, el edificio es uno de los ejemplos más puros del Renacimiento español. Su fachada principal, obra de Bustamante, combina un severo orden clásico con un patio interior de doble arquería. La farmacia, con su mobiliario original de madera tallada, conserva intacta una de las boticas históricas más completas de España.',
             kids: '¡Este edificio tiene dos patios idénticos, como si fuera un espejo, con una iglesia justo en el medio! En la farmacia hay armarios de madera tallada llenos de tarros antiguos — ¡algunos todavía tienen pintado el nombre de la medicina que guardaban!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué cardenal encargó la construcción de este hospital en 1541?',
+            options: ['Juan Pardo de Tavera', 'Pedro González de Mendoza', 'Francisco Jiménez de Cisneros'],
+            correct: 0,
+            reveal: '¡El cardenal Juan Pardo de Tavera! 🏛️ Hoy el edificio es el Museo Duque de Lerma, con obras de El Greco, Ribera y Tintoretto.'
+          },
+          legends: {
+            question: '¿Cómo pudo El Greco pintar el retrato del cardenal Tavera si nunca lo conoció en vida?',
+            options: ['Usando la mascarilla mortuoria del cardenal', 'Copiando otro retrato antiguo', 'Preguntando a su familia cómo era'],
+            correct: 0,
+            reveal: '¡Usando su mascarilla mortuoria! 👻 El cardenal llevaba casi 65 años muerto cuando El Greco pintó uno de sus retratos más inquietantes.'
+          },
+          architecture: {
+            question: '¿Cómo se organiza la planta del edificio, dividida por una iglesia central?',
+            options: ['En dos patios simétricos', 'En un único patio circular', 'En tres torres separadas'],
+            correct: 0,
+            reveal: '¡En dos patios simétricos! 🏛️ Es uno de los ejemplos más puros del Renacimiento español, con fachada de Bustamante.'
+          }
         }
       },
       {
@@ -983,6 +1163,26 @@ CITIES.toledo.pois = [
             adult: 'Es una calle estrecha y sinuosa, típica del trazado urbano medieval toledano, flanqueada por fachadas de distintas épocas que combinan comercios de planta baja con viviendas en altura. El damasquinado —incrustaciones de hilo de oro y plata sobre acero, técnica de origen califal que toma su nombre de Damasco— sigue practicándose en talleres artesanales a lo largo de todo su recorrido.',
             kids: '¡Fíjate en los escaparates de las tiendas! Muchas venden objetos de metal negro con dibujos de hilo de oro clavados encima. Se llama damasquinado, ¡y los artesanos llevan haciéndolo en Toledo desde hace más de 1.000 años!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué mercado ocupaba antiguamente la zona de la Plaza de las Cuatro Calles, junto a esta calle?',
+            options: ['La Alcaná, mercado judío', 'Un mercado de esclavos', 'Un mercado de ganado'],
+            correct: 0,
+            reveal: '¡La Alcaná! 💰 Era el mercado judío donde trabajaban cambistas, prestamistas y plateros hebreos, antes de que la calle se llamara "del Comercio".'
+          },
+          legends: {
+            question: 'Según cuenta el propio Cervantes, ¿qué compró en la Alcaná antes de escribir El Quijote?',
+            options: ['Unos viejos cartapacios escritos en árabe', 'Una espada toledana', 'Un mapa antiguo de la ciudad'],
+            correct: 0,
+            reveal: '¡Unos cartapacios en árabe! 📜 Cervantes contó que los mandó traducir, y de ahí surgió, según él, la historia de Cide Hamete Benengeli.'
+          },
+          architecture: {
+            question: '¿De dónde viene el nombre de la técnica del damasquinado, que todavía se practica en esta calle?',
+            options: ['De la ciudad de Damasco', 'Del apellido de un artesano toledano', 'De la palabra árabe para "oro"'],
+            correct: 0,
+            reveal: '¡De Damasco! 🪡 Es una técnica de incrustar hilo de oro y plata sobre acero, de origen califal, que los talleres toledanos mantienen viva desde hace siglos.'
+          }
         }
       },
       {
@@ -1021,6 +1221,26 @@ CITIES.toledo.pois = [
           architecture: {
             adult: 'De planta rectangular rematada en semicírculo, combina un gran arco apuntado exterior con un arco de herradura interior rodeado de arquerías lobuladas entrelazadas, todo ello construido en sillería, mampostería y ladrillo. Sus almenas y su friso decorativo son un ejemplo notable de cómo la arquitectura militar cristiana adoptó plenamente el repertorio decorativo islámico en el Toledo bajomedieval.',
             kids: '¡Cuenta cuántos arcos distintos hay, uno dentro de otro! Los de arriba parecen entrelazados como un collar de piedra. Las almenas de arriba servían para que los soldados se escondieran detrás mientras vigilaban.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Sobre qué tipo de construcción se levanta la Puerta del Sol?',
+            options: ['Una antigua torre defensiva romana', 'Un antiguo mercado', 'Un antiguo cementerio'],
+            correct: 0,
+            reveal: '¡Sobre una torre romana! 🏛️ Los Caballeros Hospitalarios la reconstruyeron en el siglo XIV, en uno de los mejores ejemplos de arquitectura militar mudéjar.'
+          },
+          legends: {
+            question: '¿Qué escena tallada en mármol se conserva en el arco interior de la puerta?',
+            options: ['La Imposición de la Casulla a San Ildefonso', 'La coronación de un rey', 'Una batalla contra los musulmanes'],
+            correct: 0,
+            reveal: 'La Imposición de la Casulla. 👼 Cuenta que la Virgen bajó a Toledo para entregar personalmente una prenda a San Ildefonso.'
+          },
+          architecture: {
+            question: '¿Qué dos figuras se añadieron en el siglo XVIII sobre la escena tallada, dando nombre a la puerta?',
+            options: ['El Sol y la Luna', 'Dos ángeles', 'Un león y un águila'],
+            correct: 0,
+            reveal: '¡El Sol y la Luna! ☀️🌙 Se añadieron sobre el medallón de mármol, y de ahí viene el nombre que conocemos hoy.'
           }
         }
       },
@@ -1061,6 +1281,26 @@ CITIES.toledo.pois = [
             adult: 'De planta basilical con tres naves separadas por arcos de herradura sobre columnas romanas y visigodas reaprovechadas, conserva en sus muros pinturas murales del último cuarto del siglo XIII consideradas las más meridionales de estilo románico en toda la península. Su torre mudéjar, con vanos agrupados de dos y tres huecos, sirvió de modelo a otras torres toledanas posteriores.',
             kids: '¡Las columnas de dentro son tan viejas que las trajeron de otro edificio todavía más antiguo! En las paredes hay pinturas de hace más de 700 años, con santos y escenas religiosas. ¡Casi parece un libro de dibujos gigante pintado en la pared!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué rey fue proclamado en esta iglesia en el año 1166?',
+            options: ['Alfonso VIII de Castilla', 'Alfonso X el Sabio', 'Fernando III el Santo'],
+            correct: 0,
+            reveal: '¡Alfonso VIII de Castilla! 👑 Se alzó su pendón desde la torre. Hoy el edificio alberga el Museo de los Concilios y la Cultura Visigoda.'
+          },
+          legends: {
+            question: '¿Cómo se descubrió el Tesoro de Guarrazar, del que este museo guarda réplicas?',
+            options: ['Por casualidad, buscando leña en un huerto', 'Excavando a propósito con arqueólogos', 'Dentro de una tumba real'],
+            correct: 0,
+            reveal: '¡Por casualidad! 🪓 Dos vecinos que buscaban leña encontraron las coronas votivas de reyes visigodos, entre ellas la de Recesvinto.'
+          },
+          architecture: {
+            question: '¿De qué épocas son las columnas reutilizadas que sostienen los arcos de herradura del interior?',
+            options: ['Romana y visigoda', 'Solo del siglo XX', 'Árabe y renacentista'],
+            correct: 0,
+            reveal: '¡Romana y visigoda! 🏛️ Sus pinturas murales del siglo XIII son además las más meridionales de estilo románico de toda la península.'
+          }
         }
       },
       {
@@ -1099,6 +1339,26 @@ CITIES.toledo.pois = [
           architecture: {
             adult: 'Es un paseo arbolado y completamente peatonal, con barandillas de piedra desde las que se domina el valle del Tajo y, al otro lado del río, la zona de los Cigarrales. Su trazado sinuoso, ajardinado en el siglo XIX, contrasta deliberadamente con la densidad medieval del resto del barrio judío, ofreciendo un respiro verde dentro del casco histórico.',
             kids: '¡Apóyate en la barandilla de piedra y mira al otro lado del río! Se ve una zona llena de casas con jardines, llamadas Cigarrales. Este paseo tiene árboles y bancos, perfecto para descansar un rato mientras caminas por Toledo.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cómo se conocía esta zona en la Edad Media?',
+            options: ['Montichel', 'La Alcaná', 'El Miradero'],
+            correct: 0,
+            reveal: '¡Montichel! 🏘️ Era uno de los arrabales fuera de la muralla de la primera judería de Toledo, hoy convertido en un paseo ajardinado.'
+          },
+          legends: {
+            question: '¿Qué se esconde bajo el pavimento y los jardines de este paseo?',
+            options: ['Restos de la muralla más antigua de la judería', 'Un antiguo teatro romano', 'Una fuente subterránea'],
+            correct: 0,
+            reveal: '¡Restos de una muralla muy antigua! 🧱 Muchos visitantes pasan junto a ellos sin darse cuenta, confundiéndolos con simples muros de contención.'
+          },
+          architecture: {
+            question: '¿Qué zona se puede contemplar al otro lado del río Tajo desde la barandilla de este paseo?',
+            options: ['Los Cigarrales', 'El Alcázar', 'La Vega Baja'],
+            correct: 0,
+            reveal: '¡Los Cigarrales! 🌳 Este paseo arbolado y peatonal, ajardinado en el siglo XIX, ofrece un respiro verde en pleno barrio judío.'
           }
         }
       },
@@ -1139,6 +1399,26 @@ CITIES.toledo.pois = [
             adult: 'Por expreso deseo de Mendoza, el edificio se organiza en planta de cruz griega, una tipología de clara influencia italiana muy innovadora para su época en Castilla. Su fachada plateresca, obra de Covarrubias, y su escalera de tres tramos se cuentan entre los conjuntos más refinados de este estilo en España, situando al Hospital de Santa Cruz entre los dos monumentos platerescos más antiguos del país.',
             kids: '¡Si lo miras desde arriba, todo el edificio tiene forma de cruz! Fue una idea muy moderna para la época en que se construyó. Fíjate en la fachada de piedra tallada — ¡tiene tantos dibujos que parece de encaje!'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Llegó a ver el cardenal Mendoza el hospital terminado?',
+            options: ['No, murió antes de que empezaran las obras', 'Sí, vivió allí muchos años', 'Sí, pero solo vio los cimientos'],
+            correct: 0,
+            reveal: 'No llegó a verlo. 😢 Obtuvo la bula papal en 1494 pero murió en enero de 1495, antes de que empezaran las obras.'
+          },
+          legends: {
+            question: '¿Cómo llamaba con cariño la reina Isabel la Católica a los hijos del cardenal Mendoza?',
+            options: ['"Los hermosos pecados del cardenal"', '"Los príncipes de Toledo"', '"Los guardianes de la cruz"'],
+            correct: 0,
+            reveal: '¡"Los hermosos pecados del cardenal"! 👑 Isabel la Católica los legitimó otorgándoles títulos nobiliarios, pese a la condición eclesiástica de su padre.'
+          },
+          architecture: {
+            question: '¿Qué forma tiene la planta del Hospital de Santa Cruz, por expreso deseo de Mendoza?',
+            options: ['Cruz griega', 'Círculo', 'Cuadrado perfecto'],
+            correct: 0,
+            reveal: '¡Cruz griega! ✝️ Era una tipología muy innovadora para su época en Castilla, y su fachada plateresca es de las más refinadas de España.'
+          }
         }
       },
       {
@@ -1178,6 +1458,26 @@ CITIES.toledo.pois = [
             adult: 'Tras sucesivas ampliaciones, presenta una planta de tres naves con elementos decorativos de distintas épocas, entre los que destacan azulejos ornamentales en los zócalos y una reja de forja obra del artesano Julio Pascual. Su ubicación, en la ladera opuesta al casco histórico, la convierte en punto de partida natural para contemplar la silueta completa de Toledo desde el cercano Mirador del Valle.',
             kids: '¡Fíjate en los azulejos de colores en la parte de abajo de las paredes! También hay una reja de hierro forjado muy trabajada. Este lugar está justo al lado del mirador con las mejores vistas de todo Toledo.'
           }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué rey visigodo se cree que fundó el primer edificio religioso en este lugar, en el año 610?',
+            options: ['Gundemaro', 'Recesvinto', 'Rodrigo'],
+            correct: 0,
+            reveal: '¡El rey Gundemaro! 👑 La ermita actual, construida en 1674, se levanta sobre los restos de aquella primitiva fundación.'
+          },
+          legends: {
+            question: '¿A qué santo estuvo dedicado originalmente el culto de este lugar, antes de la devoción a la Virgen del Valle?',
+            options: ['San Félix de Gerona', 'San Ildefonso', 'Santiago Apóstol'],
+            correct: 0,
+            reveal: '¡A San Félix de Gerona! ⛪ Con los siglos, aquel culto casi olvidado se transformó en la romería mariana más multitudinaria de Toledo.'
+          },
+          architecture: {
+            question: '¿Qué elemento decorativo, obra del artesano Julio Pascual, adorna la ermita?',
+            options: ['Una reja de forja', 'Un rosetón de cristal', 'Una torre almenada'],
+            correct: 0,
+            reveal: '¡Una reja de forja! ⚒️ Junto a los azulejos ornamentales de los zócalos, es uno de los detalles más cuidados de la ermita.'
+          }
         }
       },
       {
@@ -1205,8 +1505,28 @@ CITIES.toledo.pois = [
             kids: '¡Cuenta la leyenda que el héroe Hércules usó estas cuevas como una auténtica escuela secreta de magia! Se dice que aquí enseñaba sus trucos más misteriosos a quien se atreviera a aprenderlos.'
           },
           architecture: {
-            adult: 'Declaradas Bien de Interés Cultural en 2008, las cuevas conservan su estructura original de opus caementicium recubierta de cemento hidráulico, visitables hoy como uno de los rincones subterráneos más enigmáticos de la ciudad.',
-            kids: '¡Bajar a estas cuevas es como viajar al mismísimo Imperio Romano! Sus paredes de piedra llevan casi 2000 años en pie.'
+            adult: 'El espacio se articula en cámaras abovedadas construidas en opus caementicium, el hormigón romano de cal, arena y piedra, recubierto de un mortero hidráulico impermeable típico de las obras de canalización del Imperio. Sus muros macizos, de varios metros de espesor, estaban pensados para resistir la presión del agua almacenada, ya que funcionaban como castellum aquae, el depósito final del acueducto que abastecía Toledo. Declaradas Bien de Interés Cultural en 2008, conservan esa estructura original pese a haber sido reutilizadas después como iglesia visigoda y templo medieval.',
+            kids: '¡Estas cuevas están hechas con una especie de hormigón romano supergrueso, con piedras y cal mezcladas, para que no se colara ni una gota de agua! Las paredes son tan anchas como un armario tumbado, porque tenían que aguantar el peso de toda el agua guardada dentro. Bajar aquí es como meterte dentro de un depósito de agua gigante ¡construido hace casi 2000 años!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Para qué se construyó originalmente este espacio abovedado en el siglo I?',
+            options: ['Como castellum aquae, depósito final del acueducto romano', 'Como cárcel para prisioneros', 'Como almacén de grano'],
+            correct: 0,
+            reveal: '¡Como castellum aquae! 💧 Era el depósito terminal del acueducto romano que abastecía de agua a toda la ciudad de Toledo.'
+          },
+          legends: {
+            question: 'Según la leyenda, ¿qué se dice que enseñaba Hércules en estas cuevas?',
+            options: ['Magia y nigromancia', 'Esgrima y combate', 'Astronomía'],
+            correct: 0,
+            reveal: '¡Magia y nigromancia! 🔮 La leyenda las convierte en una auténtica escuela secreta de artes mágicas, digna de un héroe mitológico.'
+          },
+          architecture: {
+            question: '¿Con qué material romano están construidas las cámaras abovedadas de las cuevas?',
+            options: ['Opus caementicium (hormigón romano de cal, arena y piedra)', 'Ladrillo mudéjar', 'Mármol de Carrara'],
+            correct: 0,
+            reveal: '¡Opus caementicium! 🏛️ Recubierto de un mortero hidráulico impermeable, era la técnica típica de las grandes obras de agua del Imperio romano.'
           }
         }
       },
@@ -1236,8 +1556,28 @@ CITIES.toledo.pois = [
             kids: 'Cuenta la leyenda que un caballero cristiano y una joven judía se enamoraron en secreto junto a este pozo, hace muchísimos siglos. Pero como pertenecían a religiones distintas, su historia de amor terminó de forma muy triste.'
           },
           architecture: {
-            adult: 'Una placa conmemorativa en la pared de la calle recuerda hoy la leyenda a los visitantes, en uno de los rincones más recogidos y evocadores de la antigua judería.',
-            kids: '¡Todavía hoy puedes ver una placa en la pared que recuerda esta historia tan antigua y tan triste!'
+            adult: 'El propio pozo, de brocal de piedra labrada, se conserva en el centro de una plazuela diminuta a la que se accede por un callejón estrecho y sinuoso, trazado típico de la judería medieval toledana, con muros encalados y balcones de forja que apenas dejan pasar la luz. Su aspecto sobrio y humilde es coherente con su ubicación en un barrio de calles estrechas y estructura casi laberíntica, alejado de las grandes plazas monumentales de la ciudad. Una placa conmemorativa en la pared recuerda hoy la leyenda a los visitantes.',
+            kids: '¡El pozo de verdad está hecho de piedra, en medio de una plaza tan pequeña que casi no cabe! Para llegar hasta él tienes que pasar por un callejón estrechito y con curvas, como un laberinto de casas blancas. Fíjate en los balcones de hierro que casi se tocan de una casa a otra. ¡Y no te olvides de buscar la placa que cuenta la historia en la pared!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cómo se llamaba este pozo antes de que en 1162 pasara a llamarse "pozo amargo"?',
+            options: ['Pozo Caxali', 'Pozo del Rey', 'Pozo Santo'],
+            correct: 0,
+            reveal: '¡Pozo Caxali! 📜 Ya era conocido con ese nombre en 1093, casi un siglo antes de que cambiara al nombre que tiene hoy.'
+          },
+          legends: {
+            question: '¿Quién era el padre de Raquel, la joven de la leyenda de amor imposible de este callejón?',
+            options: ['Un caballero cristiano', 'Leví, un hebreo acaudalado', 'Un mercader árabe'],
+            correct: 1,
+            reveal: '¡Leví, un hebreo acaudalado! 💔 Raquel vivía en un palacio en cuyos jardines estaba el pozo, y se enamoró en secreto de Don Fernando, un caballero cristiano.'
+          },
+          architecture: {
+            question: '¿Cómo es el callejón por el que se accede a la plazuela del pozo?',
+            options: ['Estrecho y sinuoso, típico de la judería medieval', 'Una avenida ancha y recta', 'Una escalinata monumental'],
+            correct: 0,
+            reveal: '¡Estrecho y sinuoso! 🏘️ Con muros encalados y balcones de forja, es un trazado típico del laberíntico barrio judío medieval de Toledo.'
           }
         }
       },
@@ -1266,8 +1606,28 @@ CITIES.toledo.pois = [
             kids: '¡Los arqueólogos llevan más de 130 años excavando este lugar poco a poco! Cada excavación ha ido descubriendo nuevos secretos escondidos bajo la tierra.'
           },
           architecture: {
-            adult: 'A pesar de todas las intervenciones, el circo no se ha desenterrado en su totalidad, pues existen construcciones modernas sobre parte de sus estructuras; sus restos quedan hoy repartidos entre el Parque Escolar y el Paseo del Circo Romano.',
-            kids: '¡Aunque hoy solo se ven algunos restos, imagina este lugar lleno de gente animando a los carros de caballos en sus carreras!'
+            adult: 'Con 422 metros de longitud por unos 112 de ancho, sus dimensiones lo sitúan entre los circos romanos más grandes de Hispania. Contaba con carceres (las puertas de salida de los carros) en uno de sus extremos y gradas de piedra escalonadas donde el público seguía las carreras de cuadrigas. A pesar de todas las intervenciones, el circo no se ha desenterrado en su totalidad, pues existen construcciones modernas sobre parte de sus estructuras; sus restos quedan hoy repartidos entre el Parque Escolar y el Paseo del Circo Romano.',
+            kids: '¡Este circo mide 422 metros de largo, tan largo como cuatro campos de fútbol seguidos! Tenía unas puertas especiales llamadas carceres, por donde salían disparados los carros a la vez, como en una carrera de coches. La gente se sentaba en gradas de piedra escalonadas para animar a los aurigas. ¡Aunque hoy solo se ven algunos restos, imagina este lugar lleno de gente gritando de emoción!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué emperador romano impulsó probablemente la construcción de este circo?',
+            options: ['Trajano', 'Julio César', 'Octavio Augusto'],
+            correct: 2,
+            reveal: '¡Octavio Augusto! 🏇 Se construyó a finales del siglo I para dotar a las grandes ciudades de Hispania de exuberantes edificios públicos.'
+          },
+          legends: {
+            question: '¿En qué año se hicieron las primeras excavaciones conocidas del circo romano de Toledo?',
+            options: ['En 1886', 'En 1975', 'En 2005'],
+            correct: 0,
+            reveal: '¡En 1886! 🏺 La Sociedad Arqueológica de Toledo exploró entonces el sector de las carceres, iniciando más de 130 años de excavaciones.'
+          },
+          architecture: {
+            question: '¿Para qué servían los carceres, situados en uno de los extremos del circo?',
+            options: ['Eran las puertas de salida de los carros', 'Eran la entrada de los gladiadores', 'Eran el palco del emperador'],
+            correct: 0,
+            reveal: '¡Eran las puertas de salida! 🐎 Todos los carros arrancaban a la vez desde allí para completar las vueltas ante el público de las gradas.'
           }
         }
       },
@@ -1296,8 +1656,28 @@ CITIES.toledo.pois = [
             kids: '¡Es la única iglesia de todo Toledo que conserva su forma original de hace tantos siglos, casi sin cambios!'
           },
           architecture: {
-            adult: 'Se encuentra cerca de la Puerta Nueva de Bisagra, en la zona norte del casco histórico, y debe su nombre a su ubicación en los antiguos arrabales, los barrios que quedaban fuera de las murallas de la ciudad.',
-            kids: '¡Su nombre viene de que antiguamente estaba fuera de las murallas de la ciudad, en un barrio de las afueras!'
+            adult: 'Su torre exenta, que según los expertos corresponde al antiguo alminar de la mezquita que ocupó este solar, se alza separada del cuerpo principal del templo, un rasgo poco habitual entre las iglesias mudéjares toledanas. Los muros combinan mampostería encintada de ladrillo con paños decorativos de esquinillas, la característica decoración en zigzag del ladrillo toledano. Se encuentra cerca de la Puerta Nueva de Bisagra, en la zona norte del casco histórico, y debe su nombre a su ubicación en los antiguos arrabales, los barrios que quedaban fuera de las murallas de la ciudad.',
+            kids: '¡Su torre está separada del resto de la iglesia, como si fuera un vigía solitario! Se cree que antes fue el minarete de una mezquita, el lugar desde donde llamaban a la gente a rezar. Los ladrillos de las paredes forman dibujos en zigzag, ¡una auténtica decoración hecha con ladrillos! Su nombre viene de que antiguamente estaba fuera de las murallas de la ciudad, en un barrio de las afueras.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué rey patrocinó la construcción de esta iglesia en el siglo XIII?',
+            options: ['Sancho II de Portugal', 'Alfonso X el Sabio', 'Fernando III el Santo'],
+            correct: 0,
+            reveal: '¡Sancho II de Portugal! ⛪ Por eso esta iglesia es considerada uno de los mejores ejemplos del arte mudéjar toledano, casi como "la Catedral del Mudéjar".'
+          },
+          legends: {
+            question: '¿Cuántos ábsides semicirculares conserva esta iglesia, decorados con distintos tipos de arcos?',
+            options: ['Tres', 'Uno', 'Cinco'],
+            correct: 0,
+            reveal: '¡Tres ábsides! 🏛️ Es la única iglesia de Toledo que conserva su estructura primitiva casi intacta, con puertas de arcos polilobulados de herradura.'
+          },
+          architecture: {
+            question: '¿Qué se cree que fue originalmente la torre exenta de esta iglesia?',
+            options: ['El alminar de una mezquita anterior', 'Una torre de vigilancia militar', 'Un antiguo depósito de agua'],
+            correct: 0,
+            reveal: '¡El alminar de una mezquita! 🕌 Se reforzó con ladrillo para instalar el campanario, y hoy se alza separada del cuerpo principal del templo.'
           }
         }
       },
@@ -1326,8 +1706,28 @@ CITIES.toledo.pois = [
             kids: '¡Esta puerta ha cambiado de nombre muchísimas veces a lo largo de los siglos! Su nombre en árabe significa "puerta bloqueada", porque en algún momento dejó de usarse para entrar a la ciudad.'
           },
           architecture: {
-            adult: 'En las partes bajas se reutilizaron sillares de épocas anteriores, mientras que en las zonas media y alta se empleó la mampostería toledana típica del mudéjar, con ladrillo y tapial. Con la pérdida de su valor defensivo, sus primitivos arcos de herradura se transformaron en arcos de medio punto.',
-            kids: '¡Si te fijas bien, verás piedras y ladrillos de épocas muy distintas mezclados en la misma puerta, como un rompecabezas de la historia!'
+            adult: 'De reducidas dimensiones y planta rectangular, se sitúa muy cerca de la Mezquita del Cristo de la Luz, con la que en origen compartía el mismo recinto amurallado de la medina islámica. En las partes bajas se reutilizaron sillares de épocas anteriores, mientras que en las zonas media y alta se empleó la mampostería toledana típica del mudéjar, con ladrillo y tapial. Con la pérdida de su valor defensivo, sus primitivos arcos de herradura se transformaron en arcos de medio punto, aunque el grosor de sus muros todavía recuerda su función original como punto fortificado de la muralla.',
+            kids: '¡Esta puerta es pequeñita pero muy gruesa, porque antes tenía que aguantar ataques de verdad! Está muy cerca de otra construcción musulmana famosa, la Mezquita del Cristo de la Luz. Si te fijas bien, verás piedras y ladrillos de épocas muy distintas mezclados en la misma puerta, como un rompecabezas de la historia. Su arco, que antes tenía forma de herradura, cambió de forma con el paso de los siglos.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Cómo se conocía esta puerta en época romana?',
+            options: ['Puerta de Aquilina o del Rey Agila', 'Puerta del Sol', 'Puerta de Bisagra'],
+            correct: 0,
+            reveal: '¡Puerta de Aquilina o del Rey Agila! 🏛️ Sus orígenes son anteriores incluso a los restos islámicos de los siglos IX y X que hoy se conservan.'
+          },
+          legends: {
+            question: '¿Qué significa "bab al-Mardum", el nombre árabe original de esta puerta?',
+            options: ['Puerta bloqueada o condenada', 'Puerta del tesoro', 'Puerta de los reyes'],
+            correct: 0,
+            reveal: '¡Puerta bloqueada o condenada! 🚪 Indica que en algún momento dejó de usarse como paso principal, ya que el tránsito se hacía por la cercana Puerta del Sol.'
+          },
+          architecture: {
+            question: '¿Qué materiales se reutilizaron en las partes bajas de esta puerta?',
+            options: ['Sillares de épocas anteriores', 'Mármol traído de Italia', 'Adobe sin cocer'],
+            correct: 0,
+            reveal: '¡Sillares de épocas anteriores! 🧱 Arriba se usó mampostería mudéjar con ladrillo y tapial, mezclando materiales de distintos siglos.'
           }
         }
       },
@@ -1356,8 +1756,28 @@ CITIES.toledo.pois = [
             kids: '¡Esta es una de las leyendas más famosas de Toledo! Cuenta que un joven prometió casarse con su novia ante esta estatua de Cristo, y cuando no cumplió su promesa, la propia estatua movió la mano para testificar a favor de ella ante un tribunal.'
           },
           architecture: {
-            adult: 'Templo mudéjar de origen medieval, situado extramuros de la ciudad, que sigue siendo hoy escenario de gran devoción popular, especialmente ligado a la festividad de la Virgen del Valle.',
-            kids: '¡Está fuera de las antiguas murallas de Toledo, en una zona tranquila junto a la vega del río!'
+            adult: 'Su elemento más antiguo, el ábside, data del siglo XIII y es un notable ejemplo de arte mudéjar, con paños de arcos ciegos entrelazados y decoración de ladrillo resaltado, típica de los alarifes toledanos de la época. El resto del templo, de origen medieval y situado extramuros de la ciudad, refleja las sucesivas reformas sufridas a lo largo de los siglos. Sigue siendo hoy escenario de gran devoción popular, especialmente ligado a la festividad de la Virgen del Valle.',
+            kids: '¡La parte más vieja de la iglesia, el ábside, tiene casi 800 años y está decorada con arcos entrelazados hechos de ladrillo, como un encaje rojizo! El resto de la iglesia se ha ido cambiando y arreglando muchas veces a lo largo de los siglos. Está fuera de las antiguas murallas de Toledo, en una zona tranquila junto a la vega del río.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Sobre qué antiguo templo se levanta esta ermita?',
+            options: ['La basílica visigótica de Santa Leocadia', 'Una mezquita del siglo X', 'Un templo romano dedicado a Júpiter'],
+            correct: 0,
+            reveal: '¡La basílica visigótica de Santa Leocadia! ⛪ Se alzaba en plena Vega Baja de Toledo, y su recuerdo pervive en la ermita actual.'
+          },
+          legends: {
+            question: '¿Qué escritor español convirtió esta leyenda en una famosa obra literaria?',
+            options: ['José Zorrilla', 'Miguel de Cervantes', 'Gustavo Adolfo Bécquer'],
+            correct: 0,
+            reveal: '¡José Zorrilla! ✍️ Tituló su obra "A buen juez, mejor testigo", inspirada en la leyenda del Cristo que desclavó su mano para testificar.'
+          },
+          architecture: {
+            question: '¿De qué siglo data el ábside, la parte más antigua conservada de esta ermita?',
+            options: ['Del siglo XIII', 'Del siglo XVIII', 'Del siglo XX'],
+            correct: 0,
+            reveal: '¡Del siglo XIII! 🧱 Es un notable ejemplo de arte mudéjar, con arcos ciegos entrelazados y decoración de ladrillo resaltado.'
           }
         }
       },
@@ -1386,8 +1806,28 @@ CITIES.toledo.pois = [
             kids: '¡Dentro del museo hay más de 90 esculturas hechas por el propio artista, que él mismo quiso regalar a la ciudad para que todos pudieran verlas!'
           },
           architecture: {
-            adult: 'La Roca Tarpeya ofrece unas vistas formidables sobre el meandro del Tajo y los cigarrales de la otra orilla, un mirador natural que el propio escultor convirtió en parte esencial de su obra y legado.',
-            kids: '¡Desde aquí las vistas sobre el río son espectaculares! No es de extrañar que un artista quisiera vivir y trabajar en un sitio tan bonito.'
+            adult: 'El arquitecto Secundino Zuazo diseñó la casa-taller adaptándose al escarpado terreno de la Roca Tarpeya, con terrazas escalonadas que descienden hacia el río y un pequeño auditorio excavado directamente en la roca. Los jardines, salpicados de esculturas del propio Macho, se integran con las vistas del meandro del Tajo, convirtiendo el paisaje mismo en parte de la obra expuesta. En una capilla del recinto reposan los restos del escultor, cumpliendo su deseo de permanecer unido para siempre a este lugar.',
+            kids: '¡El arquitecto que diseñó esta casa la construyó pegadita a la roca, con terrazas que bajan escalón a escalón hacia el río! Hasta hay un pequeño teatro excavado directamente en la piedra. En el jardín hay esculturas repartidas entre las plantas, como si el paisaje entero formara parte del museo. El escultor quiso quedarse aquí para siempre, ¡y por eso descansa en una capillita del propio museo!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué año eligió Victorio Macho este lugar para construir su casa y taller?',
+            options: ['En 1953', 'En 1903', 'En 1999'],
+            correct: 0,
+            reveal: '¡En 1953! 🗿 El arquitecto Secundino Zuazo diseñó la casa sobre la Roca Tarpeya, un enclave abrupto sobre el río Tajo.'
+          },
+          legends: {
+            question: '¿Cuántas esculturas componen la colección donada por el propio Victorio Macho?',
+            options: ['91 esculturas', '10 esculturas', '500 esculturas'],
+            correct: 0,
+            reveal: '¡91 esculturas, junto a 48 dibujos! 🎨 Recorren toda su trayectoria artística entre 1903 y 1965, casi toda ella donada por el propio artista.'
+          },
+          architecture: {
+            question: '¿Qué elemento poco habitual excavó el arquitecto directamente en la roca del recinto?',
+            options: ['Un pequeño auditorio', 'Una piscina', 'Un aparcamiento'],
+            correct: 0,
+            reveal: '¡Un pequeño auditorio! 🎭 Las terrazas escalonadas y los jardines con esculturas completan este mirador natural sobre el Tajo.'
           }
         }
       },
@@ -1417,8 +1857,28 @@ CITIES.toledo.pois = [
             kids: '¡Aquí enterraron a El Greco cuando murió, hace más de 400 años! Pero con el tiempo sus restos se perdieron durante unas obras, y nadie sabe con seguridad dónde están exactamente hoy.'
           },
           architecture: {
-            adult: 'Alberga algunas de las obras más destacadas del pintor, como el retablo de La Resurrección y los Santos Juanes, en un conjunto monástico reformado en el siglo XVI que combina la antigüedad de sus orígenes con la riqueza artística del Siglo de Oro.',
-            kids: '¡Dentro se pueden ver algunos de los primeros cuadros que El Greco pintó al llegar a Toledo!'
+            adult: 'El retablo mayor, encargado a El Greco en 1577, constituye una rareza en su carrera: el propio pintor diseñó también la arquitectura del conjunto, además de pintar sus lienzos —entre ellos La Resurrección y los Santos Juanes—, en uno de los pocos ejemplos documentados de un pintor actuando como arquitecto en el Siglo de Oro español. La iglesia, de nave única, conserva el conjunto monástico reformado en el siglo XVI. Bajo el pavimento del presbiterio se sitúa la cripta donde fue enterrado el pintor cretense en 1614.',
+            kids: '¡El Greco no solo pintó los cuadros de este convento, también diseñó él mismo cómo tenía que ser todo el altar, como si fuera arquitecto! Es una de las pocas veces en la historia que un pintor hizo también de arquitecto. La iglesia tiene una sola nave, y debajo del altar hay una cripta donde enterraron a El Greco hace más de 400 años.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué papel poco habitual desempeñó El Greco además de pintar los lienzos del retablo mayor?',
+            options: ['Diseñó también la arquitectura del retablo', 'Financió toda la obra', 'Talló él mismo la madera'],
+            correct: 0,
+            reveal: '¡Diseñó también la arquitectura del retablo! 🎨 Fue uno de los pocos casos documentados de un pintor actuando como arquitecto en el Siglo de Oro.'
+          },
+          legends: {
+            question: '¿Qué pasó con los restos de El Greco tras ser enterrado en la cripta de este convento en 1614?',
+            options: ['Se trasladaron durante unas reformas y se perdieron', 'Siguen exactamente donde los dejaron', 'Fueron llevados a Grecia'],
+            correct: 0,
+            reveal: 'Se perdieron durante unas reformas del siglo XVII. 🔍 Una expedición de 1984 no pudo confirmar con certeza que sigan allí.'
+          },
+          architecture: {
+            question: '¿Qué se esconde bajo el pavimento del presbiterio de esta iglesia?',
+            options: ['La cripta donde fue enterrado El Greco', 'Un antiguo aljibe romano', 'Una capilla visigoda intacta'],
+            correct: 0,
+            reveal: '¡La cripta de El Greco! ⚰️ Está bajo el mismo altar cuyo diseño arquitectónico él mismo trazó en 1577.'
           }
         }
       },
@@ -1448,8 +1908,28 @@ CITIES.toledo.pois = [
             kids: '¡Este edificio ha sido de todo un poco a lo largo de los siglos: casa de nobles, cuartel militar, e incluso vivienda de vecinos normales, antes de convertirse en el monumento que es hoy!'
           },
           architecture: {
-            adult: 'Su fachada sobria apenas deja intuir la riqueza artística que aguarda tras sus muros: patios porticados, yeserías mudéjares y artesonados policromados, entre ellos una escalera con artesonado plateresco del siglo XVI.',
-            kids: '¡Por fuera parece un edificio sencillo, pero por dentro esconde patios y techos de madera tallada y pintada muy elaborados!'
+            adult: 'Tras su fachada sobria de estilo gótico-mudéjar se despliega un patio porticado con arcos sobre columnas, decorado con yeserías mudéjares y techumbres de madera policromada. La escalera principal conserva un artesonado plateresco del siglo XVI de gran riqueza ornamental, uno de los elementos mejor conservados del conjunto. Según la tradición, fue precisamente en una de estas estancias donde falleció en 1539 la emperatriz Isabel de Portugal, esposa de Carlos I, tras dar a luz a un hijo que no sobrevivió.',
+            kids: '¡Por fuera parece un edificio sencillo, pero por dentro esconde un patio con columnas y techos de madera tallada y pintada! Su escalera tiene un techo de madera dorada precioso. Cuenta la tradición que en una de sus habitaciones murió, hace casi 500 años, la esposa de un emperador muy poderoso.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quiénes construyeron este palacio hacia 1440?',
+            options: ['Los primeros condes de Fuensalida', 'Los Reyes Católicos', 'La familia de El Greco'],
+            correct: 0,
+            reveal: '¡Los primeros condes de Fuensalida, Pedro López de Ayala y Elvira de Castañeda! 👑 Es un soberbio palacio mudéjar con claras influencias góticas.'
+          },
+          legends: {
+            question: '¿Qué usos ha tenido este edificio a lo largo de su historia, antes de su restauración en 1964?',
+            options: ['Residencia nobiliaria, cuartel militar e incluso vivienda de vecinos', 'Solo ha sido siempre sede de gobierno', 'Fábrica de armas y después hospital'],
+            correct: 0,
+            reveal: '¡De todo un poco! 🏠 Ha sido casa de nobles, cuartel militar y hasta vivienda de vecinos normales antes de convertirse en el monumento que es hoy.'
+          },
+          architecture: {
+            question: 'Según la tradición, ¿qué suceso importante ocurrió en una de las estancias de este palacio en 1539?',
+            options: ['La muerte de la emperatriz Isabel de Portugal', 'La coronación de un rey', 'La firma de un tratado de paz'],
+            correct: 0,
+            reveal: '¡La muerte de la emperatriz Isabel de Portugal! 👑 Esposa de Carlos I, falleció allí tras dar a luz a un hijo que no sobrevivió.'
           }
         }
       },
@@ -1478,8 +1958,28 @@ CITIES.toledo.pois = [
             kids: '¡El hijo del pintor El Greco ayudó a terminar de construir este edificio! Añadió un piso entero y colocó el escudo de la ciudad en lo más alto.'
           },
           architecture: {
-            adult: 'Situada frente a la Catedral, esta plaza reúne simbólicamente el poder civil, religioso y judicial de la ciudad, un buen resumen del peso histórico de Toledo como capital.',
-            kids: '¡En esta plaza se juntan los edificios más importantes del poder de la ciudad: el ayuntamiento y la catedral, uno frente al otro!'
+            adult: 'El edificio se organiza en dos plantas de fachada clasicista, con un cuerpo central rematado por el escudo de la ciudad y flanqueado por dos torres gemelas coronadas con chapiteles de pizarra, un remate característico de la arquitectura herreriana que también corona El Escorial. Situada frente a la Catedral, la plaza reúne simbólicamente el poder civil, religioso y judicial de la ciudad, un buen resumen del peso histórico de Toledo como capital.',
+            kids: '¡El edificio tiene dos torres gemelas con la punta cubierta de pizarra gris, igual que el famoso monasterio de El Escorial! En el centro, arriba del todo, está el escudo de la ciudad. En esta plaza se juntan los edificios más importantes del poder de la ciudad: el ayuntamiento y la catedral, uno frente al otro.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué famoso arquitecto, autor también de El Escorial, diseñó el proyecto del Ayuntamiento?',
+            options: ['Juan de Herrera', 'Alonso de Covarrubias', 'Rafael Moneo'],
+            correct: 0,
+            reveal: '¡Juan de Herrera! 🏛️ Sus obras comenzaron por la fachada principal, a finales del siglo XVI, sobre un edificio mudéjar anterior.'
+          },
+          legends: {
+            question: '¿Quién continuó las obras del Ayuntamiento en 1612, levantando el segundo piso?',
+            options: ['Jorge Manuel Theotocópuli, hijo de El Greco', 'El propio Juan de Herrera', 'Teodoro Ardemans'],
+            correct: 0,
+            reveal: '¡Jorge Manuel Theotocópuli, hijo de El Greco! 👨‍🎨 Coronó el edificio con un frontón triangular donde colocó el escudo de la ciudad.'
+          },
+          architecture: {
+            question: '¿Quién dio el remate final a las dos torres del Ayuntamiento, con chapiteles barrocos de pizarra, en 1703?',
+            options: ['Teodoro Ardemans', 'Juan de Herrera', 'El Greco'],
+            correct: 0,
+            reveal: '¡Teodoro Ardemans! 🗼 Sus torres gemelas de pizarra son un remate típico de la arquitectura herreriana, como la de El Escorial.'
           }
         }
       },
@@ -1509,8 +2009,28 @@ CITIES.toledo.pois = [
             kids: '¡Este convento llegó a tener 21 edificios propios, como una ciudad pequeña dentro de la propia Toledo! Hoy en día estudian aquí universitarios de verdad.'
           },
           architecture: {
-            adult: 'El claustro principal de los dominicos, el Claustro Real, es una importante obra renacentista proyectada por Alonso de Covarrubias en 1541 y ejecutada en piedra por Hernán González de Lara.',
-            kids: '¡Su patio principal es una auténtica joya, diseñado por uno de los arquitectos más importantes del Renacimiento español!'
+            adult: 'La iglesia, ejemplo del clasicismo posherreriano toledano, fue dirigida desde 1587 por Nicolás de Vergara el Mozo, que trazó una fachada sobria de líneas rectas y proporciones clásicas, continuada desde 1607 por Juan Bautista Monegro. El claustro principal de los dominicos, el Claustro Real, es una importante obra renacentista proyectada por Alonso de Covarrubias en 1541 y ejecutada en piedra por Hernán González de Lara, con dos pisos de arcadas sobre columnas que organizan el conjunto conventual.',
+            kids: '¡La iglesia tiene una fachada muy elegante y sencilla, sin demasiados adornos, diseñada por dos arquitectos que trabajaron uno detrás de otro! Su patio principal, con dos pisos de arcos sobre columnas, es una auténtica joya, diseñada por uno de los arquitectos más importantes del Renacimiento español.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué año comenzó la presencia dominica en Toledo, con una primera fundación bajo la advocación de San Pablo?',
+            options: ['En 1230', 'En 1407', 'En 1587'],
+            correct: 0,
+            reveal: '¡En 1230! ⛪ Los frailes se trasladaron dentro de las murallas en 1407, alegando problemas de salud por la humedad del río.'
+          },
+          legends: {
+            question: '¿Cuántos edificios llegó a tener este convento en su momento de mayor crecimiento?',
+            options: ['Veintiuno', 'Tres', 'Cien'],
+            correct: 0,
+            reveal: '¡Veintiuno! 🏘️ Formaba casi una microciudad dentro de Toledo, hoy convertida en la Facultad de Ciencias Jurídicas y Sociales.'
+          },
+          architecture: {
+            question: '¿Quién proyectó el Claustro Real de este convento en 1541?',
+            options: ['Alonso de Covarrubias', 'Juan de Herrera', 'Rafael Moneo'],
+            correct: 0,
+            reveal: '¡Alonso de Covarrubias! 🏛️ Su obra renacentista fue ejecutada en piedra por Hernán González de Lara.'
           }
         }
       },
@@ -1540,8 +2060,28 @@ CITIES.toledo.pois = [
             kids: '¡A lo largo de la historia, este edificio ha sido de todo menos mezquita: posada, taller de sombreros, fábrica de velas y muchas cosas más!'
           },
           architecture: {
-            adult: 'Actualmente alberga el Centro Regional de Artesanía de Castilla-La Mancha, que puede visitarse y acoge exposiciones temporales, un buen ejemplo de cómo Toledo reutiliza su patrimonio islámico.',
-            kids: '¡Hoy en día puedes visitarla y ver exposiciones de artesanía, en un edificio que lleva mil años en pie!'
+            adult: 'A diferencia de otras mezquitas toledanas, la sala de oración se sitúa en la planta alta del edificio, sobre unos bajos comerciales ocupados históricamente por los talleres de torneros que dan nombre al lugar, una disposición poco habitual en la arquitectura religiosa islámica. En su interior, tres naves separadas por arcos de herradura sobre columnas reutilizadas conservan capiteles y basas de origen romano y visigodo. Actualmente alberga el Centro Regional de Artesanía de Castilla-La Mancha, que puede visitarse y acoge exposiciones temporales, un buen ejemplo de cómo Toledo reutiliza su patrimonio islámico.',
+            kids: '¡Esta mezquita es rarísima porque está en el piso de arriba de un edificio, encima de tiendas de verdad! Abajo trabajaban los torneros, artesanos que daban forma a la madera y al metal con un torno, y arriba se rezaba. Dentro tiene tres pasillos separados por arcos de herradura, apoyados en columnas todavía más antiguas, romanas y visigodas. Hoy en día puedes visitarla y ver exposiciones de artesanía, en un edificio que lleva mil años en pie.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De qué siglo data esta mezquita, asentada sobre cimientos visigodos anteriores?',
+            options: ['De finales del siglo IX', 'Del siglo XV', 'Del siglo I'],
+            correct: 0,
+            reveal: '¡De finales del siglo IX! 🕌 Se situaba en el antiguo Arrabal de Francos, junto al zoco de los bruñidores y el de los cambiadores.'
+          },
+          legends: {
+            question: '¿Cuál de estos NO fue uno de los usos que tuvo este edificio a lo largo de los siglos?',
+            options: ['Fábrica de sombreros y velas de sebo', 'Cuartel militar permanente', 'Mesón y viviendas humildes'],
+            correct: 1,
+            reveal: 'Nunca fue cuartel militar. 🏚️ Sí fue mesón, viviendas, bodegones, carpinterías y hasta fábrica de sombreros y velas, antes de donarse en 1505 al Hospital de la Misericordia.'
+          },
+          architecture: {
+            question: '¿Dónde se sitúa la sala de oración de esta mezquita, de forma poco habitual?',
+            options: ['En la planta alta, sobre locales comerciales', 'Bajo tierra, en un sótano', 'En una torre exenta'],
+            correct: 0,
+            reveal: '¡En la planta alta! 🏢 Se sitúa sobre los bajos ocupados históricamente por talleres de torneros, una disposición rara entre las mezquitas toledanas.'
           }
         }
       },
@@ -1571,8 +2111,28 @@ CITIES.toledo.pois = [
             kids: '¡Esta iglesia ha tenido vidas muy distintas! Ha sido almacén, museo, aulas de universidad, ¡e incluso una discoteca, antes de convertirse en lo que es hoy!'
           },
           architecture: {
-            adult: 'La capilla de Oballe, decorada por El Greco en el siglo XVII, es uno de los detalles artísticos más valiosos que se conservan en el interior del templo.',
-            kids: '¡Dentro hay una capilla decorada por el pintor El Greco, el mismo que pintó tantas obras famosas en Toledo!'
+            adult: 'Su ábside, la parte más antigua conservada, se articula en tres niveles de arquerías ciegas superpuestas con arcos de herradura, que dan paso en el interior a capillas góticas añadidas en el siglo XIV. La torre actual, reconstruida en 1599 tras los graves daños sufridos a finales del siglo XVI, sustituyó a la original. Entre las capillas del templo destaca la de Oballe, decorada por El Greco a comienzos del siglo XVII, uno de los detalles artísticos más valiosos que se conservan en el interior.',
+            kids: '¡Su parte más vieja, el ábside, tiene tres pisos de arcos ciegos apilados uno sobre otro, como una tarta de piedra! Dentro hay capillas góticas añadidas hace más de 700 años. La torre que ves hoy no es la original: la reconstruyeron hace más de 400 años porque la primera se dañó. Y dentro hay una capilla decorada por el pintor El Greco, el mismo que pintó tantas obras famosas en Toledo.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué rey fundó esta iglesia poco después de la conquista cristiana de Toledo, en el siglo XI?',
+            options: ['Alfonso VI', 'Alfonso X el Sabio', 'Carlos I'],
+            correct: 0,
+            reveal: '¡Alfonso VI! ⛪ Hacia 1125 ya se la citaba como parroquia, aunque su ábside, la parte más antigua, data de mediados del siglo XIII.'
+          },
+          legends: {
+            question: '¿Qué sorprendente uso tuvo este edificio en el siglo XX, antes de convertirse en el Círculo de Arte de Toledo?',
+            options: ['Sala de fiestas', 'Cárcel municipal', 'Fábrica de armas'],
+            correct: 0,
+            reveal: '¡Una sala de fiestas! 🎶 Antes había sido también almacén, museo y aulas universitarias, tras dejar de usarse como iglesia en 1842.'
+          },
+          architecture: {
+            question: '¿Qué pintor decoró la Capilla de Oballe, en el interior de esta iglesia?',
+            options: ['El Greco', 'Goya', 'Velázquez'],
+            correct: 0,
+            reveal: '¡El Greco! 🎨 La decoró a comienzos del siglo XVII, y es uno de los detalles artísticos más valiosos que se conservan en el templo.'
           }
         }
       },
@@ -1602,8 +2162,28 @@ CITIES.toledo.pois = [
             kids: '¡Cuenta la tradición que el mazapán, ese dulce tan típico de Toledo, se inventó aquí dentro hace más de 800 años, en un año de mucha hambre, usando solo almendra y azúcar!'
           },
           architecture: {
-            adult: 'Es un convento de clausura, por lo que las visitas son limitadas, aunque cuenta con una tienda y un espacio expositivo en la entrada donde se pueden adquirir los famosos dulces elaborados por las propias monjas.',
-            kids: '¡Aunque no se puede visitar por dentro porque las monjas viven en clausura, sí puedes comprar en la puerta los dulces que ellas mismas preparan!'
+            adult: 'Su iglesia actual, reconstruida en época barroca, sustituyó a fábricas medievales anteriores vinculadas a la primitiva regla cisterciense adoptada en 1117, cuando el convento dejó atrás su origen clunicense. El conjunto conventual, cerrado al público por tratarse de una clausura, conserva tras sus muros claustros y dependencias de distintas épocas que reflejan casi mil años de vida monástica ininterrumpida. En la portería, un torno permite comprar sin traspasar la clausura los dulces y mazapanes que las monjas siguen elaborando a mano.',
+            kids: '¡La iglesia que ves hoy es más nueva, pero debajo esconde partes muchísimo más antiguas, de cuando el convento seguía otras reglas religiosas distintas, hace casi 1000 años! Aunque no se puede entrar porque las monjas viven en clausura, en la puerta hay una ventanita giratoria llamada torno por donde te pasan los dulces y el mazapán sin que os veáis las caras.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quién fundó este monasterio originalmente, fuera de las murallas de Toledo?',
+            options: ['Alfonso VI', 'Fernando III el Santo', 'Carlos V'],
+            correct: 0,
+            reveal: '¡Alfonso VI! 👑 Su nieto Alfonso VII el Emperador lo trasladó después dentro de las murallas, siendo uno de los primeros conventos fundados tras la Reconquista.'
+          },
+          legends: {
+            question: 'Según la tradición, ¿tras qué batalla se inventó el mazapán en este convento?',
+            options: ['La batalla de las Navas de Tolosa (1212)', 'La conquista de Granada (1492)', 'La batalla de Lepanto (1571)'],
+            correct: 0,
+            reveal: '¡Tras las Navas de Tolosa! 🍬 En un año de mucha hambre, las monjas idearon esta receta a base de almendra y azúcar, a comienzos del siglo XIII.'
+          },
+          architecture: {
+            question: '¿Qué regla monástica adoptó el convento en 1117, dejando atrás su origen clunicense?',
+            options: ['La regla cisterciense', 'La regla benedictina original', 'La regla dominica'],
+            correct: 0,
+            reveal: '¡La regla cisterciense! 📜 El papa Alejandro III confirmó definitivamente esta incorporación en 1180.'
           }
         }
       },
@@ -1632,8 +2212,28 @@ CITIES.toledo.pois = [
             kids: '¡El estudioso que da nombre a esta plaza hizo un descubrimiento importantísimo sobre un antiguo cementerio judío, pero murió muy poco después de publicarlo!'
           },
           architecture: {
-            adult: 'El yacimiento es de acceso gratuito y permite ver directamente las estructuras de las termas romanas, un ejemplo poco conocido pero revelador del pasado imperial de la ciudad.',
-            kids: '¡Puedes entrar gratis a ver estos restos tan antiguos, escondidos justo debajo de la plaza por la que pasea la gente cada día!'
+            adult: 'Los restos conservados permiten reconocer la disposición típica de unas termas romanas, con vestigios del sistema de hipocausto —el suelo elevado sobre pilares de ladrillo que permitía la circulación de aire caliente— que caldeaba las salas de baño. Un mirador acristalado instalado en la propia plaza permite contemplar hoy estas estructuras sin necesidad de descender al nivel arqueológico, conservando su ubicación original bajo el trazado urbano actual. Es un ejemplo poco conocido pero revelador de la monumentalidad que tuvo el Toledo romano.',
+            kids: '¡Debajo de esta plaza hay restos de un suelo elevado sobre columnitas de ladrillo! Servía para que el aire caliente circulara por debajo y calentara las salas de baño, como una especie de calefacción romana. Puedes verlo todo a través de un cristal instalado en la propia plaza, sin tener que bajar. ¡Imagina a los romanos bañándose justo donde tú caminas hoy!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Desde qué año se conocen estos restos arqueológicos?',
+            options: ['Desde 1986', 'Desde 1905', 'Desde 2010'],
+            correct: 0,
+            reveal: '¡Desde 1986! 🏺 Ilustran la monumentalidad que debió de tener Toledo en época romana, siguiendo el modelo urbano de la capital del Imperio.'
+          },
+          legends: {
+            question: '¿Qué importante hallazgo arqueológico fue uno de los últimos trabajos de Rodrigo Amador de los Ríos?',
+            options: ['La excavación de una necrópolis judía', 'El descubrimiento de estas mismas termas', 'Un tesoro visigodo'],
+            correct: 0,
+            reveal: '¡Una necrópolis judía! 📚 Murió apenas cuatro meses después de publicar los resultados, dejando el hallazgo sin consolidar del todo.'
+          },
+          architecture: {
+            question: '¿Qué sistema de calefacción romana se reconoce en los restos de estas termas?',
+            options: ['El hipocausto, con suelo elevado sobre pilares', 'Chimeneas de ladrillo visible', 'Braseros portátiles de bronce'],
+            correct: 0,
+            reveal: '¡El hipocausto! 🔥 El aire caliente circulaba bajo el suelo elevado sobre pilares de ladrillo, calentando así las salas de baño.'
           }
         }
       },
@@ -1662,8 +2262,28 @@ CITIES.toledo.pois = [
             kids: '¡El nombre actual del palacio se lo puso un hombre que, hace unos 100 años, decidió inventarse a sí mismo el título de conde!'
           },
           architecture: {
-            adult: 'Construcción ecléctica de tres plantas con motivos románicos, mudéjares, talaveranos, góticos e italianizantes; su patio, de estilo mudéjar, se decora con yeserías y azulejos, sus principales atractivos.',
-            kids: '¡Su patio interior está decorado con yeso tallado y azulejos de colores, una auténtica mezcla de estilos artísticos!'
+            adult: 'De tres plantas y construcción ecléctica, mezcla en su fachada y su patio motivos románicos, mudéjares, talaveranos, góticos e italianizantes, reflejo de las sucesivas ampliaciones sufridas a lo largo de los siglos. Su patio central, de estilo mudéjar y decorado con yeserías y azulejos, es conocido históricamente como el Patio de los Presos, en recuerdo de su etapa como sede del Santo Oficio de la Inquisición. Tras su rehabilitación hacia 1970, el edificio se adaptó para acoger actos y eventos culturales sin perder su fisonomía original.',
+            kids: '¡Este palacio mezcla un montón de estilos distintos, como si fuera un collage de siglos de historia! Su patio interior está decorado con yeso tallado y azulejos de colores, y se llama "el Patio de los Presos" porque aquí encerraban a la gente cuando el edificio era sede de un tribunal muy serio. Hoy en día se usa para eventos culturales, ¡pero conserva su aspecto de siempre!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿De la época de qué rey se cree que data este palacio?',
+            options: ['Pedro I el Cruel', 'Carlos I', 'Alfonso X el Sabio'],
+            correct: 0,
+            reveal: '¡De Pedro I el Cruel! 👑 El palacio fue también sede del Santo Oficio de la Inquisición, y perteneció antes a las familias Pantoja y Gaytán.'
+          },
+          legends: {
+            question: '¿Quién se atribuyó a sí mismo el título de conde de Benacazón, entre 1920 y 1940?',
+            options: ['Anastasio Páramo Barranco', 'Fernán Pérez de Pantoja', 'Un noble portugués'],
+            correct: 0,
+            reveal: '¡Anastasio Páramo Barranco! 🎭 Se inventó el título él solito, y así fue como el palacio recibió el nombre que tiene hoy.'
+          },
+          architecture: {
+            question: '¿Cómo se conoce históricamente el patio central de este palacio?',
+            options: ['El Patio de los Presos', 'El Patio de las Flores', 'El Patio del Rey'],
+            correct: 0,
+            reveal: '¡El Patio de los Presos! ⛓️ El nombre recuerda su etapa como sede de la Inquisición, aunque hoy está decorado con yeserías y azulejos.'
           }
         }
       },
@@ -1693,8 +2313,28 @@ CITIES.toledo.pois = [
             kids: '¡Cuando se hicieron obras en este convento, los arqueólogos encontraron restos de muchísimas épocas distintas enterrados en el antiguo huerto de las monjas!'
           },
           architecture: {
-            adult: 'Combina los estilos mudéjar, renacentista y barroco, integrado hoy en la universidad; destaca su portada mudéjar del siglo XIV, que evoca la arquitectura de los Reales Alcázares de Sevilla y la Alhambra, y su claustro renacentista de planta trapezoidal a dos alturas.',
-            kids: '¡Su entrada está decorada de una forma que recuerda a los palacios árabes más famosos de España, como la Alhambra!'
+            adult: 'Combina los estilos mudéjar, renacentista y barroco, fruto de un crecimiento que se prolongó desde finales del siglo XV hasta mediados del XVII. Destaca su portada mudéjar del siglo XIV, que evoca la arquitectura de los Reales Alcázares de Sevilla y la Alhambra, y su claustro renacentista de planta trapezoidal a dos alturas, organizado en torno a patios como es habitual en los conventos toledanos. Integrado hoy en la universidad, bajo su antigua huerta se hallaron durante las obras de rehabilitación restos arqueológicos de época romana, medieval y moderna.',
+            kids: '¡Su entrada está decorada de una forma que recuerda a los palacios árabes más famosos de España, como la Alhambra! El convento se construyó poco a poco durante casi 150 años, mezclando varios estilos distintos. Su patio principal tiene dos alturas y forma de trapecio, ¡una figura geométrica con lados desiguales! Y bajo el antiguo huerto de las monjas se encontraron restos de épocas muy distintas escondidos bajo tierra.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Quiénes fundaron este convento a finales del siglo XV?',
+            options: ['Leonor y María de Silva, hijas del conde de Cifuentes', 'Los Reyes Católicos', 'Santa Teresa de Jesús'],
+            correct: 0,
+            reveal: '¡Leonor y María de Silva! 👭 Lo fundaron como convento femenino de la orden dominica, hijas del conde de Cifuentes.'
+          },
+          legends: {
+            question: '¿De qué épocas eran los restos hallados bajo la antigua huerta de las monjas?',
+            options: ['Romana, medieval y moderna', 'Solo de época visigoda', 'Solo del siglo XX'],
+            correct: 0,
+            reveal: '¡Romana, medieval y moderna! 🏺 Aparecieron durante las obras de rehabilitación del complejo conventual.'
+          },
+          architecture: {
+            question: '¿A qué palacios evoca la portada mudéjar del siglo XIV de este convento?',
+            options: ['A los Reales Alcázares de Sevilla y la Alhambra', 'A El Escorial', 'Al Palacio Real de Madrid'],
+            correct: 0,
+            reveal: '¡A los Reales Alcázares de Sevilla y la Alhambra! 🕌 Su claustro renacentista tiene planta trapezoidal y dos alturas.'
           }
         }
       },
@@ -1723,8 +2363,28 @@ CITIES.toledo.pois = [
             kids: '¡El nombre "cigarral" viene del sonido de las cigarras, esos insectos que cantan tanto en verano! Cuando Toledo fue capital de España, hace 500 años, los nobles construían aquí sus casas de vacaciones.'
           },
           architecture: {
-            adult: 'Hoy los cigarrales siguen siendo sinónimo de exclusividad y paisaje, con vistas privilegiadas sobre la ciudad amurallada desde la otra orilla del Tajo, y muchos de ellos convertidos en espacios para eventos y hostelería.',
-            kids: '¡Desde estas casas de campo se puede ver toda la ciudad de Toledo, con sus torres y murallas, al otro lado del río!'
+            adult: 'La disposición típica de un cigarral combina una casa principal encalada con huertas escalonadas en la ladera y jardines de cipreses y frutales, aprovechando los desniveles del terreno para crear terrazas con distintas vistas sobre el Tajo. El escritor Tirso de Molina inmortalizó estas fincas en su obra "Los Cigarrales de Toledo" (1624), dando fama literaria a este paisaje. Hoy los cigarrales siguen siendo sinónimo de exclusividad, con vistas privilegiadas sobre la ciudad amurallada desde la otra orilla del río, y muchos de ellos convertidos en espacios para eventos y hostelería.',
+            kids: '¡Una casa de cigarral típica es blanca, con jardines escalonados como si fueran peldaños gigantes en la ladera de la colina! Tienen árboles frutales y cipreses muy altos. Un escritor muy famoso, Tirso de Molina, escribió hace casi 400 años un libro entero sobre estas casas. Desde estas casas de campo se puede ver toda la ciudad de Toledo, con sus torres y murallas, al otro lado del río.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué construcciones antiguas se inspiran los cigarrales, según sus antecedentes históricos?',
+            options: ['Villas romanas y huertas de recreo islámicas', 'Castillos medievales', 'Templos visigodos'],
+            correct: 0,
+            reveal: '¡Villas romanas y huertas islámicas! 🌳 Estaban pensadas para combatir el calor del verano combinando agua, vegetación y frescor.'
+          },
+          legends: {
+            question: '¿De qué sonido viene, según la teoría más extendida, el nombre "cigarral"?',
+            options: ['Del canto de las cigarras', 'Del color rojizo de la tierra', 'De un antiguo apellido noble'],
+            correct: 0,
+            reveal: '¡Del canto de las cigarras! 🎶 Acompañaba las jornadas de verano en los márgenes del Tajo, cuando la nobleza venía aquí a descansar.'
+          },
+          architecture: {
+            question: '¿Qué escritor dedicó una obra entera a estas fincas, titulada "Los Cigarrales de Toledo" (1624)?',
+            options: ['Tirso de Molina', 'Miguel de Cervantes', 'Lope de Vega'],
+            correct: 0,
+            reveal: '¡Tirso de Molina! ✍️ Su obra dio fama literaria a estas casas escalonadas de huertas, cipreses y frutales sobre la ladera del Tajo.'
           }
         }
       },
@@ -1754,8 +2414,28 @@ CITIES.toledo.pois = [
             kids: '¡Mira bien sus columnas! Casi todas son romanas de verdad, reutilizadas aquí hace muchos siglos, y una de ellas tiene tallada una escena religiosa visigoda muy antigua.'
           },
           architecture: {
-            adult: 'La pilastra visigoda, auténtica joya histórica del templo, representa escenas como la curación del ciego, la resurrección de Lázaro o la curación de la mujer del flujo de sangre.',
-            kids: '¡Busca la columna más especial de todas, tallada por los visigodos con dibujos que cuentan historias de la Biblia, hace más de 1300 años!'
+            adult: 'La arquería de herradura de la nave de la epístola se sostiene sobre siete soportes de procedencia diversa: seis son columnas romanas de mármol, con capiteles también reaprovechados de distintos edificios anteriores, y el séptimo es la célebre pilastra visigoda, que representa escenas como la curación del ciego, la resurrección de Lázaro o la curación de la mujer del flujo de sangre. Esta mezcla de materiales reutilizados, o spolia, es habitual en la arquitectura mudéjar toledana. Excavaciones recientes bajo el suelo de la iglesia han sacado a la luz estructuras romanas y visigodas anteriores.',
+            kids: '¡Los siete pilares que sostienen los arcos de esta iglesia no son todos iguales! Seis son columnas romanas de mármol, recicladas de otro edificio todavía más antiguo, y la séptima es la famosa columna visigoda tallada con dibujos que cuentan historias de la Biblia, ¡tallada hace más de 1300 años! Es como si hubieran hecho la iglesia con piezas de un puzle gigante de distintas épocas.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Sobre qué se construyó la mezquita omeya del siglo IX que dio origen a esta iglesia?',
+            options: ['Sobre un edificio religioso visigodo anterior', 'Sobre un teatro romano', 'Sobre un palacio árabe'],
+            correct: 0,
+            reveal: '¡Sobre un edificio religioso visigodo! ⛪ Esta iglesia es considerada la más antigua de Toledo, tras varias capas de construcciones superpuestas.'
+          },
+          legends: {
+            question: '¿Qué tipo de escenas representa la pilastra visigoda de esta iglesia?',
+            options: ['La vida de Santiago', 'Milagros de Cristo relacionados con la Resurrección', 'La conquista de Toledo'],
+            correct: 1,
+            reveal: 'Milagros de Cristo relacionados con la Resurrección. ✨ Es una auténtica joya histórica entre las siete columnas que sostienen la nave.'
+          },
+          architecture: {
+            question: '¿De qué material son la mayoría de las columnas reutilizadas en la arquería de la nave de la epístola?',
+            options: ['Ladrillo mudéjar', 'Madera de cedro', 'Mármol romano reutilizado'],
+            correct: 2,
+            reveal: '¡Mármol romano reutilizado! 🏛️ Seis de los siete soportes son columnas romanas recicladas de edificios todavía más antiguos.'
           }
         }
       },
@@ -1784,8 +2464,28 @@ CITIES.toledo.pois = [
             kids: '¡El edificio se llama así en honor al pintor El Greco! Su diseño juega con la luz y las formas alargadas, igual que hacía el propio pintor en sus cuadros.'
           },
           architecture: {
-            adult: 'Con una superficie total de 12.000 metros cuadrados, su fachada escalonada y los jardines del Miradero en la azotea ofrecen espacios exteriores con vistas panorámicas sobre el río Tajo y el perfil de la ciudad.',
-            kids: '¡En la azotea del edificio hay unos jardines con unas vistas espectaculares sobre el río y toda la ciudad!'
+            adult: 'Con una superficie total de 12.000 metros cuadrados repartidos en varias plantas, buena parte de ellas semienterradas en la ladera para reducir el impacto visual sobre el conjunto histórico, el edificio combina piedra, ladrillo y hormigón visto. Su fachada escalonada desciende siguiendo el desnivel natural del terreno, y los jardines del Miradero en la azotea ofrecen espacios exteriores con vistas panorámicas sobre el río Tajo y el perfil de la ciudad, funcionando además como una plaza pública elevada.',
+            kids: '¡Este edificio tan moderno mide 12.000 metros cuadrados, como dos campos de fútbol juntos! Buena parte está escondida dentro de la propia colina, para no estropear las vistas del Toledo antiguo. Está hecho de piedra, ladrillo y hormigón. En la azotea hay unos jardines con unas vistas espectaculares sobre el río y toda la ciudad, ¡como una plaza en el aire!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué arquitecto español, ganador del Premio Príncipe de Asturias de las Artes, diseñó este edificio en el año 2000?',
+            options: ['Rafael Moneo', 'Santiago Calatrava', 'Alonso de Covarrubias'],
+            correct: 0,
+            reveal: '¡Rafael Moneo! 🏆 Diseñó el Palacio de Congresos junto al urbanista Joan Busquets, y se presentó en junio de 2001.'
+          },
+          legends: {
+            question: '¿En honor a qué pintor está bautizado este edificio?',
+            options: ['El Greco', 'Goya', 'Velázquez'],
+            correct: 0,
+            reveal: '¡El Greco! 🎨 Su diseño juega con la luz y las formas alargadas, igual que hacía el propio pintor en sus cuadros toledanos.'
+          },
+          architecture: {
+            question: '¿Cuántos metros cuadrados tiene en total este edificio?',
+            options: ['12.000 metros cuadrados', '1.200 metros cuadrados', '50.000 metros cuadrados'],
+            correct: 0,
+            reveal: '¡12.000 metros cuadrados! 📐 Buena parte está semienterrada en la ladera, para no estropear las vistas del Toledo histórico.'
           }
         }
       },
@@ -1814,8 +2514,28 @@ CITIES.toledo.pois = [
             kids: '¡Durante siglos, solo se podía cruzar el río por dos puentes muy antiguos! Este puente moderno se llama así en honor a un astrónomo de Toledo que vivió hace casi 1000 años y que estudiaba las estrellas.'
           },
           architecture: {
-            adult: 'El equipo de ingenieros que lo diseñó, entre ellos Carlos Fernández Casado y Javier Manterola, tuvo la clara intención de crear una obra discreta que no interfiriera con las vistas del histórico puente de Alcántara y el paisaje medieval típico de la ciudad.',
-            kids: '¡Los ingenieros que lo diseñaron quisieron que este puente moderno no estropeara las vistas del puente antiguo y del paisaje histórico de Toledo!'
+            adult: 'Obra de ingeniería civil moderna en hormigón, el puente salva el cauce del Tajo con un tablero apoyado en pilas esbeltas, una solución típica del ingeniero Carlos Fernández Casado, especializado en grandes puentes de hormigón en toda España. El equipo que lo diseñó, junto a Javier Manterola, tuvo la clara intención de crear una obra discreta que no interfiriera con las vistas del histórico puente de Alcántara y el paisaje medieval típico de la ciudad, primando la funcionalidad sobre el protagonismo estético.',
+            kids: '¡Este puente está hecho de hormigón, el material que se usa para construir carreteras y edificios modernos! Se apoya en unas columnas finas y fuertes que cruzan de lado a lado el río. Los ingenieros que lo diseñaron quisieron que este puente moderno no estropeara las vistas del puente antiguo y del paisaje histórico de Toledo, ¡así que lo hicieron sencillo a propósito!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué fecha se inauguró el Puente de Azarquiel?',
+            options: ['El 19 de junio de 1984', 'El 1 de enero de 1933', 'El 12 de octubre de 1992'],
+            correct: 0,
+            reveal: '¡El 19 de junio de 1984! 🌉 Se construyó para conectar mejor el barrio de Santa Bárbara y la estación de tren con el casco histórico.'
+          },
+          legends: {
+            question: '¿Con qué nombres se conoció inicialmente el proyecto de este puente, antes de llamarse Azarquiel?',
+            options: ['Puente de Safont y puente de Galiana', 'Puente Nuevo y puente Real', 'Puente del Rey y puente de la Reina'],
+            correct: 0,
+            reveal: '¡Puente de Safont y puente de Galiana! 📜 Finalmente se llamó Azarquiel en honor al astrónomo andalusí toledano, a petición de la Real Academia.'
+          },
+          architecture: {
+            question: '¿Qué material moderno se usó para construir este puente?',
+            options: ['Hormigón', 'Madera reforzada', 'Piedra caliza'],
+            correct: 0,
+            reveal: '¡Hormigón! 🏗️ El ingeniero Carlos Fernández Casado, especializado en grandes puentes de hormigón, formó parte del equipo que lo diseñó.'
           }
         }
       },
@@ -1845,8 +2565,28 @@ CITIES.toledo.pois = [
             kids: '¡Las monjas de este convento hacen dulces siguiendo recetas secretas que tienen más de un siglo de antigüedad, aprendidas de otras monjas de Granada!'
           },
           architecture: {
-            adult: 'Estas monjas de clausura forman parte integral de la Orden Militar de los Caballeros de Santiago, y entre sus dulces típicos destacan los pastelillos de té, la pasta bonita y las castañas de mazapán bañadas en chocolate.',
-            kids: '¡Puedes comprar sus dulces típicos, como castañas de mazapán bañadas en chocolate, hechos con recetas que llevan siglos pasando de monja en monja!'
+            adult: 'El Claustro de la Mona, sede actual de las comendadoras desde 1935, fue diseñado por Diego de Alcántara, buen conocedor de la arquitectura de Herrera, que trabajó como aparejador en la construcción del Alcázar de Toledo. Forma parte del antiguo conjunto del monasterio de Santo Domingo el Real, del que las monjas ocupan hoy el claustro y los edificios adyacentes. Estas comendadoras de clausura, vinculadas a la Orden Militar de los Caballeros de Santiago, elaboran en su obrador dulces artesanales como los pastelillos de té, la pasta bonita y las castañas de mazapán bañadas en chocolate.',
+            kids: '¡El patio donde viven hoy estas monjas se llama el Claustro de la Mona, y lo diseñó un arquitecto que también trabajó en la construcción del Alcázar de Toledo! Forma parte de un monasterio todavía más grande y antiguo. Estas monjas de clausura pertenecen a una orden de caballeros medievales, y en su obrador hacen dulces como castañas de mazapán bañadas en chocolate, con recetas que llevan siglos pasando de monja en monja.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué ciudad se fundó originalmente la Orden de las Comendadoras de Santiago, en 1175?',
+            options: ['Toledo', 'Palencia', 'Granada'],
+            correct: 1,
+            reveal: '¡En Palencia! 📜 Los Reyes Católicos enviaron a las hermanas a Toledo en 1502, al Convento de Santa Fe.'
+          },
+          legends: {
+            question: '¿Qué relación tuvo con el Alcázar de Toledo el arquitecto del Claustro de la Mona, Diego de Alcántara?',
+            options: ['Trabajó como aparejador en su construcción', 'Lo diseñó él solo por completo', 'Vivió allí de joven'],
+            correct: 0,
+            reveal: '¡Trabajó como aparejador en su construcción! 🏰 Era buen conocedor de la arquitectura de Herrera, y aplicó ese estilo en el claustro de las comendadoras.'
+          },
+          architecture: {
+            question: '¿A qué antiguo monasterio pertenecía originalmente el Claustro de la Mona, sede actual de las comendadoras?',
+            options: ['Al monasterio de Santo Domingo el Real', 'Al monasterio de San Clemente', 'A la Catedral de Toledo'],
+            correct: 0,
+            reveal: '¡Al monasterio de Santo Domingo el Real! 🏛️ Las comendadoras se trasladaron allí en 1935, y siguen ocupando el claustro y edificios adyacentes.'
           }
         }
       },
@@ -1876,8 +2616,28 @@ CITIES.toledo.pois = [
             kids: '¡En el sótano de esta iglesia se descubrieron, hace unos 60 años, ni más ni menos que 50 momias! Todavía se pueden ver hoy, protegidas detrás de un cristal.'
           },
           architecture: {
-            adult: 'El claustro mudéjar es datable en torno a finales del siglo XII; de este estilo quedan restos dentro del templo y en las dos portadas, ambas enmarcadas con arco de herradura.',
-            kids: '¡Sus puertas de entrada tienen forma de arco de herradura, un estilo típico de los constructores mudéjares de hace 800 años!'
+            adult: 'El claustro mudéjar, datable en torno a finales del siglo XII, conserva restos de ese estilo original tanto dentro del templo como en sus dos portadas, ambas enmarcadas con arco de herradura. A comienzos del siglo XIV se añadieron el crucero y la Capilla de la Epifanía, en un estilo de transición entre lo mudéjar y lo gótico, mientras que reformas del siglo XVII incorporaron elementos barrocos que conviven hoy con la fábrica medieval original. Esta mezcla de estilos superpuestos convierte a San Andrés en un buen ejemplo de cómo las iglesias toledanas se fueron ampliando siglo tras siglo.',
+            kids: '¡Sus puertas de entrada tienen forma de arco de herradura, un estilo típico de los constructores mudéjares de hace 800 años! Después, hace más de 700 años, le añadieron una parte nueva llamada crucero y una capilla especial. Y todavía más tarde, hace unos 400 años, le pusieron decoraciones barrocas. ¡Esta iglesia ha ido creciendo y cambiando poquito a poco durante siglos, como un dibujo hecho por varias manos distintas!'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Qué suceso obligó a reedificar esta iglesia poco después de su primera mención documental, en 1150?',
+            options: ['Un incendio', 'Un terremoto', 'Una inundación del Tajo'],
+            correct: 0,
+            reveal: '¡Un incendio! 🔥 Tuvo que reedificarse ese mismo siglo, y a comienzos del XIV se añadieron el crucero y la capilla de la Epifanía.'
+          },
+          legends: {
+            question: '¿Cuántas momias se descubrieron en la cripta de esta iglesia en la década de 1960?',
+            options: ['50', '5', '500'],
+            correct: 0,
+            reveal: '¡50 momias! 👻 Es el mayor conjunto de momias conocido en España, protegido hoy bajo un cristal que preserva el microclima de la cripta.'
+          },
+          architecture: {
+            question: '¿De qué época data el claustro mudéjar de esta iglesia?',
+            options: ['De finales del siglo XII', 'Del siglo XX', 'De época romana'],
+            correct: 0,
+            reveal: '¡De finales del siglo XII! 🕍 Sus dos portadas conservan ese estilo, enmarcadas con arco de herradura.'
           }
         }
       },
@@ -1906,8 +2666,28 @@ CITIES.toledo.pois = [
             kids: '¡Por esta puerta entraban a la ciudad los visitantes más importantes, hace muchos siglos! Cerca de aquí trabajaban también los herreros, artesanos que forjaban el hierro.'
           },
           architecture: {
-            adult: 'Perdió importancia en el siglo XIV, cuando se convirtió en entrada secundaria; su arco de herradura se transformó en arco de medio punto para permitir el paso de carros, y en 1921 fue declarada Monumento Nacional junto con el resto de puertas y murallas de Toledo.',
-            kids: '¡Con el tiempo, la forma de su arco cambió para que pudieran pasar los carros! Hoy está protegida como monumento nacional, igual que el resto de puertas de la muralla.'
+            adult: 'Perdió importancia en el siglo XIV, cuando se convirtió en entrada secundaria frente a la cercana Puerta del Sol; su arco de herradura originario se transformó entonces en arco de medio punto para permitir el paso de carros. Construida en mampostería y sillarejo, formaba junto a la Puerta del Sol un sistema defensivo conjunto que protegía este flanco de la muralla urbana. En 1921 fue declarada Monumento Nacional junto con el resto de puertas y murallas de Toledo.',
+            kids: '¡Con el tiempo, la forma de su arco cambió para que pudieran pasar los carros! Está construida con piedras y ladrillos colocados a mano, y trabajaba en equipo con la Puerta del Sol para proteger esta parte de la muralla, como dos guardianes vecinos. Hoy está protegida como monumento nacional, igual que el resto de puertas de la muralla.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿En qué año aparece la primera mención escrita de esta puerta, en un documento mozárabe que la llama "Puerta Mohaguía"?',
+            options: ['En 1216', 'En 711', 'En 1492'],
+            correct: 0,
+            reveal: '¡En 1216! 📜 Es la puerta más antigua de Toledo que se conserva en su ubicación original, con origen visigodo.'
+          },
+          legends: {
+            question: '¿Cómo se conoció más tarde a esta puerta, en referencia a los artesanos que trabajaban cerca?',
+            options: ['Puerta Alta de la Herrería', 'Puerta de los Plateros', 'Puerta de los Zapateros'],
+            correct: 0,
+            reveal: '¡Puerta Alta de la Herrería! ⚒️ La Puerta del Sol, cercana, era la Puerta Baja de la Herrería: en esa zona trabajaban los herreros.'
+          },
+          architecture: {
+            question: '¿En qué se transformó el arco de herradura original de esta puerta en el siglo XIV?',
+            options: ['En un arco de medio punto', 'En un arco apuntado gótico', 'En una puerta sin arco'],
+            correct: 0,
+            reveal: '¡En un arco de medio punto! 🚪 El cambio permitió el paso de carros, cuando la puerta perdió su papel como entrada principal.'
           }
         }
       },
@@ -1938,6 +2718,26 @@ CITIES.toledo.pois = [
           architecture: {
             adult: 'La plaza está flanqueada por un antiguo edificio y el Convento de San José, de mediados del siglo XVI, de las Carmelitas Descalzas, la orden que la propia Santa Teresa fundó y en la que todavía residen algunas monjas; una escultura moderna de la santa, obra del escultor toledano Luis Pablo Gómez Vidales, preside hoy el espacio.',
             kids: '¡En medio de la plaza hay una estatua moderna de la santa que le da nombre! Justo al lado sigue habiendo monjas viviendo, siguiendo la orden que ella misma fundó.'
+          }
+        },
+        quiz: {
+          'secret-history': {
+            question: '¿Gracias a quién pudo Santa Teresa fundar este convento en 1569?',
+            options: ['A un rico mercader llamado Martín Ramírez', 'A los Reyes Católicos', 'A un cardenal toledano'],
+            correct: 0,
+            reveal: '¡A Martín Ramírez! 💰 Este mercader dejó dinero en su testamento para fundar la iglesia, y fue la quinta fundación de la santa.'
+          },
+          legends: {
+            question: '¿Dónde se ubicó el convento antes de trasladarse a la Plaza de Santa Teresa?',
+            options: ['En una casa de la calle San Juan de Dios, en la judería', 'En el Alcázar', 'Fuera de las murallas de la ciudad'],
+            correct: 0,
+            reveal: '¡En una casa de la judería! 🏠 Solo un año después se trasladó a su emplazamiento actual, junto a la Puerta del Cambrón.'
+          },
+          architecture: {
+            question: '¿Qué preside hoy el centro de esta plaza?',
+            options: ['Una escultura moderna de Santa Teresa', 'Una fuente', 'Un reloj de sol'],
+            correct: 0,
+            reveal: '¡Una escultura moderna de la santa! 🗿 Es obra del escultor toledano Luis Pablo Gómez Vidales, junto al Convento de San José.'
           }
         }
       }
