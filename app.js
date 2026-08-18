@@ -646,6 +646,12 @@
       // pregunta del quiz), en vez del resumen inicial. Se limpia cada vez
       // que se abre una ficha para que el audio inicial vuelva a sonar.
       overrideText: null,
+      // Callback pendiente de "este segmento ha terminado" del startAudio
+      // en curso (lo usa queueDeepenWithFillers para saber cuándo pedir
+      // el siguiente párrafo) — seekAudioTo lo relee para no perderlo al
+      // saltar de punto a mitad de un segmento. No se persiste (no tiene
+      // sentido guardar una función en localStorage).
+      onSegmentEnd: null,
       speech: { supported: false, utterance: null, voices: [], pickedVoice: null }
     },
     // localIntroSpoken: qué POIs ya oyeron la intro básica local narrada al
@@ -4582,7 +4588,13 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     }
 
     if (!SPEECH.isSupported()) return;
-    startAudio(false, false, null, ratio);
+    // Conserva el aviso de "fin de segmento" pendiente (si lo había): lo
+    // usa queueDeepenWithFillers para saber cuándo puede pedir el
+    // siguiente párrafo de "profundiza más". Sin esto, saltar de punto a
+    // mitad de uno de esos párrafos dejaba ese aviso huérfano para
+    // siempre y los chips se quedaban bloqueados sin que nada volviera a
+    // desbloquearlos.
+    startAudio(false, false, STATE.audio.onSegmentEnd, ratio);
   };
 
   // Estima cuánto durará la narración a partir del nº de palabras, para que
@@ -4640,10 +4652,18 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
     let segmentEndCb = onSegmentEnd;
+    // Se refleja también en STATE.audio para que seekAudioTo pueda
+    // recuperarlo y pasarlo a la narración nueva que arranca al saltar de
+    // punto — si no, un salto a mitad de un párrafo de "profundiza más"
+    // (ver queueDeepenWithFillers) dejaría su aviso de "fin de segmento"
+    // huérfano para siempre, y los chips se quedarían bloqueados sin que
+    // nada volviera a desbloquearlos.
+    STATE.audio.onSegmentEnd = onSegmentEnd;
     const notifySegmentEnd = () => {
       if (typeof segmentEndCb !== 'function') return;
       const cb = segmentEndCb;
       segmentEndCb = null;
+      if (STATE.audio.onSegmentEnd === cb) STATE.audio.onSegmentEnd = null;
       cb();
     };
 
