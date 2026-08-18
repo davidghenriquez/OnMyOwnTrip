@@ -67,8 +67,12 @@
       // siempre: ni error ni respuesta, así que "Pensando…" se queda ahí
       // sin que el usuario sepa si sigue trabajando o se ha roto (mismo
       // motivo que fetchOpenAIVision, más abajo, que ya tenía este límite).
+      // 25s se quedaba corto: medido en directo, una respuesta real de
+      // "profundiza más" (max_tokens 3500, modelo actual) tarda ~45s, así
+      // que con 25s el aviso de "modo offline" saltaba SIEMPRE aunque la
+      // IA sí estaba respondiendo, solo que más despacio de lo esperado.
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 25000);
+      const timeoutId = setTimeout(() => controller.abort(), 60000);
       let res;
       try {
         res = await fetch(url, {
@@ -579,10 +583,10 @@
           const suffix = isQuotaError
             ? (mode === 'kids'
                 ? '\n\n⚠️ (¡La IA está muy solicitada ahora mismo! Se ha usado el modo sin conexión mientras se libera hueco.)'
-                : '\n\n⚠️ (La IA está saturada de peticiones en este momento —no es un fallo de la app—, se ha usado el simulador local mientras tanto.)')
+                : '\n\n(La IA está saturada de peticiones en este momento —no es un fallo de la app—, se ha usado el simulador local mientras tanto.)')
             : (mode === 'kids'
                 ? `\n\n⚠️ (Modo offline: la IA real respondió con error — ${code})`
-                : `\n\n⚠️ (Modo offline. Error al conectar con la API (${code}), se ha usado el simulador local.)`);
+                : `\n\n(Modo offline. Error al conectar con la API (${code}), se ha usado el simulador local.)`);
           return await simulated(poi, mode, userQuery, optionId, concise) + suffix;
         }
       }
