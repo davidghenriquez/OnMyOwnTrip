@@ -378,43 +378,90 @@
       },
       // Datos de "profundizar" por tema (no genéricos), para que la respuesta
       // siga hablando realmente de historia secreta / arquitectura / comida /
-      // leyendas, y no derive hacia otro asunto sin relación.
+      // leyendas, y no derive hacia otro asunto sin relación. Bancos amplios
+      // a propósito (12 frases por tema y modo, no 4): como se piden solo 3
+      // al azar cada vez (ver pickDistinct) y "Profundiza más" puede tocarse
+      // varias veces seguidas en menos de lo que tarda la IA real en
+      // responder (42-45s, ver más arriba), un banco pequeño hacía que las
+      // mismas frases se repitieran enseguida, tanto dentro de una misma
+      // parada como entre paradas distintas — el problema real detectado en
+      // producción no era que "no fuera IA de verdad" sino que el banco de
+      // respaldo era demasiado corto para disimularlo.
       deepenFacts: {
         adult: {
           'secret-history': [
             `un documento del archivo diocesano menciona un incidente que nunca llegó a las crónicas oficiales, silenciado probablemente por conveniencia política de la época`,
             `algunos vecinos más veteranos del barrio conservan relatos orales que nunca se han recogido por escrito, transmitidos de generación en generación`,
             `un historiador local publicó hace pocos años una referencia que contradice la versión más difundida de los hechos, aunque todavía no se ha investigado a fondo`,
-            `existen indicios de que ciertos episodios se atenuaron deliberadamente en las crónicas para no comprometer a familias influyentes de la época`
+            `existen indicios de que ciertos episodios se atenuaron deliberadamente en las crónicas para no comprometer a familias influyentes de la época`,
+            `se conserva una carta privada que menciona un uso del edificio distinto del que se cuenta habitualmente en las visitas, nunca confirmado del todo`,
+            `un inventario antiguo recoge un detalle que no encaja del todo con la explicación que suele darse hoy a los visitantes`,
+            `existe una fotografía de época que muestra un elemento que ya no está y del que apenas queda constancia documental`,
+            `algunos archivos parroquiales de la zona guardan referencias sueltas que nunca se han cruzado entre sí para reconstruir la historia completa`,
+            `un cronista de hace más de un siglo dejó anotado un episodio menor que ninguna guía moderna recoge`,
+            `los registros municipales conservan una versión de los hechos que rara vez coincide del todo con la que se cuenta en las visitas guiadas`,
+            `los planos originales, comparados con el estado actual, muestran un cambio que ningún documento explica con claridad`,
+            `hay un testimonio recogido a mediados del siglo pasado que aporta un matiz distinto a la versión oficial, aunque nunca se llegó a publicar`
           ],
           'architecture': [
             `un detalle que pocos guías mencionan es que los canteros solían dejar una marca personal oculta, visible solo con luz rasante al amanecer o al atardecer`,
             `los registros de la época recogen anécdotas curiosas sobre reformas posteriores que no siempre aparecen en las guías oficiales`,
             `un matiz que sorprende a los expertos es la superposición de técnicas constructivas de distintas épocas en el mismo punto`,
-            `restauraciones recientes revelaron capas anteriores que cambian ligeramente la datación tradicional que se suele contar a los visitantes`
+            `restauraciones recientes revelaron capas anteriores que cambian ligeramente la datación tradicional que se suele contar a los visitantes`,
+            `algunos elementos estructurales se reutilizaron de una construcción anterior, algo que solo se aprecia mirando con atención los materiales`,
+            `los canteros de la época solían firmar su trabajo con pequeñas marcas de cantero, muchas de las cuales siguen sin identificarse del todo`,
+            `un estudio reciente detectó asimetrías deliberadas en la construcción, probablemente para corregir efectos ópticos a cierta distancia`,
+            `parte de la piedra empleada procede de una cantera bastante alejada, lo que en su momento supuso un esfuerzo logístico considerable`,
+            `algunas reformas posteriores intentaron imitar el estilo original con tanto cuidado que hoy cuesta distinguir qué es antiguo y qué no`,
+            `los cimientos esconden restos de una estructura anterior, descubiertos por casualidad durante unas obras de mantenimiento`,
+            `ciertos detalles decorativos se colocaron pensando en cómo se verían desde la calle, no desde donde hoy los observa la mayoría de visitantes`,
+            `una revisión técnica reciente encontró señales de al menos dos fases constructivas distintas, algo que no siempre se explica en las visitas`
           ],
           'legends': [
             `existen variantes de esta leyenda en pueblos cercanos, con protagonistas distintos pero un desenlace casi idéntico, lo que sugiere un origen común más antiguo`,
             `algunos investigadores del folclore creen que estas historias servían para explicar fenómenos naturales que la gente de la época no podía comprender de otra forma`,
             `hay quien asegura haber vivido una experiencia similar a la de la leyenda en tiempos recientes, aunque nunca ha quedado documentada de forma oficial`,
-            `la versión que se cuenta hoy en día difiere bastante de la recogida en manuscritos antiguos, señal de que la historia se ha ido adornando con el tiempo`
+            `la versión que se cuenta hoy en día difiere bastante de la recogida en manuscritos antiguos, señal de que la historia se ha ido adornando con el tiempo`,
+            `algunos folcloristas apuntan a que la leyenda pudo nacer como advertencia práctica, disfrazada de historia fantástica para que se recordara mejor`,
+            `existe una versión bastante más antigua y menos conocida, con un final distinto al que se suele contar hoy a los visitantes`,
+            `en pueblos vecinos circula una historia parecida, aunque allí se atribuye a un personaje completamente distinto`,
+            `algunos vecinos mayores todavía se refieren a la leyenda como si fuera un hecho histórico más, sin distinguir claramente dónde acaba lo real`,
+            `hay quien relaciona la leyenda con un suceso real documentado, aunque la conexión nunca se ha podido demostrar del todo`,
+            `la tradición oral local añade detalles que no aparecen en ninguna versión escrita conocida`,
+            `algunos estudiosos creen que la leyenda se reforzó con el tiempo para atraer peregrinos o viajeros a la zona`,
+            `existe una representación artística antigua de la leyenda que difiere en varios detalles de cómo se cuenta actualmente`
           ]
         },
         kids: {
           'secret-history': [
             `Cuentan que hay una carta muy antigua escondida en un archivo que nadie ha terminado de leer 📜, ¡y podría guardar otro secreto más!`,
             `Los abuelos del barrio se cuentan unos a otros historias de este sitio que nunca se han escrito en ningún libro 👴👵.`,
-            `Un investigador encontró hace poco un papel que contaba la historia de otra forma distinta 🕵️‍♀️, ¡y todavía la están estudiando!`
+            `Un investigador encontró hace poco un papel que contaba la historia de otra forma distinta 🕵️‍♀️, ¡y todavía la están estudiando!`,
+            `¡Hay una foto muy vieja que muestra algo que ya no existe! 📷 Nadie sabe muy bien qué pasó con ello.`,
+            `Dicen que en los archivos de la iglesia hay papeles sueltos que nadie ha juntado todavía para saber la historia completa 🗂️.`,
+            `Un señor que escribía sobre esta ciudad hace muchísimos años apuntó un dato pequeñito que nadie más ha contado nunca ✍️.`,
+            `¡Los planos antiguos de este sitio no son iguales a como está ahora! 📐 Y nadie explica muy bien por qué cambió.`,
+            `Hay un testimonio guardado desde hace muchos años que cuenta la historia de una forma un poquito distinta 🗣️.`
           ],
           'architecture': [
             `¿Sabías que si cuentas hasta 3 antes de mirar hacia arriba, dicen que ves el detalle mágico mejor? 👀 Muchos niños que han venido antes que tú lo han probado y juran que funciona.`,
             `Un dato flipante: ¡algunas piedras de aquí pesan tanto como 3 elefantes juntos! 🐘🐘🐘 Y aun así, las subieron sin grúas ni máquinas, solo con cuerdas y mucha fuerza en equipo.`,
-            `¡Hay una marca secreta tallada en una piedra que solo se ve si el sol pega de lado! ☀️ Todavía nadie se pone de acuerdo en qué significa exactamente.`
+            `¡Hay una marca secreta tallada en una piedra que solo se ve si el sol pega de lado! ☀️ Todavía nadie se pone de acuerdo en qué significa exactamente.`,
+            `¡Algunas piedras de aquí vienen de una cantera súper lejana! 🪨 Traerlas hasta aquí en aquella época fue toda una aventura.`,
+            `¿Sabías que parte de esta construcción se hizo reutilizando piedras de un edificio todavía más viejo? ♻️ ¡Como un puzle gigante!`,
+            `Los que construyeron esto dejaban su propia marca tallada en la piedra, como una firma secreta 🔏, ¡y muchas siguen sin descifrarse!`,
+            `¡Debajo de este sitio hay restos de una construcción todavía más antigua! 🕳️ Los encontraron sin querer haciendo obras.`,
+            `¡Fíjate bien! Algunos detalles se colocaron pensando en cómo se verían desde lejos, no desde tan cerca como los ves tú ahora 🔎.`
           ],
           'legends': [
             `¡Esta misma leyenda se cuenta también en otros pueblos, pero con otros protagonistas! 🧚 A lo mejor todas vienen de una historia aún más antigua.`,
             `Algunas personas mayores dicen que a ellos también les pasó algo parecido a lo de la leyenda 😲, ¡aunque nadie lo ha escrito nunca!`,
-            `Cuentan que esta leyenda ha ido cambiando un poquito cada vez que se cuenta, ¡como el juego del teléfono escacharrado! 📞😄`
+            `Cuentan que esta leyenda ha ido cambiando un poquito cada vez que se cuenta, ¡como el juego del teléfono escacharrado! 📞😄`,
+            `¡Hay una versión mucho más antigua de esta leyenda, con un final distinto! 📖 A lo mejor te gusta más que la de ahora.`,
+            `En un pueblo cercano cuentan casi la misma historia, ¡pero con un personaje totalmente diferente! 🎭`,
+            `Algunos vecinos hablan de la leyenda como si de verdad hubiera pasado tal cual 😮, ¡sin dudarlo ni un poquito!`,
+            `Hay quien dice que la leyenda viene de algo que sí pasó de verdad, ¡aunque nadie lo ha podido comprobar del todo! 🔍`,
+            `¡Existe un dibujo muy antiguo de esta leyenda, y no se parece del todo a como te la acabo de contar! 🎨`
           ]
         }
       },
@@ -668,13 +715,15 @@
     // a sonar (solo suena la primera vez que se crea su historial), así que
     // buildNarrativeText debe poder seguir añadiendo su propio saludo de
     // respaldo en ese caso, en vez de asumir que ya se dijo el nombre.
-    // deepenProgress: por POI, el "programa" de 10 puntos de "profundiza
-    // más" con IA real (ver queueDeepenWithFillers) — titles (los 10
+    // deepenProgress: por POI, el "programa" de 7 puntos de "profundiza
+    // más" con IA real (ver queueDeepenWithFillers) — titles (los 7
     // títulos ya pedidos a la IA, null hasta que llega esa respuesta),
     // nextIndex (el próximo punto a desarrollar, 1-based), exhausted (ya
-    // se mostraron los 10, el chip queda deshabilitado) y fallback (la
+    // se mostraron los 7, el chip queda deshabilitado), fallback (la
     // respuesta inicial no se pudo interpretar como títulos+desarrollo,
-    // así que este POI vuelve al sistema anterior sin tope de 10).
+    // así que este POI vuelve al sistema anterior sin tope de 7) y
+    // fillerIndex (por dónde vamos en poi.tabs.deepenFillers mientras se
+    // espera a la IA real, ver nextDeepenFiller).
     // deepenBusy: como pending, pero solo para la tanda de "profundiza
     // más" en curso — separado de pending para que EL RESTO de chips
     // (Entrada, temas, pregunta libre) sigan disponibles mientras
@@ -1784,7 +1833,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=25`;
+    const src = `data/cities/${cityId}.js?v=29`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
@@ -3185,10 +3234,10 @@
     // "Profundiza más" va siempre el primero de los de IA, incluso antes de
     // elegir un tema (en ese caso profundiza sobre el resumen inicial, no
     // sobre un tema concreto); luego, hasta 2 temas sin explorar todavía.
-    // Se deshabilita en cuanto se agotan los 10 puntos programados (ver
+    // Se deshabilita en cuanto se agotan los 7 puntos programados (ver
     // queueDeepenWithFillers): a partir de ahí, seguir pulsando no daría
     // nada nuevo con garantías, así que se redirige a la pregunta libre
-    // (el propio texto del punto 10 ya se lo indica al usuario). También
+    // (el propio texto del último punto ya se lo indica al usuario). También
     // se deshabilita mientras su propia tanda está en curso (deepenBusy),
     // aunque el resto de chips (disabled, de arriba) no lo estén.
     const deepenExhausted = !!(STATE.ai.deepenProgress[poiId] && STATE.ai.deepenProgress[poiId].exhausted);
@@ -3519,33 +3568,43 @@
   // significan esos dos iconos.
   const deepenInFlight = {};
 
-  // "Profundiza más" con IA real usa un guion fijo de 10 puntos en vez de
-  // pedirle a la IA en cada llamada que "no repita" lo ya dicho (eso era
-  // solo un ruego: en pruebas reales, la IA repetía igualmente el mismo
-  // dato "estrella" del sitio en 3 de 4 respuestas seguidas, ver historial
-  // de V23.5). Ahora:
-  //   1) La PRIMERA llamada real pide el TÍTULO de 10 datos distintos y
+  // "Profundiza más" con IA real usa un guion fijo de 7 puntos (antes 10,
+  // ver comentario de más abajo sobre por qué se redujo) en vez de pedirle
+  // a la IA en cada llamada que "no repita" lo ya dicho (eso era solo un
+  // ruego: en pruebas reales, la IA repetía igualmente el mismo dato
+  // "estrella" del sitio en 3 de 4 respuestas seguidas, ver historial de
+  // V23.5). Ahora:
+  //   1) La PRIMERA llamada real pide el TÍTULO de 7 datos distintos y
   //      poco correlacionados sobre el lugar, y desarrolla solo el primero
   //      en la misma respuesta (un único viaje de red).
   //   2) Cada llamada siguiente pide desarrollar un punto concreto ya
   //      titulado — al apuntar a un ángulo distinto por diseño, ya no hace
   //      falta pedirle que "no repita", así que la garantía es estructural
   //      y no depende de que la IA obedezca una instrucción.
-  //   3) Al mostrarse el desarrollo del punto 10, se cierra el guion: se
+  //   3) Al mostrarse el desarrollo del punto 7, se cierra el guion: se
   //      añade una frase invitando a preguntar algo concreto en el chat de
   //      texto, y el chip se deshabilita para ese POI (ver
   //      renderAiSuggestions).
   // Si la respuesta inicial no llega en el formato esperado (la IA no
   // siempre es disciplinada con el formato pedido), se descarta y este POI
   // cae de forma permanente al sistema anterior de una sola tanda con
-  // "alreadySaid" — sin tope de 10, como red de seguridad.
+  // "alreadySaid" — sin tope de 7, como red de seguridad.
+  //
+  // Por qué 7 y no 10 (cambiado en el estudio de producción del
+  // 2026-08-19): completar el guion entero de 10 podía suponer hasta 11
+  // peticiones reales de fondo por parada (1 para planificar + 10 puntos),
+  // presionando de más la cuota compartida de Gemini y el límite por IP
+  // del proxy — justo la causa raíz del "relleno repetido" que motivó ese
+  // estudio. Con 7, el máximo baja a 8 peticiones por parada (-27%) sin
+  // perder demasiada profundidad: pocos usuarios llegan a tocar "Profundiza
+  // más" más de 4-5 veces seguidas en una misma parada.
   const buildStructuredInitPrompt = (poi) => {
     const name = poi.name.adult;
     return `Quiero explorar ${name} en profundidad, en varias tandas cortas.
 
-Primero, dame el TÍTULO (muy corto, entre 3 y 8 palabras) de 10 datos o curiosidades DISTINTAS y poco correlacionadas entre sí sobre este lugar: mezcla historia, arquitectura, leyendas, anécdotas, detalles secretos, curiosidades poco conocidas... cuanto más variados los ángulos entre sí, mejor. No desarrolles nada todavía en esta lista, solo los títulos.
+Primero, dame el TÍTULO (muy corto, entre 3 y 8 palabras) de 7 datos o curiosidades DISTINTAS y poco correlacionadas entre sí sobre este lugar: mezcla historia, arquitectura, leyendas, anécdotas, detalles secretos, curiosidades poco conocidas... cuanto más variados los ángulos entre sí, mejor. No desarrolles nada todavía en esta lista, solo los títulos.
 
-Después, desarrolla en detalle SOLO el primero de esos 10 puntos (150-180 palabras, con datos concretos).
+Después, desarrolla en detalle SOLO el primero de esos 7 puntos (150-180 palabras, con datos concretos).
 
 Responde EXACTAMENTE con este formato, sin nada más antes ni después:
 
@@ -3557,9 +3616,6 @@ TITULOS:
 5. (título)
 6. (título)
 7. (título)
-8. (título)
-9. (título)
-10. (título)
 
 DESARROLLO:
 (desarrollo del punto 1)`;
@@ -3570,7 +3626,7 @@ DESARROLLO:
 
 Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no numeres nada, no añadas nada más antes ni después.`;
   };
-  // Exige al menos 5 títulos bien formados (de los 10 pedidos) para
+  // Exige al menos 4 títulos bien formados (de los 7 pedidos) para
   // aceptar la respuesta — con menos que eso, la variedad prometida no se
   // cumple de verdad y es mejor cortar por el sistema de respaldo.
   const parseStructuredInit = (text) => {
@@ -3586,20 +3642,45 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       .map((m) => m[1].trim())
       .filter(Boolean);
     const body = bodyMatch[1].trim();
-    if (titles.length < 5 || !body) return null;
+    if (titles.length < 4 || !body) return null;
     return { titles, body };
   };
   const deepenProgressFor = (poiId) => {
     if (!STATE.ai.deepenProgress[poiId]) {
-      STATE.ai.deepenProgress[poiId] = { titles: null, nextIndex: 1, exhausted: false, fallback: false };
+      STATE.ai.deepenProgress[poiId] = { titles: null, nextIndex: 1, exhausted: false, fallback: false, fillerIndex: 0 };
     }
     return STATE.ai.deepenProgress[poiId];
+  };
+
+  // Relleno mientras se espera a la IA real (ver queueDeepenWithFillers):
+  // datos REALES y específicos de ESTE POI en concreto (poi.tabs.deepenFillers,
+  // 2-3 por modo), no frases genéricas compartidas por las ~140 paradas de
+  // toda la app — la causa de fondo del bug reportado en producción
+  // (2026-08-19: el mismo "los canteros dejaban una marca oculta" saliendo
+  // en sitios sin relación entre sí). Cicla por ellos con
+  // progress.fillerIndex cada vez que hace falta relleno para este POI; si
+  // se agotan, sigue repitiéndolos en orden (mejor repetir un dato real del
+  // sitio que inventar contenido nuevo de la nada). "|| 0" defiende contra
+  // partidas guardadas antes de este cambio, cuyo progress no trae
+  // fillerIndex todavía. Si el POI no tiene deepenFillers propios (caso
+  // raro: alguna parada recién añadida sin este campo aún, o las paradas
+  // de ambientación como los restaurantes ilustrados), cae al banco
+  // genérico de siempre (SIM.deepenFacts) como red de seguridad.
+  const nextDeepenFiller = (poi, progress) => {
+    const fillers = poi.tabs.deepenFillers && poi.tabs.deepenFillers[STATE.mode];
+    if (!fillers || !fillers.length) return LLM.localDeepen(poi, STATE.mode, 'architecture');
+    const idx = progress.fillerIndex || 0;
+    const fact = fillers[idx % fillers.length];
+    progress.fillerIndex = idx + 1;
+    return STATE.mode === 'kids'
+      ? `✨ ${fact}\n\n¿Sigo contándote más? 🔍`
+      : `${fact}\n\n¿Sigo profundizando?`;
   };
 
   // Quita el aviso final "(Modo offline...)" / "(La IA está saturada...)"
   // que LLM.generate pega al final del texto cuando la IA real falla y
   // cae al simulador local (ver su suffix). Se usa solo cuando ese texto
-  // va a ir seguido de la despedida del punto 10 de "profundiza más": ahí
+  // va a ir seguido de la despedida del último punto de "profundiza más": ahí
   // el aviso ya no aporta nada y sumado a la despedida quedaba redundante.
   // El texto que reemplaza (${code}) puede traer sus propios paréntesis
   // ("API (Load failed)"), así que en vez de intentar casar paréntesis
@@ -3612,7 +3693,6 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   const queueDeepenWithFillers = async ({ poi, optionId, userText }) => {
     if (!poi || STATE.ai.deepenBusy) return;
     const hist = aiHistoryFor(poi.id);
-    const topicId = (optionId && optionId.startsWith('deepen:')) ? optionId.slice(7) : 'architecture';
     const fallbackText = STATE.mode === 'kids'
       ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
       : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).';
@@ -3620,7 +3700,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
 
     // Lanza (sin esperar aquí) una consulta real nueva y la registra como
     // la consulta en curso para este POI. Qué pide exactamente depende de
-    // en qué punto del guion de 10 vamos (ver comentario de arriba).
+    // en qué punto del guion de 7 vamos (ver comentario de arriba).
     const launchAiQuery = () => {
       const entry = { settled: false, text: null };
       deepenInFlight[poi.id] = entry;
@@ -3679,7 +3759,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
           // primera consulta de respaldo viaja.
           progress.fallback = true;
           launchAiQuery();
-          text = LLM.localDeepen(poi, STATE.mode, topicId);
+          text = nextDeepenFiller(poi, progress);
           pregen = true;
         }
       } else if (progress.fallback) {
@@ -3707,8 +3787,26 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
         }
       }
     } else {
-      text = LLM.localDeepen(poi, STATE.mode, topicId);
+      text = nextDeepenFiller(poi, progress);
       pregen = true;
+    }
+
+    // Aviso visible de que esto es un adelanto de relleno, no la respuesta
+    // final de la IA: antes la única diferencia era el icono del avatar
+    // (narration.png vs ai.png en renderAiMessages), a propósito discreto
+    // para no interrumpir la lectura — pero con una respuesta real
+    // tardando 42-45s (ver arriba) y "Profundiza más" siendo natural
+    // tocarlo varias veces seguidas en ese rato, casi nadie esperaba lo
+    // suficiente para ver la respuesta real, y el relleno se leía como si
+    // fuera la respuesta definitiva. Este aviso solo aparece cuando pregen
+    // es true (relleno mientras la IA real sigue viajando), nunca cuando
+    // la IA real ya ha fallado del todo (esos casos usan su propio aviso
+    // "Modo offline...", ver LLM.generate).
+    if (pregen) {
+      const deepenLabel = pickDual(AI_PROMPTS.deepenLabel);
+      text += STATE.mode === 'kids'
+        ? `\n\n💭 (¡Esto es solo un adelanto rápido! Estoy preparando algo todavía mejor — vuelve a tocar "${deepenLabel}" en un ratito para verlo.)`
+        : `\n\n💭 (Adelanto rápido mientras se genera la respuesta completa de la IA — vuelve a tocar "${deepenLabel}" en un momento para verla.)`;
     }
 
     await new Promise((resolve) => {
