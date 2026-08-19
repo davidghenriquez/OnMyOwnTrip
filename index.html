@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=43" />
+  <link rel="stylesheet" href="styles.css?v=44" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -123,7 +123,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.11</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.13</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -160,14 +160,15 @@
     </div>
   </div>
 
-  <!-- COFRE DEL TESORO (modo niño): objetos que se desbloquean con los puntos del quiz -->
+  <!-- COFRE DEL TESORO (modo niño): objetos que se reclaman a mano con los puntos del quiz -->
   <div class="reward-chest-modal" id="rewardChestModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mochila de viaje">
     <div class="reward-chest-card">
       <div class="reward-chest-head">
         <h2 class="reward-chest-title"><canvas id="rewardChestTitleIcon" width="28" height="28"></canvas> Mochila de viaje</h2>
         <button type="button" class="reward-chest-close" id="rewardChestClose" aria-label="Cerrar">✕</button>
       </div>
-      <p class="reward-chest-hint">Responde bien a las preguntas de cada sitio para ganar ⭐ y desbloquear objetos de exploradora o explorador.</p>
+      <p class="reward-chest-hint">Responde bien a las preguntas de cada sitio para ganar ⭐. Cuando te lleguen para algo, toca "Reclamar" y elige tú qué te llevas.</p>
+      <div class="city-badge-row" id="cityBadgeRow"></div>
       <div class="reward-item-grid" id="rewardChestList"></div>
     </div>
   </div>
@@ -493,6 +494,13 @@
         <p class="visit-summary-stat" id="visitSummaryStat">0 de 0 lugares visitados</p>
         <div class="visit-summary-bar"><div class="visit-summary-fill" id="visitSummaryFill"></div></div>
         <p class="visit-summary-points" id="visitSummaryPoints">⭐ 0 · Principiante</p>
+        <div class="city-badge-progress" id="visitSummaryBadge" hidden>
+          <canvas class="city-badge-progress-icon" id="visitSummaryBadgeIcon" width="40" height="40" aria-hidden="true"></canvas>
+          <div class="city-badge-progress-text">
+            <span class="city-badge-progress-label" id="visitSummaryBadgeLabel"></span>
+            <div class="city-badge-progress-bar"><div class="city-badge-progress-fill" id="visitSummaryBadgeFill"></div></div>
+          </div>
+        </div>
         <ul class="visit-summary-list" id="visitSummaryList"></ul>
       </div>
     </div>
@@ -536,8 +544,8 @@
   <!-- El "?v=N" de data.js/app.js/styles.css evita que el móvil se quede con
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
-  <script src="data/core.js?v=13"></script>
-  <script src="app.js?v=120"></script>
+  <script src="data/core.js?v=14"></script>
+  <script src="app.js?v=122"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
