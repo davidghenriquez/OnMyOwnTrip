@@ -2452,10 +2452,34 @@
     }).catch(() => {});
   };
 
+  // Zoom de insignia: al tocar una medalla de la mochila, se ve grande en
+  // un modal a pantalla completa (reutiliza el mismo sprite ya recortado
+  // por loadExplorerSprite, cacheado por URL, así que no hay que volver a
+  // procesar la imagen).
+  const openBadgeZoom = (sprite, label, locked) => {
+    const modal = $('#badgeZoomModal');
+    if (!modal) return;
+    const canvas = $('#badgeZoomCanvas');
+    canvas.classList.toggle('-locked', !!locked);
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const scale = Math.min(canvas.width / sprite.width, canvas.height / sprite.height);
+    const w = sprite.width * scale, h = sprite.height * scale;
+    ctx.drawImage(sprite, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
+    $('#badgeZoomLabel').textContent = label;
+    modal.classList.add('-open');
+    modal.setAttribute('aria-hidden', 'false');
+  };
+  const closeBadgeZoom = () => {
+    const modal = $('#badgeZoomModal');
+    modal?.classList.remove('-open');
+    modal?.setAttribute('aria-hidden', 'true');
+  };
+
   // Fila de insignias de ciudad (ver checkCityBadge/STATE.game.cityBadges):
   // una por cada ciudad definida en CITIES (data/core.js), a color si ya se
-  // ganó y en gris si no. Es solo informativa (no se reclama, se gana sola
-  // al llegar al umbral), así que no lleva botón.
+  // ganó y en gris si no. Se puede tocar para verla grande (ver
+  // openBadgeZoom), pero no se reclama: se gana sola al llegar al umbral.
   const renderCityBadgeRow = () => {
     const row = $('#cityBadgeRow');
     if (!row) return;
@@ -2478,12 +2502,19 @@
       card.setAttribute('aria-label', earned ? `Insignia de ${city.name}, conseguida` : `Insignia de ${city.name}, todavía sin conseguir`);
       row.appendChild(card);
       if (city.badgeImg) {
-        loadExplorerSprite(city.badgeImg).then((sprite) => {
+        const spritePromise = loadExplorerSprite(city.badgeImg);
+        spritePromise.then((sprite) => {
           const ctx = canvas.getContext('2d');
           const scale = Math.min(canvas.width / sprite.width, canvas.height / sprite.height);
           const w = sprite.width * scale, h = sprite.height * scale;
           ctx.drawImage(sprite, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
         }).catch(() => {});
+        card.addEventListener('click', () => {
+          spritePromise.then((sprite) => {
+            const label = earned ? `🏅 Insignia de ${city.name}` : `🔒 Insignia de ${city.name} (todavía sin conseguir)`;
+            openBadgeZoom(sprite, label, !earned);
+          }).catch(() => {});
+        });
       }
     });
   };
@@ -5255,10 +5286,19 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     $('#routeIntroPlay')?.addEventListener('click', toggleRouteIntroAudio);
     $('#routeIntroClose')?.addEventListener('click', closeRouteIntro);
 
+    const badgeZoomModal = $('#badgeZoomModal');
+    if (badgeZoomModal) {
+      $('#badgeZoomClose').addEventListener('click', closeBadgeZoom);
+      badgeZoomModal.addEventListener('click', (e) => {
+        if (e.target === badgeZoomModal) closeBadgeZoom();
+      });
+    }
+
     window.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       if (els.lightbox && els.lightbox.classList.contains('-open')) { closeLightbox(); return; }
       if (els.visitSummary && els.visitSummary.classList.contains('-open')) { closeVisitSummary(); return; }
+      if (badgeZoomModal && badgeZoomModal.classList.contains('-open')) { closeBadgeZoom(); return; }
       if (STATE.sheet !== 'closed') closeSheet();
     });
   };
