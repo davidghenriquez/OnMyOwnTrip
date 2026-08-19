@@ -15,9 +15,26 @@
   <!-- Icono para iOS: SVG inline como apple-touch-icon sin assets externos -->
   <link rel="apple-touch-icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%23F59E0B"/><stop offset="1" stop-color="%230F172A"/></linearGradient></defs><rect width="180" height="180" rx="36" fill="url(%23g)"/><path d="M90 50c-22 0-38 14-38 34 0 26 28 42 38 42s38-16 38-42c0-20-16-34-38-34zm0 48a14 14 0 110-28 14 14 0 010 28z" fill="white"/><circle cx="90" cy="98" r="6" fill="%23F59E0B"/></svg>' />
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="%230F172A"/><path d="M32 20c-7.2 0-13 4.6-13 11.2 0 8.6 9.6 13.8 13 13.8s13-5.2 13-13.8C45 24.6 39.2 20 32 20zm0 15.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z" fill="%23F59E0B"/></svg>' />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png?v=1" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png?v=1" />
+
+  <!-- Web App Manifest: permite el "Instalar app" nativo de Chrome/Android
+       (las meta tags de arriba solo cubren el "Añadir a inicio" de iOS). -->
+  <link rel="manifest" href="manifest.json?v=1" />
 
   <meta name="description" id="metaDescription" content="OnMyOwnTrip · Turismo autoguiado interactivo por Toledo, Ciudad Imperial. Modo Adultos y Niños." />
   <title>OnMyOwnTrip · Toledo</title>
+
+  <!-- Open Graph / Twitter Card: para que el enlace se vea bien al compartirlo -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OnMyOwnTrip" />
+  <meta property="og:title" content="OnMyOwnTrip · Turismo autoguiado interactivo" />
+  <meta property="og:description" content="Historias, leyendas y secretos de cada rincón, contados según caminas. Toledo, Madrid, Peñíscola, CDMX y Berlín. Modo Adultos y Niños." />
+  <meta property="og:image" content="assets/icons/icon-512.png?v=1" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="OnMyOwnTrip · Turismo autoguiado interactivo" />
+  <meta name="twitter:description" content="Historias, leyendas y secretos de cada rincón, contados según caminas." />
+  <meta name="twitter:image" content="assets/icons/icon-512.png?v=1" />
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -27,7 +44,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=42" />
+  <link rel="stylesheet" href="styles.css?v=43" />
 </head>
 <body>
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
@@ -106,8 +123,9 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.9</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.10</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
+    <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
 
   <div class="reset-confirm-modal" id="resetConfirmModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Confirmar reinicio de la app">

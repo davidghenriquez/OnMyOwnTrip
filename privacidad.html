@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0F172A" />
+<title>Privacidad y créditos · OnMyOwnTrip</title>
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
+<style>
+  :root {
+    --bg: #0F172A;
+    --surface: #1E293B;
+    --text: #F1F5F9;
+    --text-soft: #94A3B8;
+    --accent: #F59E0B;
+    --border: #334155;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: max(24px, env(safe-area-inset-top)) 20px 64px;
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .back:active { opacity: 0.7; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  .updated { color: var(--text-soft); font-size: 13px; margin-bottom: 32px; }
+  h2 {
+    font-size: 19px;
+    margin: 40px 0 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  h3 { font-size: 15px; color: var(--accent); margin: 22px 0 6px; }
+  p { color: var(--text); margin: 0 0 12px; font-size: 15px; }
+  ul { margin: 0 0 12px; padding-left: 20px; }
+  li { margin-bottom: 6px; font-size: 15px; }
+  a { color: var(--accent); }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .table-scroll { overflow-x: auto; margin: 16px 0; border-radius: 14px; border: 1px solid var(--border); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 640px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+  th { color: var(--text-soft); font-weight: 600; background: var(--surface); position: sticky; top: 0; }
+  tr:last-child td { border-bottom: none; }
+  td a { word-break: break-word; }
+  .contact { color: var(--text-soft); font-size: 14px; margin-top: 32px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">‹ Volver a la app</a>
+  <h1>Privacidad y créditos</h1>
+  <div class="updated">Última actualización: agosto de 2026</div>
+
+  <h2>Política de privacidad</h2>
+  <p>OnMyOwnTrip es una web/app estática: no tiene servidor propio con base de
+  datos ni cuentas de usuario. Esto es lo que hace la app con cada tipo de dato:</p>
+
+  <h3>Ubicación</h3>
+  <p>Si activas "Cerca de mí" o el botón de ubicación en el mapa, tu posición
+  se usa solo en tu dispositivo para detectar la ciudad más cercana, mostrar
+  tu punto en el mapa y sugerir lugares próximos. No se envía a ningún
+  servidor ni se guarda en ningún sitio fuera de tu dispositivo.</p>
+
+  <h3>Cámara ("¿Qué estoy viendo?")</h3>
+  <p>Al tomar o subir una foto para identificar un lugar, esa imagen se envía
+  —junto con tu ubicación aproximada— a través de nuestro proxy en Cloudflare
+  Workers al servicio de IA de Google (Gemini), que la analiza para reconocer
+  el sitio. No guardamos esa foto en ningún servidor propio: se usa solo para
+  esa consulta puntual. El procesamiento por parte de Google está sujeto a la
+  política de privacidad de Google.</p>
+
+  <h3>Preguntas al "guía IA"</h3>
+  <p>El texto que escribes en el chat de cada lugar se envía por el mismo
+  proxy al modelo de IA (Gemini) para generar la respuesta. Son respuestas
+  generadas automáticamente y pueden contener errores. Si no hay conexión o
+  el servicio de IA falla, la app responde con un simulador local sin enviar
+  nada a ningún sitio.</p>
+
+  <h3>Datos guardados en tu dispositivo</h3>
+  <p>La ciudad y el modo elegidos, tus puntos y progreso del quiz, las
+  conversaciones con la guía IA y el contenido descargado para uso sin
+  conexión se guardan únicamente en el almacenamiento local de tu navegador
+  (<code>localStorage</code> y la caché del Service Worker). Nunca salen de
+  tu dispositivo, salvo lo descrito arriba (ubicación aproximada, fotos y
+  preguntas enviadas a la IA). Puedes borrarlo todo en cualquier momento con
+  "Reiniciar app" en la pantalla de bienvenida.</p>
+
+  <h3>Sin rastreo de terceros</h3>
+  <p>La app no usa analítica de terceros, píxeles de publicidad ni cookies de
+  rastreo. No vendemos ni compartimos datos con nadie más allá de lo descrito
+  en esta página.</p>
+
+  <h3>Menores de edad</h3>
+  <p>El "Modo Niños" no pide ni guarda ningún dato que identifique a un
+  menor. Recomendamos que su uso sea siempre acompañado por un adulto,
+  especialmente en el chat con la guía IA.</p>
+
+  <h3>Contacto</h3>
+  <p class="contact">Dudas sobre privacidad: <a href="mailto:davidg.henriquez@gmail.com">davidg.henriquez@gmail.com</a></p>
+
+  <h2>Créditos de fotos</h2>
+  <p>Las fotos de los lugares de <strong>Toledo</strong> y <strong>Madrid</strong>
+  vienen de Wikimedia Commons, con licencias libres que exigen mantener la
+  atribución al autor. Se listan aquí tal y como pide cada licencia.</p>
+
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Lugar</th><th>Autor</th><th>Licencia</th><th>Fuente</th></tr></thead>
+    <tbody>
+        <tr><td>Catedral Primada</td><td>Michal Osmenda</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Cathedral_of_Toledo_(7079311505).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puerta de Bisagra</td><td>Chensiyuan</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:1_Puerta_de_Bisagra_toledo_2014.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mirador del Valle</td><td>Esperanza Candel</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Vista_de_Toledo_desde_el_mirador_del_Valle_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Restaurante La Sorbona (lugar ilustrativo — foto genérica de gazpacho manchego, no del "restaurante")</td><td>Feli Izaguirre Martín</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Gazpacho_manchego_con_torta_cence%C3%B1a_Ruiz_de_La_Roda.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Iglesia de Santo Tomé</td><td>EmDee</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Tol%C3%A8de_-_clocher_de_Santo_Tom%C3%A9.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mirador del Azor (foto genérica de la muralla — no existe foto libre del rincón exacto)</td><td>Daderot</td><td>Dominio público</td><td><a href="https://commons.wikimedia.org/wiki/File:Wall_detail_-_Toledo,_Spain.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Casa-Museo de El Greco</td><td>Turol Jones</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:WLM14ES_-_10072005_114623_7742_-_.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Alcázar de Toledo</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:FP_Toledo_Alcazar_2025_-_Views.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Palacio Real de Madrid</td><td>Tim Adams</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_Real_de_Madrid_Julio_2016_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mercado de San Miguel</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Mercado_de_San_Miguel_2025.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puerta del Sol</td><td>Alfredo Urdaci / PromoMadrid</td><td>CC BY-SA 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:MADRID_100206_UDCI_023.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Monasterio de San Juan de los Reyes</td><td>Querubin Saldaña Sanchez</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Iglesia_del_monasterio_de_San_Juan_de_los_Reyes,_Toledo,_Espa%C3%B1a.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Sinagoga de Santa María la Blanca</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Santa_Mar%C3%ADa_la_Blanca_-_Arcos.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mezquita del Cristo de la Luz</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Cristo_de_la_Luz_2025_Fa%C3%A7ade.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puente de Alcántara</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:FP_Toledo_2025_-_Puente_de_Alc%C3%A1ntara.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puente de San Martín</td><td>Arturormk</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Puente_de_San_Mart%C3%ADn_(Toledo)_2011-05-27.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Iglesia de los Jesuitas (San Ildefonso)</td><td>Carlos Rodriguez (vía Yildori)</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:PanToledo01copia.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Zocodover</td><td>Lourdes Cardenal</td><td>CC BY-SA 3.0 / GFDL</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo_Zocodover_01_lou.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Sinagoga del Tránsito</td><td>Selbymay</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo_-_Sinagoga_El_Transito_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Hospital de Tavera</td><td>Luis Rogelio HM</td><td>CC BY-SA 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo_Capital_-_194_(37538222744).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle del Comercio</td><td>Pol Mayer (PMRMaeyaert)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo,_Calle_del_Comercio-PM_65607.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puerta del Sol (Toledo)</td><td>Selbymay</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo_-_Puerta_del_Sol_1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Museo de los Concilios (San Román)</td><td>Zarateman</td><td>CC0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo_-_San_Roman_-_Museo_de_los_Concilios_y_de_la_Cultura_Visigoda_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Paseo del Tránsito</td><td>José Luis Filpo Cabana</td><td>CC BY 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Paseo_del_Tr%C3%A1nsito,_Toledo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Antiguo Hospital de la Santa Cruz</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:FP_Toledo_2025_-_Santa_Cruz_Museum_-_Fa%C3%A7ade.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Ermita del Valle</td><td>Feelingsregu</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Puerta_de_la_Ermita_Nuestra_Se%C3%B1ora_del_Valle_(Toledo).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Museo Nacional del Prado</td><td>Emilio J. Rodríguez Posada</td><td>CC BY-SA 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Museo_del_Prado_2016_(25185969599).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Parque de El Retiro (Palacio de Cristal)</td><td>PepeZoom</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_de_Cristal.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza Mayor (Madrid)</td><td>Sebastian Dubiel</td><td>CC BY-SA 3.0 DE</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_06.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Gran Vía</td><td>Álvaro Ibáñez</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Callao_%2B_Capitol_%2B_Gran_V%C3%ADa_(Madrid)_(23815769052).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Museo Nacional Thyssen-Bornemisza</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Museo_Thyssen-Bornemisza_(Madrid)_07.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Museo Nacional Centro de Arte Reina Sofía</td><td>Roy Luck</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Museo_Reina_Sofia,_Madrid_(6394654203).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Catedral de la Almudena</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Almudena_2022_-_overview.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Cibeles</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Fuente_de_Cibeles_-_Dec_2024.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puerta de Alcalá</td><td>Fernando Pascullo</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Puerta_de_Alcal%C3%A1_2025.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de la Villa</td><td>Antonello Dellanotte</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:%C2%A92021_Antonello_Dellanotte_Plaza_de_la_Villa_y_Torre_de_los_Lujanes_IMG_2491.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Templo de Debod</td><td>jiuguangw (Flickr)</td><td>CC BY-SA 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Templo_de_Debod_in_Madrid.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de España (Madrid)</td><td>Carlos Delgado</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_de_Espa%C3%B1a_de_Madrid_-_02.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Círculo de Bellas Artes</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:C%C3%ADrculo_de_Bellas_Artes_(Madrid)_06.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Teatro Real</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Teatro_Real_de_Madrid_2025.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Oriente</td><td>Jose Luis Filpo Cabana</td><td>CC BY 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_de_Oriente_(Madrid)._Monumento_a_Felipe_IV.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Barrio de La Latina (Cava Baja)</td><td>Javier Pérez Montes</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Fiestas_de_la_Paloma_2023_-_Calle_de_la_Cava_Baja_-_Madrid_07.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Barrio de Chueca</td><td>Zarateman</td><td>CC0</td><td><a href="https://commons.wikimedia.org/wiki/File:Madrid_-_Plaza_de_Chueca_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Barrio de Malasaña</td><td>Panek</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Calle_de_Manuela_Malasa%C3%B1a_south.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Barrio de las Letras</td><td>Jorge Láscar</td><td>CC BY-SA 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Barrio_de_las_Letras_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Santa Ana</td><td>Simon Burchell</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_de_Santa_Ana,_Madrid_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de la Paja</td><td>Jorgecft</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Visual_Plaza_de_la_Paja.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle de Cuchilleros</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Calle_de_Cuchilleros_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Monasterio de las Descalzas Reales</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Monasterio_de_las_Descalzas_Reales_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Real Monasterio de la Encarnación</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Real_Monasterio_de_la_Encarnaci%C3%B3n_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Museo de Historia de Madrid</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Museo_de_Historia_de_Madrid_(Espa%C3%B1a)_03.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Museo del Romanticismo</td><td>Pablo Liñés (foto) / Museo del Romanticismo</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Museo_del_Romanticismo_-_Fachada_-_Fachada_del_Museo_del_Romanticismo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Museo Cerralbo</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_del_Marqu%C3%A9s_de_Cerralbo_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Real Academia de Bellas Artes de San Fernando</td><td>Carlos Delgado</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_de_Goyeneche_-_Real_Academia_de_Bellas_Artes_de_San_Fernando.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Palacio de Longoria</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_Longoria_(Madrid)_08.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Edificio Metrópolis</td><td>Discasto</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Edificio_Metr%C3%B3polis_(6_de_diciembre_de_2005,_Madrid).JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Palacio de Cibeles (CentroCentro)</td><td>Carlos Delgado</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_de_Comunicaciones_-_46.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Alonso Martínez</td><td>Zarateman</td><td>CC0</td><td><a href="https://commons.wikimedia.org/wiki/File:Madrid_-_Plaza_de_Alonso_Mart%C3%ADnez_1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle de Fuencarral</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Calle_de_Fuencarral_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle de la Montera</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Calle_de_la_Montera_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza del Callao</td><td>Diriye Amey</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:City_of_Madrid_(18038988892).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Edificio Telefónica</td><td>Fernandopascullo</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Edificio_Telefonica_Madrid.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Parque de las Vistillas</td><td>Federico Jordá</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Parque_de_las_Vistillas_-Madrid_(6952903529).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Jardines del Príncipe de Anglona</td><td>someone10x</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Jardines_del_Principe_de_Anglona_(9)_(11983191794).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Iglesia de San Ginés</td><td>Luis Javier Modino Martinez</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Gin%C3%A9s_(Madrid)_06.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Basílica de San Francisco el Grande</td><td>Javier Perez Montes</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Exterior_-_Real_basilica_de_San_Francisco_el_Grande_-_Madrid_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puerta de Toledo (Madrid)</td><td>Javier Perez Montes</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Puerta_de_Toledo_-_detalles_-_Madrid_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Museo de San Isidro</td><td>J.L. de Diego</td><td>Dominio público</td><td><a href="https://commons.wikimedia.org/wiki/File:Museo_de_San_Isidro.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>CaixaForum Madrid</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Caixaforum_Madrid_2024.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza del Dos de Mayo</td><td>Nicolas Vigier</td><td>CC0</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_del_Dos_de_Mayo,_Madrid.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de la Cebada</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_de_la_Cebada_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Tirso de Molina</td><td>Daniel Lobo</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_de_Tirso_de_Molina_(Madrid)_02.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Lavapiés</td><td>Liberaler Humanist</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_Lavapies,_Madrid,_13.08.14.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mercado de Antón Martín</td><td>Malopez 21</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Mercado_de_Ant%C3%B3n_Mart%C3%ADn,_fachada_calle_Santa_Isabel.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mercado de la Cebada</td><td>Tiia Monto</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Madrid_-_Mercado_de_la_Cebada_-_outside.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle del Nuncio</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Antiguo_Palacio_de_la_Nunciatura_Apost%C3%B3lica_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza del Rastrillo (antes Plaza de Juan Pujol)</td><td>Zarateman</td><td>CC0</td><td><a href="https://commons.wikimedia.org/wiki/File:Madrid_-_Malasa%C3%B1a,_Plaza_Juan_Pujol_1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle de Zurbano</td><td>Asqueladd</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacete_en_la_calle_Zurbano.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Santa Bárbara (Iglesia de las Salesas Reales)</td><td>Enrique Cordero</td><td>CC BY-SA 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Salesas-fachada.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle de Huertas</td><td>Frans Drewniak</td><td>CC BY-SA 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Calle_Huertas_(5876701988).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Jardines de Sabatini</td><td>Javier Perez Montes</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Estanque_Central_-_Jardines_de_Sabatini_-_Madrid_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle de Postas y Posada del Peine</td><td>Draceane</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Madrid,_Posada_del_Peine,_2024.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle de San Cristóbal (foto del cartel cerámico de la calle — no hay foto libre de la calle en sí)</td><td>Brian Snelson</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Calle_de_San_Crist%C3%B3bal_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Santa Cruz (Palacio de Santa Cruz)</td><td>Gryffindor</td><td>Dominio público</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_de_Santa_Cruz,_Madrid_4.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Colegiata de San Isidro</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Main_facade_of_the_Colegiata_de_San_Isidro_2022.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle Botoneras (foto genérica de la calle — no hay foto libre del restaurante Los Galayos)</td><td>Vasyatka1</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:View_of_house_No.8_at_Calle_de_Botoneras,_Madrid.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle del Siete de Julio</td><td>Sergei Gussev</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Madrid_(22216555508).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle Ciudad Rodrigo</td><td>Carlos Delgado</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_desde_calle_Ciudad_Rodrigo_-_03.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Calle del Duque de Nájera (Palacio de Cañete)</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_de_Ca%C3%B1ete_(Madrid)_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Catedral Castrense (Iglesia del Sacramento)</td><td>Francesco Bini (Sailko)</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Madrid,_iglesia_catedral_castrense_del_sacramento_(cattedrale_delle_forze_armate),_facciata_02.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mirador de la Muralla Árabe</td><td>Desarrollador (foto propia, paseo de agosto de 2026)</td><td>Uso propio, sin licencia Wikimedia</td><td>—</td></tr>
+    <tr><td>Palacio del Senado</td><td>Zarateman</td><td>CC0</td><td><a href="https://commons.wikimedia.org/wiki/File:Madrid_-_Senado_de_Espa%C3%B1a_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Antigua sede de la Real Compañía Asturiana de Minas</td><td>Luis García (Zaqarbal)</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Real_Compa%C3%B1%C3%ADa_Asturiana_de_Minas_(Madrid)_03.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mirador del Edificio España (Hotel RIU Plaza España)</td><td>Desarrollador (foto propia, paseo de agosto de 2026)</td><td>Uso propio, sin licencia Wikimedia</td><td>—</td></tr>
+    <tr><td>Templo de Santa Teresa y San José (Carmelitas Descalzas)</td><td>Desarrollador (foto propia, paseo de agosto de 2026)</td><td>Uso propio, sin licencia Wikimedia</td><td>—</td></tr>
+    <tr><td>Fuente de la Concha</td><td>Desarrollador (foto propia, paseo de agosto de 2026)</td><td>Uso propio, sin licencia Wikimedia</td><td>—</td></tr>
+    <tr><td>Monumento al Pueblo del Dos de Mayo de 1808</td><td>Desarrollador (foto propia, paseo de agosto de 2026)</td><td>Uso propio, sin licencia Wikimedia</td><td>—</td></tr>
+    <tr><td>Caídos del Cuartel de la Montaña</td><td>Desarrollador (foto propia, paseo de agosto de 2026)</td><td>Uso propio, sin licencia Wikimedia</td><td>—</td></tr>
+    <tr><td>Cuevas de Hércules (Toledo)</td><td>Carlos Delgado</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Cueva_de_H%C3%A9rcules_-_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Callejón del Pozo Amargo</td><td>Jose Luis Filpo Cabana</td><td>CC BY 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:El_Pozo_Amargo._Toledo_(Espa%C3%B1a).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Circo Romano de Toledo</td><td>Antonio.velez</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Espa%C3%B1a_-_Toledo_-_Ruinas_del_Circo_Romano_003.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Iglesia de Santiago del Arrabal</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:%C3%81bside_Iglesia_de_Santiago,_Toledo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puerta de Valmardón</td><td>Daderot</td><td>Dominio público</td><td><a href="https://commons.wikimedia.org/wiki/File:Puerta_de_Valmard%C3%B3n,_Toledo_-_1.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Ermita del Cristo de la Vega</td><td>Turol Jones</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:WLM14ES_-_10072005_170647_7840_-_.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Casa-Museo Victorio Macho</td><td>Joncusil</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Sala_de_museo_victorio_macho.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Convento de Santo Domingo el Antiguo</td><td>Carlos Delgado</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Convento_de_Santo_Domingo_El_Antiguo_-_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Palacio de Fuensalida</td><td>Francisco Javier Martín Fernández</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Palacio_de_Fuensalida_.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza del Ayuntamiento (Casa Consistorial)</td><td>Fernando</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo_City_Council_01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Iglesia de San Pedro Mártir</td><td>José Luis Filpo Cabana</td><td>CC BY 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Convento_de_San_Pedro_M%C3%A1rtir_(Toledo).Claustro_Real.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Mezquita de las Tornerías</td><td>Solbaken</td><td>CC BY 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Mezquita_de_las_Torner%C3%ADas._Toledo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de San Vicente</td><td>PMRMaeyaert</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo,_Iglesia_san_Vicente-PM_65615.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Convento de San Clemente</td><td>Barcex</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo_-_Convento_de_San_Clemente_-_201102.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Termas Romanas de Amador de los Ríos</td><td>amaianos</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Termas_Romanas_de_la_Plaza_de_Amador_de_los_R%C3%ADos,_Toledo_(6431432341).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Palacio de Benacazón</td><td>José Luis Filpo Cabana</td><td>CC BY 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Portada_del_Palacio_de_Benacaz%C3%B3n,_Toledo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Convento de la Madre de Dios</td><td>Fjdrevorio</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Convento_Madre_de_Dios_02.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Cigarrales de Toledo (pintura, 1906)</td><td>Aureliano de Beruete</td><td>Dominio público</td><td><a href="https://commons.wikimedia.org/wiki/File:Camino_de_los_Cigarrales_(alrededores_de_Toledo).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Iglesia de El Salvador</td><td>José Luis Filpo Cabana</td><td>CC BY 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Iglesia_del_Salvador._Toledo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Torre del Miradero (Palacio de Congresos)</td><td>Juandev</td><td>CC BY-SA 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo,_eskal%C3%A1tory_(002).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puente de Azarquiel (Puente de Piedra)</td><td>Jose Luis Filpo Cabana</td><td>CC BY 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Puente_de_Azarquiel._Toledo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Convento de las Comendadoras de Santiago</td><td>José Luis Filpo Cabana</td><td>CC BY 3.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Claustro_de_la_Mona._Toledo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Iglesia de San Andrés</td><td>Zarateman</td><td>CC0</td><td><a href="https://commons.wikimedia.org/wiki/File:Toledo_-_San_Andres.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Puerta de Alarcones</td><td>Antonio.velez</td><td>CC BY-SA 3.0 ES</td><td><a href="https://commons.wikimedia.org/wiki/File:Espa%C3%B1a_-_Toledo_-_Puerta_de_Alarcones_001.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    <tr><td>Plaza de Santa Teresa</td><td>Javier Perez Montes</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Monument_to_Saint_Teresa_of_Jesus_-_Toledo_04.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</body>
+</html>

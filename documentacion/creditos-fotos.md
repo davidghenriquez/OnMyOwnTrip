@@ -96,14 +96,14 @@ como exige cada licencia.
 | Calle Ciudad Rodrigo | Carlos Delgado | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Madrid_desde_calle_Ciudad_Rodrigo_-_03.jpg) |
 | Calle del Duque de Nájera (Palacio de Cañete) | Luis García (Zaqarbal) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palacio_de_Ca%C3%B1ete_(Madrid)_01.jpg) |
 | Catedral Castrense (Iglesia del Sacramento) | Francesco Bini (Sailko) | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid,_iglesia_catedral_castrense_del_sacramento_(cattedrale_delle_forze_armate),_facciata_02.jpg) |
-| Mirador de la Muralla Árabe | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Mirador de la Muralla Árabe | Desarrollador (foto propia, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
 | Palacio del Senado | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_-_Senado_de_Espa%C3%B1a_2.jpg) |
 | Antigua sede de la Real Compañía Asturiana de Minas | Luis García (Zaqarbal) | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Real_Compa%C3%B1%C3%ADa_Asturiana_de_Minas_(Madrid)_03.jpg) |
-| Mirador del Edificio España (Hotel RIU Plaza España) | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
-| Templo de Santa Teresa y San José (Carmelitas Descalzas) | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
-| Fuente de la Concha | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
-| Monumento al Pueblo del Dos de Mayo de 1808 | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
-| Caídos del Cuartel de la Montaña | David (foto propia del usuario, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Mirador del Edificio España (Hotel RIU Plaza España) | Desarrollador (foto propia, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Templo de Santa Teresa y San José (Carmelitas Descalzas) | Desarrollador (foto propia, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Fuente de la Concha | Desarrollador (foto propia, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Monumento al Pueblo del Dos de Mayo de 1808 | Desarrollador (foto propia, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
+| Caídos del Cuartel de la Montaña | Desarrollador (foto propia, paseo de agosto de 2026) | Uso propio, sin licencia Wikimedia | — |
 | Cuevas de Hércules (Toledo) | Carlos Delgado | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cueva_de_H%C3%A9rcules_-_01.jpg) |
 | Callejón del Pozo Amargo | Jose Luis Filpo Cabana | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:El_Pozo_Amargo._Toledo_(Espa%C3%B1a).jpg) |
 | Circo Romano de Toledo | Antonio.velez | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Espa%C3%B1a_-_Toledo_-_Ruinas_del_Circo_Romano_003.JPG) |
