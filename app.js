@@ -4361,6 +4361,17 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
    * POI SELECTION + SHEET
    * =======================================================*/
   const selectPoi = (id, centerMap = false) => {
+    // Si se salta directo a otro POI mientras "Profundiza más" del POI
+    // anterior seguía en curso (deepenBusy=true, esperando a que terminase
+    // de sonar su párrafo), hay que resolver esa promesa pendiente aquí
+    // igual que se hace al tocar otro chip o al mandar una pregunta suelta
+    // (ver abandonDeepenFlow) — si no, resetAudio() de abajo para el audio
+    // con stopAudio(), que a propósito NO dispara ese callback pendiente, y
+    // deepenBusy se queda en true para siempre. Como es una bandera GLOBAL
+    // (no por POI), eso dejaba el botón "Profundiza más" bloqueado en
+    // cualquier parada nueva que se abriera después, aunque no tuviera
+    // nada que ver con la anterior — el bug real reportado en producción.
+    if (STATE.ai.deepenBusy) abandonDeepenFlow();
     // Si había una ficha efímera de escaneo abierta y se salta directo a
     // otro POI sin cerrarla antes, hay que limpiarla igual (closeSheet no
     // llega a ejecutarse en ese camino).
@@ -4386,6 +4397,11 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     try { els.sheet.setAttribute('aria-hidden', 'false'); } catch (_) {}
   };
   const closeSheet = () => {
+    // Mismo motivo que en selectPoi: si se cierra la ficha (X, fondo,
+    // Escape) mientras "Profundiza más" seguía en curso, hay que resolver
+    // esa promesa pendiente antes de que stopAudio() la deje huérfana para
+    // siempre (ver abandonDeepenFlow).
+    if (STATE.ai.deepenBusy) abandonDeepenFlow();
     cleanupAdHocScanIfNeeded(STATE.activePoiId);
     STATE.sheet = 'closed';
     STATE.activePoiId = null;
