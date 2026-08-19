@@ -2150,7 +2150,7 @@
   // techo en 1000, hace falta explorar a fondo una ciudad mediana/grande —o
   // combinar varias— para completarla.
   const REWARD_ITEMS = [
-    { id: 'insignia-principiante', name: 'Insignia de Principiante', points: 0, img: 'assets/rewards/insignia-principiante.png' },
+    { id: 'insignia-principiante', name: 'Insignia de Principiante', points: 10, img: 'assets/rewards/insignia-principiante.png' },
     { id: 'brujula', name: 'Brújula', points: 40, img: 'assets/rewards/brujula.png' },
     { id: 'mapa-tesoro', name: 'Mapa del tesoro', points: 80, img: 'assets/rewards/mapa-tesoro.png' },
     { id: 'linterna', name: 'Linterna', points: 160, img: 'assets/rewards/linterna.png' },
