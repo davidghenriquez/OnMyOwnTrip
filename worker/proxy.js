@@ -63,6 +63,24 @@ export default {
       });
     }
 
+    // Rate limiting por IP (binding "RATE_LIMITER", configurado en el panel
+    // de Cloudflare → pestaña "Bindings" → Add binding → Rate Limiting).
+    // Sin esto, una sola IP podría agotar ella sola la cuota compartida de
+    // Gemini (~20 peticiones/min para todo el mundo) y dejar sin IA real al
+    // resto de gente usando la app en ese mismo minuto. Si el binding no
+    // está configurado (env.RATE_LIMITER no existe), se salta sin romper
+    // nada: es una capa extra, no un requisito para que la app funcione.
+    if (env.RATE_LIMITER) {
+      const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+      const { success } = await env.RATE_LIMITER.limit({ key: ip });
+      if (!success) {
+        return new Response(JSON.stringify({ error: 'rate limit exceeded, prueba en un minuto' }), {
+          status: 429,
+          headers: { ...headers, 'Content-Type': 'application/json' }
+        });
+      }
+    }
+
     if (isTts) return handleTts(request, env, headers);
 
     let body;
