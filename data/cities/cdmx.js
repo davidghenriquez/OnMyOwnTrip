@@ -37,6 +37,18 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'De planta de cruz latina con cinco naves y dieciséis capillas, alberga el imponente Altar de los Reyes, obra churrigueresca en madera dorada de Jerónimo de Balbás terminada en 1737. Sus dos torres campanario alcanzan los 67 metros y guardan 25 campanas, entre ellas "La Doña María", la mayor de América Latina. Debido al terreno blando de la antigua isla lacustre, el edificio se ha inclinado y hundido de forma desigual durante siglos, lo que obligó a un ambicioso proyecto de nivelación con pozos de compensación en los años 90.',
             kids: '¡Tiene dos torres altísimas con 25 campanas dentro, y una se llama "La Doña María"! 🔔 Es tan grande que tiene 16 capillas diferentes adentro, como pequeñas iglesias dentro de la iglesia grande. Como está construida sobre tierra blandita de un lago viejo, ¡el edificio se ha ido inclinando poquito a poco durante siglos!'
+          },
+          deepenFillers: {
+            adult: [
+              'El interior conserva dos órganos monumentales del siglo XVIII, tallados en madera dorada y colocados a ambos lados del coro; durante mucho tiempo fueron de los más grandes de América y hoy siguen sonando en las grandes celebraciones.',
+              'Bajo el altar mayor se encuentra la Cripta de los Arzobispos, donde reposan los restos de buena parte de quienes han dirigido la arquidiócesis de México desde la época virreinal.',
+              'Las campanas de la Catedral se siguen tocando a mano por campaneros que suben a las torres, un oficio tradicional que ha ido desapareciendo en otras grandes catedrales del mundo.'
+            ],
+            kids: [
+              '¡Dentro hay dos órganos gigantes de madera dorada que tienen casi 300 años y todavía se pueden tocar en las fiestas grandes! 🎶',
+              '¡Debajo del altar principal hay una cripta donde descansan los antiguos arzobispos que dirigieron la Iglesia en México! ⛪',
+              '¡Las campanas no se tocan con botones: unas personas llamadas campaneros suben a las torres y las tocan a mano, tal como se hacía hace cientos de años! 🔔🧗'
+            ]
           }
         },
         quiz: {
@@ -97,6 +109,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'En la escalera principal y a lo largo del primer piso se despliega "La Historia de México", el mural más ambicioso de Diego Rivera: casi 3.000 años de historia narrados en un friso continuo que va desde las civilizaciones prehispánicas hasta la Revolución Mexicana, pintado entre 1929 y 1951. El edificio, de tres plantas alrededor de amplios patios interiores, combina la estructura virreinal original con ampliaciones del siglo XX, entre ellas el propio tercer piso, añadido en 1926.',
             kids: '¡Por dentro tiene una escalera gigante cubierta de pinturas que cuentan TODA la historia de México, desde los aztecas hasta hace cien años! Las pintó un artista muy famoso, Diego Rivera, y tardó más de 20 años en terminarlas. El edificio tiene patios enormes por dentro, ¡como un laberinto de historia!'
+          },
+          deepenFillers: {
+            adult: [
+              'En una de las salas del primer piso se conserva el Recinto Homenaje a Benito Juárez, la habitación donde el presidente vivió sus últimos años y murió en 1872, con parte de su mobiliario original.',
+              'En el tramo final del mural de la escalera, dedicado al siglo XX, Diego Rivera incluyó un retrato de Karl Marx señalando hacia un futuro socialista, una toma de postura política explícita poco habitual en un edificio de gobierno.'
+            ],
+            kids: [
+              '¡En una de las salas se guarda tal cual la habitación donde vivió y murió un presidente muy importante, Benito Juárez, hace más de 150 años! 🛏️',
+              '¡En una parte del mural gigante, Diego Rivera pintó a un pensador famoso señalando hacia el futuro, porque al pintor le encantaban las ideas sobre cómo mejorar el mundo! 🎨👉'
+            ]
           }
         },
         quiz: {
@@ -164,6 +186,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'La pirámide combinaba dos templos gemelos en su cúspide, accesibles por escalinatas independientes, sobre una base de más de 80 metros de lado en su última fase. El hallazgo casual en 1978 de la piedra de Coyolxauhqui por trabajadores de la Compañía de Luz desencadenó una excavación sistemática que sacó a la luz más de 200 ofrendas rituales con objetos de jade, concha, coral y restos de animales traídos de todo Mesoamérica. Hoy el yacimiento, a cielo abierto junto a la Catedral, se recorre mediante pasarelas elevadas y se completa con el Museo del Templo Mayor.',
             kids: '¡Se encontró por accidente en 1978, cuando unos trabajadores estaban cavando para poner cables de luz! ⚡ Encontraron una piedra gigante con la diosa de la Luna tallada. Desde entonces han descubierto más de 200 "regalos" que los aztecas ofrecían a sus dioses: joyas, conchas y hasta huesos de animales de lugares muy lejanos.'
+          },
+          deepenFillers: {
+            adult: [
+              'En 2006 se descubrió un monolito de casi 12 toneladas que representa a Tlaltecuhtli, la diosa de la tierra, una de las esculturas mexicas más grandes jamás halladas, hoy expuesta en el museo del sitio.',
+              'El recinto sagrado original era mucho más extenso que el área hoy visible: buena parte sigue enterrada bajo la Catedral, el Zócalo y los edificios coloniales vecinos, y de vez en cuando aparecen nuevos hallazgos durante obras urbanas.'
+            ],
+            kids: [
+              '¡En 2006 encontraron una piedra gigante de casi 12 toneladas con la diosa de la tierra tallada, una de las esculturas aztecas más grandes jamás encontradas! 🗿',
+              '¡Todavía queda templo escondido bajo la Catedral y las calles de alrededor! A veces, cuando hacen obras en la ciudad, ¡aparecen sorpresas aztecas nuevas! 🔍'
+            ]
           }
         },
         quiz: {
@@ -224,6 +256,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'Combina un exterior de mármol de estilo Art Nouveau, con la célebre cúpula de mosaicos de cristal de Tiffany, y un interior completamente Art Déco, con mármoles de colores geométricos y motivos prehispánicos estilizados. Alberga el telón de cristal de Tiffany más grande del mundo, con casi un millón de piezas representando los volcanes Popocatépetl e Iztaccíhuatl, y sus muros están decorados con murales de Diego Rivera —incluido "El hombre controlador del universo"—, David Alfaro Siqueiros y Rufino Tamayo.',
             kids: '¡Por fuera parece un pastel de mármol blanco con una cúpula de cristales de colores! 🎂✨ Por dentro tiene un telón gigante hecho con casi un millón de piezas de cristal que forma un dibujo de dos volcanes. En las paredes hay pinturas enormes hechas por artistas mexicanos muy famosos, ¡como si el palacio fuera un museo de cómics gigante!'
+          },
+          deepenFillers: {
+            adult: [
+              'El mural de Diego Rivera "El hombre controlador del universo" es en realidad una segunda versión: la original, pintada para el Rockefeller Center de Nueva York, fue destruida en 1934 por incluir un retrato de Lenin, y Rivera la volvió a pintar ese mismo año en este palacio.',
+              'El recinto es también sede histórica del Ballet Folklórico de México, la compañía de danza que desde mediados del siglo XX recorre el mundo representando las tradiciones populares mexicanas.'
+            ],
+            kids: [
+              '¡El mural de "El hombre controlador del universo" es en realidad una copia! El original lo pintó Diego Rivera en Nueva York, pero lo destruyeron porque incluía a un líder político, ¡así que lo volvió a pintar aquí! 🎨',
+              '¡Aquí baila desde hace muchísimos años un grupo muy famoso, el Ballet Folklórico de México, que viaja por todo el mundo mostrando bailes tradicionales! 💃'
+            ]
           }
         },
         quiz: {
@@ -291,6 +333,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'Fue el primer rascacielos del mundo diseñado específicamente para resistir tanto sismos como el terreno blando de una antigua cuenca lacustre, mediante 361 pilotes de control clavados hasta encontrar un estrato de roca firme a 33 metros de profundidad, permitiendo que la estructura "flote" y se mueva ligeramente en vez de resistir rígida. Su mirador, en el piso 44, ofrece una de las mejores vistas panorámicas de 360 grados del Centro Histórico y, en días despejados, de los volcanes que rodean el Valle de México.',
             kids: '¡Tiene 361 patas de cemento clavadas muy hondo en la tierra, hasta encontrar roca dura! 🦵 Así, en vez de quedarse tiesa como una estatua, el edificio se puede mover un poquito cuando tiembla, ¡como si bailara! Arriba del todo hay un mirador desde el que se ve toda la ciudad, ¡y hasta los volcanes en los días despejados!'
+          },
+          deepenFillers: {
+            adult: [
+              'Antes de construirse, los ingenieros pusieron a prueba el diseño de la cimentación con cálculos y estudios que en su momento se consideraron pioneros en la ingeniería sísmica mexicana, sentando un precedente para los rascacielos posteriores de la ciudad.',
+              'En una de las plantas previas al mirador hay un pequeño museo dedicado a la historia de la torre y de la Ciudad de México, una parada antes de subir a las alturas.'
+            ],
+            kids: [
+              '¡Antes de construir la torre, los ingenieros hicieron cálculos y pruebas muy avanzados para la época, para asegurarse de que aguantaría los terremotos! 🧮',
+              '¡Antes de llegar al mirador de arriba, puedes pasar por un pequeño museo que cuenta la historia de la torre y de la ciudad! 🏙️📚'
+            ]
           }
         },
         quiz: {
@@ -358,6 +410,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'Combina elementos neoclásicos y art nouveau, con el añadido del célebre Alcázar y sus jardines colgantes al estilo pompeyano, mandados construir por Maximiliano. Alberga murales de grandes muralistas mexicanos como Juan O\'Gorman —cuyo mural narra la lucha por la Independencia— y David Alfaro Siqueiros. Desde su terraza, el "Balcón del Emperador" ofrece una de las mejores vistas de la Ciudad de México, con el Paseo de la Reforma extendiéndose hacia el horizonte.',
             kids: '¡Tiene jardines colgantes que parecen de un palacio romano! 🌿 Dentro hay pinturas gigantes hechas por artistas mexicanos muy famosos que cuentan la historia del país en las paredes. Desde el balcón de arriba, ¡se ve toda la Ciudad de México a tus pies!'
+          },
+          deepenFillers: {
+            adult: [
+              'Antes de convertirse en residencia presidencial permanente, el castillo albergó durante varias décadas del siglo XIX el Observatorio Astronómico Nacional del país.',
+              'El cerro ya era estratégico en época prehispánica: de sus manantiales partía el acueducto que el gobernante Nezahualcóyotl mandó construir para llevar agua dulce hasta Tenochtitlan.'
+            ],
+            kids: [
+              '¡Antes de ser casa de presidentes, aquí funcionó durante años el observatorio de las estrellas más importante de México! 🔭',
+              '¡Mucho antes del castillo, los aztecas ya usaban el agua de los manantiales de esta colina, y construyeron un canal larguísimo para llevarla hasta su ciudad! 💧'
+            ]
           }
         },
         quiz: {
@@ -425,6 +487,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'La casa debe su nombre al intenso azul cobalto de sus muros exteriores, un color tradicional mexicano conocido como "azul añil". En torno a un patio central con plantas y esculturas prehispánicas se distribuyen el estudio de Frida —con su silla de ruedas y caballete tal como los dejó—, la cocina de azulejos amarillos y azules decorada con miniaturas de barro, y salas que exhiben sus característicos vestidos de tehuana y corsés pintados a mano.',
             kids: '¡Toda la casa está pintada de un azul buenísimo, por eso la llaman "la Casa Azul"! 💙 Tiene un patio en el medio lleno de plantas y esculturas antiguas. Puedes ver el estudio donde pintaba Frida, con su silla de ruedas y sus pinceles, ¡tal y como los dejó ella!'
+          },
+          deepenFillers: {
+            adult: [
+              'En 2004 se descubrió en la casa un armario y un baño que habían permanecido cerrados con llave durante 50 años por orden de Diego Rivera, con cientos de objetos personales de Frida —cartas, ropa, medicinas y fotografías— intactos desde su muerte.',
+              'En el jardín todavía viven perros xoloitzcuintle, la raza mexicana sin pelo que Frida y Diego criaban y que aparece retratada en varios de los cuadros de la artista.'
+            ],
+            kids: [
+              '¡En el año 2004 encontraron un armario que llevaba 50 años cerrado con llave, lleno de cosas de Frida que nadie había tocado desde que ella murió! 🔑📦',
+              '¡En el jardín viven perritos xoloitzcuintle, una raza mexicana muy especial que no tiene pelo, y que Frida pintó varias veces en sus cuadros! 🐕'
+            ]
           }
         },
         quiz: {
@@ -484,6 +556,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'La red de canales, de unos 170 kilómetros en su máxima extensión histórica, se recorre en trajineras, coloridas embarcaciones de madera pintadas con nombres de mujeres y decoradas con arcos florales, que antiguamente transportaban las cosechas de las chinampas al mercado. Hoy conviven con embarcaciones que venden comida, música de mariachi y hasta flores directamente desde el agua, en un paseo dominical que sigue siendo, siglos después, la forma más viva de conocer el antiguo paisaje lacustre de la ciudad.',
             kids: '¡Los barcos se llaman "trajineras" y cada uno tiene pintado un nombre de mujer, como si fueran de colores! 🚣‍♀️🌺 Por los canales pasan también barcas que venden comida y hasta música de mariachi tocando en directo. ¡Es como un mercado flotante gigante!'
+          },
+          deepenFillers: {
+            adult: [
+              'Los canales de Xochimilco son el único hábitat natural silvestre que le queda al ajolote, un anfibio único capaz de regenerar extremidades enteras, hoy en peligro crítico de extinción por la contaminación del agua.',
+              'El sistema de chinampas de Xochimilco es estudiado a nivel internacional como uno de los ejemplos de agricultura sostenible más antiguos que siguen en funcionamiento en el mundo, con casi mil años de historia continua.'
+            ],
+            kids: [
+              '¡En estos canales vive el ajolote, un animalito único que puede volver a hacerle crecer una pata si la pierde! Por desgracia, casi no quedan en estado salvaje. 🦎💧',
+              '¡El cultivo en chinampas es tan especial que científicos de todo el mundo vienen a estudiarlo, porque lleva casi mil años funcionando sin parar! 🌍🌱'
+            ]
           }
         },
         quiz: {
@@ -544,6 +626,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'Es un edificio de planta rectangular de dos alturas donde conviven bajo un mismo techo puestos de frutas y verduras, flores, artesanías, disfraces, textiles bordados a mano y una concurrida zona de comida con largas barras compartidas. Su trazado en pasillos estrechos, típico de los mercados populares mexicanos de mediados del siglo XX, mantiene un ambiente denso y colorido que apenas ha cambiado desde su modernización.',
             kids: '¡Es un mercado de dos pisos con pasillos estrechos llenos de colores! 🌈 En una parte venden fruta y flores, en otra ropa bordada a mano y disfraces, ¡y en otra hay mesas larguísimas donde te sientas a comer codo con codo con otras familias!'
+          },
+          deepenFillers: {
+            adult: [
+              'Aunque es conocido sobre todo por sus tostadas, el mercado tiene también una nutrida sección de plantas y flores frescas, muchas de ellas cultivadas en las chinampas de la zona sur de la ciudad, como las de Xochimilco.',
+              'Varios puestos de telas y bordados del mercado trabajan con técnicas textiles tradicionales de distintas regiones de México, convirtiendo esta zona en un pequeño escaparate de artesanía de todo el país.'
+            ],
+            kids: [
+              '¡Muchas de las flores que se venden aquí llegan de las chinampas del sur de la ciudad, como las de Xochimilco! 🌸🛶',
+              '¡Hay puestos con telas bordadas a mano que vienen de distintas partes de México, así que pasear por aquí es casi como viajar por todo el país! 🧵🌎'
+            ]
           }
         },
         quiz: {
@@ -604,6 +696,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'De trazado geométrico con paseos arbolados que convergen en un octágono central, conserva ocho fuentes de estilo neoclásico e italianizante instaladas durante el Porfiriato, entre ellas la Fuente de Venus y la Fuente de Neptuno. En sus extremos se alzan el Hemiciclo a Juárez y el Palacio de Bellas Artes, y su vegetación de fresnos centenarios ofrece uno de los pocos grandes pulmones verdes del Centro Histórico.',
             kids: '¡Tiene ocho fuentes de piedra con nombres de dioses antiguos, como Venus y Neptuno! ⛲ Los caminos del parque forman un dibujo geométrico si lo ves desde arriba. Está lleno de árboles enormes y muy viejos que dan muchísima sombra.'
+          },
+          deepenFillers: {
+            adult: [
+              'Durante buena parte de la época colonial, el paseo de la Alameda estuvo vedado a la mayoría de la población indígena y mestiza, reservado casi en exclusiva a la élite española; solo más adelante se abrió plenamente a todos los habitantes de la ciudad.',
+              'El Hemiciclo a Juárez, el monumento de mármol blanco situado en un extremo del parque, se inauguró el mismo año que el Ángel de la Independencia, en 1910, dentro de los mismos festejos del centenario.'
+            ],
+            kids: [
+              '¡Hace muchos años, no todo el mundo podía entrar a pasear por este parque! Solo más tarde se abrió para que pudiera entrar cualquier persona. 🚶',
+              '¡El monumento blanco que hay en un extremo del parque se inauguró el mismo año que el Ángel de la Independencia, en 1910! 🏛️'
+            ]
           }
         },
         quiz: {
@@ -663,6 +765,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'La columna, de estilo neoclásico y recubierta de mármol, se apoya sobre un pedestal cuadrangular flanqueado por cuatro grupos escultóricos que representan la Ley, la Guerra, la Paz y la Justicia, obra de escultores como Enrique Alciati. En su interior, una escalera de caracol de 200 escalones —hoy cerrada al público por motivos de seguridad— ascendía hasta un mirador bajo los pies del Ángel, desde donde se contemplaba toda la avenida Reforma.',
             kids: '¡La columna está cubierta de mármol y tiene cuatro estatuas grandes en la base que representan ideas importantes, como la paz y la justicia! Por dentro tenía una escalera de caracol con 200 escalones que subía hasta arriba, cerca de los pies del Ángel, ¡para ver toda la avenida desde las alturas!'
+          },
+          deepenFillers: {
+            adult: [
+              'El arquitecto Antonio Rivas Mercado tuvo una hija, Antonieta Rivas Mercado, que se convirtió después en una influyente mecenas cultural de la Ciudad de México en los años veinte, apoyando teatro y literatura de vanguardia.',
+              'Tras el terremoto de 2017, la columna fue inspeccionada a fondo y reforzada de nuevo, sumándose a las intervenciones estructurales que el monumento ha recibido desde su construcción para resistir el terreno sísmico de la ciudad.'
+            ],
+            kids: [
+              '¡El arquitecto que diseñó esta columna tuvo una hija que después se hizo famosa por ayudar a artistas y escritores jóvenes en la ciudad! 🎭',
+              '¡Después del terremoto de 2017, revisaron toda la columna de arriba abajo para asegurarse de que seguía firme! 🔧'
+            ]
           }
         },
         quiz: {
@@ -723,6 +835,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'La fachada de la parroquia combina un ábside plateresco del siglo XVI con torres barrocas añadidas en 1804, resultado de sucesivas ampliaciones a lo largo de cuatro siglos. El antiguo atrio conventual, hoy convertido en el Jardín Centenario, conserva parte de sus muros de piedra volcánica original y se comunica directamente con la vecina Plaza Hidalgo, formando el conjunto de plazas arboladas más animado de Coyoacán, rodeado de cafés y puestos de artesanía.',
             kids: '¡La iglesia mezcla partes construidas hace 500 años con torres añadidas hace "solo" 200! 🕰️ Todavía se pueden ver trozos del muro original de piedra volcánica del convento. Alrededor hay cafés y puestos de artesanías por todas partes.'
+          },
+          deepenFillers: {
+            adult: [
+              'Las ranas de bronce que hoy decoran el jardín no formaban parte del diseño original: se fueron incorporando y renovando a lo largo del siglo XX, hasta convertirse en la seña de identidad más fotografiada de la plaza.',
+              'Coyoacán fue un municipio independiente hasta 1928, año en que se incorporó formalmente a la Ciudad de México; hasta entonces, la plaza que hoy recorres era el centro de un pueblo con ayuntamiento propio.'
+            ],
+            kids: [
+              '¡Las ranitas de bronce no estaban aquí desde el principio: las fueron poniendo poco a poco durante el siglo pasado, y hoy son de las fotos más famosas de todo el barrio! 📸🐸',
+              '¡Coyoacán fue su propio pueblo, con su propio ayuntamiento, hasta 1928! Antes de esa fecha, ni siquiera formaba parte de la Ciudad de México. 🏘️'
+            ]
           }
         },
         quiz: {
@@ -789,6 +911,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'Tras el primer atentado, la vivienda original se transformó en una auténtica fortaleza: se levantaron muros perimetrales de más de tres metros, se blindaron puertas y ventanas, y se construyeron torretas de vigilancia en las esquinas, todavía en pie. El despacho de Trotsky se conserva intacto, con sus libros, gafas y calendario congelado en la fecha del atentado, mientras que el jardín alberga su tumba, coronada con un monumento y la hoz y el martillo.',
             kids: '¡Después del primer ataque, convirtieron la casa en una fortaleza de verdad! 🏰 Le pusieron muros altísimos, ventanas blindadas y hasta torretas de vigilancia en las esquinas, que todavía siguen ahí. Su despacho se conserva tal cual lo dejó, con sus libros y sus gafas.'
+          },
+          deepenFillers: {
+            adult: [
+              'El agente que asesinó a Trotsky, Ramón Mercader, se ganó su confianza durante meses haciéndose pasar por pareja de una simpatizante estadounidense del entorno del revolucionario, antes de poder acercarse a él a solas en su despacho.',
+              'Durante su exilio, Trotsky se aficionó a la jardinería y a la cría de conejos y gallinas en el propio jardín de la casa, una rutina apacible que contrastaba con la tensión constante por su seguridad.'
+            ],
+            kids: [
+              '¡La persona que atacó a Trotsky se hizo pasar por amigo de la familia durante meses, fingiendo ser de confianza, antes de poder acercarse a él! 🎭',
+              '¡Durante los años que vivió aquí escondido, a Trotsky le gustaba cuidar plantas y hasta criar conejos y gallinas en el jardín! 🐰🌵'
+            ]
           }
         },
         quiz: {
@@ -856,6 +988,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'El edificio, obra maestra de la arquitectura mexicana del siglo XX, se organiza alrededor de un patio central cubierto por "El Paraguas", una gran estructura de concreto de 84 por 54 metros sostenida por una única columna esculpida con motivos prehispánicos, de la que cae una cortina de agua. Las salas se distribuyen en dos niveles bajo un mismo techo continuo, permitiendo un recorrido cronológico y temático por las principales culturas de Mesoamérica.',
             kids: '¡Hay una estructura gigante llamada "El Paraguas" que cubre el patio central, sostenida por una sola columna decorada! 🌂 Debajo cae una cortina de agua como una fuente. El museo tiene dos pisos enteros llenos de salas para recorrer.'
+          },
+          deepenFillers: {
+            adult: [
+              'En la sala maya se exhibe una réplica a tamaño real de la tumba del gobernante Pakal de Palenque, con su célebre lápida esculpida, mientras que piezas originales como su máscara de jade se conservan en otras vitrinas del museo.',
+              'Cerca de la entrada del museo se alza un gran tótem tallado por pueblos indígenas de la costa noroeste de Canadá, un regalo del gobierno canadiense que lleva décadas dando la bienvenida a los visitantes.'
+            ],
+            kids: [
+              '¡En la sala maya hay una copia exacta de la tumba de un antiguo rey maya llamado Pakal, con su tapa de piedra tallada tal y como se encontró! 👑',
+              '¡Cerca de la entrada hay un tótem de madera gigantesco tallado por pueblos indígenas de Canadá, que fue un regalo para México! 🪵🎁'
+            ]
           }
         },
         quiz: {
@@ -916,6 +1058,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'La estructura, de 16.000 paneles hexagonales de aluminio anodizado montados sobre una retícula de acero, forma una superficie curva sin una sola línea recta, apoyada sobre seis columnas asimétricas. En su interior, una rampa helicoidal continua conecta los seis niveles de exhibición sin necesidad de escaleras, permitiendo un recorrido ascendente ininterrumpido por toda la colección.',
             kids: '¡Por fuera parece una escultura brillante sin ninguna línea recta! 🌀 Por dentro tiene una rampa que sube en espiral y conecta los seis pisos, así que puedes recorrer todo el museo sin usar ni una sola escalera.'
+          },
+          deepenFillers: {
+            adult: [
+              'Entre las piezas de Auguste Rodin que alberga el museo se encuentra un vaciado de "El Pensador", una de las esculturas más reproducidas de la historia del arte, expuesta junto a otras obras del escultor francés.',
+              'A diferencia de la mayoría de los grandes museos del mundo, que dependen en buena parte de la venta de entradas, el Soumaya se sostiene íntegramente con fondos de la Fundación Carlos Slim, lo que le permite mantener el acceso gratuito desde su apertura.'
+            ],
+            kids: [
+              '¡Aquí puedes ver una copia de "El Pensador", una de las esculturas más famosas y copiadas del mundo, hecha por el escultor francés Auguste Rodin! 🗿',
+              '¡Este museo es gratis para siempre porque lo paga completamente una fundación, así que nunca hace falta comprar boleto para entrar! 🎟️'
+            ]
           }
         },
         quiz: {
@@ -982,6 +1134,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'El edificio, de cinco niveles revestidos en piedra travertino, se eleva sobre una planta baja porticada que conecta visualmente con la plaza pública, mientras que su cubierta ondulada de aluminio dentado —visible sobre todo desde el interior— es la única concesión formal a la geometría curva de su entorno. Sus salas diáfanas, sin columnas interiores, permiten montajes flexibles para exposiciones temporales de arte contemporáneo internacional.',
             kids: '¡Tiene cinco pisos cubiertos de piedra blanca y un techo con forma de zigzag que casi no se ve desde fuera! 🏢 Por dentro las salas son enormes y sin columnas, así que pueden cambiar la forma de exponer el arte cada vez que quieren.'
+          },
+          deepenFillers: {
+            adult: [
+              'El nombre "Jumex" proviene de la empresa jugera familiar: la colección de arte nació años antes que el propio museo, dentro de las instalaciones de la fábrica de la empresa, mucho antes de tener una sede propia.',
+              'La planta baja porticada, de acceso libre y sin necesidad de entrada, suele exhibir esculturas e instalaciones visibles directamente desde la Plaza Carso, a modo de museo al aire libre.'
+            ],
+            kids: [
+              '¡El nombre "Jumex" viene de una fábrica de jugos! La colección de arte empezó dentro de esa misma fábrica, mucho antes de que existiera este museo. 🧃🎨',
+              '¡En la planta baja, que es gratis sin boleto, a veces hay esculturas que se pueden ver directamente desde la plaza de fuera! 🗿'
+            ]
           }
         },
         quiz: {
@@ -1042,6 +1204,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'La nueva basílica, obra del arquitecto Pedro Ramírez Vázquez, adopta una planta circular de gran amplitud que permite a 10.000 fieles ver el altar simultáneamente desde cualquier punto, coronada por una cubierta de cobre en forma de carpa que evoca el manto de la Virgen. Junto a ella permanece la antigua basílica barroca, notablemente inclinada por el hundimiento diferencial del subsuelo, motivo por el que fue cerrada al culto y reconvertida en museo.',
             kids: '¡La iglesia nueva es redonda y tiene sitio para 10.000 personas a la vez, todas viendo bien el altar! ⭕ Al lado se puede ver la iglesia vieja, que está clarísimamente torcida porque el terreno se hundió con el paso de los años, ¡ahora es un museo!'
+          },
+          deepenFillers: {
+            adult: [
+              'En los días previos al 12 de diciembre llegan caravanas de miles de ciclistas devotos procedentes de distintos estados del país, una tradición moderna que se suma a las peregrinaciones a pie que convergen en la Basílica desde días antes.',
+              'Se calcula que la Basílica recibe a millones de peregrinos a lo largo del año, con una afluencia extraordinaria durante los días centrales de diciembre.'
+            ],
+            kids: [
+              '¡Antes del 12 de diciembre llegan caravanas enteras de miles de personas en bicicleta desde muy lejos, además de la gente que viene caminando! 🚴',
+              '¡En los días más importantes de diciembre llegan aquí muchísimas personas juntas para celebrar! 🎉'
+            ]
           }
         },
         quiz: {
@@ -1102,6 +1274,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'De planta de cruz latina con cúpula central y una espectacular fachada churrigueresca de cantera labrada, el templo conserva retablos dorados, pinturas coloniales y orfebrería religiosa de los siglos XVII y XVIII. Su torre y fachada, reforzadas en distintas ocasiones para frenar el hundimiento diferencial, muestran hoy una inclinación perceptible que convive, a escasos metros, con la moderna cubierta circular de cobre de la basílica que la sustituyó.',
             kids: '¡Por fuera tiene una fachada tallada en piedra llena de detalles, y por dentro guarda pinturas y objetos de oro de hace más de 300 años! La torre está claramente torcida, aunque la han reforzado varias veces para que no se hunda más. Al lado tiene la iglesia nueva y redonda, ¡las dos una junto a la otra!'
+          },
+          deepenFillers: {
+            adult: [
+              'Entre las piezas del museo destacan decenas de exvotos populares: pequeñas pinturas donde generaciones de fieles agradecieron por escrito e imagen milagros atribuidos a la Virgen, un género de arte popular mexicano muy particular.',
+              'El templo conserva también obras de algunos de los grandes pintores novohispanos, como Cristóbal de Villalpando y Miguel Cabrera, dos de los nombres más destacados de la pintura religiosa colonial mexicana.'
+            ],
+            kids: [
+              '¡El museo guarda pequeños cuadros pintados por la gente hace mucho tiempo para dar las gracias por milagros que creían que la Virgen les había concedido! 🙏🖼️',
+              '¡Aquí hay cuadros de dos de los pintores más famosos de la época colonial en México! 🎨'
+            ]
           }
         },
         quiz: {
@@ -1162,6 +1344,16 @@ CITIES.cdmx.pois = [
           architecture: {
             adult: 'La capilla actual, de fachada neoclásica sencilla, se alza sobre una plataforma con vistas privilegiadas de todo el conjunto de la Villa de Guadalupe y buena parte del norte de la ciudad. En su exterior, un mural de mosaico narra el momento en que Juan Diego recoge las rosas, y unos jardines con motivos florales tallados en piedra recrean el prodigio que da nombre al lugar.',
             kids: '¡Desde aquí arriba se ve toda la Villa de Guadalupe y buena parte de la ciudad! 🏙️ Por fuera tiene un mural hecho con piezas pequeñas de mosaico que cuenta la historia de las rosas. Alrededor hay jardines con flores talladas en piedra.'
+          },
+          deepenFillers: {
+            adult: [
+              'El camino que sube hasta la capilla está jalonado por varias fuentes y grupos escultóricos que narran, escena por escena, distintos momentos del relato de las apariciones, a modo de recorrido narrativo al aire libre.',
+              'En días despejados, desde la explanada de la capilla se alcanzan a ver, además de la Villa de Guadalupe, algunos de los volcanes que rodean el Valle de México.'
+            ],
+            kids: [
+              '¡El camino de subida tiene fuentes y estatuas que van contando, paso a paso, la historia de las apariciones, como un cuento al aire libre! ⛲',
+              '¡En los días bien despejados, desde arriba se pueden ver hasta los volcanes que rodean la ciudad! 🌋'
+            ]
           }
         },
         quiz: {

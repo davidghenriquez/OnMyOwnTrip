@@ -95,11 +95,26 @@ detecta y simplemente no aplica límite, sin romper nada):
 1. En tu Worker → pestaña **Bindings** → **Add binding**.
 2. Tipo **Rate Limiting**. Nombre de variable: `RATE_LIMITER` (tiene que
    llamarse exactamente así, es el nombre que usa `proxy.js`).
-3. Límite sugerido: `10` peticiones cada `60` segundos por IP — bastante
-   por debajo de la cuota total de Gemini (~20/min compartida entre todo
-   el mundo), para que ni el usuario más activo pueda dejar sin IA real
-   al resto de gente usando la app en ese mismo minuto.
+3. Límite sugerido: `20` peticiones cada `60` segundos por IP (antes se
+   sugería `10`, pero resultó demasiado ajustado — ver nota abajo).
 4. Guarda/Deploy.
+
+**Por qué `20` y no `10`:** un solo uso normal de "Profundiza más" en un
+punto de interés (ver `queueDeepenWithFillers` en `app.js`) puede lanzar
+hasta 11 peticiones reales de fondo por su cuenta (1 para planificar el
+guion de 10 puntos + 1 por cada punto desarrollado), a las que se suman la
+narración en voz (audio real vía `/tts`, mismo límite) y cualquier
+pregunta suelta o chip de tema que se toque mientras tanto. Con `10`, una
+familia visitando dos o tres paradas seguidas en un mismo minuto —sin
+ningún abuso— podía agotar el límite ella sola y caer al simulador local,
+justo el síntoma que motivó subir este número. Sigue siendo un límite
+real (no lo quites del todo): con `20` una sola IP todavía no puede
+acaparar toda la cuota compartida de Gemini (~20/min entre todo el
+mundo) de forma sostenida, solo tiene más margen para una sesión de uso
+normal. Si en el futuro "Profundiza más" pasa a lanzar menos peticiones
+de fondo por parada, este número se puede volver a bajar.
+**Este número solo se puede cambiar aquí, a mano, desde el panel de
+Cloudflare — no hay forma de ajustarlo desde el código del repositorio.**
 
 Sin este binding, una sola IP podría agotar ella sola casi toda la cuota
 compartida (ver ejemplo práctico comentado en el propio código).

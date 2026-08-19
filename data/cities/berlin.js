@@ -37,6 +37,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'Langhans se inspiró directamente en los Propileos, la monumental entrada de la Acrópolis de Atenas, dentro de la fiebre neoclásica que redescubría Grecia como ideal de belleza en toda Europa. Doce columnas dóricas de arenisca, dispuestas en dos filas de seis, dividen el paso en cinco corredores: el central, más ancho, estaba reservado antiguamente a la familia real. Con casi 26 metros de altura y 65 de anchura, es la única puerta que se conserva de las dieciocho que tuvo antiguamente la muralla aduanera de Berlín. Tras la reunificación, sufrió una restauración integral entre 2000 y 2002 que le devolvió su color original, más claro de lo que muchos recordaban tras décadas de suciedad y contaminación.',
             kids: '¡Esta puerta copia una entrada griega de hace más de 2.000 años! Tiene doce columnas de piedra puestas en dos filas, y forman cinco pasillos: el del medio, más ancho, era solo para la familia del rey. Es la única puerta que queda de las dieciocho que tenía antes toda la muralla de Berlín. Hace unos años la limpiaron entera y descubrieron que su color real era más claro de lo que todos pensaban.'
+          },
+          deepenFillers: {
+            adult: [
+              'Cuando conviene señalar un acontecimiento mundial, la puerta se ilumina de distintos colores: se vistió de azul, blanco y rojo tras los atentados de París de 2015, y luce a menudo los colores del arcoíris por el orgullo LGTB.',
+              'En 1987, el presidente estadounidense Ronald Reagan pronunció junto a esta puerta su célebre discurso pidiendo la caída del Muro; no hicieron falta ni tres años para que ocurriera de verdad.'
+            ],
+            kids: [
+              '¡Cuando pasa algo importante en el mundo, la puerta se ilumina de colores distintos, como una bandera gigante! A veces es azul, blanco y rojo, y a veces todo un arcoíris. 🌈',
+              '¡Un presidente de Estados Unidos dio aquí un discurso muy famoso pidiendo que cayera el Muro! Y no hicieron falta ni tres años para que ocurriera de verdad. 🎤'
+            ]
           }
         },
         quiz: {
@@ -98,6 +108,16 @@ CITIES.berlin.pois = [
           legends: {
             adult: 'Durante décadas circuló la leyenda de que la inscripción "DEM DEUTSCHEN VOLKE" ("Al pueblo alemán") de la fachada se fundió con el bronce de cañones franceses capturados como trofeo de guerra, un gesto que el propio káiser Guillermo II vetó personalmente por considerarlo demasiado provocador hacia Francia; la frase no se colocó hasta 1916, en plena Primera Guerra Mundial, cuando el Parlamento aprovechó el ambiente patriótico para imponerla pese a las reticencias imperiales. Otro episodio célebre: en 1995, los artistas búlgaro-marroquí Christo y Jeanne-Claude envolvieron el edificio entero con más de 100.000 metros cuadrados de tela plateada, una obra efímera de solo dos semanas que atrajo a cinco millones de visitantes y se recuerda como uno de los grandes hitos del arte contemporáneo en Berlín.',
             kids: '¡Este edificio tiene una frase gigante en la fachada que dice "Al pueblo alemán"! Al emperador de la época no le gustaba nada esa idea, así que tardaron años en ponerla. Y en 1995, dos artistas envolvieron TODO el edificio con una tela plateada enorme durante dos semanas, ¡y vinieron cinco millones de personas a verlo!'
+          },
+          deepenFillers: {
+            adult: [
+              'En algunas paredes interiores todavía pueden verse mensajes escritos en 1945 por soldados soviéticos, en letras cirílicas; se conservaron a propósito durante la restauración de los años 90 como capa histórica del edificio, en vez de borrarlos.',
+              'Dentro del hemiciclo cuelga una gran águila federal de aluminio que los propios berlineses apodan cariñosamente "die fette Henne", la gallina gorda, por su forma redondeada.'
+            ],
+            kids: [
+              '¡En algunas paredes de dentro todavía se ven mensajes que escribieron soldados soviéticos en 1945, en letras rusas! Los dejaron a propósito para no olvidar la historia.',
+              '¡Dentro hay un águila enorme de metal a la que los berlineses llaman cariñosamente "la gallina gorda", porque tiene una forma bien redondita! 🦅'
+            ]
           }
         },
         quiz: {
@@ -158,6 +178,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El arquitecto Peter Eisenman diseñó una cuadrícula estrictamente ortogonal de 2.711 bloques de hormigón (llamados "estelas"), todos del mismo ancho y largo pero de alturas distintas, desde apenas unos centímetros hasta más de cuatro metros, sobre un suelo que ondula suavemente sin seguir ningún patrón evidente. No hay un recorrido marcado ni una entrada única: se puede acceder por cualquier punto de sus cuatro lados, y deliberadamente no hay inscripciones ni simbolismo religioso explícito en la superficie, dejando que sea la propia experiencia física —el eco de los pasos, la pérdida de perspectiva, el aislamiento entre los bloques más altos— la que transmita la sensación de desorientación.',
             kids: '¡Los 2.711 bloques de hormigón no siguen ningún plan que se pueda adivinar a simple vista! Puedes entrar por cualquier lado, no hay un camino marcado. Cuanto más te metes hacia el centro, más altos se vuelven los bloques y menos ves a la gente de alrededor: está pensado así a propósito, para que sientas algo distinto según por dónde camines.'
+          },
+          deepenFillers: {
+            adult: [
+              'En el Centro de Información hay una Sala de los Nombres donde se leen en voz alta, sin descanso, los nombres y breves biografías de las víctimas conocidas del Holocausto; completar el ciclo entero, leyendo día y noche, lleva varios años, y después vuelve a empezar.',
+              'En 2017, un artista israelí lanzó en internet una polémica campaña para llamar la atención sobre el comportamiento irrespetuoso de algunos turistas en el memorial, lo que reabrió el debate público sobre cómo se debe visitar un lugar como este.'
+            ],
+            kids: [
+              'Bajo tierra hay una sala donde se leen en voz alta, uno por uno, los nombres de las personas que se sabe que murieron. Se tarda años en terminar de leerlos todos, porque eran muchísimas personas.',
+              'Como este es un lugar para recordar con respeto, muchos berlineses piden a quienes visitan que caminen tranquilos entre los bloques, sin jugar ni subirse encima de ellos.'
+            ]
           }
         },
         // Sin quiz de "legends": el único hecho contrastado y verificable
@@ -217,6 +247,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'La garita en sí es sencilla, casi anodina: una pequeña caseta blanca de madera con sacos terreros, muy distinta de la solidez que sugiere su fama mundial. Lo que realmente marca el lugar hoy es el conjunto museográfico que la rodea: paneles al aire libre con fotografías históricas de la Guerra Fría, un tramo de adoquines que marca por dónde discurría el Muro, y el cercano Museo del Muro (Mauermuseum), fundado ya en 1962, apenas un año después de levantarse el Muro, por el activista Rainer Hildebrandt, que documentó decenas de intentos, algunos exitosos y otros trágicos, de fuga desde Berlín Este.',
             kids: 'La caseta en sí es pequeñita y sencilla, ¡no como te la imaginas por las películas! Lo importante está alrededor: unos carteles con fotos antiguas que explican cómo era la Guerra Fría, y una línea de adoquines en el suelo que marca por dónde pasaba el Muro de verdad.'
+          },
+          deepenFillers: {
+            adult: [
+              'Este cruce fue escenario de fugas ingeniosas: entre otros métodos, hubo personas que lograron pasar escondidas en compartimentos ocultos dentro de coches modificados con dobles fondos.',
+              'Para la administración de la RDA, este paso no se llamaba "Charlie": su nombre oficial en alemán era simplemente Grenzübergang Friedrichstraße, el paso fronterizo de la calle Friedrich.'
+            ],
+            kids: [
+              '¡Aquí hubo fugas muy ingeniosas! Algunas personas lograron cruzar escondidas dentro de coches con compartimentos secretos.',
+              '¡Para el gobierno de la parte comunista, este sitio ni siquiera se llamaba "Charlie"! Tenía otro nombre oficial en alemán, mucho más aburrido. 🚧'
+            ]
           }
         },
         quiz: {
@@ -277,6 +317,16 @@ CITIES.berlin.pois = [
           legends: {
             adult: 'Durante la Segunda Guerra Mundial, un bombardeo aliado en 1944 provocó un incendio que fundió literalmente la linterna de la cúpula, la estructura metálica que remataba lo más alto: la bola y la cruz se precipitaron a través del techo y quedaron empotradas en el suelo del interior, donde permanecieron como testimonio del desastre durante buena parte de la reconstrucción. La Alemania comunista, oficialmente atea, mantuvo el edificio en un estado de ruina parcial durante décadas por falta de interés y de fondos; no fue hasta después de la reunificación, en 1993, cuando se completó por fin la restauración de la cúpula con un diseño deliberadamente más sobrio que el original de 1905, que resultaba excesivamente recargado incluso para el gusto de muchos berlineses de la época.',
             kids: 'Durante la guerra, una bomba hizo que la parte más alta de la cúpula se derritiera y cayera dentro de la catedral. Durante muchos años, mientras Berlín estaba dividido, nadie tuvo dinero ni ganas de arreglarla del todo, ¡así que estuvo medio rota mucho tiempo! No la terminaron de reconstruir hasta después de 1993.'
+          },
+          deepenFillers: {
+            adult: [
+              'El órgano Sauer que corona el interior tiene más de 7.000 tubos, uno de los más grandes de Alemania, y todavía se usa en conciertos y oficios religiosos.',
+              'Pese a construirse por encargo de la dinastía Hohenzollern, el propio káiser Guillermo II, que impulsó la obra, nunca fue enterrado en la cripta: murió en el exilio en los Países Bajos en 1941 y allí permanece.'
+            ],
+            kids: [
+              '¡Dentro hay un órgano gigante con más de 7.000 tubos! Todavía se usa para tocar música en conciertos y misas. 🎵',
+              'El emperador que mandó construir esta catedral nunca llegó a estar enterrado aquí: tuvo que irse a vivir a otro país después de perder una guerra, y allí se quedó para siempre.'
+            ]
           }
         },
         quiz: {
@@ -340,6 +390,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El edificio, obra de los arquitectos Alfred Messel y Ludwig Hoffmann, se construyó específicamente alrededor de sus piezas estrella, con salas de grandes dimensiones diseñadas para alojar el Altar de Pérgamo —un altar helenístico del siglo II a.C. procedente de la actual Turquía, con un friso de mármol de 113 metros de longitud que narra la batalla mítica entre dioses y gigantes— y la monumental Puerta del Mercado de Mileto, de época romana. La renovación integral en curso desde 2023 busca modernizar la climatización y accesibilidad del edificio, además de construir por primera vez una cuarta ala que unirá todo el complejo de la Isla de los Museos bajo un mismo recorrido cubierto.',
             kids: 'Este museo se construyó especialmente para que cupieran dentro piezas gigantescas, ¡como un altar griego con una pared de mármol de más de 100 metros de largo con dibujos de dioses peleando contra gigantes! Ahora están arreglando el edificio entero y hasta van a construir un pasillo nuevo para conectarlo con los otros museos de la isla.'
+          },
+          deepenFillers: {
+            adult: [
+              'Entre sus piezas menos conocidas se encuentra la fachada de Mshatta, un palacio omeya del siglo VIII procedente de la actual Jordania, que el sultán otomano regaló al káiser Guillermo II en 1903.',
+              'Antes de cerrar por reformas en 2023, era uno de los museos más visitados de toda Alemania, con cientos de miles de visitas cada año.'
+            ],
+            kids: [
+              '¡Aquí también hay un trozo de un palacio árabe de hace 1.300 años, que vino de Jordania! Un sultán se lo regaló a un emperador alemán hace más de 100 años.',
+              '¡Antes de cerrar por reformas, este era uno de los museos más visitados de toda Alemania, con muchísima gente entrando cada año!'
+            ]
           }
         },
         quiz: {
@@ -401,6 +461,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'La estructura se inspira en los satélites Sputnik, muy en línea con la fascinación soviética de la época por la carrera espacial: un fuste de hormigón de 250 metros sostiene una esfera metálica revestida de acero inoxidable, donde se encuentran el mirador y el restaurante giratorio, y sobre ella un mástil de antenas de telecomunicaciones eleva el total hasta los 368 metros. El ascensor tarda unos 40 segundos en recorrer los 203 metros hasta la esfera, a una velocidad de unos 6 metros por segundo, una de las más rápidas de Europa en su momento de construcción.',
             kids: '¡La forma de bola de la torre está inspirada en los satélites espaciales de la época, como el Sputnik! El ascensor sube tan rápido que en unos 40 segundos ya estás arriba del todo, a 203 metros de altura. ¡Es uno de los ascensores más veloces que había en toda Europa cuando se construyó!'
+          },
+          deepenFillers: {
+            adult: [
+              'El restaurante giratorio completa una vuelta entera cada media hora aproximadamente, así que en poco más de treinta minutos se puede ver la panorámica completa de la ciudad sin moverse de la mesa.',
+              'Pese a representar en su día el poder del régimen comunista, la torre recibe hoy más de un millón de visitas al año y es uno de los monumentos con más visitantes de toda Alemania.'
+            ],
+            kids: [
+              '¡El restaurante da una vuelta entera cada media hora más o menos! Si te quedas sentado el tiempo suficiente, ves toda la ciudad sin moverte de la silla. 🍽️',
+              '¡Aunque la construyó un gobierno que ya no existe, hoy más de un millón de personas la visitan cada año! Es uno de los monumentos más populares de Alemania.'
+            ]
           }
         },
         quiz: {
@@ -461,6 +531,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'A diferencia del resto del Muro, que en su lado oriental era liso y estaba fuertemente vigilado (pintarlo suponía un riesgo real durante la Guerra Fría), este tramo formaba parte de la llamada "franja de la muerte" pero quedó accesible por el lado este solo tras la caída del régimen, lo que permitió a los artistas trabajar directamente sobre el hormigón original de 3,6 metros de altura. La restauración de 2009 usó pinturas resistentes a la intemperie y sistemas antigrafiti, aunque el deterioro por el clima berlinés y el propio desgaste turístico obligan a retoques periódicos; varios tramos han tenido que restaurarse más de una vez desde entonces.',
             kids: 'Este trozo de muro es de hormigón de verdad, de más de 3 metros de alto, ¡el mismo material que separaba la ciudad en dos! Antes de que cayera el Muro, nadie podía pintar aquí porque estaba muy vigilado. Como el clima de Berlín desgasta las pinturas, de vez en cuando hay que repintar algunas partes.'
+          },
+          deepenFillers: {
+            adult: [
+              'En 2013, la construcción de un edificio junto al río obligó a retirar un tramo del muro pintado, lo que provocó protestas multitudinarias de berlineses que se encadenaron a los bloques para impedirlo.',
+              'Cada mural pertenece legalmente a su artista, lo que ha generado disputas sobre derechos de reproducción cuando las imágenes se usan de forma comercial, por ejemplo en postales o camisetas.'
+            ],
+            kids: [
+              '¡En 2013 casi quitan un trozo de este muro pintado para construir un edificio nuevo! Mucha gente de Berlín protestó y se abrazó a los bloques para protegerlos.',
+              'Cada dibujo pertenece al artista que lo pintó, así que si alguien quiere usarlo en postales o camisetas, ¡tiene que pedir permiso primero! 🎨'
+            ]
           }
         },
         quiz: {
@@ -520,6 +600,16 @@ CITIES.berlin.pois = [
           legends: {
             adult: 'Entre los objetos que sobrevivieron al bombardeo de 1943 se conserva un gran crucifijo de clavos, conocido como la "Cruz de Coventry", réplica de otro fabricado con clavos rescatados de las ruinas de la catedral inglesa de Coventry, arrasada por la aviación nazi en 1940: el gesto, donado por la propia diócesis británica en los años 60, se convirtió en un símbolo internacional de reconciliación entre antiguos enemigos de guerra, y hoy existe toda una red mundial de "Comunidad de la Cruz de Clavos" que une lugares destruidos por conflictos armados. Otro objeto que sobrevivió casi de milagro es la imagen de un Cristo con los brazos amputados por la onda expansiva, que los propios berlineses apodaron con humor negro "el manco de Berlín".',
             kids: '¡Dentro de la torre vieja hay una cruz especial hecha con clavos que vinieron de otra iglesia en Inglaterra, la de Coventry, que también fue destruida en la guerra! Es un símbolo de que dos países que fueron enemigos ahora son amigos. También sobrevivió una estatua de Jesús sin brazos, ¡a la que los berlineses le pusieron un mote curioso!'
+          },
+          deepenFillers: {
+            adult: [
+              'Los berlineses también apodaron con humor al conjunto moderno de al lado: llaman "la polvera" a la iglesia octogonal de cristal azul y "la barra de labios" al campanario hexagonal, por sus formas.',
+              'Los mosaicos que sobreviven dentro de la torre en ruinas representan la genealogía de la familia Hohenzollern, uno de los pocos conjuntos decorativos completos que resistió el bombardeo de 1943.'
+            ],
+            kids: [
+              '¡A los edificios modernos de al lado también les pusieron motes graciosos! A la iglesia nueva la llaman "la polvera" y a la torre del campanario "la barra de labios", por su forma.',
+              'Dentro de la torre rota se conservan dibujos hechos con trocitos de piedra y cristal (mosaicos) que muestran el árbol genealógico de una familia real muy importante.'
+            ]
           }
         },
         quiz: {
@@ -580,6 +670,16 @@ CITIES.berlin.pois = [
           legends: {
             adult: 'En el extremo del parque, medio escondido entre los árboles, se levanta el Mausoleo real, construido en 1810 por orden de Federico Guillermo III tras la muerte repentina de su esposa, la reina Luisa, todavía hoy una de las figuras más queridas de la historia prusiana por su papel durante la ocupación napoleónica: se dice que se plantó personalmente ante Napoleón para suplicarle clemencia para Prusia tras la derrota de 1806, sin éxito. Su tumba, con una escultura yacente de mármol blanco obra de Christian Daniel Rauch considerada una obra maestra del neoclasicismo, muestra a la reina como dormida en lugar de muerta, un gesto artístico deliberado que conmovió profundamente a generaciones de visitantes del siglo XIX.',
             kids: 'Escondido entre los árboles del jardín hay un pequeño edificio donde está enterrada una reina que todo el mundo quería mucho, la reina Luisa. Cuenta la leyenda que se plantó delante del mismísimo Napoleón para pedirle que fuera bueno con Prusia. Su estatua dentro la muestra como si estuviera dormida, no muerta, ¡para que pareciera más tierna!'
+          },
+          deepenFillers: {
+            adult: [
+              'El famoso "Gabinete de Ámbar", un fastuoso salón revestido de ámbar tallado que después se hizo célebre en Rusia, se creó originalmente para la corte prusiana antes de ser regalado al zar Pedro el Grande en 1716; su paradero final, tras desaparecer durante la Segunda Guerra Mundial, sigue sin resolverse del todo.',
+              'El palacio también acoge la Cámara de Porcelana, una sala cubierta de suelo a techo con piezas de porcelana china y japonesa, uno de los interiores más singulares de toda la corte prusiana.'
+            ],
+            kids: [
+              '¡Una sala famosísima llena de ámbar tallado, que después acabó en Rusia y se hizo mundialmente famosa, se creó primero aquí, como regalo para un zar ruso! Todavía nadie sabe dónde acabó esa sala después de la guerra.',
+              'Hay una habitación entera del palacio cubierta de arriba abajo con platos y jarrones de porcelana china y japonesa, ¡como si las paredes fueran de porcelana en vez de piedra! 🏺'
+            ]
           }
         },
         quiz: {
@@ -634,6 +734,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'En el interior de la Neue Wache, bajo una abertura circular abierta directamente al cielo, se encuentra desde 1993 una única escultura: una versión ampliada de "Madre con su hijo muerto", de la artista Käthe Kollwitz, que había perdido a su propio hijo en la Primera Guerra Mundial. La lluvia y la nieve caen directamente sobre la estatua a través del óculo, un gesto arquitectónico deliberado que simboliza la exposición constante al sufrimiento de la guerra.',
             kids: '¡Dentro de este pequeño edificio hay un agujero redondo en el techo, abierto de verdad al cielo! Cuando llueve o nieva, cae directamente sobre una estatua de una madre abrazando a su hijo. Lo dejaron así a propósito, para recordar que la guerra no protege a nadie.'
+          },
+          deepenFillers: {
+            adult: [
+              'La plaza se llamó durante mucho tiempo Opernplatz, por la Ópera Estatal que la bordea, y no adoptó su nombre actual, en honor al político socialista August Bebel, hasta después de la Segunda Guerra Mundial.',
+              'Frente a la plaza se alza la cúpula verde de la Catedral de Santa Eduviges, la primera iglesia católica construida en Berlín tras la Reforma protestante, encargada también por Federico el Grande como gesto de tolerancia religiosa.'
+            ],
+            kids: [
+              '¡Esta plaza no siempre se llamó así! Antes se llamaba "Plaza de la Ópera", por el gran teatro que tiene al lado.',
+              'Justo enfrente hay una catedral con una cúpula verde muy bonita: fue la primera iglesia católica que se construyó en Berlín después de que la ciudad se hiciera protestante. ⛪'
+            ]
           }
         },
         quiz: {
@@ -689,6 +799,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El arquitecto italiano Franco Stella reconstruyó con máxima fidelidad tres de las fachadas barrocas originales del siglo XVIII, incluida la cúpula, mientras que la fachada este, la que mira al río Spree, es una creación completamente nueva y moderna, en un contraste deliberado entre pasado y presente. Por dentro, el edificio no reproduce las antiguas salas reales, sino que alberga espacios museísticos contemporáneos, auditorios y una gran plaza cubierta pensada como punto de encuentro ciudadano.',
             kids: '¡Por fuera este palacio parece exactamente igual que el original de hace siglos! Pero por dentro es totalmente moderno, con museos y salas nuevas. Solo la parte que mira al río es distinta por fuera también, hecha a propósito con un estilo actual.'
+          },
+          deepenFillers: {
+            adult: [
+              'El nombre del edificio rinde homenaje a los hermanos Alexander y Wilhelm von Humboldt, el naturalista explorador y el lingüista y reformador educativo, ambos figuras clave de la ciencia y la cultura alemanas del siglo XIX.',
+              'Bajo la plaza cubierta se conservan visibles restos arqueológicos del antiguo Palacio de la República comunista, así como vestigios medievales anteriores incluso al primer palacio real, descubiertos durante las obras de reconstrucción.'
+            ],
+            kids: [
+              '¡El edificio se llama así en honor a dos hermanos alemanes muy famosos, Alexander y Wilhelm von Humboldt! Uno era explorador y el otro un experto en idiomas y educación.',
+              'Mientras construían el edificio de hoy, encontraron restos escondidos bajo tierra de construcciones todavía más antiguas, ¡de antes incluso del primer palacio!'
+            ]
           }
         },
         quiz: {
@@ -741,6 +861,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'La fachada, con sus dieciocho columnas jónicas formando una gran columnata abierta de 87 metros de largo, se considera una de las obras maestras del neoclasicismo alemán y se inspiró directamente en la arquitectura de los templos griegos. En el interior, una gran rotonda circular coronada por una cúpula, inspirada a su vez en el Panteón de Roma, alberga esculturas clásicas bajo una luz cenital que Schinkel diseñó específicamente para realzarlas.',
             kids: '¡La entrada tiene dieciocho columnas enormes, copiando los templos griegos antiguos! Dentro hay una sala redonda con una cúpula, parecida a un templo romano muy famoso, donde la luz entra desde arriba para iluminar las estatuas.'
+          },
+          deepenFillers: {
+            adult: [
+              'La gran columnata abierta del Altes Museum, pensada por Schinkel como un espacio de encuentro ciudadano y no solo como fachada, ha sido durante generaciones lugar de conciertos, actos públicos y manifestaciones en pleno centro de Berlín.',
+              'Frente a la fachada se extiende el Lustgarten, un jardín que ha cambiado radicalmente de función a lo largo de los siglos: fue huerto real, luego plaza de desfiles militares y hoy es de nuevo un tranquilo espacio verde.'
+            ],
+            kids: [
+              '¡La gran entrada con columnas de este museo no es solo decoración! Está pensada como un sitio de encuentro, y durante años se han hecho aquí conciertos y actos importantes.',
+              'El jardín de delante del museo, el Lustgarten, ha sido de todo un poco a lo largo de la historia: huerto, plaza para desfiles militares ¡y hoy un parque tranquilo!'
+            ]
           }
         },
         quiz: {
@@ -793,6 +923,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'La restauración de Chipperfield, muy premiada mundialmente, combina el mármol, el ladrillo visto y el hormigón pulido con los frescos y relieves originales del siglo XIX que sobrevivieron parcialmente al bombardeo, creando un diálogo visual constante entre lo antiguo y lo nuevo. La gran escalera central, reconstruida por completo con un diseño depurado y moderno, sustituye a la original neoclásica, que desapareció por completo en la guerra.',
             kids: 'Dentro puedes ver claramente qué partes son originales de hace casi 200 años y cuáles son nuevas: mezclan a propósito ladrillo nuevo con las pinturas antiguas que sobrevivieron. ¡Así el propio edificio te cuenta su historia!'
+          },
+          deepenFillers: {
+            adult: [
+              'El busto de Nefertiti es tan frágil que prácticamente nunca sale del museo: desde que llegó a Berlín se ha prestado a exposiciones fuera de Alemania en contadísimas ocasiones.',
+              'El arqueólogo alemán Ludwig Borchardt dirigió la excavación en la que se halló el busto en 1912, en lo que había sido el taller de un escultor real egipcio.'
+            ],
+            kids: [
+              '¡El busto de Nefertiti es tan delicado que casi nunca viaja a otros museos! Se queda aquí protegido casi todo el tiempo.',
+              'Lo encontró un arqueólogo alemán en 1912, dentro del taller de un escultor egipcio que trabajaba para la propia reina. 👑'
+            ]
           }
         },
         quiz: {
@@ -844,6 +984,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El edificio, con forma de templo clásico elevado sobre un gran podio de piedra al que se accede por una monumental escalinata, fue diseñado por Friedrich August Stüler siguiendo bocetos del propio rey Federico Guillermo IV, un monarca con inquietudes artísticas que soñaba con crear en Berlín un santuario dedicado a las musas. Una profunda renovación entre 1998 y 2001 modernizó por completo sus salas interiores sin alterar la fachada histórica.',
             kids: '¡Este museo tiene forma de templo griego, con una escalera enorme para subir hasta la entrada! Lo diseñó siguiendo las ideas de un rey al que le encantaba el arte y quería un templo dedicado a él en Berlín.'
+          },
+          deepenFillers: {
+            adult: [
+              'Entre los Friedrich que se conservan aquí está "El monje junto al mar", un cuadro tan vacío y minimalista para su época (1810) que sorprendió profundamente al público de entonces, acostumbrado a paisajes mucho más poblados de detalles.',
+              'El museo fue de los primeros en Europa en comprar obras de artistas impresionistas franceses todavía vivos, una apuesta arriesgada en su momento que hoy resulta en una de las colecciones de Monet y Manet más importantes fuera de Francia.'
+            ],
+            kids: [
+              '¡Uno de los cuadros más famosos de aquí es "El monje junto al mar", tan vacío y sencillo para su época que sorprendió muchísimo a la gente que lo vio por primera vez, hace más de 200 años!',
+              'Este museo fue de los primeros en Europa en comprar cuadros de pintores franceses que todavía estaban vivos, ¡una apuesta que en su momento parecía muy arriesgada!'
+            ]
           }
         },
         quiz: {
@@ -895,6 +1045,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El arquitecto Ernst von Ihne diseñó el edificio con una llamativa cúpula barroca que remata su fachada triangular, adaptada a la forma puntiaguda del terreno donde se asienta, en la confluencia de los dos brazos del Spree. En el vestíbulo principal, bajo la cúpula, se exhibe una réplica de la estatua ecuestre del Gran Elector, mientras que la original, en bronce, se conserva en el patio del Palacio de Charlottenburg.',
             kids: '¡Este museo tiene una cúpula preciosa y una forma triangular puntiaguda, porque se construyó justo en la punta de la isla! Dentro hay una copia de una estatua a caballo enorme; la de verdad está en el Palacio de Charlottenburg.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Gabinete Numismático del museo hunde sus raíces en la antigua Kunstkammer de los príncipes electores de Brandeburgo, del siglo XVII, mucho antes de que existiera el edificio actual, lo que la convierte en una de las colecciones de monedas más antiguas de Europa.',
+              'Frente al museo, en la punta de la isla, el río Spree se estrecha tanto que desde el puente cercano se ve con claridad cómo el agua se divide en dos brazos distintos que rodean toda la Isla de los Museos.'
+            ],
+            kids: [
+              '¡La colección de monedas de este museo empezó hace más de 300 años, mucho antes de que se construyera el edificio que ves hoy! Es una de las colecciones de monedas más antiguas de toda Europa.',
+              'Desde el puente que hay al lado del museo se ve clarísimo cómo el río se separa en dos brazos distintos, ¡abrazando toda la isla de los museos!'
+            ]
           }
         },
         quiz: {
@@ -946,6 +1106,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El primer patio, el más fotografiado, luce una espectacular fachada de estilo modernista (Jugendstil) diseñada por August Endell, revestida de azulejos de cerámica vidriada en tonos azules, verdes y dorados con motivos geométricos y florales, restaurada con gran fidelidad al original de 1907. Los siguientes patios, de estética más sobria e industrial, alojaban originalmente talleres y almacenes, y hoy combinan tiendas de diseño, galerías de arte y el histórico teatro de variedades Chamäleon, especializado en circo contemporáneo.',
             kids: '¡El primer patio tiene una fachada preciosa cubierta de azulejos de colores, con dibujos geométricos! Los siguientes patios son más sencillos, porque antes eran talleres, y hoy tienen tiendas, arte y hasta un teatro de circo moderno.'
+          },
+          deepenFillers: {
+            adult: [
+              'Muy cerca de aquí, en el mismo barrio, el empresario alemán Otto Weidt escondió y protegió durante el nazismo a varios trabajadores judíos ciegos y sordos de su pequeño taller de cepillos y escobas, salvándoles la vida; hoy ese taller es un pequeño museo dedicado a su memoria.',
+              'El nombre "Scheunenviertel" cayó en desuso durante décadas, pero hoy vuelve a emplearse de forma habitual para referirse a esta zona, uno de los barrios con más vida nocturna de todo Berlín.'
+            ],
+            kids: [
+              'Cerca de aquí hay un pequeño taller que hoy es un museo: perteneció a un hombre llamado Otto Weidt, que durante una época muy difícil escondió y protegió a trabajadores que corrían peligro, ¡y consiguió salvarles la vida!',
+              '¡El nombre antiguo del barrio, "el barrio de los graneros", casi se olvidó durante mucho tiempo! Hoy la gente vuelve a usarlo para hablar de esta zona tan animada, sobre todo de noche.'
+            ]
           }
         },
         quiz: {
@@ -997,6 +1167,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'La Nikolaikirche, con sus dos torres góticas gemelas reconstruidas tras la guerra, conserva en su interior elementos originales medievales y renacentistas que sí sobrevivieron a los bombardeos, incluyendo una pila bautismal de bronce del siglo XIV. Hoy funciona como museo dependiente de la Fundación Stadtmuseum Berlin, dedicado a la historia temprana de la ciudad.',
             kids: 'La iglesia del centro tiene dos torres puntiagudas iguales, reconstruidas después de la guerra. Dentro guarda algunas piezas que sí son originales de verdad, de hace más de 600 años, ¡y hoy es un museo sobre los primeros años de Berlín!'
+          },
+          deepenFillers: {
+            adult: [
+              'La fecha exacta de fundación de Berlín no se conoce con precisión: la primera mención documental de Cölln es de 1237, mientras que Berlín aparece por escrito por primera vez en 1244; la celebración de 1987 tomó como referencia la fecha más antigua.',
+              'Muchas de las casas del barrio, aunque reconstruidas en los años 80, incorporan elementos y fragmentos originales medievales rescatados de otros edificios demolidos en distintas partes de la ciudad.'
+            ],
+            kids: [
+              '¡Nadie sabe con total seguridad el año exacto en que nació Berlín! El primer papel donde se menciona el pueblo de Cölln es de 1237, y el de Berlín es de 1244, unos años después.',
+              'Aunque estas casas se construyeron de nuevo en los años 80, muchas tienen trocitos de verdad de edificios antiguos, rescatados de otras partes de la ciudad antes de que los derribaran.'
+            ]
           }
         },
         quiz: {
@@ -1048,6 +1228,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El edificio combina el estilo neorrenacentista con una torre central de 74 metros de altura, inspirada en los campanarios de las catedrales góticas del norte de Europa. Una característica única es el friso de terracota que recorre toda la fachada a la altura del primer piso, conocido como la "Steinerne Chronik" (Crónica de Piedra): 36 paneles esculpidos que narran, en imágenes, la historia de Berlín desde sus orígenes hasta el siglo XIX.',
             kids: '¡Fíjate en la franja que rodea todo el edificio a media altura! Son 36 dibujos hechos en piedra que cuentan, como un cómic gigante, toda la historia de Berlín desde que se fundó hasta hace unos 150 años.'
+          },
+          deepenFillers: {
+            adult: [
+              'Mientras este edificio gobernaba Berlín Este, el ayuntamiento de Berlín Oeste, el Rathaus Schöneberg, fue el lugar donde el presidente estadounidense John F. Kennedy pronunció en 1963 su famoso discurso "Ich bin ein Berliner".',
+              'La torre central alberga un carillón con campanas de porcelana de Meissen que suena varias veces al día, un detalle poco conocido frente a la fama del friso de piedra.'
+            ],
+            kids: [
+              '¡En el otro ayuntamiento de Berlín, el de la parte occidental, un presidente de Estados Unidos dio un discurso súper famoso en 1963 diciendo "Yo soy berlinés"! 🎤',
+              '¡En la torre de este ayuntamiento suena un carillón hecho con campanas de porcelana varias veces al día! Es un detalle curioso que casi nadie conoce.'
+            ]
           }
         },
         quiz: {
@@ -1100,6 +1290,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El museo ocupa un edificio junto al río Spree, frente al Humboldt Forum, y organiza su recorrido en pequeñas cápsulas temáticas —vivienda, trabajo, vacaciones, vigilancia estatal— que el visitante explora abriendo cajones y paneles físicos, una museografía deliberadamente táctil y muy alejada de los recorridos lineales habituales, pensada para fomentar el descubrimiento activo antes que la simple contemplación.',
             kids: '¡El museo está organizado como un montón de cajitas y cajones que tú mismo abres para descubrir cosas! No hay un camino fijo que seguir: puedes explorar en el orden que quieras, como si fuera una búsqueda del tesoro.'
+          },
+          deepenFillers: {
+            adult: [
+              'El simulador del Trabant no es solo un coche estático: tiene una pantalla delante que proyecta una calle de la Berlín comunista, para que el visitante sienta que conduce de verdad por sus calles.',
+              'Pese a ser un museo privado y de pago, se ha convertido en una de las atracciones más visitadas de todo Berlín, comparable en popularidad a museos estatales mucho más grandes.'
+            ],
+            kids: [
+              '¡El simulador del Trabant tiene una pantalla delante que muestra una calle de verdad de la época, para que sientas que estás conduciendo por Berlín Este! 🚗',
+              'Aunque es un museo pequeño y privado, ¡se ha convertido en uno de los más visitados de toda la ciudad!'
+            ]
           }
         },
         quiz: {
@@ -1151,6 +1351,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'Entre ambas catedrales se alza el Konzerthaus, la sala de conciertos diseñada por Karl Friedrich Schinkel en 1821 sobre las ruinas de un teatro anterior destruido por un incendio, hoy sede de la Orquesta Sinfónica de Berlín. El conjunto de los tres edificios, con sus escalinatas monumentales y sus columnatas clásicas, es considerado por muchos berlineses la plaza más armoniosa y elegante de toda la ciudad, especialmente iluminada por la noche.',
             kids: 'En medio de las dos iglesias hay una sala de conciertos muy famosa, construida sobre las ruinas de un teatro que se quemó. Los tres edificios juntos, con sus escaleras y columnas, hacen que mucha gente diga que esta es la plaza más bonita de todo Berlín.'
+          },
+          deepenFillers: {
+            adult: [
+              'Delante del Konzerthaus se alza una estatua de mármol del gran poeta alemán Friedrich Schiller, que llegó a ser retirada de la plaza durante buena parte del siglo XX antes de regresar a su emplazamiento original.',
+              'Cada diciembre, la plaza acoge uno de los mercadillos navideños más elegantes de Berlín, uno de los pocos de la ciudad que cobra entrada, gracias a su cuidada decoración y ambiente.'
+            ],
+            kids: [
+              '¡Delante de la sala de conciertos hay una estatua de un poeta alemán muy famoso, Friedrich Schiller! Durante un tiempo la quitaron de la plaza, pero después la volvieron a poner en su sitio.',
+              '¡Cada diciembre esta plaza se llena de un mercadillo navideño precioso! Es uno de los pocos de Berlín donde hay que pagar una pequeña entrada, porque está muy bien decorado. 🎄'
+            ]
           }
         },
         quiz: {
@@ -1203,6 +1413,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El centro de documentación actual, diseñado por la arquitecta Ursula Wilms e inaugurado en 2010, es un edificio deliberadamente austero de líneas rectas y fachada de malla metálica gris, pensado para no competir visualmente ni añadir ningún tipo de grandiosidad al lugar. Junto a él se conserva expuesto uno de los tramos más largos y mejor conservados del Muro de Berlín que aún quedan en pie, ya que este solar formaba parte de la propia franja fronteriza durante la Guerra Fría.',
             kids: 'El edificio de hoy es muy sencillo a propósito, sin nada llamativo, para no quitarle importancia a lo que pasó aquí. Al lado se conserva un trozo largo y original del Muro de Berlín, porque este mismo terreno formaba parte de la frontera durante la Guerra Fría.'
+          },
+          deepenFillers: {
+            adult: [
+              'Excavaciones realizadas en los años 80 sacaron a la luz los cimientos originales de los sótanos del edificio, incluidas las celdas donde se retenía a los detenidos; hoy se conservan visibles y protegidos por una pasarela elevada.',
+              'El centro de documentación es de entrada gratuita y ofrece explicaciones en varios idiomas, con el objetivo declarado de que cualquier visitante pueda comprender cómo una administración ordinaria se puso al servicio de un régimen criminal.'
+            ],
+            kids: [
+              'Hace años, unos arqueólogos excavaron el terreno y encontraron los cimientos originales escondidos bajo tierra del edificio que hubo aquí; hoy se pueden ver protegidos, cubiertos por un pasillo elevado.',
+              'Este centro se puede visitar gratis y explica la historia en varios idiomas, para que cualquier persona que venga de visita pueda entenderla bien.'
+            ]
           }
         },
         quiz: {
@@ -1254,6 +1474,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El conjunto reúne estilos muy distintos: la Torre Kollhoff, de ladrillo rojo y 103 metros de altura, ofrece el mirador Panoramapunkt, accesible por el ascensor más rápido de Europa en el momento de su construcción; y el cercano Sony Center, obra del arquitecto Helmut Jahn, luce una espectacular cubierta acristalada en forma de tienda de campaña, inspirada en el monte Fuji japonés, que ilumina de colores cambiantes toda la plaza interior por la noche.',
             kids: '¡Hay dos edificios muy distintos y muy famosos! Una torre de ladrillo rojo con un mirador al que se sube en un ascensor rapidísimo, y un edificio con un techo de cristal en forma de tienda de campaña que se ilumina de colores por la noche.'
+          },
+          deepenFillers: {
+            adult: [
+              'En medio de la plaza se conserva una réplica de la histórica torre semafórica de los años 20, un pequeño homenaje al primer sistema de tráfico automatizado de Europa continental que existió aquí.',
+              'El Weinhaus Huth, una antigua bodega de antes de la guerra, es el único edificio original que sobrevivió intacto en la plaza a los bombardeos, y hoy sigue en pie rodeado de rascacielos modernos.'
+            ],
+            kids: [
+              '¡En medio de la plaza hay una copia de la torre de semáforos de hace 100 años! Recuerda que aquí estuvo el primer sistema de tráfico automático de toda Europa.',
+              'Hay un edificio antiguo, una bodega de antes de la guerra, que es el único que sobrevivió entero a las bombas en toda la plaza. ¡Hoy está rodeado de rascacielos modernos!'
+            ]
           }
         },
         quiz: {
@@ -1306,6 +1536,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El centro de documentación, un edificio moderno de acero corten oxidado diseñado para integrarse visualmente con el entorno, incluye una torre-mirador desde la que se observa, desde arriba, la disposición completa y original de ambos muros y la franja intermedia, algo que no es posible apreciar de la misma forma en ningún otro punto de la ciudad. A lo largo de toda la calle, unas siluetas metálicas marcan la ubicación exacta de las casas demolidas y los túneles de fuga que se excavaron bajo tierra.',
             kids: '¡Desde una torre-mirador puedes ver desde arriba cómo era la frontera completa, con los dos muros! Por toda la calle hay siluetas de metal que marcan dónde estaban las casas que derribaron, y hasta por dónde pasaban túneles secretos de escape.'
+          },
+          deepenFillers: {
+            adult: [
+              'En el memorial hay un muro curvo llamado "Ventana del Recuerdo" (Fenster des Gedenkens), con fotografías de las personas que murieron tratando de cruzar la frontera en este tramo, para que cada víctima tenga rostro y nombre propios.',
+              'La Capilla de la Reconciliación, construida con tapial en el año 2000, celebra un breve servicio diario al mediodía en recuerdo de las víctimas del Muro.'
+            ],
+            kids: [
+              'En el memorial hay una pared curva con fotos de las personas que no lograron cruzar a salvo, para recordarlas con su nombre y su cara, no solo como un número.',
+              'En la pequeña capilla del memorial se hace cada día, al mediodía, un momento tranquilo para recordar a las personas afectadas por el Muro.'
+            ]
           }
         },
         quiz: {
@@ -1357,6 +1597,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El parque conserva junto a uno de sus laterales un pequeño tramo del Muro original, hoy convertido en muro libre para el grafiti legal, donde cualquier visitante puede pintar con espray sus propios diseños, en un contraste deliberado con la seriedad del Memorial de Bernauer Straße, situado a poca distancia. El diseño paisajístico combina praderas abiertas, un anfiteatro natural excavado en una ladera y pistas deportivas, aprovechando la topografía irregular que dejó la antigua frontera.',
             kids: '¡Aquí hay un trozo de muro donde SÍ está permitido pintar grafitis libremente! Cualquiera puede coger un espray y dejar su dibujo. El parque tiene también un anfiteatro natural en una cuesta, donde se sienta la gente a ver el karaoke.'
+          },
+          deepenFillers: {
+            adult: [
+              'El parque se ha ido ampliando por fases desde los años 90 hasta hoy, incorporando progresivamente antiguos terrenos ferroviarios y militares que quedaron abandonados tras la caída del Muro.',
+              'Muy cerca del anfiteatro se alza un tobogán gigante en forma de dragón, uno de los juegos infantiles más fotografiados de Berlín, instalado ya en una de las fases más recientes del parque.'
+            ],
+            kids: [
+              '¡El parque se ha ido haciendo cada vez más grande poco a poco desde los años 90! Antes había vías de tren y terrenos militares donde ahora hay césped.',
+              '¡Cerca del anfiteatro hay un tobogán gigante con forma de dragón! Es uno de los juegos más fotografiados de todo Berlín. 🐉'
+            ]
           }
         },
         quiz: {
@@ -1408,6 +1658,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El puente combina dos niveles: uno inferior para tráfico rodado y peatonal, y uno superior por el que circula la línea U1 del metro de Berlín, una disposición poco habitual que convierte el cruce del puente en tren en una de las postales más fotografiadas de la ciudad. Sus torres góticas, inspiradas en la arquitectura del Ordenanza Teutónica, no tienen función defensiva real: son puramente decorativas, un capricho estético muy propio del gusto historicista alemán de finales del siglo XIX.',
             kids: '¡Este puente tiene dos pisos! Por abajo pasan coches y gente andando, y por arriba pasa un tren de metro, ¡así que puedes ver el tren cruzando el río por encima de tu cabeza! Sus torres parecen de castillo, pero son solo decorativas, no sirven para defenderse de nadie.'
+          },
+          deepenFillers: {
+            adult: [
+              'Durante los últimos días de la Segunda Guerra Mundial, en 1945, tropas alemanas en retirada volaron parte del puente para frenar el avance soviético; el tramo central se reconstruyó después con un diseño de acero visiblemente distinto del ladrillo original, una diferencia que aún hoy se aprecia a simple vista.',
+              'Durante la división de la ciudad, el tramo central del puente se cerró casi por completo al tráfico y solo unos pocos peatones autorizados podían cruzarlo a pie, bajo estricta vigilancia.'
+            ],
+            kids: [
+              '¡Al final de la Segunda Guerra Mundial, soldados alemanes hicieron explotar parte de este puente! Cuando lo repararon, pusieron un trozo de metal en el centro que se nota distinto del ladrillo antiguo.',
+              'Durante muchos años el centro del puente estuvo casi cerrado: solo unas pocas personas podían cruzarlo caminando, y con mucha vigilancia.'
+            ]
           }
         },
         quiz: {
@@ -1459,6 +1719,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El edificio conserva su estructura original de columnas de hierro fundido y grandes claraboyas cenitales que inundan de luz natural todo el interior, un tipo de arquitectura industrial típica de los mercados europeos de finales del siglo XIX, muy similar en concepto a los mercados de abastos que se conservan en otras grandes capitales del continente.',
             kids: '¡Las columnas de hierro y las ventanas del techo son las originales, de hace más de 130 años! Dejan entrar mucha luz natural, algo típico de los mercados que se construían en esa época en toda Europa.'
+          },
+          deepenFillers: {
+            adult: [
+              'En su día hubo hasta 14 mercados cubiertos como este repartidos por Berlín, construidos en la misma oleada de modernización de finales del siglo XIX; hoy Markthalle Neun es uno de los pocos que sigue funcionando como mercado.',
+              'Además del Street Food Thursday, el mercado organiza también ferias específicas dedicadas al queso, el chocolate o la cerveza artesanal a lo largo del año.'
+            ],
+            kids: [
+              '¡Antes había hasta 14 mercados como este por toda la ciudad! Casi todos desaparecieron con el tiempo, y este es uno de los pocos que sigue abierto.',
+              '¡Aquí no solo hay comida callejera los jueves! También organizan ferias especiales de queso, chocolate o cerveza artesanal durante el año. 🧀'
+            ]
           }
         },
         quiz: {
@@ -1509,6 +1779,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'Con unos 60.000 metros cuadrados de superficie de ventas repartidos en ocho plantas, es el mayor centro comercial de la Europa continental, solo superado en todo el continente por Harrods en Londres. El edificio actual, reconstruido tras la guerra en un estilo funcional propio de los años 50, ha sido ampliado y modernizado varias veces desde entonces, la última con una espectacular reforma de fachada e interiores finalizada en 2019.',
             kids: '¡Con sus ocho plantas y 60.000 metros cuadrados, es el centro comercial más grande de toda la Europa continental! Solo unos grandes almacenes de Londres son todavía más grandes que este.'
+          },
+          deepenFillers: {
+            adult: [
+              'Su fundador, Adolf Jandorf, era judío y vendió el negocio en 1927; años después, ya bajo el régimen nazi, la empresa que entonces lo gestionaba pasó por el proceso de "arianización" forzosa que sufrieron numerosos comercios de propietarios judíos en toda Alemania.',
+              'Cada Navidad, sus escaparates se convierten en una de las atracciones más visitadas de Berlín, con decoraciones e instalaciones mecánicas que se preparan con meses de antelación.'
+            ],
+            kids: [
+              '¡Cada Navidad, los escaparates de esta tienda se llenan de decoraciones tan bonitas que la gente viene solo a verlos, aunque no vaya a comprar nada! 🎄',
+              'En sus más de 100 años de historia, esta tienda ha pasado por muchos dueños distintos y ha tenido que reinventarse varias veces para seguir siendo la más grande de Europa.'
+            ]
           }
         },
         quiz: {
@@ -1559,6 +1839,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'El local original es deliberadamente sencillo: un pequeño puesto callejero con barra alta para comer de pie, sin apenas asientos, en línea con la tradición del "Imbiss" alemán, el puesto de comida rápida pensado para un consumo veloz. Su salsa casera, elaborada con un 87% de puré de tomate y una mezcla propia de especias, es la clave de su fama y se guarda como secreto comercial.',
             kids: '¡Es un puesto muy sencillo, para comer de pie y rápido, como es tradición en Alemania! Su salsa secreta, hecha con mucho tomate y una mezcla especial de especias, es la razón por la que tanta gente viene aquí.'
+          },
+          deepenFillers: {
+            adult: [
+              'Berlín llegó a tener un Currywurst Museum dedicado enteramente a este plato, abierto entre 2009 y 2018 cerca de Checkpoint Charlie, aunque acabó cerrando por falta de rentabilidad.',
+              'Por sus horarios de madrugada, el puesto se ha convertido en parada habitual de la vida nocturna berlinesa: no es raro ver colas de gente que sale de discotecas cercanas en busca de una currywurst antes de volver a casa.'
+            ],
+            kids: [
+              '¡Berlín llegó a tener un museo dedicado solo a la currywurst! Estuvo abierto durante varios años, aunque ya ha cerrado.',
+              'Como este puesto abre hasta la madrugada, mucha gente que sale de fiesta viene aquí a comer algo antes de irse a casa, ¡así que a veces hay colas muy largas de noche! 🌭'
+            ]
           }
         },
         quiz: {
@@ -1609,6 +1899,16 @@ CITIES.berlin.pois = [
           architecture: {
             adult: 'La terminal del aeropuerto, obra del arquitecto nazi Ernst Sagebiel y terminada en 1941, fue en su día uno de los edificios más grandes del mundo por superficie construida, con una fachada curva de más de 1,2 kilómetros de longitud pensada, según algunos historiadores, para servir de escaparate monumental del régimen. Considerado hoy un ejemplo relevante de la arquitectura del período, tan controvertido como fascinante, el edificio se usa actualmente para eventos, ferias y, ocasionalmente, como alojamiento de emergencia.',
             kids: '¡El edificio del aeropuerto es gigantesco, con una fachada curva de más de un kilómetro de largo! Lo construyeron durante la época nazi para impresionar a todo el mundo. Hoy se usa para ferias, conciertos y otros eventos.'
+          },
+          deepenFillers: {
+            adult: [
+              'Durante el Puente Aéreo, los aviones recibieron el apodo cariñoso de "Rosinenbomber" (bombarderos de pasas), sobre todo después de que el piloto estadounidense Gail Halvorsen empezara a lanzar caramelos atados a pequeños paracaídas de pañuelo para los niños que esperaban junto a la pista.',
+              'Hoy, en algunas zonas se ha dejado que el antiguo asfalto de las pistas se degrade de forma deliberada, permitiendo que la naturaleza recupere terreno y convirtiendo el parque en un refugio urbano para aves y plantas poco comunes en la ciudad.'
+            ],
+            kids: [
+              '¡Durante el Puente Aéreo, los aviones se ganaron el apodo de "bombarderos de pasas"! Un piloto americano lanzaba caramelos atados a pequeños paracaídas de pañuelo para los niños de Berlín que esperaban junto a la pista. 🍬',
+              'Hoy en día, en algunas zonas del parque dejan que la naturaleza crezca libremente sobre el asfalto viejo, ¡así que viven allí pájaros y plantas que casi no se ven en el resto de la ciudad!'
+            ]
           }
         },
         quiz: {

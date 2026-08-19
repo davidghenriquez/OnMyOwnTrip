@@ -44,6 +44,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Sacchetti proyectó una planta cuadrada alrededor de un patio central, con cuatro torres en las esquinas que recuerdan a las fortalezas tradicionales, sobre un potente basamento almohadillado de piedra de Colmenar. Con más de 135.000 metros cuadrados y 3.418 habitaciones, es el palacio real en uso más grande de Europa Occidental, por delante de Versalles o Buckingham, aunque la familia real española no vive aquí: se reserva para actos oficiales y recepciones de Estado.',
             kids: '¡Este palacio tiene más de 3.000 habitaciones! 🚪 Es tan grande que ni los reyes de España viven aquí normalmente — solo lo usan para fiestas importantes y para recibir a otros jefes de estado. Fíjate en las cuatro torres de las esquinas, ¡parecen un castillo de cuento!'
+          },
+          deepenFillers: {
+            adult: [
+              'El Palacio Real conserva cinco instrumentos Stradivarius que forman el llamado Cuarteto Palatino, uno de los pocos conjuntos completos de ese lutier que se sigue tocando en actos oficiales.',
+              'Bajo el Patio de Armas se han hallado restos de las fortificaciones árabes y medievales que ocuparon este mismo promontorio desde el siglo IX, mucho antes de que existiera el palacio actual.',
+              'El techo del Salón del Trono lo pintó Giambattista Tiepolo, uno de sus últimos grandes encargos: el artista veneciano murió en Madrid en 1770 sin llegar a ver terminada toda la decoración del palacio.'
+            ],
+            kids: [
+              '¡Aquí se guardan violines carísimos y antiguos, unos Stradivarius, que todavía se tocan en fiestas importantes de verdad! 🎻',
+              '¡Debajo del patio del palacio hay restos escondidos de un castillo árabe muchísimo más viejo que todo lo que ves! 🏰',
+              '¡Un pintor italiano famosísimo pintó el techo de una de las salas más bonitas, y fue casi lo último que hizo antes de morir en Madrid! 🎨'
+            ]
           }
         },
         // Prototipo de gamificación para modo niño (ver conversación): una
@@ -134,6 +146,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Es el único mercado de estructura íntegramente metálica que se conserva en Madrid: columnas de fundición, una nave diáfana y una llamativa crestería de cerámica que remata la cubierta, un detalle decorativo típico de la arquitectura de hierro de principios del siglo XX. Bajo la planta principal se conserva un sótano que originalmente se usaba como almacén y cámara frigorífica para los puestos de pescado y carne.',
             kids: '¡Fíjate en las columnas de metal y en el techo! Son de hierro, como los mercados antiguos de París. Arriba del todo hay una especie de cresta de cerámica decorada, ¡como si fuera la cresta de un gallo pero hecha de azulejos!'
+          },
+          deepenFillers: {
+            adult: [
+              'El mercado estuvo a punto de derribarse en los años noventa por el deterioro de su estructura, y solo la declaración como Bien de Interés Cultural obligó a conservarla al convertirlo en mercado gourmet en 2009.',
+              'Antes de su reconversión, este fue durante décadas un mercado de abastos de barrio, con pescaderías y carnicerías tradicionales, hasta que la competencia de los supermercados casi lo llevó al cierre.',
+              'Los grandes paneles de cristal que hoy cierran los laterales son un añadido de la reforma de 2009: originalmente la nave de hierro estaba abierta al aire libre, como cualquier mercado tradicional.'
+            ],
+            kids: [
+              '¡Este mercado estuvo a punto de desaparecer para siempre antes de convertirse en el sitio tan famoso que es hoy! 😮',
+              'Al principio no tenía paredes de cristal: ¡estaba abierto al aire libre, como un mercado normal de toda la vida! 🌬️',
+              'Antes aquí se vendían pescado y carne como en cualquier mercado de barrio, ¡nada que ver con las tapas de ahora! 🐟'
+            ]
           }
         },
         quiz: {
@@ -194,6 +218,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La Real Casa de Correos combina un estilo neoclásico sobrio con la torre del reloj como único elemento vertical destacado de toda la plaza. La remodelación de 2022-2023 rediseñó el pavimento del Kilómetro 0, rodeando la placa original de 2009 con una rosa de los vientos que señala los nombres de todas las capitales de provincia y ciudades autónomas de España.',
             kids: '¡Busca la rosa de los vientos en el suelo! Es un dibujo con los nombres de todas las capitales de España alrededor de la placa del Kilómetro 0. La pusieron hace pocos años, cuando arreglaron toda la plaza.'
+          },
+          deepenFillers: {
+            adult: [
+              'La plaza debe su nombre a una antigua puerta de la muralla medieval de Madrid, orientada hacia el este y decorada con un sol, que fue derribada en el siglo XVI sin dejar restos visibles hoy.',
+              'Bajo la plaza se excavó, a comienzos de los años 2000, una de las estaciones de Cercanías más profundas de Madrid, con andenes situados a más de treinta metros bajo el nivel de la calle.',
+              'La Puerta del Sol fue el escenario del levantamiento popular del 2 de mayo de 1808 contra las tropas napoleónicas, un episodio que Goya inmortalizó después en sus célebres cuadros sobre la Guerra de la Independencia.'
+            ],
+            kids: [
+              '¡La plaza se llama "del Sol" por una puerta antiquísima decorada con un sol que ya no existe! ☀️',
+              '¡Debajo de esta plaza hay una estación de tren tan profunda que parece un pozo sin fondo! 🚇',
+              '¡Aquí pasó algo tan importante hace más de 200 años que un pintor famosísimo lo pintó después en un cuadro enorme! 🎨'
+            ]
           }
         },
         quiz: {
@@ -261,6 +297,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio de Villanueva, uno de los ejemplos más depurados del neoclasicismo español, se organiza en tres cuerpos diferenciados originalmente destinados a distintos fines científicos, hoy reconvertidos en salas de exposición. Sus fachadas de piedra granítica, con pórticos jónicos y dóricos, reflejan el ideal ilustrado de un edificio dedicado al conocimiento, aunque acabara consagrado a la pintura en lugar de a las ciencias naturales.',
             kids: '¡Fíjate en las columnas de piedra de la entrada! El edificio iba a ser para guardar animales y plantas de estudio, por eso es tan grande y con tantas salas — ¡perfecto para guardar en su lugar miles de cuadros!'
+          },
+          deepenFillers: {
+            adult: [
+              'Durante la Guerra Civil, las obras maestras del museo se evacuaron a Valencia, Barcelona y finalmente Ginebra para protegerlas de los bombardeos, y no regresaron a Madrid hasta 1939.',
+              'Las Meninas de Velázquez ocupa hoy una sala diseñada específicamente para el cuadro, pensada para que pueda contemplarse desde la distancia exacta a la que Velázquez situó su propio punto de vista al pintarlo.',
+              'La ampliación de Rafael Moneo de 2007 incorporó el antiguo claustro de los Jerónimos, desmontado piedra a piedra y reconstruido junto al edificio original de Villanueva.'
+            ],
+            kids: [
+              '¡Durante una guerra, los cuadros más importantes viajaron muy lejos para protegerlos, hasta otro país, y luego volvieron a casa! 🚚',
+              '¡Hay una sala hecha especialmente para un cuadro súper famoso, Las Meninas, para que lo veas justo desde la distancia perfecta! 🖼️',
+              '¡Hace años ampliaron el museo trayendo piedra por piedra un edificio antiguo desde otro sitio y lo pegaron al museo! 🧱'
+            ]
           }
         },
         quiz: {
@@ -321,6 +369,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Diseñado por los arquitectos Francesco Sabatini y Juan de Villanueva —el mismo que proyectó el edificio del Prado—, el jardín se organiza en tres terrazas escalonadas que salvan el desnivel hasta la calle Alfonso XII, cada una con un trazado distinto: el Cuadro de la Escuela Botánica, el Plano de Flores y el Jardín de Bonpland. Su acceso principal, la Puerta Real, es una verja monumental de estilo neoclásico realizada en 1781, considerada una de las más elegantes de todo Madrid.',
             kids: '¡Está construido en tres niveles como una escalera gigante, cada uno con un tipo distinto de jardín! La entrada principal tiene una verja de hierro preciosa que se hizo hace más de 240 años. El mismo arquitecto que diseñó el Museo del Prado ayudó también a diseñar este jardín.'
+          },
+          deepenFillers: {
+            adult: [
+              'El jardín conserva un ejemplar de ombú, un árbol sudamericano de tronco descomunal y madera tan blanda que apenas sirve para construir nada, plantado hace más de dos siglos.',
+              'Durante buena parte del siglo XX el jardín estuvo semiabandonado, y no fue hasta una gran restauración en los años ochenta cuando recuperó el trazado original diseñado por Sabatini y Villanueva.',
+              'El invernadero Umbráculo, en la parte alta del jardín, se construyó en 1856 y sigue protegiendo hoy plantas tropicales que no soportarían el frío del invierno madrileño.'
+            ],
+            kids: [
+              '¡Hay un árbol sudamericano tan raro que su madera es blandita y casi no sirve para construir nada! 🌳',
+              '¡Este jardín estuvo bastante abandonado durante muchos años, hasta que lo arreglaron para que volviera a lucir bonito! 🌱',
+              '¡Hay un invernadero de hace más de 160 años que protege plantas tropicales del frío de Madrid! 🏡'
+            ]
           }
         },
         quiz: {
@@ -381,6 +441,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Entre sus elementos más destacados sobresale el Palacio de Cristal, una estructura de hierro y vidrio construida en 1887 para exponer flora y fauna de Filipinas, inspirada en el Palacio de Cristal de Londres. Junto al Estanque Grande, existente ya desde tiempos de Felipe II, se alza el monumento a Alfonso XII, un gran hemiciclo de columnas rematado por una estatua ecuestre del monarca.',
             kids: '¡El Palacio de Cristal es casi todo de vidrio, como un gran invernadero brillante! Se construyó para enseñar plantas y animales de un lugar muy lejano, Filipinas. Al lado hay un estanque enorme donde puedes alquilar una barca.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Retiro fue jardín privado de la Corona hasta 1868, cuando la Revolución de septiembre de ese año lo convirtió en parque público, abierto por primera vez a todos los madrileños.',
+              'Durante el asedio de Madrid en la Guerra Civil el parque sufrió importantes daños, y buena parte de su arbolado tuvo que replantarse por completo tras el conflicto.',
+              'En 2021 la UNESCO declaró Patrimonio de la Humanidad el eje formado por El Retiro y el Paseo del Prado, bajo el nombre de "Paisaje de la Luz", junto con los grandes museos y jardines de la zona.'
+            ],
+            kids: [
+              '¡Este parque era solo para el rey y su familia hasta hace poco más de 150 años, cuando por fin lo abrieron para todo el mundo! 👑',
+              '¡La UNESCO ha declarado este parque, junto al Museo del Prado, tesoro de toda la humanidad! 🌍',
+              '¡Durante una guerra el parque se dañó mucho y tuvieron que plantar árboles nuevos después! 🌳'
+            ]
           }
         },
         quiz: {
@@ -447,6 +519,18 @@ CITIES.madrid.pois = [
           legends: {
             adult: 'Desde 1990 el edificio pertenece al Museo Reina Sofía, que lo usa como sala de exposiciones temporales: en vez de colgar cuadros en sus paredes de cristal, invita a artistas internacionales de primer nivel a crear instalaciones pensadas específicamente para este espacio tan singular, que cambian cada pocos meses. Así, el propio Palacio de Cristal se ha convertido en una obra de arte que dialoga con la que alberga en cada momento, algo poco habitual en un museo tradicional.',
             kids: '¡Desde hace más de 30 años, artistas de todo el mundo usan este palacio como si fuera su lienzo! En vez de colgar cuadros normales, crean instalaciones de arte gigantes hechas a medida para este edificio tan especial, y van cambiando cada pocos meses.'
+          },
+          deepenFillers: {
+            adult: [
+              'El estanque que rodea el edificio no es solo decorativo: ayuda a regular la temperatura interior del pabellón, un recurso propio de los grandes invernaderos victorianos de la época.',
+              'El pabellón se inspiró directamente en el Crystal Palace construido en Londres en 1851 para la Gran Exposición, aunque a una escala mucho más reducida.',
+              'El vidrio se ha ido sustituyendo a lo largo de sucesivas restauraciones, pero la estructura metálica que lo sostiene es, en gran parte, la original de 1887.'
+            ],
+            kids: [
+              '¡El agua del estanque de alrededor no es solo bonita, ayuda a que dentro del palacio no haga tanto calor! 💧',
+              '¡Este palacio de cristal copió la idea de otro palacio de cristal aún más grande que se construyó en Londres! 🇬🇧',
+              '¡El cristal se ha ido cambiando varias veces a lo largo de los años, pero el esqueleto de hierro de dentro sigue siendo casi el original! 🔧'
+            ]
           }
         },
         quiz: {
@@ -508,6 +592,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Obra de Ricardo Velázquez Bosco, el mismo arquitecto del Palacio de Cristal, con bóvedas de hierro y cristal que iluminan las salas con luz natural. Mide 73,80 por 28,75 metros, construido en ladrillo de dos tonos traído de Zaragoza y decorado con azulejos de la Real Fábrica de la Moncloa.',
             kids: '¡Es como el hermano mayor del Palacio de Cristal, pero vestido de ladrillo en vez de cristal! Por dentro también tiene techos de cristal que dejan entrar la luz del sol.'
+          },
+          deepenFillers: {
+            adult: [
+              'El nombre del edificio no rinde homenaje al pintor Diego Velázquez, sino a su arquitecto, Ricardo Velázquez Bosco, una coincidencia de apellido que confunde a muchos visitantes.',
+              'Tras su etapa como Museo de Ultramar, el edificio quedó prácticamente en desuso durante buena parte del siglo XX, hasta que el Museo Reina Sofía lo recuperó como sala de exposiciones.',
+              'Los azulejos que decoran su fachada proceden de la Real Fábrica de la Moncloa, una manufactura cerámica madrileña del siglo XIX que también decoró otros edificios oficiales de la ciudad.'
+            ],
+            kids: [
+              '¡Aunque se llama "de Velázquez", no tiene nada que ver con el pintor famoso, sino con el arquitecto que lo construyó, que se apellidaba igual! 🎨',
+              '¡Este edificio estuvo cerrado y casi olvidado durante muchísimos años antes de convertirse en sala de arte! 🚪',
+              '¡Los azulejos de la fachada los hicieron en una fábrica de cerámica de Madrid que también decoró otros edificios importantes! 🧱'
+            ]
           }
         },
         quiz: {
@@ -563,6 +659,18 @@ CITIES.madrid.pois = [
           legends: {
             adult: 'Mezclan un trazado clásico con influencia andaluza: junto a la entrada norte hay una escultura de Venus romana, y la Fuente de las Gaviotas, regalo de la embajada de Noruega a los madrileños en 1962. Los vistosos pavos reales que pasean sueltos por el recinto son la seña de identidad del lugar, y forman parte del "Paisaje de la Luz", declarado Patrimonio de la Humanidad por la UNESCO en 2021.',
             kids: '¡Los pavos reales caminan sueltos por todo el jardín, como si fueran los dueños! Si tienes suerte, verás a alguno abrir su cola en forma de abanico lleno de colores. Este jardín es tan especial que la UNESCO lo declaró tesoro de la humanidad.'
+          },
+          deepenFillers: {
+            adult: [
+              'El recinto reproduce el estilo de los patios andaluces, con setos recortados, fuentes de azulejos y una combinación de sombra y agua pensada para el calor del verano madrileño, poco habitual en el resto del Retiro.',
+              'Los pavos reales que pasean sueltos hoy descienden de ejemplares introducidos hace décadas; al no tener depredadores naturales dentro del recinto, su población necesita controlarse.',
+              'El jardín permanece vallado y cierra antes que el resto del parque precisamente para proteger tanto las especies vegetales más delicadas como a los propios pavos reales durante la noche.'
+            ],
+            kids: [
+              '¡Este jardín está hecho para dar mucha sombra y frescor, como los patios del sur de España! 🌴',
+              '¡Los pavos reales de aquí vienen de otros pavos que trajeron hace muchísimos años, así que hay que cuidar que no se multipliquen demasiado! 🦚',
+              '¡Por las noches cierran una verja especial para proteger a los pavos reales mientras duermen! 🌙'
+            ]
           }
         },
         quiz: {
@@ -618,6 +726,18 @@ CITIES.madrid.pois = [
           legends: {
             adult: 'Hoy el espacio lo ocupa la Biblioteca Pública Eugenio Trías (2013), que integró a propósito restos del antiguo zoo en su diseño: la "Leonera" de dos plantas y las rejas de hierro por las que se alimentaba a los animales desde arriba. Cerca, en los Jardines de Herrera Palacios, todavía se conserva el llamado "Foso de los Monos".',
             kids: 'Aunque ahora es una biblioteca, todavía se pueden ver restos de verdad del zoo antiguo: una jaula de dos pisos donde vivían los leones, y un foso donde antes vivían los monos. ¡Como un zoo fantasma escondido en la biblioteca!'
+          },
+          deepenFillers: {
+            adult: [
+              'La Casa de Fieras original fue en su día uno de los primeros zoológicos abiertos al público en España, casi dos siglos antes de que existiera el actual zoo de la Casa de Campo.',
+              'Los arquitectos de la biblioteca eligieron deliberadamente conservar visibles las cicatrices del edificio antiguo, como la Leonera, en vez de ocultarlas, para que la memoria del zoo conviviera con su nuevo uso.',
+              'El nombre de la biblioteca actual, Eugenio Trías, rinde homenaje a un filósofo español contemporáneo, sin relación alguna con el antiguo zoológico que ocupó este mismo terreno.'
+            ],
+            kids: [
+              '¡Este fue uno de los primeros zoos que se pudieron visitar en toda España, mucho antes de que existiera el zoo actual de Madrid! 🦓',
+              '¡Los que hicieron la biblioteca nueva decidieron dejar a la vista partes del zoo antiguo a propósito, para no olvidarlo! 🏛️',
+              'La biblioteca lleva el nombre de un filósofo, ¡no tiene nada que ver con ningún animal del zoo antiguo! 📚'
+            ]
           }
         },
         quiz: {
@@ -678,6 +798,18 @@ CITIES.madrid.pois = [
           legends: {
             adult: 'En el siglo XVII, Felipe IV organizaba aquí naumaquias, auténticas batallas navales en miniatura recreadas con barcos reales a escala, como espectáculo de poder ante toda la corte. El estanque también acogió representaciones teatrales sobre el agua, con tramoyas espectaculares para la época, y una docena de lujosas góndolas forradas de plata y oro, traídas expresamente desde Nápoles junto con sus gondoleros, en las que paseaba la familia real mientras la corte observaba desde la orilla.',
             kids: '¡Hace casi 400 años, un rey organizaba aquí batallas navales de mentira con barcos de verdad, para impresionar a toda su corte! También traían góndolas doradas desde Italia, ¡con gondoleros y todo!, para que la familia real paseara por el agua mientras todos miraban.'
+          },
+          deepenFillers: {
+            adult: [
+              'La construcción del monumento a Alfonso XII se prolongó veinte años, entre 1902 y 1922, e involucró a más de veinte escultores distintos trabajando bajo la dirección de José Grases Riera.',
+              'En los inviernos más fríos de otras épocas, la superficie del estanque llegaba a helarse lo suficiente como para que algunos madrileños patinaran sobre ella, algo casi impensable en el Madrid actual.',
+              'El hemiciclo de columnas del monumento envuelve el estanque en su lado este como un gran escenario, pensado para que la estatua ecuestre se reflejara en el agua desde cualquier punto de la orilla opuesta.'
+            ],
+            kids: [
+              '¡Tardaron veinte años enteros en construir el monumento del rey a caballo, con más de veinte artistas trabajando en él! 🏛️',
+              'En los inviernos más fríos de hace mucho tiempo, el agua del estanque llegaba a helarse tanto que la gente patinaba encima, ¡algo rarísimo hoy en Madrid! ❄️',
+              '¡El monumento se construyó en forma de media luna gigante para que se reflejara entero en el agua del estanque! 🪞'
+            ]
           }
         },
         quiz: {
@@ -738,6 +870,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La Casa de la Panadería, el edificio más emblemático de la plaza, luce desde 1992 una espectacular fachada pintada al fresco por Carlos Franco, con un programa mitológico propio poblado de dioses clásicos como Cibeles y personajes inventados por el propio pintor. La plaza, de planta rectangular y soportales continuos, conserva 237 balcones que antiguamente se alquilaban para presenciar los espectáculos que allí se celebraban.',
             kids: '¡Mira la fachada llena de colores del edificio del fondo! Está pintada con dioses y personajes inventados, pintada hace poco más de 30 años. Cuenta los balcones que puedas ver — ¡hay más de 200 en toda la plaza!'
+          },
+          deepenFillers: {
+            adult: [
+              'La Casa de la Panadería tuvo antes de la pintura actual otras dos decoraciones distintas a lo largo del siglo XX, ambas perdidas por el deterioro del tiempo, antes de que Carlos Franco pintara la que hoy se conserva.',
+              'La plaza mide unos 129 por 94 metros, y su trazado rectangular tan regular fue toda una novedad urbanística para el Madrid de comienzos del siglo XVII, planificado como un espacio cerrado y ordenado en pleno crecimiento de la ciudad.',
+              'Cada domingo por la mañana la plaza acoge un mercado de sellos y monedas con décadas de tradición, heredero directo de aquel viejo uso comercial que tuvo la plaza desde su fundación.'
+            ],
+            kids: [
+              '¡La fachada de colores que ves hoy no es la primera! Antes hubo otras dos pinturas distintas que se fueron estropeando con el tiempo. 🎨',
+              '¡Esta plaza fue de las primeras tan ordenadas y cuadradas que se construyeron en todo Madrid, hace más de 400 años! 📐',
+              '¡Cada domingo por la mañana todavía se monta aquí un mercadillo de sellos y monedas antiguas! 🪙'
+            ]
           }
         },
         quiz: {
@@ -789,6 +933,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio Metrópolis (1911), en la confluencia con la calle de Alcalá, luce una cúpula rematada por la escultura de la Victoria Alada. El edificio Telefónica (1929), con sus 89 metros, fue durante años el más alto de Madrid. En el número 60 se conserva un llamativo ejemplo de art déco, testimonio del tercer y último tramo de la avenida, ya construido en pleno siglo XX.',
             kids: '¡Busca la estatua dorada con alas encima de una de las cúpulas! Y fíjate en el edificio de Telefónica, que durante años fue el más alto de toda la ciudad. Cada trozo de esta avenida tiene edificios de un estilo distinto.'
+          },
+          deepenFillers: {
+            adult: [
+              'La construcción de la Gran Vía obligó a derribar unas trescientas fincas y a desalojar a miles de vecinos del trazado medieval original, uno de los procesos de reforma urbana más drásticos de la historia de Madrid.',
+              'El edificio Telefónica fue durante décadas el rascacielos más alto de Europa continental construido con estructura de hormigón armado, una técnica todavía novedosa cuando se levantó en 1929.',
+              'Los cines y teatros que jalonan la avenida —el Callao, el Capitol— hicieron de la Gran Vía el gran escaparate del cine en España durante buena parte del siglo XX, con estrenos que reunían a multitudes en sus aceras.'
+            ],
+            kids: [
+              '¡Para construir esta avenida derribaron cientos de casas antiguas del Madrid de siempre! 🏚️',
+              '¡El edificio Telefónica fue durante años el rascacielos más alto de toda Europa hecho con hormigón! 🏗️',
+              '¡Esta avenida está llena de cines antiguos preciosos, donde se estrenaban las películas más esperadas! 🎬'
+            ]
           }
         },
         quiz: {
@@ -847,6 +1003,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El museo ocupa el Palacio de Villahermosa, un edificio neoclásico del siglo XVIII remodelado por el arquitecto Rafael Moneo para adaptarlo a su nueva función museística, conservando su fachada histórica frente al Paseo del Prado mientras reorganizaba por completo sus espacios interiores en salas cronológicas.',
             kids: '¡Por fuera este museo parece un palacio antiguo, porque lo era! Por dentro lo cambiaron todo para poder colocar los cuadros ordenados por época, ¡como un viaje en el tiempo que recorres caminando!'
+          },
+          deepenFillers: {
+            adult: [
+              'En 2004 el Estado español amplió la colección original comprando también la mayor parte del legado personal de la baronesa Thyssen, unas 250 obras adicionales que hoy se exhiben en un ala anexa del museo.',
+              'La colección del barón Thyssen-Bornemisza fue durante décadas la mayor colección privada de arte del mundo después de la de la Corona británica, reunida a lo largo de tres generaciones de la misma familia.',
+              'El recorrido del museo permite ver, sala tras sala, la evolución completa de la pintura occidental desde los primitivos italianos del siglo XIII hasta el pop art americano, algo que ningún otro museo español ofrece en un único edificio.'
+            ],
+            kids: [
+              '¡Años después de abrir, España compró todavía más cuadros a la misma familia, para tener una colección aún más grande! 🖼️',
+              'Esta colección fue durante mucho tiempo la más grande del mundo que pertenecía a una sola familia, ¡no a un país! 👑',
+              '¡Caminando por este museo puedes ver cómo cambió la pintura durante 700 años, sala tras sala, como una máquina del tiempo! ⏳'
+            ]
           }
         },
         quiz: {
@@ -905,6 +1073,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio Sabatini conserva la planta original del antiguo hospital dieciochesco, con sus grandes patios y fachadas de ladrillo y granito. Frente a él, dos torres de cristal transparentes —instaladas en los años 80 como ascensores panorámicos— rompieron deliberadamente con la sobriedad clasicista del conjunto, anticipando el diálogo entre tradición y modernidad que después ampliaría el edificio Nouvel.',
             kids: '¡Mira los ascensores de cristal por fuera del edificio! Se ven desde la calle mientras suben y bajan. Contrastan mucho con el edificio antiguo de ladrillo, ¡como si fueran de dos épocas completamente distintas!'
+          },
+          deepenFillers: {
+            adult: [
+              'El Guernica viaja tan poco desde su llegada definitiva en 1992 que apenas ha salido del museo en más de tres décadas, debido a la fragilidad de la tela y a las estrictas condiciones que impuso en su día la familia Picasso.',
+              'La ampliación del edificio Nouvel de 2005 se organiza alrededor de un gran patio cubierto por una cubierta metálica roja, pensado como una plaza pública techada más que como una simple sala de museo.',
+              'El edificio Sabatini fue, durante su etapa como hospital, uno de los mayores centros sanitarios de Europa en el siglo XVIII, con capacidad para varios miles de pacientes distribuidos en sus grandes naves.'
+            ],
+            kids: [
+              '¡El Guernica casi nunca sale de viaje del museo, porque es tan delicado que apenas se puede mover! 🖼️',
+              '¡La parte nueva del museo tiene un patio enorme cubierto con un techo rojo, como una plaza bajo un tejado gigante! 🔴',
+              '¡Cuando este edificio era un hospital, hace más de 200 años, podía curar a miles de personas enfermas a la vez! 🏥'
+            ]
           }
         },
         quiz: {
@@ -963,6 +1143,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La cripta neorrománica, terminada en 1911, es la parte más antigua del conjunto y contrasta con la nave neoclásica superior. Las vidrieras, de diseño no figurativo, dialogan con el policromado techo y con los mosaicos del padre Marko Rupnik en la capilla del Santísimo, creando un conjunto que combina tradición constructiva centenaria con un programa decorativo plenamente contemporáneo. En las hornacinas de la fachada pueden identificarse las estatuas de San Pedro —con la inscripción «PETRUS», las llaves del Reino de los Cielos y una red de pescador— y San Pablo —«PAVLVS», con un relieve que representa su conversión camino a Damasco—, ambos considerados columnas de la Iglesia.',
             kids: '¡Baja a la cripta, la parte más antigua de toda la catedral! Después sube arriba y compara: verás una mezcla de estilos muy distintos en el mismo edificio, ¡como si hubieran construido dos iglesias en una! Busca también en la fachada dos estatuas con nombres tallados debajo: una es San Pedro, con unas llaves enormes y una red de pescar; la otra es San Pablo, con una escena tallada al lado.'
+          },
+          deepenFillers: {
+            adult: [
+              'La catedral guarda la imagen de la Virgen de la Almudena, que la tradición sitúa hallada en 1085 escondida en el muro de la antigua muralla árabe tras la reconquista cristiana de Madrid; es la patrona de la ciudad.',
+              'La cripta, con varios centenares de columnas, es uno de los espacios neorrománicos más grandes de Europa y estuvo terminada casi ochenta años antes que el resto del templo que se alza sobre ella.',
+              'Los Reyes de España asistieron en persona a la consagración de 1993, el mismo acto en el que Juan Pablo II convirtió a esta catedral en la única de todo el país consagrada por un Papa.'
+            ],
+            kids: [
+              '¡Dentro de la catedral se guarda una imagen de una virgen que, según cuentan, apareció escondida en un muro hace casi 1.000 años! 🕯️',
+              '¡La cripta de abajo tiene cientos de columnas, una detrás de otra! Se terminó casi 80 años antes que el resto de la catedral. 🏛️',
+              '¡Los reyes de España estuvieron presentes el día en que un Papa vino a bendecir esta catedral! 👑'
+            ]
           }
         },
         quiz: {
@@ -1014,6 +1206,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'En el siglo XX, la plaza se convirtió en el punto de celebración deportiva del Real Madrid, cuyo estadio se encuentra en las inmediaciones: cada título se festeja envolviendo el monumento con una bandera del club, una tradición tan arraigada como la propia fuente. La plaza está rodeada de algunos de los edificios más monumentales de la capital, entre ellos el antiguo Palacio de Comunicaciones.',
             kids: '¡Cuando el equipo de fútbol Real Madrid gana algo importante, sus aficionados vienen aquí a celebrarlo y le ponen una bandera gigante a la diosa! Es una tradición que lleva ya muchísimos años.'
+          },
+          deepenFillers: {
+            adult: [
+              'El antiguo Palacio de Comunicaciones, hoy sede del Ayuntamiento como Palacio de Cibeles, fue durante décadas la mayor oficina de correos de España, con capacidad para procesar millones de cartas al año.',
+              'La diosa Cibeles sostiene en la fuente dos llaves y un cetro, símbolos de su papel mitológico como protectora de las ciudades y de la fertilidad de la tierra.',
+              'Existen réplicas de esta fuente en varias ciudades de Hispanoamérica, entre ellas México, lo que la convierte en uno de los monumentos españoles más reproducidos fuera de España.'
+            ],
+            kids: [
+              '¡El edificio enorme detrás de la fuente fue durante muchos años la oficina de correos más grande de toda España! 📬',
+              '¡La diosa de la fuente lleva en las manos dos llaves y un bastón, como símbolos de su poder! 🔑',
+              '¡Hay copias de esta misma fuente en otras ciudades muy lejanas, como en México! 🌎'
+            ]
           }
         },
         quiz: {
@@ -1065,6 +1269,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'De granito, presenta una estructura horizontal de cinco vanos: los tres centrales de medio punto, con el central más elevado, y los dos laterales adintelados. Rompe deliberadamente con el concepto tradicional de puerta como parte de una muralla defensiva, recuperando en su lugar la monumentalidad pura del arco de triunfo romano, sin función militar alguna.',
             kids: '¡Cuenta los huecos del arco, son 5 en total! El del medio es más alto que los demás. Esta puerta nunca sirvió para defender la ciudad, como las puertas antiguas — ¡era solo para presumir de lo bonita que era!'
+          },
+          deepenFillers: {
+            adult: [
+              'La puerta sustituyó a un acceso anterior más modesto de la muralla de Felipe IV, situado unos metros más al oeste, que se derribó para dejar sitio al nuevo arco monumental.',
+              'Durante décadas funcionó como uno de los principales puntos de entrada de mercancías y viajeros a Madrid, con el consiguiente cobro de impuestos de consumo a quienes cruzaban bajo sus arcos.',
+              'La rotonda de tráfico que la rodeó durante todo el siglo XX se ha ido reduciendo en las últimas décadas a favor de espacio para peatones y ciclistas.'
+            ],
+            kids: [
+              '¡Antes de esta puerta hubo otra más sencilla, un poco más allá, que derribaron para construir esta tan bonita! 🚧',
+              '¡Durante muchísimos años, la gente que entraba a Madrid por aquí tenía que pagar impuestos por lo que traía! 💰',
+              '¡Antes los coches pasaban justo alrededor de la puerta, pero ahora ese espacio es sobre todo para caminar y montar en bici! 🚲'
+            ]
           }
         },
         quiz: {
@@ -1116,6 +1332,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La Torre de los Lujanes, del siglo XV, es uno de los escasos ejemplos de arquitectura civil gótica conservados en Madrid, hoy sede de la Real Academia de Ciencias Morales y Políticas. La Casa de Cisneros combina elementos góticos, mudéjares y renacentistas en un estilo exclusivamente español conocido como plateresco, por el parecido de su ornamentación con el trabajo de los plateros.',
             kids: '¡Mira la torre puntiaguda, es una de las construcciones más antiguas de todo Madrid! El otro edificio bonito de al lado se llama así porque su decoración de piedra parece hecha por un joyero, ¡tallada con muchísimo detalle!'
+          },
+          deepenFillers: {
+            adult: [
+              'Álvaro de Bazán, cuya estatua preside la plaza, fue el almirante que planeó la Armada Invencible, aunque murió meses antes de que la flota zarpara rumbo a Inglaterra en 1588.',
+              'La Torre de los Lujanes conserva vanos y arcos ligeramente asimétricos entre sí, huella de las sucesivas reformas y añadidos que sufrió el edificio a lo largo de los siglos.',
+              'Hasta bien entrado el siglo XIX, esta plaza y sus calles vecinas fueron el barrio donde vivía la aristocracia madrileña más antigua, antes de que las grandes familias se trasladaran a zonas más nuevas de la ciudad.'
+            ],
+            kids: [
+              '¡La estatua del almirante que ves en el medio ayudó a planear una flota gigante de barcos, aunque murió justo antes de que zarpara! ⚓',
+              '¡Si te fijas bien en la torre puntiaguda, verás que sus ventanas no son todas iguales, porque la fueron cambiando a lo largo de muchos siglos! 🔍',
+              '¡Hace muchísimo tiempo, aquí vivían las familias más importantes y ricas de todo Madrid! 🏰'
+            ]
           }
         },
         quiz: {
@@ -1167,6 +1395,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El conjunto conserva su puerta monumental y dos pilonos de acceso, junto con relieves originales que representan a los faraones ptolemaicos realizando ofrendas a las divinidades egipcias. Se ubica sobre una pequeña colina del antiguo Cuartel de la Montaña, orientado deliberadamente para ofrecer una de las mejores puestas de sol de la ciudad sobre la Casa de Campo, en un guiño a su función original de templo solar. Minutos después de la puesta de sol llega la llamada «hora azul», cuando el templo se ilumina y se refleja en el estanque frente a él, una de las imágenes más fotografiadas de Madrid.',
             kids: '¡Fíjate en los dibujos tallados en la piedra! Muestran a antiguos reyes egipcios haciendo regalos a sus dioses. Este templo está en una colina perfecta para ver la puesta de sol, ¡casi como si siguiera mirando al sol como hacía en Egipto! Un rato después de que se ponga el sol llega la "hora azul": el templo se ilumina y se refleja en el agua del estanque de delante, ¡una de las fotos más bonitas de todo Madrid!'
+          },
+          deepenFillers: {
+            adult: [
+              'El templo llegó desmontado en más de 1.350 bloques de piedra numerados, un gigantesco puzle que los técnicos españoles tuvieron que volver a montar siguiendo la disposición original egipcia.',
+              'Es uno de los pocos templos del antiguo Egipto visitables fuera de ese país: solo otros tres monumentos rescatados de la misma operación de Asuán se donaron a naciones distintas, entre ellas Estados Unidos e Italia.',
+              'El emplazamiento actual ocupa el solar del antiguo Cuartel de la Montaña, un edificio militar que fue demolido tras los sucesos del comienzo de la Guerra Civil en julio de 1936.'
+            ],
+            kids: [
+              '¡El templo llegó desmontado en más de 1.350 piedras numeradas, como un rompecabezas gigante que hubo que volver a montar! 🧩',
+              '¡Solo hay cuatro templos egipcios de este rescate repartidos por el mundo entero, y uno de ellos está aquí en Madrid! 🌍',
+              '¡Antes de que llegara el templo, aquí había un cuartel militar que ya no existe! 🪖'
+            ]
           }
         },
         quiz: {
@@ -1218,6 +1458,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La plaza está flanqueada por dos de los primeros rascacielos de España: el Edificio España (1953) y la Torre de Madrid (1957), ambos símbolos de la arquitectura de posguerra. Tras la remodelación de 2021, la plaza incorporó más arbolado, fuentes, carriles bici y amplias zonas peatonales, integrando mejor el monumento histórico con los usos contemporáneos del espacio.',
             kids: '¡Mira hacia arriba! Los dos edificios altísimos que rodean la plaza fueron, durante muchos años, los rascacielos más altos de España. Ahora la plaza tiene también fuentes y mucho espacio para pasear sin coches.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Edificio España fue durante años el edificio de hormigón más alto de Europa, y hoy alberga un hotel de lujo tras una profunda reconversión de todo su interior.',
+              'La remodelación de 2019-2021 sacó a la luz restos de las antiguas Caballerizas Reales del siglo XVII, que hoy pueden verse bajo parte de la plaza.',
+              'La Torre de Madrid, terminada en 1957, mantuvo durante varios años el récord de mayor rascacielos de hormigón del mundo tras su construcción.'
+            ],
+            kids: [
+              '¡Uno de los edificios altísimos fue durante años el edificio de hormigón más alto de toda Europa, y ahora es un hotel de lujo! 🏨',
+              '¡Cuando arreglaron la plaza hace pocos años, encontraron debajo restos de unas caballerizas reales de hace 400 años! 🐎',
+              '¡El otro edificio alto fue durante un tiempo el rascacielos de hormigón más alto del mundo entero! 🌍'
+            ]
           }
         },
         quiz: {
@@ -1268,6 +1520,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio de Antonio Palacios combina influencias eclécticas con elementos modernistas y neobarrocos, característicos del llamado "estilo Palacios" que definió buena parte de la arquitectura madrileña de principios del siglo XX. Su azotea, hoy habilitada como terraza con cafetería, se ha convertido en uno de los miradores urbanos más solicitados de la capital.',
             kids: '¡Sube hasta la azotea y podrás tomar algo mientras ves toda la ciudad desde las alturas! El edificio mezcla varios estilos distintos, es difícil decir de qué época exacta parece.'
+          },
+          deepenFillers: {
+            adult: [
+              'El edificio se financió en parte mediante una lotería especial organizada por la propia institución, un sistema habitual para costear grandes proyectos culturales en el Madrid de comienzos del siglo XX.',
+              'Antonio Palacios, su arquitecto, firmó también el Palacio de Cibeles, lo que explica ciertas similitudes decorativas entre ambos edificios pese a sus funciones tan distintas.',
+              'Durante buena parte del siglo XX, la institución mantuvo una de las programaciones culturales más independientes de la capital, y se convirtió en refugio habitual de artistas e intelectuales.'
+            ],
+            kids: [
+              '¡Para pagar la construcción de este edificio organizaron una lotería especial, como si fuera un sorteo gigante! 🎟️',
+              '¡El mismo arquitecto que hizo este edificio también diseñó el edificio enorme de la Plaza de Cibeles! 🏛️',
+              '¡Durante muchos años este lugar fue uno de los pocos sitios donde los artistas podían mostrar su arte con más libertad! 🎭'
+            ]
           }
         },
         quiz: {
@@ -1326,6 +1590,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Tras las obras de consolidación, el edificio combina su fachada neoclásica original con una estructura interior completamente renovada, capaz de albergar más de 1.700 espectadores. El foso de la orquesta y la maquinaria escénica se cuentan entre las más avanzadas de Europa, resultado de la profunda reconstrucción acometida a finales del siglo XX.',
             kids: '¡Por fuera parece un teatro clásico y elegante, pero por dentro tiene máquinas y tecnología modernísima para mover los decorados durante las funciones! Caben más de 1.700 personas viendo la ópera a la vez.'
+          },
+          deepenFillers: {
+            adult: [
+              'El teatro cerró por completo entre 1925 y 1966 por problemas estructurales y de maquinaria, permaneciendo sin actividad operística regular durante más de cuarenta años.',
+              'Durante buena parte de esa clausura, el edificio se usó como conservatorio de música y sala de conciertos sinfónicos, antes de recuperar su vocación operística tras la gran reforma de los años noventa.',
+              'El escenario cuenta con un foso ampliable y una compleja red de plataformas hidráulicas capaces de mover decorados enteros en cuestión de segundos entre actos.'
+            ],
+            kids: [
+              '¡Este teatro estuvo cerrado más de 40 años seguidos, sin ninguna función, por problemas con sus máquinas! 🔧',
+              '¡Durante muchos años aquí no se hacía ópera, sino conciertos de música clásica! 🎻',
+              '¡El escenario tiene plataformas que suben y bajan solas para cambiar los decorados en segundos! ⚙️'
+            ]
           }
         },
         quiz: {
@@ -1377,6 +1653,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'De trazado rectangular con cabecera curvada, los jardines combinan setos recortados, fuentes y las citadas estatuas reales en un diseño neoclásico decimonónico que armoniza con la fachada oeste del Palacio Real y con el Teatro Real, situado en uno de sus extremos.',
             kids: '¡Pasea entre los setos bien recortados y busca cuántas estatuas de reyes puedes contar! Desde aquí se ve muy bien el Palacio Real por un lado y el Teatro Real por el otro.'
+          },
+          deepenFillers: {
+            adult: [
+              'Antes de convertirse en jardines, este espacio estuvo ocupado por un denso caserío que Napoleón, durante la ocupación francesa, mandó derribar para abrir una gran plaza frente al entonces palacio real.',
+              'El Café de Oriente, en uno de los laterales de la plaza, ocupa parte de los sótanos de un antiguo convento, un pasado que todavía recuerda en el nombre de algunos de sus espacios.',
+              'La estatua ecuestre de Felipe IV se fundió en una sola pieza de bronce, una hazaña técnica excepcional para el siglo XVII que llevó varios años completar.'
+            ],
+            kids: [
+              '¡Antes de ser jardines, aquí había un montón de casas apretadas que mandó derribar Napoleón cuando ocupó Madrid! 🏚️',
+              '¡Debajo de un café de la plaza hay restos de un convento antiguo escondidos! ☕',
+              '¡La estatua del rey a caballo se hizo entera de una sola pieza de bronce, algo dificilísimo de lograr hace 400 años! 🔨'
+            ]
           }
         },
         quiz: {
@@ -1428,6 +1716,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El barrio conserva un trazado medieval de calles estrechas y sinuosas, con desniveles pronunciados heredados de su topografía original junto al antiguo cauce del arroyo del Arenal. Sus fachadas combinan casas populares de varios siglos con algunos palacetes, en un conjunto declarado de interés histórico-artístico.',
             kids: '¡Fíjate en lo estrechas y torcidas que son las calles, y en las cuestas que tiene el barrio! Así eran las calles de Madrid hace muchísimos siglos, y aquí se han conservado casi igual.'
+          },
+          deepenFillers: {
+            adult: [
+              'Cada domingo por la mañana el barrio acoge El Rastro, el mercadillo al aire libre más antiguo y multitudinario de Madrid, con varios siglos de tradición ininterrumpida en las mismas calles.',
+              'La Plaza de la Cebada, en el corazón del barrio, fue durante siglos mercado de abastos y también escenario de ejecuciones públicas, antes de convertirse en el espacio de ocio que es hoy.',
+              'La iglesia de San Andrés, junto a la Capilla del Obispo, conserva uno de los conjuntos escultóricos renacentistas más importantes de Madrid, poco conocido fuera de los circuitos especializados.'
+            ],
+            kids: [
+              '¡Cada domingo por la mañana se monta aquí El Rastro, el mercadillo más antiguo y grande de Madrid! 🛍️',
+              '¡Una de las plazas del barrio se usó durante siglos como mercado, antes de convertirse en el lugar tranquilo que es hoy! 🏛️',
+              '¡Hay una iglesia con esculturas antiguas preciosas que casi nadie conoce! ⛪'
+            ]
           }
         },
         quiz: {
@@ -1478,6 +1778,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El barrio conserva un caserío de finales del siglo XIX y principios del XX, hoy rehabilitado, que combina comercios independientes, galerías, terrazas y locales de ocio en torno a la Plaza de Chueca, cuyos discos de colores iluminados por la noche se han convertido en una imagen característica del barrio.',
             kids: '¡Por la noche, la plaza principal del barrio se llena de luces de colores en el suelo! Los edificios son de hace más de 100 años, pero ahora están llenos de tiendas y bares muy animados.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Mercado de San Antón, remodelado en 2011, se convirtió en uno de los primeros mercados gourmet de Madrid siguiendo el modelo del Mercado de San Miguel, y hoy es un punto de encuentro habitual del barrio.',
+              'Antes de su transformación, Chueca llegó a ser conocido en los años setenta y ochenta como una de las zonas del centro con mayor problema de venta de drogas, un pasado que contrasta radicalmente con su imagen actual.',
+              'El trazado de calles del barrio pertenece al antiguo Madrid de los Austrias, aunque casi toda su edificación visible data de la expansión burguesa del siglo XIX tras el derribo de la muralla.'
+            ],
+            kids: [
+              '¡Uno de los mercados del barrio fue de los primeros en convertirse en mercado gourmet, copiando la idea de otro mercado famoso de Madrid! 🍤',
+              '¡Este barrio tuvo una época bastante difícil hace muchos años, muy distinta de lo animado que es hoy! 🌆',
+              '¡Casi todos los edificios que ves se construyeron cuando derribaron la muralla antigua de Madrid, hace unos 150 años! 🧱'
+            ]
           }
         },
         quiz: {
@@ -1528,6 +1840,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El barrio conserva un trazado de calles estrechas del siglo XVIII y XIX, hoy salpicado de comercios vintage, cafés alternativos y galerías, en un contraste constante entre edificios históricos rehabilitados y una vida cultural marcadamente contemporánea, heredera directa del espíritu de los años 80.',
             kids: '¡Las calles de este barrio son antiguas, pero están llenas de tiendas modernas y curiosas! Es una mezcla muy especial entre lo de siempre y lo nuevo.'
+          },
+          deepenFillers: {
+            adult: [
+              'El nombre de Manuela Malasaña no se oficializó en el callejero hasta 1961, más de un siglo después de su muerte, aunque el uso popular ya llamaba así al barrio desde mucho antes.',
+              'La Plaza del Dos de Mayo, corazón del barrio, ocupa el antiguo solar del Cuartel de Monteleón, donde los capitanes Daoíz y Velarde resistieron a las tropas napoleónicas el mismo día de 1808 en que murió Manuela Malasaña.',
+              'Durante la Movida Madrileña, locales del barrio se convirtieron en salas de referencia nacional, por las que pasaron algunos de los grupos que después definirían el pop y el rock español de los años ochenta.'
+            ],
+            kids: [
+              '¡El nombre de la chica valiente no se puso oficialmente en las calles hasta más de 100 años después de que muriera! 📜',
+              '¡La plaza principal del barrio está justo donde antes había un cuartel, donde dos capitanes lucharon el mismo día que murió Manuela! ⚔️',
+              '¡En este barrio había salas de música donde tocaban los grupos más famosos de los años 80! 🎸'
+            ]
           }
         },
         quiz: {
@@ -1576,8 +1900,20 @@ CITIES.madrid.pois = [
             kids: '¡Dos de los escritores más famosos de España, que vivían casi puerta con puerta, en realidad no se llevaban nada bien! Se cree que uno de ellos ayudó en secreto a escribir una copia falsa del libro más famoso del otro, ¡para intentar fastidiarle! Todavía hoy los expertos discuten sobre quién lo hizo de verdad.'
           },
           architecture: {
-            adult: 'La calle de las Huertas, peatonal y adoquinada, concentra la seña de identidad más visible del barrio: citas y versos de Cervantes, Lope, Quevedo, Góngora y otros autores del Siglo de Oro grabados directamente en el pavimento, convirtiendo el simple paseo en un recorrido de lectura al aire libre.',
+            adult: 'La calle de las Huertas, peatonal y adoquinada, concentra la seña de identidad más visible del barrio: decenas de fragmentos literarios del Siglo de Oro grabados directamente en las losas del pavimento, convirtiendo el simple paseo en un recorrido de lectura al aire libre.',
             kids: '¡Mira bien al suelo mientras caminas por esta calle! Verás frases y versos escritos por escritores muy famosos de hace siglos, grabados directamente en las piedras. ¡Una calle que se lee con los pies!'
+          },
+          deepenFillers: {
+            adult: [
+              'Cervantes murió en su casa de este barrio el 22 de abril de 1616, y aunque se sabe que fue enterrado en el cercano convento de las Trinitarias, la ubicación exacta de sus restos dentro del templo sigue siendo objeto de debate.',
+              'El barrio debe también su nombre a la enorme concentración de imprentas y librerías instaladas aquí durante los siglos XVI y XVII, atraídas por la cercanía de tantos escritores y por la demanda de sus obras.',
+              'Quevedo y Góngora, ambos vecinos del barrio, mantuvieron una rivalidad literaria tan feroz como la de Cervantes y Lope, plagada de sonetos satíricos que se dedicaban mutuamente.'
+            ],
+            kids: [
+              '¡El escritor de Don Quijote murió en una casa de este mismo barrio, y está enterrado muy cerca, en un convento! ⚰️',
+              '¡Este barrio se llenó de imprentas y librerías hace 400 años, porque aquí vivían tantos escritores famosos! 📖',
+              '¡Otros dos escritores de este barrio también se peleaban muchísimo entre ellos, escribiéndose poemas burlones! 😄'
+            ]
           }
         },
         quiz: {
@@ -1628,6 +1964,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La plaza combina edificios decimonónicos con la fachada neoclásica del Teatro Español. Hoy es uno de los núcleos de ocio del Barrio de las Letras, con terrazas, bares de tapas y ambiente nocturno animado, sin perder su vínculo con el mundo del teatro y la literatura.',
             kids: '¡Esta plaza está siempre llena de vida! De día y de noche hay gente sentada en las terrazas, cerca del teatro más antiguo de Madrid.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Corral del Príncipe, sobre cuyo solar se levanta hoy el Teatro Español, funcionaba ya como corral de comedias en 1583, casi dos siglos y medio antes del edificio actual, construido en 1807 tras un incendio.',
+              'El hotel Reina Victoria, frente al teatro, llegó a alojar a figuras del toreo tan populares que su fachada conserva azulejos dedicados a algunos de ellos.',
+              'La plaza ocupa parte del antiguo huerto del convento de las Carmelitas Descalzas de Santa Ana, del que tomó su nombre tras la desamortización del siglo XIX.'
+            ],
+            kids: [
+              '¡En el mismo sitio donde está el teatro ya se hacían obras de teatro hace más de 400 años, mucho antes de que existiera el edificio actual! 🎭',
+              '¡El hotel de la plaza tiene azulejos dedicados a toreros famosos que se alojaban allí! 🐂',
+              '¡Esta plaza se llama así por un convento antiguo que había aquí, con huerto y todo! 🌳'
+            ]
           }
         },
         quiz: {
@@ -1673,12 +2021,24 @@ CITIES.madrid.pois = [
             kids: 'Hace muchísimos siglos, antes de que existiera la Plaza Mayor que conocemos hoy, ¡esta pequeña plaza era el mercado más importante de todo Madrid! Aquí se vendía paja para dar de comer a las mulas.'
           },
           legends: {
-            adult: 'Junto a la plaza se esconde el Jardín del Príncipe de Anglona, uno de los pocos jardines nobiliarios del siglo XVIII conservados en Madrid. Se cuenta que cuando el cuerpo de San Isidro fue localizado en este entorno a finales del siglo XIII, dos siglos después de su muerte, se constató que el cadáver no presentaba signos de descomposición, un hecho que alimentó su fama de santidad entre los madrileños.',
+            adult: 'Junto a la plaza se esconde el Jardín del Príncipe de Anglona, un pequeño jardín de origen nobiliario del siglo XVIII que hoy es de acceso público. Se cuenta que cuando el cuerpo de San Isidro fue localizado en este entorno a finales del siglo XIII, dos siglos después de su muerte, se constató que el cadáver no presentaba signos de descomposición, un hecho que alimentó su fama de santidad entre los madrileños.',
             kids: '¡Justo al lado de esta plaza se esconde un jardín secreto que casi nadie conoce! Y cuenta la leyenda que el cuerpo del santo patrón de Madrid se encontró aquí cerca en un estado sorprendentemente conservado, mucho tiempo después de morir.'
           },
           architecture: {
             adult: 'Es una de las plazas de aspecto más medieval de Madrid, de trazado irregular y escala reducida, flanqueada por el Palacio de los Vargas y la Capilla del Obispo. Conserva un ambiente recogido y castizo en pleno barrio de La Latina, muy popular para el tapeo y como punto de partida para pasear por el Madrid de los Austrias.',
             kids: '¡Esta plaza parece sacada de un cuento medieval! Sus calles estrechas y curvas te hacen sentir como si viajaras varios siglos atrás.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Jardín del Príncipe de Anglona, escondido junto a la plaza, perteneció a la casa de Vargas y solo se abrió al público en 1985, tras siglos de uso privado exclusivo de la nobleza que lo poseía.',
+              'La Capilla del Obispo alberga uno de los mejores conjuntos de retablos renacentistas de Madrid, obra de escultores como Francisco Giralte, discípulo de Alonso Berruguete.',
+              'El desnivel pronunciado de la plaza responde a que ocupa la ladera que descendía hacia el antiguo cauce del arroyo del Arenal, hoy completamente desaparecido bajo el trazado urbano actual.'
+            ],
+            kids: [
+              '¡El jardín secreto de al lado perteneció a una familia noble durante siglos, y solo se pudo visitar libremente desde hace unos 40 años! 🌳',
+              '¡Dentro de la capilla hay unas tallas de madera antiguas y preciosas, hechas por artistas muy famosos de su época! 🪵',
+              '¡La plaza tiene tanta cuesta porque antes, debajo, corría un río que ya no existe! 💧'
+            ]
           }
         },
         quiz: {
@@ -1730,6 +2090,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Calle empedrada, estrecha y en pronunciada pendiente, con soportales y el característico Arco de Cuchilleros como umbral hacia la Plaza Mayor. Conserva un aire castizo y decimonónico que la convierte en una de las estampas más fotografiadas del Madrid de los Austrias.',
             kids: '¡Esta calle es tan empinada que parece una pequeña montaña! Pasar bajo su arco de piedra es como entrar en un Madrid de hace siglos.'
+          },
+          deepenFillers: {
+            adult: [
+              'El horno de leña original del restaurante Sobrino de Botín, en funcionamiento desde el siglo XVIII, todavía se usa hoy para asar el cochinillo y el cordero que le dieron fama.',
+              'Las cuevas bajo el Arco de Cuchilleros, hoy parte de los sótanos de tabernas de la zona, formaban parte de un entramado subterráneo usado históricamente como bodegas y almacenes de los comerciantes de la Plaza Mayor.',
+              'Goya, ya consagrado como pintor de la corte, ambientó varias de sus escenas costumbristas en calles como esta, retratando el bullicio popular del Madrid castizo de finales del siglo XVIII.'
+            ],
+            kids: [
+              '¡El horno de leña de este restaurante lleva encendido, casi sin parar, desde hace más de 250 años! 🔥',
+              '¡Las cuevas bajo el arco se usaban para guardar comida y vino de los comerciantes de la plaza de al lado! 🍷',
+              '¡Un pintor muy famoso, Goya, pintó calles parecidas a esta llenas de gente y de vida! 🎨'
+            ]
           }
         },
         quiz: {
@@ -1782,6 +2154,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Combina una fachada exterior sobria, casi anónima, con un interior de extraordinaria riqueza: la célebre escalera monumental decorada con frescos del siglo XVII y la colección de tapices flamencos El Triunfo de la Eucaristía, tejidos en Bruselas a partir de diseños de Rubens y donados por la infanta Isabel Clara Eugenia.',
             kids: '¡Es un edificio de sorpresas! Por fuera no parece gran cosa, pero al entrar descubres escaleras pintadas y telas gigantes bordadas hace siglos.'
+          },
+          deepenFillers: {
+            adult: [
+              'Entre las joyas menos conocidas de la colección figura un San Francisco de Asís atribuido a Zurbarán, junto a obras de Tiziano y Brueghel el Viejo, procedentes de las dotes de las religiosas nobles que ingresaron aquí.',
+              'El convento conserva un relicario con un fragmento de la Vera Cruz, uno de los objetos más venerados por las religiosas que aún habitan la clausura.',
+              'La escalera monumental, decorada con frescos de estilo trampantojo, incluye un retrato de la familia real de la época, un recurso decorativo poco habitual en un espacio conventual.'
+            ],
+            kids: [
+              '¡Dentro se guardan cuadros de pintores carísimos y famosísimos, regalados por las familias nobles que vivieron aquí! 🖼️',
+              '¡Guardan también un trocito muy antiguo que, según cuentan, viene de la cruz más importante de la historia! ✝️',
+              '¡En la escalera pintada aparece un retrato de la familia real de esa época, escondido entre la decoración! 👑'
+            ]
           }
         },
         quiz: {
@@ -1840,6 +2224,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Fachada herreriana sobria de granito y ladrillo, típica de la arquitectura religiosa madrileña del siglo XVII, con un interior que combina la severidad exterior con salas ricamente decoradas donde se exhiben pinturas, esculturas y el relicario.',
             kids: '¡Por fuera es un edificio serio y de piedra gris, pero dentro esconde salas llenas de objetos religiosos antiguos y misteriosos!'
+          },
+          deepenFillers: {
+            adult: [
+              'El monasterio está conectado con el Palacio Real mediante un pasadizo, construido para que la familia real pudiera asistir a los oficios religiosos sin salir a la calle.',
+              'Entre sus obras de arte se conservan tallas de Gregorio Fernández, uno de los grandes escultores del Barroco español, encargadas específicamente para este convento.',
+              'El coro alto de la iglesia, reservado tradicionalmente a las monjas de clausura, permite escuchar los oficios sin ser vistas desde la nave principal, una disposición típica de los conventos reales de la época.'
+            ],
+            kids: [
+              '¡Hay un pasadizo secreto y subterráneo que conecta este convento directamente con el Palacio Real! 🕳️',
+              '¡Dentro se guardan esculturas talladas por uno de los artistas más importantes de la historia de España! 🗿',
+              '¡Las monjas tienen un lugar especial arriba, desde donde pueden escuchar la misa sin que nadie las vea! 🎶'
+            ]
           }
         },
         quiz: {
@@ -1890,6 +2286,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Barroco madrileño de Pedro de Ribera, con la fachada-portada como pieza más fotografiada del edificio. Hoy alberga la colección municipal que recorre la historia de Madrid desde 1561, año en que se convirtió en capital, hasta inicios del siglo XX.',
             kids: '¡Dentro puedes ver cómo era Madrid hace siglos, con planos, cuadros y objetos antiguos de la ciudad!'
+          },
+          deepenFillers: {
+            adult: [
+              'El museo conserva una maqueta a escala de todo Madrid realizada por León Gil de Palacio en 1830, una de las piezas más singulares de la colección por el detalle con que retrata la ciudad de esa época.',
+              'El edificio funcionó como hospicio para niños abandonados hasta bien entrado el siglo XIX, un uso social que marcó buena parte de su historia antes de convertirse en museo.',
+              'Entre sus fondos se conservan también objetos cotidianos del Madrid de los siglos XIX y XX, desde carteles de tranvías hasta enseres domésticos, que retratan la vida diaria más allá de los grandes acontecimientos.'
+            ],
+            kids: [
+              '¡Dentro se guarda una maqueta gigante de todo Madrid, hecha hace casi 200 años, con muchísimo detalle! 🏙️',
+              '¡Este edificio acogió a niños sin familia durante muchísimos años antes de convertirse en museo! 👶',
+              '¡También se guardan objetos del día a día de hace 100 años, como carteles de tranvías antiguos! 🚋'
+            ]
           }
         },
         quiz: {
@@ -1946,6 +2354,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Palacete de trazas neoclásicas reformado y ornamentado a lo largo del siglo XIX. Sus salas recrean ambientes domésticos del Romanticismo español, salón, alcoba, gabinete, con mobiliario, pintura y objetos originales de la época.',
             kids: '¡Al entrar en cada sala parece que viajas atrás en el tiempo! Los muebles, los cuadros y hasta los objetos de decoración son de verdad de hace 200 años.'
+          },
+          deepenFillers: {
+            adult: [
+              'El museo conserva el despacho y el pistoletero de duelo que perteneció al escritor romántico Mariano José de Larra, uno de los objetos más singulares de toda la colección.',
+              'El jardín interior del palacete, con su pequeño cenador, recrea el gusto romántico por los espacios ajardinados como refugio sentimental, muy en boga entre la burguesía española del siglo XIX.',
+              'Varias salas conservan papeles pintados originales de la época, un material extremadamente frágil que rara vez sobrevive intacto en interiores históricos abiertos al público.'
+            ],
+            kids: [
+              '¡Se guarda el escritorio de un escritor muy romántico de hace 200 años, junto a sus pistolas de duelo! ✒️',
+              '¡Este palacete tiene un jardín pequeñito por dentro, perfecto para pasear como hacían hace 200 años! 🌸',
+              '¡Algunas paredes todavía tienen el papel pintado original de hace dos siglos, algo rarísimo de conservar! 🖌️'
+            ]
           }
         },
         quiz: {
@@ -2003,6 +2423,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Palacio historicista del siglo XIX que conserva intacta la instalación museográfica original del propio marqués, con más de 50.000 obras repartidas en salones que recrean la vida aristocrática decimonónica.',
             kids: '¡Cada sala está llena hasta arriba de objetos curiosos: armaduras, cuadros, relojes y muchísimas cosas más, tal y como las dejó el marqués!'
+          },
+          deepenFillers: {
+            adult: [
+              'El marqués de Cerralbo fue también político y llegó a ser ministro, combinando su labor pública con una intensa actividad como coleccionista de arte, arqueología y armas antiguas durante toda su vida.',
+              'La capilla privada del palacio conserva una réplica de la Piedad de Miguel Ángel, encargada expresamente por el marqués para el culto familiar dentro de su propia casa.',
+              'El museo mantiene desde su apertura al público en 1962 la disposición original de los objetos tal y como los dejó el marqués, una condición explícita de la donación al Estado.'
+            ],
+            kids: [
+              '¡El marqués de este palacio fue también político importante, además de coleccionar de todo un poco durante toda su vida! 👨‍💼',
+              '¡Hay una capilla dentro de la casa con una copia de una escultura religiosa muy famosa! ⛪',
+              '¡Los objetos siguen colocados exactamente donde los dejó el marqués, porque así lo pidió cuando donó su palacio! 📦'
+            ]
           }
         },
         quiz: {
@@ -2060,6 +2492,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El arquitecto Diego de Villanueva eliminó posteriormente los elementos barrocos originales para adaptar el edificio al gusto neoclásico. Hoy alberga una pinacoteca con obras de Goya, Zurbarán, Rubens y otros grandes maestros.',
             kids: '¡Dentro de esta escuela hay un museo con cuadros pintados por artistas súper famosos, incluidos algunos que estudiaron aquí mismo!'
+          },
+          deepenFillers: {
+            adult: [
+              'La colección incluye una serie de escenas taurinas pintadas por Goya, reflejo de su fascinación personal por el mundo del toreo.',
+              'La institución conserva también el cráneo que se atribuyó durante años al propio Goya, extraviado tras su exhumación en Burdeos y sustituido en la tumba madrileña por otro cuyo origen sigue sin aclararse del todo.',
+              'Desde el siglo XVIII, la academia actúa además como organismo consultivo oficial en materia de protección del patrimonio histórico y artístico español, un papel que mantiene hasta hoy.'
+            ],
+            kids: [
+              '¡Aquí se guardan cuadros de Goya sobre corridas de toros, un tema que le fascinaba! 🐂',
+              '¡Hay un misterio sin resolver sobre la calavera de Goya, que se perdió después de morir y nadie sabe muy bien qué pasó con ella! 💀',
+              '¡Esta escuela también ayuda a decidir qué edificios y obras de arte antiguos hay que proteger en toda España! 🏛️'
+            ]
           }
         },
         quiz: {
@@ -2110,6 +2554,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio modernista más representativo de Madrid, con fachadas de piedra artificial de formas orgánicas y vegetales que envuelven toda la superficie; en la galería trasera destacan soportes tallados en hierro con forma de palmera.',
             kids: '¡Sus paredes están talladas con formas que parecen olas y plantas, nada de líneas rectas! Es de los edificios más originales de todo Madrid.'
+          },
+          deepenFillers: {
+            adult: [
+              'El interior conserva vidrieras, cerámicas y herrajes modernistas de gran calidad, visibles solo en contadas jornadas de puertas abiertas al no ser un edificio de visita turística regular.',
+              'González Longoria, el financiero que lo encargó, tuvo una trayectoria empresarial marcada por escándalos y quiebras que ensombrecieron su reputación en las décadas posteriores a la construcción del palacio.',
+              'La SGAE custodia en su interior partituras originales y documentos de algunos de los compositores españoles más importantes de los siglos XIX y XX.'
+            ],
+            kids: [
+              '¡Por dentro tiene vidrieras y decoraciones preciosas que casi nadie puede ver, porque no se visita normalmente! 🪟',
+              '¡El señor rico que mandó construir esta casa tuvo después bastantes problemas de dinero! 💸',
+              '¡Dentro se guardan partituras originales de compositores españoles muy importantes! 🎼'
+            ]
           }
         },
         quiz: {
@@ -2160,6 +2616,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Estilo afrancesado con cúpula de pizarra dorada visible desde gran parte de Madrid; ocupa la esquina entre Gran Vía y Alcalá con una fachada profusamente esculpida.',
             kids: '¡Su cúpula dorada brilla tanto que se ve desde muy lejos! Está justo en una esquina muy importante, donde se encuentran dos calles famosas de Madrid.'
+          },
+          deepenFillers: {
+            adult: [
+              'El edificio ha aparecido como telón de fondo en numerosas películas y series rodadas en Gran Vía, convirtiéndose en uno de los iconos visuales más reconocibles del cine español ambientado en Madrid.',
+              'La cúpula, revestida de pizarra y cobre, se ilumina por la noche desde 2011 con un sistema de luz que resalta su silueta dorada sobre el resto de la avenida.',
+              'El edificio ocupa un solar estratégico que marca simbólicamente el arranque de la Gran Vía en su confluencia con la calle de Alcalá, uno de los cruces más fotografiados de la ciudad.'
+            ],
+            kids: [
+              '¡Este edificio ha salido en un montón de películas y series ambientadas en Madrid! 🎬',
+              '¡Por la noche se ilumina especialmente para que su cúpula dorada brille todavía más! 💡',
+              '¡Está justo en la esquina donde empieza la Gran Vía, uno de los cruces más fotografiados de la ciudad! 📸'
+            ]
           }
         },
         quiz: {
@@ -2210,6 +2678,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Estilo ecléctico que combina el neoplateresco, el modernismo y la secesión vienesa, con fachada de piedra de Novelda y un cimborrio octogonal rematado con reloj. Hoy tiene mirador panorámico, exposiciones y terraza-restaurante abiertos al público.',
             kids: '¡Puedes subir hasta arriba del todo y ver Madrid entero desde su mirador! Es una de las mejores vistas de toda la ciudad.'
+          },
+          deepenFillers: {
+            adult: [
+              'El edificio contó originalmente con un sistema neumático interno para trasladar la correspondencia entre plantas a gran velocidad, tecnología puntera para su época.',
+              'Antonio Palacios, coautor del proyecto, tenía solo treinta años cuando ganó el concurso, un encargo que lanzó la carrera de uno de los arquitectos más influyentes del Madrid del siglo XX.',
+              'La reconversión de 2007 conservó parte de la maquinaria y el mobiliario postal original en una de sus plantas, hoy visible como parte del recorrido expositivo del centro cultural.'
+            ],
+            kids: [
+              '¡Este edificio tenía tubos especiales por dentro para mandar las cartas de un piso a otro rapidísimo! 📬',
+              '¡El arquitecto que ganó el concurso para construir este edificio tenía solo treinta años! 👷',
+              '¡Todavía se pueden ver dentro máquinas antiguas de correos, como en un pequeño museo escondido! ⚙️'
+            ]
           }
         },
         quiz: {
@@ -2260,6 +2740,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Rotonda de tráfico donde confluyen las calles de Génova, Almagro, Santa Engracia y Sagasta, rodeada de edificios de finales del siglo XIX y principios del XX propios del Ensanche madrileño. Es zona de ambiente universitario y de ocio nocturno, con numerosos bares, terrazas y buena comunicación de metro, al confluir aquí varias líneas.',
             kids: '¡Aquí se juntan varias calles importantes de Madrid, como si fuera una estrella con muchos brazos! Está rodeada de edificios antiguos, de hace más de cien años. Es una zona con muchos bares y mucho ambiente, sobre todo por las noches, y hay varias líneas de metro que paran aquí.'
+          },
+          deepenFillers: {
+            adult: [
+              'Manuel Alonso Martínez, además de redactar el Código Civil, ocupó varias veces la cartera de Ministro de Gracia y Justicia y fue uno de los principales artífices del sistema jurídico liberal español del siglo XIX.',
+              'La plaza forma parte del Ensanche diseñado por el ingeniero Carlos María de Castro a partir de 1860, el gran plan urbanístico que multiplicó la superficie de Madrid fuera de su antiguo recinto amurallado.',
+              'Su buena conexión de metro, con varias líneas confluyendo bajo la plaza, la convirtió desde los años setenta en uno de los nudos de transporte más importantes del centro de Madrid.'
+            ],
+            kids: [
+              '¡El abogado que da nombre a esta plaza fue también varias veces ministro del gobierno! 👔',
+              '¡Esta plaza forma parte del gran plan que hizo crecer Madrid mucho más allá de sus murallas antiguas! 🗺️',
+              '¡Debajo de la plaza se juntan varias líneas de metro, por eso hay tanto movimiento de gente! 🚇'
+            ]
           }
         },
         quiz: {
@@ -2310,6 +2802,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Arteria larga y bulliciosa que enlaza Malasaña, de espíritu bohemio y alternativo, con Chueca, barrio LGTBI animado y diverso, atravesando edificios de distintas épocas, desde casas decimonónicas hasta locales comerciales reformados. Concentra comercio de moda, desde marcas internacionales hasta tiendas vintage y alternativas, conviviendo con las boutiques originales que le dieron fama.',
             kids: '¡Caminar por esta calle es como pasar por dos barrios muy distintos a la vez! Tiene edificios de épocas distintas, desde casas de hace más de cien años hasta tiendas reformadas hace poco. Está llena de tiendas de ropa de todo tipo, desde las más modernas hasta las más originales.'
+          },
+          deepenFillers: {
+            adult: [
+              'La calle da nombre a uno de los antiguos distritos administrativos de Madrid, y llegó a ser, en algunos tramos del siglo XIX, una de las principales vías comerciales de telas y tejidos de la ciudad.',
+              'Varios edificios conservan todavía comercios centenarios con fachadas y rótulos originales, testigos de la actividad mercantil ininterrumpida de la vía desde hace más de cien años.',
+              'El tramo final, cerca de Gran Vía, formó parte de las reformas urbanísticas de comienzos del siglo XX que buscaban modernizar el trazado histórico del centro de Madrid.'
+            ],
+            kids: [
+              '¡Esta calle da nombre a todo un barrio antiguo de Madrid! 🏘️',
+              '¡Algunas tiendas de esta calle llevan más de 100 años abiertas, con sus carteles originales todavía puestos! 🏪',
+              '¡Una parte de esta calle se reformó hace más de 100 años para modernizar el centro de Madrid! 🚧'
+            ]
           }
         },
         quiz: {
@@ -2360,6 +2864,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Calle peatonal estrecha que conecta la Puerta del Sol con Gran Vía, con edificios de los siglos XIX y XX en distintos estados de conservación. En los últimos años, un plan municipal de rehabilitación viene renovando fachadas y locales, conviviendo los comercios nuevos con las viviendas históricas y el pasado más singular de la calle.',
             kids: 'Es una calle estrecha y peatonal que conecta dos zonas muy famosas de Madrid, con edificios antiguos de hace más de cien años. Últimamente el Ayuntamiento está arreglando muchas fachadas y tiendas, así que cada vez tiene más comercios nuevos conviviendo con las casas de siempre.'
+          },
+          deepenFillers: {
+            adult: [
+              'La calle formó parte del itinerario habitual de la Corte hacia los principales conventos e iglesias del centro histórico, lo que explica su tradicional carácter comercial de lujo en siglos pasados.',
+              'El plan de rehabilitación municipal ha incluido la recuperación de fachadas históricas ocultas durante décadas bajo reformas comerciales posteriores, sacando a la luz elementos decorativos originales del siglo XIX.',
+              'Pese a su fama reciente, la calle conserva en varios números portales y escaleras originales protegidos por su valor patrimonial, testigos discretos de su pasado más elegante.'
+            ],
+            kids: [
+              '¡Esta calle formaba parte del camino que usaba la Corte para ir de un lado a otro del centro de Madrid! 👑',
+              '¡Al arreglar las fachadas, han encontrado decoraciones antiguas escondidas debajo de reformas más modernas! 🔍',
+              '¡Todavía quedan portales y escaleras muy antiguos y protegidos, escondidos entre las tiendas! 🚪'
+            ]
           }
         },
         quiz: {
@@ -2411,6 +2927,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Confluencia emblemática de Gran Vía, flanqueada por el Edificio Carrión y el Cine Callao; uno de los cruces más transitados de Madrid, epicentro del comercio y el ocio cinematográfico.',
             kids: '¡Es una de las plazas con más gente pasando de todo Madrid! Está rodeada de tiendas, cines y pantallas gigantes de publicidad.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Edificio Carrión, frente al Cine Callao, fue en 1933 el primer edificio de Madrid con aire acondicionado central y ascensores de alta velocidad, todo un símbolo de modernidad para la época.',
+              'La plaza se ha convertido en una de las más utilizadas de España para grandes campañas publicitarias digitales, gracias a la concentración de pantallas de gran formato en sus fachadas.',
+              'Los cines de la plaza mantienen viva una tradición de estrenos con alfombra roja que se remonta a los años treinta del siglo pasado.'
+            ],
+            kids: [
+              '¡Uno de los edificios de la plaza fue el primero de Madrid en tener aire acondicionado de verdad, hace casi 100 años! ❄️',
+              '¡Esta plaza tiene tantas pantallas gigantes que se usa para anuncios enormes que se ven desde lejos! 📺',
+              '¡Aquí se celebran estrenos de películas con alfombra roja desde hace casi 100 años! 🎬'
+            ]
           }
         },
         quiz: {
@@ -2462,6 +2990,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Fue el primer edificio de Europa construido con esqueleto de acero al estilo de los rascacielos neoyorquinos, revestido después con piedra caliza y profusa decoración barroca-plateresca de guirnaldas, escudos y motivos vegetales. Su volumen se escalona en varios cuerpos retranqueados hasta rematar en una linterna con chapitel, un perfil que mantuvo el título de edificio más alto de Europa hasta 1953.',
             kids: '¡Fue el primer edificio de Europa construido como los rascacielos de Nueva York, con un esqueleto de acero por dentro! Por fuera lo vistieron de piedra con decoraciones talladas, como guirnaldas y escudos. Se va estrechando poco a poco hacia arriba, como una tarta de varios pisos, hasta terminar en una puntita. ¡Fue el edificio más alto de Europa durante casi 30 años!'
+          },
+          deepenFillers: {
+            adult: [
+              'Pese a los intensos bombardeos que sufrió durante la Guerra Civil, el edificio nunca llegó a colapsar, gracias a la solidez de su estructura de acero importada de Estados Unidos.',
+              'La sede alojó durante décadas una de las primeras centrales telefónicas automáticas de España, que fue sustituyendo poco a poco al antiguo sistema manual de operadoras.',
+              'Su silueta y su reloj lo convirtieron en un punto de referencia visual para los madrileños décadas antes de que existieran los relojes públicos digitales.'
+            ],
+            kids: [
+              '¡Este edificio recibió muchos bombardeos durante una guerra y aun así no se cayó! 💥',
+              '¡Aquí estuvo una de las primeras centrales de teléfonos automáticas de España, antes había que hablar con una persona para conectar cada llamada! ☎️',
+              '¡La gente de Madrid usaba el reloj de este edificio para saber la hora desde lejos, mucho antes de tener relojes en el móvil! 🕐'
+            ]
           }
         },
         quiz: {
@@ -2513,6 +3053,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Mirador ajardinado escalonado sobre el Manzanares; aquí se celebran cada año la Fiesta de la Paloma y la Fiesta de San Isidro, con terrazas y ambiente muy castizo en verano.',
             kids: '¡En verano este parque se llena de terrazas y música! Es uno de los sitios favoritos de los madrileños para ver atardecer.'
+          },
+          deepenFillers: {
+            adult: [
+              'El parque se sitúa sobre el antiguo Cerro de las Vistillas, que ya en el siglo XIX era lugar tradicional de paseo dominical de las familias madrileñas por sus vistas sobre el valle del Manzanares.',
+              'Durante la Guerra Civil, la proximidad del frente convirtió esta zona en una de las más peligrosas de la capital, con la población viviendo a apenas unos metros de las líneas de combate.',
+              'Las terrazas actuales ocupan terrenos que en distintas épocas sirvieron para usos muy distintos antes de su urbanización definitiva como parque en el siglo XX.'
+            ],
+            kids: [
+              '¡La gente de Madrid ya venía a pasear aquí los domingos hace más de 150 años, porque las vistas eran preciosas! 🚶',
+              '¡Durante una guerra, la gente que vivía aquí estaba muy cerca de donde luchaban los soldados! 😨',
+              '¡Antes de tener las terrazas de hoy, este terreno se usó de formas muy distintas a lo largo de los años! 🏕️'
+            ]
           }
         },
         quiz: {
@@ -2564,6 +3116,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Uno de los pocos jardines nobiliarios del siglo XVIII conservados en Madrid; un rincón escondido y tranquilo junto a la Plaza de la Paja, en pleno Madrid de los Austrias.',
             kids: '¡Es un rincón tranquilo y verde escondido en pleno centro de Madrid! Perfecto para descansar un rato entre tanta calle de piedra.'
+          },
+          deepenFillers: {
+            adult: [
+              'El jardín combina elementos de la jardinería francesa clásica con toques de tradición hispanoárabe, una mezcla poco habitual que refleja los distintos gustos de sus sucesivas reformas.',
+              'Javier de Winthuysen, responsable del diseño de 1920, fue una figura clave en la recuperación del jardín histórico español de principios del siglo XX, y trabajó también en otros jardines emblemáticos del país.',
+              'El Palacio de Anglona al que perteneció este jardín tomó su nombre de un título nobiliario italiano incorporado a la familia propietaria por matrimonio en el siglo XIX.'
+            ],
+            kids: [
+              '¡Este jardín mezcla un estilo francés con toques de jardines árabes, algo poco común! 🌷',
+              '¡El jardinero que le dio su forma actual ayudó también a recuperar otros jardines históricos importantes de España! 🌻',
+              '¡El nombre del palacio viene de un título de nobleza italiano que llegó a la familia por una boda! 💍'
+            ]
           }
         },
         quiz: {
@@ -2615,6 +3179,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La fachada actual, de ladrillo y piedra caliza, procede de la reforma neogótica de 1870, con arcos apuntados y una portada escalonada que sustituyó el aspecto barroco original. Junto a la iglesia, en un pasadizo lateral, se encuentra la histórica Chocolatería San Ginés, célebre por su chocolate con churros a cualquier hora, parada obligada tras una noche de fiesta en Madrid.',
             kids: 'La fachada que ves hoy, de ladrillo y piedra, es de una reforma de hace más de 150 años, con arcos puntiagudos como los de los castillos de cuento. Justo al lado hay una chocolatería famosísima donde puedes tomar chocolate con churros a cualquier hora del día o de la noche.'
+          },
+          deepenFillers: {
+            adult: [
+              'Los archivos parroquiales, que se remontan a 1480, siguen siendo consultados hoy por historiadores que estudian la vida cotidiana del Madrid de los siglos XVI y XVII.',
+              'La Chocolatería San Ginés, en el pasadizo lateral, funciona ininterrumpidamente desde 1894, manteniéndose abierta hasta altas horas los fines de semana desde hace más de un siglo.',
+              'El retablo mayor que se ve hoy en el interior sustituyó a uno anterior perdido durante los disturbios de 1936, uno de los muchos episodios de destrucción patrimonial que sufrió Madrid en la Guerra Civil.'
+            ],
+            kids: [
+              '¡En los archivos de esta iglesia los historiadores todavía investigan cómo era la vida en el Madrid de hace 400 años! 📜',
+              '¡La chocolatería de al lado lleva abierta desde 1894, y algunos días no cierra ni de noche! 🍫',
+              '¡El de hoy es un altar nuevo! El de verdad se perdió durante una época muy difícil de España, ¡hace unos 90 años! ⛪'
+            ]
           }
         },
         quiz: {
@@ -2666,6 +3242,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Francisco Sabatini concibió la basílica inspirándose en el Panteón de Roma y en Les Invalides de París: una rotonda central rodeada de seis capillas radiales, precedida por un pórtico de columnas dóricas y flanqueada por dos torres campanario simétricas. La cúpula, pintada en 1917 por Luis Menéndez Pidal con la Apoteosis de las Virtudes, corona este conjunto neoclásico construido en piedra y ladrillo.',
             kids: '¡El arquitecto que la diseñó se inspiró en templos famosos de Roma y de París! Por fuera tiene dos torres iguales, como dos hermanas gemelas, y una entrada con columnas. Por dentro, seis capillas rodean la gran sala circular, y al mirar hacia arriba, la cúpula pintada parece un cielo entero lleno de personajes.'
+          },
+          deepenFillers: {
+            adult: [
+              'La sillería del coro, tallada en nogal en el siglo XVIII, procede del desaparecido convento franciscano original y está considerada una de las obras de ebanistería religiosa más importantes conservadas en Madrid.',
+              'Además de Goya, otros pintores de renombre contribuyeron a decorar distintas capillas del templo a lo largo de los siglos XVIII y XIX, formando un conjunto pictórico poco habitual en un solo edificio.',
+              'El edificio fue declarado basílica menor por la Santa Sede en 1962, un título honorífico que reconoce su importancia histórica y artística dentro del catolicismo español.'
+            ],
+            kids: [
+              '¡Los asientos de madera tallada del coro son una auténtica joya, hechos hace más de 250 años! 🪑',
+              '¡Otros pintores muy famosos, además de Goya, decoraron distintas capillas de esta basílica! 🎨',
+              '¡Este templo recibió un título especial del Vaticano por lo importante que es su historia y su arte! ⛪'
+            ]
           }
         },
         quiz: {
@@ -2716,6 +3304,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Arco triunfal de 19 metros de altura, en bloques de granito con elementos decorativos de piedra caliza; arco central de medio punto flanqueado por dos puertas adinteladas y grupo escultórico en lo alto.',
             kids: '¡Es un arco enorme de piedra gris, con estatuas en lo más alto! Antiguamente marcaba el límite de la ciudad de Madrid.'
+          },
+          deepenFillers: {
+            adult: [
+              'El proyecto original de José Bonaparte incluía un gigantesco arco dedicado a sí mismo, del que apenas se llegaron a colocar los cimientos antes de su expulsión de España en 1813.',
+              'La puerta marcó durante décadas el límite físico entre la ciudad y el extrarradio, y su entorno se convirtió en una zona de mercados y ferias de ganado hasta bien entrado el siglo XX.',
+              'El grupo escultórico que corona el arco representa a Madrid coronando a Fernando VII, un tema alegórico habitual en la escultura conmemorativa española de la época.'
+            ],
+            kids: [
+              '¡El primer plan para esta puerta era dedicarla a otro rey completamente distinto, pero nunca llegó a construirse así! 📐',
+              '¡Durante muchísimos años, esta puerta marcaba dónde terminaba la ciudad de Madrid! 🏙️',
+              '¡Arriba del arco hay estatuas que representan a la propia ciudad de Madrid coronando a un rey! 👑'
+            ]
           }
         },
         quiz: {
@@ -2767,6 +3367,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio conserva del antiguo caserón un patio renacentista del siglo XVI, con dos plantas de arcadas sobre columnas de piedra, y una capilla barroca del XVII construida junto al pozo tradicionalmente ligado a San Isidro. La museografía moderna, con estructuras de vidrio y acero, se inserta con discreción entre estos elementos históricos, sin ocultarlos, y se completa con un jardín arqueobotánico y un almacén visitable.',
             kids: 'El edificio guarda un patio antiguo con arcos de piedra de hace 500 años, ¡y hasta una pequeña capilla junto al pozo de la leyenda! Las salas modernas, con cristal y metal, se han construido con mucho cuidado alrededor de estas partes tan viejas, para no taparlas. Tiene hasta un jardín con plantas antiguas y una zona donde puedes ver cómo se guardan los objetos del museo.'
+          },
+          deepenFillers: {
+            adult: [
+              'El museo conserva restos arqueológicos que documentan una de las primeras ocupaciones humanas del valle del Manzanares, con piezas de gran antigüedad procedentes de la región madrileña.',
+              'El edificio perteneció originalmente a los condes de Paredes, antes de pasar por distintos usos hasta su reconversión en museo municipal a finales del siglo XX.',
+              'El jardín arqueobotánico del museo recrea especies vegetales documentadas en la región madrileña desde época prehistórica, un recurso didáctico poco frecuente en museos de este tipo.'
+            ],
+            kids: [
+              '¡Aquí se guardan restos de personas que vivieron en esta zona hace muchísimo tiempo! 🦴',
+              '¡Este edificio perteneció antes a una familia noble, mucho antes de convertirse en museo! 🏛️',
+              '¡El jardín del museo tiene plantas parecidas a las que crecían aquí hace miles de años! 🌿'
+            ]
           }
         },
         quiz: {
@@ -2818,6 +3430,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Estructura histórica de ladrillo conservada, coronada por una ampliación revestida de acero corten; junto al edificio, el jardín vertical de 460 metros cuadrados diseñado por el botánico francés Patrick Blanc, con cerca de 15.000 plantas de unas 300 especies.',
             kids: '¡Al lado del edificio hay un jardín vertical gigante, con miles de plantas creciendo directamente sobre una pared! Parece una selva pegada al edificio.'
+          },
+          deepenFillers: {
+            adult: [
+              'Los arquitectos conservaron intacta la chimenea original de la antigua central eléctrica, integrándola como elemento escultórico dentro del nuevo diseño del edificio.',
+              'El jardín vertical de Patrick Blanc funciona con un sistema de riego independiente del suelo, ya que las plantas crecen ancladas directamente sobre un fieltro sintético en la pared, sin tierra.',
+              'La cubierta de acero corten, con su color oxidado característico, fue diseñada deliberadamente para ir cambiando de tono con el paso de los años, un material que envejece de forma controlada.'
+            ],
+            kids: [
+              '¡Los arquitectos dejaron la chimenea antigua de la fábrica de electricidad como parte de la decoración! 🏭',
+              '¡Las plantas del jardín vertical crecen pegadas a la pared sin necesitar tierra, solo un material especial y agua! 💦',
+              '¡El metal de arriba del edificio está hecho para ir cambiando de color poco a poco con el paso de los años! 🎨'
+            ]
           }
         },
         quiz: {
@@ -2868,6 +3492,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La plaza se organiza en torno al Arco de Monteleón y las esculturas de Daoíz y Velarde, con una zona ajardinada central y un área infantil, rodeada de bloques de viviendas del siglo XIX típicos del ensanche de Malasaña. Hoy es el corazón social del barrio, con terrazas, bares y ambiente joven, sin perder su valor simbólico como lugar de memoria histórica.',
             kids: 'La plaza tiene el arco de piedra y las estatuas de los héroes justo en el centro, rodeadas de un jardín y una zona de juegos. A su alrededor hay edificios de viviendas de hace más de 150 años. ¡Ahora esta plaza está siempre llena de gente sentada en las terrazas! Es uno de los puntos de encuentro favoritos del barrio.'
+          },
+          deepenFillers: {
+            adult: [
+              'El levantamiento del 2 de mayo se saldó con numerosas víctimas entre la población civil madrileña, y la dura represión posterior fue inmortalizada por Goya en su célebre cuadro El tres de mayo.',
+              'Manuela Malasaña, la joven que da nombre al barrio vecino, murió muy cerca de este mismo cuartel el mismo día del levantamiento, lo que explica la estrecha relación histórica entre ambos lugares.',
+              'La plaza se ha convertido con el tiempo en epicentro de las celebraciones alternativas del barrio, sin perder su función original como monumento cívico dedicado a la memoria del 2 de mayo.'
+            ],
+            kids: [
+              '¡Aquella lucha tan valiente terminó con muchas personas heridas, y un pintor famoso, Goya, pintó después lo que pasó al día siguiente! 🎨',
+              '¡La chica que da nombre al barrio de al lado murió muy cerca de este mismo sitio, el mismo día! 🎗️',
+              '¡Esta plaza sigue siendo el lugar donde el barrio recuerda aquel día tan importante, aunque ahora también se usa para fiestas! 🎉'
+            ]
           }
         },
         quiz: {
@@ -2918,6 +3554,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La plaza conserva su vocación comercial junto al moderno edificio del Mercado de la Cebada, reconstruido en hormigón y líneas funcionales en 1958 tras la demolición del antiguo mercado de hierro y cristal del siglo XIX. A su alrededor se conservan casas tradicionales de pocas alturas, con miradores y balconadas, típicas del castizo barrio de La Latina, que contrastan con la sobriedad del edificio comercial.',
             kids: '¡Hoy en día la plaza sigue siendo un lugar de mercado, aunque ya no se venden caballos ni cebada! El edificio del mercado que ves ahora es de hormigón, construido hace más de 60 años. A su alrededor todavía quedan casas antiguas y bajitas, con balcones y miradores, típicas de este barrio tan castizo de Madrid.'
+          },
+          deepenFillers: {
+            adult: [
+              'El mercado de hierro original del siglo XIX, sustituido en 1958, fue durante décadas uno de los mayores mercados cubiertos de Madrid, con una estructura metálica comparable a la del cercano Mercado de San Miguel.',
+              'La ejecución del general Riego en 1823 se convirtió en un símbolo del liberalismo español, y su nombre acabó dando título a un himno que se hizo célebre durante la Segunda República un siglo después.',
+              'La plaza sigue acogiendo cada domingo parte del recorrido del Rastro, prolongando así, de forma indirecta, su vocación comercial de siglos.'
+            ],
+            kids: [
+              '¡El mercado de hierro que había antes aquí era uno de los más grandes de todo Madrid, parecido al Mercado de San Miguel! 🏛️',
+              '¡Un militar que fue castigado aquí hace 200 años se convirtió después en un símbolo muy importante para España! ⭐',
+              '¡Los domingos, parte del mercadillo de El Rastro pasa también por esta plaza! 🛍️'
+            ]
           }
         },
         quiz: {
@@ -2968,6 +3616,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Actualmente la plaza cuenta con un mercado permanente de flores, formado por ocho módulos de metal y madera de diseño moderno, abierto todos los días del año, en el que cada puesto lleva el nombre de una obra de Tirso de Molina.',
             kids: '¡Toda la plaza está llena de puestos de flores de colores! Cada puesto tiene el nombre de una obra escrita por el autor que da nombre a la plaza.'
+          },
+          deepenFillers: {
+            adult: [
+              'El convento de la Merced perteneció a una orden dedicada históricamente al rescate de cautivos cristianos en manos musulmanas, una misión que marcó buena parte de su actividad durante siglos.',
+              'La estatua de Tirso de Molina que preside la plaza se instaló mucho más tarde que la propia plaza, como homenaje tardío al dramaturgo que había vivido entre los muros del desaparecido convento.',
+              'El mercado de flores actual sustituyó a un aparcamiento subterráneo construido en los años setenta, que llegó a ocupar buena parte del subsuelo de la plaza.'
+            ],
+            kids: [
+              '¡Los frailes de este convento se dedicaban a rescatar a personas prisioneras en tierras lejanas, una misión muy especial! ⛓️',
+              '¡La estatua del escritor que ves hoy se puso mucho después de crearse la plaza, como un homenaje! 🗿',
+              '¡Antes de tener los puestos de flores de hoy, aquí hubo un aparcamiento subterráneo debajo de la plaza! 🅿️'
+            ]
           }
         },
         quiz: {
@@ -3018,6 +3678,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Hoy es el epicentro multicultural, artístico y alternativo del castizo barrio de Lavapiés, con una intensa mezcla de comercios de todo el mundo, arte urbano y ambiente diverso.',
             kids: '¡Esta plaza está llena de gente de todo el mundo! Es uno de los barrios más multiculturales y con más ambiente de todo Madrid.'
+          },
+          deepenFillers: {
+            adult: [
+              'El barrio de Lavapiés fue durante siglos zona de artesanos y pequeños comerciantes, un carácter popular que se mantuvo incluso cuando otros barrios del centro de Madrid se aristocratizaron en los siglos XVIII y XIX.',
+              'Desde finales del siglo XX el barrio se ha convertido en uno de los puntos de mayor diversidad de origen migrante de toda España, con comunidades de decenas de países distintos conviviendo en un espacio reducido.',
+              'La Corrala, un tipo de vivienda popular con patio central y galerías abiertas típica de este barrio, se conserva aquí en varios ejemplos que ilustran cómo vivían las clases trabajadoras del Madrid castizo.'
+            ],
+            kids: [
+              '¡Este barrio fue durante siglos un lugar de artesanos y gente trabajadora, distinto a otros barrios más lujosos de Madrid! 🔨',
+              '¡Hoy en día viven aquí personas de muchísimos países distintos, todos mezclados en el mismo barrio! 🌍',
+              '¡Todavía se conservan casas antiguas con patios en el centro, donde vivían muchas familias juntas hace mucho tiempo! 🏘️'
+            ]
           }
         },
         quiz: {
@@ -3068,6 +3740,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El mercado tiene tres plantas: en las dos primeras conviven puestos tradicionales de pescado, carne y verdura junto a espacios gastronómicos modernos, mientras que en la tercera se combina la actividad comercial con la cultural.',
             kids: '¡Puedes recorrer el mercado y encontrar de todo: pescado, fruta, y también sitios para comer platos de todo el mundo!'
+          },
+          deepenFillers: {
+            adult: [
+              'La escuela de flamenco Amor de Dios, instalada sobre el mercado, ha formado a generaciones de bailaores que después triunfaron en escenarios internacionales.',
+              'El mercado sobrevivió a varias amenazas de cierre en las décadas de 1980 y 1990, cuando la competencia de los supermercados hizo temer por la desaparición de mercados tradicionales similares del centro de Madrid.',
+              'Su nombre recuerda al hospital de Antón Martín, un antiguo centro asistencial que dio nombre a toda la zona mucho antes de que existiera cualquier mercado en el lugar.'
+            ],
+            kids: [
+              '¡En la escuela de flamenco de arriba se han formado bailarines que después triunfaron por todo el mundo! 💃',
+              '¡Este mercado estuvo a punto de cerrar hace unos años, cuando muchos otros mercados parecidos sí que cerraron! 🏪',
+              '¡El nombre del mercado viene de un antiguo hospital que había en esta zona hace muchísimo tiempo! 🏥'
+            ]
           }
         },
         quiz: {
@@ -3119,6 +3803,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio actual, terminado en 1958, sustituyó por razones de higiene al vistoso mercado de hierro y cristal del siglo XIX; se construyó en hormigón armado con una gran nave diáfana de planta rectangular, priorizando la funcionalidad sobre el ornamento. Es, junto con el de Antón Martín, uno de los mercados de abastos más grandes y tradicionales del centro histórico, corazón comercial del castizo barrio de La Latina.',
             kids: 'El edificio que ves hoy se terminó en 1958 y sustituyó al antiguo mercado de hierro y cristal, que ya no cumplía las normas de limpieza. Está hecho de hormigón, con una nave enorme y sin muchos adornos, pensada para que quepa todo lo necesario. Sigue siendo uno de los mercados más grandes de todo el centro de Madrid, donde los vecinos hacen la compra desde hace generaciones.'
+          },
+          deepenFillers: {
+            adult: [
+              'El mercado da nombre a todo el barrio y a la plaza homónima, aunque el edificio actual ocupa solo una parte del extenso solar que tuvo el mercado de hierro original del siglo XIX.',
+              'Durante los años de mayor actividad, este mercado llegó a abastecer a buena parte del sur del centro histórico de Madrid, con puestos especializados que se mantienen hasta hoy.',
+              'El edificio actual ha sido objeto de varios proyectos de remodelación en las últimas décadas para adaptarlo a los nuevos hábitos de compra, sin perder su carácter de mercado de proximidad tradicional.'
+            ],
+            kids: [
+              '¡Este mercado le da nombre a todo el barrio y a la plaza donde está! 🏘️',
+              '¡Durante muchos años, este mercado alimentaba a una gran parte de todo el centro de Madrid! 🥕',
+              '¡El edificio se ha ido renovando varias veces para seguir siendo útil, sin perder su forma de mercado de siempre! 🔧'
+            ]
           }
         },
         quiz: {
@@ -3170,6 +3866,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Calle de trazado irregular y pronunciada pendiente, que discurre desde la plaza de Puerta Cerrada hasta la costanilla de San Pedro, en pleno Madrid de los Austrias.',
             kids: '¡Es una calle tan empinada que parece una pequeña cuesta! Está en pleno barrio más antiguo de Madrid.'
+          },
+          deepenFillers: {
+            adult: [
+              'El cargo de nuncio apostólico tuvo un peso político considerable durante los siglos XVI y XVII, actuando como intermediario directo entre la Santa Sede y la Corona española en asuntos de gran trascendencia diplomática.',
+              'El edificio de la antigua Nunciatura ha albergado distintos usos institucionales a lo largo del siglo XX, tras el traslado definitivo de la representación papal a otra sede de la ciudad.',
+              'La calle conserva parte del trazado medieval original del barrio, con un desnivel tan pronunciado que refleja la topografía natural previa a cualquier intervención urbanística posterior.'
+            ],
+            kids: [
+              '¡El embajador del Papa en España era una persona muy importante, que hablaba directamente con los reyes! 👑',
+              '¡El edificio donde vivían los embajadores del Papa se ha usado para varias cosas distintas a lo largo del tiempo! 🏛️',
+              '¡Esta calle conserva la forma de las calles medievales de hace muchísimos siglos! 🛤️'
+            ]
           }
         },
         quiz: {
@@ -3220,6 +3928,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Plaza de trazado irregular y reducidas dimensiones, típica del urbanismo popular de Malasaña, rodeada de edificios bajos de los siglos XIX y principios del XX con balcones de forja y fachadas encaladas. Su suelo empedrado y la confluencia de calles estrechas conservan la escala íntima de un barrio pensado para pasear, hoy animado por terrazas y bares.',
             kids: '¡Esta plaza es tan pequeña que parece un salón al aire libre! Está rodeada de edificios bajitos con balcones de hierro forjado, típicos del barrio de Malasaña, y el suelo está hecho de adoquines. Varias calles estrechas se juntan aquí, como los brazos de una estrella.'
+          },
+          deepenFillers: {
+            adult: [
+              'El mercadillo original de la plaza vendía sobre todo productos de segunda mano y objetos usados, una tradición popular anterior y distinta a la de los grandes mercados de abastos cubiertos del centro.',
+              'La retirada del nombre franquista en años recientes formó parte de un proceso más amplio de revisión del callejero madrileño, que afectó a varias decenas de calles y plazas de la ciudad.',
+              'Pese a su reducido tamaño, la plaza ha mantenido su función social de punto de encuentro vecinal casi ininterrumpidamente desde que se tiene constancia documental de su existencia.'
+            ],
+            kids: [
+              '¡En el mercadillo antiguo se vendían sobre todo objetos usados y de segunda mano! 🛍️',
+              '¡El cambio de nombre de esta plaza formó parte de un cambio de nombres en muchas calles de Madrid! 📛',
+              '¡Aunque es pequeñita, esta plaza ha sido siempre un lugar donde se juntan los vecinos! 👥'
+            ]
           }
         },
         quiz: {
@@ -3270,6 +3990,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La calle combina comercio de proximidad tradicional con casas señoriales de balconadas y algunos palacetes de estilo Belle Époque, en una de las estampas más elegantes del Madrid clásico.',
             kids: '¡Caminar por esta calle es como pasear entre casas de cuento, con balcones y fachadas muy elegantes!'
+          },
+          deepenFillers: {
+            adult: [
+              'El barrio de Chamberí, al que pertenece esta calle, se desarrolló siguiendo el plan del Ensanche de Carlos María de Castro, aunque con un carácter más residencial que otras zonas del mismo proyecto.',
+              'Varios de los palacetes de la calle albergan hoy sedes diplomáticas y embajadas, continuando de forma indirecta la tradición de residencia de clases privilegiadas que tuvo la calle desde su origen.',
+              'El duque de Santo Mauro, promotor de la urbanización, dio también su nombre a un palacete cercano hoy convertido en hotel de lujo, testimonio de aquella operación inmobiliaria decimonónica.'
+            ],
+            kids: [
+              '¡Este barrio se construyó siguiendo un gran plan para hacer crecer Madrid, pero con casas más tranquilas que otras zonas! 🏘️',
+              '¡Varios de los palacetes de esta calle son hoy embajadas de otros países! 🌍',
+              '¡El nombre de la persona que impulsó esta calle también se usa hoy para un hotel de lujo cercano! 🏨'
+            ]
           }
         },
         quiz: {
@@ -3320,6 +4052,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Una de las iglesias más notables y hermosas de Madrid, declarada Bien de Interés Cultural en 1979, espléndido ejemplo del arte del siglo XVIII con elementos franceses, italianos y españoles. Junto a ella se encuentra el Palacio de Justicia, antigua sede del convento.',
             kids: '¡Esta iglesia es tan bonita que está protegida como un tesoro artístico! Junto a ella hay un edificio enorme que antes era parte del mismo convento.'
+          },
+          deepenFillers: {
+            adult: [
+              'El convento original acogía a religiosas de la orden de la Visitación de Santa María, dedicada tanto a la vida contemplativa como a la educación de jóvenes nobles, una doble función poco habitual para la época.',
+              'El Palacio de Justicia, instalado en el antiguo convento desde 1870, ha sido escenario de algunos de los procesos judiciales más relevantes de la historia contemporánea de España.',
+              'La reina Bárbara de Braganza, de origen portugués, fue una destacada mecenas de las artes y la música durante su reinado, y trajo a la corte española a intérpretes de renombre europeo.'
+            ],
+            kids: [
+              '¡Las monjas de este convento no solo rezaban, también educaban a chicas jóvenes de familias importantes! 📚',
+              '¡El edificio de al lado, que antes era parte del convento, se usa hoy para juicios importantes! ⚖️',
+              '¡La reina que fundó este lugar venía de otro país y le encantaba la música, así que trajo músicos famosos a España! 🎵'
+            ]
           }
         },
         quiz: {
@@ -3370,6 +4114,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Calle estrecha de trazado irregular, flanqueada por casas de los siglos XVII a XIX de fachadas sobrias y balcones de forja, muy propias del antiguo Madrid de los escritores. Convertida en eje cultural del Barrio de las Letras, con ambiente animado de bares y restaurantes, conserva su identidad literaria como ninguna otra calle de Madrid, reforzada por el diseño urbano que integró los versos dorados en su pavimento.',
             kids: 'Es una calle estrecha con casas antiguas de los tiempos de los escritores, con balcones de hierro forjado. Está llena de vida, con bares y restaurantes, pero no ha olvidado a los escritores que la hicieron famosa: hasta el propio suelo por el que caminas fue diseñado para recordarlos.'
+          },
+          deepenFillers: {
+            adult: [
+              'El proyecto de los versos dorados en el pavimento se completó a comienzos de los años 2000, con decenas de fragmentos literarios seleccionados por especialistas en la literatura del Siglo de Oro español.',
+              'La calle albergó durante los siglos XVI y XVII varios corrales de comedias improvisados en patios interiores, antes de que el teatro se profesionalizara en edificios específicos como el cercano Corral del Príncipe.',
+              'Hoy es una de las calles con mayor concentración de locales de ocio nocturno del centro de Madrid, un contraste notable con su pasado como tranquila calle residencial de escritores.'
+            ],
+            kids: [
+              '¡Los versos dorados del suelo se pusieron hace poco más de 20 años, elegidos por expertos en los escritores más famosos de España! ✨',
+              '¡Hace siglos, en los patios de esta calle se representaban obras de teatro improvisadas, antes de que existieran teatros de verdad! 🎭',
+              '¡Hoy esta calle está llena de bares y música por las noches, muy distinto a como era hace siglos! 🎶'
+            ]
           }
         },
         quiz: {
@@ -3421,6 +4177,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Jardines de trazado neoclásico y geometría simétrica, con setos de boj recortados en formas geométricas, un estanque central rectangular y terrazas escalonadas que salvan el desnivel del terreno. Las veinte estatuas de reyes españoles que los decoran formaban parte de una serie mayor pensada originalmente para coronar la balaustrada del Palacio Real, y que nunca llegó a instalarse allí en su totalidad.',
             kids: '¡Sus setos están recortados con formas muy geométricas, como un laberinto verde! Hay un estanque grande en el centro y el jardín está construido en varios niveles, como escalones gigantes. Las veinte estatuas de reyes que lo decoran iban a ponerse en un principio arriba del todo del Palacio Real, ¡pero nunca llegaron a colocarlas allí!'
+          },
+          deepenFillers: {
+            adult: [
+              'El diseño original de García Mercadal, de estilo racionalista y muy vanguardista para su época, se modificó sustancialmente durante la posguerra hacia un planteamiento más clásico, alejado del proyecto inicial de los años treinta.',
+              'Las veinte estatuas de reyes de este jardín forman parte de la misma serie de esculturas dieciochescas que también se reparten por la Plaza de Oriente, encargadas en su día para coronar el propio Palacio Real.',
+              'El jardín se ha convertido en un mirador natural hacia la fachada norte del Palacio Real, ofreciendo una perspectiva distinta a la habitual desde la Plaza de Oriente o el Campo del Moro.'
+            ],
+            kids: [
+              '¡El diseño original de este jardín era mucho más moderno de lo que ves hoy, pero lo cambiaron antes de terminarlo! 📐',
+              '¡Las veinte estatuas de reyes de aquí son primas de las que hay en la Plaza de Oriente, hechas por los mismos escultores! 👑',
+              '¡Desde aquí se ve el Palacio Real desde un lado que casi nadie mira! 🏰'
+            ]
           }
         },
         quiz: {
@@ -3468,6 +4236,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El edificio actual, hoy convertido en hotel, une tres construcciones de épocas distintas bajo una misma fachada. Conserva el empedrado original de la entrada y la escalera principal de madera de pino, además del templete con reloj que remata el tejado, uno de los elementos más reconocibles de toda la calle.',
             kids: '¡Mira hacia arriba! En lo alto del edificio hay un pequeño templete con un reloj, puesto hace más de 130 años. Dentro se conserva todavía la escalera de madera y el suelo empedrado de la entrada, tal y como eran hace siglos.'
+          },
+          deepenFillers: {
+            adult: [
+              'La Posada del Peine se anuncia a menudo como una de las posadas más antiguas de España en funcionamiento, aunque el edificio actual es resultado de sucesivas reconstrucciones que dificultan datar con precisión su fábrica original.',
+              'La calle de Postas conectaba con la red de postas que unía Madrid con el resto de la península, un sistema de transporte y correo a caballo que funcionó hasta la llegada del ferrocarril en el siglo XIX.',
+              'El templete con reloj que corona el edificio se instaló específicamente para el IV Centenario del Descubrimiento de América en 1892, un acontecimiento que Madrid celebró con varias intervenciones urbanas conmemorativas.'
+            ],
+            kids: [
+              '¡Esta posada dice ser una de las más antiguas de toda España, aunque el edificio se ha reconstruido varias veces! 🏨',
+              '¡Por aquí pasaba el correo que iba y venía a caballo por toda España, antes de que existiera el tren! 🐴',
+              '¡El relojito de arriba del edificio se puso para celebrar que hacía 400 años que Colón había llegado a América! ⏰'
+            ]
           }
         },
         quiz: {
@@ -3515,6 +4295,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'No conserva ningún edificio propio destacado ni resto visible de la antigua capilla que le dio nombre; su interés está en el propio trazado, estrecho y sinuoso, heredado del Madrid medieval que se articula alrededor de la Plaza de Santa Cruz.',
             kids: 'Ya no queda nada de la capilla del santo, pero la calle conserva su forma estrecha y torcida de hace cientos de años. ¡Así eran casi todas las calles del Madrid antiguo!'
+          },
+          deepenFillers: {
+            adult: [
+              'San Cristóbal es venerado tradicionalmente como patrón de los viajeros, una devoción que en distintas épocas dio nombre a calles y ermitas similares en muchas ciudades españolas, no solo en Madrid.',
+              'La desaparición de la capilla que dio nombre a la calle no está documentada con precisión, y se cree que pudo perderse en alguna de las remodelaciones urbanas que afectaron a esta zona entre los siglos XVIII y XIX.',
+              'Pese a su brevedad, la calle forma parte de una retícula de callejuelas que en época medieval conectaba los principales mercados y plazas del Madrid amurallado, una función de tránsito que conserva hasta hoy.'
+            ],
+            kids: [
+              '¡San Cristóbal es el santo protector de los viajeros, por eso hay calles con su nombre en muchas ciudades de España! 🚶',
+              '¡Nadie sabe exactamente cuándo desapareció la capillita que le daba nombre a esta calle! 🤷',
+              '¡Aunque es cortita, esta calle formaba parte de un laberinto de callejuelas que unía los mercados y plazas más importantes del Madrid antiguo! 🗺️'
+            ]
           }
         },
         quiz: {
@@ -3562,6 +4354,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Presenta una portada central de triple vano con superposición de cuerpos y un ático coronado por el escudo real. Su planta rectangular organiza dos patios interiores simétricos, inspirados en el Hospital Tavera de Toledo.',
             kids: 'La entrada principal tiene tres huecos, uno encima de otro, con el escudo del rey arriba del todo. Por dentro tiene dos patios iguales, inspirados en un hospital de Toledo.'
+          },
+          deepenFillers: {
+            adult: [
+              'El edificio fue conocido popularmente como la Cárcel de Corte, la prisión más importante de la Villa y Corte, y llegó a albergar entre sus muros a presos de gran relevancia política durante los siglos XVII y XVIII.',
+              'La reconversión del antiguo edificio penitenciario en sede ministerial se produjo a finales del siglo XIX, dentro de un proceso más amplio de modernización de la administración española.',
+              'El escudo real que corona la portada principal ha sido modificado en distintas ocasiones a lo largo de la historia del edificio, reflejando los cambios de régimen político que ha vivido España desde su construcción.'
+            ],
+            kids: [
+              '¡Este edificio fue la cárcel más importante de todo Madrid, y aquí encerraron a personas muy conocidas de la época! 🔒',
+              '¡Dejó de ser cárcel para convertirse en oficinas del gobierno hace más de 100 años! 📜',
+              '¡El escudo de piedra de la entrada ha cambiado varias veces a lo largo de la historia, según quién gobernaba España! 🛡️'
+            ]
           }
         },
         quiz: {
@@ -3610,6 +4414,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Su modelo es la iglesia del Gesù de Roma: planta de cruz latina, una sola nave con capillas laterales, crucero y cúpula. La fachada de piedra de granito presenta un cuerpo central de cuatro columnas corintias y un grupo escultórico de San Isidro y Santa María de la Cabeza.',
             kids: '¡Cuenta las columnas de la entrada! Son cuatro, muy altas, y arriba hay estatuas de los dos santos patrones de Madrid. La iglesia tiene forma de cruz, como muchas iglesias grandes.'
+          },
+          deepenFillers: {
+            adult: [
+              'El templo perteneció originalmente al Colegio Imperial de los jesuitas, una de las instituciones educativas más influyentes de la España del Siglo de Oro, hasta la expulsión de la orden en 1767.',
+              'Fue catedral provisional de Madrid entre 1885 y 1993, mientras se completaban las obras de la Almudena, un periodo de más de un siglo en el que ostentó oficialmente ese rango.',
+              'El retablo mayor actual, de estilo neoclásico, sustituyó al original barroco, perdido en un incendio provocado durante los disturbios anticlericales de 1936.'
+            ],
+            kids: [
+              '¡Este templo perteneció antes a una escuela de curas jesuitas muy importante, hace siglos! 📖',
+              '¡Fue la catedral de Madrid durante más de 100 años, mientras terminaban de construir la Almudena! ⛪',
+              '¡El altar que ves hoy no es el original, porque el primero se quemó en un incendio hace muchos años! 🔥'
+            ]
           }
         },
         quiz: {
@@ -3648,7 +4464,7 @@ CITIES.madrid.pois = [
         tabs: {
           history: {
             adult: 'Calle pequeña pero con mucha historia gremial: en el siglo XVII se instalaron aquí mujeres que fabricaban y vendían botones a medida, de plata, hueso y marfil, de donde toma su nombre actual. Antes se llamaba Arco Imperial.',
-            kids: '¡Esta calle se llama así porque hace siglos aquí se hacían y vendían botones hechos a mano, algunos hasta de plata! Antes tenía otro nombre: Arco Imperial.'
+            kids: '¡El nombre de esta calle viene de que aquí trabajaban mujeres que hacían y vendían botones a mano, algunos hasta de plata! Antes se llamaba de otra forma: Arco Imperial.'
           },
           legends: {
             adult: 'En el número 5 está el restaurante Los Galayos, que existe desde 1894 y conserva la barra tallada a mano de principios del siglo XIX, procedente de otro local familiar, y el llamado Salón Ávila, con vigas de madera vistas y azulejería de motivos quijotescos.',
@@ -3657,6 +4473,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Forma parte del entramado de calles porticadas que Juan Gómez de Mora extendió alrededor de la Plaza Mayor, con soportales continuos que conectan directamente con los de la plaza.',
             kids: '¡Esta calle tiene soportales, como la Plaza Mayor, que está justo al lado! Así puedes caminar protegido de la lluvia o del sol.'
+          },
+          deepenFillers: {
+            adult: [
+              'El gremio de botoneras estaba formado casi exclusivamente por mujeres, un dato poco habitual para la organización gremial de la época, en la que la mayoría de oficios estaban reservados a hombres.',
+              'El restaurante Los Galayos debe su nombre a una formación rocosa de Gredos, un guiño del fundador a su tierra de origen, sin relación directa con la historia local de la calle.',
+              'La calle conserva parte del pavimento original de la reforma de la Plaza Mayor del siglo XVII, uno de los pocos tramos donde todavía puede apreciarse el empedrado histórico bajo el actual.'
+            ],
+            kids: [
+              '¡Las personas que hacían botones aquí eran casi todas mujeres, algo poco común para esa época! 👒',
+              '¡El nombre del restaurante viene de unas montañas de Gredos, no tiene nada que ver con la calle! ⛰️',
+              '¡Todavía se puede ver parte del suelo antiguo de piedra de hace 400 años en algunos trozos de esta calle! 🪨'
+            ]
           }
         },
         quiz: {
@@ -3704,6 +4532,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Conecta la Calle Mayor con la Plaza Mayor a través de uno de los tramos más estrechos del entramado original diseñado por Juan Gómez de Mora en el siglo XVII.',
             kids: 'Es una calle muy estrecha, tal y como se diseñaron muchas calles de esta zona hace 400 años.'
+          },
+          deepenFillers: {
+            adult: [
+              'El enfrentamiento de 1822 formó parte del llamado Trienio Liberal, un breve periodo constitucional que terminó apenas un año después con la intervención militar francesa de los Cien Mil Hijos de San Luis.',
+              'El antiguo nombre de Calle de la Amargura se debía a que por aquí pasaban los reos camino del patíbulo instalado en la Plaza Mayor, un recorrido cargado de simbolismo penitencial para la época.',
+              'Pese a su cambio de nombre oficial en 1823, algunos vecinos siguieron usando el nombre antiguo durante décadas, una resistencia popular a los cambios de callejero que se repitió en otras calles de Madrid.'
+            ],
+            kids: [
+              '¡La pelea de 1822 pasó durante una época en la que España tuvo, por poco tiempo, una constitución liberal! 📜',
+              '¡El nombre antiguo de esta calle recordaba el camino tan triste que hacían los presos hacia su castigo! 😢',
+              '¡Aunque le cambiaron el nombre oficialmente, algunos vecinos siguieron llamándola por el nombre antiguo durante muchos años! 🗣️'
+            ]
           }
         },
         quiz: {
@@ -3751,6 +4591,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Es una de las calles porticadas que enlazan con los soportales de la Plaza Mayor, dentro del modelo unificado que Juan Gómez de Mora extendió a las calles adyacentes en el siglo XVII.',
             kids: '¡Esta calle también tiene soportales, igual que la Plaza Mayor! Todas estas calles de alrededor se construyeron con el mismo estilo hace 400 años.'
+          },
+          deepenFillers: {
+            adult: [
+              'El asedio de Ciudad Rodrigo que da nombre a esta calle se prolongó varios meses en 1810, y su rendición final ante las tropas francesas se recordó después como un episodio de resistencia heroica pese a la derrota.',
+              'Además de servir de paso al cortejo real, esta entrada porticada acogía también parte del comercio ambulante que se instalaba junto a la Plaza Mayor en días de mercado o celebraciones especiales.',
+              'La calle mantiene una de las pocas vistas directas y enmarcadas hacia el interior de la Plaza Mayor desde el exterior del conjunto, un efecto buscado deliberadamente en el diseño original de Gómez de Mora.'
+            ],
+            kids: [
+              '¡La ciudad que da nombre a esta calle resistió varios meses a un ejército invasor, aunque al final tuvo que rendirse! ⚔️',
+              '¡Por aquí también pasaban los vendedores ambulantes en los días de mercado, además del cortejo del rey! 🛒',
+              '¡Desde esta calle se puede ver un trocito enmarcado de la Plaza Mayor, como una fotografía natural! 📸'
+            ]
           }
         },
         quiz: {
@@ -3798,6 +4650,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El palacio, de estilo herreriano y casi sin ornamentación, conserva una portada principal con molduras rectas de granito, pilastras dóricas y un remate de triglifos y metopas.',
             kids: 'La entrada del palacio es muy sobria, sin apenas decoración, con columnas sencillas talladas en piedra. Así eran los edificios serios de la época de Felipe II.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Palacio de Cañete perteneció originalmente a un miembro del Consejo de Castilla, y su estilo herreriano austero refleja el gusto arquitectónico dominante en la corte durante el reinado de Felipe II.',
+              'El edificio ha albergado a lo largo de su historia usos muy distintos, desde residencia nobiliaria hasta oficinas administrativas, sin perder nunca su fachada original prácticamente intacta.',
+              'La leyenda del crimen que originó la fama de embrujado del palacio carece de documentación histórica firme, por lo que los historiadores la consideran más tradición oral que hecho verificado.'
+            ],
+            kids: [
+              '¡El primer dueño de este palacio trabajaba para el gobierno del rey Felipe II! 👔',
+              '¡Este edificio se ha usado para cosas muy distintas a lo largo de los siglos, pero su fachada apenas ha cambiado! 🏛️',
+              '¡Nadie ha podido comprobar del todo si la historia del crimen es cierta o solo un cuento que se contaban los vecinos! 🕵️'
+            ]
           }
         },
         quiz: {
@@ -3845,6 +4709,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La fachada de granito, con tres arcos y un bajorrelieve de San Benito y San Bernardo adorando el Santísimo, es obra del arquitecto Pedro de Ribera, hacia 1744; la decoración interior es de Francisco Esteban, del mismo año.',
             kids: 'La entrada tiene tres arcos de piedra gris, con una escena tallada encima. Por dentro, la decoración es de la misma época, ¡de hace casi 300 años!'
+          },
+          deepenFillers: {
+            adult: [
+              'El convento original acogía a religiosas bernardas dedicadas a la adoración perpetua del Santísimo Sacramento, una vida de clausura especialmente estricta dentro de la tradición cisterciense.',
+              'La lanza de Longinos que se venera en la catedral es una de varias reliquias similares repartidas por distintas iglesias europeas, cada una con su propia tradición sobre su autenticidad.',
+              'El edificio combina hoy su función religiosa con actos oficiales del Ejército, incluidas ceremonias de jura de bandera y homenajes a militares fallecidos, un uso institucional poco habitual en un templo conventual.'
+            ],
+            kids: [
+              '¡Las monjas de este convento rezaban de forma casi constante, día y noche, dedicadas solo a eso! 🙏',
+              '¡Hay otras lanzas parecidas en otras iglesias de Europa, cada una con su propia historia sobre si es la auténtica! 🗡️',
+              '¡Aquí se celebran ceremonias importantes del Ejército español, además de misas normales! 🎖️'
+            ]
           }
         },
         quiz: {
@@ -3893,6 +4769,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La muralla combina hiladas de mampostería con verdugadas de ladrillo en algunos tramos, una técnica constructiva típica de la arquitectura defensiva andalusí de los siglos IX y X, muy anterior a las murallas cristianas posteriores que rodearían la ciudad.',
             kids: 'Fíjate en cómo está hecha la muralla: piedras puestas en filas, con algunas líneas de ladrillo entre medias. Así construían las murallas árabes hace más de mil años, mucho antes de las murallas cristianas que vinieron después.'
+          },
+          deepenFillers: {
+            adult: [
+              'Los restos conservados forman parte de la cerca o muralla emiral, la primera línea defensiva construida cuando Madrid era todavía una alcazaba de frontera, muy anterior a la posterior muralla cristiana del siglo XII.',
+              'El descubrimiento y puesta en valor de este tramo de muralla se debe en gran parte a excavaciones arqueológicas del siglo XX, que permitieron datar con precisión el origen islámico de la ciudad.',
+              'El nombre Mayrit, origen etimológico de Madrid, hace referencia probablemente a los abundantes manantiales subterráneos que existían en la zona, un dato que enlaza el nombre de la ciudad con el propio valle del Manzanares.'
+            ],
+            kids: [
+              '¡Estos restos son de la primera muralla de Madrid, construida cuando la ciudad era solo un puesto fronterizo! 🏰',
+              '¡Los arqueólogos descubrieron y estudiaron esta muralla hace relativamente poco tiempo, en el siglo pasado! 🔍',
+              '¡El nombre antiguo de Madrid, Mayrit, puede venir de los manantiales de agua que había bajo tierra en esta zona! 💧'
+            ]
           }
         },
         quiz: {
@@ -3941,6 +4829,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'La combinación de un edificio conventual reformado en el siglo XIX con una ampliación circular de finales del XX convierte al Palacio del Senado en un ejemplo poco habitual de arquitectura institucional construida en dos tiempos muy distintos, sin ocultar ninguno de los dos.',
             kids: 'Es raro ver un edificio de gobierno hecho de dos partes tan diferentes: una muy antigua y otra bastante moderna, ¡sin intentar disimular ninguna de las dos!'
+          },
+          deepenFillers: {
+            adult: [
+              'El Colegio de Doña María de Aragón, origen del edificio histórico, fue fundado en el siglo XVI como centro de formación agustino, antes de sufrir sucesivas transformaciones hasta convertirse en sede parlamentaria en el siglo XIX.',
+              'El Senado ocupa este emplazamiento de forma continuada desde 1834, lo que lo convierte en una de las sedes institucionales más antiguas en uso ininterrumpido de todo Madrid.',
+              'El Salón de Sesiones conserva parte de la estructura original de la iglesia conventual, incluidas algunas proporciones que todavía delatan su función religiosa primitiva pese a la reforma parlamentaria.'
+            ],
+            kids: [
+              '¡La escuela religiosa que había aquí antes se fundó hace casi 500 años! 📚',
+              '¡El Senado lleva reuniéndose en este mismo sitio desde hace casi 200 años sin parar! 🏛️',
+              '¡La sala donde se reúnen los senadores todavía conserva algo de la forma de la iglesia que había antes! ⛪'
+            ]
           }
         },
         quiz: {
@@ -3989,6 +4889,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Combina piedra y ladrillo en las dos primeras plantas y conserva vidrieras clasicistas de la casa Maumejean, de 1899, en la escalera y en la entrada, un detalle decorativo poco frecuente en los edificios de oficinas de la época.',
             kids: 'Fíjate en las vidrieras de colores de la entrada y de la escalera: ¡tienen más de 125 años y son un lujo poco habitual para un edificio de oficinas!'
+          },
+          deepenFillers: {
+            adult: [
+              'La Real Compañía Asturiana de Minas fue una de las grandes empresas mineras españolas del siglo XIX y XX, con explotaciones de plomo y zinc en Asturias que abastecían buena parte de la industria metalúrgica nacional.',
+              'El edificio refleja el gusto por la arquitectura ecléctica de finales del siglo XIX entre las grandes compañías industriales, que buscaban proyectar solidez y prestigio a través de sedes monumentales en la capital.',
+              'La rehabilitación en curso busca conservar tanto la fachada histórica como los elementos decorativos originales, combinando restauración patrimonial con las necesidades de un centro cultural moderno.'
+            ],
+            kids: [
+              '¡Esta empresa minera sacaba plomo y zinc de las montañas de Asturias, muy lejos de Madrid! ⛏️',
+              '¡Las grandes empresas de hace 100 años construían edificios muy lujosos en Madrid para presumir de lo importantes que eran! 💼',
+              '¡Están arreglando el edificio con mucho cuidado para no perder sus decoraciones originales tan bonitas! 🔧'
+            ]
           }
         },
         quiz: {
@@ -4036,6 +4948,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Comparte protagonismo con la Torre de Madrid (1957) como uno de los dos grandes símbolos de la arquitectura de posguerra española que flanquean la Plaza de España, ambos entre los edificios más altos de Europa en el momento de su construcción.',
             kids: 'Este edificio y su vecino, la Torre de Madrid, fueron durante años de los edificios más altos de toda Europa. ¡Los dos vigilan la Plaza de España desde arriba!'
+          },
+          deepenFillers: {
+            adult: [
+              'El Edificio España se construyó en un tiempo récord de apenas dos años, un ritmo excepcional para la técnica constructiva española de la posguerra, gracias al uso intensivo de hormigón armado.',
+              'Tras años de abandono parcial y un largo proceso de venta y reforma, el edificio reabrió como hotel en 2021, recuperando su uso público tras casi una década cerrado.',
+              'Sus plantas superiores ofrecen una de las pocas vistas elevadas de la Casa de Campo y la sierra de Guadarrama disponibles desde el centro histórico de Madrid, sin necesidad de desplazarse a las afueras.'
+            ],
+            kids: [
+              '¡Este edificio se construyó en solo dos años, muy rápido para la época! ⏱️',
+              '¡Estuvo cerrado y abandonado durante varios años antes de convertirse en el hotel que es hoy! 🚧',
+              '¡Desde arriba se ven hasta las montañas que rodean Madrid, sin tener que salir de la ciudad! ⛰️'
+            ]
           }
         },
         quiz: {
@@ -4083,6 +5007,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El uso pionero del hormigón armado permitió resolver con un lenguaje casi militar —torreones, almenas— un edificio religioso, un contraste poco frecuente en la arquitectura sacra madrileña del primer tercio del siglo XX.',
             kids: 'Usar hormigón para construir una iglesia era una idea muy nueva para la época. ¡Por eso pudieron hacerle esos torreones y almenas, como si fuera una fortaleza!'
+          },
+          deepenFillers: {
+            adult: [
+              'La orden de las Carmelitas Descalzas que ocupa el convento sigue la regla de clausura fundada por Santa Teresa de Jesús en el siglo XVI, una de las reformas religiosas más influyentes de la España moderna.',
+              'El uso pionero del hormigón armado en un templo religioso generó cierta polémica en su momento, ya que algunos sectores conservadores consideraban ese material impropio de la arquitectura sacra tradicional.',
+              'El conjunto conventual incluye, además de la iglesia, dependencias monásticas que evocan a escala arquitectónica algunos de los símbolos espirituales descritos por Santa Teresa en su obra mística.'
+            ],
+            kids: [
+              '¡Las monjas que viven aquí siguen las reglas de una santa muy importante de hace 500 años! 👩',
+              '¡Usar hormigón para una iglesia era tan nuevo que algunas personas de la época no estaban de acuerdo! 🧱',
+              '¡El edificio entero está pensado para representar ideas de un libro espiritual muy famoso! 📖'
+            ]
           }
         },
         quiz: {
@@ -4130,6 +5066,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'Las ninfas de bronce, dispuestas alrededor del cuerpo central de la fuente, representan alegorías del nacimiento del agua, un tema clásico de la fontanería ornamental española del siglo XX.',
             kids: 'Las figuras de bronce que rodean la fuente representan el nacimiento del agua, como si contaran una pequeña historia con estatuas.'
+          },
+          deepenFillers: {
+            adult: [
+              'El escultor Antonio Campillo, autor de las ninfas de bronce, fue una figura destacada de la escultura española de posguerra, con obra pública repartida por distintas ciudades del país.',
+              'La fuente original formaba parte de un conjunto escultórico más amplio pensado para la Plaza de España de los años setenta, del que hoy sobrevive de forma independiente tras la remodelación reciente.',
+              'Su nuevo emplazamiento, en el itinerario hacia el Templo de Debod, la convierte en una parada intermedia poco conocida entre dos de los puntos más visitados del entorno de la Plaza de España.'
+            ],
+            kids: [
+              '¡El escultor que hizo las ninfas de esta fuente hizo también otras obras famosas repartidas por España! 🎨',
+              '¡Esta fuente era parte de un conjunto más grande, del que hoy solo queda ella sola! 🗿',
+              '¡Está en el camino hacia el Templo de Debod, pero casi nadie se para a mirarla! 🚶'
+            ]
           }
         },
         quiz: {
@@ -4178,6 +5126,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El conjunto escultórico combina piedra y bronce en un lenguaje realista y dramático, típico de la escultura monumental española de finales del siglo XIX, pensado para transmitir el sufrimiento y la determinación de sus protagonistas populares, no militares de carrera.',
             kids: 'Fíjate en las caras de las figuras: están hechas para que se note el dolor y el valor de esas personas normales, que no eran soldados profesionales, ¡pero se enfrentaron igual a un ejército entero!'
+          },
+          deepenFillers: {
+            adult: [
+              'El monumento incluye entre sus figuras a Juan Manuel Malasaña, el padre de Manuela, un dato menos conocido que sitúa a toda la familia Malasaña como protagonista directa del levantamiento de 1808.',
+              'La versión original en yeso, esculpida en Roma en 1891, se conservó durante años antes de fundirse en bronce definitivamente para su instalación pública casi dos décadas después.',
+              'El emplazamiento final, cerca de la Plaza de España, sitúa el monumento a pocos metros del Cuartel de la Montaña, otro escenario de resistencia armada vinculado a la historia militar de Madrid.'
+            ],
+            kids: [
+              '¡En el monumento aparece también el padre de Manuela Malasaña, no solo ella! 👨‍👧',
+              '¡La primera versión de esta estatua se hizo de yeso, y solo años después la pasaron a bronce de verdad! 🗿',
+              '¡Está cerca de donde estuvo otro cuartel importante en la historia militar de Madrid! 🎖️'
+            ]
           }
         },
         quiz: {
@@ -4225,6 +5185,18 @@ CITIES.madrid.pois = [
           architecture: {
             adult: 'El uso de la piedra arenisca rosada tallada para imitar sacos terreros es un recurso escultórico poco habitual, que busca fundir la memoria de una fortificación militar real con el lenguaje de un monumento conmemorativo.',
             kids: '¡Es un truco muy ingenioso! La piedra está tallada para que parezca de verdad una pared hecha de sacos de arena apilados, como los que se usaban para protegerse en la guerra.'
+          },
+          deepenFillers: {
+            adult: [
+              'El Cuartel de la Montaña fue tomado tras un asedio que se saldó con numerosas víctimas entre quienes lo defendían, uno de los episodios más sangrientos del inicio de la guerra en Madrid.',
+              'Joaquín Vaquero Turcios, autor del monumento, fue también pintor y muralista, y su obra combina frecuentemente elementos escultóricos y pictóricos en un mismo conjunto, como ocurre aquí con el bajorrelieve tallado.',
+              'El monumento se sitúa deliberadamente en el mismo eje visual que el Templo de Debod, estableciendo un diálogo simbólico entre dos capítulos muy distintos de la historia de este mismo lugar.'
+            ],
+            kids: [
+              '¡El cuartel que había aquí antes fue tomado tras una lucha muy dura, con muchas personas heridas! 😔',
+              '¡El artista que hizo este monumento también era pintor, y mezclaba a menudo escultura y pintura en sus obras! 🎨',
+              '¡Este monumento está colocado a propósito mirando hacia el Templo de Debod, para conectar dos historias distintas del mismo lugar! 🔗'
+            ]
           }
         },
         quiz: {

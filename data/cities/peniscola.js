@@ -43,6 +43,18 @@ CITIES.peniscola.pois = [
           architecture: {
             adult: 'De planta trapezoidal adaptada a la roca, combina el austero estilo militar templario con las reformas palaciegas que ordenó el Papa Luna: la Sala Gótica, la antigua biblioteca pontificia y una pequeña capilla. Sus muros, de hasta cuatro metros de grosor en algunos tramos, nunca llegaron a ser tomados por la fuerza en toda su historia medieval. Hoy es también escenario de rodajes: aquí se filmaron escenas de "El Cid" (1961) y de la ciudad de Meereen en "Juego de Tronos".',
             kids: '¡Las paredes de este castillo son tan gruesas como un coche puesto de pie! 🚗 Por eso nadie pudo conquistarlo nunca por la fuerza. Y un secreto: ¡aquí se rodaron escenas de una serie de dragones muy famosa! ¿Sabes cuál puede ser?'
+          },
+          deepenFillers: {
+            adult: [
+              'El castillo no tenía manantial propio, así que dependía de aljibes excavados en la roca para recoger agua de lluvia, un sistema que le permitía resistir asedios prolongados sin salir al exterior.',
+              'Tras la muerte de Benedicto XIII en 1423, sus restos no permanecieron en Peñíscola: se dice que con el tiempo fueron trasladados hacia Aragón, aunque su paradero definitivo sigue siendo objeto de debate entre historiadores.',
+              'El castillo fue declarado Monumento Nacional en 1931, un reconocimiento que impulsó después su restauración a lo largo del siglo XX.'
+            ],
+            kids: [
+              '¡Este castillo no tenía ningún pozo con agua natural! 💧 Por eso construyeron depósitos para guardar el agua de lluvia y aguantar mucho tiempo sin salir, ¡incluso si alguien lo rodeaba!',
+              'Cuando el Papa Luna murió, ¡su cuerpo viajó lejos de aquí! 🗺️ Nadie sabe con seguridad dónde terminó descansando para siempre, ¡es un pequeño misterio histórico!',
+              '¡En 1931, este castillo recibió un reconocimiento importante por ser un tesoro histórico de España! 🏆 Gracias a eso, después lo cuidaron y arreglaron mucho mejor.'
+            ]
           }
         },
         quiz: {
@@ -103,6 +115,18 @@ CITIES.peniscola.pois = [
           architecture: {
             adult: 'El trazado sigue el sistema abaluartado propio del siglo XVI, con lienzos de piedra que se adaptan al perfil irregular de la roca y se refuerzan en los puntos más expuestos al oleaje. Varias puertas históricas, como el Portal Fosc o la Puerta de Santa María, permiten aún hoy el acceso al casco antiguo, cuyas calles estrechas y empinadas conservan el trazado medieval original casi sin modificaciones desde su construcción.',
             kids: '¡La muralla no es recta, sigue la forma de la roca! 🪨 Tiene varias puertas antiguas por donde se entra al pueblo, como el Portal Fosc. Las calles de dentro son estrechas y empinadas, ¡casi iguales a como eran hace cientos de años!'
+          },
+          deepenFillers: {
+            adult: [
+              'Antonelli pertenecía a una célebre familia de ingenieros militares italianos al servicio de la Corona española, que también fortificó plazas tan lejanas como Cartagena de Indias o San Juan de Puerto Rico, aplicando en Peñíscola la misma lógica defensiva que al otro lado del Atlántico.',
+              'El recinto amurallado protege solo el casco histórico original alrededor del castillo: el resto de Peñíscola, con sus hoteles y su paseo marítimo, creció mucho más tarde, ya en el siglo XX, de la mano del turismo.',
+              'La silueta que forman las murallas fundidas con el castillo sobre la roca ha hecho que a Peñíscola se la conozca popularmente como "el Gibraltar valenciano".'
+            ],
+            kids: [
+              '¡El ingeniero que diseñó esta muralla, un italiano llamado Antonelli, también construyó fortalezas gigantes al otro lado del océano, en América! 🌎 ¡Sus planos viajaron muchísimo más lejos que él!',
+              'Hace tiempo, todo el pueblo vivía apretadito dentro de estas murallas, alrededor del castillo. 🏘️ ¡El resto de Peñíscola, con la playa y los hoteles, se construyó mucho, mucho más tarde!',
+              '¡A Peñíscola la llaman a veces "el Gibraltar valenciano"! 🗺️ Es porque, vista desde lejos, su roca con el castillo y la muralla se parece a otro peñón famoso muy lejos de aquí.'
+            ]
           }
         },
         quiz: {
@@ -163,6 +187,16 @@ CITIES.peniscola.pois = [
           architecture: {
             adult: 'Más que una construcción, El Bufador es un accidente geológico: una cavidad kárstica formada por la erosión marina sobre la roca caliza de la península. Su boca superior, de apenas medio metro de diámetro, contrasta con la fuerza del chorro que puede llegar a proyectar en días de temporal. Es uno de los rincones favoritos de fotógrafos y curiosos, accesible a pie desde el paseo que rodea la base del castillo, aunque conviene mantener la distancia cuando el mar está fuerte.',
             kids: '¡No lo construyó nadie, lo hizo el propio mar! 🌊 Durante muchísimos años, el agua fue abriendo un agujero en la roca poquito a poco. La salida de arriba es pequeñita, ¡pero el chorro de agua puede salir disparado muy alto los días de olas grandes!'
+          },
+          deepenFillers: {
+            adult: [
+              'Fenómenos similares a este, llamados también "bufadores" o "bufaderos", existen en otros puntos rocosos del Mediterráneo y del Cantábrico; el de Peñíscola es uno de los más conocidos de la Comunidad Valenciana por su cercanía al castillo.',
+              'El chorro se aprecia mejor durante los temporales de levante, cuando el oleaje golpea directamente esta cara norte de la península; con el mar en calma, la grieta apenas produce sonido.'
+            ],
+            kids: [
+              '¡Hay otras rocas "bufadoras" como esta en otras playas de España! 🌍 Pero esta de Peñíscola es una de las más famosas, ¡porque está pegadita al castillo!',
+              '¡El Bufador resopla más fuerte cuando el mar viene revuelto desde el este! 💨 Si el mar está tranquilo, casi ni se le oye respirar.'
+            ]
           }
         },
         quiz: {
@@ -214,16 +248,28 @@ CITIES.peniscola.pois = [
         },
         tabs: {
           history: {
-            adult: 'La Llotja es una parada de ambientación (no un establecimiento real) que recrea el espíritu de las lonjas y restaurantes marineros que bordean el puerto de Peñíscola desde mediados del siglo XX, cuando la pesca de bou dejaba su género fresco cada mañana. Sirve para imaginar cómo huele y sabe la cocina de la Costa del Azahar entre parada y parada de la ruta, con el castillo siempre de fondo.',
+            adult: 'La Llotja no es un restaurante real, sino una parada pensada para ambientar la ruta: evoca las lonjas y restaurantes marineros que bordean el puerto de Peñíscola desde mediados del siglo XX, cuando la pesca de bou dejaba su género fresco cada mañana. Sirve para imaginar cómo huele y sabe la cocina de la Costa del Azahar entre parada y parada, con el castillo siempre de fondo.',
             kids: '¡Vamos a imaginarnos un restaurante junto al puerto! 🦐 Aquí los pescadores traían el pescado fresquísimo cada mañana, directo del barco al plato. ¡Con el castillo vigilando desde arriba mientras comes!'
           },
           legends: {
-            adult: 'Como parada imaginada, se le atribuye una pequeña leyenda propia de la ruta: dicen que el arròs a banda que se sirve en la mesa más cercana al ventanal solo sale perfecto —ni un grano pasado, ni uno crudo— cuando el cocinero mira al castillo justo antes de retirarlo del fuego. Los marineros que la frecuentan juran que a ellos nunca les ha fallado.',
+            adult: 'Al tratarse de una parada imaginada, la ruta le atribuye su propia leyenda: dicen que el arròs a banda que se sirve en la mesa más cercana al ventanal solo sale perfecto —ni un grano pasado, ni uno crudo— cuando el cocinero mira al castillo justo antes de retirarlo del fuego. Los marineros que la frecuentan juran que a ellos nunca les ha fallado.',
             kids: '¡Cuentan que el arroz sale perfecto solo si el cocinero mira al castillo justo antes de apagar el fuego! 👨‍🍳🏰 Los pescadores dicen que ese truco nunca falla. ¿Tú lo probarías?'
           },
           architecture: {
             adult: 'Se imagina como una casa marinera de fachada azul añil frente al puerto deportivo, con mesas de madera desgastada por la sal, redes y aparejos de pesca colgados del techo, y una terraza abierta desde la que se ve el perfil del castillo recortado contra el mar. Una ambientación pensada para transmitir cómo es comer arroz recién hecho con los pies casi en el agua.',
             kids: '¡Imagina una terraza pegadita al mar! 🌊 Con redes de pescar colgando del techo como decoración y mesas de madera con olor a sal. Desde tu silla puedes ver el castillo entero mientras comes. ¿A que apetece?'
+          },
+          deepenFillers: {
+            adult: [
+              'El propio nombre "La Llotja" hace referencia a la lonja, el mercado donde tradicionalmente se subastaba el pescado nada más llegar a puerto; aunque este restaurante es una parada imaginada, el término evoca con precisión el mundo marinero real de Peñíscola.',
+              'El arròs a banda que protagoniza esta parada se sirve tradicionalmente en dos tiempos: primero el pescado con el que se ha cocinado el caldo, y después el arroz, que absorbe todo su sabor; de ahí viene precisamente el nombre del plato, "arroz aparte".',
+              'Si esta parada existiera de verdad, probablemente serviría también "suquet de peix", otro plato clásico de las lonjas mediterráneas, hecho con pescado de roca y patata en un caldo suave.'
+            ],
+            kids: [
+              '¡El nombre "La Llotja" viene de la palabra "lonja", que es donde se vendía el pescado recién sacado del mar! 🐟 Aunque este restaurante nos lo estamos imaginando, ¡la palabra sí que es de verdad!',
+              '¡El arroz a banda se come en dos partes! 🍚 Primero te comes el pescado que le dio sabor al caldo, ¡y luego te comes el arroz solito, que ha quedado buenísimo!',
+              'Si este sitio existiera de verdad, seguramente también tendría "suquet de pescado", ¡otro plato marinero riquísimo con patatas! 🥔🐠 ¿Te gustaría probarlo?'
+            ]
           }
         }
       },
@@ -264,6 +310,18 @@ CITIES.peniscola.pois = [
           architecture: {
             adult: 'Hoy Playa Norte es la más larga de la provincia de Castellón, con unos cinco kilómetros de arena dorada que arrancan junto al casco histórico y avanzan en paralelo al paseo marítimo de la Avenida Papa Luna. El proceso de erosión y sedimentación de sus acantilados fue estudiado ya en el siglo XVIII por el naturalista Cavanilles, y hoy la playa luce distinciones como la Bandera Azul gracias a la calidad de sus aguas.',
             kids: 'Hoy la Playa Norte tiene ¡cinco kilómetros de arena! Empieza justo al lado del castillo y sigue y sigue por la costa 🏖️. Es tan limpia y bonita que tiene banderas especiales que premian a las mejores playas.'
+          },
+          deepenFillers: {
+            adult: [
+              'Casos como el de Peñíscola, donde el mar unió una roca aislada a tierra firme mediante una franja de arena, son relativamente raros en la costa mediterránea y suelen citarse en geografía como ejemplo clásico de tómbolo.',
+              'El perfil de altos edificios de apartamentos que hoy bordea la Playa Norte, fruto del boom turístico de los años sesenta y setenta, ha hecho que algunos apoden a esta zona "el Manhattan valenciano", en marcado contraste con las calles medievales del casco antiguo.',
+              'Al mirar hacia el mar abierto, la Playa Norte es uno de los mejores puntos para ver el amanecer con la silueta del castillo recortada a un lado, un momento muy buscado por los fotógrafos madrugadores.'
+            ],
+            kids: [
+              '¡Lo que pasó en Peñíscola, donde el mar unió una roca con la playa usando arena, no ocurre en muchos sitios! 🌍 Por eso los libros de geografía la ponen como ejemplo perfecto.',
+              '¡Al lado de la playa hay un montón de edificios altísimos! 🏙️ Se construyeron hace muchos años, cuando empezó a venir gente de vacaciones, y por eso algunos llaman a esta zona "el Manhattan valenciano".',
+              'Si te levantas prontito, puedes ver salir el sol sobre el mar con el castillo al lado, ¡una de las fotos más bonitas que te puedes llevar de Peñíscola! 🌅📸'
+            ]
           }
         },
         quiz: {
@@ -324,6 +382,16 @@ CITIES.peniscola.pois = [
           architecture: {
             adult: 'De planta de cruz latina, tiene cuatro tramos de nave cubiertos con bóvedas de crucería y capillas laterales entre los contrafuertes, mientras que el crucero se remata con una bóveda de cañón con lunetos. La fachada, sobria, se organiza en torno a una puerta de arco de medio punto enmarcada por un alfiz, y el campanario, de base cuadrada, se eleva en tres cuerpos hasta rematarse con una pequeña cúpula y pináculos.',
             kids: 'Por dentro tiene forma de cruz, con techos abovedados y varias capillas a los lados 🕍. Por fuera, la puerta de entrada tiene forma de arco redondeado. El campanario tiene tres pisos y termina en una cúpula pequeña con pináculos puntiagudos, ¡como un sombrero de mago!'
+          },
+          deepenFillers: {
+            adult: [
+              'Debido a sus sucesivas reconstrucciones a lo largo de los siglos, el templo combina elementos góticos de su construcción original en el siglo XIII con añadidos barrocos del XVIII, una mezcla de estilos poco habitual en un edificio de tamaño tan modesto.',
+              'Aunque conserva objetos personales del Papa Luna, la patrona oficial de Peñíscola no se venera aquí, sino en la cercana ermita de la Ermitana, a un breve paseo por la calle que sube hacia el castillo: dos templos vecinos con papeles religiosos distintos dentro del mismo recinto amurallado.'
+            ],
+            kids: [
+              '¡Este edificio es como un collage! 🎨 Tiene partes muy antiguas, del siglo XIII, mezcladas con otras partes añadidas mucho después, en el siglo XVIII.',
+              'Aunque aquí se guardan cosas del Papa Luna, ¡la Virgen que es la patrona del pueblo vive en otra iglesia muy cerca, subiendo hacia el castillo! ⛪➡️🏰 Son dos iglesias vecinas con trabajos distintos.'
+            ]
           }
         },
         quiz: {
@@ -384,6 +452,16 @@ CITIES.peniscola.pois = [
           architecture: {
             adult: 'De planta de cruz latina con dos capillas a cada lado, el crucero se cubre con una cúpula y a los pies se levanta un coro alto. La fachada, rematada por una cornisa mixtilínea con pináculos que enmarca el escudo de Felipe V, guarda una curiosidad poco habitual en un templo religioso: junto a la puerta principal aparecen tallados en piedra motivos militares, como cañones y tambores de guerra, en lugar de los símbolos religiosos que sería de esperar.',
             kids: 'Tiene forma de cruz, con una cúpula en el centro y un coro elevado a la entrada 🎶. Pero fíjate bien en la puerta principal: en vez de decoraciones religiosas, ¡tiene tallados cañones y tambores de guerra en la piedra! Un detalle rarísimo para una ermita.'
+          },
+          deepenFillers: {
+            adult: [
+              'La ermita está literalmente adosada a los muros del castillo, hasta el punto de compartir parte de su estructura con la fortaleza: un templo religioso y una fortificación militar fundidos en una sola construcción, algo poco habitual.',
+              'El escudo de Felipe V que corona la fachada no es un adorno cualquiera: recuerda que esta ermita se construyó como agradecimiento explícito del primer rey Borbón a un pueblo que le fue leal durante la guerra que le enfrentó al archiduque Carlos por el trono de España.'
+            ],
+            kids: [
+              '¡Esta ermita está pegada al castillo de verdad, no solo al lado! 🏰🔗 Algunas de sus paredes son casi las mismas que las de la fortaleza, ¡como si fueran un edificio conjunto!',
+              '¿Ves el escudo en la fachada? 👑 Es del rey Felipe V, ¡y lo pusieron ahí para darle las gracias al pueblo por apoyarlo en una guerra hace más de 300 años!'
+            ]
           }
         },
         quiz: {
