@@ -50,6 +50,13 @@ const CITIES = {
     country: 'España',
     continent: 'Europa',
     subtitle: { adult: 'Ciudad Imperial', kids: '¡Ciudad de Castillos! 🏰' },
+    // Insignia de ciudad (modo niño, ver STATE.game.cityBadges en app.js):
+    // se gana al llegar a esta cantidad de estrellas SOLO con quizzes de
+    // Toledo. Puesto en ~50% del máximo real de la ciudad (48 POIs con
+    // quiz × 10 puntos = 1440 posibles), para que haga falta explorar a
+    // fondo sin exigir el 100%.
+    badgeThreshold: 720,
+    badgeImg: 'assets/badges/toledo.png',
     center: [39.8628, -4.0273],
     zoom: 15.2,
     minZoom: 13,
@@ -91,6 +98,9 @@ const CITIES = {
     country: 'España',
     continent: 'Europa',
     subtitle: { adult: 'La Villa y Corte', kids: '¡La Ciudad del Oso y el Madroño! 🐻' },
+    // ~50% del máximo real de Madrid (81 POIs con quiz × 10 = 2430 posibles).
+    badgeThreshold: 1200,
+    badgeImg: 'assets/badges/madrid.png',
     center: [40.4169, -3.7095],
     zoom: 15.3,
     minZoom: 13,
@@ -149,6 +159,9 @@ const CITIES = {
     country: 'España',
     continent: 'Europa',
     subtitle: { adult: 'La Ciudad en el Mar', kids: '¡El Castillo sobre las Olas! 🌊' },
+    // ~50% del máximo real de Peñíscola (6 POIs con quiz × 10 = 180 posibles).
+    badgeThreshold: 90,
+    badgeImg: 'assets/badges/peniscola.png',
     center: [40.359, 0.403],
     zoom: 15.4,
     minZoom: 13,
@@ -172,6 +185,9 @@ const CITIES = {
     country: 'México',
     continent: 'América',
     subtitle: { adult: 'Capital azteca y virreinal', kids: '¡La Ciudad de las Águilas y las Pirámides! 🦅' },
+    // ~50% del máximo real de CDMX (19 POIs con quiz × 10 = 570 posibles).
+    badgeThreshold: 290,
+    badgeImg: 'assets/badges/cdmx.png',
     center: [19.37, -99.15],
     zoom: 11,
     minZoom: 9.5,
@@ -222,6 +238,9 @@ const CITIES = {
     country: 'Alemania',
     continent: 'Europa',
     subtitle: { adult: 'Historia, muros y memoria', kids: '¡La Ciudad del Oso y el Muro! 🐻' },
+    // ~50% del máximo real de Berlín (30 POIs con quiz × 10 = 890 posibles).
+    badgeThreshold: 450,
+    badgeImg: 'assets/badges/berlin.png',
     center: [52.5145, 13.3888],
     zoom: 12.3,
     // Ampliados respecto a los originales ([[52.493,13.27],[52.535,13.47]]):

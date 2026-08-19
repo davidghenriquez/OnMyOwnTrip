@@ -682,10 +682,21 @@
     // chip de "profundiza más" se bloquea con esto (ver
     // renderAiSuggestions y el click handler de los chips).
     ai: { perPoiHistory: {}, pending: false, deepenBusy: false, currentTopic: {}, explored: {}, localIntroSpoken: {}, deepenProgress: {} },
-    // Gamificación (modo niño): puntos por preguntas acertadas. "answered" guarda
-    // qué combinaciones "poiId:topicId" ya sumaron puntos, para no poder
-    // "granjear" puntos repitiendo la misma pregunta una y otra vez.
-    game: { points: 0, answered: {} },
+    // Gamificación (modo niño): puntos por preguntas acertadas. "answered"
+    // guarda qué combinaciones "poiId:topicId" ya se RESPONDIERON (con o sin
+    // acierto, ver answerKidsQuiz): decide si "Siguiente" repite la pregunta
+    // o pasa a la próxima, y evita "granjear" puntos reintentando. Como
+    // también cuenta las falladas, no sirve para saber cuántos puntos se
+    // ganaron — para eso está "pointsEarned", que solo guarda las
+    // combinaciones acertadas (mismo momento en que sube STATE.game.points),
+    // usado por cityPointsEarned() para el progreso de la insignia de
+    // ciudad sin contar preguntas falladas como si dieran estrellas.
+    // "claimedRewards" son los ids de REWARD_ITEMS ya reclamados a mano en
+    // la mochila (ver claimReward): el saldo gastable es points menos el
+    // coste de todo lo reclamado, points en sí no baja (sigue reflejando el
+    // total ganado de cara a EXPLORER_LEVELS). "cityBadges" son los ids de
+    // ciudad cuya insignia ya se desbloqueó (ver checkCityBadge).
+    game: { points: 0, answered: {}, pointsEarned: {}, claimedRewards: [], cityBadges: [] },
     userLocation: null, // { lat, lng } una vez que el usuario comparte su ubicación
     userHeading: null // grados 0-360 (0 = norte), null si el dispositivo no lo reporta
   };
@@ -736,6 +747,15 @@
       if (saved.game) {
         STATE.game.points = Number(saved.game.points) || 0;
         STATE.game.answered = saved.game.answered || {};
+        // Partidas guardadas antes de este cambio no traen pointsEarned: se
+        // reconstruye asumiendo que todo lo ya marcado como "answered" fue
+        // acierto (así era el único caso posible antes de este cambio, ver
+        // el comentario en STATE.game de arriba), para no perder de golpe
+        // el progreso de insignia de ciudad de quien ya jugaba.
+        STATE.game.pointsEarned = saved.game.pointsEarned
+          || Object.fromEntries(Object.keys(saved.game.answered || {}).map((k) => [k, 10]));
+        STATE.game.claimedRewards = Array.isArray(saved.game.claimedRewards) ? saved.game.claimedRewards : [];
+        STATE.game.cityBadges = Array.isArray(saved.game.cityBadges) ? saved.game.cityBadges : [];
       }
     } catch (_) { /* datos corruptos o de una versión anterior: empezamos de cero */ }
   };
@@ -2108,36 +2128,97 @@
   // cuando haya preguntas en más lugares, no solo para este prototipo.
   const EXPLORER_LEVELS = [
     { id: 'principiante', min: 0,   label: 'Principiante', color: '#22C55E', img: 'assets/explorer/principiante.png' },
-    { id: 'intermedio',   min: 50,  label: 'Intermedio',   color: '#F5B942', img: 'assets/explorer/intermedio.png' },
-    { id: 'avanzado',     min: 150, label: 'Avanzado',     color: '#EF4444', img: 'assets/explorer/avanzado.png' }
+    { id: 'intermedio',   min: 200, label: 'Intermedio',   color: '#F5B942', img: 'assets/explorer/intermedio.png' },
+    { id: 'avanzado',     min: 600, label: 'Avanzado',     color: '#EF4444', img: 'assets/explorer/avanzado.png' }
   ];
 
-  // Mochila de viaje (modo niño): objetos coleccionables que se van
-  // desbloqueando con los mismos puntos del quiz (ver STATE.game.points),
-  // en orden ascendente para que la mochila lea como una progresión
-  // natural de "primeros pasos" a "expedición completa". Los umbrales
-  // están pensados para solaparse con EXPLORER_LEVELS de arriba (0/50/150):
-  // los primeros objetos caen en la etapa Principiante, los de en medio en
-  // Intermedio, y los últimos exigen ya estar en Avanzado. Las tres
-  // insignias circulares (a juego con los propios niveles) se colocan
-  // justo en esos umbrales exactos, como eco visual de cada ascenso.
+  // Mochila de viaje (modo niño): objetos coleccionables que se reclaman a
+  // mano (ver renderRewardChest/claimReward) gastando del saldo de estrellas
+  // acumulado en STATE.game.points (ver STATE.game.claimedRewards). En orden
+  // ascendente para que la mochila lea como una progresión natural de
+  // "primeros pasos" a "expedición completa". Los umbrales están pensados
+  // para solaparse con EXPLORER_LEVELS de arriba (0/200/600): los primeros
+  // objetos caen en la etapa Principiante, los de en medio en Intermedio, y
+  // los últimos exigen ya estar en Avanzado. Las tres insignias circulares
+  // (a juego con los propios niveles) se colocan justo en esos umbrales
+  // exactos, como eco visual de cada ascenso.
+  //
+  // Umbrales multiplicados x4 respecto a la versión anterior (0-250 → 0-
+  // 1000): con el máximo real por ciudad (Peñíscola ~180, CDMX ~570, Berlín
+  // ~890, Toledo ~1440, Madrid ~2430 puntos posibles en sus quizzes), la
+  // mochila se vaciaba entera visitando una sola ciudad grande. Con el nuevo
+  // techo en 1000, hace falta explorar a fondo una ciudad mediana/grande —o
+  // combinar varias— para completarla.
   const REWARD_ITEMS = [
     { id: 'insignia-principiante', name: 'Insignia de Principiante', points: 0, img: 'assets/rewards/insignia-principiante.png' },
-    { id: 'brujula', name: 'Brújula', points: 10, img: 'assets/rewards/brujula.png' },
-    { id: 'mapa-tesoro', name: 'Mapa del tesoro', points: 20, img: 'assets/rewards/mapa-tesoro.png' },
-    { id: 'linterna', name: 'Linterna', points: 40, img: 'assets/rewards/linterna.png' },
-    { id: 'insignia-intermedio', name: 'Insignia de Intermedio', points: 50, img: 'assets/rewards/insignia-intermedio.png' },
-    { id: 'cuerda', name: 'Cuerda', points: 60, img: 'assets/rewards/cuerda.png' },
-    { id: 'walkie-talkie', name: 'Walkie-talkies', points: 80, img: 'assets/rewards/walkie-talkie.png' },
-    { id: 'botas', name: 'Botas de explorador', points: 100, img: 'assets/rewards/botas.png' },
-    { id: 'chubasquero', name: 'Chubasquero', points: 130, img: 'assets/rewards/chubasquero.png' },
-    { id: 'insignia-avanzado', name: 'Insignia de Avanzado', points: 150, img: 'assets/rewards/insignia-avanzado.png' },
-    { id: 'hornillo', name: 'Hornillo de campamento', points: 160, img: 'assets/rewards/hornillo.png' },
-    { id: 'chaqueta', name: 'Chaqueta de explorador', points: 200, img: 'assets/rewards/chaqueta.png' },
-    { id: 'tienda', name: 'Tienda de campaña', points: 250, img: 'assets/rewards/tienda.png' }
+    { id: 'brujula', name: 'Brújula', points: 40, img: 'assets/rewards/brujula.png' },
+    { id: 'mapa-tesoro', name: 'Mapa del tesoro', points: 80, img: 'assets/rewards/mapa-tesoro.png' },
+    { id: 'linterna', name: 'Linterna', points: 160, img: 'assets/rewards/linterna.png' },
+    { id: 'insignia-intermedio', name: 'Insignia de Intermedio', points: 200, img: 'assets/rewards/insignia-intermedio.png' },
+    { id: 'cuerda', name: 'Cuerda', points: 240, img: 'assets/rewards/cuerda.png' },
+    { id: 'walkie-talkie', name: 'Walkie-talkies', points: 320, img: 'assets/rewards/walkie-talkie.png' },
+    { id: 'botas', name: 'Botas de explorador', points: 400, img: 'assets/rewards/botas.png' },
+    { id: 'chubasquero', name: 'Chubasquero', points: 520, img: 'assets/rewards/chubasquero.png' },
+    { id: 'insignia-avanzado', name: 'Insignia de Avanzado', points: 600, img: 'assets/rewards/insignia-avanzado.png' },
+    { id: 'hornillo', name: 'Hornillo de campamento', points: 640, img: 'assets/rewards/hornillo.png' },
+    { id: 'chaqueta', name: 'Chaqueta de explorador', points: 800, img: 'assets/rewards/chaqueta.png' },
+    { id: 'tienda', name: 'Tienda de campaña', points: 1000, img: 'assets/rewards/tienda.png' }
   ];
   const getExplorerLevel = (points) =>
     [...EXPLORER_LEVELS].reverse().find((lv) => points >= lv.min) || EXPLORER_LEVELS[0];
+
+  // Saldo gastable de la mochila: el total ganado (STATE.game.points, que
+  // NUNCA baja, así el nivel de explorador de arriba no "retrocede" por
+  // gastar) menos lo ya reclamado a mano (ver claimReward). Es justo lo que
+  // el niño puede reclamar ahora mismo — la app ya no desbloquea objetos
+  // solo por acumular puntos, hace falta tocar "Reclamar" (ver renderRewardChest).
+  const rewardBalance = () => {
+    const spent = STATE.game.claimedRewards.reduce((sum, id) => {
+      const item = REWARD_ITEMS.find((r) => r.id === id);
+      return sum + (item ? item.points : 0);
+    }, 0);
+    return Math.max(0, STATE.game.points - spent);
+  };
+
+  const claimReward = (item) => {
+    if (STATE.game.claimedRewards.includes(item.id)) return;
+    if (rewardBalance() < item.points) return;
+    STATE.game.claimedRewards.push(item.id);
+    saveState();
+  };
+
+  // Puntos ganados SOLO con quizzes de la ciudad activa (ver CURRENT_CITY/
+  // POIS): recorre los quizzes de sus propios POIs y suma STATE.game.
+  // pointsEarned (solo cuenta acierto, no basta con haber "visto" la
+  // pregunta). Al usar POIS (que solo trae la ciudad cargada en cada
+  // momento, ver loadCityData) no hace falta guardar un contador aparte por
+  // ciudad ni preocuparse por ids de POI repetidos entre ciudades: cada
+  // ciudad solo ve sus propios POIs.
+  const cityPointsEarned = () => {
+    if (!POIS || !POIS.length) return 0;
+    let sum = 0;
+    POIS.forEach((poi) => {
+      if (!poi.quiz) return;
+      Object.keys(poi.quiz).forEach((topicId) => {
+        sum += STATE.game.pointsEarned[`${poi.id}:${topicId}`] || 0;
+      });
+    });
+    return sum;
+  };
+
+  // Se llama tras cada pregunta de quiz respondida (ver answerKidsQuiz): si
+  // la ciudad activa define badgeThreshold (ver data/core.js) y aún no
+  // tiene su insignia, comprueba si ya se alcanzó y la desbloquea con un
+  // aviso — se acierte o no la pregunta en curso, lo que cuenta es el total
+  // acumulado de la ciudad, igual que el resto de la mochila.
+  const checkCityBadge = () => {
+    if (!CURRENT_CITY || !CURRENT_CITY.badgeThreshold) return;
+    if (STATE.game.cityBadges.includes(CURRENT_CITY.id)) return;
+    if (cityPointsEarned() < CURRENT_CITY.badgeThreshold) return;
+    STATE.game.cityBadges.push(CURRENT_CITY.id);
+    saveState();
+    showToast(`🏅 ¡Insignia de ${CURRENT_CITY.name} desbloqueada! Mírala en tu mochila.`, 4000);
+  };
 
   // Tanto los stickers del explorador como los de la mochila de viaje (ver
   // REWARD_ITEMS) se guardaron sin transparencia real: el "fondo a
@@ -2214,10 +2295,71 @@
           const i = idx(x, y);
           if (!isNeutral(i)) continue;
           d[i + 3] = 0;
+          // 8 direcciones (con diagonales), no solo 4: el cuadriculado
+          // alterna blanco/gris en un patrón donde dos casillas del MISMO
+          // tono solo se tocan en diagonal, nunca de lado. Como el blanco
+          // queda excluido de isNeutral (para proteger el contorno blanco
+          // de los propios stickers, ver comentario de arriba), un flood
+          // fill de solo 4 direcciones no puede saltar de una casilla gris
+          // a la siguiente gris sin "colarse" en diagonal — se quedaba
+          // parte del cuadriculado sin limpiar en imágenes con el
+          // cuadriculado más nítido/menos difuminado (caso real: la
+          // insignia de Berlín).
           if (x > 0) stack.push(x - 1, y);
           if (x < W - 1) stack.push(x + 1, y);
           if (y > 0) stack.push(x, y - 1);
           if (y < H - 1) stack.push(x, y + 1);
+          if (x > 0 && y > 0) stack.push(x - 1, y - 1);
+          if (x < W - 1 && y > 0) stack.push(x + 1, y - 1);
+          if (x > 0 && y < H - 1) stack.push(x - 1, y + 1);
+          if (x < W - 1 && y < H - 1) stack.push(x + 1, y + 1);
+        }
+
+        // Segunda pasada: a veces una franja de casillas BLANCAS del propio
+        // cuadriculado (no grises) queda pegada a una zona de color muy
+        // saturado del dibujo (p.ej. la cinta roja/dorada de una medalla) —
+        // esas casillas blancas superan WHITE_FLOOR a propósito (para no
+        // comerse el contorno blanco de los stickers) y actúan de "muro":
+        // el relleno de arriba nunca llega a las casillas de detrás, así
+        // que sobrevive una isla de cuadriculado sin recortar (caso real:
+        // la insignia de Berlín, con el cuadriculado nítido justo junto a
+        // la cinta). Aquí se agrupan por conectividad todos los píxeles que
+        // sobrevivieron, y cualquier grupo que sea ENTERAMENTE neutro (sin
+        // ni un solo píxel con color de verdad, sea blanco o gris) se
+        // considera fondo sobrante y se borra igual — el dibujo real de
+        // cualquier sticker siempre tiene color saturado en algún punto,
+        // así que esto nunca se come parte del sticker de verdad.
+        const SAT_REAL = 30;
+        const compVisited = new Uint8Array(W * H);
+        for (let y0 = 0; y0 < H; y0++) {
+          for (let x0 = 0; x0 < W; x0++) {
+            const p0 = y0 * W + x0;
+            if (compVisited[p0]) continue;
+            const i0 = idx(x0, y0);
+            if (d[i0 + 3] === 0) { compVisited[p0] = 1; continue; }
+            const compStack = [[x0, y0]];
+            const compPixels = [];
+            compVisited[p0] = 1;
+            let hasRealColor = false;
+            while (compStack.length) {
+              const [x, y] = compStack.pop();
+              const i = idx(x, y);
+              compPixels.push(i);
+              const r = d[i], g = d[i + 1], b = d[i + 2];
+              if (Math.max(r, g, b) - Math.min(r, g, b) > SAT_REAL) hasRealColor = true;
+              const neighbors = [[x - 1, y], [x + 1, y], [x, y - 1], [x, y + 1], [x - 1, y - 1], [x + 1, y - 1], [x - 1, y + 1], [x + 1, y + 1]];
+              for (const [nx, ny] of neighbors) {
+                if (nx < 0 || nx >= W || ny < 0 || ny >= H) continue;
+                const np = ny * W + nx;
+                if (compVisited[np]) continue;
+                const ni = idx(nx, ny);
+                if (d[ni + 3] === 0) { compVisited[np] = 1; continue; }
+                compVisited[np] = 1;
+                compStack.push([nx, ny]);
+              }
+            }
+            if (!hasRealColor) compPixels.forEach((i) => { d[i + 3] = 0; });
+          }
         }
         } // fin if (!borderAlreadyTransparent)
 
@@ -2277,7 +2419,12 @@
     if (!isKids) return;
     const level = getExplorerLevel(STATE.game.points);
     badge.style.setProperty('--explorer-color', level.color);
-    badge.textContent = `⭐ ${STATE.game.points} · ${level.label}`;
+    // El número mostrado es el saldo GASTABLE (puntos menos lo ya
+    // reclamado en la mochila), no el total histórico: es lo que el niño
+    // puede usar ahora mismo. El nivel de explorador, en cambio, sí usa el
+    // total histórico (STATE.game.points), para que no "baje" de nivel por
+    // gastar estrellas en la mochila.
+    badge.textContent = `⭐ ${rewardBalance()} · ${level.label}`;
   };
 
   const updateExplorerBadge = () => {
@@ -2305,10 +2452,47 @@
     }).catch(() => {});
   };
 
-  // Mochila de viaje: pinta un icono por objeto (ver REWARD_ITEMS), a color
-  // y con su nombre si ya está desbloqueado, en gris con un candado y los
-  // puntos que faltan si no. Se repinta entera cada vez que se abre el
-  // modal en vez de mantener el DOM vivo entre aperturas: son pocos
+  // Fila de insignias de ciudad (ver checkCityBadge/STATE.game.cityBadges):
+  // una por cada ciudad definida en CITIES (data/core.js), a color si ya se
+  // ganó y en gris si no. Es solo informativa (no se reclama, se gana sola
+  // al llegar al umbral), así que no lleva botón.
+  const renderCityBadgeRow = () => {
+    const row = $('#cityBadgeRow');
+    if (!row) return;
+    row.innerHTML = '';
+    Object.values(CITIES).forEach((city) => {
+      if (!city.badgeThreshold) return;
+      const earned = STATE.game.cityBadges.includes(city.id);
+      const card = document.createElement('div');
+      card.className = 'city-badge-item' + (earned ? ' -earned' : ' -locked');
+      const canvas = document.createElement('canvas');
+      canvas.width = 72;
+      canvas.height = 72;
+      canvas.className = 'city-badge-item-icon';
+      canvas.setAttribute('aria-hidden', 'true');
+      const label = document.createElement('span');
+      label.className = 'city-badge-item-label';
+      label.textContent = city.name;
+      card.appendChild(canvas);
+      card.appendChild(label);
+      card.setAttribute('aria-label', earned ? `Insignia de ${city.name}, conseguida` : `Insignia de ${city.name}, todavía sin conseguir`);
+      row.appendChild(card);
+      if (city.badgeImg) {
+        loadExplorerSprite(city.badgeImg).then((sprite) => {
+          const ctx = canvas.getContext('2d');
+          const scale = Math.min(canvas.width / sprite.width, canvas.height / sprite.height);
+          const w = sprite.width * scale, h = sprite.height * scale;
+          ctx.drawImage(sprite, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
+        }).catch(() => {});
+      }
+    });
+  };
+
+  // Mochila de viaje: pinta un icono por objeto (ver REWARD_ITEMS). Ya no se
+  // desbloquea solo por acumular puntos: hay tres estados — reclamado (ya es
+  // tuyo), reclamable (el saldo ya llega, aparece el botón "Reclamar") y
+  // bloqueado (todavía faltan estrellas). Se repinta entera cada vez que se
+  // abre el modal en vez de mantener el DOM vivo entre aperturas: son pocos
   // objetos, y así no hay que preocuparse de sincronizar altas/bajas.
   // (Nombres internos "rewardChest"/"reward-chest-*" se mantienen tal
   // cual, aunque de cara al usuario ahora se llame "mochila de viaje".)
@@ -2316,11 +2500,13 @@
     const list = $('#rewardChestList');
     if (!list) return;
     list.innerHTML = '';
-    const points = STATE.game.points;
+    const balance = rewardBalance();
     REWARD_ITEMS.forEach((item) => {
-      const unlocked = points >= item.points;
+      const claimed = STATE.game.claimedRewards.includes(item.id);
+      const claimable = !claimed && balance >= item.points;
+      const state = claimed ? '-claimed' : (claimable ? '-claimable' : '-locked');
       const card = document.createElement('div');
-      card.className = 'reward-item' + (unlocked ? ' -unlocked' : ' -locked');
+      card.className = 'reward-item ' + state;
       const canvas = document.createElement('canvas');
       canvas.width = 96;
       canvas.height = 96;
@@ -2328,10 +2514,24 @@
       canvas.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span');
       label.className = 'reward-item-label';
-      label.textContent = unlocked ? item.name : `🔒 Faltan ${item.points - points} ⭐`;
+      label.textContent = claimed ? `✓ ${item.name}` : (claimable ? item.name : `🔒 Faltan ${item.points - balance} ⭐`);
       card.appendChild(canvas);
       card.appendChild(label);
-      card.setAttribute('aria-label', unlocked ? item.name : `${item.name}, bloqueado, faltan ${item.points - points} puntos`);
+      if (claimable) {
+        const claimBtn = document.createElement('button');
+        claimBtn.type = 'button';
+        claimBtn.className = 'reward-item-claim-btn';
+        claimBtn.textContent = `Reclamar ${item.points} ⭐`;
+        claimBtn.addEventListener('click', () => {
+          claimReward(item);
+          updatePointsBadge();
+          renderRewardChest();
+        });
+        card.appendChild(claimBtn);
+      }
+      card.setAttribute('aria-label', claimed
+        ? `${item.name}, ya reclamado`
+        : (claimable ? `${item.name}, reclamable por ${item.points} estrellas` : `${item.name}, bloqueado, faltan ${item.points - balance} estrellas`));
       list.appendChild(card);
       loadExplorerSprite(item.img).then((sprite) => {
         const ctx = canvas.getContext('2d');
@@ -2341,6 +2541,7 @@
         ctx.drawImage(sprite, dx, dy, w, h);
       }).catch(() => {});
     });
+    renderCityBadgeRow();
   };
 
   const openRewardChest = () => {
@@ -3102,9 +3303,11 @@
       STATE.game.answered[key] = true;
       if (isCorrect) {
         STATE.game.points += 10;
+        STATE.game.pointsEarned[key] = 10;
         pointsAwarded = 10;
         updatePointsBadge();
         updateExplorerBadge();
+        checkCityBadge();
       }
     }
     saveState();
@@ -4133,6 +4336,36 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const pointsEl = $('#visitSummaryPoints', els.visitSummary);
     pointsEl.textContent = `⭐ ${STATE.game.points} · ${level.label}`;
     pointsEl.style.setProperty('--explorer-color', level.color);
+
+    // Progreso hacia la insignia de ESTA ciudad (ver checkCityBadge): solo
+    // se muestra si la ciudad activa tiene badgeThreshold definido en
+    // data/core.js (todas lo tienen, pero por si acaso).
+    const badgeBox = $('#visitSummaryBadge', els.visitSummary);
+    if (badgeBox) {
+      if (CURRENT_CITY.badgeThreshold) {
+        badgeBox.hidden = false;
+        const earned = STATE.game.cityBadges.includes(CURRENT_CITY.id);
+        const cityPts = cityPointsEarned();
+        const pct = Math.min(100, Math.round((cityPts / CURRENT_CITY.badgeThreshold) * 100));
+        $('#visitSummaryBadgeLabel', els.visitSummary).textContent = earned
+          ? `🏅 ¡Insignia de ${CURRENT_CITY.name} conseguida!`
+          : `🏅 Insignia de ${CURRENT_CITY.name}: ${cityPts}/${CURRENT_CITY.badgeThreshold} ⭐`;
+        $('#visitSummaryBadgeFill', els.visitSummary).style.width = `${pct}%`;
+        const badgeCanvas = $('#visitSummaryBadgeIcon', els.visitSummary);
+        badgeCanvas.classList.toggle('-locked', !earned);
+        if (CURRENT_CITY.badgeImg) {
+          loadExplorerSprite(CURRENT_CITY.badgeImg).then((sprite) => {
+            const ctx = badgeCanvas.getContext('2d');
+            ctx.clearRect(0, 0, badgeCanvas.width, badgeCanvas.height);
+            const scale = Math.min(badgeCanvas.width / sprite.width, badgeCanvas.height / sprite.height);
+            const w = sprite.width * scale, h = sprite.height * scale;
+            ctx.drawImage(sprite, (badgeCanvas.width - w) / 2, (badgeCanvas.height - h) / 2, w, h);
+          }).catch(() => {});
+        }
+      } else {
+        badgeBox.hidden = true;
+      }
+    }
 
     const list = $('#visitSummaryList', els.visitSummary);
     list.innerHTML = realPois.map((p) => {
