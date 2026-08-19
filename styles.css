@@ -890,7 +890,11 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 .badge-zoom-modal {
   position: fixed;
   inset: 0;
-  z-index: 5600;
+  /* Por encima de .reward-chest-modal (6100, ver arriba): se abre DESDE
+     dentro de la mochila, así que tiene que quedar delante de ella o
+     parece que no pasa nada al tocar la medalla (bug real: quedaba a
+     5600, detrás de la mochila, invisible hasta cerrarla). */
+  z-index: 6150;
   display: flex;
   flex-direction: column;
   align-items: center;
