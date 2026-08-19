@@ -1698,6 +1698,15 @@ html[data-mode="kids"] .bottom-sheet {
 }
 .ai-msg.-user .ai-msg-avatar { background: var(--color-border); color: var(--color-text); }
 .ai-msg-avatar-icon { width: 62%; height: 62%; object-fit: contain; }
+/* Icono de IA "en limpio": sin el círculo de fondo, el propio dibujo (ya
+   lleva su borde blanco) se apoya en una sombra para no perderse sobre
+   fondos claros. */
+.ai-msg-avatar.-plain { background: transparent; box-shadow: none; }
+.ai-msg-avatar.-plain .ai-msg-avatar-icon {
+  width: 92%;
+  height: 92%;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+}
 .ai-msg-bubble {
   padding: 9px 13px;
   border-radius: 15px;
@@ -1942,6 +1951,15 @@ html[data-mode="kids"] .bottom-sheet {
   font-size: 30px;
   flex-shrink: 0;
   transition: box-shadow 0.2s ease;
+}
+.ai-call-avatar-icon { width: 60%; height: 60%; object-fit: contain; }
+.ai-call-avatar.-plain {
+  background: transparent;
+}
+.ai-call-avatar.-plain .ai-call-avatar-icon {
+  width: 88%;
+  height: 88%;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
 }
 .ai-call-avatar.-listening {
   animation: aiCallPulse 1.3s ease-in-out infinite;

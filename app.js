@@ -2581,7 +2581,16 @@
         wrap.className = 'ai-msg' + (msg.user ? ' -user' : '');
         const av = document.createElement('div');
         av.className = 'ai-msg-avatar';
-        av.textContent = msg.user ? '👤' : '✨';
+        if (msg.user) {
+          av.textContent = '👤';
+        } else {
+          av.classList.add('-plain');
+          const icon = document.createElement('img');
+          icon.className = 'ai-msg-avatar-icon';
+          icon.src = 'assets/icons/ai.png';
+          icon.alt = '';
+          av.appendChild(icon);
+        }
         const bubble = document.createElement('div');
         bubble.className = 'ai-msg-bubble';
         bubble.textContent = msg.text;
@@ -3148,8 +3157,8 @@
       // la IA — usan el icono propio de narración/altavoz para no dar a
       // entender que es contenido de IA; el resto de respuestas (la
       // respuesta real de profundizar, preguntas sueltas) sí lo son, y
-      // mantienen el icono de IA (✨). Es la única forma de diferenciarlos
-      // a simple vista, a propósito discreta: para un cliente son solo dos
+      // mantienen el icono de IA. Es la única forma de diferenciarlos a
+      // simple vista, a propósito discreta: para un cliente son solo dos
       // iconos distintos, sin que se entienda qué significan.
       if (user) {
         av.textContent = STATE.mode === 'kids' ? '🧒' : '👤';
@@ -3160,7 +3169,12 @@
         icon.alt = '';
         av.appendChild(icon);
       } else {
-        av.textContent = '✨';
+        av.classList.add('-plain');
+        const icon = document.createElement('img');
+        icon.className = 'ai-msg-avatar-icon';
+        icon.src = 'assets/icons/ai.png';
+        icon.alt = '';
+        av.appendChild(icon);
       }
       const bubble = document.createElement('div');
       bubble.className = 'ai-msg-bubble';
@@ -3193,8 +3207,12 @@
     const wrap = document.createElement('div');
     wrap.className = 'ai-msg -typing';
     const av = document.createElement('div');
-    av.className = 'ai-msg-avatar';
-    av.textContent = '✨';
+    av.className = 'ai-msg-avatar -plain';
+    const avIcon = document.createElement('img');
+    avIcon.className = 'ai-msg-avatar-icon';
+    avIcon.src = 'assets/icons/ai.png';
+    avIcon.alt = '';
+    av.appendChild(avIcon);
     const b = document.createElement('div');
     b.className = 'ai-msg-bubble';
     if (statusText) {
@@ -3255,7 +3273,7 @@
   //     cuando, en el tiempo que ha tardado en reproducirse el párrafo
   //     anterior, la IA de verdad no ha terminado todavía.
   // "pregen: true" en el historial es solo una marca interna — se usa
-  // para el icono del avatar (bocina = relleno local, ✨ = IA real, ver
+  // para el icono del avatar (bocina = relleno local, icono de IA = IA real, ver
   // renderAiMessages) a modo de guiño discreto para poder comprobar que
   // esto funciona bien, sin que un cliente cualquiera entienda qué
   // significan esos dos iconos.
