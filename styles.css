@@ -179,6 +179,23 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   text-underline-offset: 2px;
 }
 .onboarding-reset:active { opacity: 0.9; }
+.onboarding-legal {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 10px;
+  margin: -10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.onboarding-legal:active { opacity: 0.9; }
 
 /* ---------- CONFIRMACIÓN DE REINICIO ---------- */
 .reset-confirm-modal {
