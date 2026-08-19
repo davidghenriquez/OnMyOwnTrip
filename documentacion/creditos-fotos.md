@@ -129,7 +129,66 @@ como exige cada licencia.
 | Iglesia de San Andrés | Zarateman | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toledo_-_San_Andres.jpg) |
 | Puerta de Alarcones | Antonio.velez | CC BY-SA 3.0 ES | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Espa%C3%B1a_-_Toledo_-_Puerta_de_Alarcones_001.JPG) |
 | Plaza de Santa Teresa | Javier Perez Montes | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Monument_to_Saint_Teresa_of_Jesus_-_Toledo_04.jpg) |
+| Castillo del Papa Luna | Adolfobrigido | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pe%C3%B1%C3%ADscola._Castillo_del_Papa_Luna_19.jpg) |
+| Murallas de Peñíscola | Jiří Sedláček | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Overview_of_walls_in_Pe%C3%B1%C3%ADscola,_Bajo_Maestrazgo_Comarca.jpg) |
+| El Bufador | Paula Edo | CC BY-SA 3.0 es | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bufador.JPG) |
+| Restaurante La Llotja | Juan Emilio Prades Bel | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Arroz_a_banda_(Torreblanca).jpg) |
+| Playa Norte | Enric | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:100_Platja_del_Nord_(Pen%C3%ADscola).jpg) |
+| Iglesia de Santa María | Millars | CC BY-SA 3.0 es | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Church_of_Santa_Maria,_Peniscola_01.JPG) |
+| Ermita de la Virgen de la Ermitana | Enric | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:045_Esgl%C3%A9sia_de_la_Mare_de_D%C3%A9u_de_l'Ermitana_(Pen%C3%ADscola),_pl._d'Armes.jpg) |
+| Catedral Metropolitana de México | ProtoplasmaKid | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catedral_Metropolitana_de_la_Ciudad_de_M%C3%A9xico_1.jpg) |
+| Palacio Nacional | ProtoplasmaKid | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Puerta_Principal_del_Palacio_Nacional_de_M%C3%A9xico_1.jpg) |
+| Templo Mayor | Jesús Gorriti | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Partial_view_Templo_Mayor.jpg) |
+| Palacio de Bellas Artes | Xavier Quetzalcoatl Contreras Castillo | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bellas_Artes_01.jpg) |
+| Torre Latinoamericana | Pablasso | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Torre_Latinoamericana_Mexico_City.jpg) |
+| Castillo de Chapultepec | Sisgeo | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chapultepec_castle_in_Mexico_city.jpg) |
+| Museo Frida Kahlo (La Casa Azul) | Nachtwächter (atribución no confirmada explícitamente por el autor original, según metadatos de Wikimedia) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_Frida_Kahlo.JPG) |
+| Xochimilco | Gobierno CDMX | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sobrevuelos_CDMX_Xochimilco_(40385667161).jpg) |
+| Mercado de Coyoacán | ManuHerrasti | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mercado_de_Coyoac%C3%A1n_CDMX.jpg) |
+| Alameda Central | ProtoplasmaKid | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alameda_Central_desde_el_aire_1.jpg) |
+| Ángel de la Independencia | en:User:Sagitario | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Angel_de_la_Independencia_Mexico_City.jpg) |
+| Jardín Centenario y Parroquia de San Juan Bautista | Öskr Rck | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:San_Juan_Bautista,_Parroquia_de_Coyoac%C3%A1n.jpg) |
+| Museo Casa de León Trotsky | Tonatiuh101 | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MUSEO_CASA_DE_LEON_TROTSKY_1.jpg) |
+| Museo Nacional de Antropología | kornemuz | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Musee_National_Anthropologie-Entree.jpg) |
+| Museo Soumaya | Diego Delso | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_Soumaya,_Ciudad_de_M%C3%A9xico,_M%C3%A9xico,_2015-07-18,_DD_12.JPG) |
+| Museo Jumex | Keizers | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Museo_J%C3%BAmex_front.jpg) |
+| Basílica de Guadalupe | Drkgk | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bas%C3%ADlica_de_Santa_Mar%C3%ADa_de_Guadalupe_2018.jpg) |
+| Antigua Basílica de Guadalupe | Dge | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Antigua_Basilica_de_Guadalupe_18.JPG) |
+| Capilla del Cerrito | GAED | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Capilla_del_Cerrito_05.jpg) |
+| Puerta de Brandeburgo | Patrick Joel Photography | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brandenburger_Tor,_Berlin,_Germany.jpg) |
+| Edificio del Reichstag | SISHION | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Reichstagsgeb%C3%A4ude_in_Berlin.jpg) |
+| Monumento a los Judíos de Europa Asesinados | Txalapartari | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Holocaust_Memorial_Berlin.JPG) |
+| Checkpoint Charlie | Adrian Purser from London, UK | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Checkpoint_Charlie_Berlin.jpg) |
+| Catedral de Berlín | Fred Romero from Paris, France | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin_-_Berliner_Dom.jpg) |
+| Museo de Pérgamo | Raimond Spekking | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pergamonmuseum_Front.jpg) |
+| Torre de Televisión de Berlín | Chris Alban Hansen | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fernsehturm,_Alexanderplatz,_Berlin.jpg) |
+| East Side Gallery | Gzen92 | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:East_Side_Gallery_-_Dmitri_Vrubel_-_Le_baiser_(Berlin).jpg) |
+| Iglesia Memorial del Káiser Guillermo | nl:User:GerardM | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ged%C3%A4chtniskirche1.JPG) |
+| Palacio de Charlottenburg | abbilder | CC BY 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schloss_Charlottenburg_2025.jpg) |
+| Bebelplatz y Neue Wache | Ansgar Koreng | CC BY 3.0 de | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Neue_Wache,_Unter_den_Linden,_Berlin-Mitte,_Nacht_(HDR).jpg) |
+| Humboldt Forum (Palacio de Berlín) | Asio otus | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin-BerlinerSchloss-6-Asio.JPG) |
+| Altes Museum | Jean-Pierre Dalbéra from Paris, France | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Altes_Museum_(Berlin)_(6339770591).jpg) |
+| Neues Museum | Janericloebe | Public domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin_Neues_Museum_001.JPG) |
+| Alte Nationalgalerie | Manfred Brückels | Public domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:AlteNationalgalerie_1a.jpg) |
+| Bode Museum | dalbera | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bodemuseum_-_Front.jpeg) |
+| Hackesche Höfe | Arne Müseler | CC BY-SA 3.0 de | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hackesche_h%C3%B6fe_berlin.jpg) |
+| Nikolaiviertel | Fernando Pascullo | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Blue_Hour_in_Berlin.jpg) |
+| Rotes Rathaus (Ayuntamiento Rojo) | Ralf Roletschek (talk) | GFDL 1.2 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2009-07-26-berlin-by-RalfR-36.jpg) |
+| DDR Museum | Maria Krüger | CC BY-SA 2.5 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:DDR-Museum_(Berlin)_Schriftzug.jpg) |
+| Gendarmenmarkt | Marek Heise Fotografie, Berlin | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gendarmenmarkt_Panorama.jpg) |
+| Topografía del Terror | Stiftung Topographie des Terrors | CC BY-SA 3.0 de | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Topographie_des_Terrors_Neubau.jpg) |
+| Potsdamer Platz | Avda | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin_-_Potsdamer_Platz_-_2016.jpg) |
+| Memorial del Muro de Berlín (Bernauer Straße) | N-Lange.de | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mauer-Gedenkst%C3%A4tte.jpg) |
+| Mauerpark | Traktorminze | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin_Mauerpark_2022.jpg) |
+| Puente de Oberbaum y Molecule Man | Sarah Jane at Flickr | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Oberbaumbr%C3%BCcke_mit_U-Bahn.jpg) |
+| Markthalle Neun | Jörg Zägel | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin,_Kreuzberg,_Eisenbahnstrasse_42-43,_Markthalle_IX.jpg) |
+| KaDeWe | Jörg Zägel | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin,_Schoeneberg,_Tauentzienstrasse_21-24,_KaDeWe.jpg) |
+| Curry 36 | Ziko van Dijk | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:20220430_currywurst.jpg) |
+| Tempelhofer Feld | Avda | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Berlin_-_Flughafen_Tempelhof_-_2016.jpg) |
 
-**Nota**: para un uso comercial real convendría mostrar estos créditos
-también visiblemente en la propia app (no solo en este documento), ya
-que las licencias CC BY / CC BY-SA lo exigen formalmente.
+**Nota**: los créditos de Peñíscola, Ciudad de México y Berlín se
+obtuvieron automáticamente desde la API de Wikimedia Commons (autor y
+licencia tal como los declara cada página de archivo) — conviene revisar
+puntualmente algún caso si el nombre del autor parece un usuario/alias en
+vez de un nombre (es habitual en Commons, y sigue siendo la atribución
+correcta según la licencia).
