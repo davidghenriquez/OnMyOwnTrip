@@ -80,6 +80,26 @@ El Worker solo acepta peticiones cuyo origen (`Origin`) sea tu web de
 GitHub Pages (o `localhost:8791` para pruebas) — así que copiar y pegar la
 URL del Worker en otra web no funcionaría desde un navegador normal. No es
 una protección perfecta (alguien con conocimientos técnicos podría
-saltársela), pero es suficiente para un proyecto personal. Si más adelante
-quieres más protección, Cloudflare tiene reglas de "Rate Limiting" gratuitas
-que se activan desde el panel, sin tocar código.
+saltársela), pero es suficiente para un proyecto personal.
+
+## Rate limiting por IP (opcional, recomendado)
+
+Importante: como este Worker vive en un subdominio `workers.dev` (no en un
+dominio propio dado de alta como "zona" en Cloudflare), **no** aparece la
+pestaña "Security" con reglas de Rate Limiting/WAF — ese producto solo
+existe para dominios gestionados por Cloudflare. La vía que sí funciona
+aquí es un **binding de Rate Limiting**, ya soportado por `proxy.js`
+(variable `RATE_LIMITER`; si no configuras el binding, el código lo
+detecta y simplemente no aplica límite, sin romper nada):
+
+1. En tu Worker → pestaña **Bindings** → **Add binding**.
+2. Tipo **Rate Limiting**. Nombre de variable: `RATE_LIMITER` (tiene que
+   llamarse exactamente así, es el nombre que usa `proxy.js`).
+3. Límite sugerido: `10` peticiones cada `60` segundos por IP — bastante
+   por debajo de la cuota total de Gemini (~20/min compartida entre todo
+   el mundo), para que ni el usuario más activo pueda dejar sin IA real
+   al resto de gente usando la app en ese mismo minuto.
+4. Guarda/Deploy.
+
+Sin este binding, una sola IP podría agotar ella sola casi toda la cuota
+compartida (ver ejemplo práctico comentado en el propio código).
