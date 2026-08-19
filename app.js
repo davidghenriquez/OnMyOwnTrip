@@ -2893,7 +2893,7 @@
     }
 
     const cta = mode === 'kids'
-      ? ' Si quieres, toca "¡Cuéntame más!" para seguir descubriendo cosas. Y si necesitas el horario y el precio, tienes un botón aquí abajo.'
+      ? (poi.quiz ? ' Escucha bien, que cuando termine te voy a hacer una pregunta para ver cuánto se te ha quedado.' : '')
       : ' Si quieres profundizar en algún tema, tienes el botón "Profundiza más" aquí abajo. Y si buscas el horario y el precio exactos, ahí tienes el botón de entradas.';
 
     return `${opener} ${historyFull}${legendBridge}${archBridge}${visitLine}${cta}`;
@@ -3094,12 +3094,18 @@
     const isCorrect = selectedIndex === q.correct;
     const key = `${poi.id}:${topicId}`;
     let pointsAwarded = 0;
-    if (isCorrect && !STATE.game.answered[key]) {
+    // Se marca como vista (con acierto o sin él) para que "Siguiente" avance
+    // a la próxima pregunta en vez de repetir esta misma: fallarla ya
+    // muestra la respuesta correcta ahí mismo, no hace falta forzar el
+    // reintento para poder continuar.
+    if (!STATE.game.answered[key]) {
       STATE.game.answered[key] = true;
-      STATE.game.points += 10;
-      pointsAwarded = 10;
-      updatePointsBadge();
-      updateExplorerBadge();
+      if (isCorrect) {
+        STATE.game.points += 10;
+        pointsAwarded = 10;
+        updatePointsBadge();
+        updateExplorerBadge();
+      }
     }
     saveState();
     $$('.quiz-option', card).forEach((btn, i) => {
