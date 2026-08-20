@@ -40,14 +40,14 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'El interior conserva dos órganos monumentales del siglo XVIII, tallados en madera dorada y colocados a ambos lados del coro; durante mucho tiempo fueron de los más grandes de América y hoy siguen sonando en las grandes celebraciones.',
-              'Bajo el altar mayor se encuentra la Cripta de los Arzobispos, donde reposan los restos de buena parte de quienes han dirigido la arquidiócesis de México desde la época virreinal.',
-              'Las campanas de la Catedral se siguen tocando a mano por campaneros que suben a las torres, un oficio tradicional que ha ido desapareciendo en otras grandes catedrales del mundo.'
+              'El interior conserva dos órganos monumentales del siglo XVIII, tallados en madera dorada y colocados a ambos lados del coro; durante mucho tiempo fueron de los más grandes de América. Pasaron décadas prácticamente en silencio, dañados por la humedad y el paso del tiempo, hasta que un cuidadoso proceso de restauración logró recuperar buena parte de sus voces originales, y hoy ambos instrumentos vuelven a sonar juntos en las grandes celebraciones litúrgicas, un lujo sonoro que muy pocas catedrales del continente conservan intacto.',
+              'Bajo el altar mayor se encuentra la Cripta de los Arzobispos, un espacio recogido y poco visitado donde reposan los restos de buena parte de quienes han dirigido la arquidiócesis de México desde la época virreinal hasta tiempos recientes. El acceso está restringido al público general, lo que la convierte en una de las zonas más reservadas de todo el templo, y sus lápidas sencillas contrastan deliberadamente con la opulencia dorada que corona el altar apenas unos metros por encima.',
+              'Las campanas de la Catedral se siguen tocando a mano por campaneros que suben físicamente a las torres para hacerlas sonar, un oficio tradicional que ha ido desapareciendo en otras grandes catedrales del mundo a medida que se automatizan los repiques. Cada combinación de golpes tiene un significado distinto según la festividad o el momento del día, un código transmitido de generación en generación que muy pocos oficiantes dominan hoy por completo.'
             ],
             kids: [
-              '¡Dentro hay dos órganos gigantes de madera dorada que tienen casi 300 años y todavía se pueden tocar en las fiestas grandes! 🎶',
-              '¡Debajo del altar principal hay una cripta donde descansan los antiguos arzobispos que dirigieron la Iglesia en México! ⛪',
-              '¡Las campanas no se tocan con botones: unas personas llamadas campaneros suben a las torres y las tocan a mano, tal como se hacía hace cientos de años! 🔔🧗'
+              '¡Dentro hay dos órganos gigantes de madera dorada que tienen casi 300 años, uno a cada lado del coro! 🎶 Durante mucho tiempo estuvieron casi sin sonar porque se estropearon con la humedad, pero los arreglaron con muchísimo cuidado y ahora vuelven a tocar juntos en las fiestas más grandes, ¡como si el tiempo no hubiera pasado! 🎵',
+              '¡Debajo del altar principal hay una cripta secreta y muy tranquila donde descansan los antiguos arzobispos que dirigieron la Iglesia en México desde hace siglos! ⛪ No cualquiera puede entrar ahí, así que es una de las partes más reservadas de toda la catedral, ¡todo lo contrario del altar dorado y brillante que tiene justo encima!',
+              '¡Las campanas no se tocan con botones ni con máquinas: unas personas llamadas campaneros suben las torres a pie y las tocan a mano, tal como se hacía hace cientos de años! 🔔🧗 Cada forma de tocarlas significa algo distinto según el día o la fiesta que se celebre, ¡como un código secreto de sonidos que solo ellos conocen bien!'
             ]
           }
         },
@@ -112,12 +112,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'En una de las salas del primer piso se conserva el Recinto Homenaje a Benito Juárez, la habitación donde el presidente vivió sus últimos años y murió en 1872, con parte de su mobiliario original.',
-              'En el tramo final del mural de la escalera, dedicado al siglo XX, Diego Rivera incluyó un retrato de Karl Marx señalando hacia un futuro socialista, una toma de postura política explícita poco habitual en un edificio de gobierno.'
+              'En una de las salas del primer piso se conserva el Recinto Homenaje a Benito Juárez, la habitación donde el presidente vivió sus últimos años de gobierno y murió de un infarto en 1872, todavía en funciones tras haber encabezado la resistencia contra la intervención francesa. El espacio conserva parte de su mobiliario original, incluida la cama en la que falleció, y se mantiene como un pequeño santuario cívico dentro del propio centro del poder que él mismo ocupó durante varios mandatos consecutivos.',
+              'En el tramo final del mural de la escalera, dedicado al siglo XX, Diego Rivera incluyó un retrato de Karl Marx señalando hacia un futuro socialista rodeado de obreros y campesinos, una toma de postura política explícita poco habitual en un edificio de gobierno. La escena, pintada ya en los últimos años de vida del muralista, resume su propia visión ideológica de la historia mexicana y contrasta con la sobriedad institucional del resto del edificio que la alberga.'
             ],
             kids: [
-              '¡En una de las salas se guarda tal cual la habitación donde vivió y murió un presidente muy importante, Benito Juárez, hace más de 150 años! 🛏️',
-              '¡En una parte del mural gigante, Diego Rivera pintó a un pensador famoso señalando hacia el futuro, porque al pintor le encantaban las ideas sobre cómo mejorar el mundo! 🎨👉'
+              '¡En una de las salas se guarda tal cual la habitación donde vivió y murió un presidente muy importante, Benito Juárez, hace más de 150 años! 🛏️ Justo antes había luchado muchísimo para defender a México de un ejército extranjero, y siguió gobernando el país hasta su último día, ¡así que este cuartito pequeño guarda una historia enorme!',
+              '¡En una parte del mural gigante, Diego Rivera pintó a un pensador famoso señalando hacia el futuro, rodeado de obreros y campesinos, porque al pintor le encantaban las ideas sobre cómo mejorar el mundo! 🎨👉 Lo pintó ya siendo mayor, casi al final de su vida, ¡como si quisiera dejar su opinión pintada para siempre en la pared del gobierno!'
             ]
           }
         },
@@ -189,12 +189,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'En 2006 se descubrió un monolito de casi 12 toneladas que representa a Tlaltecuhtli, la diosa de la tierra, una de las esculturas mexicas más grandes jamás halladas, hoy expuesta en el museo del sitio.',
-              'El recinto sagrado original era mucho más extenso que el área hoy visible: buena parte sigue enterrada bajo la Catedral, el Zócalo y los edificios coloniales vecinos, y de vez en cuando aparecen nuevos hallazgos durante obras urbanas.'
+              'En 2006 se descubrió un monolito de casi 12 toneladas que representa a Tlaltecuhtli, la diosa de la tierra, tallado en un solo bloque de piedra y pintado originalmente con vivos colores hoy casi perdidos. Es una de las esculturas mexicas más grandes jamás halladas, y su hallazgo llevó a excavar bajo ella una ofrenda con restos de un posible gobernante mexica, que todavía se sigue estudiando. Hoy la pieza se expone en el museo del sitio, junto al lugar exacto donde apareció.',
+              'El recinto sagrado original era mucho más extenso que el área hoy visible: buena parte sigue enterrada bajo la Catedral, el Zócalo y los edificios coloniales vecinos, superpuesta capa sobre capa por la propia ciudad que se levantó encima tras la conquista. De vez en cuando aparecen nuevos hallazgos durante obras urbanas o del metro, y cada uno obliga a los arqueólogos a revisar el mapa que se tiene del antiguo centro ceremonial mexica, todavía incompleto siglos después de su destrucción.'
             ],
             kids: [
-              '¡En 2006 encontraron una piedra gigante de casi 12 toneladas con la diosa de la tierra tallada, una de las esculturas aztecas más grandes jamás encontradas! 🗿',
-              '¡Todavía queda templo escondido bajo la Catedral y las calles de alrededor! A veces, cuando hacen obras en la ciudad, ¡aparecen sorpresas aztecas nuevas! 🔍'
+              '¡En 2006 encontraron una piedra gigante de casi 12 toneladas con la diosa de la tierra tallada, una de las esculturas aztecas más grandes jamás encontradas! 🗿 Estaba pintada con colores muy vivos que hoy casi no se ven, y debajo de ella los arqueólogos hallaron más tesoros escondidos que todavía siguen estudiando con mucho cuidado.',
+              '¡Todavía queda templo escondido bajo la Catedral y las calles de alrededor, porque la ciudad se construyó encima de la pirámide azteca! 🔍 A veces, cuando hacen obras en la calle o construyen el metro, ¡aparecen sorpresas aztecas nuevas que nadie esperaba encontrar tan cerca de nosotros!'
             ]
           }
         },
@@ -259,12 +259,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'El mural de Diego Rivera "El hombre controlador del universo" es en realidad una segunda versión: la original, pintada para el Rockefeller Center de Nueva York, fue destruida en 1934 por incluir un retrato de Lenin, y Rivera la volvió a pintar ese mismo año en este palacio.',
-              'El recinto es también sede histórica del Ballet Folklórico de México, la compañía de danza que desde mediados del siglo XX recorre el mundo representando las tradiciones populares mexicanas.'
+              'El mural de Diego Rivera "El hombre controlador del universo" es en realidad una segunda versión: la original, pintada para el Rockefeller Center de Nueva York, fue destruida en 1934 por incluir un retrato de Lenin que el propio Nelson Rockefeller exigió eliminar. Rivera se negó a modificarlo y la obra terminó picada a martillazos, pero el pintor conservaba bocetos y fotografías, y ese mismo año la volvió a pintar de memoria en este palacio, con algunos cambios respecto al original perdido.',
+              'El recinto es también sede histórica del Ballet Folklórico de México, la compañía de danza que desde mediados del siglo XX recorre el mundo representando las tradiciones populares mexicanas, desde jarabes y sones regionales hasta danzas de raíz prehispánica. Fundada por la bailarina y coreógrafa Amalia Hernández, la compañía convirtió sus funciones semanales en este mismo teatro en una de las citas culturales más constantes de la ciudad, vista tanto por turistas como por generaciones enteras de mexicanos.'
             ],
             kids: [
-              '¡El mural de "El hombre controlador del universo" es en realidad una copia! El original lo pintó Diego Rivera en Nueva York, pero lo destruyeron porque incluía a un líder político, ¡así que lo volvió a pintar aquí! 🎨',
-              '¡Aquí baila desde hace muchísimos años un grupo muy famoso, el Ballet Folklórico de México, que viaja por todo el mundo mostrando bailes tradicionales! 💃'
+              '¡El mural de "El hombre controlador del universo" es en realidad una copia! El original lo pintó Diego Rivera en Nueva York, pero se lo hicieron destruir a martillazos porque incluía a un líder político que no gustó nada a quien pagaba el mural. 🎨 Por suerte, Rivera se acordaba de cómo era y lo volvió a pintar entero, casi igual, aquí en este palacio.',
+              '¡Aquí baila desde hace muchísimos años un grupo muy famoso, el Ballet Folklórico de México, que viaja por todo el mundo mostrando bailes tradicionales! 💃 Lo empezó una bailarina llamada Amalia Hernández, y desde entonces baila aquí cada semana bailes de todo tipo de rincones de México, ¡como un mapa del país hecho de baile!'
             ]
           }
         },
@@ -336,12 +336,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'Antes de construirse, los ingenieros pusieron a prueba el diseño de la cimentación con cálculos y estudios que en su momento se consideraron pioneros en la ingeniería sísmica mexicana, sentando un precedente para los rascacielos posteriores de la ciudad.',
-              'En una de las plantas previas al mirador hay un pequeño museo dedicado a la historia de la torre y de la Ciudad de México, una parada antes de subir a las alturas.'
+              'Antes de construirse, los ingenieros pusieron a prueba el diseño de la cimentación con cálculos y estudios que en su momento se consideraron pioneros en la ingeniería sísmica mexicana, apoyados en pruebas de suelo poco habituales para la época. Ese trabajo previo sentó un precedente decisivo para los rascacielos posteriores de la ciudad, que desde entonces adoptaron criterios de diseño similares para convivir con el mismo subsuelo inestable, y explica por qué la torre sigue considerándose un referente en ingeniería sísmica décadas después.',
+              'En una de las plantas previas al mirador hay un pequeño museo dedicado a la historia de la torre y de la Ciudad de México, con fotografías de la construcción y objetos de época. Es una parada casi obligada antes de subir a las alturas, pensada para que el visitante entienda, antes de asomarse al mirador, tanto la hazaña de ingeniería que representó el edificio en 1956 como los grandes cambios que ha vivido la ciudad que se extiende a sus pies.'
             ],
             kids: [
-              '¡Antes de construir la torre, los ingenieros hicieron cálculos y pruebas muy avanzados para la época, para asegurarse de que aguantaría los terremotos! 🧮',
-              '¡Antes de llegar al mirador de arriba, puedes pasar por un pequeño museo que cuenta la historia de la torre y de la ciudad! 🏙️📚'
+              '¡Antes de construir la torre, los ingenieros hicieron cálculos y pruebas muy avanzados para la época, para asegurarse de que aguantaría los terremotos! 🧮 Estudiaron el suelo con muchísimo cuidado, y lo que aprendieron sirvió después para construir otros rascacielos de la ciudad, ¡así que esta torre enseñó a construir con más seguridad a todas las que vinieron después!',
+              '¡Antes de llegar al mirador de arriba, puedes pasar por un pequeño museo que cuenta la historia de la torre y de la ciudad! 🏙️📚 Tiene fotos de cuando la estaban construyendo y objetos antiguos, ¡para que entiendas bien la aventura que fue levantarla antes de ver la ciudad entera desde arriba!'
             ]
           }
         },
@@ -413,12 +413,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'Antes de convertirse en residencia presidencial permanente, el castillo albergó durante varias décadas del siglo XIX el Observatorio Astronómico Nacional del país.',
-              'El cerro ya era estratégico en época prehispánica: de sus manantiales partía el acueducto que el gobernante Nezahualcóyotl mandó construir para llevar agua dulce hasta Tenochtitlan.'
+              'Antes de convertirse en residencia presidencial permanente, el castillo albergó durante varias décadas del siglo XIX el Observatorio Astronómico Nacional del país, aprovechando la altura del cerro y su cielo relativamente despejado sobre el valle. Astrónomos mexicanos realizaron desde allí observaciones y registros que sirvieron de referencia científica para el país durante buena parte del siglo, antes de que el observatorio se trasladara a otra sede y el edificio quedara definitivamente destinado a la vida política.',
+              'El cerro ya era estratégico en época prehispánica: de sus manantiales partía el acueducto que el gobernante Nezahualcóyotl mandó construir para llevar agua dulce hasta Tenochtitlan, entonces rodeada por el lago salado de Texcoco. Aquellos manantiales convirtieron Chapultepec en un lugar sagrado mucho antes de que existiera ningún castillo, y esa misma agua dulce fue durante siglos uno de los recursos más disputados y valiosos del valle, lo que explica por qué la colina se fortificó una y otra vez a lo largo de la historia.'
             ],
             kids: [
-              '¡Antes de ser casa de presidentes, aquí funcionó durante años el observatorio de las estrellas más importante de México! 🔭',
-              '¡Mucho antes del castillo, los aztecas ya usaban el agua de los manantiales de esta colina, y construyeron un canal larguísimo para llevarla hasta su ciudad! 💧'
+              '¡Antes de ser casa de presidentes, aquí funcionó durante años el observatorio de las estrellas más importante de México! 🔭 Los científicos subían hasta lo alto del cerro porque desde ahí se veía mejor el cielo, y anotaban todo lo que descubrían para que sirviera al resto del país, ¡mucho antes de que el castillo se llenara de política!',
+              '¡Mucho antes del castillo, los aztecas ya usaban el agua de los manantiales de esta colina, y construyeron un canal larguísimo para llevarla hasta su ciudad! 💧 En esa época la ciudad estaba rodeada de agua salada de un lago, así que esta agua dulce era un tesoro súper valioso, ¡y por eso esta colina ya era importante mucho antes de tener castillo!'
             ]
           }
         },
@@ -490,12 +490,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'En 2004 se descubrió en la casa un armario y un baño que habían permanecido cerrados con llave durante 50 años por orden de Diego Rivera, con cientos de objetos personales de Frida —cartas, ropa, medicinas y fotografías— intactos desde su muerte.',
-              'En el jardín todavía viven perros xoloitzcuintle, la raza mexicana sin pelo que Frida y Diego criaban y que aparece retratada en varios de los cuadros de la artista.'
+              'En 2004 se descubrió en la casa un armario y un baño que habían permanecido cerrados con llave durante 50 años por orden de Diego Rivera, quien pidió expresamente que no se abrieran hasta después de su propia muerte. Dentro aparecieron cientos de objetos personales de Frida —cartas, ropa, medicinas, fotografías y hasta sus famosos corsés— intactos desde el día en que ella murió, un hallazgo que obligó a reescribir buena parte de lo que se sabía sobre su vida cotidiana y su enfermedad.',
+              'En el jardín todavía viven perros xoloitzcuintle, la raza mexicana sin pelo que Frida y Diego criaban y que aparece retratada en varios de los cuadros de la artista, casi siempre como compañía silenciosa junto a ella. Se trata de una de las razas caninas más antiguas de América, venerada ya en tiempos prehispánicos, y su presencia continuada en el jardín de la Casa Azul mantiene viva, generación tras generación, esa misma compañía que Frida retrató una y otra vez en su obra.'
             ],
             kids: [
-              '¡En el año 2004 encontraron un armario que llevaba 50 años cerrado con llave, lleno de cosas de Frida que nadie había tocado desde que ella murió! 🔑📦',
-              '¡En el jardín viven perritos xoloitzcuintle, una raza mexicana muy especial que no tiene pelo, y que Frida pintó varias veces en sus cuadros! 🐕'
+              '¡En el año 2004 encontraron un armario que llevaba 50 años cerrado con llave, lleno de cosas de Frida que nadie había tocado desde que ella murió! 🔑📦 Diego Rivera había pedido que no se abriera hasta después de que él también muriera, así que dentro había cartas, ropa y fotos guardadas como en una cápsula del tiempo.',
+              '¡En el jardín viven perritos xoloitzcuintle, una raza mexicana muy especial que no tiene pelo, y que Frida pintó varias veces en sus cuadros! 🐕 Es una de las razas de perro más antiguas de toda América, ¡y ya era importante para los pueblos antiguos mucho antes de que existiera esta casa!'
             ]
           }
         },
@@ -559,12 +559,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'Los canales de Xochimilco son el único hábitat natural silvestre que le queda al ajolote, un anfibio único capaz de regenerar extremidades enteras, hoy en peligro crítico de extinción por la contaminación del agua.',
-              'El sistema de chinampas de Xochimilco es estudiado a nivel internacional como uno de los ejemplos de agricultura sostenible más antiguos que siguen en funcionamiento en el mundo, con casi mil años de historia continua.'
+              'Los canales de Xochimilco son el único hábitat natural silvestre que le queda al ajolote, un anfibio único capaz de regenerar extremidades enteras e incluso partes de órganos internos, una capacidad que fascina desde hace décadas a la comunidad científica. Hoy se encuentra en peligro crítico de extinción por la contaminación del agua y la introducción de especies invasoras en los canales, hasta el punto de que verlo en libertad, y no solo en un acuario, se ha vuelto extremadamente raro.',
+              'El sistema de chinampas de Xochimilco es estudiado a nivel internacional como uno de los ejemplos de agricultura sostenible más antiguos que siguen en funcionamiento en el mundo, con casi mil años de historia continua desde época prehispánica. Investigadores de distintos países visitan la zona para analizar cómo estas islas artificiales logran cultivar sin apenas insumos externos, aprovechando el propio limo del canal como abono natural, un modelo que hoy se mira con renovado interés frente a la agricultura intensiva moderna.'
             ],
             kids: [
-              '¡En estos canales vive el ajolote, un animalito único que puede volver a hacerle crecer una pata si la pierde! Por desgracia, casi no quedan en estado salvaje. 🦎💧',
-              '¡El cultivo en chinampas es tan especial que científicos de todo el mundo vienen a estudiarlo, porque lleva casi mil años funcionando sin parar! 🌍🌱'
+              '¡En estos canales vive el ajolote, un animalito único que puede volver a hacerle crecer una pata si la pierde! Por desgracia, casi no quedan en estado salvaje. 🦎💧 La contaminación del agua y otros animales que no son de aquí lo han puesto en un peligro tan grande que verlo nadando libre, y no solo en una pecera, es rarísimo hoy en día.',
+              '¡El cultivo en chinampas es tan especial que científicos de todo el mundo vienen a estudiarlo, porque lleva casi mil años funcionando sin parar! 🌍🌱 Usan la propia tierra del fondo del canal como abono, sin casi nada más, ¡así que es una de las formas de cultivar más ecológicas que existen, y lleva funcionando desde antes de que existiera la ciudad!'
             ]
           }
         },
@@ -629,12 +629,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'Aunque es conocido sobre todo por sus tostadas, el mercado tiene también una nutrida sección de plantas y flores frescas, muchas de ellas cultivadas en las chinampas de la zona sur de la ciudad, como las de Xochimilco.',
-              'Varios puestos de telas y bordados del mercado trabajan con técnicas textiles tradicionales de distintas regiones de México, convirtiendo esta zona en un pequeño escaparate de artesanía de todo el país.'
+              'Aunque es conocido sobre todo por sus tostadas, el mercado tiene también una nutrida sección de plantas y flores frescas, muchas de ellas cultivadas en las chinampas de la zona sur de la ciudad, como las de Xochimilco, y transportadas hasta aquí cada madrugada. Esta cercanía entre el mercado y las propias huertas flotantes mantiene viva una cadena muy corta entre quien cultiva y quien vende, poco habitual en una ciudad tan grande, y explica por qué las flores del mercado suelen llegar más frescas que las de muchos otros puntos de venta.',
+              'Varios puestos de telas y bordados del mercado trabajan con técnicas textiles tradicionales de distintas regiones de México, convirtiendo esta zona en un pequeño escaparate de artesanía de todo el país. Muchas de estas piezas, bordadas a mano siguiendo patrones que se transmiten de generación en generación, tardan semanas o incluso meses en completarse, y conviven en los mismos pasillos con la ropa producida en serie, lo que convierte cada visita en una oportunidad de encontrar trabajo artesanal genuino en pleno centro de la ciudad.'
             ],
             kids: [
-              '¡Muchas de las flores que se venden aquí llegan de las chinampas del sur de la ciudad, como las de Xochimilco! 🌸🛶',
-              '¡Hay puestos con telas bordadas a mano que vienen de distintas partes de México, así que pasear por aquí es casi como viajar por todo el país! 🧵🌎'
+              '¡Muchas de las flores que se venden aquí llegan de las chinampas del sur de la ciudad, como las de Xochimilco! 🌸🛶 Las traen fresquitas cada madrugada, directamente desde esas islitas flotantes hasta los puestos del mercado, ¡así que cuando las compras casi acaban de cortarlas!',
+              '¡Hay puestos con telas bordadas a mano que vienen de distintas partes de México, así que pasear por aquí es casi como viajar por todo el país! 🧵🌎 Algunos bordados tardan semanas enteras en hacerse, hilo a hilo, con dibujos que las familias se enseñan unas a otras desde hace muchísimos años.'
             ]
           }
         },
@@ -699,12 +699,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'Durante buena parte de la época colonial, el paseo de la Alameda estuvo vedado a la mayoría de la población indígena y mestiza, reservado casi en exclusiva a la élite española; solo más adelante se abrió plenamente a todos los habitantes de la ciudad.',
-              'El Hemiciclo a Juárez, el monumento de mármol blanco situado en un extremo del parque, se inauguró el mismo año que el Ángel de la Independencia, en 1910, dentro de los mismos festejos del centenario.'
+              'Durante buena parte de la época colonial, el paseo de la Alameda estuvo vedado a la mayoría de la población indígena y mestiza, reservado casi en exclusiva a la élite española que se paseaba en carruaje entre sus fuentes. Solo más adelante, ya avanzado el siglo XIX, se abrió plenamente a todos los habitantes de la ciudad, y ese cambio convirtió al parque en el espacio público que es hoy: uno de los pocos rincones verdes del centro donde conviven, sin distinción, vecinos de cualquier origen.',
+              'El Hemiciclo a Juárez, el monumento de mármol blanco situado en un extremo del parque, se inauguró el mismo año que el Ángel de la Independencia, en 1910, dentro de los mismos festejos del centenario de la Independencia. Sus columnas semicirculares rodean una estatua sedente del expresidente Benito Juárez, y el conjunto se convirtió, casi desde su inauguración, en punto de referencia para actos cívicos y desfiles, en un extremo del parque que hoy conecta directamente con el Palacio de Bellas Artes.'
             ],
             kids: [
-              '¡Hace muchos años, no todo el mundo podía entrar a pasear por este parque! Solo más tarde se abrió para que pudiera entrar cualquier persona. 🚶',
-              '¡El monumento blanco que hay en un extremo del parque se inauguró el mismo año que el Ángel de la Independencia, en 1910! 🏛️'
+              '¡Hace muchos años, no todo el mundo podía entrar a pasear por este parque! Solo la gente española más rica tenía permiso, mientras el resto de la ciudad se quedaba fuera. 🚶 Solo más tarde, ya hace más de 150 años, se abrió para que pudiera entrar cualquier persona, y por eso hoy puedes pasear por aquí sin que nadie te lo impida.',
+              '¡El monumento blanco que hay en un extremo del parque se inauguró el mismo año que el Ángel de la Independencia, en 1910! 🏛️ Tiene columnas en forma de medio círculo alrededor de la estatua de un expresidente muy importante, Benito Juárez, ¡y desde entonces la gente se junta ahí para celebrar fechas especiales!'
             ]
           }
         },
@@ -768,12 +768,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'El arquitecto Antonio Rivas Mercado tuvo una hija, Antonieta Rivas Mercado, que se convirtió después en una influyente mecenas cultural de la Ciudad de México en los años veinte, apoyando teatro y literatura de vanguardia.',
-              'Tras el terremoto de 2017, la columna fue inspeccionada a fondo y reforzada de nuevo, sumándose a las intervenciones estructurales que el monumento ha recibido desde su construcción para resistir el terreno sísmico de la ciudad.'
+              'El arquitecto Antonio Rivas Mercado tuvo una hija, Antonieta Rivas Mercado, que se convirtió después en una influyente mecenas cultural de la Ciudad de México en los años veinte, apoyando teatro y literatura de vanguardia. Llegó a fundar y financiar compañías de teatro experimental y a rodearse de algunos de los intelectuales más importantes de su generación, de modo que el legado de la familia Rivas Mercado en la ciudad se extiende también a la vida cultural que impulsó la hija, más allá de la columna que diseñó el padre.',
+              'Tras el terremoto de 2017, la columna fue inspeccionada a fondo y reforzada de nuevo, sumándose a las intervenciones estructurales que el monumento ha recibido desde su construcción para resistir el terreno sísmico de la ciudad. Ingenieros revisaron tanto la cimentación como la propia estructura interior, y aunque el monumento no sufrió daños graves visibles, la revisión formó parte de un protocolo de mantenimiento constante que se repite tras cada gran sismo, dada la importancia simbólica del Ángel para toda la capital.'
             ],
             kids: [
-              '¡El arquitecto que diseñó esta columna tuvo una hija que después se hizo famosa por ayudar a artistas y escritores jóvenes en la ciudad! 🎭',
-              '¡Después del terremoto de 2017, revisaron toda la columna de arriba abajo para asegurarse de que seguía firme! 🔧'
+              '¡El arquitecto que diseñó esta columna tuvo una hija que después se hizo famosa por ayudar a artistas y escritores jóvenes en la ciudad! 🎭 Ella usaba su propio dinero para apoyar obras de teatro y libros nuevos y atrevidos, así que esta familia dejó huella en la ciudad no solo con la columna, ¡sino también con todo el arte que ayudó a crear la hija!',
+              '¡Después del terremoto de 2017, revisaron toda la columna de arriba abajo para asegurarse de que seguía firme! 🔧 Los ingenieros miraron tanto los cimientos como el interior de la columna, ¡algo que se hace después de cada terremoto grande, porque este monumento es demasiado importante para arriesgarse!'
             ]
           }
         },
@@ -838,12 +838,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'Las ranas de bronce que hoy decoran el jardín no formaban parte del diseño original: se fueron incorporando y renovando a lo largo del siglo XX, hasta convertirse en la seña de identidad más fotografiada de la plaza.',
-              'Coyoacán fue un municipio independiente hasta 1928, año en que se incorporó formalmente a la Ciudad de México; hasta entonces, la plaza que hoy recorres era el centro de un pueblo con ayuntamiento propio.'
+              'Las ranas de bronce que hoy decoran el jardín no formaban parte del diseño original: se fueron incorporando y renovando a lo largo del siglo XX, algunas donadas por artistas y vecinos del barrio, hasta convertirse en la seña de identidad más fotografiada de la plaza. Hoy conviven ejemplares de distintas épocas y estilos, sin un plan unificado detrás, lo que da al conjunto un aire un tanto improvisado que, paradójicamente, se ha vuelto parte esencial del encanto del lugar.',
+              'Coyoacán fue un municipio independiente hasta 1928, año en que se incorporó formalmente a la Ciudad de México; hasta entonces, la plaza que hoy recorres era el centro de un pueblo con ayuntamiento propio, calles empedradas y una identidad separada de la capital. Esa independencia administrativa explica en parte por qué Coyoacán conservó, incluso después de fusionarse con la ciudad, un ambiente de pueblo tan distinto del resto del centro histórico, con su propio ritmo y su propia vida de plaza.'
             ],
             kids: [
-              '¡Las ranitas de bronce no estaban aquí desde el principio: las fueron poniendo poco a poco durante el siglo pasado, y hoy son de las fotos más famosas de todo el barrio! 📸🐸',
-              '¡Coyoacán fue su propio pueblo, con su propio ayuntamiento, hasta 1928! Antes de esa fecha, ni siquiera formaba parte de la Ciudad de México. 🏘️'
+              '¡Las ranitas de bronce no estaban aquí desde el principio: las fueron poniendo poco a poco durante el siglo pasado, algunas regaladas por artistas y vecinos del barrio! 📸🐸 Por eso no todas son iguales ni del mismo tamaño, pero juntas se han convertido en las fotos más famosas de todo el barrio.',
+              '¡Coyoacán fue su propio pueblo, con su propio ayuntamiento, hasta 1928! Antes de esa fecha, ni siquiera formaba parte de la Ciudad de México. 🏘️ Por eso Coyoacán todavía se siente un poquito distinto al resto de la ciudad, ¡como un pueblo con calles de piedra escondido dentro de una gran capital!'
             ]
           }
         },
@@ -914,12 +914,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'El agente que asesinó a Trotsky, Ramón Mercader, se ganó su confianza durante meses haciéndose pasar por pareja de una simpatizante estadounidense del entorno del revolucionario, antes de poder acercarse a él a solas en su despacho.',
-              'Durante su exilio, Trotsky se aficionó a la jardinería y a la cría de conejos y gallinas en el propio jardín de la casa, una rutina apacible que contrastaba con la tensión constante por su seguridad.'
+              'El agente que asesinó a Trotsky, Ramón Mercader, se ganó su confianza durante meses haciéndose pasar por pareja de una simpatizante estadounidense del entorno del revolucionario, adoptando incluso una identidad falsa como hombre de negocios belga. Solo después de ganarse la confianza de la casa entera, incluidos los guardias que vigilaban a Trotsky día y noche, logró que lo dejaran entrar a solas en su despacho, donde finalmente cometió el ataque que planeaba desde hacía meses.',
+              'Durante su exilio, Trotsky se aficionó a la jardinería y a la cría de conejos y gallinas en el propio jardín de la casa, una rutina apacible que contrastaba con la tensión constante por su seguridad. Dedicaba varias horas al día a cuidar sus animales y sus plantas, una actividad que según sus propios allegados le ayudaba a sobrellevar el encierro casi permanente al que lo obligaban las amenazas contra su vida, tras los muros de la que se había convertido en su fortaleza.'
             ],
             kids: [
-              '¡La persona que atacó a Trotsky se hizo pasar por amigo de la familia durante meses, fingiendo ser de confianza, antes de poder acercarse a él! 🎭',
-              '¡Durante los años que vivió aquí escondido, a Trotsky le gustaba cuidar plantas y hasta criar conejos y gallinas en el jardín! 🐰🌵'
+              '¡La persona que atacó a Trotsky se hizo pasar por amigo de la familia durante meses, fingiendo ser de confianza, antes de poder acercarse a él! 🎭 Incluso se inventó una identidad falsa, como si fuera otra persona totalmente distinta, ¡y solo así consiguió que lo dejaran entrar a solas en el despacho donde ocurrió todo!',
+              '¡Durante los años que vivió aquí escondido, a Trotsky le gustaba cuidar plantas y hasta criar conejos y gallinas en el jardín! 🐰🌵 Pasaba varias horas al día cuidándolos, ¡una forma tranquila de olvidarse un rato del peligro constante que sentía por vivir encerrado tras esos muros tan altos!'
             ]
           }
         },
@@ -991,12 +991,12 @@ CITIES.cdmx.pois = [
           },
           deepenFillers: {
             adult: [
-              'En la sala maya se exhibe una réplica a tamaño real de la tumba del gobernante Pakal de Palenque, con su célebre lápida esculpida, mientras que piezas originales como su máscara de jade se conservan en otras vitrinas del museo.',
-              'Cerca de la entrada del museo se alza un gran tótem tallado por pueblos indígenas de la costa noroeste de Canadá, un regalo del gobierno canadiense que lleva décadas dando la bienvenida a los visitantes.'
+              'En la sala maya se exhibe una réplica a tamaño real de la tumba del gobernante Pakal de Palenque, con su célebre lápida esculpida que representa su descenso al inframundo. Las piezas originales que acompañaban su enterramiento, como la máscara de jade que cubría su rostro, se conservan en vitrinas cercanas dentro de la misma sala, permitiendo comparar de un vistazo la magnificencia del ajuar funerario con el propio espacio de la tumba que lo albergó durante más de mil años.',
+              'Cerca de la entrada del museo se alza un gran tótem tallado por pueblos indígenas de la costa noroeste de Canadá, un regalo del gobierno canadiense que lleva décadas dando la bienvenida a los visitantes. Su presencia, ajena por completo a las culturas mesoamericanas que ocupan el resto del recorrido, funciona como un pequeño gesto de diálogo entre pueblos originarios de distintas partes del continente americano, y sorprende a quienes esperan encontrar únicamente arte prehispánico mexicano nada más entrar.'
             ],
             kids: [
-              '¡En la sala maya hay una copia exacta de la tumba de un antiguo rey maya llamado Pakal, con su tapa de piedra tallada tal y como se encontró! 👑',
-              '¡Cerca de la entrada hay un tótem de madera gigantesco tallado por pueblos indígenas de Canadá, que fue un regalo para México! 🪵🎁'
+              '¡En la sala maya hay una copia exacta de la tumba de un antiguo rey maya llamado Pakal, con su tapa de piedra tallada tal y como se encontró! 👑 Muy cerca puedes ver también la máscara de jade verde que cubría su cara cuando lo enterraron, ¡así puedes comparar el tesoro con la tumba donde lo guardaban!',
+              '¡Cerca de la entrada hay un tótem de madera gigantesco tallado por pueblos indígenas de Canadá, que fue un regalo para México! 🪵🎁 No tiene nada que ver con los aztecas ni los mayas, ¡pero está ahí para saludar a los pueblos originarios de otras partes de América!'
             ]
           }
         },

@@ -47,14 +47,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El Palacio Real conserva cinco instrumentos Stradivarius que forman el llamado Cuarteto Palatino, uno de los pocos conjuntos completos de ese lutier que se sigue tocando en actos oficiales.',
-              'Bajo el Patio de Armas se han hallado restos de las fortificaciones árabes y medievales que ocuparon este mismo promontorio desde el siglo IX, mucho antes de que existiera el palacio actual.',
-              'El techo del Salón del Trono lo pintó Giambattista Tiepolo, uno de sus últimos grandes encargos: el artista veneciano murió en Madrid en 1770 sin llegar a ver terminada toda la decoración del palacio.'
+              'El Palacio Real conserva cinco instrumentos Stradivarius que forman el llamado Cuarteto Palatino, uno de los pocos conjuntos completos de ese lutier que se sigue tocando en actos oficiales. Antonio Stradivari los construyó en Cremona a principios del siglo XVIII por encargo real, y llegaron a España décadas después; hoy se guardan con extremo cuidado y solo se tocan en contadas ocasiones, ya que cada pieza se considera irrepetible y prácticamente imposible de sustituir si sufriera algún daño.',
+              'Bajo el Patio de Armas se han hallado restos de las fortificaciones árabes y medievales que ocuparon este mismo promontorio desde el siglo IX, mucho antes de que existiera el palacio actual. Aquella primitiva alcazaba musulmana controlaba el paso del río Manzanares y sirvió de base para el Alcázar cristiano que los reyes castellanos fueron ampliando durante siglos, hasta que el incendio de 1734 borró casi por completo aquella construcción y dejó paso al proyecto dieciochesco que hoy se conoce.',
+              'El techo del Salón del Trono lo pintó Giambattista Tiepolo, uno de sus últimos grandes encargos: el artista veneciano murió en Madrid en 1770 sin llegar a ver terminada toda la decoración del palacio. Carlos III lo había hecho venir expresamente desde Venecia, ya anciano, para representar la grandeza de la monarquía española en un fresco monumental; tras su muerte, el pintor alemán Anton Raphael Mengs, de estilo neoclásico muy distinto, se encargó de decorar otras estancias del palacio, lo que generó cierta rivalidad artística entre ambos.'
             ],
             kids: [
-              '¡Aquí se guardan violines carísimos y antiguos, unos Stradivarius, que todavía se tocan en fiestas importantes de verdad! 🎻',
-              '¡Debajo del patio del palacio hay restos escondidos de un castillo árabe muchísimo más viejo que todo lo que ves! 🏰',
-              '¡Un pintor italiano famosísimo pintó el techo de una de las salas más bonitas, y fue casi lo último que hizo antes de morir en Madrid! 🎨'
+              '¡Aquí se guardan violines carísimos y antiguos, unos Stradivarius, que todavía se tocan en fiestas importantes de verdad! 🎻 Los hizo hace más de 300 años un fabricante de violines italiano buenísimo, y son tan especiales que casi nunca los tocan, para que no se estropeen: solo salen de su caja fuerte en ocasiones muy señaladas.',
+              '¡Debajo del patio del palacio hay restos escondidos de un castillo árabe muchísimo más viejo que todo lo que ves! 🏰 Ese castillo vigilaba el río que pasa cerca de Madrid, y los reyes cristianos lo fueron agrandando durante cientos de años, ¡hasta que un incendio gigante lo destruyó casi todo y tuvieron que construir el palacio que ves hoy!',
+              '¡Un pintor italiano famosísimo pintó el techo de una de las salas más bonitas, y fue casi lo último que hizo antes de morir en Madrid! 🎨 Un rey lo hizo venir desde muy lejos, desde Venecia, cuando ya era mayor, para pintar ese techo tan enorme. Después llegó otro pintor con un estilo bien distinto para decorar otras salas del palacio.'
             ]
           }
         },
@@ -149,14 +149,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El mercado estuvo a punto de derribarse en los años noventa por el deterioro de su estructura, y solo la declaración como Bien de Interés Cultural obligó a conservarla al convertirlo en mercado gourmet en 2009.',
-              'Antes de su reconversión, este fue durante décadas un mercado de abastos de barrio, con pescaderías y carnicerías tradicionales, hasta que la competencia de los supermercados casi lo llevó al cierre.',
-              'Los grandes paneles de cristal que hoy cierran los laterales son un añadido de la reforma de 2009: originalmente la nave de hierro estaba abierta al aire libre, como cualquier mercado tradicional.'
+              'El mercado estuvo a punto de derribarse en los años noventa, cuando el deterioro de su vieja estructura de hierro hacía temer que no pudiera salvarse tras décadas de abandono como mercado de abastos. Fue su declaración como Bien de Interés Cultural la que obligó a conservarlo tal cual, abriendo paso a la profunda rehabilitación que culminó en 2009, cuando se reinventó como mercado gourmet y se convirtió en modelo para proyectos similares en otras ciudades.',
+              'Antes de su reconversión, este fue durante décadas un mercado de abastos de barrio como tantos otros de Madrid, con pescaderías, carnicerías y fruterías tradicionales que abastecían a los vecinos del centro. La llegada de los grandes supermercados fue vaciando poco a poco sus puestos, y hacia los años noventa el mercado languidecía con buena parte de sus casetas cerradas, hasta el punto de que muchos daban por hecho que terminaría desapareciendo del todo.',
+              'Los grandes paneles de cristal que hoy cierran los laterales del mercado son un añadido de la reforma de 2009, pensado para que el local pudiera funcionar hasta bien entrada la noche sin depender del clima madrileño. Originalmente la nave de hierro estaba completamente abierta al aire libre, como cualquier mercado tradicional de la época, con los puestos expuestos directamente al frío del invierno y al calor del verano, algo impensable en el formato gastronómico que tiene hoy.'
             ],
             kids: [
-              '¡Este mercado estuvo a punto de desaparecer para siempre antes de convertirse en el sitio tan famoso que es hoy! 😮',
-              'Al principio no tenía paredes de cristal: ¡estaba abierto al aire libre, como un mercado normal de toda la vida! 🌬️',
-              'Antes aquí se vendían pescado y carne como en cualquier mercado de barrio, ¡nada que ver con las tapas de ahora! 🐟'
+              '¡Este mercado estuvo a punto de desaparecer para siempre! 😮 Hace más de veinte años estaba tan viejo y estropeado que casi lo tiran abajo, pero alguien decidió que había que salvarlo por ser tan especial. Por eso lo arreglaron entero y lo convirtieron en el sitio tan famoso y lleno de tapas que es hoy.',
+              'Al principio este mercado no tenía paredes de cristal: ¡estaba abierto al aire libre, como un mercado normal de toda la vida! 🌬️ En invierno hacía frío entre los puestos y en verano mucho calor. Pusieron el cristal hace poco más de quince años, para que se pudiera comer aquí calentitos pase lo que pase fuera.',
+              'Antes aquí se vendían pescado y carne fresca cada mañana, como en cualquier mercado de barrio de toda la vida, ¡nada que ver con las tapas de ahora! 🐟🥩 Los vecinos venían a comprar para cocinar en casa, no a comer de pie entre los puestos. Cuando llegaron los supermercados, casi nadie venía ya a comprar aquí.'
             ]
           }
         },
@@ -221,14 +221,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La plaza debe su nombre a una antigua puerta de la muralla medieval de Madrid, orientada hacia el este y decorada con un sol, que fue derribada en el siglo XVI sin dejar restos visibles hoy.',
-              'Bajo la plaza se excavó, a comienzos de los años 2000, una de las estaciones de Cercanías más profundas de Madrid, con andenes situados a más de treinta metros bajo el nivel de la calle.',
-              'La Puerta del Sol fue el escenario del levantamiento popular del 2 de mayo de 1808 contra las tropas napoleónicas, un episodio que Goya inmortalizó después en sus célebres cuadros sobre la Guerra de la Independencia.'
+              'La plaza debe su nombre a una antigua puerta de la muralla medieval de Madrid, orientada hacia el este y decorada con la imagen de un sol, que marcaba entonces el límite mismo de la ciudad. Fue derribada en el siglo XVI, cuando Madrid ya crecía muy por delante de aquella muralla, y hoy no queda ningún resto visible de ella: solo el nombre que ha conservado la plaza durante siglos recuerda que aquí hubo alguna vez una entrada fortificada a la villa.',
+              'Bajo la plaza se excavó, a comienzos de los años 2000, una de las estaciones de Cercanías más profundas de Madrid, con andenes situados a más de treinta metros bajo el nivel de la calle. Las obras obligaron a apuntalar con enorme cuidado los edificios históricos de la superficie mientras se perforaba la roca, y durante meses la plaza más concurrida de España convivió con una de las excavaciones urbanas más complejas de su historia reciente, sin apenas interrumpir el tráfico peatonal en la superficie.',
+              'La Puerta del Sol fue el escenario del levantamiento popular del 2 de mayo de 1808 contra las tropas napoleónicas, cuando los madrileños se enfrentaron a los mamelucos y soldados franceses con armas improvisadas en plena plaza. Goya inmortalizó después aquel episodio en sus célebres cuadros sobre la Guerra de la Independencia, convirtiendo un tumulto callejero en una de las imágenes más reproducidas de toda la historia del arte español.'
             ],
             kids: [
-              '¡La plaza se llama "del Sol" por una puerta antiquísima decorada con un sol que ya no existe! ☀️',
-              '¡Debajo de esta plaza hay una estación de tren tan profunda que parece un pozo sin fondo! 🚇',
-              '¡Aquí pasó algo tan importante hace más de 200 años que un pintor famosísimo lo pintó después en un cuadro enorme! 🎨'
+              '¡La plaza se llama "del Sol" por una puerta antiquísima decorada con un sol que ya no existe! ☀️ Aquella puerta formaba parte de la muralla que rodeaba Madrid hace cientos de años, y marcaba dónde terminaba la ciudad en aquel entonces. La derribaron hace muchísimo tiempo, pero su nombre se quedó para siempre en la plaza.',
+              '¡Debajo de esta plaza hay una estación de tren tan profunda que parece un pozo sin fondo! 🚇 Está a más de treinta metros bajo tierra, ¡como diez pisos hacia abajo! Para construirla tuvieron que cavar con muchísimo cuidado, para que los edificios antiguos de arriba no se movieran ni un poquito.',
+              '¡Aquí pasó algo tan importante hace más de 200 años que un pintor famosísimo, Goya, lo pintó después en unos cuadros enormes! 🎨 La gente de Madrid se enfrentó aquí mismo a soldados de otro país, y aquel momento se convirtió en una de las imágenes más famosas de todo el arte español.'
             ]
           }
         },
@@ -300,14 +300,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'Durante la Guerra Civil, las obras maestras del museo se evacuaron a Valencia, Barcelona y finalmente Ginebra para protegerlas de los bombardeos, y no regresaron a Madrid hasta 1939.',
-              'Las Meninas de Velázquez ocupa hoy una sala diseñada específicamente para el cuadro, pensada para que pueda contemplarse desde la distancia exacta a la que Velázquez situó su propio punto de vista al pintarlo.',
-              'La ampliación de Rafael Moneo de 2007 incorporó el antiguo claustro de los Jerónimos, desmontado piedra a piedra y reconstruido junto al edificio original de Villanueva.'
+              'Durante la Guerra Civil, las obras maestras del museo se evacuaron por carretera en camiones acondicionados a Valencia, después a Barcelona y finalmente a Ginebra para protegerlas de los bombardeos que asolaban Madrid. El viaje se hizo bajo estricto secreto y con escolta armada, consciente el Gobierno de que la pérdida de aquellas piezas habría sido irreparable; no regresaron a Madrid hasta 1939, ya terminada la contienda, sin que se perdiera ni se dañara ninguna de ellas por el camino.',
+              'Las Meninas de Velázquez ocupa hoy una sala diseñada específicamente para el cuadro, pensada para que pueda contemplarse desde la distancia exacta a la que Velázquez situó su propio punto de vista al pintarlo, casi como si el visitante ocupara el lugar del rey retratado en el espejo del fondo. La disposición de la sala, con el cuadro como único protagonista, ha convertido ese punto concreto en uno de los más fotografiados de todo el museo.',
+              'La ampliación de Rafael Moneo de 2007 incorporó el antiguo claustro de los Jerónimos, desmontado piedra a piedra en su ubicación original y reconstruido junto al edificio de Villanueva como núcleo de los nuevos espacios expositivos. La operación permitió casi duplicar la superficie del museo sin alterar la fachada histórica que da al Paseo del Prado, integrando un elemento gótico tardío dentro de una arquitectura contemporánea de líneas mucho más sobrias.'
             ],
             kids: [
-              '¡Durante una guerra, los cuadros más importantes viajaron muy lejos para protegerlos, hasta otro país, y luego volvieron a casa! 🚚',
-              '¡Hay una sala hecha especialmente para un cuadro súper famoso, Las Meninas, para que lo veas justo desde la distancia perfecta! 🖼️',
-              '¡Hace años ampliaron el museo trayendo piedra por piedra un edificio antiguo desde otro sitio y lo pegaron al museo! 🧱'
+              '¡Durante una guerra, los cuadros más importantes viajaron muy lejos para protegerlos, en camiones y con mucha vigilancia, hasta otro país! 🚚 Nadie quería que se rompiera ni uno solo. Cuando terminó la guerra, volvieron todos sanos y salvos a casa, sin que faltara ni se estropeara ninguno.',
+              '¡Hay una sala hecha especialmente para un cuadro súper famoso, Las Meninas, para que lo veas justo desde la distancia perfecta! 🖼️ Es el mismo sitio exacto desde donde el propio pintor lo veía mientras lo pintaba. ¡Por eso es una de las fotos más repetidas de todo el museo!',
+              '¡Hace años ampliaron el museo trayendo piedra por piedra un edificio antiguo, un claustro, desde otro sitio y lo pegaron al museo! 🧱 Así consiguieron casi el doble de espacio para más cuadros, sin tener que tocar la fachada bonita y antigua que ya tenía el museo por fuera.'
             ]
           }
         },
@@ -372,14 +372,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El jardín conserva un ejemplar de ombú, un árbol sudamericano de tronco descomunal y madera tan blanda que apenas sirve para construir nada, plantado hace más de dos siglos.',
-              'Durante buena parte del siglo XX el jardín estuvo semiabandonado, y no fue hasta una gran restauración en los años ochenta cuando recuperó el trazado original diseñado por Sabatini y Villanueva.',
-              'El invernadero Umbráculo, en la parte alta del jardín, se construyó en 1856 y sigue protegiendo hoy plantas tropicales que no soportarían el frío del invierno madrileño.'
+              'El jardín conserva un ejemplar de ombú, un árbol sudamericano de tronco descomunal y aspecto casi monstruoso, cuya madera es tan blanda y esponjosa que apenas sirve para construir nada, ni siquiera para hacer leña. Fue plantado hace más de dos siglos, en los primeros años del jardín en esta ubicación, y su tamaño desproporcionado lo convierte en una de las paradas más curiosas del recorrido, muy distinto a cualquier árbol autóctono de la península.',
+              'Durante buena parte del siglo XX el jardín estuvo semiabandonado, con muchos de sus parterres descuidados y varias estructuras originales en franco deterioro por falta de mantenimiento. No fue hasta una gran restauración emprendida en los años ochenta cuando recuperó el trazado original diseñado por Sabatini y Villanueva, devolviéndole el aspecto que había tenido durante su época de esplendor ilustrado.',
+              'El invernadero Umbráculo, en la parte alta del jardín, se construyó en 1856 con una estructura de hierro colado pensada para dar sombra sin encerrar del todo las plantas, un diseño poco habitual para la época. Sigue protegiendo hoy especies tropicales y subtropicales que jamás sobrevivirían al frío seco del invierno madrileño si se dejaran a la intemperie durante los meses más duros del año.'
             ],
             kids: [
-              '¡Hay un árbol sudamericano tan raro que su madera es blandita y casi no sirve para construir nada! 🌳',
-              '¡Este jardín estuvo bastante abandonado durante muchos años, hasta que lo arreglaron para que volviera a lucir bonito! 🌱',
-              '¡Hay un invernadero de hace más de 160 años que protege plantas tropicales del frío de Madrid! 🏡'
+              '¡Hay un árbol sudamericano tan raro que su madera es blandita y casi no sirve para construir nada! 🌳 Tiene un tronco gigante y raro, ¡nada que ver con los árboles normales de Madrid! Lo plantaron hace más de 200 años, cuando el jardín todavía era muy nuevo.',
+              '¡Este jardín estuvo bastante abandonado durante muchos años, con las plantas descuidadas y algunas partes casi rotas! 🌱 Hasta que, hace unas décadas, un grupo de personas lo arregló entero para que volviera a lucir tan bonito como al principio, cuando lo diseñaron por primera vez.',
+              '¡Hay un invernadero de hace más de 160 años que protege plantas tropicales del frío de Madrid! 🏡 Está hecho de hierro y da sombra sin encerrar del todo las plantas. Sin él, esas plantas de países calurosos no aguantarían ni un invierno madrileño.'
             ]
           }
         },
@@ -444,14 +444,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El Retiro fue jardín privado de la Corona hasta 1868, cuando la Revolución de septiembre de ese año lo convirtió en parque público, abierto por primera vez a todos los madrileños.',
-              'Durante el asedio de Madrid en la Guerra Civil el parque sufrió importantes daños, y buena parte de su arbolado tuvo que replantarse por completo tras el conflicto.',
-              'En 2021 la UNESCO declaró Patrimonio de la Humanidad el eje formado por El Retiro y el Paseo del Prado, bajo el nombre de "Paisaje de la Luz", junto con los grandes museos y jardines de la zona.'
+              'El Retiro fue jardín privado de la Corona hasta 1868, vedado durante siglos a la mayoría de los madrileños salvo en contadas ocasiones señaladas. La Revolución de septiembre de ese año, que acabó derrocando a Isabel II, lo convirtió en parque público de la noche a la mañana, abierto por primera vez a todos los vecinos sin distinción, un gesto simbólico tan importante como cualquiera de los cambios políticos de aquella revuelta.',
+              'Durante el asedio de Madrid en la Guerra Civil el parque sufrió importantes daños por los bombardeos y por el uso de algunas de sus construcciones con fines militares, y buena parte de su arbolado histórico quedó destruido o gravemente dañado. Tras el conflicto hubo que replantar buena parte del parque casi desde cero, por lo que buena parte de los árboles que hoy se ven, pese a su porte imponente, no son en realidad los originales del siglo XIX.',
+              'En 2021 la UNESCO declaró Patrimonio de la Humanidad el eje formado por El Retiro y el Paseo del Prado, bajo el nombre de "Paisaje de la Luz", junto con los grandes museos y jardines de la zona. Fue el primer paisaje urbano de España en recibir esa distinción, reconociendo no solo los monumentos individuales sino la relación histórica entre ciencia, arte y naturaleza que se fue tejiendo en este eje desde el siglo XVIII.'
             ],
             kids: [
-              '¡Este parque era solo para el rey y su familia hasta hace poco más de 150 años, cuando por fin lo abrieron para todo el mundo! 👑',
-              '¡La UNESCO ha declarado este parque, junto al Museo del Prado, tesoro de toda la humanidad! 🌍',
-              '¡Durante una guerra el parque se dañó mucho y tuvieron que plantar árboles nuevos después! 🌳'
+              '¡Este parque era solo para el rey y su familia hasta hace poco más de 150 años! 👑 La gente normal casi nunca podía entrar. Entonces hubo un cambio grande en España y, de repente, abrieron el parque para todo el mundo, ¡y desde entonces cualquiera puede venir a pasear!',
+              '¡La UNESCO ha declarado este parque, junto al Museo del Prado, tesoro de toda la humanidad! 🌍 Fue el primer paisaje de toda España en conseguir ese título tan importante, ¡como si dijeran que hay que cuidarlo entre todo el planeta!',
+              '¡Durante una guerra el parque se dañó muchísimo y muchos árboles se destruyeron! 🌳 Después de la guerra tuvieron que plantar árboles nuevos por casi todo el parque, así que muchos de los que ves hoy, aunque parezcan viejísimos, no son los originales.'
             ]
           }
         },
@@ -522,14 +522,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El estanque que rodea el edificio no es solo decorativo: ayuda a regular la temperatura interior del pabellón, un recurso propio de los grandes invernaderos victorianos de la época.',
-              'El pabellón se inspiró directamente en el Crystal Palace construido en Londres en 1851 para la Gran Exposición, aunque a una escala mucho más reducida.',
-              'El vidrio se ha ido sustituyendo a lo largo de sucesivas restauraciones, pero la estructura metálica que lo sostiene es, en gran parte, la original de 1887.'
+              'El estanque que rodea el edificio no es solo decorativo: ayuda a regular la temperatura interior del pabellón, un recurso propio de los grandes invernaderos victorianos de la época, que aprovechaban el agua como amortiguador térmico natural. El reflejo del edificio en la superficie era además un efecto buscado deliberadamente por su arquitecto, pensado para que el pabellón pareciera aún más ligero y etéreo de lo que ya es.',
+              'El pabellón se inspiró directamente en el Crystal Palace construido en Londres en 1851 para la Gran Exposición Universal, aunque a una escala mucho más reducida y con un programa decorativo propio, muy distinto del original inglés. Aquel edificio londinense, desaparecido en un incendio en 1936, fue el gran modelo de referencia para toda una generación de arquitectos europeos que trabajaron con hierro y cristal a finales del siglo XIX.',
+              'El vidrio se ha ido sustituyendo a lo largo de sucesivas restauraciones, ya que resulta mucho más frágil y vulnerable al paso del tiempo que el metal, pero la estructura metálica que lo sostiene es, en gran parte, la original de 1887. Cada intervención ha intentado mantener el mismo despiece y el mismo tipo de cristal que empleó Velázquez Bosco, para no alterar el aspecto original del conjunto.'
             ],
             kids: [
-              '¡El agua del estanque de alrededor no es solo bonita, ayuda a que dentro del palacio no haga tanto calor! 💧',
-              '¡Este palacio de cristal copió la idea de otro palacio de cristal aún más grande que se construyó en Londres! 🇬🇧',
-              '¡El cristal se ha ido cambiando varias veces a lo largo de los años, pero el esqueleto de hierro de dentro sigue siendo casi el original! 🔧'
+              '¡El agua del estanque de alrededor no es solo bonita, ayuda a que dentro del palacio no haga tanto calor! 💧 Además, el palacio se refleja entero en el agua, como en un espejo gigante, ¡algo que el arquitecto hizo a propósito para que pareciera todavía más mágico!',
+              '¡Este palacio de cristal copió la idea de otro palacio de cristal aún más grande que se construyó en Londres! 🇬🇧 Aquel edificio inglés se quemó hace muchísimos años y ya no existe, pero sirvió de inspiración a muchos arquitectos que querían construir con hierro y cristal.',
+              '¡El cristal se ha ido cambiando varias veces a lo largo de los años, porque se rompe más fácil, pero el esqueleto de hierro de dentro sigue siendo casi el original! 🔧 Cada vez que lo arreglan intentan usar cristales parecidos a los de siempre, para que no cambie su aspecto.'
             ]
           }
         },
@@ -595,14 +595,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El nombre del edificio no rinde homenaje al pintor Diego Velázquez, sino a su arquitecto, Ricardo Velázquez Bosco, una coincidencia de apellido que confunde a muchos visitantes.',
-              'Tras su etapa como Museo de Ultramar, el edificio quedó prácticamente en desuso durante buena parte del siglo XX, hasta que el Museo Reina Sofía lo recuperó como sala de exposiciones.',
-              'Los azulejos que decoran su fachada proceden de la Real Fábrica de la Moncloa, una manufactura cerámica madrileña del siglo XIX que también decoró otros edificios oficiales de la ciudad.'
+              'El nombre del edificio no rinde homenaje al pintor Diego Velázquez, sino a su arquitecto, Ricardo Velázquez Bosco, una coincidencia de apellido que confunde a muchos visitantes que llegan esperando encontrar cuadros del pintor sevillano. El propio arquitecto firmó también, en esos mismos años, el vecino Palacio de Cristal, por lo que ambos pabellones comparten no solo el entorno sino buena parte de su lenguaje arquitectónico.',
+              'Tras su etapa como Museo de Ultramar, el edificio quedó prácticamente en desuso durante buena parte del siglo XX, con largos periodos cerrado al público y sin una función clara dentro del parque. Solo a partir de los años setenta empezó a recuperar cierta actividad expositiva puntual, hasta que finalmente el Museo Reina Sofía lo integró de forma estable como sala de exposiciones temporales, devolviéndole el protagonismo que había tenido en sus primeras décadas.',
+              'Los azulejos que decoran su fachada no son un simple añadido decorativo: proceden de una manufactura cerámica madrileña del siglo XIX hoy desaparecida, que abasteció también a otros edificios oficiales de la capital. Al haber dejado de producirse hace más de cien años, cualquier restauración de esas piezas dañadas exige localizar talleres capaces de replicar tonos y técnicas ya prácticamente perdidos.'
             ],
             kids: [
-              '¡Aunque se llama "de Velázquez", no tiene nada que ver con el pintor famoso, sino con el arquitecto que lo construyó, que se apellidaba igual! 🎨',
-              '¡Este edificio estuvo cerrado y casi olvidado durante muchísimos años antes de convertirse en sala de arte! 🚪',
-              '¡Los azulejos de la fachada los hicieron en una fábrica de cerámica de Madrid que también decoró otros edificios importantes! 🧱'
+              '¡Aunque se llama "de Velázquez", no tiene nada que ver con el pintor famoso, sino con el arquitecto que lo construyó, que se apellidaba igual! 🎨 Es normal confundirse la primera vez. Ese mismo arquitecto construyó también el Palacio de Cristal, que está aquí mismo al lado.',
+              '¡Este edificio estuvo cerrado y casi olvidado durante muchísimos años antes de convertirse en sala de arte! 🚪 Pasó mucho tiempo sin que casi nadie lo visitara, hasta que por fin decidieron abrirlo de nuevo para mostrar arte moderno a todo el que quisiera entrar.',
+              '¡Los azulejos de la fachada los hicieron en una fábrica de cerámica de Madrid que ya no existe! 🧱 Como llevan cerrada más de cien años, cuando se rompe algún azulejo es muy difícil encontrar a alguien que sepa hacer uno igual de parecido.'
             ]
           }
         },
@@ -662,14 +662,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El recinto reproduce el estilo de los patios andaluces, con setos recortados, fuentes de azulejos y una combinación de sombra y agua pensada para el calor del verano madrileño, poco habitual en el resto del Retiro.',
-              'Los pavos reales que pasean sueltos hoy descienden de ejemplares introducidos hace décadas; al no tener depredadores naturales dentro del recinto, su población necesita controlarse.',
-              'El jardín permanece vallado y cierra antes que el resto del parque precisamente para proteger tanto las especies vegetales más delicadas como a los propios pavos reales durante la noche.'
+              'El recinto reproduce deliberadamente el estilo de los patios andaluces, con setos recortados de boj, fuentes de azulejos y una combinación estudiada de sombra y agua pensada específicamente para aliviar el calor del verano madrileño, un enfoque poco habitual en el resto del Retiro, diseñado con trazados mucho más abiertos y menos protegidos del sol.',
+              'Los pavos reales que pasean sueltos hoy descienden de ejemplares introducidos hace décadas dentro de este recinto cerrado. Al no tener depredadores naturales ni posibilidad de escapar del vallado, su población tiende a crecer con rapidez, por lo que el equipo de jardinería del parque necesita controlarla periódicamente para que el número de aves no supere lo que el jardín puede sostener.',
+              'El jardín permanece vallado y cierra antes que el resto del parque precisamente para proteger tanto las especies vegetales más delicadas, muchas de ellas poco resistentes al pisoteo, como a los propios pavos reales durante la noche, cuando quedan más expuestos a posibles depredadores o sustos que podrían dispersarlos fuera del recinto.'
             ],
             kids: [
-              '¡Este jardín está hecho para dar mucha sombra y frescor, como los patios del sur de España! 🌴',
-              '¡Los pavos reales de aquí vienen de otros pavos que trajeron hace muchísimos años, así que hay que cuidar que no se multipliquen demasiado! 🦚',
-              '¡Por las noches cierran una verja especial para proteger a los pavos reales mientras duermen! 🌙'
+              '¡Este jardín está hecho para dar mucha sombra y frescor, como los patios del sur de España! 🌴 Tiene setos recortados con formas muy cuidadas y fuentes con azulejos de colores, todo pensado para que se esté fresquito incluso en los días de más calor de Madrid.',
+              '¡Los pavos reales de aquí vienen de otros pavos que trajeron hace muchísimos años! 🦚 Como aquí dentro no tienen ningún animal que los cace, van teniendo cada vez más crías, así que los jardineros tienen que vigilar que no lleguen a ser demasiados.',
+              '¡Por las noches cierran una verja especial para proteger a los pavos reales mientras duermen! 🌙 También protege a las plantas más delicadas, que se estropearían si la gente pudiera pisarlas a todas horas sin ningún control.'
             ]
           }
         },
@@ -729,14 +729,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La Casa de Fieras original fue en su día uno de los primeros zoológicos abiertos al público en España, casi dos siglos antes de que existiera el actual zoo de la Casa de Campo.',
-              'Los arquitectos de la biblioteca eligieron deliberadamente conservar visibles las cicatrices del edificio antiguo, como la Leonera, en vez de ocultarlas, para que la memoria del zoo conviviera con su nuevo uso.',
-              'El nombre de la biblioteca actual, Eugenio Trías, rinde homenaje a un filósofo español contemporáneo, sin relación alguna con el antiguo zoológico que ocupó este mismo terreno.'
+              'La Casa de Fieras original fue en su día uno de los primeros zoológicos abiertos al público en España, pensado ya en el siglo XVIII no solo como entretenimiento cortesano sino también como espacio de curiosidad científica, casi dos siglos antes de que existiera el actual zoo de la Casa de Campo, que respondía ya a criterios muy distintos de bienestar animal.',
+              'Los arquitectos de la biblioteca eligieron deliberadamente conservar visibles las cicatrices del edificio antiguo, como la Leonera, en vez de ocultarlas bajo una reforma integral, para que la memoria del zoo conviviera con su nuevo uso cultural. Esa decisión convierte el edificio en un raro ejemplo madrileño de arquitectura que asume abiertamente su pasado en lugar de borrarlo.',
+              'El nombre de la biblioteca actual, Eugenio Trías, rinde homenaje a un filósofo español contemporáneo, sin relación alguna con el antiguo zoológico que ocupó este mismo terreno durante casi dos siglos. La coincidencia lleva a menudo a los visitantes menos avisados a preguntarse, en vano, si el nombre esconde alguna referencia oculta a los animales que vivieron aquí.'
             ],
             kids: [
-              '¡Este fue uno de los primeros zoos que se pudieron visitar en toda España, mucho antes de que existiera el zoo actual de Madrid! 🦓',
-              '¡Los que hicieron la biblioteca nueva decidieron dejar a la vista partes del zoo antiguo a propósito, para no olvidarlo! 🏛️',
-              'La biblioteca lleva el nombre de un filósofo, ¡no tiene nada que ver con ningún animal del zoo antiguo! 📚'
+              '¡Este fue uno de los primeros zoos que se pudieron visitar en toda España, mucho antes de que existiera el zoo actual de Madrid! 🦓 En aquella época la gente casi nunca había visto animales tan raros de cerca, así que venir aquí era toda una aventura.',
+              '¡Los que hicieron la biblioteca nueva decidieron dejar a la vista partes del zoo antiguo a propósito, para no olvidarlo! 🏛️ En vez de tapar esas partes viejas, las dejaron ahí para que todo el que entre sepa que antes esto fue un zoo de verdad.',
+              'La biblioteca lleva el nombre de un filósofo, ¡no tiene nada que ver con ningún animal del zoo antiguo! 📚 Es fácil pensar que el nombre esconde algún secreto sobre los animales, pero no: es solo un homenaje a una persona que pensaba mucho sobre el mundo.'
             ]
           }
         },
@@ -801,14 +801,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La construcción del monumento a Alfonso XII se prolongó veinte años, entre 1902 y 1922, e involucró a más de veinte escultores distintos trabajando bajo la dirección de José Grases Riera.',
-              'En los inviernos más fríos de otras épocas, la superficie del estanque llegaba a helarse lo suficiente como para que algunos madrileños patinaran sobre ella, algo casi impensable en el Madrid actual.',
-              'El hemiciclo de columnas del monumento envuelve el estanque en su lado este como un gran escenario, pensado para que la estatua ecuestre se reflejara en el agua desde cualquier punto de la orilla opuesta.'
+              'La construcción del monumento a Alfonso XII se prolongó veinte años, entre 1902 y 1922, un plazo larguísimo que reflejaba tanto la escala de la obra como los vaivenes de la financiación pública a lo largo de dos décadas convulsas para España. Involucró a más de veinte escultores trabajando bajo la dirección de José Grases Riera, un despliegue de talento tan numeroso que convirtió el proyecto en una auténtica escuela colectiva de escultura monumental, poco habitual para un solo conjunto conmemorativo.',
+              'En los inviernos más fríos de otras épocas, se cuenta que la superficie del estanque llegaba a helarse lo suficiente como para que algunos madrileños se atrevieran a patinar sobre ella, una escena que forma parte del imaginario popular sobre los inviernos duros de antaño y que resulta casi impensable en el Madrid actual, donde las heladas de esa intensidad se han vuelto mucho más raras.',
+              'El hemiciclo de columnas del monumento envuelve el estanque en su lado este como un gran escenario, pensado para que la estatua ecuestre se reflejara en el agua desde cualquier punto de la orilla opuesta. Ese efecto de espejo convierte el atardecer en uno de los momentos más buscados por fotógrafos y visitantes, cuando la luz baja ilumina de lleno la fachada curva de columnas y su reflejo se duplica sobre la superficie tranquila del agua.'
             ],
             kids: [
-              '¡Tardaron veinte años enteros en construir el monumento del rey a caballo, con más de veinte artistas trabajando en él! 🏛️',
-              'En los inviernos más fríos de hace mucho tiempo, el agua del estanque llegaba a helarse tanto que la gente patinaba encima, ¡algo rarísimo hoy en Madrid! ❄️',
-              '¡El monumento se construyó en forma de media luna gigante para que se reflejara entero en el agua del estanque! 🪞'
+              '¡Tardaron veinte años enteros en construir el monumento del rey a caballo, con más de veinte artistas trabajando en él! 🏛️ Fue un proyecto tan grande que parecía casi una escuela entera de escultores, todos trabajando juntos en la misma obra durante mucho tiempo.',
+              'En los inviernos más fríos de hace mucho tiempo, cuentan que el agua del estanque llegaba a helarse tanto que la gente patinaba encima, ¡algo rarísimo hoy en Madrid! ❄️ Ahora casi nunca hace tanto frío como para que el hielo aguante el peso de una persona.',
+              '¡El monumento se construyó en forma de media luna gigante para que se reflejara entero en el agua del estanque! 🪞 Al atardecer, cuando el sol está bajito, es el momento perfecto para verlo doblado en el agua, como si hubiera dos monumentos en vez de uno.'
             ]
           }
         },
@@ -873,14 +873,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La Casa de la Panadería tuvo antes de la pintura actual otras dos decoraciones distintas a lo largo del siglo XX, ambas perdidas por el deterioro del tiempo, antes de que Carlos Franco pintara la que hoy se conserva.',
-              'La plaza mide unos 129 por 94 metros, y su trazado rectangular tan regular fue toda una novedad urbanística para el Madrid de comienzos del siglo XVII, planificado como un espacio cerrado y ordenado en pleno crecimiento de la ciudad.',
-              'Cada domingo por la mañana la plaza acoge un mercado de sellos y monedas con décadas de tradición, heredero directo de aquel viejo uso comercial que tuvo la plaza desde su fundación.'
+              'La Casa de la Panadería tuvo antes de la pintura actual otras dos decoraciones distintas a lo largo del siglo XX, ambas perdidas por el deterioro del tiempo y las inclemencias del clima madrileño, antes de que Carlos Franco pintara en 1992 la que hoy se conserva. Cada nueva versión respondió al gusto artístico de su época, por lo que la fachada ha ido cambiando de aspecto varias veces sin que la plaza dejara nunca de tener una imagen pintada en ese punto central.',
+              'La plaza mide unos 129 por 94 metros, y su trazado rectangular tan regular fue toda una novedad urbanística para el Madrid de comienzos del siglo XVII, acostumbrado hasta entonces a un caserío mucho más irregular y laberíntico. Se planificó como un espacio cerrado y ordenado en pleno crecimiento de la ciudad, capaz de albergar a la vez grandes multitudes durante los espectáculos que se celebraban en ella.',
+              'Cada domingo por la mañana la plaza acoge un mercado de sellos y monedas con décadas de tradición, heredero directo de aquel viejo uso comercial que tuvo la plaza desde su fundación, cuando cada gremio ocupaba su propio rincón asignado. Coleccionistas de toda la región siguen acudiendo semana tras semana a comprar, vender e intercambiar piezas bajo los mismos soportales donde antaño se instalaban los puestos de los mercaderes.'
             ],
             kids: [
-              '¡La fachada de colores que ves hoy no es la primera! Antes hubo otras dos pinturas distintas que se fueron estropeando con el tiempo. 🎨',
-              '¡Esta plaza fue de las primeras tan ordenadas y cuadradas que se construyeron en todo Madrid, hace más de 400 años! 📐',
-              '¡Cada domingo por la mañana todavía se monta aquí un mercadillo de sellos y monedas antiguas! 🪙'
+              '¡La fachada de colores que ves hoy no es la primera! Antes hubo otras dos pinturas distintas que se fueron estropeando con el tiempo, hasta que en 1992 pintaron la que ves ahora. 🎨 ¡Imagina cambiar de dibujo la fachada de un edificio entero, no solo una vez, sino varias!',
+              '¡Esta plaza fue de las primeras tan ordenadas y cuadradas que se construyeron en todo Madrid, hace más de 400 años! 📐 Antes las calles de Madrid eran un lío de curvas y callejones, ¡así que esta plaza tan recta y ordenada era toda una novedad!',
+              '¡Cada domingo por la mañana todavía se monta aquí un mercadillo de sellos y monedas antiguas! 🪙 Viene gente coleccionista de toda la región a comprar y a cambiar piezas, justo debajo de los mismos soportales donde hace siglos se instalaban los puestos de comida.'
             ]
           }
         },
@@ -936,14 +936,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La construcción de la Gran Vía obligó a derribar unas trescientas fincas y a desalojar a miles de vecinos del trazado medieval original, uno de los procesos de reforma urbana más drásticos de la historia de Madrid.',
-              'El edificio Telefónica fue durante décadas el rascacielos más alto de Europa continental construido con estructura de hormigón armado, una técnica todavía novedosa cuando se levantó en 1929.',
-              'Los cines y teatros que jalonan la avenida —el Callao, el Capitol— hicieron de la Gran Vía el gran escaparate del cine en España durante buena parte del siglo XX, con estrenos que reunían a multitudes en sus aceras.'
+              'La construcción de la Gran Vía obligó a derribar unas trescientas fincas y a desalojar a miles de vecinos del trazado medieval original, uno de los procesos de reforma urbana más drásticos de la historia de Madrid. Calles enteras con siglos de antigüedad desaparecieron por completo del plano de la ciudad, sustituidas por una avenida ancha y rectilínea muy alejada del urbanismo laberíntico que había caracterizado hasta entonces el centro histórico.',
+              'El edificio Telefónica fue durante décadas el rascacielos más alto de Europa continental construido con estructura de hormigón armado, una técnica todavía novedosa cuando se levantó en 1929 y que permitió alcanzar una altura hasta entonces impensable para un edificio de oficinas en España. Su silueta se convirtió de inmediato en un símbolo de modernidad que marcó el horizonte de Madrid durante generaciones.',
+              'Los cines y teatros que jalonan la avenida —el Callao, el Capitol— hicieron de la Gran Vía el gran escaparate del cine en España durante buena parte del siglo XX, con estrenos que reunían a multitudes en sus aceras y colas que a veces daban la vuelta a la manzana. Aquel esplendor cinematográfico le valió a la avenida comparaciones frecuentes con Broadway, un apodo que todavía se recuerda hoy.'
             ],
             kids: [
-              '¡Para construir esta avenida derribaron cientos de casas antiguas del Madrid de siempre! 🏚️',
-              '¡El edificio Telefónica fue durante años el rascacielos más alto de toda Europa hecho con hormigón! 🏗️',
-              '¡Esta avenida está llena de cines antiguos preciosos, donde se estrenaban las películas más esperadas! 🎬'
+              '¡Para construir esta avenida derribaron cientos de casas antiguas del Madrid de siempre! 🏚️ Calles enteras que llevaban siglos ahí desaparecieron del mapa para siempre, y en su lugar construyeron esta avenida tan ancha y recta que ves hoy.',
+              '¡El edificio Telefónica fue durante años el rascacielos más alto de toda Europa hecho con hormigón! 🏗️ Cuando se construyó, en 1929, nadie había visto un edificio tan alto hecho con ese material tan nuevo para la época.',
+              '¡Esta avenida está llena de cines antiguos preciosos, donde se estrenaban las películas más esperadas! 🎬 Había tanta gente haciendo cola para entrar que a veces la fila daba la vuelta entera a la manzana. ¡Por eso a la Gran Vía la llamaban el Broadway de Madrid!'
             ]
           }
         },
@@ -1006,14 +1006,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'En 2004 el Estado español amplió la colección original comprando también la mayor parte del legado personal de la baronesa Thyssen, unas 250 obras adicionales que hoy se exhiben en un ala anexa del museo.',
-              'La colección del barón Thyssen-Bornemisza fue durante décadas la mayor colección privada de arte del mundo después de la de la Corona británica, reunida a lo largo de tres generaciones de la misma familia.',
-              'El recorrido del museo permite ver, sala tras sala, la evolución completa de la pintura occidental desde los primitivos italianos del siglo XIII hasta el pop art americano, algo que ningún otro museo español ofrece en un único edificio.'
+              'En 2004 el Estado español amplió la colección original comprando también la mayor parte del legado personal de la baronesa Thyssen, unas 250 obras adicionales que hoy se exhiben en un ala anexa del museo. Aquella segunda adquisición, mucho menos conocida que la operación de 1993, permitió incorporar piezas que la baronesa había ido reuniendo por su cuenta durante décadas, con gustos artísticos propios y distintos a los de su marido.',
+              'La colección del barón Thyssen-Bornemisza fue durante décadas la mayor colección privada de arte del mundo después de la de la Corona británica, reunida a lo largo de tres generaciones de la misma familia industrial. Cada generación fue añadiendo piezas según sus propios gustos, de modo que el conjunto final refleja casi un siglo entero de coleccionismo privado, algo muy poco frecuente a esa escala fuera de las grandes casas reales.',
+              'El recorrido del museo permite ver, sala tras sala, la evolución completa de la pintura occidental desde los primitivos italianos del siglo XIII hasta el pop art americano, algo que ningún otro museo español ofrece en un único edificio. Esa continuidad cronológica, sin apenas huecos entre un periodo y el siguiente, es precisamente lo que hizo tan codiciada la colección cuando España compitió por ella con otros países.'
             ],
             kids: [
-              '¡Años después de abrir, España compró todavía más cuadros a la misma familia, para tener una colección aún más grande! 🖼️',
-              'Esta colección fue durante mucho tiempo la más grande del mundo que pertenecía a una sola familia, ¡no a un país! 👑',
-              '¡Caminando por este museo puedes ver cómo cambió la pintura durante 700 años, sala tras sala, como una máquina del tiempo! ⏳'
+              '¡Años después de abrir, España compró todavía más cuadros a la misma familia, para tener una colección aún más grande! 🖼️ Esta vez eran cuadros que había elegido la propia baronesa, con gustos un poco distintos a los de su marido.',
+              'Esta colección fue durante mucho tiempo la más grande del mundo que pertenecía a una sola familia, ¡no a un país! 👑 Tres generaciones distintas de la misma familia fueron comprando cuadros durante casi cien años, cada una con sus propios gustos.',
+              '¡Caminando por este museo puedes ver cómo cambió la pintura durante 700 años, sala tras sala, como una máquina del tiempo! ⏳ No hay casi ningún hueco entre una época y la siguiente, algo que no se puede ver así de seguido en ningún otro museo de España.'
             ]
           }
         },
@@ -1335,14 +1335,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'Álvaro de Bazán, cuya estatua preside la plaza, fue el almirante que planeó la Armada Invencible, aunque murió meses antes de que la flota zarpara rumbo a Inglaterra en 1588.',
-              'La Torre de los Lujanes conserva vanos y arcos ligeramente asimétricos entre sí, huella de las sucesivas reformas y añadidos que sufrió el edificio a lo largo de los siglos.',
-              'Hasta bien entrado el siglo XIX, esta plaza y sus calles vecinas fueron el barrio donde vivía la aristocracia madrileña más antigua, antes de que las grandes familias se trasladaran a zonas más nuevas de la ciudad.'
+              'Álvaro de Bazán, cuya estatua preside la plaza, fue el almirante que planeó y organizó la Armada Invencible, aunque murió en febrero de 1588, meses antes de que la flota zarpara finalmente rumbo a Inglaterra. Su sustituto, el duque de Medina Sidonia, carecía de experiencia naval, y muchos historiadores señalan ese cambio de última hora como uno de los factores que contribuyeron al desastroso resultado de la expedición.',
+              'La Torre de los Lujanes conserva vanos y arcos ligeramente asimétricos entre sí, huella de las sucesivas reformas y añadidos que sufrió el edificio a lo largo de los siglos. Sus esquinas de sillería tallada contrastan con los muros de mampostería más tosca del resto de la fachada, un detalle que delata las distintas manos y épocas que fueron transformando la construcción original antes de que se convirtiera en sede institucional.',
+              'Hasta bien entrado el siglo XIX, esta plaza y sus calles vecinas, corazón del llamado Madrid de los Austrias, fueron el barrio donde vivía la aristocracia madrileña más antigua, antes de que las grandes familias se trasladaran a zonas más nuevas y espaciosas de la ciudad. Muchos de aquellos palacetes nobiliarios acabaron reconvertidos con el tiempo en sedes de academias, archivos y organismos públicos, como ocurrió con la propia Torre de los Lujanes.'
             ],
             kids: [
-              '¡La estatua del almirante que ves en el medio ayudó a planear una flota gigante de barcos, aunque murió justo antes de que zarpara! ⚓',
-              '¡Si te fijas bien en la torre puntiaguda, verás que sus ventanas no son todas iguales, porque la fueron cambiando a lo largo de muchos siglos! 🔍',
-              '¡Hace muchísimo tiempo, aquí vivían las familias más importantes y ricas de todo Madrid! 🏰'
+              '¡La estatua del almirante que ves en el medio ayudó a planear una flota gigantesca de barcos de guerra, aunque murió justo antes de que zarpara hacia Inglaterra! ⚓ El capitán que lo sustituyó no sabía casi nada de barcos, y muchos creen que por eso las cosas salieron tan mal para esa flota.',
+              '¡Si te fijas bien en la torre puntiaguda, verás que sus ventanas y arcos no son todos iguales, porque la fueron cambiando y arreglando a lo largo de muchísimos siglos! 🔍 Las esquinas de piedra tallada son distintas del resto de los muros, ¡como si varios constructores hubieran ido dejando su huella con el paso del tiempo!',
+              '¡Hace muchísimo tiempo, aquí vivían las familias más importantes y ricas de todo Madrid, en esta plaza y sus callejuelas! 🏰 Cuando esas familias se mudaron a casas más grandes y modernas, muchos de sus antiguos palacios se convirtieron en academias y oficinas, ¡como la propia torre que ves aquí!'
             ]
           }
         },
@@ -1398,14 +1398,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El templo llegó desmontado en más de 1.350 bloques de piedra numerados, un gigantesco puzle que los técnicos españoles tuvieron que volver a montar siguiendo la disposición original egipcia.',
-              'Es uno de los pocos templos del antiguo Egipto visitables fuera de ese país: solo otros tres monumentos rescatados de la misma operación de Asuán se donaron a naciones distintas, entre ellas Estados Unidos e Italia.',
-              'El emplazamiento actual ocupa el solar del antiguo Cuartel de la Montaña, un edificio militar que fue demolido tras los sucesos del comienzo de la Guerra Civil en julio de 1936.'
+              'El templo llegó desmontado en más de 1.350 bloques de piedra numerados, un gigantesco puzle que los técnicos españoles tuvieron que volver a montar siguiendo la disposición original egipcia. Cada bloque, de varias toneladas de peso, se fotografió y catalogó antes del desmontaje en Nubia, y el proceso de reconstrucción en Madrid se prolongó durante más de dos años hasta lograr que el templo recuperase su aspecto y orientación originales junto al Nilo.',
+              'Es uno de los pocos templos del antiguo Egipto visitables fuera de ese país: solo otros tres monumentos rescatados de la misma operación de Asuán se donaron a naciones distintas, entre ellas Estados Unidos e Italia. La operación, coordinada por la Unesco entre 1960 y 1980, se considera una de las mayores campañas internacionales de salvamento arqueológico de la historia, y salvó también templos mucho más célebres, como los de Abu Simbel, trasladados a una cota más alta dentro del propio Egipto.',
+              'El emplazamiento actual ocupa el solar del antiguo Cuartel de la Montaña, un edificio militar que fue demolido tras los sucesos del comienzo de la Guerra Civil en julio de 1936, cuando parte de la guarnición se sublevó y fue asediada allí mismo. Durante décadas el solar permaneció como una gran explanada vacía, hasta que se decidió convertirlo en el parque donde hoy se alza el templo egipcio.'
             ],
             kids: [
-              '¡El templo llegó desmontado en más de 1.350 piedras numeradas, como un rompecabezas gigante que hubo que volver a montar! 🧩',
-              '¡Solo hay cuatro templos egipcios de este rescate repartidos por el mundo entero, y uno de ellos está aquí en Madrid! 🌍',
-              '¡Antes de que llegara el templo, aquí había un cuartel militar que ya no existe! 🪖'
+              '¡El templo llegó desmontado en más de 1.350 piedras numeradas, como un rompecabezas gigante que hubo que volver a montar! 🧩 Cada piedra pesaba varias toneladas, y antes de desmontarla en Egipto la fotografiaron para saber exactamente dónde tenía que ir cada una al llegar a Madrid.',
+              '¡Solo hay cuatro templos egipcios de este rescate repartidos por el mundo entero, y uno de ellos está aquí en Madrid! 🌍 El rescate duró veinte años y también salvó templos aún más famosos, como los de Abu Simbel, ¡que tuvieron que subir a una colina más alta para que no se inundaran!',
+              '¡Antes de que llegara el templo, aquí había un cuartel militar que ya no existe! 🪖 Desapareció hace muchísimos años, al principio de una guerra en España, y durante mucho tiempo este sitio fue solo un terreno vacío, ¡hasta que se convirtió en el parque que ves ahora!'
             ]
           }
         },
@@ -1461,14 +1461,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El Edificio España fue durante años el edificio de hormigón más alto de Europa, y hoy alberga un hotel de lujo tras una profunda reconversión de todo su interior.',
-              'La remodelación de 2019-2021 sacó a la luz restos de las antiguas Caballerizas Reales del siglo XVII, que hoy pueden verse bajo parte de la plaza.',
-              'La Torre de Madrid, terminada en 1957, mantuvo durante varios años el récord de mayor rascacielos de hormigón del mundo tras su construcción.'
+              'El Edificio España fue durante años el edificio de hormigón más alto de Europa, símbolo de la España de los años cincuenta. Hoy alberga un hotel de lujo tras una profunda reconversión de todo su interior, que solo conservó la fachada original; la operación generó cierta polémica entre quienes defendían una restauración más respetuosa con la estructura interna del edificio histórico.',
+              'La remodelación de 2019-2021 sacó a la luz restos de las antiguas Caballerizas Reales del siglo XVII, que hoy pueden verse bajo parte de la plaza a través de un pavimento acristalado. El hallazgo obligó a replantear parte del proyecto original para integrar estos vestigios arqueológicos sin ocultarlos, convirtiendo la propia plaza en una pequeña ventana al Madrid de los Austrias.',
+              'La Torre de Madrid, terminada en 1957, mantuvo durante varios años el récord de mayor rascacielos de hormigón del mundo tras su construcción, superando incluso a edificios de altura similar levantados en Estados Unidos. Su fachada, con ventanas alineadas en franjas horizontales, se convirtió en un modelo de referencia para buena parte de la arquitectura de oficinas y viviendas que se construyó después en Madrid.'
             ],
             kids: [
-              '¡Uno de los edificios altísimos fue durante años el edificio de hormigón más alto de toda Europa, y ahora es un hotel de lujo! 🏨',
-              '¡Cuando arreglaron la plaza hace pocos años, encontraron debajo restos de unas caballerizas reales de hace 400 años! 🐎',
-              '¡El otro edificio alto fue durante un tiempo el rascacielos de hormigón más alto del mundo entero! 🌍'
+              '¡Uno de los edificios altísimos fue durante años el edificio de hormigón más alto de toda Europa! 🏨 Ahora es un hotel de lujo, pero para convertirlo tuvieron que dejar solo la fachada de fuera tal como era y cambiar casi todo lo de dentro.',
+              '¡Cuando arreglaron la plaza hace pocos años, encontraron debajo restos de unas caballerizas reales de hace 400 años! 🐎 Eran como establos gigantes para los caballos del rey, y ahora puedes verlos a través de un cristal en el suelo mientras paseas por la plaza.',
+              '¡El otro edificio alto fue durante un tiempo el rascacielos de hormigón más alto del mundo entero! 🌍 Fíjate en sus ventanas, están colocadas en filas horizontales, ¡y ese diseño sirvió de ejemplo para muchos otros edificios que se construyeron después en Madrid!'
             ]
           }
         },
@@ -1523,14 +1523,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El edificio se financió en parte mediante una lotería especial organizada por la propia institución, un sistema habitual para costear grandes proyectos culturales en el Madrid de comienzos del siglo XX.',
-              'Antonio Palacios, su arquitecto, firmó también el Palacio de Cibeles, lo que explica ciertas similitudes decorativas entre ambos edificios pese a sus funciones tan distintas.',
-              'Durante buena parte del siglo XX, la institución mantuvo una de las programaciones culturales más independientes de la capital, y se convirtió en refugio habitual de artistas e intelectuales.'
+              'El edificio se financió en parte mediante una lotería especial organizada por la propia institución, un sistema habitual para costear grandes proyectos culturales en el Madrid de comienzos del siglo XX, cuando muchas asociaciones privadas recurrían a rifas y suscripciones populares para completar presupuestos que superaban sus fondos iniciales. Se cree que las obras se prolongaron varios años más de lo previsto por estas dificultades de financiación.',
+              'Antonio Palacios, su arquitecto, firmó también el Palacio de Cibeles, antigua sede de Correos y hoy ayuntamiento de Madrid, lo que explica ciertas similitudes decorativas entre ambos edificios pese a sus funciones tan distintas. Palacios fue uno de los arquitectos más prolíficos del Madrid de su época, y su estilo ecléctico y monumental marcó también estaciones de metro y otros edificios públicos de la capital.',
+              'Durante buena parte del siglo XX, la institución mantuvo una de las programaciones culturales más independientes de la capital, y se convirtió en refugio habitual de artistas e intelectuales que buscaban un espacio alejado de la censura y las instituciones oficiales. Su famosa cafetería, con vistas a la Gran Vía, fue durante décadas punto de encuentro de escritores, pintores y cineastas madrileños.'
             ],
             kids: [
-              '¡Para pagar la construcción de este edificio organizaron una lotería especial, como si fuera un sorteo gigante! 🎟️',
-              '¡El mismo arquitecto que hizo este edificio también diseñó el edificio enorme de la Plaza de Cibeles! 🏛️',
-              '¡Durante muchos años este lugar fue uno de los pocos sitios donde los artistas podían mostrar su arte con más libertad! 🎭'
+              '¡Para pagar la construcción de este edificio organizaron una lotería especial, como si fuera un sorteo gigante! 🎟️ Aun así, las obras tardaron varios años más de lo planeado, ¡porque el dinero no llegaba tan rápido como hacía falta!',
+              '¡El mismo arquitecto que hizo este edificio también diseñó el edificio enorme de la Plaza de Cibeles, donde hoy está el ayuntamiento! 🏛️ Por eso, si te fijas bien, los dos edificios tienen algunos detalles decorados de forma parecida.',
+              '¡Durante muchos años este lugar fue uno de los pocos sitios donde los artistas podían mostrar su arte con más libertad! 🎭 Su cafetería, con vistas a la Gran Vía, era el sitio favorito de muchos escritores y pintores para reunirse y charlar.'
             ]
           }
         },
@@ -1593,14 +1593,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El teatro cerró por completo entre 1925 y 1966 por problemas estructurales y de maquinaria, permaneciendo sin actividad operística regular durante más de cuarenta años.',
-              'Durante buena parte de esa clausura, el edificio se usó como conservatorio de música y sala de conciertos sinfónicos, antes de recuperar su vocación operística tras la gran reforma de los años noventa.',
-              'El escenario cuenta con un foso ampliable y una compleja red de plataformas hidráulicas capaces de mover decorados enteros en cuestión de segundos entre actos.'
+              'El teatro cerró por completo entre 1925 y 1966 por problemas estructurales y de maquinaria, permaneciendo sin actividad operística regular durante más de cuarenta años. Los informes técnicos de la época describían un deterioro progresivo del edificio, agravado por las mismas filtraciones de agua que ya habían obligado a reforzar los cimientos décadas antes, y durante años se llegó a plantear incluso su demolición.',
+              'Durante buena parte de esa clausura, el edificio se usó como conservatorio de música y sala de conciertos sinfónicos, antes de recuperar su vocación operística tras la gran reforma de los años noventa, un proyecto que se prolongó casi una década y renovó por completo la maquinaria escénica, la acústica y las instalaciones, reabriendo finalmente sus puertas como teatro de ópera en 1997.',
+              'El escenario cuenta con un foso ampliable y una compleja red de plataformas hidráulicas capaces de mover decorados enteros en cuestión de segundos entre actos, un sistema instalado durante la reforma de los noventa que sitúa al Teatro Real entre los recintos con mayor capacidad técnica escénica de toda Europa, comparable a otros grandes teatros de ópera internacionales.'
             ],
             kids: [
-              '¡Este teatro estuvo cerrado más de 40 años seguidos, sin ninguna función, por problemas con sus máquinas! 🔧',
-              '¡Durante muchos años aquí no se hacía ópera, sino conciertos de música clásica! 🎻',
-              '¡El escenario tiene plataformas que suben y bajan solas para cambiar los decorados en segundos! ⚙️'
+              '¡Este teatro estuvo cerrado más de 40 años seguidos, sin ninguna función, por problemas con sus máquinas y su estructura! 🔧 Estaba tan deteriorado que durante un tiempo hasta se pensó en derribarlo entero, ¡menos mal que al final decidieron arreglarlo!',
+              '¡Durante muchos años aquí no se hacía ópera, sino conciertos de música clásica! 🎻 Cuando por fin decidieron arreglarlo del todo, las obras duraron casi diez años, ¡y no volvió a abrir como teatro de ópera hasta 1997!',
+              '¡El escenario tiene plataformas que suben y bajan solas para cambiar los decorados en segundos! ⚙️ Todo ese sistema se instaló durante la gran reforma, y hoy este teatro tiene una de las maquinarias más avanzadas de toda Europa.'
             ]
           }
         },
@@ -2289,14 +2289,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El museo conserva una maqueta a escala de todo Madrid realizada por León Gil de Palacio en 1830, una de las piezas más singulares de la colección por el detalle con que retrata la ciudad de esa época.',
-              'El edificio funcionó como hospicio para niños abandonados hasta bien entrado el siglo XIX, un uso social que marcó buena parte de su historia antes de convertirse en museo.',
-              'Entre sus fondos se conservan también objetos cotidianos del Madrid de los siglos XIX y XX, desde carteles de tranvías hasta enseres domésticos, que retratan la vida diaria más allá de los grandes acontecimientos.'
+              'El museo conserva una maqueta a escala de todo Madrid realizada por el ingeniero militar León Gil de Palacio en 1830, una de las piezas más singulares de la colección por el detalle con que retrata la ciudad de esa época. Permite comparar calle a calle cómo era el trazado urbano antes de las grandes transformaciones del Ensanche y de las reformas del siglo XX, funcionando casi como una fotografía tridimensional de un Madrid que ya no existe.',
+              'El edificio funcionó como hospicio para niños abandonados hasta bien entrado el siglo XIX, un uso social que marcó buena parte de su historia antes de convertirse en museo. Se cree que llegó a acoger a un buen número de menores a la vez, en condiciones que reflejaban la beneficencia pública de la época, y solo tras el cierre definitivo de esta función asistencial el edificio quedó libre para dedicarse por completo a la colección municipal que hoy puede visitarse.',
+              'Entre sus fondos se conservan también objetos cotidianos del Madrid de los siglos XIX y XX, desde carteles de tranvías hasta enseres domésticos, que retratan la vida diaria más allá de los grandes acontecimientos. Son piezas modestas en apariencia, un cartel publicitario, una vajilla, un uniforme, pero que ayudan a imaginar cómo era realmente el día a día de los madrileños de a pie, lejos de los grandes hechos que suelen protagonizar los libros de historia.'
             ],
             kids: [
-              '¡Dentro se guarda una maqueta gigante de todo Madrid, hecha hace casi 200 años, con muchísimo detalle! 🏙️',
-              '¡Este edificio acogió a niños sin familia durante muchísimos años antes de convertirse en museo! 👶',
-              '¡También se guardan objetos del día a día de hace 100 años, como carteles de tranvías antiguos! 🚋'
+              '¡Dentro se guarda una maqueta gigante de todo Madrid, hecha hace casi 200 años, con muchísimo detalle! 🏙️ La hizo un ingeniero que dibujó calle a calle cómo era la ciudad entonces, así que es casi como una foto en miniatura de un Madrid que ya no existe. ¡Imagina poder ver tu ciudad entera encima de una mesa!',
+              '¡Este edificio acogió a niños sin familia durante muchísimos años antes de convertirse en museo! 👶 Cuidaban aquí a muchos niños a la vez, y solo cuando dejó de usarse para eso pudo llenarse de objetos y convertirse en el museo que visitas hoy. ¡Seguro que por sus pasillos han pasado miles de historias distintas!',
+              '¡También se guardan objetos del día a día de hace 100 años, como carteles de tranvías antiguos! 🚋 Hay platos, uniformes y anuncios que usaba la gente normal, no reyes ni personajes famosos, así que te ayudan a imaginar cómo vivían los madrileños de verdad hace mucho tiempo, en su vida de cada día.'
             ]
           }
         },
@@ -2357,14 +2357,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El museo conserva el despacho y el pistoletero de duelo que perteneció al escritor romántico Mariano José de Larra, uno de los objetos más singulares de toda la colección.',
-              'El jardín interior del palacete, con su pequeño cenador, recrea el gusto romántico por los espacios ajardinados como refugio sentimental, muy en boga entre la burguesía española del siglo XIX.',
-              'Varias salas conservan papeles pintados originales de la época, un material extremadamente frágil que rara vez sobrevive intacto en interiores históricos abiertos al público.'
+              'El museo conserva el despacho y el pistoletero de duelo que perteneció al escritor romántico Mariano José de Larra, uno de los objetos más singulares de toda la colección. Larra, símbolo del desengaño romántico español, se quitó la vida con una pistola con apenas veintisiete años, así que estos objetos personales conectan directamente al visitante con uno de los episodios más recordados de la literatura española de esa época.',
+              'El jardín interior del palacete, con su pequeño cenador, recrea el gusto romántico por los espacios ajardinados como refugio sentimental, muy en boga entre la burguesía española del siglo XIX. Era un lugar pensado para el paseo íntimo, la lectura y la conversación reposada, lejos del bullicio de la calle, y hoy sigue ofreciendo ese mismo rincón de calma en pleno centro de Madrid.',
+              'Varias salas conservan papeles pintados originales de la época, un material extremadamente frágil que rara vez sobrevive intacto en interiores históricos abiertos al público. Su conservación exige un cuidado constante de la luz y la humedad, por lo que resulta especialmente valioso poder contemplarlos tal y como los vieron los propietarios originales del palacete hace casi dos siglos.'
             ],
             kids: [
-              '¡Se guarda el escritorio de un escritor muy romántico de hace 200 años, junto a sus pistolas de duelo! ✒️',
-              '¡Este palacete tiene un jardín pequeñito por dentro, perfecto para pasear como hacían hace 200 años! 🌸',
-              '¡Algunas paredes todavía tienen el papel pintado original de hace dos siglos, algo rarísimo de conservar! 🖌️'
+              '¡Se guarda el escritorio de un escritor muy romántico de hace 200 años, junto a sus pistolas de duelo! ✒️ Este escritor vivía historias tan tristes como las que contaba, y sus objetos personales ayudan a imaginar cómo era su vida de verdad, no solo lo que escribía en sus libros.',
+              '¡Este palacete tiene un jardín pequeñito por dentro, perfecto para pasear como hacían hace 200 años! 🌸 A la gente de entonces le encantaba sentarse ahí a charlar o leer tranquilamente, lejos del ruido de la calle, y tú puedes sentarte en el mismo rincón verde hoy en día.',
+              '¡Algunas paredes todavía tienen el papel pintado original de hace dos siglos, algo rarísimo de conservar! 🖌️ Hay que cuidar mucho la luz y la humedad para que no se estropee, así que verlo tal cual era hace tanto tiempo es todo un privilegio.'
             ]
           }
         },
@@ -2426,14 +2426,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El marqués de Cerralbo fue también político y llegó a ser ministro, combinando su labor pública con una intensa actividad como coleccionista de arte, arqueología y armas antiguas durante toda su vida.',
-              'La capilla privada del palacio conserva una réplica de la Piedad de Miguel Ángel, encargada expresamente por el marqués para el culto familiar dentro de su propia casa.',
-              'El museo mantiene desde su apertura al público en 1962 la disposición original de los objetos tal y como los dejó el marqués, una condición explícita de la donación al Estado.'
+              'El marqués de Cerralbo fue también político y llegó a ser ministro, combinando su labor pública con una intensa actividad como coleccionista de arte, arqueología y armas antiguas durante toda su vida. Esa doble faceta, hombre de estado y anticuario apasionado, explica por qué el palacio mezcla salones de representación oficial con gabinetes atiborrados de piezas reunidas por pura curiosidad personal a lo largo de décadas de viajes y compras.',
+              'La capilla privada del palacio conserva una réplica de la Piedad de Miguel Ángel, encargada expresamente por el marqués para el culto familiar dentro de su propia casa. Tener una copia de una obra tan célebre en un espacio doméstico da idea del nivel de ambición artística con que el marqués concibió cada rincón de su vivienda, incluso los reservados a la vida privada más íntima.',
+              'El museo mantiene desde su apertura al público en 1962 la disposición original de los objetos tal y como los dejó el marqués, una condición explícita de la donación al Estado. Esto convierte la visita en algo poco habitual entre los museos españoles: no se recorre una colección reordenada por criterios modernos, sino la casa exactamente como la vivió y la organizó su propietario.'
             ],
             kids: [
-              '¡El marqués de este palacio fue también político importante, además de coleccionar de todo un poco durante toda su vida! 👨‍💼',
-              '¡Hay una capilla dentro de la casa con una copia de una escultura religiosa muy famosa! ⛪',
-              '¡Los objetos siguen colocados exactamente donde los dejó el marqués, porque así lo pidió cuando donó su palacio! 📦'
+              '¡El marqués de este palacio fue también político importante, además de coleccionar de todo un poco durante toda su vida! 👨‍💼 Le encantaba viajar y comprar objetos curiosos allá donde iba, así que su casa terminó llena de tesoros de todo tipo, mezclados con salones muy elegantes para recibir visitas importantes.',
+              '¡Hay una capilla dentro de la casa con una copia de una escultura religiosa muy famosa! ⛪ Tener algo así dentro de casa muestra lo importante que era el arte para el marqués, que quiso rodearse de belleza hasta en el rincón más privado de su hogar.',
+              '¡Los objetos siguen colocados exactamente donde los dejó el marqués, porque así lo pidió cuando donó su palacio! 📦 Por eso cuando entras no ves un museo cualquiera, sino la casa tal cual la dejó su dueño, como si acabara de salir un momento.'
             ]
           }
         },
@@ -2495,14 +2495,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La colección incluye una serie de escenas taurinas pintadas por Goya, reflejo de su fascinación personal por el mundo del toreo.',
-              'La institución conserva también el cráneo que se atribuyó durante años al propio Goya, extraviado tras su exhumación en Burdeos y sustituido en la tumba madrileña por otro cuyo origen sigue sin aclararse del todo.',
-              'Desde el siglo XVIII, la academia actúa además como organismo consultivo oficial en materia de protección del patrimonio histórico y artístico español, un papel que mantiene hasta hoy.'
+              'La colección incluye una serie de escenas taurinas pintadas por Goya, reflejo de su fascinación personal por el mundo del toreo. El pintor volvió sobre este tema en distintos momentos de su carrera, y estas obras muestran un costado más popular y directo de su arte, alejado de los grandes retratos oficiales por los que también es célebre.',
+              'La institución conserva también el cráneo que se atribuyó durante años al propio Goya, extraviado tras su exhumación en Burdeos y sustituido en la tumba madrileña por otro cuyo origen sigue sin aclararse del todo. El misterio nunca se ha resuelto del todo, y a día de hoy sigue sin saberse con certeza qué pasó realmente con los restos originales del pintor tras su muerte en Francia.',
+              'Desde el siglo XVIII, la academia actúa además como organismo consultivo oficial en materia de protección del patrimonio histórico y artístico español, un papel que mantiene hasta hoy. Sus informes técnicos han influido en decisiones sobre la conservación de monumentos y obras de arte de todo el país, mucho más allá de la propia colección que puede visitarse en su sede madrileña.'
             ],
             kids: [
-              '¡Aquí se guardan cuadros de Goya sobre corridas de toros, un tema que le fascinaba! 🐂',
-              '¡Hay un misterio sin resolver sobre la calavera de Goya, que se perdió después de morir y nadie sabe muy bien qué pasó con ella! 💀',
-              '¡Esta escuela también ayuda a decidir qué edificios y obras de arte antiguos hay que proteger en toda España! 🏛️'
+              '¡Aquí se guardan cuadros de Goya sobre corridas de toros, un tema que le fascinaba! 🐂 Pintó escenas taurinas varias veces a lo largo de su vida, y son bastante distintas de los retratos serios que también hacía, mostrando un lado más popular y divertido de su arte.',
+              '¡Hay un misterio sin resolver sobre la calavera de Goya, que se perdió después de morir y nadie sabe muy bien qué pasó con ella! 💀 Cuando desenterraron sus huesos años después, faltaba la cabeza, ¡y todavía hoy nadie ha conseguido explicar qué ocurrió de verdad!',
+              '¡Esta escuela también ayuda a decidir qué edificios y obras de arte antiguos hay que proteger en toda España! 🏛️ Sus expertos opinan sobre qué monumentos merecen cuidarse con más mimo, así que su trabajo va mucho más allá de lo que ves colgado en sus paredes.'
             ]
           }
         },
@@ -2557,14 +2557,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El interior conserva vidrieras, cerámicas y herrajes modernistas de gran calidad, visibles solo en contadas jornadas de puertas abiertas al no ser un edificio de visita turística regular.',
-              'González Longoria, el financiero que lo encargó, tuvo una trayectoria empresarial marcada por escándalos y quiebras que ensombrecieron su reputación en las décadas posteriores a la construcción del palacio.',
-              'La SGAE custodia en su interior partituras originales y documentos de algunos de los compositores españoles más importantes de los siglos XIX y XX.'
+              'El interior conserva vidrieras, cerámicas y herrajes modernistas de gran calidad, visibles solo en contadas jornadas de puertas abiertas al no ser un edificio de visita turística regular. Quienes han podido entrar describen un contraste llamativo con la fachada exterior: dentro se repiten las mismas formas curvas y vegetales, envolviendo escaleras y salones en un mismo lenguaje decorativo continuo y muy poco frecuente en Madrid.',
+              'González Longoria, el financiero que lo encargó, tuvo una trayectoria empresarial marcada por escándalos y quiebras que ensombrecieron su reputación en las décadas posteriores a la construcción del palacio. Curiosamente, el edificio que debía representar su éxito y posición social terminó sobreviviendo mucho más tiempo que la fortuna de quien lo mandó levantar.',
+              'La SGAE custodia en su interior partituras originales y documentos de algunos de los compositores españoles más importantes de los siglos XIX y XX. El fondo documental, poco conocido por el gran público, convierte al palacio en algo más que una curiosidad arquitectónica: es también guardián silencioso de buena parte de la memoria musical española reciente.'
             ],
             kids: [
-              '¡Por dentro tiene vidrieras y decoraciones preciosas que casi nadie puede ver, porque no se visita normalmente! 🪟',
-              '¡El señor rico que mandó construir esta casa tuvo después bastantes problemas de dinero! 💸',
-              '¡Dentro se guardan partituras originales de compositores españoles muy importantes! 🎼'
+              '¡Por dentro tiene vidrieras y decoraciones preciosas que casi nadie puede ver, porque no se visita normalmente! 🪟 Las formas onduladas de fuera siguen también por dentro, en escaleras y techos, así que es como entrar en una tarta todavía más decorada.',
+              '¡El señor rico que mandó construir esta casa tuvo después bastantes problemas de dinero! 💸 Curiosamente, su casa tan lujosa ha durado muchísimo más que su fortuna, y sigue en pie más de un siglo después.',
+              '¡Dentro se guardan partituras originales de compositores españoles muy importantes! 🎼 Así que este edificio tan bonito por fuera también protege por dentro parte de la música más importante de la historia de España.'
             ]
           }
         },
@@ -2619,14 +2619,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El edificio ha aparecido como telón de fondo en numerosas películas y series rodadas en Gran Vía, convirtiéndose en uno de los iconos visuales más reconocibles del cine español ambientado en Madrid.',
-              'La cúpula, revestida de pizarra y cobre, se ilumina por la noche desde 2011 con un sistema de luz que resalta su silueta dorada sobre el resto de la avenida.',
-              'El edificio ocupa un solar estratégico que marca simbólicamente el arranque de la Gran Vía en su confluencia con la calle de Alcalá, uno de los cruces más fotografiados de la ciudad.'
+              'El edificio ha aparecido como telón de fondo en numerosas películas y series rodadas en Gran Vía, convirtiéndose en uno de los iconos visuales más reconocibles del cine español ambientado en Madrid. Su silueta con cúpula dorada funciona casi como un atajo visual para situar de inmediato una escena en el corazón de la ciudad, sin necesidad de más contexto.',
+              'La cúpula, revestida de pizarra y cobre, se ilumina por la noche desde 2011 con un sistema de luz que resalta su silueta dorada sobre el resto de la avenida. El efecto convierte al edificio en uno de los puntos más fotografiados de Gran Vía después del atardecer, cuando el contraste entre la piedra iluminada y el cielo oscuro se hace más evidente.',
+              'El edificio ocupa un solar estratégico que marca simbólicamente el arranque de la Gran Vía en su confluencia con la calle de Alcalá, uno de los cruces más fotografiados de la ciudad. Esa posición, en la esquina donde convergen dos de las arterias más transitadas de Madrid, explica en parte por qué se convirtió tan rápido en un símbolo reconocible de la capital.'
             ],
             kids: [
-              '¡Este edificio ha salido en un montón de películas y series ambientadas en Madrid! 🎬',
-              '¡Por la noche se ilumina especialmente para que su cúpula dorada brille todavía más! 💡',
-              '¡Está justo en la esquina donde empieza la Gran Vía, uno de los cruces más fotografiados de la ciudad! 📸'
+              '¡Este edificio ha salido en un montón de películas y series ambientadas en Madrid! 🎬 Su cúpula dorada es tan reconocible que basta con verla un segundo en una escena para saber que la historia pasa en el centro de la ciudad.',
+              '¡Por la noche se ilumina especialmente para que su cúpula dorada brille todavía más! 💡 Desde que se instaló esta iluminación especial, es uno de los rincones favoritos para hacer fotos cuando ya se ha puesto el sol.',
+              '¡Está justo en la esquina donde empieza la Gran Vía, uno de los cruces más fotografiados de la ciudad! 📸 Aquí se juntan dos calles importantísimas de Madrid, así que siempre hay mucha gente pasando y haciendo fotos.'
             ]
           }
         },
@@ -2681,14 +2681,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El edificio contó originalmente con un sistema neumático interno para trasladar la correspondencia entre plantas a gran velocidad, tecnología puntera para su época.',
-              'Antonio Palacios, coautor del proyecto, tenía solo treinta años cuando ganó el concurso, un encargo que lanzó la carrera de uno de los arquitectos más influyentes del Madrid del siglo XX.',
-              'La reconversión de 2007 conservó parte de la maquinaria y el mobiliario postal original en una de sus plantas, hoy visible como parte del recorrido expositivo del centro cultural.'
+              'El edificio contó originalmente con un sistema neumático interno para trasladar la correspondencia entre plantas a gran velocidad, tecnología puntera para su época: cápsulas cilíndricas viajaban por tubos impulsadas por aire comprimido, evitando así que los empleados tuvieran que subir y bajar cargados de sacas postales por las monumentales escaleras del edificio.',
+              'Antonio Palacios, coautor del proyecto, tenía solo treinta años cuando ganó el concurso, un encargo que lanzó la carrera de uno de los arquitectos más influyentes del Madrid del siglo XX. Tras este éxito temprano firmaría después otras obras emblemáticas de la capital, como el Círculo de Bellas Artes, consolidando un estilo propio reconocible por su monumentalidad y su gusto por la ornamentación.',
+              'La reconversión de 2007 conservó parte de la maquinaria y el mobiliario postal original en una de sus plantas, hoy visible como parte del recorrido expositivo del centro cultural. Ventanillas de atención al público, básculas de época y algunos de los antiguos casilleros de clasificación se mantuvieron in situ, de modo que los visitantes pueden hacerse una idea de cómo funcionaba a diario este gigantesco edificio cuando todavía repartía el correo de todo el país.'
             ],
             kids: [
-              '¡Este edificio tenía tubos especiales por dentro para mandar las cartas de un piso a otro rapidísimo! 📬',
-              '¡El arquitecto que ganó el concurso para construir este edificio tenía solo treinta años! 👷',
-              '¡Todavía se pueden ver dentro máquinas antiguas de correos, como en un pequeño museo escondido! ⚙️'
+              '¡Este edificio tenía tubos especiales por dentro para mandar las cartas de un piso a otro rapidísimo! 📬 Las cartas viajaban metidas en unas cápsulas que el aire empujaba a toda velocidad, así los trabajadores no tenían que subir y bajar las escaleras cargados con sacos enormes llenos de correo.',
+              '¡El arquitecto que ganó el concurso para construir este edificio tenía solo treinta años! 👷 Después de este trabajo tan importante, se hizo tan famoso que construyó otros edificios preciosos de Madrid, y hoy se le recuerda como uno de los arquitectos más importantes de la historia de la ciudad.',
+              '¡Todavía se pueden ver dentro máquinas antiguas de correos, como en un pequeño museo escondido! ⚙️ Hay básculas de hace muchísimos años, ventanillas donde la gente pagaba sus cartas y hasta casilleros donde se ordenaban los sobres, ¡así puedes imaginarte cómo trabajaban aquí antes de que existieran los ordenadores!'
             ]
           }
         },
@@ -2743,14 +2743,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'Manuel Alonso Martínez, además de redactar el Código Civil, ocupó varias veces la cartera de Ministro de Gracia y Justicia y fue uno de los principales artífices del sistema jurídico liberal español del siglo XIX.',
-              'La plaza forma parte del Ensanche diseñado por el ingeniero Carlos María de Castro a partir de 1860, el gran plan urbanístico que multiplicó la superficie de Madrid fuera de su antiguo recinto amurallado.',
-              'Su buena conexión de metro, con varias líneas confluyendo bajo la plaza, la convirtió desde los años setenta en uno de los nudos de transporte más importantes del centro de Madrid.'
+              'Manuel Alonso Martínez, además de redactar el Código Civil, ocupó varias veces la cartera de Ministro de Gracia y Justicia y fue uno de los principales artífices del sistema jurídico liberal español del siglo XIX. Su trabajo sentó las bases legales que, con reformas posteriores, siguen influyendo todavía hoy en buena parte del derecho civil español.',
+              'La plaza forma parte del Ensanche diseñado por el ingeniero Carlos María de Castro a partir de 1860, el gran plan urbanístico que multiplicó la superficie de Madrid fuera de su antiguo recinto amurallado. Sus amplias avenidas rectas y sus manzanas regulares, visibles todavía hoy en toda la zona, contrastan a propósito con el trazado más estrecho e irregular del Madrid medieval y de los Austrias.',
+              'Su buena conexión de metro, con varias líneas confluyendo bajo la plaza, la convirtió desde los años setenta en uno de los nudos de transporte más importantes del centro de Madrid. Ese cruce subterráneo de líneas explica en parte el ambiente animado de la plaza en superficie, con un flujo constante de gente entrando y saliendo a todas horas del día.'
             ],
             kids: [
-              '¡El abogado que da nombre a esta plaza fue también varias veces ministro del gobierno! 👔',
-              '¡Esta plaza forma parte del gran plan que hizo crecer Madrid mucho más allá de sus murallas antiguas! 🗺️',
-              '¡Debajo de la plaza se juntan varias líneas de metro, por eso hay tanto movimiento de gente! 🚇'
+              '¡El abogado que da nombre a esta plaza fue también varias veces ministro del gobierno! 👔 Ayudó a escribir leyes tan importantes que muchas de sus ideas se siguen usando en España todavía hoy, más de cien años después.',
+              '¡Esta plaza forma parte del gran plan que hizo crecer Madrid mucho más allá de sus murallas antiguas! 🗺️ Las calles anchas y rectas de esta zona se diseñaron a propósito, muy distintas de las callejuelas estrechas y torcidas del Madrid más viejo.',
+              '¡Debajo de la plaza se juntan varias líneas de metro, por eso hay tanto movimiento de gente! 🚇 Tantas líneas cruzándose aquí abajo hacen que arriba, en la plaza, siempre haya gente entrando y saliendo a todas horas.'
             ]
           }
         },
@@ -2805,14 +2805,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La calle da nombre a uno de los antiguos distritos administrativos de Madrid, y llegó a ser, en algunos tramos del siglo XIX, una de las principales vías comerciales de telas y tejidos de la ciudad.',
-              'Varios edificios conservan todavía comercios centenarios con fachadas y rótulos originales, testigos de la actividad mercantil ininterrumpida de la vía desde hace más de cien años.',
-              'El tramo final, cerca de Gran Vía, formó parte de las reformas urbanísticas de comienzos del siglo XX que buscaban modernizar el trazado histórico del centro de Madrid.'
+              'La calle da nombre a uno de los antiguos distritos administrativos de Madrid, y llegó a ser, en algunos tramos del siglo XIX, una de las principales vías comerciales de telas y tejidos de la ciudad. Aquella vocación comercial textil, hoy transformada en moda de todo tipo, conecta directamente con el ambiente de tiendas que sigue caracterizando la calle en la actualidad.',
+              'Varios edificios conservan todavía comercios centenarios con fachadas y rótulos originales, testigos de la actividad mercantil ininterrumpida de la vía desde hace más de cien años. Pasear con atención permite descubrir, entre las tiendas más modernas, letreros pintados y escaparates de otra época que sobrevivieron a las sucesivas modas y reformas del barrio.',
+              'El tramo final, cerca de Gran Vía, formó parte de las reformas urbanísticas de comienzos del siglo XX que buscaban modernizar el trazado histórico del centro de Madrid. Esa intervención dejó una transición visible entre el urbanismo más antiguo del norte de la calle y el más monumental de su desembocadura en la gran avenida madrileña.'
             ],
             kids: [
-              '¡Esta calle da nombre a todo un barrio antiguo de Madrid! 🏘️',
-              '¡Algunas tiendas de esta calle llevan más de 100 años abiertas, con sus carteles originales todavía puestos! 🏪',
-              '¡Una parte de esta calle se reformó hace más de 100 años para modernizar el centro de Madrid! 🚧'
+              '¡Esta calle da nombre a todo un barrio antiguo de Madrid! 🏘️ Empezó siendo un simple camino hacia un pueblo, y con el tiempo se hizo tan importante que le prestó su nombre a todo un trozo de la ciudad.',
+              '¡Algunas tiendas de esta calle llevan más de 100 años abiertas, con sus carteles originales todavía puestos! 🏪 Si te fijas bien entre las tiendas modernas, puedes encontrar letreros pintados de hace muchísimo tiempo, como pequeños tesoros escondidos a la vista de todos.',
+              '¡Una parte de esta calle se reformó hace más de 100 años para modernizar el centro de Madrid! 🚧 Por eso, si caminas de un extremo a otro, notarás cómo cambia el estilo de los edificios según te acercas a la Gran Vía.'
             ]
           }
         },
@@ -2867,14 +2867,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La calle formó parte del itinerario habitual de la Corte hacia los principales conventos e iglesias del centro histórico, lo que explica su tradicional carácter comercial de lujo en siglos pasados.',
-              'El plan de rehabilitación municipal ha incluido la recuperación de fachadas históricas ocultas durante décadas bajo reformas comerciales posteriores, sacando a la luz elementos decorativos originales del siglo XIX.',
-              'Pese a su fama reciente, la calle conserva en varios números portales y escaleras originales protegidos por su valor patrimonial, testigos discretos de su pasado más elegante.'
+              'La calle formó parte del itinerario habitual de la Corte hacia los principales conventos e iglesias del centro histórico, lo que explica su tradicional carácter comercial de lujo en siglos pasados. El paso frecuente de nobles y cortesanos animó desde temprano la apertura de comercios refinados a su alrededor, un prestigio que se fue perdiendo con el paso de los siglos hasta la imagen más popular que tuvo después.',
+              'El plan de rehabilitación municipal ha incluido la recuperación de fachadas históricas ocultas durante décadas bajo reformas comerciales posteriores, sacando a la luz elementos decorativos originales del siglo XIX. Detrás de carteles y revestimientos más recientes han aparecido molduras, balcones y detalles ornamentales que llevaban años sin verse, devolviendo a la calle parte de su aspecto original.',
+              'Pese a su fama reciente, la calle conserva en varios números portales y escaleras originales protegidos por su valor patrimonial, testigos discretos de su pasado más elegante. Basta con levantar la vista por encima de los escaparates para descubrir, en plantas superiores, rastros del carácter señorial que tuvo esta vía en otras épocas.'
             ],
             kids: [
-              '¡Esta calle formaba parte del camino que usaba la Corte para ir de un lado a otro del centro de Madrid! 👑',
-              '¡Al arreglar las fachadas, han encontrado decoraciones antiguas escondidas debajo de reformas más modernas! 🔍',
-              '¡Todavía quedan portales y escaleras muy antiguos y protegidos, escondidos entre las tiendas! 🚪'
+              '¡Esta calle formaba parte del camino que usaba la Corte para ir de un lado a otro del centro de Madrid! 👑 Como pasaban por aquí nobles y gente importante, se abrieron tiendas muy elegantes, aunque con el tiempo la calle fue cambiando mucho su ambiente.',
+              '¡Al arreglar las fachadas, han encontrado decoraciones antiguas escondidas debajo de reformas más modernas! 🔍 Detrás de carteles más nuevos aparecieron balcones y adornos de hace casi 200 años, como si la calle hubiera guardado un secreto tapado durante mucho tiempo.',
+              '¡Todavía quedan portales y escaleras muy antiguos y protegidos, escondidos entre las tiendas! 🚪 Si miras hacia arriba, por encima de los escaparates, puedes descubrir detalles que recuerdan cómo era esta calle hace muchísimo tiempo.'
             ]
           }
         },
@@ -2930,14 +2930,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El Edificio Carrión, frente al Cine Callao, fue en 1933 el primer edificio de Madrid con aire acondicionado central y ascensores de alta velocidad, todo un símbolo de modernidad para la época.',
-              'La plaza se ha convertido en una de las más utilizadas de España para grandes campañas publicitarias digitales, gracias a la concentración de pantallas de gran formato en sus fachadas.',
-              'Los cines de la plaza mantienen viva una tradición de estrenos con alfombra roja que se remonta a los años treinta del siglo pasado.'
+              'El Edificio Carrión, frente al Cine Callao, fue en 1933 el primer edificio de Madrid con aire acondicionado central y ascensores de alta velocidad, todo un símbolo de modernidad para la época. Su estética racionalista, muy influida por la arquitectura estadounidense del momento, contrastaba deliberadamente con el estilo más clásico de otros edificios cercanos de Gran Vía.',
+              'La plaza se ha convertido en una de las más utilizadas de España para grandes campañas publicitarias digitales, gracias a la concentración de pantallas de gran formato en sus fachadas. Marcas de todo el mundo compiten por un hueco en estas pantallas, que de noche bañan toda la plaza con una luz de colores muy característica.',
+              'Los cines de la plaza mantienen viva una tradición de estrenos con alfombra roja que se remonta a los años treinta del siglo pasado. Actores, directores y curiosos siguen dándose cita aquí en las grandes premières, perpetuando casi un siglo después el mismo glamour cinematográfico que dio fama a este rincón de Madrid.'
             ],
             kids: [
-              '¡Uno de los edificios de la plaza fue el primero de Madrid en tener aire acondicionado de verdad, hace casi 100 años! ❄️',
-              '¡Esta plaza tiene tantas pantallas gigantes que se usa para anuncios enormes que se ven desde lejos! 📺',
-              '¡Aquí se celebran estrenos de películas con alfombra roja desde hace casi 100 años! 🎬'
+              '¡Uno de los edificios de la plaza fue el primero de Madrid en tener aire acondicionado de verdad, hace casi 100 años! ❄️ Su estilo tan moderno para la época hacía que destacara muchísimo entre los edificios más clásicos de alrededor.',
+              '¡Esta plaza tiene tantas pantallas gigantes que se usa para anuncios enormes que se ven desde lejos! 📺 Por la noche se llena de luces y colores, como si fuera un trocito de ciudad futurista en medio de Madrid.',
+              '¡Aquí se celebran estrenos de películas con alfombra roja desde hace casi 100 años! 🎬 Actores y directores siguen viniendo hoy en día a presentar sus películas, igual que hacían hace casi un siglo.'
             ]
           }
         },
@@ -2993,14 +2993,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'Pese a los intensos bombardeos que sufrió durante la Guerra Civil, el edificio nunca llegó a colapsar, gracias a la solidez de su estructura de acero importada de Estados Unidos.',
-              'La sede alojó durante décadas una de las primeras centrales telefónicas automáticas de España, que fue sustituyendo poco a poco al antiguo sistema manual de operadoras.',
-              'Su silueta y su reloj lo convirtieron en un punto de referencia visual para los madrileños décadas antes de que existieran los relojes públicos digitales.'
+              'Pese a los intensos bombardeos que sufrió durante la Guerra Civil, el edificio nunca llegó a colapsar, gracias a la solidez de su estructura de acero importada de Estados Unidos. Los impactos de artillería llegaron a dejar marcas visibles en su fachada, pero el esqueleto metálico que lo sostenía por dentro resistió sin ceder, algo excepcional para un edificio tan expuesto en plena línea de fuego.',
+              'La sede alojó durante décadas una de las primeras centrales telefónicas automáticas de España, que fue sustituyendo poco a poco al antiguo sistema manual de operadoras. Aquella transición tecnológica cambió por completo la forma de comunicarse a distancia en el país, dejando obsoleto el trabajo de cientos de operadoras que hasta entonces conectaban las llamadas a mano.',
+              'Su silueta y su reloj lo convirtieron en un punto de referencia visual para los madrileños décadas antes de que existieran los relojes públicos digitales. Generaciones enteras se citaban bajo su fachada o comprobaban la hora al pasar por Gran Vía, convirtiendo al edificio en parte del paisaje cotidiano de la ciudad mucho más allá de su función original.'
             ],
             kids: [
-              '¡Este edificio recibió muchos bombardeos durante una guerra y aun así no se cayó! 💥',
-              '¡Aquí estuvo una de las primeras centrales de teléfonos automáticas de España, antes había que hablar con una persona para conectar cada llamada! ☎️',
-              '¡La gente de Madrid usaba el reloj de este edificio para saber la hora desde lejos, mucho antes de tener relojes en el móvil! 🕐'
+              '¡Este edificio recibió muchos bombardeos durante una guerra y aun así no se cayó! 💥 Su esqueleto de acero por dentro era tan fuerte que aguantó los impactos sin venirse abajo, algo increíble para un edificio situado justo en medio de tanto peligro.',
+              '¡Aquí estuvo una de las primeras centrales de teléfonos automáticas de España, antes había que hablar con una persona para conectar cada llamada! ☎️ Cuando llegó esta máquina nueva, cambió por completo la forma en que la gente se comunicaba a distancia.',
+              '¡La gente de Madrid usaba el reloj de este edificio para saber la hora desde lejos, mucho antes de tener relojes en el móvil! 🕐 Muchas personas quedaban directamente "debajo del reloj de Telefónica", ¡como si fuera un punto de encuentro para toda la ciudad!'
             ]
           }
         },
@@ -3056,14 +3056,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El parque se sitúa sobre el antiguo Cerro de las Vistillas, que ya en el siglo XIX era lugar tradicional de paseo dominical de las familias madrileñas por sus vistas sobre el valle del Manzanares.',
-              'Durante la Guerra Civil, la proximidad del frente convirtió esta zona en una de las más peligrosas de la capital, con la población viviendo a apenas unos metros de las líneas de combate.',
-              'Las terrazas actuales ocupan terrenos que en distintas épocas sirvieron para usos muy distintos antes de su urbanización definitiva como parque en el siglo XX.'
+              'El parque se sitúa sobre el antiguo Cerro de las Vistillas, que ya en el siglo XIX era lugar tradicional de paseo dominical de las familias madrileñas por sus vistas sobre el valle del Manzanares. Aquella costumbre de subir aquí a contemplar el atardecer se ha mantenido casi intacta con el paso de las generaciones, y sigue siendo hoy uno de los planes favoritos de los madrileños en las tardes de verano.',
+              'Durante la Guerra Civil, la proximidad del frente convirtió esta zona en una de las más peligrosas de la capital, con la población viviendo a apenas unos metros de las líneas de combate. Resulta difícil imaginar, paseando hoy tranquilamente entre las terrazas, que este mismo lugar estuvo tan cerca de los combates que marcaron el asedio de Madrid durante varios años.',
+              'Las terrazas actuales ocupan terrenos que en distintas épocas sirvieron para usos muy distintos antes de su urbanización definitiva como parque en el siglo XX. Esa transformación, de espacio de paso y de conflicto a lugar de ocio y encuentro, resume bastante bien la propia evolución de todo este borde de la ciudad a lo largo del último siglo.'
             ],
             kids: [
-              '¡La gente de Madrid ya venía a pasear aquí los domingos hace más de 150 años, porque las vistas eran preciosas! 🚶',
-              '¡Durante una guerra, la gente que vivía aquí estaba muy cerca de donde luchaban los soldados! 😨',
-              '¡Antes de tener las terrazas de hoy, este terreno se usó de formas muy distintas a lo largo de los años! 🏕️'
+              '¡La gente de Madrid ya venía a pasear aquí los domingos hace más de 150 años, porque las vistas eran preciosas! 🚶 Esa costumbre de subir a ver el atardecer se ha mantenido casi igual durante generaciones, ¡y sigue siendo uno de los planes favoritos hoy en día!',
+              '¡Durante una guerra, la gente que vivía aquí estaba muy cerca de donde luchaban los soldados! 😨 Cuesta imaginarlo mientras paseas tranquilamente entre las terrazas de hoy, pero este mismo lugar estuvo muy cerca del peligro durante varios años.',
+              '¡Antes de tener las terrazas de hoy, este terreno se usó de formas muy distintas a lo largo de los años! 🏕️ Pasó de ser un lugar de paso a un sitio de conflicto, y finalmente se convirtió en el parque tranquilo y alegre que puedes visitar ahora.'
             ]
           }
         },
@@ -3119,14 +3119,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El jardín combina elementos de la jardinería francesa clásica con toques de tradición hispanoárabe, una mezcla poco habitual que refleja los distintos gustos de sus sucesivas reformas.',
-              'Javier de Winthuysen, responsable del diseño de 1920, fue una figura clave en la recuperación del jardín histórico español de principios del siglo XX, y trabajó también en otros jardines emblemáticos del país.',
-              'El Palacio de Anglona al que perteneció este jardín tomó su nombre de un título nobiliario italiano incorporado a la familia propietaria por matrimonio en el siglo XIX.'
+              'El jardín combina elementos de la jardinería francesa clásica con toques de tradición hispanoárabe, una mezcla poco habitual que refleja los distintos gustos de sus sucesivas reformas. Esa convivencia de estilos, la geometría ordenada de lo francés junto a la intimidad de lo hispanoárabe, se percibe todavía hoy al pasear entre sus setos, fuentes y rincones sombreados.',
+              'Javier de Winthuysen, responsable del diseño de 1920, fue una figura clave en la recuperación del jardín histórico español de principios del siglo XX, y trabajó también en otros jardines emblemáticos del país. Su labor ayudó a rescatar del olvido un tipo de jardinería tradicional que estaba desapareciendo, aplicando aquí los mismos principios que defendía en sus escritos sobre el arte de los jardines.',
+              'El Palacio de Anglona al que perteneció este jardín tomó su nombre de un título nobiliario italiano incorporado a la familia propietaria por matrimonio en el siglo XIX. Ese vínculo con la nobleza italiana explica el nombre algo inesperado de un rincón tan profundamente madrileño, escondido junto a la Plaza de la Paja.'
             ],
             kids: [
-              '¡Este jardín mezcla un estilo francés con toques de jardines árabes, algo poco común! 🌷',
-              '¡El jardinero que le dio su forma actual ayudó también a recuperar otros jardines históricos importantes de España! 🌻',
-              '¡El nombre del palacio viene de un título de nobleza italiano que llegó a la familia por una boda! 💍'
+              '¡Este jardín mezcla un estilo francés con toques de jardines árabes, algo poco común! 🌷 Si te fijas, verás setos ordenados como en Francia junto a rincones más íntimos y sombreados, al estilo de los jardines árabes.',
+              '¡El jardinero que le dio su forma actual ayudó también a recuperar otros jardines históricos importantes de España! 🌻 Le encantaba rescatar jardines antiguos que se estaban perdiendo, y aplicó aquí las mismas ideas que usaba en sus otros trabajos.',
+              '¡El nombre del palacio viene de un título de nobleza italiano que llegó a la familia por una boda! 💍 Así que este jardín tan madrileño esconde, sin que se note, una conexión sorprendente con Italia.'
             ]
           }
         },
@@ -3182,14 +3182,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'Los archivos parroquiales, que se remontan a 1480, siguen siendo consultados hoy por historiadores que estudian la vida cotidiana del Madrid de los siglos XVI y XVII.',
-              'La Chocolatería San Ginés, en el pasadizo lateral, funciona ininterrumpidamente desde 1894, manteniéndose abierta hasta altas horas los fines de semana desde hace más de un siglo.',
-              'El retablo mayor que se ve hoy en el interior sustituyó a uno anterior perdido durante los disturbios de 1936, uno de los muchos episodios de destrucción patrimonial que sufrió Madrid en la Guerra Civil.'
+              'Los archivos parroquiales, que se remontan a 1480, siguen siendo consultados hoy por historiadores que estudian la vida cotidiana del Madrid de los siglos XVI y XVII. Bautizos, matrimonios y defunciones registrados durante siglos permiten reconstruir con detalle la vida de personajes anónimos junto a la de figuras tan célebres como Quevedo o Lope de Vega.',
+              'La Chocolatería San Ginés, en el pasadizo lateral, funciona ininterrumpidamente desde 1894, manteniéndose abierta hasta altas horas los fines de semana desde hace más de un siglo. Generaciones de madrileños y visitantes han hecho de este rincón parada obligada, de madrugada o a media tarde, formando ya parte del ritual social de la ciudad tanto como la propia iglesia.',
+              'El retablo mayor que se ve hoy en el interior sustituyó a uno anterior perdido durante los disturbios de 1936, uno de los muchos episodios de destrucción patrimonial que sufrió Madrid en la Guerra Civil. La reconstrucción posterior recuperó buena parte del esplendor original del templo, aunque inevitablemente se perdieron para siempre piezas y detalles del conjunto anterior.'
             ],
             kids: [
-              '¡En los archivos de esta iglesia los historiadores todavía investigan cómo era la vida en el Madrid de hace 400 años! 📜',
-              '¡La chocolatería de al lado lleva abierta desde 1894, y algunos días no cierra ni de noche! 🍫',
-              '¡El de hoy es un altar nuevo! El de verdad se perdió durante una época muy difícil de España, ¡hace unos 90 años! ⛪'
+              '¡En los archivos de esta iglesia los historiadores todavía investigan cómo era la vida en el Madrid de hace 400 años! 📜 Ahí se guardan los nombres de gente normal junto a los de escritores tan famosos como Quevedo o Lope de Vega.',
+              '¡La chocolatería de al lado lleva abierta desde 1894, y algunos días no cierra ni de noche! 🍫 Muchísimas generaciones de madrileños han merendado ahí sus churros con chocolate, así que forma parte de la vida de la ciudad casi tanto como la propia iglesia.',
+              '¡El de hoy es un altar nuevo! El de verdad se perdió durante una época muy difícil de España, ¡hace unos 90 años! ⛪ Después lo reconstruyeron con mucho cuidado, aunque algunas piezas originales se perdieron para siempre.'
             ]
           }
         },
@@ -3245,14 +3245,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La sillería del coro, tallada en nogal en el siglo XVIII, procede del desaparecido convento franciscano original y está considerada una de las obras de ebanistería religiosa más importantes conservadas en Madrid.',
-              'Además de Goya, otros pintores de renombre contribuyeron a decorar distintas capillas del templo a lo largo de los siglos XVIII y XIX, formando un conjunto pictórico poco habitual en un solo edificio.',
-              'El edificio fue declarado basílica menor por la Santa Sede en 1962, un título honorífico que reconoce su importancia histórica y artística dentro del catolicismo español.'
+              'La sillería del coro, tallada en nogal en el siglo XVIII, procede del desaparecido convento franciscano original y está considerada una de las obras de ebanistería religiosa más importantes conservadas en Madrid. Cada asiento está decorado con un nivel de detalle que rara vez se aprecia a primera vista, y que recompensa a quien se detiene a observarlo con calma.',
+              'Además de Goya, otros pintores de renombre contribuyeron a decorar distintas capillas del templo a lo largo de los siglos XVIII y XIX, formando un conjunto pictórico poco habitual en un solo edificio. Recorrer las seis capillas radiales es casi como hacer un pequeño recorrido por distintos momentos y estilos de la pintura religiosa española de esos dos siglos.',
+              'El edificio fue declarado basílica menor por la Santa Sede en 1962, un título honorífico que reconoce su importancia histórica y artística dentro del catolicismo español. Ese reconocimiento, poco frecuente entre los templos españoles, confirmó oficialmente lo que ya era evidente para quien visitaba el edificio: su rango excepcional dentro del patrimonio religioso del país.'
             ],
             kids: [
-              '¡Los asientos de madera tallada del coro son una auténtica joya, hechos hace más de 250 años! 🪑',
-              '¡Otros pintores muy famosos, además de Goya, decoraron distintas capillas de esta basílica! 🎨',
-              '¡Este templo recibió un título especial del Vaticano por lo importante que es su historia y su arte! ⛪'
+              '¡Los asientos de madera tallada del coro son una auténtica joya, hechos hace más de 250 años! 🪑 Cada uno tiene tallados distintos, tan detallados que hay que fijarse muy despacio para verlos todos.',
+              '¡Otros pintores muy famosos, además de Goya, decoraron distintas capillas de esta basílica! 🎨 Recorrerlas todas es casi como hacer un pequeño viaje por distintos estilos de pintura de hace dos siglos, capilla a capilla.',
+              '¡Este templo recibió un título especial del Vaticano por lo importante que es su historia y su arte! ⛪ Muy pocos templos en España consiguen un reconocimiento así, ¡así que es todo un honor para esta basílica!'
             ]
           }
         },
@@ -3307,14 +3307,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El proyecto original de José Bonaparte incluía un gigantesco arco dedicado a sí mismo, del que apenas se llegaron a colocar los cimientos antes de su expulsión de España en 1813.',
-              'La puerta marcó durante décadas el límite físico entre la ciudad y el extrarradio, y su entorno se convirtió en una zona de mercados y ferias de ganado hasta bien entrado el siglo XX.',
-              'El grupo escultórico que corona el arco representa a Madrid coronando a Fernando VII, un tema alegórico habitual en la escultura conmemorativa española de la época.'
+              'El proyecto original de José Bonaparte incluía un gigantesco arco dedicado a sí mismo, muchísimo más monumental que la puerta que finalmente se construyó, del que apenas se llegaron a colocar los cimientos antes de su expulsión de España en 1813. De aquel plan napoleónico solo quedó el emplazamiento y la voluntad de erigir algo grandioso en ese punto de la ciudad, una ambición que el arquitecto español heredó pero reorientó por completo hacia otro monarca.',
+              'La puerta marcó durante décadas el límite físico entre la ciudad y el extrarradio, y su entorno se convirtió en una zona de mercados y ferias de ganado hasta bien entrado el siglo XX, cuando el crecimiento urbano terminó por absorber los descampados que antes se abrían a su alrededor. Cruzar este arco significaba, durante generaciones, dejar atrás Madrid y entrar en un paisaje todavía semirrural, con corrales y solares que hoy resultan difíciles de imaginar en pleno centro de la ciudad.',
+              'El grupo escultórico que corona el arco representa a Madrid coronando a Fernando VII, un tema alegórico habitual en la escultura conmemorativa española de la época, pensado para proyectar una imagen de legitimidad y continuidad monárquica tras años de guerra e incertidumbre política. Este tipo de composiciones, con la ciudad personificada rindiendo homenaje al rey, se repitió en varios monumentos madrileños del siglo XIX como forma de reforzar el relato oficial de la Restauración.'
             ],
             kids: [
-              '¡El primer plan para esta puerta era dedicarla a otro rey completamente distinto, pero nunca llegó a construirse así! 📐',
-              '¡Durante muchísimos años, esta puerta marcaba dónde terminaba la ciudad de Madrid! 🏙️',
-              '¡Arriba del arco hay estatuas que representan a la propia ciudad de Madrid coronando a un rey! 👑'
+              '¡El primer plan para esta puerta era dedicarla a otro rey completamente distinto, con un arco mucho más grande y lujoso, pero nunca llegó a construirse así! 📐 Cuando ese rey tuvo que marcharse de España, solo se habían puesto los primeros cimientos, así que todo el proyecto tuvo que empezar de cero para otro rey diferente.',
+              '¡Durante muchísimos años, esta puerta marcaba dónde terminaba la ciudad de Madrid! 🏙️ Al cruzarla dejabas atrás las calles y entrabas en un paisaje con campo, animales y mercados, ¡algo que hoy es imposible de imaginar porque toda esa zona forma parte del centro de la ciudad!',
+              '¡Arriba del arco hay estatuas que representan a la propia ciudad de Madrid coronando a un rey! 👑 Este tipo de escena, con la ciudad convertida casi en una persona que rinde homenaje al monarca, se repitió en varios monumentos de Madrid construidos hace unos 200 años.'
             ]
           }
         },
@@ -3370,14 +3370,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El museo conserva restos arqueológicos que documentan una de las primeras ocupaciones humanas del valle del Manzanares, con piezas de gran antigüedad procedentes de la región madrileña.',
-              'El edificio perteneció originalmente a los condes de Paredes, antes de pasar por distintos usos hasta su reconversión en museo municipal a finales del siglo XX.',
-              'El jardín arqueobotánico del museo recrea especies vegetales documentadas en la región madrileña desde época prehistórica, un recurso didáctico poco frecuente en museos de este tipo.'
+              'El museo conserva restos arqueológicos que documentan una de las primeras ocupaciones humanas del valle del Manzanares, con piezas de gran antigüedad procedentes de la región madrileña que sitúan la presencia humana en este territorio mucho antes de que existiera cualquier asentamiento urbano. Estas colecciones convierten al museo en una referencia para entender cómo era la cuenca del río muchísimo antes de que Madrid se convirtiera en ciudad, y mucho más aún en capital.',
+              'El edificio perteneció originalmente a los condes de Paredes, antes de pasar por distintos usos hasta su reconversión en museo municipal a finales del siglo XX. A lo largo de los siglos cambió varias veces de propietario y de función, como tantos otros caserones nobles del viejo Madrid, hasta que el Ayuntamiento decidió recuperarlo y dedicarlo a contar la historia de la propia ciudad, cerrando así un círculo entre el edificio y su contenido.',
+              'El jardín arqueobotánico del museo recrea especies vegetales documentadas en la región madrileña desde época prehistórica, un recurso didáctico poco frecuente en museos de este tipo. Pasear por él permite hacerse una idea de qué plantas rodeaban a los primeros pobladores del valle del Manzanares, mucho antes de que llegaran los cultivos y las especies que hoy asociamos con el paisaje habitual de Madrid.'
             ],
             kids: [
-              '¡Aquí se guardan restos de personas que vivieron en esta zona hace muchísimo tiempo! 🦴',
-              '¡Este edificio perteneció antes a una familia noble, mucho antes de convertirse en museo! 🏛️',
-              '¡El jardín del museo tiene plantas parecidas a las que crecían aquí hace miles de años! 🌿'
+              '¡Aquí se guardan restos de personas que vivieron en esta zona hace muchísimo tiempo! 🦴 Son tan antiguos que nos ayudan a imaginar cómo era este lugar mucho antes de que existiera la ciudad de Madrid, cuando todavía no había calles ni edificios, solo el río y el valle.',
+              '¡Este edificio perteneció antes a una familia noble, mucho antes de convertirse en museo! 🏛️ Como muchas casas antiguas de Madrid, fue cambiando de dueño y de uso durante siglos, hasta que el Ayuntamiento decidió convertirlo en un lugar donde contar la historia de toda la ciudad.',
+              '¡El jardín del museo tiene plantas parecidas a las que crecían aquí hace miles de años! 🌿 Así puedes imaginar cómo era este lugar mucho antes de que existiera Madrid, cuando por aquí solo había río, valle y las primeras personas que vivieron en la zona.'
             ]
           }
         },
@@ -3433,14 +3433,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'Los arquitectos conservaron intacta la chimenea original de la antigua central eléctrica, integrándola como elemento escultórico dentro del nuevo diseño del edificio.',
-              'El jardín vertical de Patrick Blanc funciona con un sistema de riego independiente del suelo, ya que las plantas crecen ancladas directamente sobre un fieltro sintético en la pared, sin tierra.',
-              'La cubierta de acero corten, con su color oxidado característico, fue diseñada deliberadamente para ir cambiando de tono con el paso de los años, un material que envejece de forma controlada.'
+              'Los arquitectos conservaron intacta la chimenea original de la antigua central eléctrica, integrándola como elemento escultórico dentro del nuevo diseño del edificio. Es el único vestigio que recuerda de forma tan explícita el pasado industrial del lugar, y funciona casi como una firma visible del edificio que existió aquí antes de que este espacio se convirtiera en centro cultural.',
+              'El jardín vertical de Patrick Blanc funciona con un sistema de riego independiente del suelo, ya que las plantas crecen ancladas directamente sobre un fieltro sintético en la pared, sin tierra. El agua y los nutrientes llegan mediante un circuito automatizado que recorre toda la superficie, una técnica que este botánico francés desarrolló durante años y que aquí alcanza una de sus expresiones más visibles en pleno centro de Madrid.',
+              'La cubierta de acero corten, con su color oxidado característico, fue diseñada deliberadamente para ir cambiando de tono con el paso de los años, un material que envejece de forma controlada. Ese proceso de oxidación superficial protege el metal del interior y hace que el edificio nunca se vea exactamente igual, sino que su aspecto varíe ligeramente según la luz, el tiempo transcurrido y las condiciones climáticas.'
             ],
             kids: [
-              '¡Los arquitectos dejaron la chimenea antigua de la fábrica de electricidad como parte de la decoración! 🏭',
-              '¡Las plantas del jardín vertical crecen pegadas a la pared sin necesitar tierra, solo un material especial y agua! 💦',
-              '¡El metal de arriba del edificio está hecho para ir cambiando de color poco a poco con el paso de los años! 🎨'
+              '¡Los arquitectos dejaron la chimenea antigua de la fábrica de electricidad como parte de la decoración! 🏭 Es lo único que queda a la vista de cuando este edificio no era un centro cultural, sino una fábrica que producía electricidad para buena parte de la ciudad de Madrid.',
+              '¡Las plantas del jardín vertical crecen pegadas a la pared sin necesitar tierra, solo un material especial y agua! 💦 Un sistema automático reparte el agua y el alimento por toda la pared, para que ninguna planta se quede sin lo que necesita, ¡como si el jardín tuviera su propio riego secreto!',
+              '¡El metal de arriba del edificio está hecho para ir cambiando de color poco a poco con el paso de los años! 🎨 Por eso el edificio nunca se ve exactamente igual: cambia un poco según la luz y el tiempo que ha pasado, como si fuera envejeciendo a propósito.'
             ]
           }
         },
@@ -3495,14 +3495,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El levantamiento del 2 de mayo se saldó con numerosas víctimas entre la población civil madrileña, y la dura represión posterior fue inmortalizada por Goya en su célebre cuadro El tres de mayo.',
-              'Manuela Malasaña, la joven que da nombre al barrio vecino, murió muy cerca de este mismo cuartel el mismo día del levantamiento, lo que explica la estrecha relación histórica entre ambos lugares.',
-              'La plaza se ha convertido con el tiempo en epicentro de las celebraciones alternativas del barrio, sin perder su función original como monumento cívico dedicado a la memoria del 2 de mayo.'
+              'El levantamiento del 2 de mayo se saldó con numerosas víctimas entre la población civil madrileña, y la dura represión posterior fue inmortalizada por Goya en su célebre cuadro El tres de mayo. Aquel cuadro, pintado años después por encargo, se convirtió en una de las imágenes más reconocidas de la historia del arte español y ayudó a fijar en la memoria colectiva la violencia de aquellos días de resistencia y castigo.',
+              'Manuela Malasaña, la joven que da nombre al barrio vecino, murió muy cerca de este mismo cuartel el mismo día del levantamiento, lo que explica la estrecha relación histórica entre ambos lugares. Su figura acabó convirtiéndose en símbolo popular de aquella jornada, y el barrio que hoy lleva su nombre conserva todavía calles y rincones vinculados a los sucesos de 1808 que se vivieron a apenas unos pasos de esta misma plaza.',
+              'La plaza se ha convertido con el tiempo en epicentro de las celebraciones alternativas del barrio, sin perder su función original como monumento cívico dedicado a la memoria del 2 de mayo. Esa doble vida, entre la fiesta contemporánea y la conmemoración histórica, convive con naturalidad: los mismos escalones donde la gente se sienta a charlar por la tarde acogen cada año actos oficiales de homenaje a quienes resistieron aquí hace más de dos siglos.'
             ],
             kids: [
-              '¡Aquella lucha tan valiente terminó con muchas personas heridas, y un pintor famoso, Goya, pintó después lo que pasó al día siguiente! 🎨',
-              '¡La chica que da nombre al barrio de al lado murió muy cerca de este mismo sitio, el mismo día! 🎗️',
-              '¡Esta plaza sigue siendo el lugar donde el barrio recuerda aquel día tan importante, aunque ahora también se usa para fiestas! 🎉'
+              '¡Aquella lucha tan valiente terminó con muchas personas heridas, y un pintor famoso, Goya, pintó después lo que pasó al día siguiente! 🎨 Ese cuadro es hoy uno de los más famosos de toda España, y ayuda a que nadie olvide lo que ocurrió aquí hace más de 200 años.',
+              '¡La chica que da nombre al barrio de al lado murió muy cerca de este mismo sitio, el mismo día! 🎗️ Se convirtió en un símbolo tan importante que todavía hoy calles enteras del barrio recuerdan aquella jornada tan valiente de hace más de dos siglos.',
+              '¡Esta plaza sigue siendo el lugar donde el barrio recuerda aquel día tan importante, aunque ahora también se usa para fiestas! 🎉 Por la tarde está llena de gente charlando tranquilamente, ¡pero cada año también se celebran aquí actos para no olvidar a quienes lucharon hace más de 200 años!'
             ]
           }
         },
@@ -3557,14 +3557,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El mercado de hierro original del siglo XIX, sustituido en 1958, fue durante décadas uno de los mayores mercados cubiertos de Madrid, con una estructura metálica comparable a la del cercano Mercado de San Miguel.',
-              'La ejecución del general Riego en 1823 se convirtió en un símbolo del liberalismo español, y su nombre acabó dando título a un himno que se hizo célebre durante la Segunda República un siglo después.',
-              'La plaza sigue acogiendo cada domingo parte del recorrido del Rastro, prolongando así, de forma indirecta, su vocación comercial de siglos.'
+              'El mercado de hierro original del siglo XIX, sustituido en 1958, fue durante décadas uno de los mayores mercados cubiertos de Madrid, con una estructura metálica comparable a la del cercano Mercado de San Miguel. Aquel edificio decimonónico, con sus grandes naves de hierro y cristal, formaba parte de una generación de mercados de abastos que transformó la forma de comprar alimentos en la ciudad, antes de que las normas de higiene modernas obligaran a sustituirlo.',
+              'La ejecución del general Riego en 1823 se convirtió en un símbolo del liberalismo español, y su nombre acabó dando título a un himno que se hizo célebre durante la Segunda República un siglo después. Aquella canción, compuesta en su honor poco después de su muerte, pasó de ser un himno de circunstancias a convertirse en emblema político de todo un periodo histórico, mucho más allá del suceso concreto que tuvo lugar en esta misma plaza.',
+              'La plaza sigue acogiendo cada domingo parte del recorrido del Rastro, prolongando así, de forma indirecta, su vocación comercial de siglos. Lo que antes era un mercado formal de cereal y ganado se ha transformado con el tiempo en un mercadillo popular de objetos muy diversos, pero la función esencial del lugar, un espacio donde vecinos y visitantes se reúnen para comprar y vender, apenas ha cambiado en varios siglos.'
             ],
             kids: [
-              '¡El mercado de hierro que había antes aquí era uno de los más grandes de todo Madrid, parecido al Mercado de San Miguel! 🏛️',
-              '¡Un militar que fue castigado aquí hace 200 años se convirtió después en un símbolo muy importante para España! ⭐',
-              '¡Los domingos, parte del mercadillo de El Rastro pasa también por esta plaza! 🛍️'
+              '¡El mercado de hierro que había antes aquí era uno de los más grandes de todo Madrid, parecido al Mercado de San Miguel! 🏛️ Tenía naves enormes de hierro y cristal, ¡como un palacio hecho para vender comida! Pero con el tiempo dejó de cumplir las normas de limpieza y hubo que construir uno nuevo.',
+              '¡Un militar que fue castigado aquí hace 200 años se convirtió después en un símbolo muy importante para España! ⭐ Le compusieron una canción que, muchos años después, se hizo famosísima en toda España, ¡mucho más famosa que el propio suceso que ocurrió en esta plaza!',
+              '¡Los domingos, parte del mercadillo de El Rastro pasa también por esta plaza! 🛍️ Hace siglos aquí se vendía cebada para los caballos, y hoy se venden todo tipo de cosas distintas, ¡pero la plaza sigue siendo un lugar donde la gente viene a comprar y a curiosear!'
             ]
           }
         },
@@ -3993,14 +3993,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El barrio de Chamberí, al que pertenece esta calle, se desarrolló siguiendo el plan del Ensanche de Carlos María de Castro, aunque con un carácter más residencial que otras zonas del mismo proyecto.',
-              'Varios de los palacetes de la calle albergan hoy sedes diplomáticas y embajadas, continuando de forma indirecta la tradición de residencia de clases privilegiadas que tuvo la calle desde su origen.',
-              'El duque de Santo Mauro, promotor de la urbanización, dio también su nombre a un palacete cercano hoy convertido en hotel de lujo, testimonio de aquella operación inmobiliaria decimonónica.'
+              'El barrio de Chamberí, al que pertenece esta calle, se desarrolló siguiendo el plan del Ensanche de Carlos María de Castro, aunque con un carácter más residencial y tranquilo que otras zonas del mismo proyecto urbanístico, pensadas más para el comercio o la vivienda modesta que para la gran residencia señorial.',
+              'Varios de los palacetes de la calle albergan hoy sedes diplomáticas y embajadas, continuando de forma indirecta la tradición de residencia de clases privilegiadas que tuvo la calle desde su origen: donde antes vivían condes y marqueses, hoy trabajan diplomáticos de distintos países, manteniendo vivo el prestigio de estas fachadas.',
+              'El duque de Santo Mauro, promotor de la urbanización de la calle, dio también su nombre a un palacete cercano hoy convertido en hotel de lujo, testimonio de aquella operación inmobiliaria decimonónica que transformó una huerta en uno de los rincones más distinguidos del Madrid burgués.'
             ],
             kids: [
-              '¡Este barrio se construyó siguiendo un gran plan para hacer crecer Madrid, pero con casas más tranquilas que otras zonas! 🏘️',
-              '¡Varios de los palacetes de esta calle son hoy embajadas de otros países! 🌍',
-              '¡El nombre de la persona que impulsó esta calle también se usa hoy para un hotel de lujo cercano! 🏨'
+              '¡Este barrio se construyó siguiendo un gran plan para hacer crecer Madrid, pero aquí las casas eran más tranquilas y elegantes que en otras zonas del mismo plan! 🏘️',
+              '¡Varios de los palacetes de esta calle son hoy embajadas de otros países! Donde antes vivían condes y marqueses, ahora trabajan diplomáticos que representan a sus naciones. 🌍',
+              '¡El nombre de la persona que impulsó esta calle también se usa hoy para un hotel de lujo cercano! Así que su apellido sigue recordándose más de un siglo después. 🏨'
             ]
           }
         },
@@ -4055,14 +4055,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El convento original acogía a religiosas de la orden de la Visitación de Santa María, dedicada tanto a la vida contemplativa como a la educación de jóvenes nobles, una doble función poco habitual para la época.',
-              'El Palacio de Justicia, instalado en el antiguo convento desde 1870, ha sido escenario de algunos de los procesos judiciales más relevantes de la historia contemporánea de España.',
-              'La reina Bárbara de Braganza, de origen portugués, fue una destacada mecenas de las artes y la música durante su reinado, y trajo a la corte española a intérpretes de renombre europeo.'
+              'El convento original acogía a religiosas de la orden de la Visitación de Santa María, dedicada tanto a la vida contemplativa como a la educación de jóvenes nobles, una doble función poco habitual para la época que combinaba el retiro religioso con la formación de las futuras damas de la sociedad madrileña.',
+              'El Palacio de Justicia, instalado en el antiguo convento desde 1870, ha sido escenario de algunos de los procesos judiciales más relevantes de la historia contemporánea de España, de modo que unos mismos muros pasaron de acoger la oración de las religiosas a albergar los grandes debates jurídicos del país.',
+              'La reina Bárbara de Braganza, de origen portugués, fue una destacada mecenas de las artes y la música durante su reinado, y trajo a la corte española a intérpretes de renombre europeo, contribuyendo así a modernizar la vida cultural de un Madrid todavía poco abierto a las corrientes artísticas del resto del continente.'
             ],
             kids: [
-              '¡Las monjas de este convento no solo rezaban, también educaban a chicas jóvenes de familias importantes! 📚',
-              '¡El edificio de al lado, que antes era parte del convento, se usa hoy para juicios importantes! ⚖️',
-              '¡La reina que fundó este lugar venía de otro país y le encantaba la música, así que trajo músicos famosos a España! 🎵'
+              '¡Las monjas de este convento no solo rezaban, también educaban a chicas jóvenes de familias importantes, enseñándoles de todo un poco! 📚',
+              '¡El edificio de al lado, que antes era parte del convento, se usa hoy para juicios importantes! Así que unos mismos muros pasaron de escuchar oraciones a escuchar a los jueces. ⚖️',
+              '¡La reina que fundó este lugar venía de otro país y le encantaba la música, así que trajo músicos famosos a España para tocar en la corte! 🎵'
             ]
           }
         },
@@ -4117,14 +4117,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El proyecto de los versos dorados en el pavimento se completó a comienzos de los años 2000, con decenas de fragmentos literarios seleccionados por especialistas en la literatura del Siglo de Oro español.',
-              'La calle albergó durante los siglos XVI y XVII varios corrales de comedias improvisados en patios interiores, antes de que el teatro se profesionalizara en edificios específicos como el cercano Corral del Príncipe.',
-              'Hoy es una de las calles con mayor concentración de locales de ocio nocturno del centro de Madrid, un contraste notable con su pasado como tranquila calle residencial de escritores.'
+              'El proyecto de los versos dorados en el pavimento se completó a comienzos de los años 2000, con decenas de fragmentos literarios seleccionados por especialistas en la literatura del Siglo de Oro español, en un esfuerzo por convertir el simple paseo por la calle en un pequeño recorrido de lectura al aire libre.',
+              'La calle albergó durante los siglos XVI y XVII varios corrales de comedias improvisados en patios interiores, antes de que el teatro se profesionalizara en edificios específicos como el cercano Corral del Príncipe, en una época en la que representar comedia todavía se hacía de forma bastante casera e itinerante.',
+              'Hoy es una de las calles con mayor concentración de locales de ocio nocturno del centro de Madrid, un contraste notable con su pasado como tranquila calle residencial de escritores, que buscaban aquí precisamente el silencio necesario para escribir sus obras.'
             ],
             kids: [
-              '¡Los versos dorados del suelo se pusieron hace poco más de 20 años, elegidos por expertos en los escritores más famosos de España! ✨',
-              '¡Hace siglos, en los patios de esta calle se representaban obras de teatro improvisadas, antes de que existieran teatros de verdad! 🎭',
-              '¡Hoy esta calle está llena de bares y música por las noches, muy distinto a como era hace siglos! 🎶'
+              '¡Los versos dorados del suelo se pusieron hace poco más de 20 años, elegidos por expertos que estudiaron a los escritores más famosos de España para escoger las mejores frases! ✨',
+              '¡Hace siglos, en los patios de esta calle se representaban obras de teatro improvisadas, antes de que existieran teatros de verdad con escenario y todo! 🎭',
+              '¡Hoy esta calle está llena de bares y música por las noches, muy distinto a como era hace siglos, cuando los escritores buscaban aquí tranquilidad para escribir! 🎶'
             ]
           }
         },
@@ -4180,14 +4180,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El diseño original de García Mercadal, de estilo racionalista y muy vanguardista para su época, se modificó sustancialmente durante la posguerra hacia un planteamiento más clásico, alejado del proyecto inicial de los años treinta.',
-              'Las veinte estatuas de reyes de este jardín forman parte de la misma serie de esculturas dieciochescas que también se reparten por la Plaza de Oriente, encargadas en su día para coronar el propio Palacio Real.',
-              'El jardín se ha convertido en un mirador natural hacia la fachada norte del Palacio Real, ofreciendo una perspectiva distinta a la habitual desde la Plaza de Oriente o el Campo del Moro.'
+              'El diseño original de García Mercadal, de estilo racionalista y muy vanguardista para su época, se modificó sustancialmente durante la posguerra hacia un planteamiento más clásico, alejado del proyecto inicial de los años treinta, en línea con el gusto más conservador que se impuso en la arquitectura pública de aquellos años.',
+              'Las veinte estatuas de reyes de este jardín forman parte de la misma serie de esculturas dieciochescas que también se reparten por la Plaza de Oriente, encargadas en su día para coronar el propio Palacio Real, un proyecto tan ambicioso que ni siquiera todas las piezas terminaron colocándose donde se había planeado.',
+              'El jardín se ha convertido en un mirador natural hacia la fachada norte del Palacio Real, ofreciendo una perspectiva distinta a la habitual desde la Plaza de Oriente o el Campo del Moro, y permite apreciar de cerca la simetría del edificio desde un ángulo mucho menos fotografiado por los turistas.'
             ],
             kids: [
-              '¡El diseño original de este jardín era mucho más moderno de lo que ves hoy, pero lo cambiaron antes de terminarlo! 📐',
-              '¡Las veinte estatuas de reyes de aquí son primas de las que hay en la Plaza de Oriente, hechas por los mismos escultores! 👑',
-              '¡Desde aquí se ve el Palacio Real desde un lado que casi nadie mira! 🏰'
+              '¡El diseño original de este jardín era mucho más moderno de lo que ves hoy, pero lo cambiaron antes de terminarlo porque después de la guerra se prefirió algo más clásico! 📐',
+              '¡Las veinte estatuas de reyes de aquí son primas de las que hay en la Plaza de Oriente, hechas por los mismos escultores para decorar el Palacio Real! 👑',
+              '¡Desde aquí se ve el Palacio Real desde un lado que casi nadie mira, muy distinto a como se ve desde la plaza de delante! 🏰'
             ]
           }
         },
@@ -4239,14 +4239,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'La Posada del Peine se anuncia a menudo como una de las posadas más antiguas de España en funcionamiento, aunque el edificio actual es resultado de sucesivas reconstrucciones que dificultan datar con precisión su fábrica original.',
-              'La calle de Postas conectaba con la red de postas que unía Madrid con el resto de la península, un sistema de transporte y correo a caballo que funcionó hasta la llegada del ferrocarril en el siglo XIX.',
-              'El templete con reloj que corona el edificio se instaló específicamente para el IV Centenario del Descubrimiento de América en 1892, un acontecimiento que Madrid celebró con varias intervenciones urbanas conmemorativas.'
+              'La Posada del Peine se anuncia a menudo como una de las posadas más antiguas de España en funcionamiento, aunque el edificio actual es resultado de sucesivas reconstrucciones que dificultan datar con precisión su fábrica original, por lo que conviene tomar esa etiqueta como una tradición más que como un dato verificado al detalle.',
+              'La calle de Postas conectaba con la red de postas que unía Madrid con el resto de la península, un sistema de transporte y correo a caballo que funcionó hasta la llegada del ferrocarril en el siglo XIX, cuando el tren volvió obsoletas de golpe unas rutas que llevaban siglos organizando los desplazamientos por España.',
+              'El templete con reloj que corona el edificio se instaló específicamente para el IV Centenario del Descubrimiento de América en 1892, un acontecimiento que Madrid celebró con varias intervenciones urbanas conmemorativas repartidas por distintos puntos de la ciudad, de las que este reloj es uno de los ejemplos mejor conservados.'
             ],
             kids: [
-              '¡Esta posada dice ser una de las más antiguas de toda España, aunque el edificio se ha reconstruido varias veces! 🏨',
-              '¡Por aquí pasaba el correo que iba y venía a caballo por toda España, antes de que existiera el tren! 🐴',
-              '¡El relojito de arriba del edificio se puso para celebrar que hacía 400 años que Colón había llegado a América! ⏰'
+              '¡Esta posada dice ser una de las más antiguas de toda España, aunque el edificio se ha reconstruido varias veces a lo largo de los siglos! 🏨',
+              '¡Por aquí pasaba el correo que iba y venía a caballo por toda España, antes de que existiera el tren que lo cambió todo de golpe! 🐴',
+              '¡El relojito de arriba del edificio se puso para celebrar que hacía 400 años que Colón había llegado a América, junto con otros monumentos parecidos por la ciudad! ⏰'
             ]
           }
         },
@@ -4298,14 +4298,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'San Cristóbal es venerado tradicionalmente como patrón de los viajeros, una devoción que en distintas épocas dio nombre a calles y ermitas similares en muchas ciudades españolas, no solo en Madrid.',
-              'La desaparición de la capilla que dio nombre a la calle no está documentada con precisión, y se cree que pudo perderse en alguna de las remodelaciones urbanas que afectaron a esta zona entre los siglos XVIII y XIX.',
-              'Pese a su brevedad, la calle forma parte de una retícula de callejuelas que en época medieval conectaba los principales mercados y plazas del Madrid amurallado, una función de tránsito que conserva hasta hoy.'
+              'San Cristóbal es venerado tradicionalmente como patrón de los viajeros, una devoción que en distintas épocas dio nombre a calles y ermitas similares en muchas ciudades españolas, no solo en Madrid, reflejo de lo extendida que estaba antiguamente la costumbre de encomendarse a este santo antes de emprender cualquier desplazamiento.',
+              'La desaparición de la capilla que dio nombre a la calle no está documentada con precisión, y se cree que pudo perderse en alguna de las remodelaciones urbanas que afectaron a esta zona entre los siglos XVIII y XIX, un destino común a otras pequeñas capillas del casco antiguo que fueron desapareciendo sin dejar demasiado rastro escrito.',
+              'Pese a su brevedad, la calle forma parte de una retícula de callejuelas que en época medieval conectaba los principales mercados y plazas del Madrid amurallado, una función de tránsito que conserva hasta hoy, sirviendo todavía como atajo natural entre distintos rincones del centro histórico.'
             ],
             kids: [
-              '¡San Cristóbal es el santo protector de los viajeros, por eso hay calles con su nombre en muchas ciudades de España! 🚶',
-              '¡Nadie sabe exactamente cuándo desapareció la capillita que le daba nombre a esta calle! 🤷',
-              '¡Aunque es cortita, esta calle formaba parte de un laberinto de callejuelas que unía los mercados y plazas más importantes del Madrid antiguo! 🗺️'
+              '¡San Cristóbal es el santo protector de los viajeros, por eso hay calles con su nombre en muchas ciudades de España, no solo en Madrid! 🚶',
+              '¡Nadie sabe exactamente cuándo desapareció la capillita que le daba nombre a esta calle, se perdió el rastro hace mucho tiempo! 🤷',
+              '¡Aunque es cortita, esta calle formaba parte de un laberinto de callejuelas que unía los mercados y plazas más importantes del Madrid antiguo, y todavía sirve de atajo hoy! 🗺️'
             ]
           }
         },
@@ -4357,14 +4357,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El edificio fue conocido popularmente como la Cárcel de Corte, la prisión más importante de la Villa y Corte, y llegó a albergar entre sus muros a presos de gran relevancia política durante los siglos XVII y XVIII.',
-              'La reconversión del antiguo edificio penitenciario en sede ministerial se produjo a finales del siglo XIX, dentro de un proceso más amplio de modernización de la administración española.',
-              'El escudo real que corona la portada principal ha sido modificado en distintas ocasiones a lo largo de la historia del edificio, reflejando los cambios de régimen político que ha vivido España desde su construcción.'
+              'El edificio fue conocido popularmente como la Cárcel de Corte, la prisión más importante de la Villa y Corte, y llegó a albergar entre sus muros a presos de gran relevancia política durante los siglos XVII y XVIII, en unas condiciones que solían depender mucho del rango social del recluso.',
+              'La reconversión del antiguo edificio penitenciario en sede ministerial se produjo a finales del siglo XIX, dentro de un proceso más amplio de modernización de la administración española, que aprovechó edificios históricos ya existentes en lugar de levantar nuevas sedes desde cero.',
+              'El escudo real que corona la portada principal ha sido modificado en distintas ocasiones a lo largo de la historia del edificio, reflejando los cambios de régimen político que ha vivido España desde su construcción, de la monarquía absoluta hasta la democracia actual.'
             ],
             kids: [
               '¡Este edificio fue la cárcel más importante de todo Madrid, y aquí encerraron a personas muy conocidas de la época! 🔒',
-              '¡Dejó de ser cárcel para convertirse en oficinas del gobierno hace más de 100 años! 📜',
-              '¡El escudo de piedra de la entrada ha cambiado varias veces a lo largo de la historia, según quién gobernaba España! 🛡️'
+              '¡Dejó de ser cárcel para convertirse en oficinas del gobierno hace más de 100 años, aprovechando el mismo edificio antiguo! 📜',
+              '¡El escudo de piedra de la entrada ha cambiado varias veces a lo largo de la historia, según quién gobernaba España en cada época! 🛡️'
             ]
           }
         },
@@ -4417,14 +4417,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El templo perteneció originalmente al Colegio Imperial de los jesuitas, una de las instituciones educativas más influyentes de la España del Siglo de Oro, hasta la expulsión de la orden en 1767.',
-              'Fue catedral provisional de Madrid entre 1885 y 1993, mientras se completaban las obras de la Almudena, un periodo de más de un siglo en el que ostentó oficialmente ese rango.',
-              'El retablo mayor actual, de estilo neoclásico, sustituyó al original barroco, perdido en un incendio provocado durante los disturbios anticlericales de 1936.'
+              'El templo perteneció originalmente al Colegio Imperial de los jesuitas, una de las instituciones educativas más influyentes de la España del Siglo de Oro, hasta la expulsión de la orden en 1767, un evento que afectó a numerosos colegios e iglesias jesuitas por todo el país.',
+              'Fue catedral provisional de Madrid entre 1885 y 1993, mientras se completaban las obras de la Almudena, un periodo de más de un siglo en el que ostentó oficialmente ese rango, una espera tan larga que varias generaciones de madrileños nacieron y murieron sin ver terminada la catedral definitiva.',
+              'El retablo mayor actual, de estilo neoclásico, sustituyó al original barroco, perdido en un incendio provocado durante los disturbios anticlericales de 1936, uno de tantos episodios de destrucción de patrimonio religioso que vivió Madrid en aquellos años convulsos.'
             ],
             kids: [
-              '¡Este templo perteneció antes a una escuela de curas jesuitas muy importante, hace siglos! 📖',
-              '¡Fue la catedral de Madrid durante más de 100 años, mientras terminaban de construir la Almudena! ⛪',
-              '¡El altar que ves hoy no es el original, porque el primero se quemó en un incendio hace muchos años! 🔥'
+              '¡Este templo perteneció antes a una escuela de curas jesuitas muy importante, hace siglos, hasta que la orden fue expulsada de España! 📖',
+              '¡Fue la catedral de Madrid durante más de 100 años, mientras terminaban de construir la Almudena, que tardó muchísimo en acabarse! ⛪',
+              '¡El altar que ves hoy no es el original, porque el primero se quemó en un incendio hace muchos años, durante una época muy difícil! 🔥'
             ]
           }
         },
@@ -4476,14 +4476,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El gremio de botoneras estaba formado casi exclusivamente por mujeres, un dato poco habitual para la organización gremial de la época, en la que la mayoría de oficios estaban reservados a hombres.',
-              'El restaurante Los Galayos debe su nombre a una formación rocosa de Gredos, un guiño del fundador a su tierra de origen, sin relación directa con la historia local de la calle.',
-              'La calle conserva parte del pavimento original de la reforma de la Plaza Mayor del siglo XVII, uno de los pocos tramos donde todavía puede apreciarse el empedrado histórico bajo el actual.'
+              'El gremio de botoneras estaba formado casi exclusivamente por mujeres, un dato poco habitual para la organización gremial de la época, en la que la mayoría de oficios estaban reservados a hombres, lo que convierte a esta calle en un pequeño testimonio del trabajo femenino especializado del Madrid barroco.',
+              'El restaurante Los Galayos debe su nombre a una formación rocosa de Gredos, un guiño del fundador a su tierra de origen, sin relación directa con la historia local de la calle, aunque con el tiempo ha terminado formando parte indisoluble de la identidad del propio lugar.',
+              'La calle conserva parte del pavimento original de la reforma de la Plaza Mayor del siglo XVII, uno de los pocos tramos donde todavía puede apreciarse el empedrado histórico bajo el actual, un pequeño detalle que suele pasar desapercibido para quien no se fija bien al caminar.'
             ],
             kids: [
-              '¡Las personas que hacían botones aquí eran casi todas mujeres, algo poco común para esa época! 👒',
-              '¡El nombre del restaurante viene de unas montañas de Gredos, no tiene nada que ver con la calle! ⛰️',
-              '¡Todavía se puede ver parte del suelo antiguo de piedra de hace 400 años en algunos trozos de esta calle! 🪨'
+              '¡Las personas que hacían botones aquí eran casi todas mujeres, algo poco común para esa época en la que casi todos los oficios eran de hombres! 👒',
+              '¡El nombre del restaurante viene de unas montañas de Gredos, no tiene nada que ver con la calle, pero ya forma parte de su historia! ⛰️',
+              '¡Todavía se puede ver parte del suelo antiguo de piedra de hace 400 años en algunos trozos de esta calle, si te fijas bien al caminar! 🪨'
             ]
           }
         },
@@ -4535,14 +4535,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El enfrentamiento de 1822 formó parte del llamado Trienio Liberal, un breve periodo constitucional que terminó apenas un año después con la intervención militar francesa de los Cien Mil Hijos de San Luis.',
-              'El antiguo nombre de Calle de la Amargura se debía a que por aquí pasaban los reos camino del patíbulo instalado en la Plaza Mayor, un recorrido cargado de simbolismo penitencial para la época.',
-              'Pese a su cambio de nombre oficial en 1823, algunos vecinos siguieron usando el nombre antiguo durante décadas, una resistencia popular a los cambios de callejero que se repitió en otras calles de Madrid.'
+              'El enfrentamiento de 1822 formó parte del llamado Trienio Liberal, un breve periodo constitucional que terminó apenas un año después con la intervención militar francesa de los Cien Mil Hijos de San Luis, que restauró el poder absoluto de Fernando VII.',
+              'El antiguo nombre de Calle de la Amargura se debía a que por aquí pasaban los reos camino del patíbulo instalado en la Plaza Mayor, un recorrido cargado de simbolismo penitencial para la época, en el que se buscaba que el condenado hiciera un último trayecto público antes de la ejecución.',
+              'Pese a su cambio de nombre oficial en 1823, algunos vecinos siguieron usando el nombre antiguo durante décadas, una resistencia popular a los cambios de callejero que se repitió en otras calles de Madrid cuando la memoria oral pesaba más que los rótulos municipales.'
             ],
             kids: [
               '¡La pelea de 1822 pasó durante una época en la que España tuvo, por poco tiempo, una constitución liberal! 📜',
-              '¡El nombre antiguo de esta calle recordaba el camino tan triste que hacían los presos hacia su castigo! 😢',
-              '¡Aunque le cambiaron el nombre oficialmente, algunos vecinos siguieron llamándola por el nombre antiguo durante muchos años! 🗣️'
+              '¡El nombre antiguo de esta calle recordaba el camino tan triste que hacían los presos hacia su castigo, justo antes de llegar a la plaza! 😢',
+              '¡Aunque le cambiaron el nombre oficialmente, algunos vecinos siguieron llamándola por el nombre antiguo durante muchos años, sin hacer caso al cambio! 🗣️'
             ]
           }
         },
@@ -4594,14 +4594,14 @@ CITIES.madrid.pois = [
           },
           deepenFillers: {
             adult: [
-              'El asedio de Ciudad Rodrigo que da nombre a esta calle se prolongó varios meses en 1810, y su rendición final ante las tropas francesas se recordó después como un episodio de resistencia heroica pese a la derrota.',
-              'Además de servir de paso al cortejo real, esta entrada porticada acogía también parte del comercio ambulante que se instalaba junto a la Plaza Mayor en días de mercado o celebraciones especiales.',
-              'La calle mantiene una de las pocas vistas directas y enmarcadas hacia el interior de la Plaza Mayor desde el exterior del conjunto, un efecto buscado deliberadamente en el diseño original de Gómez de Mora.'
+              'El asedio de Ciudad Rodrigo que da nombre a esta calle se prolongó varios meses en 1810, y su rendición final ante las tropas francesas se recordó después como un episodio de resistencia heroica pese a la derrota, hasta el punto de que la ciudad recibió más tarde el título honorífico correspondiente a su sacrificio.',
+              'Además de servir de paso al cortejo real, esta entrada porticada acogía también parte del comercio ambulante que se instalaba junto a la Plaza Mayor en días de mercado o celebraciones especiales, combinando así función ceremonial y uso comercial cotidiano en un mismo espacio.',
+              'La calle mantiene una de las pocas vistas directas y enmarcadas hacia el interior de la Plaza Mayor desde el exterior del conjunto, un efecto buscado deliberadamente en el diseño original de Gómez de Mora, que cuidó también estas perspectivas desde las calles adyacentes.'
             ],
             kids: [
-              '¡La ciudad que da nombre a esta calle resistió varios meses a un ejército invasor, aunque al final tuvo que rendirse! ⚔️',
-              '¡Por aquí también pasaban los vendedores ambulantes en los días de mercado, además del cortejo del rey! 🛒',
-              '¡Desde esta calle se puede ver un trocito enmarcado de la Plaza Mayor, como una fotografía natural! 📸'
+              '¡La ciudad que da nombre a esta calle resistió varios meses a un ejército invasor, aunque al final tuvo que rendirse, y por eso se la recuerda como muy valiente! ⚔️',
+              '¡Por aquí también pasaban los vendedores ambulantes en los días de mercado, además del cortejo del rey en las ocasiones especiales! 🛒',
+              '¡Desde esta calle se puede ver un trocito enmarcado de la Plaza Mayor, como una fotografía natural que el arquitecto diseñó a propósito! 📸'
             ]
           }
         },

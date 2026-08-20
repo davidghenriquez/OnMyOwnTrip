@@ -47,12 +47,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'La campana gorda, fundida en el siglo XVIII, es una de las mayores de España y se agrietó poco después de fundirse, por lo que hoy suena con un timbre grave muy característico.',
-              'Las sillerías bajas del coro, talladas por Rodrigo Alemán, representan escena por escena la conquista de Granada, con un castillo o ciudad distinto en cada asiento.'
+              'La campana gorda, fundida en el siglo XVIII, es una de las mayores de España, con varias toneladas de bronce y un diámetro que roza los tres metros. Se agrietó poco después de fundirse, probablemente por un enfriamiento demasiado rápido, y desde entonces suena con un timbre grave y ronco muy característico que los toledanos reconocen de inmediato. Por precaución, hoy ya no se voltea como las demás campanas, sino que se toca golpeando el badajo con mucho cuidado.',
+              'Las sillerías bajas del coro, talladas por Rodrigo Alemán —un escultor de origen alemán afincado en Castilla—, representan escena por escena la conquista de Granada, con un castillo o ciudad distinto tallado en cada uno de los asientos. El detalle es tan minucioso que se distinguen armaduras, estandartes y hasta expresiones de los soldados, convirtiendo el conjunto en una suerte de crónica visual pensada para quienes no sabían leer, capaz de narrar la campaña militar entera sin una sola palabra escrita.'
             ],
             kids: [
-              '¡La campana más grande de la catedral se llama "la Gorda" y se rajó nada más sonar por primera vez! Por eso tiene un sonido tan grave y especial. 🔔',
-              '¡En las sillas de madera del coro hay tallado un castillo distinto en cada una, contando una guerra entera como si fuera un cómic! 🏰'
+              '¡La campana más grande de la catedral se llama "la Gorda" y pesa muchísimo, como varios coches juntos! Se rajó nada más sonar por primera vez, hace más de 200 años, y por eso tiene un sonido tan grave y especial que se reconoce enseguida. Como está agrietada, ya no la balancean como a las demás: la tocan con muchísimo cuidado para que no se rompa más. 🔔',
+              '¡En las sillas de madera del coro hay tallado un castillo o una ciudad distinta en cada una, contando una guerra entera como si fuera un cómic gigante de piedra y madera! El artista que las talló era tan detallista que se ven hasta las banderas y las armaduras de los soldados. ¡La gente que no sabía leer podía "leer" la historia solo mirando los dibujos! 🏰'
             ]
           }
         },
@@ -117,12 +117,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'La puerta actual son en realidad dos puertas: la interior, mudéjar y del siglo X, y la exterior renacentista de 1559, separadas por un patio de armas pensado para atrapar a los atacantes entre dos fuegos.',
-              'El escudo imperial que corona el arco fue tallado en piedra por canteros toledanos del siglo XVI, y en su día estuvo policromado con colores vivos que hoy apenas se conservan.'
+              'La puerta actual son en realidad dos puertas superpuestas: la interior, mudéjar y del siglo X, y la exterior renacentista de 1559, separadas por un patio de armas pensado para atrapar a los atacantes entre dos fuegos si lograban franquear el primer arco. Este esquema defensivo, habitual en fortificaciones islámicas, obligaba al enemigo a girar y exponer su flanco desprotegido justo en el punto donde los defensores tenían mejor ángulo de tiro desde lo alto de las torres.',
+              'El escudo imperial que corona el arco fue tallado en piedra por canteros toledanos del siglo XVI y muestra el águila bicéfala de los Habsburgo, símbolo del vasto imperio de Carlos I. En su día estuvo policromado con colores vivos —dorados, rojos y azules— que ayudaban a distinguirlo con claridad desde la distancia, pero que hoy apenas se conservan tras siglos de exposición al sol y la lluvia, dejando visible solo la piedra desnuda.'
             ],
             kids: [
-              '¡Esta puerta en realidad son dos puertas seguidas, una vieja y una nueva, con un patio en medio! Si un enemigo entraba por la primera, quedaba atrapado antes de llegar a la segunda. 🏰',
-              '¡El escudo de piedra de arriba antes tenía colores pintados, como un dibujo gigante! Hoy casi no se ven, pero antes brillaban mucho. 🎨'
+              '¡Esta puerta en realidad son dos puertas seguidas, una vieja de hace más de 1000 años y otra más nueva, con un patio en medio! Si un enemigo entraba por la primera puerta, se quedaba atrapado en el patio antes de llegar a la segunda, ¡y los soldados de las torres podían verlo desde arriba y defenderse mejor! Era una trampa pensada con mucha inteligencia. 🏰',
+              '¡El escudo de piedra de arriba antes tenía colores pintados de verdad: dorado, rojo y azul, como un dibujo gigante hecho para verse desde muy lejos! Hoy casi no se ven esos colores porque el sol y la lluvia los han ido borrando poco a poco durante cientos de años, y solo queda la piedra gris. 🎨'
             ]
           }
         },
@@ -187,12 +187,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'La inscripción de piedra con el verso de Garcilaso de la Vega recuerda que este poeta y soldado renacentista, que murió en batalla en 1536, también pudo contemplar alguna vez vistas parecidas a estas.',
-              'El mirador se sitúa justo enfrente del promontorio del Alcázar, por lo que ofrece uno de los pocos puntos desde los que se aprecia a la vez la fachada este de la fortaleza y toda la muralla que baja hasta el Tajo.'
+              'La inscripción de piedra con el verso de Garcilaso de la Vega recuerda que este poeta y soldado renacentista, nacido en Toledo y muerto en batalla en Francia en 1536 con apenas 35 años, también pudo contemplar alguna vez vistas parecidas a estas antes de dedicarse a las armas. Sus versos, de tono bucólico y melancólico, contrastan con la vida de combate que llevó, y esta inscripción funciona como un pequeño homenaje de su ciudad natal a uno de los grandes renovadores de la poesía española.',
+              'El mirador se sitúa justo enfrente del promontorio del Alcázar, por lo que ofrece uno de los pocos puntos desde los que se aprecia a la vez la fachada este de la fortaleza y toda la muralla que baja hasta el Tajo. Esta perspectiva elevada, al otro lado del meandro que rodea la ciudad, es también la que suelen buscar los fotógrafos al amanecer, cuando la luz rasante ilumina de forma directa la piedra dorada de los edificios.'
             ],
             kids: [
-              '¡Hay un verso de un poeta y soldado tallado en una piedra del mirador! Vivió hace casi 500 años y murió luchando en una batalla. ✍️',
-              '¡Desde aquí se ve el castillo (Alcázar) por un lado que casi no se ve desde ningún otro sitio de Toledo! 🏯'
+              '¡Hay un verso de un poeta y soldado tallado en una piedra del mirador! Se llamaba Garcilaso de la Vega, nació aquí mismo en Toledo y vivió hace casi 500 años. Escribía poemas muy bonitos sobre el campo y la naturaleza, pero también luchaba como soldado, y murió en una batalla siendo todavía joven. ✍️',
+              '¡Desde aquí se ve el castillo (Alcázar) por un lado que casi no se ve desde ningún otro sitio de Toledo! Los fotógrafos vienen mucho a este mirador al amanecer, porque cuando sale el sol la luz pinta las piedras de Toledo de un color dorado precioso, ¡como si la ciudad entera brillara! 🏯'
             ]
           }
         },
@@ -257,12 +257,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Se cuenta, dentro de esta ambientación, que la receta imaginada de las migas manchegas se transmite entre cocineros de la ruta desde hace generaciones, cambiando un ingrediente secreto cada vez que pasa de mano en mano.',
-              'En esta parada imaginada, los espejos biselados del comedor "reflejan" siempre un poco más de luz de la que entra por la ventana, un pequeño guiño ilustrativo al ingenio de la cocina toledana.'
+              'Se cuenta, dentro de esta ambientación, que la receta imaginada de las migas manchegas se transmite entre cocineros de la ruta desde hace generaciones, cambiando un ingrediente secreto cada vez que pasa de mano en mano. Según este relato ilustrativo, cada cocinero añadía un toque propio —un punto de pimentón, un chorro distinto de aceite— sin revelar jamás cuál era, de modo que ningún comensal ha llegado a probar exactamente las mismas migas dos veces, aunque el plato siempre resulte reconociblemente manchego.',
+              'En esta parada imaginada, los espejos biselados del comedor "reflejan" siempre un poco más de luz de la que entra por la ventana, un pequeño guiño ilustrativo al ingenio de la cocina toledana. Se cuenta, como parte de este relato, que los antiguos comensales bromeaban diciendo que el propio local parecía "querer" que la sala luciera más animada de lo que en realidad estaba, un detalle pensado para transmitir el ambiente acogedor típico de los mesones históricos de la ciudad.'
             ],
             kids: [
-              '¡En esta casa de comidas imaginaria, dicen que las migas saben mejor si las remueves tú mismo con la cuchara mágica de la cocina! 🥄',
-              '¡Los espejos de este restaurante inventado brillan un poquito más que los espejos normales, según cuenta la leyenda de la ruta! ✨'
+              '¡En esta casa de comidas imaginaria, dicen que las migas saben mejor si las remueves tú mismo con la cuchara mágica de la cocina! Cuenta el cuento que cada cocinero le añadía un ingrediente secreto distinto sin contárselo a nadie, así que nunca sabes si tus migas van a saber exactamente igual que las de ayer. ¡Qué misterio tan rico! 🥄',
+              '¡Los espejos de este restaurante inventado brillan un poquito más que los espejos normales, según cuenta la leyenda de la ruta! Dicen que hacían que la sala pareciera siempre llena de luz y de gente contenta, para que quien entrara se sintiera como en casa desde el primer minuto. ✨'
             ]
           }
         }
@@ -314,12 +314,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El niño situado en primer plano del cuadro, con una antorcha, es Jorge Manuel, el propio hijo de El Greco; el pintor escondió en el pañuelo de su bolsillo una fecha que se interpreta como el año de su nacimiento, a modo de firma disimulada.',
-              'El lienzo se instaló en un hueco abierto expresamente en el muro de la capilla, de forma que la luz natural de una ventana cercana ilumina la escena celestial de manera distinta según la hora del día.'
+              'El niño situado en primer plano del cuadro, con una antorcha, es Jorge Manuel, el propio hijo de El Greco, que llegó a ser también pintor y arquitecto. El artista escondió en el pañuelo de su bolsillo una fecha que se interpreta como el año de su nacimiento, a modo de firma disimulada, una práctica habitual entre los pintores de la época para dejar constancia de su autoría sin romper la composición general de la escena.',
+              'El lienzo se instaló en un hueco abierto expresamente en el muro de la capilla, de forma que la luz natural de una ventana cercana ilumina la escena celestial de manera distinta según la hora del día. Al mediodía, cuando la luz entra con más fuerza, la parte superior del cuadro —con las figuras celestiales— parece cobrar un brillo especial, un efecto que muy probablemente El Greco tuvo en cuenta al planear dónde debía colgarse la obra.'
             ],
             kids: [
-              '¡El niño con la antorcha que aparece en el cuadro es el propio hijo de El Greco! El pintor escondió una fecha secreta en su pañuelo, como una firma escondida. 🕵️',
-              '¡El cuadro se colocó en un hueco especial de la pared para que la luz de una ventana cercana lo iluminara de forma distinta según la hora del día! 🔆'
+              '¡El niño con la antorcha que aparece en el cuadro es el propio hijo de El Greco, que se llamaba Jorge Manuel y de mayor también se hizo pintor! Su papá escondió una fecha secreta en el pañuelo de su bolsillo, como una firma escondida, en vez de firmar el cuadro de forma normal. 🕵️',
+              '¡El cuadro se colocó en un hueco especial de la pared para que la luz de una ventana cercana lo iluminara de forma distinta según la hora del día! Al mediodía, cuando entra más luz, la parte de arriba del cuadro —donde están los ángeles— brilla todavía más. ¡Casi como si El Greco hubiera pensado en un efecto especial hace más de 400 años! 🔆'
             ]
           }
         },
@@ -383,12 +383,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Aunque se llama "del Azor", el nombre no viene del ave rapaz sino del apellido de la familia toledana que tuvo aquí sus casas; aun así, todavía hoy es fácil ver azores y cernícalos sobrevolando este tramo de muralla.',
-              'El estrecho callejón de acceso conserva el trazado propio de un adarve defensivo medieval, el camino de ronda por el que los vigías patrullaban la muralla sin ser vistos desde el exterior.'
+              'Aunque se llama "del Azor", el nombre no viene del ave rapaz sino del apellido de la familia toledana que tuvo aquí sus casas durante el siglo XVII; aun así, la coincidencia resulta curiosa, porque todavía hoy es fácil ver azores y cernícalos sobrevolando este tramo de muralla, atraídos por las corrientes térmicas que se forman sobre el desfiladero del Tajo y que estas aves aprovechan para planear sin apenas batir las alas.',
+              'El estrecho callejón de acceso conserva el trazado propio de un adarve defensivo medieval, el camino de ronda por el que los vigías patrullaban la muralla sin ser vistos desde el exterior. Su anchura reducida, apenas suficiente para el paso de una persona, respondía a razones puramente defensivas: cuanto más estrecho el paso, más fácil resultaba controlarlo con pocos hombres en caso de que un enemigo lograra alcanzar ese tramo de la fortificación.'
             ],
             kids: [
-              '¡Aunque se llama "del Azor", el nombre viene de una familia, no del pájaro! Pero aun así, a veces se ven de verdad aves rapaces volando por esta muralla. 🦅',
-              '¡El callejón tan estrecho por el que se llega era antes un camino secreto para que los vigías patrullaran la muralla sin que los vieran desde fuera! 🕵️'
+              '¡Aunque se llama "del Azor", el nombre viene de una familia que vivió aquí hace 400 años, no del pájaro! Pero aun así es una casualidad muy chula, porque de verdad se ven aves rapaces volando por esta muralla, aprovechando el aire que sube desde el río para planear sin mover casi las alas. 🦅',
+              '¡El callejón tan estrecho por el que se llega era antes un camino secreto para que los vigías patrullaran la muralla sin que los vieran desde fuera! Era tan estrecho a propósito: así, si un enemigo conseguía entrar, solo podía pasar una persona a la vez y era mucho más fácil pararlo. 🕵️'
             ]
           }
         },
@@ -460,12 +460,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Pese a su nombre, el edificio no fue realmente la vivienda de El Greco: se construyó a comienzos del siglo XX como recreación idealizada de cómo pudo ser su hogar, en un solar próximo a donde se cree que vivió de verdad.',
-              'El impulsor del museo, el marqués de la Vega-Inclán, adquirió y restauró varias casas del barrio para crear este conjunto, dentro de un proyecto más amplio de recuperación del patrimonio judío toledano.'
+              'Pese a su nombre, el edificio no fue realmente la vivienda de El Greco: se construyó a comienzos del siglo XX como recreación idealizada de cómo pudo ser su hogar, en un solar próximo a donde se cree que vivió de verdad. Esta práctica de reconstruir "casas de artista" con fines museísticos fue habitual en la España de principios del siglo pasado, y buscaba ofrecer a los visitantes una experiencia inmersiva más que un rigor histórico estricto sobre el emplazamiento exacto.',
+              'El impulsor del museo, el marqués de la Vega-Inclán, adquirió y restauró varias casas del barrio para crear este conjunto, dentro de un proyecto más amplio de recuperación del patrimonio judío toledano que incluyó también la restauración de la cercana Sinagoga del Tránsito. Fue además el primer Comisario Regio de Turismo de España, cargo desde el que impulsó iniciativas similares por todo el país para poner en valor monumentos entonces olvidados o en ruinas.'
             ],
             kids: [
-              '¡Esta casa no es exactamente donde vivió El Greco de verdad! Se construyó hace más de 100 años para imaginarse cómo pudo ser su hogar, cerca de donde vivió en realidad. 🏠',
-              '¡Un noble llamado marqués de la Vega-Inclán compró varias casas del barrio para crear este museo, hace más de 100 años! 🎩'
+              '¡Esta casa no es exactamente donde vivió El Greco de verdad! Se construyó hace más de 100 años para imaginarse cómo pudo ser su hogar, cerca de donde vivió en realidad. Querían que los visitantes pudieran sentir cómo era la vida de un pintor famoso hace cientos de años, ¡aunque los muebles y las habitaciones sean una reconstrucción! 🏠',
+              '¡Un noble llamado marqués de la Vega-Inclán compró varias casas del barrio para crear este museo, hace más de 100 años! También ayudó a arreglar otro edificio muy famoso cerca de aquí, la Sinagoga del Tránsito, y fue de los primeros en pensar que Toledo podía ser una ciudad especial para que la visitaran turistas de todo el mundo. 🎩'
             ]
           }
         },
@@ -537,12 +537,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Durante el asedio de 1936, el Alcázar quedó prácticamente reducido a un cascarón de piedra tras semanas de bombardeos y voladuras; buena parte del edificio actual es en realidad una reconstrucción de posguerra.',
-              'El patio renacentista de Covarrubias incluye una escalera imperial cuyos peldaños se hicieron deliberadamente bajos y anchos, para que los caballos pudieran subir montados hasta el piso principal.'
+              'Durante el asedio de 1936, el Alcázar quedó prácticamente reducido a un cascarón de piedra tras semanas de bombardeos, dinamitazos y voladuras que hicieron caer buena parte de sus torres. Buena parte del edificio actual es en realidad una reconstrucción de posguerra, levantada siguiendo en lo posible las trazas originales de Covarrubias, por lo que lo que hoy se contempla mezcla piedra auténtica de siglos anteriores con fábrica reconstruida en el siglo XX.',
+              'El patio renacentista de Covarrubias incluye una escalera imperial cuyos peldaños se hicieron deliberadamente bajos y anchos, para que los caballos pudieran subir montados hasta el piso principal, una solución poco habitual en la arquitectura palaciega de la época. Este detalle respondía tanto a razones prácticas como de representación: permitía a los soberanos hacer una entrada solemne a caballo, reforzando la imagen de poder que el propio edificio estaba llamado a proyectar.'
             ],
             kids: [
-              '¡Durante una batalla muy famosa en 1936, el Alcázar quedó casi destruido del todo! Lo que ves hoy se reconstruyó después, como un puzle gigante. 🧩',
-              '¡La escalera del patio tiene escalones anchos y bajitos a propósito, para que los caballos pudieran subir montados hasta arriba! 🐴'
+              '¡Durante una batalla muy famosa en 1936, el Alcázar quedó casi destruido del todo, con torres caídas y muchísimos agujeros de las explosiones! Lo que ves hoy se reconstruyó después, como un puzle gigante, intentando que se pareciera lo más posible a como era antes de la batalla. 🧩',
+              '¡La escalera del patio tiene escalones anchos y bajitos a propósito, para que los caballos pudieran subir montados hasta arriba! Así los reyes podían entrar a caballo hasta el piso principal, ¡imagina el ruido de los cascos resonando por toda la escalera de piedra! 🐴'
             ]
           }
         },
@@ -606,12 +606,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El Canal de Carlos III, que corre bajo el edificio, conserva buena parte de su trazado original y llegó a mover gran parte de la maquinaria de forja mediante un sistema de norias y engranajes hidráulicos.',
-              'Hoy buena parte del recinto acoge el Campus Tecnológico de la Fábrica de Armas de la Universidad de Castilla-La Mancha, uno de los pocos casos en España de una gran fábrica histórica reconvertida íntegramente en campus universitario.'
+              'El Canal de Carlos III, que corre bajo el edificio, conserva buena parte de su trazado original y llegó a mover gran parte de la maquinaria de forja mediante un sistema de norias y engranajes hidráulicos, aprovechando la fuerza del agua desviada del Tajo en lugar de depender del carbón, entonces mucho más caro de transportar hasta Toledo. Este planteamiento convirtió a la fábrica en una instalación pionera de energía hidráulica aplicada a la industria en la España del siglo XVIII.',
+              'Hoy buena parte del recinto acoge el Campus Tecnológico de la Fábrica de Armas de la Universidad de Castilla-La Mancha, uno de los pocos casos en España de una gran fábrica histórica reconvertida íntegramente en campus universitario. La rehabilitación respetó buena parte de la fisonomía industrial original de los pabellones decimonónicos, de modo que hoy conviven aulas y laboratorios modernos con estructuras de ladrillo y hierro que en su día albergaron fraguas y talleres de forja.'
             ],
             kids: [
-              '¡El canal de agua que pasa por debajo del edificio movía muchas máquinas distintas de la fábrica al mismo tiempo, usando solo la fuerza del agua! 💧⚙️',
-              '¡Hoy en día, donde antes se fabricaban espadas, ahora estudian universitarios de verdad! Toda la fábrica se convirtió en un campus. 🎓'
+              '¡El canal de agua que pasa por debajo del edificio movía muchas máquinas distintas de la fábrica al mismo tiempo, usando solo la fuerza del agua, sin necesidad de electricidad ni de carbón! Era una forma muy lista de ahorrar y trabajar rápido hace más de 200 años. 💧⚙️',
+              '¡Hoy en día, donde antes se fabricaban espadas de verdad, ahora estudian universitarios con ordenadores y laboratorios! Toda la fábrica se convirtió en un campus, pero dejaron los ladrillos y las paredes antiguas tal y como eran, así que se nota que allí antes trabajaban herreros. 🎓'
             ]
           }
         },
@@ -683,12 +683,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El monasterio sufrió graves daños durante la invasión napoleónica de 1808, cuando las tropas francesas lo usaron como cuartel y provocaron un incendio que destruyó buena parte de la techumbre original del claustro.',
-              'Su restauración en el siglo XIX corrió a cargo del arquitecto Arturo Mélida, que recuperó buena parte de la decoración gótica isabelina siguiendo criterios historicistas propios de la época.'
+              'El monasterio sufrió graves daños durante la invasión napoleónica de 1808, cuando las tropas francesas lo ocuparon como cuartel militar y, según la tradición, prendieron fuego deliberadamente al retirarse en 1813, destruyendo buena parte de la techumbre original del claustro y dañando gravemente la iglesia. Durante décadas el edificio permaneció semiabandonado y expuesto a la intemperie, con parte de sus bóvedas hundidas, hasta que a mediados del siglo XIX se planteó en serio su recuperación.',
+              'Su restauración en el siglo XIX corrió a cargo del arquitecto Arturo Mélida, que trabajó a partir de 1878 recuperando buena parte de la decoración gótica isabelina siguiendo criterios historicistas propios de la época, es decir, intentando reconstruir el aspecto que debió de tener el monasterio en su momento de máximo esplendor más que conservar literalmente sus ruinas. Gracias a su labor, hoy es posible admirar tracerías y bóvedas que a finales del XIX estaban prácticamente perdidas.'
             ],
             kids: [
-              '¡Durante una guerra hace unos 200 años, unos soldados franceses usaron este monasterio como cuartel y hasta provocaron un incendio! Por eso hubo que arreglarlo mucho después. 🔥',
-              '¡Un arquitecto llamado Arturo Mélida ayudó a devolverle su aspecto bonito hace más de 100 años, como un restaurador de cuadros pero de edificios enteros! 🛠️'
+              '¡Durante una guerra hace unos 200 años, los soldados franceses usaron este monasterio tan bonito como si fuera un cuartel para dormir y guardar armas! Cuando se fueron, dicen que le prendieron fuego a propósito, y el techo del claustro se cayó a trozos. Durante muchos años el monasterio estuvo medio abandonado, ¡con lluvia cayendo dentro por los agujeros del techo! 🔥',
+              '¡Un arquitecto llamado Arturo Mélida ayudó a devolverle su aspecto bonito hace más de 140 años, como un restaurador de cuadros pero de edificios enteros! Estudió cómo era el monasterio antes del incendio y reconstruyó con mucho cuidado los techos y las decoraciones que se habían roto, para que hoy puedas verlo casi tan bonito como cuando lo construyeron los Reyes Católicos. 🛠️'
             ]
           }
         },
@@ -760,12 +760,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'A pesar de su nombre y de haber sido consagrada como iglesia, el edificio nunca perdió del todo su aspecto de sinagoga: carece de imágenes religiosas cristianas visibles en su decoración original, algo excepcional entre los templos toledanos.',
-              'Sus arcos de herradura están construidos con yeso y ladrillo en lugar de piedra, una técnica más propia de la arquitectura civil que de los grandes templos, lo que ha facilitado su conservación durante más de 800 años.'
+              'A pesar de su nombre y de haber sido consagrada como iglesia en 1411, el edificio nunca perdió del todo su aspecto de sinagoga: carece de imágenes religiosas cristianas visibles en su decoración original, algo excepcional entre los templos toledanos, donde lo habitual tras una conversión era cubrir o eliminar cualquier resto del culto anterior. Esa ausencia deliberada de iconografía cristiana es hoy, paradójicamente, lo que permite apreciar casi intacta la sinagoga original bajo la advocación cristiana.',
+              'Sus arcos de herradura y las yeserías que los coronan están construidos con yeso y ladrillo en lugar de piedra, una técnica más ligera y barata, propia de la arquitectura civil y doméstica de la época más que de los grandes templos religiosos monumentales. Paradójicamente, esa aparente modestia constructiva ha facilitado su conservación durante más de 800 años, ya que estos materiales resultan más fáciles de restaurar que la piedra maciza cuando se dañan por la humedad o el paso del tiempo.'
             ],
             kids: [
-              '¡Aunque hoy es una iglesia, por dentro casi no tiene dibujos religiosos cristianos! Sigue pareciendo casi igual que cuando era una sinagoga. 🕍',
-              '¡Sus arcos no están hechos de piedra dura, sino de yeso y ladrillo! Por eso ha durado tantísimos años sin romperse. 🧱'
+              '¡Aunque hoy es una iglesia, por dentro casi no tiene dibujos religiosos cristianos! Sigue pareciendo casi igual que cuando era una sinagoga, hace más de 800 años. Normalmente, cuando un edificio cambiaba de religión, tapaban o quitaban todo lo del culto anterior, pero aquí casi no lo hicieron. Por eso hoy puedes imaginarte casi exactamente cómo era cuando los judíos rezaban aquí. 🕍',
+              '¡Sus arcos no están hechos de piedra dura, sino de yeso y ladrillo, más ligeros y baratos de construir! Normalmente los templos grandes se hacían de piedra maciza, pero este se hizo con materiales más sencillos, como si fuera una casa normal. Por eso ha durado tantísimos años sin romperse: cuando algo se estropeaba, era mucho más fácil de arreglar. 🧱'
             ]
           }
         },
@@ -837,12 +837,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'La inscripción árabe conservada en su fachada indica el nombre de quien costeó su construcción, Ahmad ibn Hadidi, y es una de las pocas inscripciones fundacionales fechadas que se conservan de la arquitectura califal en toda España.',
-              'El pequeño ábside cristiano añadido en el siglo XII conserva restos de pintura mural románica, entre las pocas muestras de este estilo que se conservan en una ciudad dominada casi por completo por el arte mudéjar.'
+              'La inscripción árabe conservada en su fachada indica el nombre de quien costeó su construcción, un particular llamado Ahmad ibn Hadidi, y precisa incluso la fecha exacta, el año 999. Es una de las pocas inscripciones fundacionales fechadas que se conservan de la arquitectura califal en toda España, lo que convierte a este pequeño edificio en un documento histórico de primer orden, capaz de fechar con precisión casi absoluta una construcción de hace más de mil años.',
+              'El pequeño ábside cristiano añadido en el siglo XII conserva restos de pintura mural románica que representan escenas religiosas en tonos ocres y rojizos, hoy parcialmente desvaídos por el paso del tiempo. Se trata de una de las pocas muestras de este estilo pictórico que se conservan en una ciudad dominada casi por completo por el arte mudéjar, lo que las convierte en un testimonio poco frecuente de cómo pintaban los artesanos cristianos que trabajaron aquí tras la conquista.'
             ],
             kids: [
-              '¡En la fachada hay una inscripción en árabe con el nombre de quien pagó su construcción, tallada hace más de 1000 años! Es un tesoro escrito en piedra. 📜',
-              '¡El trocito de iglesia que le añadieron después tiene pinturas antiguas en la pared, de un estilo que casi no se ve en ningún otro sitio de Toledo! 🎨'
+              '¡En la fachada hay una inscripción en árabe con el nombre de quien pagó su construcción, un hombre llamado Ahmad ibn Hadidi, tallada hace más de 1000 años! Hasta dice el año exacto en que se hizo, el 999. Es un tesoro escrito en piedra, porque casi no quedan inscripciones tan antiguas y tan precisas en toda España. 📜',
+              '¡El trocito de iglesia que le añadieron después tiene pinturas antiguas en la pared, de un estilo que casi no se ve en ningún otro sitio de Toledo! Son de hace casi 900 años y muestran escenas religiosas en colores como el rojo y el ocre. Aunque están un poco borrosas por el paso del tiempo, todavía se pueden distinguir. 🎨'
             ]
           }
         },
@@ -906,12 +906,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El puente ha sido destruido y reconstruido varias veces a lo largo de la historia, entre otras razones por crecidas del Tajo; una de ellas se llevó por delante uno de sus arcos en el siglo XIV.',
-              'Cerca del puente se alza el Castillo de San Servando, una fortaleza medieval que formó parte del mismo sistema defensivo de entrada a la ciudad.'
+              'El puente ha sido destruido y reconstruido varias veces a lo largo de su larga historia, sobre todo por crecidas violentas del Tajo, un río que en época de deshielo o lluvias intensas puede subir varios metros en pocas horas. Una de esas riadas se llevó por delante uno de sus arcos en el siglo XIV, obligando a una reconstrucción que, como tantas otras intervenciones posteriores, dejó su propia huella superpuesta a las fábricas romana, árabe y cristiana anteriores.',
+              'Cerca del puente se alza el Castillo de San Servando, una fortaleza medieval de origen templario que formó parte del mismo sistema defensivo de entrada a la ciudad, vigilando el acceso desde la orilla opuesta del Tajo. Puente y castillo funcionaban de forma coordinada: cualquier ejército que intentara cruzar el río por aquí tenía que hacerlo bajo la vigilancia directa de la fortaleza, lo que convertía este tramo en uno de los puntos mejor protegidos de todo el perímetro de Toledo.'
             ],
             kids: [
-              '¡Este puente se ha caído y se ha vuelto a construir varias veces a lo largo de la historia, algunas veces por culpa de las crecidas del río! 🌊',
-              '¡Al otro lado del puente hay un castillo llamado San Servando! Formaba parte del mismo sistema para proteger la entrada a Toledo. 🏰'
+              '¡Este puente se ha caído y se ha vuelto a construir varias veces a lo largo de la historia, sobre todo por culpa de las crecidas del río! Cuando llueve mucho o se derrite la nieve, el Tajo puede subir muchísimo en pocas horas. Una vez, hace más de 600 años, el agua se llevó uno de los arcos enteros, ¡y hubo que reconstruirlo! 🌊',
+              '¡Al otro lado del puente hay un castillo llamado San Servando! Formaba parte del mismo sistema para proteger la entrada a Toledo, vigilando el puente desde lo alto. Si un ejército enemigo intentaba cruzar el río por aquí, los soldados del castillo lo veían venir enseguida y podían defenderse mejor. ¡Puente y castillo trabajaban juntos, como un equipo! 🏰'
             ]
           }
         },
@@ -975,12 +975,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Antes del puente actual existió uno anterior que se derrumbó en el siglo XIII al paso de una multitud que huía de una crecida del Tajo, un desastre que impulsó su reconstrucción definitiva.',
-              'Sus dos torres, aunque parecen simétricas a simple vista, presentan ligeras diferencias de altura y decoración entre sí, fruto de haberse construido y reformado en momentos distintos.'
+              'Antes del puente actual existió uno anterior, de origen probablemente romano o altomedieval, que se derrumbó en el siglo XIII al paso de una multitud que huía en desbandada de una repentina crecida del Tajo, provocando numerosas víctimas. Aquel desastre, uno de los más recordados de la historia toledana, impulsó la reconstrucción definitiva del puente en el siglo XIV, con el diseño mudéjar de arcos apuntados y torres almenadas que ha llegado, con reformas, hasta nuestros días.',
+              'Sus dos torres, aunque parecen simétricas a simple vista, presentan ligeras diferencias de altura, proporción y decoración entre sí, algo que solo se aprecia con una mirada atenta. Estas pequeñas discrepancias son fruto de haberse construido y reformado en momentos distintos a lo largo de los siglos, ya que cada intervención posterior fue adaptando el diseño original a las técnicas y gustos de su época, sin llegar nunca a igualar por completo ambos extremos del puente.'
             ],
             kids: [
-              '¡Antes de este puente hubo otro que se cayó hace muchísimos siglos, cuando mucha gente lo cruzaba a la vez huyendo de una crecida del río! Por eso se construyó este otro más fuerte. 🌊',
-              '¡Aunque las dos torres parecen iguales, si te fijas bien tienen pequeñas diferencias entre ellas! Se construyeron en momentos distintos. 🔍'
+              '¡Antes de este puente hubo otro más antiguo que se cayó hace muchísimos siglos, cuando mucha gente lo cruzaba a la vez huyendo de una crecida del río! Fue un desastre muy triste que la gente de Toledo recordó durante generaciones. Por eso, tiempo después, construyeron este puente nuevo, mucho más fuerte, con torres y arcos pensados para aguantar mejor. 🌊',
+              '¡Aunque las dos torres parecen iguales, si te fijas bien tienen pequeñas diferencias entre ellas, en la altura y en los dibujos tallados! Se construyeron y arreglaron en momentos distintos a lo largo de los siglos, así que cada una tiene un poquito de su propia época. Hace falta mirar con mucha atención para notarlo. 🔍'
             ]
           }
         },
@@ -1052,12 +1052,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Subir a sus torres implica ascender por una estrecha escalera de caracol, la misma que durante siglos usaron los jesuitas para acceder a las campanas y vigilar la ciudad desde lo alto.',
-              'La cúpula pintada al fresco sobre el crucero se atribuye a artistas de la escuela toledana del XVIII, expertos en la técnica del trampantojo para simular volúmenes arquitectónicos inexistentes.'
+              'Subir a sus torres implica ascender por una estrecha escalera de caracol de piedra, la misma que durante siglos usaron los jesuitas para acceder a las campanas, tocarlas a mano en las horas litúrgicas y vigilar la ciudad desde lo alto en tiempos de peligro. El recorrido, angosto y con escalones desgastados por el paso de generaciones, culmina en una azotea abierta desde la que hoy los visitantes disfrutan de la misma panorámica que antes era privilegio exclusivo de los religiosos.',
+              'La cúpula pintada al fresco sobre el crucero se atribuye a artistas de la escuela toledana del siglo XVIII, expertos en la técnica del trampantojo, capaz de simular volúmenes arquitectónicos inexistentes mediante juegos de luces y sombras pintadas. El efecto, pensado para engañar a la vista desde el suelo del templo, buscaba dar sensación de mayor altura y riqueza decorativa de la que realmente existía en piedra, un recurso económico y a la vez espectacular muy habitual en el barroco español.'
             ],
             kids: [
-              '¡Para subir a las torres hay que subir una escalera de caracol muy estrecha, la misma que usaban los jesuitas hace siglos para tocar las campanas! 🌀',
-              '¡Los artistas que pintaron el techo eran expertos en hacer trucos visuales, pintando columnas que en realidad no existen! 🎭'
+              '¡Para subir a las torres hay que subir una escalera de caracol muy estrecha de piedra, la misma que usaban los jesuitas hace siglos para tocar las campanas y vigilar la ciudad! Los escalones están un poco desgastados de tanta gente que ha subido por ellos a lo largo de los años. Cuando llegas arriba, ves las mismas vistas que antes solo veían los religiosos. 🌀',
+              '¡Los artistas que pintaron el techo eran expertos en hacer trucos visuales, pintando columnas que en realidad no existen! Usaban luces y sombras pintadas para engañar a tus ojos y hacerte creer que el techo era más alto y más decorado de lo que era de verdad. ¡Es casi como magia hecha con pintura! 🎭'
             ]
           }
         },
@@ -1122,12 +1122,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'La plaza también fue escenario de corridas de toros y otros festejos populares hasta bien entrado el siglo XIX, cuando se instalaba en su centro un tablado de madera desmontable para las funciones.',
-              'El edificio conocido como el Miradero, que hoy delimita uno de sus lados, sustituyó a un antiguo mercado cubierto de hierro y cristal del siglo XIX, hoy desaparecido.'
+              'La plaza también fue escenario de corridas de toros y otros festejos populares hasta bien entrado el siglo XIX, cuando para cada función se instalaba en su centro un tablado de madera desmontable con gradas improvisadas, que se retiraba después para devolver el espacio a su uso cotidiano como mercado y lugar de paseo. Esta doble función, festiva y comercial a la vez, explica por qué Zocodover ha sido durante siglos el auténtico corazón social de la ciudad.',
+              'El edificio conocido como el Miradero, que hoy delimita uno de sus lados, sustituyó a un antiguo mercado cubierto de hierro y cristal construido en el siglo XIX, siguiendo la moda de las grandes estructuras metálicas propias de la revolución industrial, similar en espíritu a los mercados de abastos que entonces se levantaban en toda Europa. Aquel mercado acabó desapareciendo con el tiempo, sustituido por las construcciones que hoy configuran este lado de la plaza.'
             ],
             kids: [
-              '¡Aquí también se hacían corridas de toros hace mucho tiempo! Montaban un escenario de madera desmontable justo en el centro de la plaza. 🐂',
-              '¡Antes había aquí un mercado cubierto de hierro y cristal, como una estación de tren pequeñita, que ya no existe! 🚉'
+              '¡Aquí también se hacían corridas de toros hace mucho tiempo! Montaban un escenario de madera desmontable justo en el centro de la plaza, con gradas para que la gente se sentara a ver. Cuando terminaba la fiesta, lo desmontaban todo otra vez para que la plaza volviera a ser el mercado de siempre. ¡Era una plaza con muchos trabajos distintos a la vez! 🐂',
+              '¡Antes había aquí un mercado cubierto de hierro y cristal, como una estación de tren pequeñita, que ya no existe! Se construyó hace más de 150 años, cuando estaba de moda hacer edificios así en toda Europa. Con el tiempo lo quitaron y pusieron otros edificios en su lugar, los que ves hoy alrededor de la plaza. 🚉'
             ]
           }
         },
@@ -1199,12 +1199,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El edificio conserva una larga inscripción en hebreo que alaba tanto a Dios como al rey Pedro I, uno de los testimonios epigráficos hebreos más extensos y mejor conservados de la España medieval.',
-              'Aunque hoy se visita como museo, la sinagoga conserva su orientación original hacia Jerusalén y el hueco donde se guardaba el Arón, el armario que custodiaba los rollos de la Torá.'
+              'El edificio conserva una larga inscripción en hebreo, tallada en yeso a lo largo de los muros de la sala principal, que alaba tanto a Dios como al rey Pedro I, mezclando así devoción religiosa y lealtad política en un mismo texto. Se trata de uno de los testimonios epigráficos hebreos más extensos y mejor conservados de toda la España medieval, y permite reconstruir con notable precisión el discurso con el que Samuel ha-Leví justificaba su cercanía al monarca cristiano.',
+              'Aunque hoy se visita como museo y ya no acoge culto religioso, la sinagoga conserva su orientación original hacia Jerusalén, tal y como exige la tradición judía para el rezo, y el hueco donde antiguamente se guardaba el Arón, el armario o nicho que custodiaba los rollos de la Torá durante las ceremonias. Estos detalles, discretos pero esenciales, permiten a los visitantes imaginar cómo funcionaba realmente este espacio cuando todavía era un lugar vivo de culto judío.'
             ],
             kids: [
-              '¡En las paredes hay un texto larguísimo escrito en hebreo hace más de 650 años, que alababa tanto a Dios como al rey! Es uno de los más largos que se conservan. 📜',
-              '¡La sinagoga todavía mira hacia Jerusalén, la ciudad sagrada, tal y como se construyó! Y se ve el huequito donde guardaban los libros sagrados. 🕎'
+              '¡En las paredes hay un texto larguísimo escrito en hebreo hace más de 650 años, que alababa tanto a Dios como al rey! Es uno de los más largos que se conservan de aquella época en toda España. Gracias a él, los historiadores pueden saber exactamente cómo hablaba el hombre que construyó la sinagoga sobre su amistad con el rey. 📜',
+              '¡La sinagoga todavía mira hacia Jerusalén, la ciudad sagrada, tal y como se construyó! Y se ve el huequito donde guardaban los libros sagrados, llamado Arón. Aunque ahora es un museo y ya no se reza aquí, estos detalles te ayudan a imaginar cómo era este lugar cuando de verdad venían los judíos a rezar. 🕎'
             ]
           }
         },
@@ -1275,12 +1275,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El propio cardenal Tavera dejó dispuesto en su testamento que sus restos descansaran bajo el altar mayor de la iglesia del hospital, en un sepulcro de mármol esculpido por Alonso Berruguete, considerado una de sus obras maestras.',
-              'El hospital se sitúa deliberadamente extramuros, junto al antiguo camino real de entrada a Toledo, siguiendo una práctica habitual en la época para mantener alejados de la ciudad a los enfermos contagiosos.'
+              'El propio cardenal Tavera dejó dispuesto en su testamento que sus restos descansaran bajo el altar mayor de la iglesia del hospital que él mismo había fundado, en un sepulcro de mármol esculpido por Alonso Berruguete y considerado una de las obras cumbre de este escultor. La figura yacente del cardenal, tallada con extraordinario realismo, transmite una sensación de serenidad que contrasta con la crudeza del retrato pintado por El Greco a partir de su mascarilla mortuoria.',
+              'El hospital se sitúa deliberadamente extramuros, junto al antiguo camino real de entrada a Toledo, siguiendo una práctica sanitaria habitual en la época para mantener alejados del núcleo urbano a los enfermos contagiosos y evitar así la propagación de epidemias dentro de la ciudad amurallada. Esta ubicación periférica, pensada originalmente por razones de salud pública, terminó convirtiéndose con los siglos en una ventaja estética añadida, al rodear el edificio de espacio abierto y buenas vistas.'
             ],
             kids: [
-              '¡El cardenal que mandó construir este hospital está enterrado justo debajo del altar de su iglesia, en una tumba de mármol tallada por un escultor famoso! ⚰️',
-              '¡El hospital se construyó fuera de las murallas a propósito, para mantener alejados de la ciudad a los enfermos que podían contagiar a otros! 🏥'
+              '¡El cardenal que mandó construir este hospital está enterrado justo debajo del altar de su iglesia, en una tumba de mármol tallada por un escultor famoso! La estatua de piedra que lo representa parece dormir tranquilamente, tallada con muchísimo detalle. Es una de las obras más bonitas de ese escultor, ¡y está aquí mismo, en el hospital que el cardenal ayudó a crear! ⚰️',
+              '¡El hospital se construyó fuera de las murallas a propósito, para mantener alejados de la ciudad a los enfermos que podían contagiar a otros! Así evitaban que las enfermedades se extendieran por todo Toledo. Con el paso del tiempo, estar fuera de las murallas también resultó bueno por otra razón: el hospital quedó rodeado de espacio abierto y bonitas vistas. 🏥'
             ]
           }
         },
@@ -1345,12 +1345,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Durante siglos, la Alcaná funcionó como un espacio comercial donde convivían comerciantes judíos y cristianos, un reflejo de la vida económica compartida en la Toledo medieval.',
-              'Algunos de los talleres de damasquinado que hoy se ven en la calle llevan varias generaciones de la misma familia trabajando el mismo oficio, transmitiendo la técnica de padres a hijos.'
+              'Durante siglos, la Alcaná funcionó como un espacio comercial donde convivían comerciantes judíos y cristianos, compartiendo puestos, clientes y calle en pleno corazón de la Toledo medieval, en un ejemplo cotidiano de la llamada convivencia entre las tres culturas. Aquella mezcla comercial no estuvo exenta de tensiones a lo largo de los siglos, pero durante largos periodos funcionó con normalidad, hasta que los sucesivos episodios de intolerancia religiosa fueron cerrando ese espacio de convivencia compartida.',
+              'Algunos de los talleres de damasquinado que hoy se ven a lo largo de la calle llevan varias generaciones de la misma familia trabajando el mismo oficio, transmitiendo la técnica de padres a hijos sin necesidad de escuela ni manual escrito, solo observando y practicando durante años en el propio taller familiar. Este tipo de transmisión oral y práctica es habitual en los oficios artesanales toledanos, y explica por qué cada familia conserva pequeños secretos propios en el acabado final.'
             ],
             kids: [
-              '¡En esta calle, hace muchos siglos, los comerciantes judíos y cristianos vendían sus cosas codo con codo! 🤝',
-              '¡Algunos talleres de esta calle llevan varias generaciones de la misma familia haciendo damasquinado, pasando el secreto de padres a hijos! 👨‍👦'
+              '¡En esta calle, hace muchos siglos, los comerciantes judíos y cristianos vendían sus cosas codo con codo, compartiendo la misma calle y los mismos clientes! Era un buen ejemplo de cómo convivían distintas religiones en el Toledo medieval. Aunque a veces había problemas, durante mucho tiempo todos trabajaron juntos aquí sin más. 🤝',
+              '¡Algunos talleres de esta calle llevan varias generaciones de la misma familia haciendo damasquinado, pasando el secreto de padres a hijos! No lo aprenden en ningún libro: los niños de la familia van mirando y practicando en el propio taller durante años, hasta que se les da tan bien como a sus padres. 👨‍👦'
             ]
           }
         },
@@ -1414,12 +1414,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'A diferencia de otras puertas de Toledo pensadas sobre todo para la defensa, la Puerta del Sol tiene un marcado carácter simbólico y devocional, evidente en el gran medallón religioso que preside su arco interior.',
-              'Su decoración de arquerías lobuladas entrelazadas recuerda a la de la Mezquita de Córdoba, aunque aquí se construyó siglos después, ya en época cristiana, como homenaje tardío al repertorio decorativo andalusí.'
+              'A diferencia de otras puertas de Toledo pensadas sobre todo para la defensa militar, la Puerta del Sol tiene un marcado carácter simbólico y devocional, evidente en el gran medallón religioso que preside su arco interior. Esta combinación de función defensiva y mensaje religioso no era casual: quien atravesaba la puerta recibía al mismo tiempo protección física y un recordatorio visual de la devoción mariana propia de la ciudad, reforzando el vínculo entre poder militar y espiritual tan característico del Toledo medieval.',
+              'Su decoración de arquerías lobuladas entrelazadas recuerda inevitablemente a la de la Mezquita de Córdoba, aunque aquí se construyó siglos después, ya en plena época cristiana, como una suerte de homenaje tardío al refinado repertorio decorativo andalusí. Este fenómeno, lejos de ser una excepción, fue habitual en el Toledo bajomedieval: los artesanos mudéjares que trabajaban para los cristianos seguían empleando las formas y técnicas heredadas de la tradición islámica, dando lugar a un estilo propio, mestizo y singular.'
             ],
             kids: [
-              '¡Esta puerta no es solo para defenderse, también tiene un dibujo religioso muy importante tallado en piedra! Es más especial que otras puertas de Toledo. 👼',
-              '¡Sus arcos entrelazados se parecen a los de la mezquita más famosa de España, aunque esta puerta se construyó siglos después, ya con los cristianos! 🕌'
+              '¡Esta puerta no es solo para defenderse, también tiene un dibujo religioso muy importante tallado en piedra! Es más especial que otras puertas de Toledo porque combina dos cosas: protegía la ciudad de los ataques y, al mismo tiempo, recordaba a quien entraba una historia religiosa muy querida por los toledanos. ¡Como una puerta con doble trabajo! 👼',
+              '¡Sus arcos entrelazados se parecen a los de la mezquita más famosa de España, aunque esta puerta se construyó siglos después, ya con los cristianos! Los artesanos que trabajaban para los reyes cristianos seguían usando las formas bonitas que habían aprendido de los musulmanes, mezclando estilos distintos. ¡Así nació un estilo propio de Toledo, muy especial! 🕌'
             ]
           }
         },
@@ -1483,12 +1483,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El nombre "Museo de los Concilios" recuerda que Toledo fue sede de importantes concilios de la Iglesia visigoda entre los siglos VI y VII, reuniones que sentaron buena parte de las bases legales y religiosas del reino.',
-              'Entre las piezas originales que sí conserva el museo, hay inscripciones visigodas en piedra que documentan nombres y fechas de aquella época, poco frecuentes en otros yacimientos peninsulares.'
+              'El nombre "Museo de los Concilios" recuerda que Toledo fue sede de importantes concilios de la Iglesia visigoda entre los siglos VI y VII, reuniones periódicas de obispos y nobles que sentaron buena parte de las bases legales y religiosas del reino, desde cuestiones puramente doctrinales hasta decisiones políticas de gran calado, como la sucesión al trono. Aquellos concilios convirtieron a Toledo, durante generaciones, en la auténtica capital espiritual y legislativa de la España visigoda.',
+              'Entre las piezas originales que sí conserva el museo, más allá de las réplicas del Tesoro de Guarrazar, hay inscripciones visigodas en piedra que documentan nombres propios y fechas concretas de aquella época, un tipo de testimonio directo poco frecuente en otros yacimientos peninsulares de los siglos VI a VIII. Estas inscripciones son especialmente valiosas para los historiadores, porque permiten fechar con precisión otros hallazgos arqueológicos similares encontrados sin contexto claro en otras partes de España.'
             ],
             kids: [
-              '¡El nombre del museo viene de unas reuniones importantísimas que se hacían en Toledo hace 1400 años, cuando los reyes visigodos decidían las leyes del reino! 📜',
-              '¡El museo también tiene piedras de verdad con nombres y fechas escritas hace 1400 años, no solo copias de las coronas! 🪨'
+              '¡El nombre del museo viene de unas reuniones importantísimas que se hacían en Toledo hace 1400 años, cuando los obispos y los reyes visigodos se juntaban para decidir las leyes del reino! No solo hablaban de religión, también decidían cosas de política, como quién sería el próximo rey. Toledo era entonces como la capital de todas esas decisiones. 📜',
+              '¡El museo también tiene piedras de verdad con nombres y fechas escritas hace 1400 años, no solo copias de las coronas! Estas piedras ayudan mucho a los historiadores, porque gracias a ellas pueden saber con seguridad de qué año son otras cosas antiguas parecidas que se encuentran en otros lugares de España. 🪨'
             ]
           }
         },
@@ -1552,12 +1552,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El paseo discurre por encima del trazado de una antigua muralla que en el siglo XI separaba la judería del resto de la ciudad, un límite hoy invisible que marcó durante siglos la vida cotidiana de sus habitantes.',
-              'Al atardecer, este paseo es uno de los pocos puntos de Toledo desde los que se aprecia con claridad cómo la ciudad se asienta sobre un meandro casi cerrado del Tajo, clave en su papel histórico como fortaleza natural.'
+              'El paseo discurre por encima del trazado de una antigua muralla que en el siglo XI separaba la judería del resto de la ciudad, un límite físico y también simbólico, ya que marcaba dónde terminaba la jurisdicción propia de la comunidad judía y empezaba la ciudad cristiana o musulmana circundante. Aunque hoy es completamente invisible bajo el pavimento y los jardines, ese límite marcó durante siglos la vida cotidiana de sus habitantes, condicionando movimientos, horarios y hasta relaciones vecinales.',
+              'Al atardecer, cuando la luz rasante define mejor el relieve del terreno, este paseo es uno de los pocos puntos de Toledo desde los que se aprecia con claridad cómo la ciudad entera se asienta sobre un meandro casi cerrado del Tajo, una circunstancia geográfica clave en su papel histórico como fortaleza natural prácticamente inexpugnable. Esa protección natural del río explica en buena medida por qué Toledo fue durante siglos una capital tan difícil de conquistar por la fuerza.'
             ],
             kids: [
-              '¡Este paseo pasa justo por encima de donde antes había una muralla que separaba el barrio judío del resto de la ciudad, hace casi 1000 años! 🧱',
-              '¡Desde aquí se ve muy bien cómo el río Tajo rodea casi toda la ciudad, como un abrazo de agua! Por eso Toledo era tan difícil de atacar. 🌊'
+              '¡Este paseo pasa justo por encima de donde antes había una muralla que separaba el barrio judío del resto de la ciudad, hace casi 1000 años! Esa muralla marcaba dónde terminaba un barrio y empezaba el otro, y la gente tenía que respetarla en su día a día. Hoy no se ve nada de ella, ¡pero está ahí escondida bajo tus pies! 🧱',
+              '¡Desde aquí se ve muy bien cómo el río Tajo rodea casi toda la ciudad, como un abrazo de agua! Al atardecer se nota todavía mejor, porque la luz del sol dibuja bien las formas del terreno. Por eso Toledo era tan difícil de atacar: el río hacía de muralla natural casi por todas partes. 🌊'
             ]
           }
         },
@@ -1621,12 +1621,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El edificio funcionó como hospital de expósitos y hospicio infantil hasta bien entrado el siglo XX, y solo se convirtió en museo tras el traslado de sus funciones asistenciales a otras instalaciones de la ciudad.',
-              'Su fachada plateresca incluye, entre la profusa decoración, medallones con los bustos del propio cardenal Mendoza y de los Reyes Católicos, dejando constancia visual de sus patrocinadores.'
+              'El edificio funcionó ininterrumpidamente como hospital de expósitos y hospicio infantil hasta bien entrado el siglo XX, cumpliendo durante más de cuatrocientos años la función benéfica para la que lo concibió el cardenal Mendoza. Solo se convirtió en museo, tal y como se conoce hoy, tras el traslado de sus funciones asistenciales a otras instalaciones más modernas de la ciudad, cerrando así uno de los capítulos de asistencia social más largos y continuados de toda la historia toledana.',
+              'Su fachada plateresca incluye, entre la profusa decoración vegetal y heráldica, medallones esculpidos con los bustos del propio cardenal Mendoza y de los Reyes Católicos, dejando constancia visual y permanente de quiénes fueron los patrocinadores e impulsores de esta obra benéfica. Este tipo de retratos en piedra, frecuentes en la arquitectura religiosa y hospitalaria de la época, cumplían una doble función: honrar a los fundadores y recordar a generaciones futuras el origen y el propósito último del edificio.'
             ],
             kids: [
-              '¡Este edificio fue un hospital para niños de verdad hasta hace relativamente poco tiempo, no siempre fue un museo! 👶',
-              '¡En la fachada, entre tanta decoración tallada, hay retratos de piedra del cardenal y de los Reyes Católicos que lo hicieron posible! 👑'
+              '¡Este edificio fue un hospital para niños de verdad hasta hace relativamente poco tiempo, no siempre fue un museo! Durante más de 400 años, cuidó a niños que no tenían familia, cumpliendo exactamente lo que el cardenal Mendoza había querido. Solo se convirtió en museo cuando trasladaron a los niños a otro edificio más moderno. 👶',
+              '¡En la fachada, entre tanta decoración tallada, hay retratos de piedra del cardenal y de los Reyes Católicos que lo hicieron posible! Los pusieron ahí a propósito, para que nadie olvidara nunca quién había ayudado a construir este hospital tan importante para los niños de Toledo. 👑'
             ]
           }
         },
@@ -1690,12 +1690,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'La romería del 1 de mayo incluye tradicionalmente una procesión con la imagen de la Virgen, uno de los momentos más multitudinarios y esperados del calendario festivo toledano.',
-              'El entorno de la ermita, salpicado de merenderos y áreas de picnic, mantiene viva una tradición de convivencia popular al aire libre que se remonta como mínimo al siglo XIX.'
+              'La romería del 1 de mayo incluye tradicionalmente una procesión con la imagen de la Virgen del Valle, que recorre los alrededores de la ermita acompañada por cientos de toledanos vestidos de romería, entre cánticos y música popular. Es uno de los momentos más multitudinarios y esperados del calendario festivo toledano, comparable en importancia sentimental a las grandes procesiones de Semana Santa, aunque con un carácter mucho más campestre y familiar que el de las celebraciones del casco histórico.',
+              'El entorno de la ermita, salpicado de merenderos y áreas de picnic bajo los árboles, mantiene viva una tradición de convivencia popular al aire libre que se remonta como mínimo al siglo XIX, cuando familias enteras subían aquí a pasar el día comiendo, cantando y bailando lejos del bullicio del centro. Esa costumbre de la comida campestre en torno a la romería sigue prácticamente intacta hoy, generación tras generación de toledanos que repiten el mismo ritual cada primavera.'
             ],
             kids: [
-              '¡El día de la romería, la imagen de la Virgen sale en procesión y toda la ciudad participa! 🎉',
-              '¡Alrededor de la ermita la gente monta meriendas y picnics desde hace más de 150 años! Es una tradición muy antigua de pasarlo bien al aire libre. 🧺'
+              '¡El día de la romería, la imagen de la Virgen sale en procesión y toda la ciudad participa! Cientos de toledanos se visten con ropa especial y la acompañan cantando y bailando por los alrededores de la ermita. Es una de las fiestas más esperadas de todo el año en Toledo, ¡casi tan importante como la Semana Santa! 🎉',
+              '¡Alrededor de la ermita la gente monta meriendas y picnics desde hace más de 150 años! Familias enteras suben aquí a pasar el día comiendo debajo de los árboles, cantando y bailando lejos del ruido del centro. Es una tradición tan antigua que los abuelos de los abuelos ya la hacían igual. 🧺'
             ]
           }
         },
@@ -1750,12 +1750,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Algunas crónicas medievales describían este lugar como el escondite de un talismán capaz de proteger España de invasiones, hasta que el rey don Rodrigo lo abrió sin permiso y, según la leyenda, provocó la conquista musulmana.',
-              'Aunque hoy se accede desde una plaza tranquila del centro, el recinto formaba parte del trazado del acueducto romano que cruzaba buena parte de la ciudad, del que apenas se conservan otros restos visibles.'
+              'Algunas crónicas medievales describían este lugar como el escondite de un talismán, o "casa cerrada", capaz de proteger España de futuras invasiones, guardado por sucesivos reyes que se limitaban a añadir un candado más sin abrirlo nunca. La leyenda cuenta que el último rey visigodo, don Rodrigo, desoyendo esa prohibición ancestral, lo abrió por curiosidad o soberbia, y que dentro solo encontró un lienzo con la profecía de que España sería invadida, lo que poco después ocurrió con la conquista musulmana.',
+              'Aunque hoy se accede desde una plaza tranquila del centro histórico, el recinto formaba parte en origen del trazado del acueducto romano que cruzaba buena parte de la ciudad, transportando agua desde manantiales situados a varios kilómetros de distancia hasta este depósito final. De aquella gran infraestructura hidráulica romana, capaz de abastecer a toda una ciudad, apenas se conservan hoy otros restos visibles en superficie, lo que convierte a estas cuevas en uno de los pocos testimonios tangibles que quedan de ella.'
             ],
             kids: [
-              '¡Una leyenda medieval decía que aquí dentro había un objeto mágico que protegía toda España, y que un rey lo abrió sin querer y trajo mala suerte al reino! ✨',
-              '¡Estas cuevas formaban parte de una tubería gigante romana que cruzaba toda la ciudad, aunque hoy casi no queda nada más de ella! 💧'
+              '¡Una leyenda medieval decía que aquí dentro había un objeto mágico que protegía toda España, guardado con muchos candados por varios reyes que nunca se atrevieron a abrirlo! Pero un rey curioso llamado Rodrigo lo abrió sin permiso, ¡y dentro solo había un dibujo con una profecía muy mala! Poco después, España fue invadida, tal y como decía la profecía. ✨',
+              '¡Estas cuevas formaban parte de una tubería gigante romana que traía agua desde muy lejos hasta aquí, cruzando toda la ciudad! Los romanos construyeron un sistema enorme para llevar agua a Toledo, pero hoy casi no queda nada visible de él por la ciudad, ¡excepto estas cuevas! Por eso son tan especiales. 💧'
             ]
           }
         },
@@ -1811,12 +1811,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'El callejón se encuentra a apenas un par de minutos a pie de la Catedral, en una de las zonas de la judería que conserva casi intacto su trazado urbano medieval.',
-              'La leyenda del Pozo Amargo se ha recogido en distintas versiones a lo largo de los siglos, con pequeñas variaciones en los nombres de los protagonistas, lo que sugiere una larga transmisión oral antes de ponerse por escrito.'
+              'El callejón se encuentra a apenas un par de minutos a pie de la Catedral, en una de las zonas de la judería que conserva casi intacto su trazado urbano medieval, con calles estrechas que apenas han cambiado de anchura ni de dirección en varios siglos. Esta cercanía entre el corazón religioso cristiano de la ciudad y el antiguo barrio judío ilustra bien lo compacta que era la Toledo medieval, donde comunidades distintas convivían a solo unos pasos unas de otras.',
+              'La leyenda del Pozo Amargo se ha recogido en distintas versiones a lo largo de los siglos, con pequeñas variaciones en los nombres de los protagonistas y en algunos detalles del desenlace, lo que sugiere una larga transmisión oral entre generaciones de toledanos antes de que autores como Luis Moreno Nieto la pusieran por escrito de forma definitiva. Esta fluidez es típica de las leyendas populares, que se van adaptando ligeramente cada vez que alguien las vuelve a contar en voz alta.'
             ],
             kids: [
-              '¡Este callejón está a solo un par de minutos andando de la Catedral, escondido en un trocito de Toledo que casi no ha cambiado en siglos! 🚶',
-              '¡La leyenda de este pozo se ha contado de formas un poco distintas a lo largo de los siglos! Seguramente la gente se la iba contando de boca en boca antes de escribirla. 🗣️'
+              '¡Este callejón está a solo un par de minutos andando de la Catedral, escondido en un trocito de Toledo que casi no ha cambiado en siglos! Las calles son tan estrechas y torcidas como lo eran hace cientos de años. Aquí puedes imaginar perfectamente cómo era pasear por la judería medieval, ¡como viajar en el tiempo sin moverte del centro! 🚶',
+              '¡La leyenda de este pozo se ha contado de formas un poco distintas a lo largo de los siglos! A veces cambian el nombre de los protagonistas o algún detalle de la historia. Seguramente la gente se la iba contando de boca en boca, de abuelos a nietos, durante generaciones, antes de que alguien decidiera escribirla tal y como la conocemos hoy. 🗣️'
             ]
           }
         },
@@ -1871,12 +1871,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Se calcula que el circo pudo albergar a varios miles de espectadores, una capacidad que da idea de la importancia de Toletum como una de las grandes ciudades romanas de Hispania.',
-              'Parte del trazado del circo quedó sepultado bajo el barrio moderno que creció encima durante el siglo XX, por lo que hoy solo es visible una fracción de su perímetro original.'
+              'Se calcula que el circo pudo albergar a varios miles de espectadores sentados en sus gradas escalonadas de piedra, una capacidad más que considerable para la época que da idea de la importancia de Toletum como una de las grandes ciudades romanas de Hispania, no solo un enclave administrativo sino también un centro de ocio y vida pública capaz de reunir a buena parte de su población y de las localidades cercanas para presenciar las carreras de cuadrigas.',
+              'Parte del trazado del circo quedó sepultado bajo el barrio moderno que fue creciendo encima durante el siglo XX, cuando todavía no existía la protección legal ni la sensibilidad arqueológica actuales sobre este tipo de yacimientos. Por esa razón, hoy solo es visible una fracción de su perímetro original, mientras que el resto permanece oculto bajo calles, edificios y solares urbanos, a la espera de futuras excavaciones que quizá algún día permitan recuperar una imagen más completa del conjunto.'
             ],
             kids: [
-              '¡Se cree que en este circo cabían miles de personas para ver las carreras! Toledo era una de las ciudades romanas más importantes de España. 🎪',
-              '¡Parte de este circo tan grande está escondido debajo de casas modernas! Solo se puede ver un trocito de todo lo que había. 🏘️'
+              '¡Se cree que en este circo cabían miles de personas para ver las carreras, sentadas en gradas de piedra escalonadas! Toledo era una de las ciudades romanas más importantes de España, no solo para gobernar, sino también para divertirse. Imagina a miles de personas gritando emocionadas viendo pasar los carros a toda velocidad. 🎪',
+              '¡Parte de este circo tan grande está escondido debajo de casas modernas! Se construyeron encima hace unos 100 años, cuando nadie sabía todavía lo importante que era proteger los restos romanos. Solo se puede ver un trocito de todo lo que había, ¡el resto sigue escondido bajo la ciudad de hoy! 🏘️'
             ]
           }
         },
@@ -1931,12 +1931,12 @@ CITIES.toledo.pois = [
           },
           deepenFillers: {
             adult: [
-              'Su interior conserva un artesonado de madera policromada que representa uno de los mejores ejemplos de carpintería mudéjar toledana, con decoración geométrica de lazo de tradición andalusí.',
-              'El barrio del Arrabal, donde se sitúa, fue históricamente uno de los asentamientos mudéjares más importantes de Toledo tras la conquista cristiana, habitado por musulmanes que permanecieron en la ciudad.'
+              'Su interior conserva un artesonado de madera policromada que representa uno de los mejores ejemplos de carpintería mudéjar toledana, con una compleja decoración geométrica de lazo de tradición andalusí, formada por piezas de madera entrelazadas sin apenas clavos, ensambladas con enorme precisión geométrica. Este tipo de techumbre, típica de los templos mudéjares castellanos, exigía carpinteros altamente especializados capaces de calcular ángulos y proporciones complejas mucho antes de que existieran herramientas de medición modernas.',
+              'El barrio del Arrabal, donde se sitúa esta iglesia, fue históricamente uno de los asentamientos mudéjares más importantes de Toledo tras la conquista cristiana, habitado por musulmanes que optaron por permanecer en la ciudad conservando su religión y sus costumbres bajo dominio cristiano. Esta comunidad, conocida como mudéjar, mantuvo durante generaciones sus propios oficios artesanales, entre ellos la carpintería y el trabajo del ladrillo, técnicas que dejaron una huella profunda en la arquitectura religiosa del barrio, incluida esta misma iglesia.'
             ],
             kids: [
-              '¡Dentro tiene un techo de madera pintado con dibujos geométricos entrelazados, una auténtica joya de artesanía mudéjar! 🎨',
-              '¡El barrio donde está esta iglesia estuvo habitado durante siglos por musulmanes que se quedaron en Toledo después de que la conquistaran los cristianos! 🏘️'
+              '¡Dentro tiene un techo de madera pintado con dibujos geométricos entrelazados, una auténtica joya de artesanía mudéjar! Los carpinteros que lo hicieron encajaban trozos de madera unos con otros, casi sin clavos, calculando ángulos súper complicados a mano. Hacía falta muchísima habilidad para conseguir que todo encajara tan perfectamente. 🎨',
+              '¡El barrio donde está esta iglesia estuvo habitado durante siglos por musulmanes que se quedaron en Toledo después de que la conquistaran los cristianos! Se llamaban mudéjares, y siguieron viviendo con su propia religión y sus costumbres. Eran muy buenos carpinteros y trabajando el ladrillo, y por eso hay tantos edificios bonitos hechos por ellos en este barrio. 🏘️'
             ]
           }
         },

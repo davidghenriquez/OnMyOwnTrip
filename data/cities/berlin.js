@@ -40,12 +40,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'Cuando conviene señalar un acontecimiento mundial, la puerta se ilumina de distintos colores: se vistió de azul, blanco y rojo tras los atentados de París de 2015, y luce a menudo los colores del arcoíris por el orgullo LGTB.',
-              'En 1987, el presidente estadounidense Ronald Reagan pronunció junto a esta puerta su célebre discurso pidiendo la caída del Muro; no hicieron falta ni tres años para que ocurriera de verdad.'
+              'Cuando conviene señalar un acontecimiento mundial, la puerta se ilumina de distintos colores mediante un sistema de proyectores instalado para estos gestos simbólicos: se vistió de azul, blanco y rojo tras los atentados de París de 2015, y luce a menudo los colores del arcoíris por el orgullo LGTB. La decisión de iluminarla no corresponde a un único organismo, sino que suele surgir de un acuerdo entre las autoridades de la ciudad y el gobierno federal, lo que a veces genera debate sobre qué causas merecen ese gesto tan visible.',
+              'En 1987, el presidente estadounidense Ronald Reagan pronunció junto a esta puerta su célebre discurso pidiendo la caída del Muro, con la frase «Mister Gorbachev, tear down this wall!» dirigida directamente al entonces líder soviético Mijaíl Gorbachov. En su momento, muchos analistas lo consideraron más retórico que realista, dado lo asentada que parecía la división de Alemania; no hicieron falta ni tres años para que ocurriera de verdad.'
             ],
             kids: [
-              '¡Cuando pasa algo importante en el mundo, la puerta se ilumina de colores distintos, como una bandera gigante! A veces es azul, blanco y rojo, y a veces todo un arcoíris. 🌈',
-              '¡Un presidente de Estados Unidos dio aquí un discurso muy famoso pidiendo que cayera el Muro! Y no hicieron falta ni tres años para que ocurriera de verdad. 🎤'
+              '¡Cuando pasa algo importante en el mundo, la puerta se ilumina de colores distintos, como una bandera gigante! Unos proyectores especiales cambian su color: a veces es azul, blanco y rojo, y a veces todo un arcoíris. 🌈 No se enciende así todos los días, solo cuando la ciudad quiere mandar un mensaje que todo el mundo pueda ver.',
+              '¡Un presidente de Estados Unidos dio aquí un discurso muy famoso pidiendo que cayera el Muro! Dijo una frase que se hizo mundialmente conocida, pidiéndole directamente al líder de la Unión Soviética que lo derribara. 🎤 Casi nadie se lo creía posible en ese momento, ¡pero no hicieron falta ni tres años para que ocurriera de verdad!'
             ]
           }
         },
@@ -111,12 +111,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'En algunas paredes interiores todavía pueden verse mensajes escritos en 1945 por soldados soviéticos, en letras cirílicas; se conservaron a propósito durante la restauración de los años 90 como capa histórica del edificio, en vez de borrarlos.',
-              'Dentro del hemiciclo cuelga una gran águila federal de aluminio que los propios berlineses apodan cariñosamente "die fette Henne", la gallina gorda, por su forma redondeada.'
+              'En algunas paredes interiores todavía pueden verse miles de mensajes escritos a mano en 1945 por soldados soviéticos que tomaron el edificio: nombres, pueblos de origen y fechas, garabateados en letras cirílicas sobre el estuco. Durante la restauración de los años 90, el arquitecto Norman Foster decidió conservarlos a propósito, en vez de repintar esas paredes, como una capa más de la historia del edificio, una decisión que en su momento generó cierto debate entre quienes preferían un acabado más neutro.',
+              'Dentro del hemiciclo cuelga una gran águila federal de aluminio que los propios berlineses apodan cariñosamente "die fette Henne", la gallina gorda, por su silueta redondeada y poco marcial, muy distinta de las águilas imperiales y nazis, bastante más afiladas y amenazantes, que ocuparon ese mismo lugar simbólico en versiones anteriores del edificio a lo largo del siglo XX.'
             ],
             kids: [
-              '¡En algunas paredes de dentro todavía se ven mensajes que escribieron soldados soviéticos en 1945, en letras rusas! Los dejaron a propósito para no olvidar la historia.',
-              '¡Dentro hay un águila enorme de metal a la que los berlineses llaman cariñosamente "la gallina gorda", porque tiene una forma bien redondita! 🦅'
+              '¡En algunas paredes de dentro todavía se ven miles de mensajes que escribieron a mano soldados soviéticos en 1945, con letras rusas, nombres y hasta el pueblo de donde venían! ✍️ Cuando arreglaron el edificio hace unas décadas, alguien decidió no borrarlos, sino dejarlos ahí a propósito, para que quien lo visite nunca olvide lo que pasó.',
+              '¡Dentro hay un águila gigante de metal a la que los berlineses llaman cariñosamente "la gallina gorda", porque tiene una forma bien redondita, nada que ver con las águilas mucho más afiladas y serias que hubo antes, en otras épocas, en ese mismo sitio del edificio! 🦅 Lleva ahí colgada desde que se reconstruyó el Parlamento, mirando siempre hacia los diputados.'
             ]
           }
         },
@@ -181,12 +181,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'En el Centro de Información hay una Sala de los Nombres donde se leen en voz alta, sin descanso, los nombres y breves biografías de las víctimas conocidas del Holocausto; completar el ciclo entero, leyendo día y noche, lleva varios años, y después vuelve a empezar.',
-              'En 2017, un artista israelí lanzó en internet una polémica campaña para llamar la atención sobre el comportamiento irrespetuoso de algunos turistas en el memorial, lo que reabrió el debate público sobre cómo se debe visitar un lugar como este.'
+              'En el Centro de Información hay una Sala de los Nombres donde una voz lee, sin descanso, el nombre y una breve biografía de cada víctima conocida del Holocausto, junto con el país donde vivió. El listado se apoya en la base de datos del memorial de Yad Vashem, en Jerusalén, y sigue ampliándose a medida que se documentan más casos; completar el ciclo entero, leyendo día y noche sin parar, lleva varios años, y en cuanto termina, vuelve a empezar desde el principio.',
+              'En 2017, el artista israelí Shahak Shapira lanzó en internet una polémica campaña, superponiendo fotografías de turistas posando de forma desenfadada sobre las estelas del memorial con imágenes históricas de campos de exterminio nazis. La iniciativa provocó un intenso debate público, dentro y fuera de Alemania, sobre qué comportamiento resulta aceptable en un lugar concebido para el recuerdo, y llevó a la propia dirección del memorial a reforzar sus indicaciones sobre cómo debe visitarse.'
             ],
             kids: [
-              'Bajo tierra hay una sala donde se leen en voz alta, uno por uno, los nombres de las personas que se sabe que murieron. Se tarda años en terminar de leerlos todos, porque eran muchísimas personas.',
-              'Como este es un lugar para recordar con respeto, muchos berlineses piden a quienes visitan que caminen tranquilos entre los bloques, sin jugar ni subirse encima de ellos.'
+              'Bajo tierra hay una sala tranquila donde una voz lee en voz alta, uno por uno, los nombres de las personas que se sabe que murieron, junto con algún dato de su vida. Se tarda varios años en leerlos todos, porque eran muchísimas personas, y cuando termina la lista, se vuelve a empezar desde el principio, para que nadie quede olvidado.',
+              'Como este es un lugar para recordar con mucho respeto, muchos berlineses piden a quienes visitan que caminen tranquilos entre los bloques, sin jugar, sin correr y sin subirse encima de ellos. En 2017 hubo incluso una campaña que llamó la atención sobre personas que se hacían fotos poco respetuosas aquí, y desde entonces mucha gente recuerda con más cuidado cómo comportarse en un sitio así.'
             ]
           }
         },
@@ -250,12 +250,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'Este cruce fue escenario de fugas ingeniosas: entre otros métodos, hubo personas que lograron pasar escondidas en compartimentos ocultos dentro de coches modificados con dobles fondos.',
-              'Para la administración de la RDA, este paso no se llamaba "Charlie": su nombre oficial en alemán era simplemente Grenzübergang Friedrichstraße, el paso fronterizo de la calle Friedrich.'
+              'Este cruce fue escenario de fugas ingeniosas, además de los túneles y los saltos más conocidos: hubo quien logró cruzar escondido en compartimentos ocultos construidos dentro de coches con dobles fondos, o incluso bajo el asiento de vehículos diplomáticos, sujetos a menos revisiones. No todos los intentos salían bien: los guardias fronterizos registraban los vehículos con espejos y perros, por lo que muchas de estas fugas se descubrían antes de cruzar y terminaban en arresto.',
+              'Para la administración de la RDA, este paso ni siquiera se llamaba "Charlie": su nombre oficial en alemán era simplemente Grenzübergang Friedrichstraße, el paso fronterizo de la calle Friedrich, una denominación puramente burocrática. El apodo "Charlie", que hoy es prácticamente el único que se usa, procedía por completo del lado occidental y del propio ejército aliado, reflejo de cómo cada bando construyó su propio relato sobre este mismo lugar durante toda la Guerra Fría.'
             ],
             kids: [
-              '¡Aquí hubo fugas muy ingeniosas! Algunas personas lograron cruzar escondidas dentro de coches con compartimentos secretos.',
-              '¡Para el gobierno de la parte comunista, este sitio ni siquiera se llamaba "Charlie"! Tenía otro nombre oficial en alemán, mucho más aburrido. 🚧'
+              '¡Aquí hubo fugas muy ingeniosas! Algunas personas lograron cruzar escondidas dentro de coches, en compartimentos secretos construidos a propósito con dobles fondos. Pero no siempre salía bien: los guardias revisaban los coches con espejos y hasta con perros, así que muchos de esos intentos se descubrían antes de llegar al otro lado.',
+              '¡Para el gobierno de la parte comunista, este sitio ni siquiera se llamaba "Charlie"! Tenía un nombre oficial en alemán mucho más aburrido y sin ninguna historia detrás. 🚧 El apodo "Charlie" venía del lado occidental, así que cada uno de los dos bandos llamaba a este mismo cruce de una forma distinta.'
             ]
           }
         },
@@ -320,12 +320,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'El órgano Sauer que corona el interior tiene más de 7.000 tubos, uno de los más grandes de Alemania, y todavía se usa en conciertos y oficios religiosos.',
-              'Pese a construirse por encargo de la dinastía Hohenzollern, el propio káiser Guillermo II, que impulsó la obra, nunca fue enterrado en la cripta: murió en el exilio en los Países Bajos en 1941 y allí permanece.'
+              'El órgano Sauer que corona el interior tiene más de 7.000 tubos repartidos en más de un centenar de registros, lo que lo convierte en uno de los instrumentos de este tipo más grandes de Alemania. Instalado en 1905 junto con el resto del edificio, sigue siendo hoy un órgano en activo: se usa regularmente tanto en oficios religiosos como en conciertos de música sacra, y atrae a organistas de toda Europa que vienen expresamente a tocarlo por su sonido y su tamaño.',
+              'Pese a construirse por encargo directo de la dinastía Hohenzollern, el propio káiser Guillermo II, que impulsó personalmente la obra y asistió a su inauguración en 1905, nunca llegó a ser enterrado en la cripta familiar que él mismo había mandado ampliar. Tras la derrota alemana en la Primera Guerra Mundial se vio obligado a abdicar y exiliarse en los Países Bajos, donde murió en 1941; sus restos nunca regresaron a Alemania y allí permanecen hasta hoy.'
             ],
             kids: [
-              '¡Dentro hay un órgano gigante con más de 7.000 tubos! Todavía se usa para tocar música en conciertos y misas. 🎵',
-              'El emperador que mandó construir esta catedral nunca llegó a estar enterrado aquí: tuvo que irse a vivir a otro país después de perder una guerra, y allí se quedó para siempre.'
+              '¡Dentro hay un órgano gigantesco con más de 7.000 tubos, uno de los más grandes de toda Alemania! 🎵 Lo instalaron a la vez que el resto de la catedral, hace más de 100 años, y todavía hoy lo siguen tocando de verdad, en conciertos y también en las misas, así que puedes llegar a escucharlo sonar en directo si visitas en el momento adecuado.',
+              'El emperador que mandó construir esta catedral, y que hasta fue a su inauguración, nunca llegó a estar enterrado aquí, ¡ni en la tumba que él mismo había hecho más grande para su familia! Tuvo que irse a vivir a otro país, los Países Bajos, después de perder una guerra, y allí se quedó hasta que murió, sin que nadie le dejara volver a casa.'
             ]
           }
         },
@@ -393,12 +393,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'Entre sus piezas menos conocidas se encuentra la fachada de Mshatta, un palacio omeya del siglo VIII procedente de la actual Jordania, que el sultán otomano regaló al káiser Guillermo II en 1903.',
-              'Antes de cerrar por reformas en 2023, era uno de los museos más visitados de toda Alemania, con cientos de miles de visitas cada año.'
+              'Entre sus piezas menos conocidas por el gran público, pero igualmente monumentales, se encuentra la fachada de Mshatta, los restos de un palacio omeya del siglo VIII procedente de la actual Jordania, con una decoración de piedra tallada extraordinariamente detallada. El sultán otomano la regaló al káiser Guillermo II en 1903, en un gesto diplomático pensado para estrechar lazos entre el Imperio Otomano y Alemania en vísperas de la Primera Guerra Mundial.',
+              'Antes de cerrar por reformas en 2023, era uno de los museos más visitados de toda Alemania, con cientos de miles de visitas cada año, atraídas sobre todo por la fama mundial de la Puerta de Ishtar. Su cierre prolongado ha obligado a los cinco museos vecinos de la isla a reorganizar parte de sus propias colecciones, para que el público que sigue visitando la zona no se quede sin nada que ver mientras dura la renovación.'
             ],
             kids: [
-              '¡Aquí también hay un trozo de un palacio árabe de hace 1.300 años, que vino de Jordania! Un sultán se lo regaló a un emperador alemán hace más de 100 años.',
-              '¡Antes de cerrar por reformas, este era uno de los museos más visitados de toda Alemania, con muchísima gente entrando cada año!'
+              '¡Aquí también hay un trozo enorme de un palacio árabe de hace 1.300 años, con dibujos tallados en la piedra muy detallados, que vino desde Jordania! Un sultán se lo regaló a un emperador alemán hace más de 100 años, como gesto para hacerse amigos entre sus dos países, justo antes de que empezara una guerra muy grande.',
+              '¡Antes de cerrar por reformas, este era uno de los museos más visitados de toda Alemania, con muchísima gente entrando cada año, casi siempre para ver la famosa Puerta de Ishtar! Como está cerrado, los otros museos de la isla han tenido que organizar mejor sus propias salas, para que la gente que viene de visita no se quede sin nada interesante que ver.'
             ]
           }
         },
@@ -464,12 +464,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'El restaurante giratorio completa una vuelta entera cada media hora aproximadamente, así que en poco más de treinta minutos se puede ver la panorámica completa de la ciudad sin moverse de la mesa.',
-              'Pese a representar en su día el poder del régimen comunista, la torre recibe hoy más de un millón de visitas al año y es uno de los monumentos con más visitantes de toda Alemania.'
+              'El restaurante giratorio completa una vuelta entera cada media hora aproximadamente, movido por un mecanismo eléctrico prácticamente silencioso instalado bajo el suelo, de forma que los comensales apenas notan el movimiento mientras comen. En poco más de treinta minutos se puede contemplar la panorámica completa de la ciudad, de norte a sur y de este a oeste, sin moverse de la mesa ni levantarse en ningún momento.',
+              'Pese a representar en su día el poder y el progreso tecnológico del régimen comunista, la torre recibe hoy más de un millón de visitas al año y es uno de los monumentos con más visitantes de toda Alemania, muy por delante de otros símbolos berlineses de la Guerra Fría. Buena parte de sus ingresos actuales procede precisamente de turistas occidentales, algo difícil de imaginar para quienes la diseñaron en los años sesenta.'
             ],
             kids: [
-              '¡El restaurante da una vuelta entera cada media hora más o menos! Si te quedas sentado el tiempo suficiente, ves toda la ciudad sin moverte de la silla. 🍽️',
-              '¡Aunque la construyó un gobierno que ya no existe, hoy más de un millón de personas la visitan cada año! Es uno de los monumentos más populares de Alemania.'
+              '¡El restaurante da una vuelta entera cada media hora más o menos, moviéndose tan despacio que casi ni lo notas mientras comes! 🍽️ Un motor eléctrico lo mueve desde abajo, sin hacer ruido. Si te quedas sentado el tiempo suficiente, en poco más de media hora ves toda la ciudad entera, sin moverte ni un segundo de tu silla.',
+              '¡Aunque la construyó un gobierno que ya no existe, hoy más de un millón de personas la visitan cada año! Es uno de los monumentos más populares de toda Alemania, con turistas que vienen de todas partes del mundo, ¡algo que seguramente sorprendería mucho a quienes la construyeron hace tantos años!'
             ]
           }
         },
@@ -534,12 +534,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'En 2013, la construcción de un edificio junto al río obligó a retirar un tramo del muro pintado, lo que provocó protestas multitudinarias de berlineses que se encadenaron a los bloques para impedirlo.',
-              'Cada mural pertenece legalmente a su artista, lo que ha generado disputas sobre derechos de reproducción cuando las imágenes se usan de forma comercial, por ejemplo en postales o camisetas.'
+              'En 2013, la construcción de un edificio residencial junto al río obligó a retirar temporalmente un tramo del muro pintado para abrir un acceso a las obras, lo que provocó protestas multitudinarias de berlineses, encabezadas por artistas y vecinos del barrio, que llegaron a encadenarse a los propios bloques para impedir su retirada. La polémica, ampliamente cubierta por la prensa internacional, obligó finalmente a devolver los bloques retirados a su lugar original.',
+              'Cada mural pertenece legalmente a su artista, no al ayuntamiento ni al muro en sí, lo que ha generado disputas recurrentes sobre derechos de reproducción cuando las imágenes se usan con fines comerciales, por ejemplo en postales, camisetas o campañas publicitarias, sin pedir permiso ni pagar al autor original. Varios de los artistas del conjunto han emprendido acciones legales contra empresas que reprodujeron sus obras sin autorización, defendiendo el mismo derecho de propiedad intelectual que protegería cualquier otra obra de arte.'
             ],
             kids: [
-              '¡En 2013 casi quitan un trozo de este muro pintado para construir un edificio nuevo! Mucha gente de Berlín protestó y se abrazó a los bloques para protegerlos.',
-              'Cada dibujo pertenece al artista que lo pintó, así que si alguien quiere usarlo en postales o camisetas, ¡tiene que pedir permiso primero! 🎨'
+              '¡En 2013 casi quitan un trozo de este muro pintado, para dejar paso a la construcción de un edificio nuevo junto al río! Mucha gente de Berlín se enfadó muchísimo y se abrazó a los bloques para protegerlos, ¡algunos incluso se encadenaron a ellos! Al final, gracias a las protestas, los trozos que habían quitado volvieron a colocarse en su sitio.',
+              'Cada dibujo pertenece de verdad al artista que lo pintó, no al ayuntamiento ni a nadie más, así que si una empresa quiere usarlo en postales, camisetas o anuncios, ¡tiene que pedir permiso primero y pagar por usarlo! 🎨 Algunos artistas hasta han tenido que ir a juicio para defender ese derecho, cuando alguien usaba su dibujo sin avisarles.'
             ]
           }
         },
@@ -603,12 +603,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'Los berlineses también apodaron con humor al conjunto moderno de al lado: llaman "la polvera" a la iglesia octogonal de cristal azul y "la barra de labios" al campanario hexagonal, por sus formas.',
-              'Los mosaicos que sobreviven dentro de la torre en ruinas representan la genealogía de la familia Hohenzollern, uno de los pocos conjuntos decorativos completos que resistió el bombardeo de 1943.'
+              'Los berlineses también apodaron con humor al conjunto moderno construido junto a la torre en ruinas: llaman "la polvera" a la iglesia octogonal de cristal azul, por su forma redondeada y compacta, y "la barra de labios" al campanario hexagonal independiente, por su silueta esbelta y vertical. Estos apodos cariñosos, muy extendidos entre los propios habitantes de la ciudad, contrastan deliberadamente con la solemnidad del nombre oficial del conjunto.',
+              'Los mosaicos que sobreviven dentro de la torre en ruinas, en el vestíbulo de entrada, representan la genealogía de la dinastía Hohenzollern a lo largo de varios siglos, con retratos de emperadores y electores prusianos sobre fondo dorado. Son uno de los pocos conjuntos decorativos completos del edificio original que resistió el bombardeo de 1943 prácticamente intacto, y hoy ofrecen una idea de cómo era el lujoso interior neorrománico antes de su destrucción.'
             ],
             kids: [
-              '¡A los edificios modernos de al lado también les pusieron motes graciosos! A la iglesia nueva la llaman "la polvera" y a la torre del campanario "la barra de labios", por su forma.',
-              'Dentro de la torre rota se conservan dibujos hechos con trocitos de piedra y cristal (mosaicos) que muestran el árbol genealógico de una familia real muy importante.'
+              '¡A los edificios modernos de al lado también les pusieron motes muy graciosos! A la iglesia nueva, la de cristal azul, la llaman "la polvera", porque tiene una forma redondita parecida a esas cajitas de maquillaje. Y a la torre del campanario, más alta y estrecha, la llaman "la barra de labios", ¡por su forma alargada!',
+              'Dentro de la torre rota se conservan dibujos antiguos hechos con trocitos de piedra y cristal, llamados mosaicos, que muestran el árbol genealógico de una familia real muy importante, con muchos reyes y emperadores pintados uno detrás de otro. Es una de las pocas partes del interior original que sobrevivió casi entera a la bomba que destrozó el resto del edificio.'
             ]
           }
         },
@@ -673,12 +673,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'El famoso "Gabinete de Ámbar", un fastuoso salón revestido de ámbar tallado que después se hizo célebre en Rusia, se creó originalmente para la corte prusiana antes de ser regalado al zar Pedro el Grande en 1716; su paradero final, tras desaparecer durante la Segunda Guerra Mundial, sigue sin resolverse del todo.',
-              'El palacio también acoge la Cámara de Porcelana, una sala cubierta de suelo a techo con piezas de porcelana china y japonesa, uno de los interiores más singulares de toda la corte prusiana.'
+              'El famoso "Gabinete de Ámbar", un fastuoso salón revestido por completo de paneles de ámbar tallado y hoja de oro que después se hizo mundialmente célebre instalado en Rusia, se diseñó y ensambló originalmente aquí, para la corte prusiana, antes de ser regalado al zar Pedro el Grande en 1716 como gesto de alianza política. Su paradero final, tras desaparecer de un palacio ruso durante la ocupación nazi en la Segunda Guerra Mundial, sigue sin resolverse del todo pese a décadas de búsquedas.',
+              'El palacio también acoge la Cámara de Porcelana, una sala cubierta literalmente de suelo a techo con miles de piezas de porcelana china y japonesa engarzadas directamente en las paredes, formando un mosaico continuo de azul y blanco. Es uno de los interiores más singulares de toda la corte prusiana, reflejo de la fascinación europea del siglo XVIII por el coleccionismo de porcelana asiática, entonces un símbolo de riqueza y refinamiento cortesano.'
             ],
             kids: [
-              '¡Una sala famosísima llena de ámbar tallado, que después acabó en Rusia y se hizo mundialmente famosa, se creó primero aquí, como regalo para un zar ruso! Todavía nadie sabe dónde acabó esa sala después de la guerra.',
-              'Hay una habitación entera del palacio cubierta de arriba abajo con platos y jarrones de porcelana china y japonesa, ¡como si las paredes fueran de porcelana en vez de piedra! 🏺'
+              '¡Una sala famosísima llena de paneles y adornos de ámbar tallado, que después acabó en Rusia y se hizo mundialmente famosa, se diseñó primero aquí, para la corte de Prusia, como regalo para un zar ruso hace más de 300 años! Durante la Segunda Guerra Mundial esa sala desapareció de Rusia, y todavía hoy, aunque mucha gente la ha buscado, nadie sabe con certeza dónde acabó.',
+              'Hay una habitación entera del palacio cubierta de arriba abajo, en todas sus paredes, con miles de platos y jarrones de porcelana china y japonesa pegados directamente encima, ¡como si fuera un mosaico gigante en vez de una pared normal! 🏺 Antiguamente tener tanta porcelana junta era una forma de presumir de ser muy rico e importante.'
             ]
           }
         },
@@ -737,12 +737,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'La plaza se llamó durante mucho tiempo Opernplatz, por la Ópera Estatal que la bordea, y no adoptó su nombre actual, en honor al político socialista August Bebel, hasta después de la Segunda Guerra Mundial.',
-              'Frente a la plaza se alza la cúpula verde de la Catedral de Santa Eduviges, la primera iglesia católica construida en Berlín tras la Reforma protestante, encargada también por Federico el Grande como gesto de tolerancia religiosa.'
+              'La plaza se llamó durante mucho tiempo Opernplatz, "plaza de la Ópera", por la Ópera Estatal que todavía hoy la bordea, y no adoptó su nombre actual, en honor al político socialista alemán August Bebel, hasta 1947, ya en la posguerra. El cambio de nombre, decidido en plena ocupación aliada, buscaba distanciar simbólicamente el lugar de su pasado imperial y del episodio de la quema de libros ocurrido allí en 1933.',
+              'Frente a la plaza se alza la cúpula verde de la Catedral de Santa Eduviges, la primera iglesia católica construida en Berlín tras la Reforma protestante que había hecho de la ciudad un feudo firmemente luterano. La encargó también Federico el Grande, un monarca protestante, como gesto deliberado de tolerancia religiosa hacia los nuevos súbditos católicos, muchos de ellos procedentes de Silesia, territorio que Prusia acababa de conquistar a Austria.'
             ],
             kids: [
-              '¡Esta plaza no siempre se llamó así! Antes se llamaba "Plaza de la Ópera", por el gran teatro que tiene al lado.',
-              'Justo enfrente hay una catedral con una cúpula verde muy bonita: fue la primera iglesia católica que se construyó en Berlín después de que la ciudad se hiciera protestante. ⛪'
+              '¡Esta plaza no siempre se llamó así! Durante mucho tiempo se llamó "Plaza de la Ópera", por el gran teatro que todavía sigue teniendo al lado. Le cambiaron el nombre después de la Segunda Guerra Mundial, en honor a un político importante, en parte para que la plaza dejara de recordar tanto lo que había pasado allí durante la época nazi.',
+              'Justo enfrente hay una catedral con una cúpula verde muy bonita: fue la primera iglesia católica que se construyó en Berlín después de que la ciudad se hiciera protestante. ⛪ La mandó construir un rey protestante, como forma de dar la bienvenida a personas católicas que habían llegado a vivir a Prusia desde otras tierras.'
             ]
           }
         },
@@ -802,12 +802,12 @@ CITIES.berlin.pois = [
           },
           deepenFillers: {
             adult: [
-              'El nombre del edificio rinde homenaje a los hermanos Alexander y Wilhelm von Humboldt, el naturalista explorador y el lingüista y reformador educativo, ambos figuras clave de la ciencia y la cultura alemanas del siglo XIX.',
-              'Bajo la plaza cubierta se conservan visibles restos arqueológicos del antiguo Palacio de la República comunista, así como vestigios medievales anteriores incluso al primer palacio real, descubiertos durante las obras de reconstrucción.'
+              'El nombre del edificio rinde homenaje a los hermanos Alexander y Wilhelm von Humboldt, dos de las figuras intelectuales más influyentes de la Alemania del siglo XIX: Alexander fue un naturalista y explorador que recorrió América Latina documentando su flora, fauna y geología, mientras que Wilhelm, lingüista y filósofo, reformó el sistema educativo prusiano y dio nombre a la Universidad Humboldt de Berlín. El edificio pretende continuar hoy su legado como espacio de diálogo entre ciencia y culturas del mundo.',
+              'Bajo la plaza cubierta se conservan visibles, protegidos tras cristaleras, restos arqueológicos del antiguo Palacio de la República comunista, así como vestigios medievales anteriores incluso al primer palacio real de 1443, descubiertos por sorpresa durante las obras de reconstrucción del edificio actual. Esta estratificación visible de distintas épocas —medieval, imperial, comunista y contemporánea— convierte el propio subsuelo del edificio en un pequeño museo adicional sobre la historia superpuesta de Berlín.'
             ],
             kids: [
-              '¡El edificio se llama así en honor a dos hermanos alemanes muy famosos, Alexander y Wilhelm von Humboldt! Uno era explorador y el otro un experto en idiomas y educación.',
-              'Mientras construían el edificio de hoy, encontraron restos escondidos bajo tierra de construcciones todavía más antiguas, ¡de antes incluso del primer palacio!'
+              '¡El edificio se llama así en honor a dos hermanos alemanes muy famosos, Alexander y Wilhelm von Humboldt! Alexander viajó por América explorando plantas, animales y montañas que nadie de Europa había estudiado antes, y Wilhelm era un experto en idiomas y educación que ayudó a cambiar cómo se enseñaba en las escuelas de Prusia. Hasta una universidad de Berlín lleva su nombre.',
+              'Mientras construían el edificio de hoy, los obreros encontraron por sorpresa restos escondidos bajo tierra de construcciones todavía más antiguas, ¡de antes incluso del primer palacio, de hace casi 600 años! Ahora se pueden ver protegidos detrás de cristales, así que bajo la plaza principal se mezclan restos de varias épocas distintas, una encima de otra.'
             ]
           }
         },

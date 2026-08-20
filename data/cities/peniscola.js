@@ -46,14 +46,14 @@ CITIES.peniscola.pois = [
           },
           deepenFillers: {
             adult: [
-              'El castillo no tenía manantial propio, así que dependía de aljibes excavados en la roca para recoger agua de lluvia, un sistema que le permitía resistir asedios prolongados sin salir al exterior.',
-              'Tras la muerte de Benedicto XIII en 1423, sus restos no permanecieron en Peñíscola: se dice que con el tiempo fueron trasladados hacia Aragón, aunque su paradero definitivo sigue siendo objeto de debate entre historiadores.',
-              'El castillo fue declarado Monumento Nacional en 1931, un reconocimiento que impulsó después su restauración a lo largo del siglo XX.'
+              'El castillo no tenía manantial propio, así que dependía por completo de aljibes excavados en la roca para recoger y almacenar el agua de lluvia que caía sobre sus tejados y patios. Rodeado de agua salada por todos los costados, ese sistema de cisternas era la única fuente de agua potable de la fortaleza, y resultó decisivo durante los años en que Benedicto XIII se mantuvo aislado y sitiado: sin esos depósitos, su resistencia solitaria frente a media cristiandad difícilmente habría durado tanto tiempo.',
+              'Tras la muerte de Benedicto XIII en 1423, sus restos no permanecieron en Peñíscola: fueron enterrados primero aquí mismo, en el castillo que había sido su corte, pero con el paso de los años se dice que un sobrino los trasladó hacia Aragón, posiblemente hasta el castillo de Illueca, su localidad natal. Los diferentes traslados y las guerras posteriores hicieron que se perdiera el rastro definitivo, así que hoy su paradero final sigue siendo objeto de debate entre historiadores, sin que ninguna hipótesis se haya podido confirmar del todo.',
+              'El castillo fue declarado Monumento Nacional en 1931, en plena Segunda República, un reconocimiento que llegó cuando el edificio arrastraba siglos de desgaste y abandono parcial tras dejar de tener uso militar activo. Ese estatus legal permitió después impulsar sucesivas campañas de restauración a lo largo del siglo XX, que fueron recuperando estancias, muros y accesos hasta convertirlo en el monumento visitable y frecuentado por rodajes que es hoy.'
             ],
             kids: [
-              '¡Este castillo no tenía ningún pozo con agua natural! 💧 Por eso construyeron depósitos para guardar el agua de lluvia y aguantar mucho tiempo sin salir, ¡incluso si alguien lo rodeaba!',
-              'Cuando el Papa Luna murió, ¡su cuerpo viajó lejos de aquí! 🗺️ Nadie sabe con seguridad dónde terminó descansando para siempre, ¡es un pequeño misterio histórico!',
-              '¡En 1931, este castillo recibió un reconocimiento importante por ser un tesoro histórico de España! 🏆 Gracias a eso, después lo cuidaron y arreglaron mucho mejor.'
+              '¡Este castillo no tenía ningún pozo con agua natural, y a su alrededor solo había agua salada del mar! 💧 Por eso construyeron depósitos escondidos en la roca para guardar toda el agua de lluvia que caía. Gracias a esos depósitos podían aguantar muchísimo tiempo sin salir, ¡incluso si alguien los rodeaba e intentaba dejarlos sin comida ni agua!',
+              'Cuando el Papa Luna murió, primero lo enterraron aquí mismo, en su propio castillo. Pero con los años, ¡su cuerpo viajó lejos, hacia tierras de Aragón! 🗺️ Se cree que un familiar suyo lo llevó hasta su pueblo natal, pero con tantos viajes y tanto tiempo, nadie sabe con seguridad dónde terminó descansando para siempre. ¡Es un pequeño misterio histórico sin resolver!',
+              '¡En 1931, este castillo recibió un reconocimiento importante por ser un tesoro histórico de España! 🏆 Antes de eso llevaba muchos años un poco abandonado, sin que nadie lo cuidara demasiado. Gracias a ese reconocimiento, con el paso de los años lo fueron arreglando poquito a poco, ¡hasta dejarlo tan bonito que hoy hasta se puede visitar y rodar películas dentro!'
             ]
           }
         },
@@ -118,14 +118,14 @@ CITIES.peniscola.pois = [
           },
           deepenFillers: {
             adult: [
-              'Antonelli pertenecía a una célebre familia de ingenieros militares italianos al servicio de la Corona española, que también fortificó plazas tan lejanas como Cartagena de Indias o San Juan de Puerto Rico, aplicando en Peñíscola la misma lógica defensiva que al otro lado del Atlántico.',
-              'El recinto amurallado protege solo el casco histórico original alrededor del castillo: el resto de Peñíscola, con sus hoteles y su paseo marítimo, creció mucho más tarde, ya en el siglo XX, de la mano del turismo.',
-              'La silueta que forman las murallas fundidas con el castillo sobre la roca ha hecho que a Peñíscola se la conozca popularmente como "el Gibraltar valenciano".'
+              'Antonelli pertenecía a una célebre familia de ingenieros militares italianos al servicio de la Corona española, cuyos distintos miembros trabajaron durante varias generaciones fortificando plazas por todo el imperio. Ese mismo apellido aparece firmando fortificaciones tan lejanas como Cartagena de Indias o San Juan de Puerto Rico, lo que da una idea de la escala del proyecto defensivo español de la época: la misma lógica de bastiones y muros gruesos que se aplicó en Peñíscola se repitió, con variaciones locales, en puertos de todo el Atlántico.',
+              'El recinto amurallado protege solo el casco histórico original alrededor del castillo, un núcleo compacto pensado para defenderse, no para crecer. El resto de Peñíscola, con sus hoteles, su paseo marítimo y sus urbanizaciones, quedó fuera de esos muros y se desarrolló mucho más tarde, ya en el siglo XX, de la mano del turismo de masas: por eso hoy conviven, a pocos metros de distancia, un trazado medieval casi intacto y una fachada costera claramente contemporánea.',
+              'La silueta que forman las murallas fundidas con el castillo sobre la roca, vista desde la playa o desde el mar, recuerda a otros grandes peñones fortificados del Mediterráneo, y ha hecho que a Peñíscola se la conozca popularmente como "el Gibraltar valenciano". El apodo, aunque informal, se ha popularizado tanto en guías turísticas como entre los propios vecinos, y resume bien esa imagen de roca inexpugnable asomada al mar que definió la ciudad durante siglos.'
             ],
             kids: [
-              '¡El ingeniero que diseñó esta muralla, un italiano llamado Antonelli, también construyó fortalezas gigantes al otro lado del océano, en América! 🌎 ¡Sus planos viajaron muchísimo más lejos que él!',
-              'Hace tiempo, todo el pueblo vivía apretadito dentro de estas murallas, alrededor del castillo. 🏘️ ¡El resto de Peñíscola, con la playa y los hoteles, se construyó mucho, mucho más tarde!',
-              '¡A Peñíscola la llaman a veces "el Gibraltar valenciano"! 🗺️ Es porque, vista desde lejos, su roca con el castillo y la muralla se parece a otro peñón famoso muy lejos de aquí.'
+              '¡El ingeniero que diseñó esta muralla, un italiano llamado Antonelli, venía de una familia entera de constructores de fortalezas! 🌎 Otros miembros de su familia construyeron murallas gigantes al otro lado del océano, en lugares como Puerto Rico o Colombia. ¡Así que las mismas ideas para defender un pueblo del mar viajaron muchísimo más lejos que cualquiera de ellos!',
+              'Hace tiempo, todo el pueblo vivía apretadito dentro de estas murallas, alrededor del castillo, porque fuera de ellas no había protección. 🏘️ ¡El resto de Peñíscola, con la playa, los hoteles y el paseo marítimo, se construyó mucho, mucho más tarde, cuando empezó a venir gente de vacaciones! Por eso hoy puedes pasar en pocos pasos de calles antiguas a edificios modernos.',
+              '¡A Peñíscola la llaman a veces "el Gibraltar valenciano"! 🗺️ Es porque, vista desde lejos, su roca con el castillo y la muralla encima se parece a otro peñón muy famoso que está muy lejos de aquí, asomado también al mar. ¡Mucha gente que llega en barco dice que de lejos cuesta creer que no sea el mismo lugar!'
             ]
           }
         },
@@ -190,12 +190,12 @@ CITIES.peniscola.pois = [
           },
           deepenFillers: {
             adult: [
-              'Fenómenos similares a este, llamados también "bufadores" o "bufaderos", existen en otros puntos rocosos del Mediterráneo y del Cantábrico; el de Peñíscola es uno de los más conocidos de la Comunidad Valenciana por su cercanía al castillo.',
-              'El chorro se aprecia mejor durante los temporales de levante, cuando el oleaje golpea directamente esta cara norte de la península; con el mar en calma, la grieta apenas produce sonido.'
+              'Fenómenos similares a este, llamados también "bufadores" o "bufaderos", existen en otros puntos rocosos del Mediterráneo y, sobre todo, del Cantábrico, donde el oleaje atlántico suele ser mucho más fuerte y estos chorros alcanzan alturas espectaculares. El de Peñíscola es más modesto en tamaño, pero se ha convertido en uno de los más conocidos de la Comunidad Valenciana precisamente por su cercanía al castillo, lo que permite visitarlo casi sin desviarse de la ruta principal.',
+              'El chorro se aprecia mejor durante los temporales de levante, cuando el oleaje golpea directamente esta cara norte de la península y entra con fuerza por la abertura inferior de la grieta. Con el mar en calma, en cambio, la cavidad apenas produce sonido y puede pasar completamente desapercibida para quien no sepa que está ahí, lo que hace que la experiencia de visitarla cambie por completo según el día y el estado del mar.'
             ],
             kids: [
-              '¡Hay otras rocas "bufadoras" como esta en otras playas de España! 🌍 Pero esta de Peñíscola es una de las más famosas, ¡porque está pegadita al castillo!',
-              '¡El Bufador resopla más fuerte cuando el mar viene revuelto desde el este! 💨 Si el mar está tranquilo, casi ni se le oye respirar.'
+              '¡Hay otras rocas "bufadoras" como esta en otras playas de España, sobre todo en el norte, donde las olas son aún más fuertes! 🌍 Allí el chorro de agua puede salir disparado todavía más alto. Pero esta de Peñíscola es una de las más famosas de la zona, ¡porque está pegadita al castillo y es facilísima de visitar!',
+              '¡El Bufador resopla más fuerte cuando el mar viene revuelto desde el este y las olas chocan justo contra su lado de la roca! 💨 Si el mar está tranquilo, en cambio, casi ni se le oye respirar, ¡y puedes pasar por delante sin darte ni cuenta de que está ahí! Por eso cada visita puede ser distinta.'
             ]
           }
         },
@@ -261,14 +261,14 @@ CITIES.peniscola.pois = [
           },
           deepenFillers: {
             adult: [
-              'El propio nombre "La Llotja" hace referencia a la lonja, el mercado donde tradicionalmente se subastaba el pescado nada más llegar a puerto; aunque este restaurante es una parada imaginada, el término evoca con precisión el mundo marinero real de Peñíscola.',
-              'El arròs a banda que protagoniza esta parada se sirve tradicionalmente en dos tiempos: primero el pescado con el que se ha cocinado el caldo, y después el arroz, que absorbe todo su sabor; de ahí viene precisamente el nombre del plato, "arroz aparte".',
-              'Si esta parada existiera de verdad, probablemente serviría también "suquet de peix", otro plato clásico de las lonjas mediterráneas, hecho con pescado de roca y patata en un caldo suave.'
+              'El propio nombre "La Llotja" hace referencia a la lonja, el mercado donde tradicionalmente se subastaba a viva voz el pescado nada más llegar a puerto, con los compradores pujando entre cajas todavía húmedas de agua de mar. Aunque este restaurante es una parada imaginada dentro de la ruta, el término evoca con precisión el mundo marinero real de Peñíscola, ese ritmo diario entre barcos, lonja y fogones que durante generaciones marcó la vida del pueblo.',
+              'El arròs a banda que protagoniza esta parada se sirve tradicionalmente en dos tiempos: primero el pescado con el que se ha cocinado el caldo, servido aparte con alioli, y después el arroz, cocinado en ese mismo fondo y que absorbe todo su sabor concentrado. De ahí viene precisamente el nombre del plato, "arroz aparte", una fórmula pensada originalmente por los propios pescadores para aprovechar en una sola olla, a bordo o al volver a puerto, el pescado menos vistoso de la captura.',
+              'Si esta parada existiera de verdad, probablemente serviría también "suquet de peix", otro plato clásico de las lonjas mediterráneas, hecho con pescado de roca y patata cocidos despacio en un caldo suave con ajo, tomate y azafrán. Como el arròs a banda, nació como comida práctica de pescadores, pensada para aprovechar en un solo guiso las piezas que no se vendían bien en la subasta, y con el tiempo acabó convertido en uno de los platos más apreciados de toda la Costa del Azahar.'
             ],
             kids: [
-              '¡El nombre "La Llotja" viene de la palabra "lonja", que es donde se vendía el pescado recién sacado del mar! 🐟 Aunque este restaurante nos lo estamos imaginando, ¡la palabra sí que es de verdad!',
-              '¡El arroz a banda se come en dos partes! 🍚 Primero te comes el pescado que le dio sabor al caldo, ¡y luego te comes el arroz solito, que ha quedado buenísimo!',
-              'Si este sitio existiera de verdad, seguramente también tendría "suquet de pescado", ¡otro plato marinero riquísimo con patatas! 🥔🐠 ¿Te gustaría probarlo?'
+              '¡El nombre "La Llotja" viene de la palabra "lonja", que es el sitio donde se vendía el pescado recién sacado del mar, con la gente gritando precios para comprarlo antes que nadie! 🐟 Aunque este restaurante nos lo estamos imaginando entre parada y parada, ¡la palabra y las lonjas de verdad siguen existiendo hoy en muchos puertos de España!',
+              '¡El arroz a banda se come en dos partes! 🍚 Primero te comes el pescado que le dio sabor al caldo, normalmente con un poquito de salsa de ajo. Y luego llega el arroz, cocinado en ese mismo caldo tan sabroso, ¡que absorbe todo el sabor del mar como si fuera una esponjita deliciosa! Los pescadores lo inventaron para aprovechar bien la pesca del día.',
+              'Si este sitio existiera de verdad, seguramente también tendría "suquet de pescado", ¡otro plato marinero riquísimo con patatas cocinadas despacito en un caldo con tomate! 🥔🐠 Igual que el arroz a banda, lo inventaron los pescadores para aprovechar el pescado que les sobraba después de vender lo mejor en la lonja. ¿Te gustaría probarlo alguna vez?'
             ]
           }
         }
@@ -313,14 +313,14 @@ CITIES.peniscola.pois = [
           },
           deepenFillers: {
             adult: [
-              'Casos como el de Peñíscola, donde el mar unió una roca aislada a tierra firme mediante una franja de arena, son relativamente raros en la costa mediterránea y suelen citarse en geografía como ejemplo clásico de tómbolo.',
-              'El perfil de altos edificios de apartamentos que hoy bordea la Playa Norte, fruto del boom turístico de los años sesenta y setenta, ha hecho que algunos apoden a esta zona "el Manhattan valenciano", en marcado contraste con las calles medievales del casco antiguo.',
-              'Al mirar hacia el mar abierto, la Playa Norte es uno de los mejores puntos para ver el amanecer con la silueta del castillo recortada a un lado, un momento muy buscado por los fotógrafos madrugadores.'
+              'Casos como el de Peñíscola, donde el mar unió una roca aislada a tierra firme mediante una franja de arena, son relativamente raros en la costa mediterránea y suelen citarse en libros de geografía como ejemplo clásico de tómbolo, junto a otros formados en distintas costas del mundo. Lo singular aquí es que sobre ese tómbolo se acabó construyendo una ciudad entera con castillo incluido, algo que no ocurre en la mayoría de los ejemplos que se estudian en clase.',
+              'El perfil de altos edificios de apartamentos que hoy bordea la Playa Norte, fruto del boom turístico de los años sesenta y setenta que transformó buena parte de la costa mediterránea española, ha hecho que algunos apoden a esta zona "el Manhattan valenciano". El contraste es especialmente llamativo porque, a apenas unos minutos andando, ese mismo paseo desemboca en las calles estrechas y el trazado medieval casi intacto del casco antiguo, dos paisajes urbanos de épocas muy distintas conviviendo en una misma ciudad.',
+              'Al mirar hacia el mar abierto, la Playa Norte es uno de los mejores puntos para ver el amanecer con la silueta del castillo recortada a un lado, mientras el sol asoma directamente sobre el horizonte marino sin obstáculos que lo tapen. Es un momento muy buscado por los fotógrafos madrugadores y por quienes visitan Peñíscola fuera de temporada alta, cuando la playa está prácticamente vacía y la luz de primera hora resalta todavía más el contraste entre la arena, el mar y la piedra del castillo.'
             ],
             kids: [
-              '¡Lo que pasó en Peñíscola, donde el mar unió una roca con la playa usando arena, no ocurre en muchos sitios! 🌍 Por eso los libros de geografía la ponen como ejemplo perfecto.',
-              '¡Al lado de la playa hay un montón de edificios altísimos! 🏙️ Se construyeron hace muchos años, cuando empezó a venir gente de vacaciones, y por eso algunos llaman a esta zona "el Manhattan valenciano".',
-              'Si te levantas prontito, puedes ver salir el sol sobre el mar con el castillo al lado, ¡una de las fotos más bonitas que te puedes llevar de Peñíscola! 🌅📸'
+              '¡Lo que pasó en Peñíscola, donde el mar unió una roca con la playa usando arena, no ocurre en muchos sitios del mundo! 🌍 Por eso los libros de geografía la ponen como ejemplo perfecto de algo que se llama "tómbolo". ¡Y lo más chulo es que en esa roca unida por arena la gente construyó todo un castillo y una ciudad entera!',
+              '¡Al lado de la playa hay un montón de edificios altísimos! 🏙️ Se construyeron hace muchos años, cuando empezó a venir mucha gente de vacaciones en verano, y por eso algunos llaman a esta zona "el Manhattan valenciano". Lo curioso es que, caminando solo unos minutos desde ahí, ¡llegas a calles pequeñitas y antiguas que parecen de otra época completamente distinta!',
+              'Si te levantas prontito, puedes ver salir el sol sobre el mar con el castillo al lado, ¡una de las fotos más bonitas que te puedes llevar de Peñíscola! 🌅📸 A esa hora casi no hay nadie en la playa, así que puedes disfrutar tranquilamente del momento en que el cielo se llena de colores naranjas y rosas antes de que llegue el resto del día.'
             ]
           }
         },
@@ -385,12 +385,12 @@ CITIES.peniscola.pois = [
           },
           deepenFillers: {
             adult: [
-              'Debido a sus sucesivas reconstrucciones a lo largo de los siglos, el templo combina elementos góticos de su construcción original en el siglo XIII con añadidos barrocos del XVIII, una mezcla de estilos poco habitual en un edificio de tamaño tan modesto.',
-              'Aunque conserva objetos personales del Papa Luna, la patrona oficial de Peñíscola no se venera aquí, sino en la cercana ermita de la Ermitana, a un breve paseo por la calle que sube hacia el castillo: dos templos vecinos con papeles religiosos distintos dentro del mismo recinto amurallado.'
+              'Debido a sus sucesivas reconstrucciones a lo largo de los siglos —tras el incendio del siglo XV y la gran ampliación del siglo XVIII—, el templo combina elementos góticos de su construcción original en el siglo XIII con añadidos barrocos posteriores, sin que ninguna reforma llegara a borrar del todo las huellas de la anterior. Es una mezcla de estilos poco habitual en un edificio de tamaño tan modesto, que solo se aprecia bien fijándose en los detalles de muros, portada y bóvedas.',
+              'Aunque conserva objetos personales del Papa Luna, la patrona oficial de Peñíscola no se venera aquí, sino en la cercana ermita de la Ermitana, a un breve paseo por la calle que sube hacia el castillo. Esa separación no es casual: mientras esta iglesia funcionaba como parroquia principal del pueblo, la ermita cumplía un papel devocional distinto, ligado directamente a la patrona, así que durante siglos ambos templos convivieron dentro del mismo recinto amurallado repartiéndose funciones religiosas complementarias.'
             ],
             kids: [
-              '¡Este edificio es como un collage! 🎨 Tiene partes muy antiguas, del siglo XIII, mezcladas con otras partes añadidas mucho después, en el siglo XVIII.',
-              'Aunque aquí se guardan cosas del Papa Luna, ¡la Virgen que es la patrona del pueblo vive en otra iglesia muy cerca, subiendo hacia el castillo! ⛪➡️🏰 Son dos iglesias vecinas con trabajos distintos.'
+              '¡Este edificio es como un collage hecho a lo largo de cientos de años! 🎨 Tiene partes muy antiguas, del siglo XIII, mezcladas con otras partes añadidas mucho después, en el siglo XVIII, ¡tras un incendio que destrozó buena parte del edificio original! Si te fijas bien en las paredes y en la puerta, casi puedes adivinar qué trozos son los más viejos.',
+              'Aunque aquí se guardan cosas del Papa Luna, ¡la Virgen que es la patrona del pueblo vive en otra iglesia muy cerca, subiendo hacia el castillo! ⛪➡️🏰 Son dos iglesias vecinas, casi como si fueran compañeras de trabajo: esta era la iglesia principal del pueblo, y la otra estaba dedicada especialmente a cuidar a la patrona. ¡Cada una con su propia tarea!'
             ]
           }
         },
@@ -455,12 +455,12 @@ CITIES.peniscola.pois = [
           },
           deepenFillers: {
             adult: [
-              'La ermita está literalmente adosada a los muros del castillo, hasta el punto de compartir parte de su estructura con la fortaleza: un templo religioso y una fortificación militar fundidos en una sola construcción, algo poco habitual.',
-              'El escudo de Felipe V que corona la fachada no es un adorno cualquiera: recuerda que esta ermita se construyó como agradecimiento explícito del primer rey Borbón a un pueblo que le fue leal durante la guerra que le enfrentó al archiduque Carlos por el trono de España.'
+              'La ermita está literalmente adosada a los muros del castillo, hasta el punto de compartir parte de su estructura con la fortaleza: un templo religioso y una fortificación militar fundidos en una sola construcción, algo poco habitual que refleja bien la doble naturaleza histórica de este peñón, a la vez plaza defensiva y centro de culto. Caminando entre ambos edificios apenas se percibe dónde termina uno y empieza el otro.',
+              'El escudo de Felipe V que corona la fachada no es un adorno cualquiera: recuerda que esta ermita se construyó como agradecimiento explícito del primer rey Borbón a un pueblo que le fue leal durante la guerra que le enfrentó al archiduque Carlos por el trono de España, un conflicto que dividió a buena parte de los territorios de la antigua Corona de Aragón. Ese gesto real, tallado en piedra sobre la puerta, convirtió a la propia fachada en un pequeño monumento político además de religioso.'
             ],
             kids: [
-              '¡Esta ermita está pegada al castillo de verdad, no solo al lado! 🏰🔗 Algunas de sus paredes son casi las mismas que las de la fortaleza, ¡como si fueran un edificio conjunto!',
-              '¿Ves el escudo en la fachada? 👑 Es del rey Felipe V, ¡y lo pusieron ahí para darle las gracias al pueblo por apoyarlo en una guerra hace más de 300 años!'
+              '¡Esta ermita está pegada al castillo de verdad, no solo al lado! 🏰🔗 Algunas de sus paredes son casi las mismas que las de la fortaleza, ¡como si fueran un edificio conjunto! Es un poco como si un templo y un castillo hubieran decidido compartir habitación, y por eso a veces cuesta saber dónde termina uno y empieza el otro.',
+              '¿Ves el escudo en la fachada? 👑 Es del rey Felipe V, ¡y lo pusieron ahí para darle las gracias al pueblo por apoyarlo durante una guerra hace más de 300 años, cuando dos familias se peleaban por ser reyes de España! Así que ese escudo tallado en piedra es como un "gracias" gigante que ha durado siglos.'
             ]
           }
         },
