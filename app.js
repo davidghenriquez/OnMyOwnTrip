@@ -891,7 +891,49 @@
       return isValid(stored.expires) ? stored : null;
     };
 
-    return { check, readStored, writeStored, clearStored, checkStoredValidOffline };
+    // Vigilancia mientras la app está en uso: sin esto, una revocación o
+    // caducidad solo se notaba en la SIGUIENTE vez que se abría la app (la
+    // sesión ya en curso seguía funcionando con lo cacheado hasta entonces).
+    // Se revisa cada minuto contra el Worker (consulta muy barata, no
+    // consume la cuota de Gemini, ver el orden de rutas en proxy.js) y
+    // también en cuanto se vuelve a esta pestaña tras estar en segundo
+    // plano, que es cuando más sentido tiene refrescar el estado.
+    const WATCH_INTERVAL_MS = 60 * 1000;
+    let watchTimer = null;
+    let watchVisibilityHandler = null;
+
+    const stopWatching = () => {
+      if (watchTimer) { clearInterval(watchTimer); watchTimer = null; }
+      if (watchVisibilityHandler) {
+        document.removeEventListener('visibilitychange', watchVisibilityHandler);
+        watchVisibilityHandler = null;
+      }
+    };
+
+    // onInvalid(result) se llama en cuanto el Worker deja de confirmar el
+    // acceso (caducado, revocado, o el usuario ya no existe en el KV) — NO
+    // se llama por un simple fallo de red ('offline'), para no bloquear a
+    // alguien sin cobertura en mitad de una visita que ya se había validado.
+    const startWatching = (username, onInvalid) => {
+      stopWatching();
+      const recheck = async () => {
+        const result = await check(username);
+        if (result.ok) {
+          writeStored({ username, expires: result.expires });
+        } else if (result.reason !== 'offline') {
+          stopWatching();
+          clearStored();
+          onInvalid(result);
+        }
+      };
+      watchTimer = setInterval(recheck, WATCH_INTERVAL_MS);
+      watchVisibilityHandler = () => {
+        if (document.visibilityState === 'visible') recheck();
+      };
+      document.addEventListener('visibilitychange', watchVisibilityHandler);
+    };
+
+    return { check, readStored, writeStored, clearStored, checkStoredValidOffline, startWatching, stopWatching };
   })();
 
   const ICONS = {
@@ -5802,19 +5844,19 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
 
   // Muestra la pantalla principal de siempre (elegir ciudad y modo), una
   // vez superada la comprobación de licencia (ver LICENSE más arriba).
+  // Idempotente a propósito: tras un bloqueo a media sesión (ver lockApp)
+  // la app ya estaba revelada de antes, así que volver a pasar la
+  // comprobación no debe re-enganchar los mismos listeners por segunda vez.
+  let appRevealed = false;
   const revealApp = () => {
+    if (appRevealed) return;
+    appRevealed = true;
     // Al abrir el enlace siempre se muestra la pantalla principal (elegir
     // ciudad y modo), aunque ya se hubiera elegido una ciudad antes.
     const ob = $('#onboarding');
     if (ob) { ob.hidden = false; ob.setAttribute('aria-hidden', 'false'); }
     wireOnboarding();
     wireScanLogModal();
-  };
-
-  const fmtLicenseDate = (iso) => {
-    if (!iso) return '';
-    const [y, m, d] = iso.split('-');
-    return `${d}/${m}/${y}`;
   };
 
   const setLicenseGateError = (msg) => {
@@ -5829,7 +5871,8 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     if (!gate) { revealApp(); return; } // sin el marcado en el HTML, no bloqueamos la app
     gate.hidden = false;
     gate.setAttribute('aria-hidden', 'false');
-    $('#licenseGateInput')?.focus();
+    const input = $('#licenseGateInput');
+    if (input) { input.value = ''; input.focus(); }
   };
 
   const hideLicenseGate = () => {
@@ -5837,6 +5880,15 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     if (!gate) return;
     gate.hidden = true;
     gate.setAttribute('aria-hidden', 'true');
+  };
+
+  // Bloqueo a media sesión (ver LICENSE.startWatching): a diferencia de la
+  // primera vez, aquí la app ya estaba abierta y puede que sonando, así que
+  // se para el audio antes de tapar la pantalla con la puerta de acceso.
+  const lockApp = () => {
+    try { stopAudio(); } catch (_) {}
+    setLicenseGateError('Licencia caducada. Solicita una nueva clave para continuar.');
+    showLicenseGate();
   };
 
   const wireLicenseGate = () => {
@@ -5858,11 +5910,12 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       if (result.ok) {
         LICENSE.writeStored({ username, expires: result.expires });
         hideLicenseGate();
-        revealApp();
+        revealApp(); // no-op si la app ya se había revelado antes de un bloqueo
+        LICENSE.startWatching(username, lockApp);
         return;
       }
       if (result.reason === 'expired') {
-        setLicenseGateError(`Tu acceso caducó el ${fmtLicenseDate(result.expires)}. Contacta con quien te lo dio para una clave nueva.`);
+        setLicenseGateError('Licencia caducada. Solicita una nueva clave para continuar.');
       } else if (result.reason === 'offline') {
         setLicenseGateError('No se pudo comprobar el acceso (sin conexión). Inténtalo de nuevo cuando tengas red.');
       } else {
@@ -5881,12 +5934,21 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const cached = LICENSE.checkStoredValidOffline();
     if (cached) {
       revealApp();
-      // Revalidación en segundo plano contra el fichero real: no bloquea
-      // esta sesión (ya en curso), pero detecta una revocación o
-      // caducidad para la próxima vez que se abra la app.
+      // Revalidación contra el Worker real: si ya no es válido, bloquea de
+      // inmediato en vez de esperar a la siguiente apertura de la app. Si
+      // sigue siendo válido, arranca además la vigilancia periódica (ver
+      // LICENSE.startWatching) para detectar una revocación mientras la
+      // app sigue abierta.
       LICENSE.check(cached.username).then((result) => {
-        if (result.ok) LICENSE.writeStored({ username: cached.username, expires: result.expires });
-        else LICENSE.clearStored();
+        if (result.ok) {
+          LICENSE.writeStored({ username: cached.username, expires: result.expires });
+          LICENSE.startWatching(cached.username, lockApp);
+        } else if (result.reason !== 'offline') {
+          LICENSE.clearStored();
+          lockApp();
+        }
+        // 'offline': sin red justo al arrancar, se sigue confiando en la
+        // caché local (ya validada arriba) hasta la próxima comprobación.
       }).catch(() => {});
     } else {
       showLicenseGate();
