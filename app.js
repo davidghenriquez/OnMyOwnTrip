@@ -5748,10 +5748,15 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       return b;
     };
 
+    // Orden alfabético (es) en los tres niveles del selector, para que la
+    // lista no dependa del orden en que se fueron añadiendo las ciudades a
+    // CITIES.
+    const alphabetically = (a, b) => a.localeCompare(b, 'es');
+
     const renderContinents = () => {
       if (!cityList) return;
       cityList.innerHTML = '';
-      const continents = [...new Set(allCities.map((c) => c.continent))];
+      const continents = [...new Set(allCities.map((c) => c.continent))].sort(alphabetically);
       continents.forEach((continent) => {
         cityList.appendChild(makeRow(continent, '', () => renderCountries(continent)));
       });
@@ -5761,7 +5766,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       if (!cityList) return;
       cityList.innerHTML = '';
       cityList.appendChild(makeBack('Continentes', renderContinents));
-      const countries = [...new Set(allCities.filter((c) => c.continent === continent).map((c) => c.country))];
+      const countries = [...new Set(allCities.filter((c) => c.continent === continent).map((c) => c.country))].sort(alphabetically);
       countries.forEach((country) => {
         cityList.appendChild(makeRow(country, '', () => renderCities(continent, country)));
       });
@@ -5773,6 +5778,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       cityList.appendChild(makeBack(country, () => renderCountries(continent)));
       allCities
         .filter((c) => c.continent === continent && c.country === country)
+        .sort((a, b) => alphabetically(a.name, b.name))
         .forEach((city) => {
           cityList.appendChild(makeRow(city.name, '', () => finishOnboarding(city.id, chosenMode)));
         });
