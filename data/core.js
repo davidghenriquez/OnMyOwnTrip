@@ -286,8 +286,8 @@ const CITIES = {
     country: 'Italia',
     continent: 'Europa',
     subtitle: { adult: 'La Ciudad Eterna', kids: '¡La Ciudad de los Gladiadores! ⚔️' },
-    // ~50% del máximo real de Roma (36 POIs con quiz × 30 = 1080 posibles).
-    badgeThreshold: 540,
+    // ~50% del máximo real de Roma (39 POIs con quiz × 30 = 1170 posibles).
+    badgeThreshold: 585,
     badgeImg: 'assets/badges/roma.png',
     center: [41.8986, 12.4768],
     zoom: 14.2,
@@ -334,15 +334,16 @@ const CITIES = {
     country: 'Vaticano',
     continent: 'Europa',
     subtitle: { adult: 'El Estado más pequeño del mundo', kids: '¡El País Más Pequeño del Mundo! 🕊️' },
-    // ~50% del máximo real del Vaticano (5 POIs con quiz × 30 = 150 posibles).
-    badgeThreshold: 75,
+    // ~50% del máximo real del Vaticano (3 POIs con quiz × 30 = 90 posibles).
+    badgeThreshold: 45,
     badgeImg: 'assets/badges/vaticano.png',
     center: [41.9025, 12.4595],
     zoom: 15.6,
     minZoom: 14,
-    // Desde la Plaza de San Pedro y los Museos Vaticanos (oeste) hasta el
-    // Castel Sant'Angelo y su puente (este), separado de Roma como ciudad
-    // propia por tratarse literalmente de otro país.
+    // Solo la Plaza de San Pedro, la Basílica y los Museos Vaticanos: el
+    // territorio real del Estado del Vaticano. Castel Sant'Angelo y su
+    // puente quedan fuera de esas fronteras (son territorio de Roma), así
+    // que viven en roma.js aunque estén a un paso de aquí.
     bounds: [[41.898, 12.449], [41.907, 12.470]],
     routes: [
       {
