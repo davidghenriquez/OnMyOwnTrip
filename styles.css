@@ -87,8 +87,8 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
 }
 .onboarding[hidden] { display: none; }
 
-/* Carrusel de fotos reales de las 5 ciudades: 5 capas apiladas, cada una
-   se desvanece dentro/fuera con un retraso escalonado (30s / 5 = 6s cada
+/* Carrusel de fotos reales de las 6 ciudades: 6 capas apiladas, cada una
+   se desvanece dentro/fuera con un retraso escalonado (36s / 6 = 6s cada
    una) para que el fondo cambie de ciudad sin cortes ni parpadeos. */
 .onboarding-hero {
   position: absolute;
@@ -101,7 +101,7 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   background-size: cover;
   background-position: center 42%;
   opacity: 0;
-  animation: onboardingHeroFade 30s ease-in-out infinite;
+  animation: onboardingHeroFade 36s ease-in-out infinite;
 }
 .onboarding-hero-img.-toledo {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Toledo_Skyline_Panorama%2C_Spain_-_Dec_2006.jpg/1280px-Toledo_Skyline_Panorama%2C_Spain_-_Dec_2006.jpg');
@@ -123,10 +123,14 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Brandenburger_Tor%2C_Berlin%2C_Germany.jpg/1280px-Brandenburger_Tor%2C_Berlin%2C_Germany.jpg');
   animation-delay: 24s;
 }
+.onboarding-hero-img.-roma {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/1280px-Colosseo_2020.jpg');
+  animation-delay: 30s;
+}
 @keyframes onboardingHeroFade {
-  0%, 1.5% { opacity: 0; }
-  6.5%, 17.5% { opacity: 1; }
-  22%, 100% { opacity: 0; }
+  0%, 1.25% { opacity: 0; }
+  5.42%, 14.58% { opacity: 1; }
+  18.33%, 100% { opacity: 0; }
 }
 /* Oscurece un poco la parte de arriba (donde va la marca y el titular en
    blanco) sin necesidad de que el degradado llegue a blanco sólido: la

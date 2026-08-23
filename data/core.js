@@ -278,6 +278,63 @@ const CITIES = {
         }
       }
     ]
+  },
+
+  roma: {
+    id: 'roma',
+    name: 'Roma',
+    country: 'Italia',
+    continent: 'Europa',
+    subtitle: { adult: 'La Ciudad Eterna', kids: '¡La Ciudad de los Gladiadores! ⚔️' },
+    // ~50% del máximo real de Roma (cifra a ajustar cuando esté todo el
+    // contenido subido; de momento estimado sobre el primer lote de POIs).
+    badgeThreshold: 900,
+    badgeImg: 'assets/badges/roma.png',
+    center: [41.8986, 12.4768],
+    zoom: 14.2,
+    minZoom: 12,
+    // Cubre desde el Vaticano y Castel Sant'Angelo (oeste) hasta el Coliseo
+    // y Terme di Caracalla (este), y de Trastevere/Gianicolo (suroeste) a
+    // Villa Borghese/Piazza del Popolo (norte).
+    bounds: [[41.876, 12.448], [41.916, 12.510]],
+    routes: [
+      {
+        id: 'main',
+        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
+        color: '#F59E0B',
+        intro: {
+          adult: 'La ruta imprescindible de Roma reúne los grandes símbolos de casi tres mil años de historia ininterrumpida. Empezarás en el Coliseo, el anfiteatro más famoso del mundo, seguirás por el Foro Romano y el Palatino, el corazón político y el barrio residencial de la Roma antigua, y cruzarás hasta el Panteón, el edificio con cúpula de hormigón sin armar más grande jamás construido. Terminarás lanzando una moneda a la Fontana di Trevi y perdiéndote entre las columnas berninianas de Piazza Navona. Al ser una ruta extensa, algunos tramos te convendrá hacerlos en metro o a buen paso. Al acabar entenderás por qué a Roma se la llama la Ciudad Eterna: pocos lugares del mundo permiten caminar, en una sola mañana, por el Imperio, el Renacimiento y el Barroco sin salir del mismo casco urbano. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Prepárate para la aventura más grande de Roma! ⚔️ Vas a entrar en un anfiteatro gigante donde luchaban los gladiadores, caminar por las ruinas de la plaza más importante del Imperio Romano, y visitar un templo con una cúpula de piedra tan enorme que todavía hoy sorprende a los arquitectos. Después lanzarás una moneda a una fuente preciosa para poder volver algún día, ¡y verás una plaza con fuentes y estatuas por todas partes! Como Roma es una ciudad grande, ¡en algunos tramos os convendrá caminar rápido o coger el metro! ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      },
+      {
+        id: 'antigua-roma',
+        name: { adult: 'Roma Antigua e Imperial', kids: '¡El Imperio Romano! 🏛️' },
+        color: '#B8411E',
+        intro: {
+          adult: 'Esta ruta recorre el corazón del poder de la Roma imperial, del Coliseo al Circo Máximo. Verás el Arco de Constantino, el mayor de los arcos triunfales que se conservan en la ciudad, descenderás al Circo Máximo, el hipódromo que llegó a albergar a 150.000 espectadores, y visitarás la Bocca della Verità, la boca de piedra que, según la leyenda, muerde la mano de quien miente. Terminarás en las Terme di Caracalla, unas termas públicas tan colosales que hoy acogen conciertos de ópera entre sus ruinas. Al acabar habrás recorrido a pie los mismos escenarios que vieron desfilar emperadores, gladiadores y carreras de cuadrigas hace dos mil años. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta te lleva al corazón del Imperio Romano! 🏛️ Vas a ver el arco más grande de todos los que quedan en Roma, bajar hasta un hipódromo gigante donde corrían carreras de carros con caballos delante de 150.000 personas, y meter la mano en una boca de piedra que, según la leyenda, ¡muerde a quien dice mentiras! Terminarás en unas termas romanas tan enormes que hoy hacen conciertos dentro de sus ruinas. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      },
+      {
+        id: 'vaticano',
+        name: { adult: 'Vaticano y Castel Sant\'Angelo', kids: '¡El País Más Pequeño del Mundo! 🕊️' },
+        color: '#7C3AED',
+        intro: {
+          adult: 'Una ruta al Estado más pequeño del mundo y su fortaleza vecina. Cruzarás el Ponte Sant\'Angelo hasta el Castillo de Sant\'Angelo, el antiguo mausoleo de Adriano convertido después en fortaleza papal, y llegarás hasta la Basílica de San Pedro, el templo católico más grande del planeta, coronado por la cúpula de Miguel Ángel. Si el tiempo lo permite, los Museos Vaticanos y la Capilla Sixtina —con el techo pintado por Miguel Ángel— completan una de las colecciones de arte más importantes de la historia. Al terminar habrás visto cómo, en apenas un kilómetro, conviven un mausoleo imperial reconvertido en fortaleza, la sede de la Iglesia católica y una de las mayores concentraciones de arte del mundo. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta te lleva al país más pequeño del mundo entero! 🕊️ Vas a cruzar un puente con estatuas de ángeles hasta un castillo que antes fue la tumba de un emperador romano, y después entrarás en la iglesia más grande de todo el planeta, con una cúpula altísima diseñada por un artista genial. Si hay tiempo, también puedes ver un museo con un techo pintado a mano que tardó años en terminarse. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      },
+      {
+        id: 'trastevere',
+        name: { adult: 'Trastevere y la Roma Escondida', kids: '¡El Barrio Secreto del Río! 🌊' },
+        color: '#10B981',
+        intro: {
+          adult: 'Esta ruta cruza al otro lado del Tíber, a Trastevere, el barrio más castizo y menos monumental de Roma, perfecto para perderse sin prisa. Pasarás por la Isola Tiberina, la única isla del río dentro de la ciudad, entrarás en la Basílica de Santa Maria in Trastevere, una de las iglesias más antiguas dedicadas a la Virgen, y subirás hasta el Gianicolo, un mirador con las mejores vistas de toda Roma. Al terminar habrás descubierto que, a solo unos minutos a pie de los grandes monumentos, Roma esconde callejuelas empedradas, plazas con fuentes modestas y una vida de barrio que apenas ha cambiado en siglos. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta es un poco secreta! 🌊 Vas a cruzar a un barrio con calles estrechas y empedradas, pasar por la única isla que tiene el río de Roma, entrar en una de las iglesias más antiguas dedicadas a la Virgen, y subir a una colina con las mejores vistas de toda la ciudad. Al final habrás descubierto un Roma tranquilo que casi ningún turista con prisa llega a ver. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      }
+    ]
   }
 };
 
