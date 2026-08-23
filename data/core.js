@@ -332,7 +332,7 @@ const CITIES = {
   vaticano: {
     id: 'vaticano',
     name: 'Vaticano',
-    country: 'Ciudad del Vaticano',
+    country: 'Vaticano',
     continent: 'Europa',
     subtitle: { adult: 'El Estado más pequeño del mundo', kids: '¡El País Más Pequeño del Mundo! 🕊️' },
     // ~50% del máximo real del Vaticano (5 POIs con quiz × 30 = 150 posibles).
