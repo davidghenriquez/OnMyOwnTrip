@@ -293,9 +293,10 @@ const CITIES = {
     center: [41.8986, 12.4768],
     zoom: 14.2,
     minZoom: 12,
-    // Cubre desde el Vaticano y Castel Sant'Angelo (oeste) hasta el Coliseo
-    // y Terme di Caracalla (este), y de Trastevere/Gianicolo (suroeste) a
-    // Villa Borghese/Piazza del Popolo (norte).
+    // Cubre desde Trastevere/Gianicolo (oeste) hasta el Coliseo y Terme di
+    // Caracalla (este), y de esa misma zona (suroeste) a Villa Borghese/
+    // Piazza del Popolo (norte). El Vaticano tiene su propia ciudad aparte
+    // (ver "vaticano" más abajo), con sus propios límites de mapa.
     bounds: [[41.876, 12.448], [41.916, 12.510]],
     routes: [
       {
@@ -317,21 +318,41 @@ const CITIES = {
         }
       },
       {
-        id: 'vaticano',
-        name: { adult: 'Vaticano y Castel Sant\'Angelo', kids: '¡El País Más Pequeño del Mundo! 🕊️' },
-        color: '#7C3AED',
-        intro: {
-          adult: 'Una ruta al Estado más pequeño del mundo y su fortaleza vecina. Cruzarás el Ponte Sant\'Angelo hasta el Castillo de Sant\'Angelo, el antiguo mausoleo de Adriano convertido después en fortaleza papal, y llegarás hasta la Basílica de San Pedro, el templo católico más grande del planeta, coronado por la cúpula de Miguel Ángel. Si el tiempo lo permite, los Museos Vaticanos y la Capilla Sixtina —con el techo pintado por Miguel Ángel— completan una de las colecciones de arte más importantes de la historia. Al terminar habrás visto cómo, en apenas un kilómetro, conviven un mausoleo imperial reconvertido en fortaleza, la sede de la Iglesia católica y una de las mayores concentraciones de arte del mundo. Toca cada parada en el mapa para ver la información específica de ese lugar.',
-          kids: '¡Esta ruta te lleva al país más pequeño del mundo entero! 🕊️ Vas a cruzar un puente con estatuas de ángeles hasta un castillo que antes fue la tumba de un emperador romano, y después entrarás en la iglesia más grande de todo el planeta, con una cúpula altísima diseñada por un artista genial. Si hay tiempo, también puedes ver un museo con un techo pintado a mano que tardó años en terminarse. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
-        }
-      },
-      {
         id: 'trastevere',
         name: { adult: 'Trastevere y la Roma Escondida', kids: '¡El Barrio Secreto del Río! 🌊' },
         color: '#10B981',
         intro: {
           adult: 'Esta ruta cruza al otro lado del Tíber, a Trastevere, el barrio más castizo y menos monumental de Roma, perfecto para perderse sin prisa. Pasarás por la Isola Tiberina, la única isla del río dentro de la ciudad, entrarás en la Basílica de Santa Maria in Trastevere, una de las iglesias más antiguas dedicadas a la Virgen, y subirás hasta el Gianicolo, un mirador con las mejores vistas de toda Roma. Al terminar habrás descubierto que, a solo unos minutos a pie de los grandes monumentos, Roma esconde callejuelas empedradas, plazas con fuentes modestas y una vida de barrio que apenas ha cambiado en siglos. Toca cada parada en el mapa para ver la información específica de ese lugar.',
           kids: '¡Esta ruta es un poco secreta! 🌊 Vas a cruzar a un barrio con calles estrechas y empedradas, pasar por la única isla que tiene el río de Roma, entrar en una de las iglesias más antiguas dedicadas a la Virgen, y subir a una colina con las mejores vistas de toda la ciudad. Al final habrás descubierto un Roma tranquilo que casi ningún turista con prisa llega a ver. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      }
+    ]
+  },
+
+  vaticano: {
+    id: 'vaticano',
+    name: 'Vaticano',
+    country: 'Ciudad del Vaticano',
+    continent: 'Europa',
+    subtitle: { adult: 'El Estado más pequeño del mundo', kids: '¡El País Más Pequeño del Mundo! 🕊️' },
+    // ~50% del máximo real del Vaticano (5 POIs con quiz × 30 = 150 posibles).
+    badgeThreshold: 75,
+    badgeImg: 'assets/badges/vaticano.png',
+    center: [41.9025, 12.4595],
+    zoom: 15.6,
+    minZoom: 14,
+    // Desde la Plaza de San Pedro y los Museos Vaticanos (oeste) hasta el
+    // Castel Sant'Angelo y su puente (este), separado de Roma como ciudad
+    // propia por tratarse literalmente de otro país.
+    bounds: [[41.898, 12.449], [41.907, 12.470]],
+    routes: [
+      {
+        id: 'main',
+        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
+        color: '#F5C518',
+        intro: {
+          adult: 'La ruta imprescindible del Vaticano recorre el Estado más pequeño del mundo, apenas 0,44 km² con más historia y arte por metro cuadrado que casi cualquier otro lugar del planeta. Empezarás en la Plaza de San Pedro, abrazada por la columnata de Bernini, entrarás en la Basílica de San Pedro, el templo católico más grande del mundo, y visitarás los Museos Vaticanos y la Capilla Sixtina, con el techo pintado por Miguel Ángel. Terminarás cruzando hacia el Castel Sant\'Angelo, el antiguo mausoleo de Adriano convertido en fortaleza papal, y el Ponte Sant\'Angelo, decorado con ángeles de Bernini. Al acabar habrás visto cómo, en apenas un kilómetro, conviven la sede de la Iglesia católica, una de las mayores colecciones de arte del mundo y un mausoleo imperial romano reconvertido en fortaleza. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta te lleva al país más pequeño del mundo entero! 🕊️ Vas a entrar en la iglesia más grande de todo el planeta, visitar un museo con un techo pintado a mano que tardó años en terminarse, y cruzar hasta un castillo que antes fue la tumba de un emperador romano, pasando por un puente con estatuas de ángeles. Al final habrás visto en un solo paseo la iglesia más grande del mundo y algunas de las obras de arte más famosas de la historia. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
         }
       }
     ]
