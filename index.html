@@ -44,9 +44,24 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=46" />
+  <link rel="stylesheet" href="styles.css?v=48" />
 </head>
 <body>
+  <!-- PANTALLA DE ACCESO: se muestra ANTES que la de bienvenida cuando no
+       hay una licencia válida guardada (ver LICENSE/init en app.js). El
+       fichero licenses.json (raíz del repo) es lo único que hay que editar
+       a mano para dar de alta o revocar un acceso. -->
+  <div class="license-gate" id="licenseGate" hidden aria-hidden="true">
+    <div class="license-gate-card">
+      <div class="license-gate-icon" aria-hidden="true">🔑</div>
+      <h2 class="license-gate-title">Acceso privado</h2>
+      <p class="license-gate-text">Introduce tu clave de acceso para continuar.</p>
+      <input type="text" class="license-gate-input" id="licenseGateInput" placeholder="Tu clave de acceso" autocomplete="off" autocapitalize="off" spellcheck="false" />
+      <button type="button" class="license-gate-submit" id="licenseGateSubmit">Entrar</button>
+      <p class="license-gate-error" id="licenseGateError" hidden></p>
+    </div>
+  </div>
+
   <!-- PANTALLA DE BIENVENIDA: ciudad + modo, todo en una sola pantalla.
        Fondo con fotos reales de las 4 ciudades en carrusel (ver
        .onboarding-hero-img en el CSS) + una "hoja" clara con los controles
@@ -123,7 +138,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.29</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.30</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -552,7 +567,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=14"></script>
-  <script src="app.js?v=139"></script>
+  <script src="app.js?v=140"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa

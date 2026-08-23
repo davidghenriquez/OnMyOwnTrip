@@ -810,6 +810,83 @@
     } catch (_) { /* datos corruptos o de una versión anterior: empezamos de cero */ }
   };
 
+  /* =========================================================
+   * LICENCIA DE ACCESO
+   * Control manual y sencillo de quién puede usar la app: un fichero
+   * "licenses.json" en la propia raíz del repo (editado a mano, sin panel
+   * ni script) mapea nombre de usuario -> fecha de caducidad ("expires":
+   * "YYYY-MM-DD") o null para acceso vitalicio/libre. Al dar de alta a
+   * alguien nuevo, el criterio estándar es una semana de acceso salvo que
+   * se indique vitalicio.
+   *
+   * OJO — límites reales de esto: el repo es público, así que
+   * "licenses.json" y el propio código de comprobación son visibles para
+   * cualquiera; esto no es una protección a prueba de gente con
+   * conocimientos técnicos (podrían leer el fichero o saltarse el chequeo
+   * desde las herramientas de desarrollador). Sirve para controlar accesos
+   * de forma sencilla editando un fichero a mano, no como DRM real.
+   * =======================================================*/
+  const LICENSE = (() => {
+    const STORAGE = 'omot_license_v1';
+    const FILE = 'licenses.json';
+
+    const todayStr = () => new Date().toISOString().slice(0, 10);
+
+    // expires: null/undefined = vitalicio. Si no, comparación de fechas en
+    // formato ISO "YYYY-MM-DD" (orden lexicográfico = orden cronológico).
+    const isValid = (expires) => expires == null || todayStr() <= expires;
+
+    const readStored = () => {
+      try {
+        const raw = localStorage.getItem(STORAGE);
+        return raw ? JSON.parse(raw) : null;
+      } catch (_) { return null; }
+    };
+    const writeStored = (data) => {
+      try { localStorage.setItem(STORAGE, JSON.stringify(data)); } catch (_) {}
+    };
+    const clearStored = () => {
+      try { localStorage.removeItem(STORAGE); } catch (_) {}
+    };
+
+    // Se pide siempre sin caché (cache: 'no-store'): a diferencia del resto
+    // de contenido de la app, aquí interesa que una revocación o renovación
+    // recién editada en el fichero se note lo antes posible, no que quede
+    // pegada a lo último cacheado.
+    const fetchLicenses = async () => {
+      try {
+        const res = await fetch(`${FILE}?t=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) return null;
+        return await res.json();
+      } catch (_) {
+        return null; // sin red, fichero movido, etc.
+      }
+    };
+
+    // { ok: true, expires } | { ok: false, reason: 'not-found' | 'expired' | 'offline', expires? }
+    const check = async (username) => {
+      const licenses = await fetchLicenses();
+      if (!licenses) return { ok: false, reason: 'offline' };
+      const entry = licenses[username];
+      if (!entry) return { ok: false, reason: 'not-found' };
+      if (!isValid(entry.expires)) return { ok: false, reason: 'expired', expires: entry.expires };
+      return { ok: true, expires: entry.expires ?? null };
+    };
+
+    // Validación offline con lo último guardado localmente, para no dejar
+    // sin acceso a quien ya se validó antes solo por no tener red en ese
+    // momento (la app está pensada para usarse caminando, con cobertura
+    // intermitente). El chequeo real contra el fichero (arriba) se hace
+    // igualmente en segundo plano al arrancar, ver wireLicenseGate/init.
+    const checkStoredValidOffline = () => {
+      const stored = readStored();
+      if (!stored || !stored.username) return null;
+      return isValid(stored.expires) ? stored : null;
+    };
+
+    return { check, readStored, writeStored, clearStored, checkStoredValidOffline };
+  })();
+
   const ICONS = {
     play: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg>`,
     pause: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`
@@ -5716,16 +5793,97 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     }
   };
 
-  const init = () => {
-    loadState();
-    document.documentElement.dataset.mode = STATE.mode;
-
+  // Muestra la pantalla principal de siempre (elegir ciudad y modo), una
+  // vez superada la comprobación de licencia (ver LICENSE más arriba).
+  const revealApp = () => {
     // Al abrir el enlace siempre se muestra la pantalla principal (elegir
     // ciudad y modo), aunque ya se hubiera elegido una ciudad antes.
     const ob = $('#onboarding');
     if (ob) { ob.hidden = false; ob.setAttribute('aria-hidden', 'false'); }
     wireOnboarding();
     wireScanLogModal();
+  };
+
+  const fmtLicenseDate = (iso) => {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-');
+    return `${d}/${m}/${y}`;
+  };
+
+  const setLicenseGateError = (msg) => {
+    const err = $('#licenseGateError');
+    if (!err) return;
+    err.hidden = !msg;
+    err.textContent = msg || '';
+  };
+
+  const showLicenseGate = () => {
+    const gate = $('#licenseGate');
+    if (!gate) { revealApp(); return; } // sin el marcado en el HTML, no bloqueamos la app
+    gate.hidden = false;
+    gate.setAttribute('aria-hidden', 'false');
+    $('#licenseGateInput')?.focus();
+  };
+
+  const hideLicenseGate = () => {
+    const gate = $('#licenseGate');
+    if (!gate) return;
+    gate.hidden = true;
+    gate.setAttribute('aria-hidden', 'true');
+  };
+
+  const wireLicenseGate = () => {
+    const submit = $('#licenseGateSubmit');
+    const input = $('#licenseGateInput');
+    if (!submit || !input) return;
+    let checking = false;
+    const attempt = async () => {
+      const username = input.value.trim();
+      if (!username || checking) return;
+      checking = true;
+      submit.disabled = true;
+      submit.textContent = 'Comprobando…';
+      setLicenseGateError(null);
+      const result = await LICENSE.check(username);
+      checking = false;
+      submit.disabled = false;
+      submit.textContent = 'Entrar';
+      if (result.ok) {
+        LICENSE.writeStored({ username, expires: result.expires });
+        hideLicenseGate();
+        revealApp();
+        return;
+      }
+      if (result.reason === 'expired') {
+        setLicenseGateError(`Tu acceso caducó el ${fmtLicenseDate(result.expires)}. Contacta con quien te lo dio para una clave nueva.`);
+      } else if (result.reason === 'offline') {
+        setLicenseGateError('No se pudo comprobar el acceso (sin conexión). Inténtalo de nuevo cuando tengas red.');
+      } else {
+        setLicenseGateError('Clave no reconocida.');
+      }
+    };
+    submit.addEventListener('click', attempt);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') attempt(); });
+  };
+
+  const init = () => {
+    loadState();
+    document.documentElement.dataset.mode = STATE.mode;
+    wireLicenseGate();
+
+    const cached = LICENSE.checkStoredValidOffline();
+    if (cached) {
+      revealApp();
+      // Revalidación en segundo plano contra el fichero real: no bloquea
+      // esta sesión (ya en curso), pero detecta una revocación o
+      // caducidad para la próxima vez que se abra la app.
+      LICENSE.check(cached.username).then((result) => {
+        if (result.ok) LICENSE.writeStored({ username: cached.username, expires: result.expires });
+        else LICENSE.clearStored();
+      }).catch(() => {});
+    } else {
+      showLicenseGate();
+    }
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
