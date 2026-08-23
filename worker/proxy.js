@@ -49,8 +49,10 @@ export default {
     const isChat = url.pathname.endsWith('/chat/completions');
     const isTts = url.pathname.endsWith('/tts');
     const isLicense = url.pathname.endsWith('/license/check');
+    const isVisit = url.pathname.endsWith('/license/visit');
+    const isDashboard = url.pathname.endsWith('/license/dashboard');
 
-    if (request.method !== 'POST' || (!isChat && !isTts && !isLicense)) {
+    if (request.method !== 'POST' || (!isChat && !isTts && !isLicense && !isVisit && !isDashboard)) {
       return new Response(JSON.stringify({ error: 'not found' }), {
         status: 404,
         headers: { ...headers, 'Content-Type': 'application/json' }
@@ -64,11 +66,14 @@ export default {
       });
     }
 
-    // La comprobación de licencia va ANTES del rate limiter de abajo (que es
-    // para la cuota compartida de Gemini): no tiene nada que ver con la IA,
-    // y no queremos que alguien se quede sin poder ni entrar a la app solo
-    // porque otros usuarios estén saturando el chat en ese momento.
+    // La comprobación de licencia (y sus rutas hermanas de visitas/panel) va
+    // ANTES del rate limiter de abajo (que es para la cuota compartida de
+    // Gemini): no tiene nada que ver con la IA, y no queremos que alguien se
+    // quede sin poder ni entrar a la app solo porque otros usuarios estén
+    // saturando el chat en ese momento.
     if (isLicense) return handleLicenseCheck(request, env, headers);
+    if (isVisit) return handleVisit(request, env, headers);
+    if (isDashboard) return handleDashboard(request, env, headers);
 
     // Rate limiting por IP (binding "RATE_LIMITER", configurado en el panel
     // de Cloudflare → pestaña "Bindings" → Add binding → Rate Limiting).
@@ -194,12 +199,11 @@ async function handleTts(request, env, headers) {
 }
 
 // Control de acceso (ver LICENSE en app.js y la sección correspondiente de
-// worker/README.md): a
-// diferencia del resto de este Worker, aquí el propio usuario/clave vive en
-// un KV namespace (binding "LICENSES", configurado en el panel de
-// Cloudflare → Settings → Bindings → KV Namespace), NUNCA en un fichero
-// público del repo — así alguien que mire el código o el tráfico de red
-// solo ve la pregunta "¿es válido este usuario?" y la respuesta (sí/no),
+// worker/README.md): a diferencia del resto de este Worker, aquí el propio
+// usuario/clave vive en un KV namespace (binding "LICENSES", configurado en
+// el panel de Cloudflare → Settings → Bindings → KV Namespace), NUNCA en un
+// fichero público del repo — así alguien que mire el código o el tráfico de
+// red solo ve la pregunta "¿es válido este usuario?" y la respuesta (sí/no),
 // nunca la lista completa de usuarios y fechas.
 //
 // Formato del valor guardado en KV para cada clave (=nombre de usuario):
@@ -207,6 +211,14 @@ async function handleTts(request, env, headers) {
 //   - "YYYY-MM-DD"      -> válido hasta ese día incluido (criterio estándar:
 //                          una semana desde el alta, salvo que se acuerde
 //                          otra cosa).
+//
+// "kind" en el body ('gate' por defecto, o 'watch'): distingue un intento
+// real (pantalla de acceso, o la revalidación única al abrir la app) de un
+// simple ping del vigilante en segundo plano (ver LICENSE.startWatching en
+// app.js, cada 60s mientras la app sigue abierta). Solo se registra en el
+// historial del panel (ver handleDashboard) lo primero — si se registrara
+// cada ping, el historial se llenaría de un evento por minuto y usuario
+// activo, tapando los eventos que de verdad interesan.
 async function handleLicenseCheck(request, env, headers) {
   let payload;
   try {
@@ -229,37 +241,142 @@ async function handleLicenseCheck(request, env, headers) {
   }
 
   const username = String((payload && payload.username) || '').trim();
-  if (!username) {
-    return new Response(JSON.stringify({ ok: false, reason: 'not-found' }), {
+  const isWatch = (payload && payload.kind) === 'watch';
+
+  const respond = async (body) => {
+    if (!isWatch) {
+      await logAccessEvent(env, {
+        type: 'check',
+        username: username || '(vacío)',
+        result: body.ok ? 'ok' : (body.reason || 'error')
+      });
+    }
+    return new Response(JSON.stringify(body), {
       status: 200,
       headers: { ...headers, 'Content-Type': 'application/json' }
     });
-  }
+  };
+
+  if (!username) return respond({ ok: false, reason: 'not-found' });
 
   const raw = await env.LICENSES.get(username);
-  if (raw == null) {
-    return new Response(JSON.stringify({ ok: false, reason: 'not-found' }), {
-      status: 200,
-      headers: { ...headers, 'Content-Type': 'application/json' }
-    });
-  }
+  if (raw == null) return respond({ ok: false, reason: 'not-found' });
 
   const value = raw.trim();
-  if (value.toLowerCase() === 'libre') {
-    return new Response(JSON.stringify({ ok: true, expires: null }), {
+  if (value.toLowerCase() === 'libre') return respond({ ok: true, expires: null });
+
+  const today = new Date().toISOString().slice(0, 10);
+  if (today <= value) return respond({ ok: true, expires: value });
+
+  return respond({ ok: false, reason: 'expired', expires: value });
+}
+
+// Cuenta de visitas por usuario (ver LICENSE.recordVisit en app.js): se
+// llama una única vez por apertura de la app ya autenticada (nunca desde el
+// vigilante en segundo plano), así que sí representa "veces que ha abierto
+// la app", no comprobaciones técnicas. KV no tiene incremento atómico: para
+// el volumen de esta app (control de acceso personal, no un servicio con
+// miles de peticiones simultáneas del mismo usuario) una lectura + escritura
+// normal es más que suficiente, sin necesitar nada más sofisticado.
+async function handleVisit(request, env, headers) {
+  let payload;
+  try {
+    payload = await request.json();
+  } catch (e) {
+    return new Response(JSON.stringify({ ok: false }), {
+      status: 400,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const username = String((payload && payload.username) || '').trim();
+  if (!username || !env.ACCESS_LOG) {
+    return new Response(JSON.stringify({ ok: false }), {
       status: 200,
       headers: { ...headers, 'Content-Type': 'application/json' }
     });
   }
 
-  const today = new Date().toISOString().slice(0, 10);
-  if (today <= value) {
-    return new Response(JSON.stringify({ ok: true, expires: value }), {
-      status: 200,
+  const key = `visits:${username}`;
+  let count = 0;
+  try {
+    const current = await env.ACCESS_LOG.get(key);
+    count = (parseInt(current, 10) || 0) + 1;
+    await env.ACCESS_LOG.put(key, String(count));
+  } catch (_) { /* un fallo aquí no debe romper la apertura de la app */ }
+
+  await logAccessEvent(env, { type: 'visit', username, result: 'ok' });
+
+  return new Response(JSON.stringify({ ok: true, visits: count }), {
+    status: 200,
+    headers: { ...headers, 'Content-Type': 'application/json' }
+  });
+}
+
+// Guarda un evento en el historial del panel de accesos (ver ACCESS_LOG,
+// handleDashboard). Clave con timestamp + sufijo aleatorio: list() de KV
+// devuelve las claves en orden alfabético, y con un timestamp de 13 dígitos
+// (siempre el mismo nº de cifras hasta el año 2286) ese orden coincide con
+// el cronológico; el sufijo evita colisiones entre dos eventos en el mismo
+// milisegundo. El dato real va en la METADATA de la entrada (no en el
+// valor) para poder leer el historial entero con un solo list() en
+// handleDashboard, sin tener que pedir cada clave por separado después.
+async function logAccessEvent(env, data) {
+  if (!env.ACCESS_LOG) return;
+  const key = `log:${Date.now()}:${Math.random().toString(36).slice(2, 8)}`;
+  try {
+    await env.ACCESS_LOG.put(key, '1', { metadata: { ts: Date.now(), ...data } });
+  } catch (_) { /* nunca debe romper el flujo de login por un fallo aquí */ }
+}
+
+// Panel de accesos (ver admin/dashboard.html): protegido con una clave de
+// administrador propia (secret "ADMIN_KEY" en el Worker, NO la misma cosa
+// que las claves de usuario de LICENSES) — sin esto, cualquiera que
+// encontrara la URL de la página vería quién usa la app y con qué
+// frecuencia, ya que el repo (y por tanto esa página) es público.
+async function handleDashboard(request, env, headers) {
+  let payload;
+  try {
+    payload = await request.json();
+  } catch (e) {
+    return new Response(JSON.stringify({ error: 'bad-request' }), {
+      status: 400,
       headers: { ...headers, 'Content-Type': 'application/json' }
     });
   }
-  return new Response(JSON.stringify({ ok: false, reason: 'expired', expires: value }), {
+
+  if (!env.ADMIN_KEY || (payload && payload.adminKey) !== env.ADMIN_KEY) {
+    return new Response(JSON.stringify({ error: 'unauthorized' }), {
+      status: 403,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+  if (!env.ACCESS_LOG) {
+    return new Response(JSON.stringify({ error: 'not-configured' }), {
+      status: 501,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const visitsList = await env.ACCESS_LOG.list({ prefix: 'visits:' });
+  const visits = await Promise.all(visitsList.keys.map(async (k) => ({
+    username: k.name.slice('visits:'.length),
+    visits: parseInt(await env.ACCESS_LOG.get(k.name), 10) || 0
+  })));
+  visits.sort((a, b) => b.visits - a.visits);
+
+  // Tope de 500 claves leídas y 200 mostradas: de sobra para el volumen de
+  // un control de acceso personal: si algún día hiciera falta más historial
+  // que eso, tocaría paginar con el "cursor" que devuelve list(), pero no
+  // merece la pena complicar esto hasta que de verdad haga falta.
+  const logList = await env.ACCESS_LOG.list({ prefix: 'log:', limit: 500 });
+  const history = logList.keys
+    .map((k) => k.metadata)
+    .filter(Boolean)
+    .sort((a, b) => b.ts - a.ts)
+    .slice(0, 200);
+
+  return new Response(JSON.stringify({ visits, history }), {
     status: 200,
     headers: { ...headers, 'Content-Type': 'application/json' }
   });

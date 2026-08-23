@@ -112,9 +112,9 @@ sin tocar código ni hacer commits:
 - **Acceso vitalicio/libre**: usa el valor literal `libre` en vez de una
   fecha.
 - **Revocar**: borra la entrada (o cámbiale el valor a una fecha ya
-  pasada). Quien ya tenía la app abierta con ese acceso sigue funcionando
-  hasta que se revalide en segundo plano — al reabrir la app, o al ratito
-  si la tiene abierta de fondo — pero no hace falta tocar nada más.
+  pasada). No hace falta tocar nada más: quien ya tenía la app abierta con
+  ese acceso se bloquea solo en cuanto la app vuelve a comprobarlo (ver
+  abajo), sin esperar a que cierre y reabra la app.
 
 ### Cómo funciona por dentro
 
@@ -123,9 +123,16 @@ llama a `POST /license/check` de este Worker (`handleLicenseCheck` en
 `proxy.js`), que consulta el KV y responde solo `{ ok: true/false, ... }`
 — nunca la lista completa. Si es válido, la app lo guarda en el propio
 dispositivo (`localStorage`) para seguir funcionando sin red (piensa que
-es una app para usar caminando por la calle) y revalida contra el Worker
-en segundo plano en cada arranque, para detectar una revocación sin
-esperar a que "caduque" solo en el móvil.
+es una app para usar caminando por la calle).
+
+Mientras la app sigue abierta, un vigilante (`LICENSE.startWatching` en
+`app.js`) revisa el acceso cada minuto contra este mismo endpoint, y
+también en cuanto se vuelve a la pestaña tras estar en segundo plano. En
+cuanto el Worker deja de confirmarlo (revocado o caducado), la app se
+bloquea al momento con el mensaje "Licencia caducada. Solicita una nueva
+clave para continuar." — sin esperar a la siguiente apertura. Un simple
+fallo de red no cuenta como invalidación, para no dejar sin acceso a
+alguien sin cobertura que ya se había validado.
 
 ### Límites reales de esto
 
@@ -136,6 +143,46 @@ resultado desde las herramientas de desarrollador del navegador. Lo que sí
 evita, a diferencia de guardar la lista en un fichero del repo, es que
 cualquiera pueda leer los nombres de usuario válidos con solo abrir una
 URL.
+
+## Panel de accesos (quién ha entrado, cuántas veces)
+
+`admin/dashboard.html` (en la raíz del repo, junto a `index.html`) es una
+páginita independiente — no enlazada desde ningún sitio de la app — que
+muestra un historial de intentos de acceso y cuántas veces ha abierto la
+app cada usuario. Su protección real no es que nadie encuentre la URL
+(el repo es público, cualquiera podría dar con ella), sino la clave de
+administrador que exige el Worker antes de devolver ningún dato.
+
+### Configurarlo (una sola vez)
+
+1. **Storage & databases → Workers KV → Create Instance**. Nómbralo, por
+   ejemplo, `omot-access-log`.
+2. En tu Worker → pestaña **Bindings** → **Add binding** → tipo **KV
+   Namespace**. Variable: `ACCESS_LOG` (tiene que llamarse exactamente
+   así). Selecciona el namespace del paso 1.
+3. En el mismo Worker → **Settings → Variables and Secrets → Add**:
+   - Nombre: `ADMIN_KEY`
+   - Tipo: **Secret**
+   - Valor: una clave que tú elijas (es la contraseña del panel, distinta
+     de las claves de usuario de `LICENSES`).
+4. Guarda/Deploy.
+
+### Usarlo
+
+Abre `admin/dashboard.html` (tu web + `/admin/dashboard.html`) e
+introduce la clave de administrador del paso 3. Verás dos tablas:
+
+- **Visitas por usuario**: cuántas veces ha abierto la app cada uno,
+  contando solo aperturas reales (no los pings del vigilante cada
+  minuto mientras la app ya está abierta).
+- **Historial reciente**: los últimos 200 eventos (comprobaciones de
+  acceso y visitas), con fecha, usuario y si fue aceptado o rechazado
+  (útil también para ver intentos con usuarios no reconocidos).
+
+Sin el binding `ACCESS_LOG` configurado, tanto el conteo de visitas como
+el historial simplemente no se guardan (el resto de la app sigue
+funcionando igual) — es una capa informativa opcional, no un requisito
+para que el control de acceso funcione.
 
 ## Rate limiting por IP (opcional, recomendado)
 

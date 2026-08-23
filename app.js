@@ -830,6 +830,7 @@
     const STORAGE = 'omot_license_v1';
     const baseUrl = (typeof window !== 'undefined' && window.LLM_CONFIG && window.LLM_CONFIG.baseUrl) || '';
     const ENDPOINT = baseUrl ? `${baseUrl.replace(/\/$/, '')}/license/check` : '';
+    const VISIT_ENDPOINT = baseUrl ? `${baseUrl.replace(/\/$/, '')}/license/visit` : '';
 
     const todayStr = () => new Date().toISOString().slice(0, 10);
 
@@ -853,8 +854,13 @@
       try { localStorage.removeItem(STORAGE); } catch (_) {}
     };
 
+    // kind: 'gate' (por defecto, un intento real: pantalla de acceso o la
+    // revalidación única al abrir la app) o 'watch' (ping periódico del
+    // vigilante en segundo plano, ver startWatching). El Worker usa esto
+    // para no llenar el historial del panel de accesos con un evento por
+    // minuto y usuario activo (ver worker/proxy.js).
     // { ok: true, expires } | { ok: false, reason: 'not-found' | 'expired' | 'offline', expires? }
-    const check = async (username) => {
+    const check = async (username, kind = 'gate') => {
       if (!ENDPOINT) return { ok: false, reason: 'offline' };
       try {
         const controller = new AbortController();
@@ -864,7 +870,7 @@
           res = await fetch(ENDPOINT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username }),
+            body: JSON.stringify({ username, kind }),
             signal: controller.signal
           });
         } finally {
@@ -878,6 +884,20 @@
       } catch (_) {
         return { ok: false, reason: 'offline' }; // sin red, timeout, Worker caído, etc.
       }
+    };
+
+    // Registro de "visita" (ver worker/proxy.js handleVisit): una vez por
+    // apertura de la app ya autenticada, nunca desde el vigilante — puro
+    // dato informativo para el panel de accesos, nunca debe bloquear ni
+    // afectar el flujo de entrada si falla (por eso no se espera su promesa
+    // en las llamadas, ver wireLicenseGate/init más abajo).
+    const recordVisit = (username) => {
+      if (!VISIT_ENDPOINT) return;
+      fetch(VISIT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username })
+      }).catch(() => {});
     };
 
     // Validación offline con lo último guardado localmente, para no dejar
@@ -917,7 +937,7 @@
     const startWatching = (username, onInvalid) => {
       stopWatching();
       const recheck = async () => {
-        const result = await check(username);
+        const result = await check(username, 'watch');
         if (result.ok) {
           writeStored({ username, expires: result.expires });
         } else if (result.reason !== 'offline') {
@@ -933,7 +953,7 @@
       document.addEventListener('visibilitychange', watchVisibilityHandler);
     };
 
-    return { check, readStored, writeStored, clearStored, checkStoredValidOffline, startWatching, stopWatching };
+    return { check, recordVisit, readStored, writeStored, clearStored, checkStoredValidOffline, startWatching, stopWatching };
   })();
 
   const ICONS = {
@@ -5912,6 +5932,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
         hideLicenseGate();
         revealApp(); // no-op si la app ya se había revelado antes de un bloqueo
         LICENSE.startWatching(username, lockApp);
+        LICENSE.recordVisit(username);
         return;
       }
       if (result.reason === 'expired') {
@@ -5943,6 +5964,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
         if (result.ok) {
           LICENSE.writeStored({ username: cached.username, expires: result.expires });
           LICENSE.startWatching(cached.username, lockApp);
+          LICENSE.recordVisit(cached.username);
         } else if (result.reason !== 'offline') {
           LICENSE.clearStored();
           lockApp();

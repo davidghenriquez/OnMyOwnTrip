@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- No enlazada desde la app ni desde ningún sitio: solo accesible a quien
+     conozca esta URL, y protegida de verdad por la clave de administrador
+     que exige el Worker (ver ADMIN_KEY en worker/README.md) — el repo es
+     público, así que esta página NUNCA debe depender de estar "escondida"
+     para ser segura. -->
+<meta name="robots" content="noindex, nofollow">
+<title>OnMyOwnTrip · Panel de accesos</title>
+<style>
+  :root {
+    --bg: #0F172A;
+    --surface: #1E293B;
+    --surface-2: #111C2E;
+    --text: #F1F5F9;
+    --text-soft: #94A3B8;
+    --border: #334155;
+    --accent: #FBBF24;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p.hint { color: var(--text-soft); font-size: 13px; margin: 0 0 20px; line-height: 1.5; }
+
+  .gate { max-width: 340px; margin: 80px auto; text-align: center; }
+  .gate input {
+    width: 100%; height: 42px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); padding: 0 12px; font-size: 14px; margin-bottom: 10px;
+  }
+  .gate button, .refresh-btn {
+    height: 42px; border-radius: 10px; border: 0; background: var(--accent);
+    color: #0F172A; font-weight: 700; font-size: 14px; cursor: pointer;
+  }
+  .gate button { width: 100%; }
+  .gate button:disabled { opacity: 0.7; cursor: default; }
+  .error { color: #F87171; font-size: 13px; margin-top: 12px; }
+
+  .dashboard, .gate.-hidden { display: none; }
+  .dashboard.-visible { display: block; }
+  .dashboard { max-width: 900px; margin: 0 auto; }
+
+  .top-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+  .refresh-btn { padding: 0 16px; white-space: nowrap; }
+
+  section { margin-bottom: 32px; }
+  h2 { font-size: 13px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 12px; }
+
+  .table-wrap { overflow-x: auto; border-radius: 12px; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; min-width: 480px; }
+  th, td { text-align: left; padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { color: var(--text-soft); font-weight: 600; background: var(--surface-2); }
+  tr:last-child td { border-bottom: none; }
+
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+  .badge.-ok { background: #14532D; color: #86EFAC; }
+  .badge.-fail { background: #7F1D1D; color: #FCA5A5; }
+
+  .empty { color: var(--text-soft); font-size: 13px; padding: 18px; text-align: center; }
+</style>
+</head>
+<body>
+
+  <div class="gate" id="gate">
+    <h1>🔒 Panel de accesos</h1>
+    <p class="hint">Introduce la clave de administrador del Worker para ver el historial.</p>
+    <input type="password" id="adminKeyInput" placeholder="Clave de administrador" autocomplete="off" autocapitalize="off" spellcheck="false" />
+    <button type="button" id="submitBtn">Entrar</button>
+    <p class="error" id="gateError" hidden></p>
+  </div>
+
+  <div class="dashboard" id="dashboard">
+    <div class="top-row">
+      <div>
+        <h1>OnMyOwnTrip · Panel de accesos</h1>
+        <p class="hint">Datos guardados en Cloudflare KV desde que se activó el control de licencias.</p>
+      </div>
+      <button type="button" class="refresh-btn" id="refreshBtn">Actualizar</button>
+    </div>
+
+    <section>
+      <h2>Visitas por usuario</h2>
+      <div class="table-wrap">
+        <table id="visitsTable">
+          <thead><tr><th>Usuario</th><th>Visitas</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Historial reciente (últimos 200 eventos)</h2>
+      <div class="table-wrap">
+        <table id="historyTable">
+          <thead><tr><th>Fecha y hora</th><th>Usuario</th><th>Tipo</th><th>Resultado</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+<script>
+  // Mismo Worker que ya usa la app para IA y licencias (ver window.LLM_CONFIG
+  // en index.html); se repite aquí en vez de leerlo de allí porque esta
+  // página no carga app.js ni ese script de configuración, es independiente.
+  const WORKER_BASE = 'https://damp-unit-7cc9onmyowntrip-proxy.davidg-henriquez.workers.dev';
+
+  let adminKey = '';
+  const $ = (sel) => document.querySelector(sel);
+
+  const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+
+  const fmtDate = (ts) => new Date(ts).toLocaleString('es-ES', {
+    day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+
+  const renderVisits = (visits) => {
+    const tbody = $('#visitsTable tbody');
+    tbody.innerHTML = '';
+    if (!visits.length) {
+      tbody.innerHTML = '<tr><td colspan="2" class="empty">Sin visitas registradas todavía.</td></tr>';
+      return;
+    }
+    visits.forEach((v) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${escapeHtml(v.username)}</td><td>${v.visits}</td>`;
+      tbody.appendChild(tr);
+    });
+  };
+
+  const renderHistory = (history) => {
+    const tbody = $('#historyTable tbody');
+    tbody.innerHTML = '';
+    if (!history.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="empty">Sin eventos registrados todavía.</td></tr>';
+      return;
+    }
+    history.forEach((h) => {
+      const isOk = h.result === 'ok';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${fmtDate(h.ts)}</td>
+        <td>${escapeHtml(h.username || '(vacío)')}</td>
+        <td>${h.type === 'visit' ? 'Visita' : 'Comprobación'}</td>
+        <td><span class="badge ${isOk ? '-ok' : '-fail'}">${escapeHtml(h.result || '')}</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  };
+
+  const loadDashboard = async () => {
+    const err = $('#gateError');
+    err.hidden = true;
+    try {
+      const res = await fetch(`${WORKER_BASE}/license/dashboard`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ adminKey })
+      });
+      if (res.status === 403) {
+        err.hidden = false;
+        err.textContent = 'Clave incorrecta.';
+        return false;
+      }
+      if (!res.ok) {
+        err.hidden = false;
+        err.textContent = 'No se pudo cargar el panel (código ' + res.status + ').';
+        return false;
+      }
+      const data = await res.json();
+      renderVisits(data.visits || []);
+      renderHistory(data.history || []);
+      return true;
+    } catch (e) {
+      err.hidden = false;
+      err.textContent = 'Error de red: ' + e.message;
+      return false;
+    }
+  };
+
+  const submitBtn = $('#submitBtn');
+  const attempt = async () => {
+    const value = $('#adminKeyInput').value.trim();
+    if (!value) return;
+    adminKey = value;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Comprobando…';
+    const ok = await loadDashboard();
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Entrar';
+    if (ok) {
+      $('#gate').classList.add('-hidden');
+      $('#dashboard').classList.add('-visible');
+    }
+  };
+  submitBtn.addEventListener('click', attempt);
+  $('#adminKeyInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') attempt(); });
+  $('#refreshBtn').addEventListener('click', loadDashboard);
+</script>
+</body>
+</html>
