@@ -222,6 +222,11 @@ async function handleTts(request, env, headers) {
 // cada ping, el historial se llenaría de un evento por minuto y usuario
 // activo, tapando los eventos que de verdad interesan.
 async function handleLicenseCheck(request, env, headers) {
+  // (nota sobre "respond" más abajo: solo registra los intentos FALLIDOS.
+  // Un acceso correcto vía 'gate' siempre dispara justo después una llamada
+  // a /license/visit desde app.js — ver wireLicenseGate/init — así que
+  // registrarlo también aquí duplicaría la misma entrada dos veces en el
+  // historial por cada acceso bueno.)
   let payload;
   try {
     payload = await request.json();
@@ -246,11 +251,11 @@ async function handleLicenseCheck(request, env, headers) {
   const isWatch = (payload && payload.kind) === 'watch';
 
   const respond = async (body) => {
-    if (!isWatch) {
+    if (!isWatch && !body.ok) {
       await logAccessEvent(env, {
         type: 'check',
         username: username || '(vacío)',
-        result: body.ok ? 'ok' : (body.reason || 'error')
+        result: body.reason || 'error'
       });
     }
     return new Response(JSON.stringify(body), {
