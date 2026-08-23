@@ -51,8 +51,9 @@ export default {
     const isLicense = url.pathname.endsWith('/license/check');
     const isVisit = url.pathname.endsWith('/license/visit');
     const isDashboard = url.pathname.endsWith('/license/dashboard');
+    const isDashboardClear = url.pathname.endsWith('/license/dashboard/clear');
 
-    if (request.method !== 'POST' || (!isChat && !isTts && !isLicense && !isVisit && !isDashboard)) {
+    if (request.method !== 'POST' || (!isChat && !isTts && !isLicense && !isVisit && !isDashboard && !isDashboardClear)) {
       return new Response(JSON.stringify({ error: 'not found' }), {
         status: 404,
         headers: { ...headers, 'Content-Type': 'application/json' }
@@ -74,6 +75,7 @@ export default {
     if (isLicense) return handleLicenseCheck(request, env, headers);
     if (isVisit) return handleVisit(request, env, headers);
     if (isDashboard) return handleDashboard(request, env, headers);
+    if (isDashboardClear) return handleDashboardClear(request, env, headers);
 
     // Rate limiting por IP (binding "RATE_LIMITER", configurado en el panel
     // de Cloudflare → pestaña "Bindings" → Add binding → Rate Limiting).
@@ -329,34 +331,44 @@ async function logAccessEvent(env, data) {
   } catch (_) { /* nunca debe romper el flujo de login por un fallo aquí */ }
 }
 
+// Comprueba la clave de administrador (secret "ADMIN_KEY", distinta de las
+// claves de usuario de LICENSES) compartida por handleDashboard y
+// handleDashboardClear. Devuelve una Response de error si algo no cuadra
+// (payload inválido, clave incorrecta, KV sin configurar), o null si todo
+// está en orden y se puede continuar.
+async function checkAdminAccess(request, env, headers) {
+  let payload;
+  try {
+    payload = await request.json();
+  } catch (e) {
+    return { error: new Response(JSON.stringify({ error: 'bad-request' }), {
+      status: 400,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    }) };
+  }
+  if (!env.ADMIN_KEY || (payload && payload.adminKey) !== env.ADMIN_KEY) {
+    return { error: new Response(JSON.stringify({ error: 'unauthorized' }), {
+      status: 403,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    }) };
+  }
+  if (!env.ACCESS_LOG) {
+    return { error: new Response(JSON.stringify({ error: 'not-configured' }), {
+      status: 501,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    }) };
+  }
+  return { payload };
+}
+
 // Panel de accesos (ver admin/dashboard.html): protegido con una clave de
 // administrador propia (secret "ADMIN_KEY" en el Worker, NO la misma cosa
 // que las claves de usuario de LICENSES) — sin esto, cualquiera que
 // encontrara la URL de la página vería quién usa la app y con qué
 // frecuencia, ya que el repo (y por tanto esa página) es público.
 async function handleDashboard(request, env, headers) {
-  let payload;
-  try {
-    payload = await request.json();
-  } catch (e) {
-    return new Response(JSON.stringify({ error: 'bad-request' }), {
-      status: 400,
-      headers: { ...headers, 'Content-Type': 'application/json' }
-    });
-  }
-
-  if (!env.ADMIN_KEY || (payload && payload.adminKey) !== env.ADMIN_KEY) {
-    return new Response(JSON.stringify({ error: 'unauthorized' }), {
-      status: 403,
-      headers: { ...headers, 'Content-Type': 'application/json' }
-    });
-  }
-  if (!env.ACCESS_LOG) {
-    return new Response(JSON.stringify({ error: 'not-configured' }), {
-      status: 501,
-      headers: { ...headers, 'Content-Type': 'application/json' }
-    });
-  }
+  const { error } = await checkAdminAccess(request, env, headers);
+  if (error) return error;
 
   const visitsList = await env.ACCESS_LOG.list({ prefix: 'visits:' });
   const visits = await Promise.all(visitsList.keys.map(async (k) => ({
@@ -377,6 +389,30 @@ async function handleDashboard(request, env, headers) {
     .slice(0, 200);
 
   return new Response(JSON.stringify({ visits, history }), {
+    status: 200,
+    headers: { ...headers, 'Content-Type': 'application/json' }
+  });
+}
+
+// Borra TODO el historial y los contadores de visitas (botón "Borrar
+// historial" de admin/dashboard.html) — no toca LICENSES, así que ningún
+// acceso de usuario se ve afectado, solo estos datos informativos. KV no
+// tiene un "borrar todo" con un prefijo: hay que listar las claves y
+// borrarlas una a una (limit alto de sobra para el volumen de un panel
+// personal; si algún día hubiera más de 1000 de cada, tocaría paginar con
+// el cursor de list(), pero no compensa complicarlo antes de que haga falta).
+async function handleDashboardClear(request, env, headers) {
+  const { error } = await checkAdminAccess(request, env, headers);
+  if (error) return error;
+
+  const [logList, visitsList] = await Promise.all([
+    env.ACCESS_LOG.list({ prefix: 'log:', limit: 1000 }),
+    env.ACCESS_LOG.list({ prefix: 'visits:', limit: 1000 })
+  ]);
+  const keys = [...logList.keys, ...visitsList.keys].map((k) => k.name);
+  await Promise.all(keys.map((k) => env.ACCESS_LOG.delete(k)));
+
+  return new Response(JSON.stringify({ ok: true, deleted: keys.length }), {
     status: 200,
     headers: { ...headers, 'Content-Type': 'application/json' }
   });
