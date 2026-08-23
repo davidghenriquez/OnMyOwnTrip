@@ -3951,7 +3951,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       const deepenLabel = pickDual(AI_PROMPTS.deepenLabel);
       text += STATE.mode === 'kids'
         ? `\n\n💭 (¡Esto es solo un adelanto rápido! Estoy preparando algo todavía mejor — vuelve a tocar "${deepenLabel}" en un ratito para verlo.)`
-        : `\n\n💭 (Adelanto rápido mientras se genera la respuesta completa de la IA — vuelve a tocar "${deepenLabel}" en un momento para verla.)`;
+        : `\n\nGenerando respuesta complementaria.\nVuelve a tocar "${deepenLabel}" en un momento para verla.`;
     }
 
     await new Promise((resolve) => {
