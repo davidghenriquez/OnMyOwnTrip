@@ -4978,6 +4978,46 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     return { isConfigured: () => !!endpoint, fetchAndCache, getReadyUrl };
   })();
 
+  // Evita que la pantalla se apague sola por inactividad mientras suena una
+  // audioguía: en Android, tanto la voz del navegador (Web Speech, ver
+  // SPEECH más abajo) como el <audio> de CLOUD_TTS pueden cortarse cuando la
+  // pantalla se apaga, porque Chrome suspende esas APIs en segundo plano
+  // para ahorrar batería — no hay forma de hacer que sigan sonando desde
+  // JS una vez la pantalla está realmente apagada. Wake Lock no lo arregla
+  // del todo (si el usuario pulsa el botón de apagar a propósito, el
+  // audio se corta igual), pero cubre el caso más habitual: la pantalla
+  // apagándose sola mientras el audio sigue en curso.
+  const WAKE_LOCK = (() => {
+    let sentinel = null;
+    const isSupported = () => typeof navigator !== 'undefined' && 'wakeLock' in navigator;
+    const acquire = async () => {
+      if (!isSupported() || sentinel) return;
+      try {
+        sentinel = await navigator.wakeLock.request('screen');
+        sentinel.addEventListener('release', () => { sentinel = null; });
+      } catch (_) {
+        // Puede fallar si el documento no está visible en ese instante
+        // (p.ej. se pidió justo al volver de segundo plano): no es un
+        // error real, simplemente no hay wake lock que mantener ahora.
+        sentinel = null;
+      }
+    };
+    const release = () => {
+      if (!sentinel) return;
+      sentinel.release().catch(() => {});
+      sentinel = null;
+    };
+    // El propio navegador libera el wake lock al ocultarse la pestaña; si
+    // el audio sigue sonando al volver a primer plano, se vuelve a pedir
+    // (recomendado por la propia spec de Wake Lock para este caso).
+    if (typeof document !== 'undefined') {
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && STATE.audio.playing) acquire();
+      });
+    }
+    return { acquire, release };
+  })();
+
   /* =========================================================
    * AUDIO PLAYER (visual + real speech when available)
    * =======================================================*/
@@ -5042,6 +5082,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     } else {
       SPEECH.pause();
     }
+    WAKE_LOCK.release();
     updateAudioUi();
   };
 
@@ -5148,6 +5189,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   const startAudio = (isResume = false, silent = false, onSegmentEnd = null, seekRatio = null) => {
     if (!STATE.activePoiId) return;
     STATE.audio.playing = true;
+    WAKE_LOCK.acquire();
     let segmentEndCb = onSegmentEnd;
     // Se refleja también en STATE.audio para que seekAudioTo pueda
     // recuperarlo y pasarlo a la narración nueva que arranca al saltar de
@@ -5259,6 +5301,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       cloudAudioEl.onended = cloudAudioEl.onerror = cloudAudioEl.ontimeupdate = cloudAudioEl.onloadedmetadata = null;
     }
     STATE.audio.engine = null;
+    WAKE_LOCK.release();
     updateAudioUi();
   };
 
