@@ -228,6 +228,7 @@
         'Se te da una foto real tomada por un turista y, si las hay, una lista de lugares candidatos cercanos por GPS (con id y una breve descripción).',
         'IMPORTANTE: la lista de candidatos es solo una acotación por cercanía geográfica, NO una lista de opciones garantizadas. Es muy habitual que dos o más candidatos distintos estén en la misma plaza o a pocos metros entre sí (por ejemplo, una estatua o fuente pequeña justo delante de un edificio monumental, o un monumento dentro de una plaza más grande). Que la foto se haya tomado CERCA de un candidato no significa que la foto SEA ese candidato.',
         'Antes de responder, identifica primero qué objeto, escultura o edificio concreto es el protagonista real de la foto (su forma, tamaño, materiales, si es una pieza pequeña aislada o una fachada completa), y solo después compáralo con la descripción de cada candidato.',
+        'CASO FRECUENTE A EVITAR: si el protagonista de la foto es un elemento pequeño y autónomo (una estatua, escultura, fuente, monumento puntual, cartel...) situado DENTRO o junto a un candidato que en realidad describe el lugar/plaza/edificio grande que lo rodea, NO respondas MATCH con el id de ese lugar grande solo por estar en el mismo sitio: ese elemento pequeño es un sujeto distinto del espacio que lo contiene. Solo responde MATCH si la propia DESCRIPCIÓN del candidato se refiere a ese elemento concreto (no al espacio general). En caso contrario, trátalo como si no hubiera candidato que coincida e identifícalo en abierto (formato NOMBRE/RESUMEN/INFO) o responde DESCONOCIDO si no lo reconoces con confianza — nunca sustituyas un objeto concreto no reconocido por el lugar general donde estaba.',
         'Responde ÚNICAMENTE en uno de estos formatos, sin texto extra:',
         '1) Si el protagonista de la foto coincide visualmente, de forma clara, con la DESCRIPCIÓN de uno de los candidatos (no solo con la cercanía del lugar donde se tomó): MATCH:<id exacto>',
         '2) Si el protagonista de la foto NO coincide visualmente con ningún candidato de la lista (aunque la foto se haya tomado cerca de alguno), o no había lista, pero aun así reconoces con razonable confianza qué edificio/monumento/escultura/lugar es en realidad:',
@@ -1663,11 +1664,12 @@
       const imageDataUrl = await resizeImageFile(file);
 
       if (!LLM.isReal()) {
-        // Sin IA real configurada no hay reconocimiento visual posible: el
-        // GPS por sí solo, si hay algo cerca, es la única aproximación
-        // honesta que podemos ofrecer.
-        if (candidates.length) openScannedPoi(candidates[0].id, { gpsOnly: true });
-        else showToast(STATE.mode === 'kids' ? 'No puedo analizar fotos sin conexión a la IA 😅' : 'No se puede analizar la foto sin conexión a la IA.', 3000);
+        // Sin IA real configurada no hay reconocimiento visual posible. Ya
+        // NO se sustituye por "el punto más cercano" por GPS: mostraba info
+        // de un sitio distinto al fotografiado (p.ej. una estatua concreta
+        // dentro de una plaza acababa mostrando la ficha de la plaza
+        // entera), lo cual confunde más de lo que ayuda.
+        showToast(STATE.mode === 'kids' ? 'No puedo analizar fotos sin conexión a la IA 😅' : 'No se puede analizar la foto sin conexión a la IA.', 3000);
         return;
       }
 
@@ -1688,12 +1690,11 @@
         }
       }
       if (!result.supported) {
-        if (candidates.length) openScannedPoi(candidates[0].id, { gpsOnly: true });
-        else showToast(STATE.mode === 'kids' ? '¡Uy! Algo ha fallado con la foto 😅' : 'No se pudo analizar la foto. Inténtalo de nuevo.', 3000);
+        showToast(STATE.mode === 'kids' ? '¡Uy! Algo ha fallado con la foto 😅' : 'No se pudo analizar la foto. Inténtalo de nuevo.', 3000);
         return;
       }
       if (result.type === 'match') {
-        openScannedPoi(result.poiId, { gpsOnly: false });
+        openScannedPoi(result.poiId);
       } else if (result.type === 'openended') {
         logUnrecognizedScan({ type: 'openended', name: result.name, coords, imageDataUrl });
         openAdHocScanResult(result, imageDataUrl, coords);
@@ -1729,14 +1730,12 @@
     }
   };
 
-  const openScannedPoi = (poiId, { gpsOnly }) => {
+  const openScannedPoi = (poiId) => {
     const poi = POIS.find((p) => p.id === poiId);
     if (!poi) return;
     selectPoi(poiId, true);
     showToast(
-      gpsOnly
-        ? (STATE.mode === 'kids' ? `📍 El punto más cercano es: ${pickDual(poi.name)}` : `📍 Sin reconocimiento visual disponible: te muestro el punto más cercano, ${pickDual(poi.name)}.`)
-        : (STATE.mode === 'kids' ? `¡Es ${pickDual(poi.name)}! 🎉` : `¡Reconocido! Es ${pickDual(poi.name)}.`),
+      STATE.mode === 'kids' ? `¡Es ${pickDual(poi.name)}! 🎉` : `¡Reconocido! Es ${pickDual(poi.name)}.`,
       2800
     );
   };
@@ -5227,13 +5226,22 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     STATE.audio.timer = setInterval(() => {
       STATE.audio.currentTime += 0.2;
       if (STATE.audio.currentTime >= duration) {
+        // OJO: "duration" aquí es una ESTIMACIÓN por nº de palabras (ver
+        // estimateSpeechDuration), no la duración real de la voz — el ritmo
+        // real varía con pausas, puntuación y la propia síntesis del
+        // navegador. Antes este bloque llamaba a stopAudio() (que cancela
+        // la síntesis de voz en curso) nada más alcanzar la estimación,
+        // cortando la narración a media frase cuando la voz real tardaba
+        // más de lo estimado — bug real: audio que se corta "random" justo
+        // con el aviso de "Audioguía completada" de fondo. El único fin
+        // real y fiable es el callback de SPEECH.speak (ver más arriba,
+        // finished/error/startFailed), que sí escucha el evento genuino del
+        // motor de voz: aquí solo se congela la barra al 100% y se para
+        // este intervalo, sin tocar la voz ni disparar avisos de fin.
         STATE.audio.currentTime = duration;
-        stopAudio();
-        STATE.audio.currentTime = 0;
+        clearInterval(STATE.audio.timer);
+        STATE.audio.timer = null;
         updateAudioUi();
-        showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
-        if (STATE.mode === 'kids') maybeShowFirstKidsQuiz();
-        notifySegmentEnd();
         return;
       }
       updateAudioUi();
