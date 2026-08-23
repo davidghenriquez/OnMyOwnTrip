@@ -246,9 +246,12 @@ const CITIES = {
     // Ampliados respecto a los originales ([[52.493,13.27],[52.535,13.47]]):
     // se quedaban fuera POIs reales de las rutas nuevas "Isla de los Museos"
     // y "Muro y Guerra Fría" (Mauerpark al norte, Tempelhofer Feld y Curry 36
-    // al sur), igual que se corrigió antes en Madrid.
+    // al sur), igual que se corrigió antes en Madrid. Ampliados de nuevo para
+    // cubrir el Museo de la Stasi (este), el Museo de los Aliados (sur) y,
+    // sobre todo, el Puente de Glienicke (suroeste), a las afueras reales de
+    // Berlín, cerca de Potsdam.
     minZoom: 11,
-    bounds: [[52.468, 13.27], [52.548, 13.47]],
+    bounds: [[52.405, 13.08], [52.548, 13.495]],
     routes: [
       {
         id: 'main',

@@ -84,8 +84,8 @@ function validateCity(cityId, city) {
     if (!hasDual(poi.name)) err(`${poiLabel}: name incompleto`);
     if (!hasDual(poi.subtitle)) err(`${poiLabel}: subtitle incompleto`);
     if (!poi.category) err(`${poiLabel}: sin category`);
-    if (!poi.image || typeof poi.image !== 'string' || !/^https?:\/\//.test(poi.image)) {
-      err(`${poiLabel}: image ausente o no es una URL http(s)`);
+    if (!poi.image || typeof poi.image !== 'string' || !/^(https?:\/\/|assets\/)/.test(poi.image)) {
+      err(`${poiLabel}: image ausente, no es una URL http(s) ni una ruta local en assets/`);
     }
     if (!poi.audio || typeof poi.audio.duration !== 'number' || poi.audio.duration <= 0) {
       err(`${poiLabel}: audio.duration ausente o inválida`);
