@@ -48,8 +48,9 @@ export default {
     const url = new URL(request.url);
     const isChat = url.pathname.endsWith('/chat/completions');
     const isTts = url.pathname.endsWith('/tts');
+    const isLicense = url.pathname.endsWith('/license/check');
 
-    if (request.method !== 'POST' || (!isChat && !isTts)) {
+    if (request.method !== 'POST' || (!isChat && !isTts && !isLicense)) {
       return new Response(JSON.stringify({ error: 'not found' }), {
         status: 404,
         headers: { ...headers, 'Content-Type': 'application/json' }
@@ -62,6 +63,12 @@ export default {
         headers: { ...headers, 'Content-Type': 'application/json' }
       });
     }
+
+    // La comprobación de licencia va ANTES del rate limiter de abajo (que es
+    // para la cuota compartida de Gemini): no tiene nada que ver con la IA,
+    // y no queremos que alguien se quede sin poder ni entrar a la app solo
+    // porque otros usuarios estén saturando el chat en ese momento.
+    if (isLicense) return handleLicenseCheck(request, env, headers);
 
     // Rate limiting por IP (binding "RATE_LIMITER", configurado en el panel
     // de Cloudflare → pestaña "Bindings" → Add binding → Rate Limiting).
@@ -183,5 +190,77 @@ async function handleTts(request, env, headers) {
   return new Response(bytes, {
     status: 200,
     headers: { ...headers, 'Content-Type': 'audio/mpeg' }
+  });
+}
+
+// Control de acceso (ver LICENSE en app.js y la sección correspondiente de
+// worker/README.md): a
+// diferencia del resto de este Worker, aquí el propio usuario/clave vive en
+// un KV namespace (binding "LICENSES", configurado en el panel de
+// Cloudflare → Settings → Bindings → KV Namespace), NUNCA en un fichero
+// público del repo — así alguien que mire el código o el tráfico de red
+// solo ve la pregunta "¿es válido este usuario?" y la respuesta (sí/no),
+// nunca la lista completa de usuarios y fechas.
+//
+// Formato del valor guardado en KV para cada clave (=nombre de usuario):
+//   - "libre"          -> acceso vitalicio, sin caducidad.
+//   - "YYYY-MM-DD"      -> válido hasta ese día incluido (criterio estándar:
+//                          una semana desde el alta, salvo que se acuerde
+//                          otra cosa).
+async function handleLicenseCheck(request, env, headers) {
+  let payload;
+  try {
+    payload = await request.json();
+  } catch (e) {
+    return new Response(JSON.stringify({ ok: false, reason: 'bad-request' }), {
+      status: 400,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  if (!env.LICENSES) {
+    // Sin el binding configurado esto no puede funcionar: se falla "cerrado"
+    // (nadie pasa) en vez de dejar entrar a cualquiera, para que un despliegue
+    // mal configurado nunca se traduzca en saltarse el control de acceso.
+    return new Response(JSON.stringify({ ok: false, reason: 'not-configured' }), {
+      status: 501,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const username = String((payload && payload.username) || '').trim();
+  if (!username) {
+    return new Response(JSON.stringify({ ok: false, reason: 'not-found' }), {
+      status: 200,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const raw = await env.LICENSES.get(username);
+  if (raw == null) {
+    return new Response(JSON.stringify({ ok: false, reason: 'not-found' }), {
+      status: 200,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const value = raw.trim();
+  if (value.toLowerCase() === 'libre') {
+    return new Response(JSON.stringify({ ok: true, expires: null }), {
+      status: 200,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+  if (today <= value) {
+    return new Response(JSON.stringify({ ok: true, expires: value }), {
+      status: 200,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+  return new Response(JSON.stringify({ ok: false, reason: 'expired', expires: value }), {
+    status: 200,
+    headers: { ...headers, 'Content-Type': 'application/json' }
   });
 }

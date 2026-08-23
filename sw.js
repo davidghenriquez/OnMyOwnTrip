@@ -16,7 +16,7 @@
 // Sube este número cuando cambies la lista SHELL_URLS de aquí abajo
 // (los propios archivos versionados con "?v=N" ya se cachean solos con
 // su nueva clave la primera vez que se piden, sin necesidad de tocar esto).
-const CACHE_VERSION = 'v146';
+const CACHE_VERSION = 'v147';
 const SHELL_CACHE = `omot-shell-${CACHE_VERSION}`;
 const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
 
@@ -33,7 +33,7 @@ const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
 const SHELL_URLS = [
   './',
   './index.html',
-  './app.js?v=140',
+  './app.js?v=141',
   './data/core.js?v=14',
   './styles.css?v=48',
   './manifest.json?v=1',
@@ -87,15 +87,6 @@ self.addEventListener('fetch', (event) => {
   // por si acaso cambia a GET en el futuro no queremos servir respuestas
   // de IA cacheadas y desactualizadas).
   if (url.hostname.endsWith('workers.dev')) return;
-
-  // Nunca cachear licenses.json (ver LICENSE en app.js): cada comprobación
-  // le añade un "?t=" distinto para pedirlo siempre fresco, así que si
-  // pasara por el cache-first de abajo cada comprobación crearía una
-  // entrada nueva en la caché del shell que nunca se reutiliza ni se
-  // limpia (una URL distinta cada vez). Además, todo el sentido de este
-  // fichero es poder revocar o renovar un acceso y que se note lo antes
-  // posible, justo lo contrario de lo que ofrece cachear.
-  if (url.pathname.endsWith('/licenses.json')) return;
 
   if (isImageRequest(request)) {
     // Imágenes de POIs (Wikimedia, cross-origin): cache-first, y se

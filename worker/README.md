@@ -82,6 +82,61 @@ URL del Worker en otra web no funcionaría desde un navegador normal. No es
 una protección perfecta (alguien con conocimientos técnicos podría
 saltársela), pero es suficiente para un proyecto personal.
 
+## Control de acceso (licencias de usuario)
+
+La app pide un nombre de usuario antes de dejar entrar (pantalla "Acceso
+privado", ver `LICENSE` en `app.js`), comprobándolo contra un KV namespace
+de este mismo Worker — nunca contra un fichero del repo, para que la lista
+de usuarios válidos no quede visible en el navegador de cualquiera.
+
+### Configurarlo (una sola vez)
+
+1. En el panel de Cloudflare: **Storage & databases → Workers KV → Create
+   Instance**. Nómbralo, por ejemplo, `omot-licenses`.
+2. En tu Worker → pestaña **Bindings** → **Add binding** → tipo **KV
+   Namespace**. Variable: `LICENSES` (tiene que llamarse exactamente así,
+   es el nombre que usa `proxy.js`). Selecciona el namespace del paso 1.
+3. Guarda/Deploy.
+
+### Dar de alta, renovar o revocar un acceso
+
+Todo se hace entrando al namespace `omot-licenses` (Storage & databases →
+Workers KV → ábrelo) y editando sus entradas directamente desde el panel,
+sin tocar código ni hacer commits:
+
+- **Dar de alta o renovar**: añade o edita una entrada — **Key** = el
+  nombre de usuario que esa persona escribirá en la app, **Value** = la
+  fecha de caducidad en formato `YYYY-MM-DD` (válida hasta ese día
+  incluido). **Criterio estándar: una semana desde hoy**, salvo que
+  acuerdes otra cosa.
+- **Acceso vitalicio/libre**: usa el valor literal `libre` en vez de una
+  fecha.
+- **Revocar**: borra la entrada (o cámbiale el valor a una fecha ya
+  pasada). Quien ya tenía la app abierta con ese acceso sigue funcionando
+  hasta que se revalide en segundo plano — al reabrir la app, o al ratito
+  si la tiene abierta de fondo — pero no hace falta tocar nada más.
+
+### Cómo funciona por dentro
+
+Al abrir la app sin un acceso guardado válido, pide un nombre de usuario y
+llama a `POST /license/check` de este Worker (`handleLicenseCheck` en
+`proxy.js`), que consulta el KV y responde solo `{ ok: true/false, ... }`
+— nunca la lista completa. Si es válido, la app lo guarda en el propio
+dispositivo (`localStorage`) para seguir funcionando sin red (piensa que
+es una app para usar caminando por la calle) y revalida contra el Worker
+en segundo plano en cada arranque, para detectar una revocación sin
+esperar a que "caduque" solo en el móvil.
+
+### Límites reales de esto
+
+Esto no es DRM ni una protección a prueba de cualquiera: el código de
+`app.js` que llama a este endpoint es público (el repo lo es), así que
+alguien con conocimientos técnicos podría, con esfuerzo, forzar el
+resultado desde las herramientas de desarrollador del navegador. Lo que sí
+evita, a diferencia de guardar la lista en un fichero del repo, es que
+cualquiera pueda leer los nombres de usuario válidos con solo abrir una
+URL.
+
 ## Rate limiting por IP (opcional, recomendado)
 
 Importante: como este Worker vive en un subdominio `workers.dev` (no en un

@@ -812,28 +812,32 @@
 
   /* =========================================================
    * LICENCIA DE ACCESO
-   * Control manual y sencillo de quién puede usar la app: un fichero
-   * "licenses.json" en la propia raíz del repo (editado a mano, sin panel
-   * ni script) mapea nombre de usuario -> fecha de caducidad ("expires":
-   * "YYYY-MM-DD") o null para acceso vitalicio/libre. Al dar de alta a
-   * alguien nuevo, el criterio estándar es una semana de acceso salvo que
-   * se indique vitalicio.
+   * Control manual y sencillo de quién puede usar la app: el propio
+   * Cloudflare Worker (el mismo que ya hace de proxy de IA, ver
+   * worker/proxy.js) expone un endpoint "/license/check" respaldado por un
+   * KV namespace (clave = nombre de usuario, valor = "libre" para acceso
+   * vitalicio o una fecha "YYYY-MM-DD" de caducidad). Se gestiona a mano
+   * desde el panel de Cloudflare (ver worker/README.md), sin tocar código.
    *
-   * OJO — límites reales de esto: el repo es público, así que
-   * "licenses.json" y el propio código de comprobación son visibles para
-   * cualquiera; esto no es una protección a prueba de gente con
-   * conocimientos técnicos (podrían leer el fichero o saltarse el chequeo
-   * desde las herramientas de desarrollador). Sirve para controlar accesos
-   * de forma sencilla editando un fichero a mano, no como DRM real.
+   * A diferencia de un fichero del repo, aquí el navegador nunca ve la
+   * lista de usuarios válidos: solo pregunta "¿es válido X?" y recibe
+   * sí/no, así que leer el código o el tráfico de red no basta para
+   * conseguir un acceso (sí seguiría siendo posible con acceso de verdad al
+   * KV o a las herramientas de desarrollador para forzar el resultado
+   * localmente, pero ya no es tan trivial como leer un fichero público).
    * =======================================================*/
   const LICENSE = (() => {
     const STORAGE = 'omot_license_v1';
-    const FILE = 'licenses.json';
+    const baseUrl = (typeof window !== 'undefined' && window.LLM_CONFIG && window.LLM_CONFIG.baseUrl) || '';
+    const ENDPOINT = baseUrl ? `${baseUrl.replace(/\/$/, '')}/license/check` : '';
 
     const todayStr = () => new Date().toISOString().slice(0, 10);
 
     // expires: null/undefined = vitalicio. Si no, comparación de fechas en
     // formato ISO "YYYY-MM-DD" (orden lexicográfico = orden cronológico).
+    // Se usa solo para la validación offline de abajo: la comprobación real
+    // contra un usuario nuevo siempre la resuelve el Worker, con su propia
+    // fecha del servidor.
     const isValid = (expires) => expires == null || todayStr() <= expires;
 
     const readStored = () => {
@@ -849,34 +853,37 @@
       try { localStorage.removeItem(STORAGE); } catch (_) {}
     };
 
-    // Se pide siempre sin caché (cache: 'no-store'): a diferencia del resto
-    // de contenido de la app, aquí interesa que una revocación o renovación
-    // recién editada en el fichero se note lo antes posible, no que quede
-    // pegada a lo último cacheado.
-    const fetchLicenses = async () => {
-      try {
-        const res = await fetch(`${FILE}?t=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) return null;
-        return await res.json();
-      } catch (_) {
-        return null; // sin red, fichero movido, etc.
-      }
-    };
-
     // { ok: true, expires } | { ok: false, reason: 'not-found' | 'expired' | 'offline', expires? }
     const check = async (username) => {
-      const licenses = await fetchLicenses();
-      if (!licenses) return { ok: false, reason: 'offline' };
-      const entry = licenses[username];
-      if (!entry) return { ok: false, reason: 'not-found' };
-      if (!isValid(entry.expires)) return { ok: false, reason: 'expired', expires: entry.expires };
-      return { ok: true, expires: entry.expires ?? null };
+      if (!ENDPOINT) return { ok: false, reason: 'offline' };
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+        let res;
+        try {
+          res = await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username }),
+            signal: controller.signal
+          });
+        } finally {
+          clearTimeout(timeoutId);
+        }
+        // El Worker responde siempre 200 con { ok, reason? } tanto para "no
+        // encontrado" como "caducado" (son resultados válidos, no errores);
+        // cualquier otro status aquí es un fallo real (red, CORS, 5xx...).
+        if (res.status !== 200) return { ok: false, reason: 'offline' };
+        return await res.json();
+      } catch (_) {
+        return { ok: false, reason: 'offline' }; // sin red, timeout, Worker caído, etc.
+      }
     };
 
     // Validación offline con lo último guardado localmente, para no dejar
     // sin acceso a quien ya se validó antes solo por no tener red en ese
     // momento (la app está pensada para usarse caminando, con cobertura
-    // intermitente). El chequeo real contra el fichero (arriba) se hace
+    // intermitente). El chequeo real contra el Worker (arriba) se hace
     // igualmente en segundo plano al arrancar, ver wireLicenseGate/init.
     const checkStoredValidOffline = () => {
       const stored = readStored();
