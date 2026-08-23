@@ -286,18 +286,17 @@ const CITIES = {
     country: 'Italia',
     continent: 'Europa',
     subtitle: { adult: 'La Ciudad Eterna', kids: '¡La Ciudad de los Gladiadores! ⚔️' },
-    // ~50% del máximo real de Roma (cifra a ajustar cuando esté todo el
-    // contenido subido; de momento estimado sobre el primer lote de POIs).
-    badgeThreshold: 900,
+    // ~50% del máximo real de Roma (36 POIs con quiz × 30 = 1080 posibles).
+    badgeThreshold: 540,
     badgeImg: 'assets/badges/roma.png',
     center: [41.8986, 12.4768],
     zoom: 14.2,
     minZoom: 12,
-    // Cubre desde Trastevere/Gianicolo (oeste) hasta el Coliseo y Terme di
-    // Caracalla (este), y de esa misma zona (suroeste) a Villa Borghese/
-    // Piazza del Popolo (norte). El Vaticano tiene su propia ciudad aparte
+    // Cubre desde Trastevere/Gianicolo (oeste) hasta San Giovanni in
+    // Laterano (este), y desde el Aventino (sur) hasta Villa Borghese y el
+    // Quartiere Coppedè (norte). El Vaticano tiene su propia ciudad aparte
     // (ver "vaticano" más abajo), con sus propios límites de mapa.
-    bounds: [[41.876, 12.448], [41.916, 12.510]],
+    bounds: [[41.876, 12.448], [41.917, 12.513]],
     routes: [
       {
         id: 'main',
