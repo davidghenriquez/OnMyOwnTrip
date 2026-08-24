@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.44</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.45</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -575,6 +575,16 @@
        a propósito: ver el comentario de cabecera en sw.js. -->
   <script>
     if ('serviceWorker' in navigator) {
+      // Si el usuario acaba de darle a "Actualizar" hace un momento y, aun
+      // así, esta misma pestaña vuelve a detectar "otra" actualización
+      // pendiente nada más recargar (visto en producción: puede pasar por
+      // un desfase de propagación del CDN justo después de publicar varias
+      // versiones seguidas, o por peculiaridades de Safari en iOS con los
+      // Service Worker), esa siguiente detección se ignora una vez, para no
+      // dejar al usuario dándole al botón en bucle sin poder salir de ahí.
+      let suppressNextBanner = sessionStorage.getItem('omot_sw_just_updated') === '1';
+      sessionStorage.removeItem('omot_sw_just_updated');
+
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js').then((reg) => {
           // Si ya había un Service Worker controlando esta pestaña (es
@@ -587,6 +597,7 @@
             if (!newWorker) return;
             newWorker.addEventListener('statechange', () => {
               if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                if (suppressNextBanner) { suppressNextBanner = false; return; }
                 document.getElementById('updateBanner')?.classList.add('-show');
               }
             });
@@ -611,6 +622,7 @@
       const reloadOnce = () => {
         if (swRefreshing) return;
         swRefreshing = true;
+        sessionStorage.setItem('omot_sw_just_updated', '1');
         window.location.reload();
       };
       navigator.serviceWorker.addEventListener('controllerchange', reloadOnce);
