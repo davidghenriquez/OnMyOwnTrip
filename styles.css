@@ -2490,7 +2490,12 @@ html[data-mode="kids"] .ai-input-wrap {
 .update-banner {
   position: fixed;
   left: 50%;
-  bottom: max(16px, env(safe-area-inset-bottom));
+  /* env(safe-area-inset-bottom) solo compensa el indicador de inicio del
+     iPhone, no la barra de herramientas de Safari (dirección/pestañas) que
+     se queda encima de esa zona cuando el móvil abre la web sin instalarla
+     como PWA — sin el +44px extra, el botón "Actualizar" queda tapado por
+     esa barra y es imposible de pulsar (bug real reportado por un usuario). */
+  bottom: max(60px, calc(env(safe-area-inset-bottom) + 44px));
   transform: translateX(-50%) translateY(140%);
   z-index: 9500;
   display: flex;
