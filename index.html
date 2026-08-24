@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.45</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.46</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -575,16 +575,6 @@
        a propósito: ver el comentario de cabecera en sw.js. -->
   <script>
     if ('serviceWorker' in navigator) {
-      // Si el usuario acaba de darle a "Actualizar" hace un momento y, aun
-      // así, esta misma pestaña vuelve a detectar "otra" actualización
-      // pendiente nada más recargar (visto en producción: puede pasar por
-      // un desfase de propagación del CDN justo después de publicar varias
-      // versiones seguidas, o por peculiaridades de Safari en iOS con los
-      // Service Worker), esa siguiente detección se ignora una vez, para no
-      // dejar al usuario dándole al botón en bucle sin poder salir de ahí.
-      let suppressNextBanner = sessionStorage.getItem('omot_sw_just_updated') === '1';
-      sessionStorage.removeItem('omot_sw_just_updated');
-
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js').then((reg) => {
           // Si ya había un Service Worker controlando esta pestaña (es
@@ -597,7 +587,6 @@
             if (!newWorker) return;
             newWorker.addEventListener('statechange', () => {
               if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                if (suppressNextBanner) { suppressNextBanner = false; return; }
                 document.getElementById('updateBanner')?.classList.add('-show');
               }
             });
@@ -610,27 +599,27 @@
           });
         }).catch((e) => console.warn('[SW] Registro falló:', e));
       });
-      // OJO: recargar aquí mismo, sin más, provocaba que el aviso volviera a
-      // aparecer en bucle — el nuevo Service Worker se activa solo
-      // (skipWaiting + clients.claim en sw.js), pero si el reload llegaba
-      // antes de que esa activación terminara del todo, la página recién
-      // cargada volvía a pillar esa misma actualización "a medias" y
-      // mostraba el aviso otra vez. Ahora se espera a 'controllerchange'
-      // (la señal real de que el cambio ya se completó) antes de recargar,
-      // con un margen de seguridad por si ese evento no llegara a saltar.
-      let swRefreshing = false;
-      const reloadOnce = () => {
-        if (swRefreshing) return;
-        swRefreshing = true;
-        sessionStorage.setItem('omot_sw_just_updated', '1');
-        window.location.reload();
-      };
-      navigator.serviceWorker.addEventListener('controllerchange', reloadOnce);
-      document.getElementById('updateBannerBtn')?.addEventListener('click', (ev) => {
+      // OJO: confiar en 'controllerchange'/'installed' para decidir CUÁNDO
+      // recargar resultó frágil en la práctica (reportado en producción,
+      // sobre todo en Safari de iOS): el aviso podía volver a aparecer justo
+      // después de pulsar "Actualizar", en bucle, incluso con los datos del
+      // sitio borrados del todo. En vez de perseguir esa carrera de eventos,
+      // el botón ahora fuerza un borrado completo del Service Worker y de
+      // toda su caché él mismo antes de recargar: así la recarga siempre
+      // parte de cero, sin nada a medias que pueda volver a detectarse como
+      // "otra actualización pendiente". No toca localStorage (progreso,
+      // licencia), solo el Service Worker y la Cache Storage.
+      document.getElementById('updateBannerBtn')?.addEventListener('click', async (ev) => {
         const btn = ev.currentTarget;
         btn.disabled = true;
         btn.textContent = 'Actualizando…';
-        setTimeout(reloadOnce, 1200);
+        try {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(regs.map((r) => r.unregister()));
+          const keys = await caches.keys();
+          await Promise.all(keys.map((k) => caches.delete(k)));
+        } catch (e) { /* si algo falla aquí, recargamos igual: peor caso, vuelve a aparecer el aviso */ }
+        window.location.reload();
       });
     }
   </script>
