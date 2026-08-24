@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.46</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.47</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -575,8 +575,27 @@
        a propósito: ver el comentario de cabecera en sw.js. -->
   <script>
     if ('serviceWorker' in navigator) {
+      // Nada ocultaba nunca el aviso salvo una recarga completa de la
+      // página. En iOS, Safari suele "suspender" la pestaña en vez de
+      // recargarla del todo al volver a abrirla (o al restaurarla desde su
+      // caché de navegación, evento 'pageshow' con persisted=true): el
+      // aviso se quedaba pegado en pantalla para siempre, aunque el
+      // Service Worker ya estuviera totalmente al día (nada instalándose
+      // ni esperando) — de ahí que la app ya se viera actualizada pero el
+      // cartel de "Nueva versión" siguiera ahí. Esta función lo esconde en
+      // cuanto se comprueba que, de verdad, no hay ninguna actualización
+      // pendiente.
+      const hideBannerIfSettled = (reg) => {
+        if (reg && !reg.installing && !reg.waiting) {
+          document.getElementById('updateBanner')?.classList.remove('-show');
+        }
+      };
+      let swReg = null;
+
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js').then((reg) => {
+          swReg = reg;
+          hideBannerIfSettled(reg);
           // Si ya había un Service Worker controlando esta pestaña (es
           // decir, no es la primera visita) y ahora se instala uno nuevo,
           // es que se publicó una versión más reciente (CACHE_VERSION en
@@ -595,9 +614,18 @@
           // se comprueba si hay una versión nueva publicada mientras tanto
           // (por defecto el navegador solo revisa de vez en cuando).
           document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') reg.update().catch(() => {});
+            if (document.visibilityState === 'visible') {
+              reg.update().then(() => hideBannerIfSettled(reg)).catch(() => {});
+            }
           });
         }).catch((e) => console.warn('[SW] Registro falló:', e));
+      });
+
+      // Pestaña restaurada desde el estado suspendido de Safari en vez de
+      // recargada de verdad: vuelve a comprobar si el aviso sigue teniendo
+      // sentido.
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) hideBannerIfSettled(swReg);
       });
       // OJO: confiar en 'controllerchange'/'installed' para decidir CUÁNDO
       // recargar resultó frágil en la práctica (reportado en producción,
