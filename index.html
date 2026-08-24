@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=50" />
+  <link rel="stylesheet" href="styles.css?v=51" />
 </head>
 <body>
   <!-- PANTALLA DE ACCESO: se muestra ANTES que la de bienvenida cuando no
@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.47</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.48</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -574,69 +574,54 @@
        intermitente (típico caminando por cascos históricos). Ruta relativa
        a propósito: ver el comentario de cabecera en sw.js. -->
   <script>
+    // Debe coincidir siempre con CACHE_VERSION en sw.js: súbelo a la vez
+    // que subas ese número. Comprobado contra lo que realmente hay
+    // desplegado (ver checkForRealUpdate) en vez de fiarse de los eventos
+    // 'updatefound'/'installed' del Service Worker: con skipWaiting()
+    // activo, hasta una comprobación SIN ningún cambio real pasa un
+    // instante por el estado "instalado", así que ese enfoque hacía
+    // parpadear el aviso de "Nueva versión" en cada recarga aunque no
+    // hubiera nada nuevo (bug real, reportado en producción, reproducido
+    // también en Chrome de escritorio con el sw.js comprobado byte a byte
+    // idéntico). Comparar directamente el número de versión desplegado es
+    // determinista y no depende de esa carrera de eventos.
+    const OMOT_SW_VERSION = 'v164';
+
     if ('serviceWorker' in navigator) {
-      // Nada ocultaba nunca el aviso salvo una recarga completa de la
-      // página. En iOS, Safari suele "suspender" la pestaña en vez de
-      // recargarla del todo al volver a abrirla (o al restaurarla desde su
-      // caché de navegación, evento 'pageshow' con persisted=true): el
-      // aviso se quedaba pegado en pantalla para siempre, aunque el
-      // Service Worker ya estuviera totalmente al día (nada instalándose
-      // ni esperando) — de ahí que la app ya se viera actualizada pero el
-      // cartel de "Nueva versión" siguiera ahí. Esta función lo esconde en
-      // cuanto se comprueba que, de verdad, no hay ninguna actualización
-      // pendiente.
-      const hideBannerIfSettled = (reg) => {
-        if (reg && !reg.installing && !reg.waiting) {
-          document.getElementById('updateBanner')?.classList.remove('-show');
-        }
+      const checkForRealUpdate = async () => {
+        try {
+          const res = await fetch('sw.js', { cache: 'no-store' });
+          const text = await res.text();
+          const m = text.match(/CACHE_VERSION\s*=\s*'(v\d+)'/);
+          const deployed = m && m[1];
+          const banner = document.getElementById('updateBanner');
+          if (deployed && deployed !== OMOT_SW_VERSION) {
+            banner?.classList.add('-show');
+          } else if (banner?.classList.contains('-show')) {
+            banner.classList.remove('-show');
+          }
+        } catch (e) { /* sin red: no tocar el aviso tal cual estuviera */ }
       };
-      let swReg = null;
 
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').then((reg) => {
-          swReg = reg;
-          hideBannerIfSettled(reg);
-          // Si ya había un Service Worker controlando esta pestaña (es
-          // decir, no es la primera visita) y ahora se instala uno nuevo,
-          // es que se publicó una versión más reciente (CACHE_VERSION en
-          // sw.js cambió): avisa con el banner en vez de recargar sola,
-          // para no interrumpir a media lectura o a media pregunta a la IA.
-          reg.addEventListener('updatefound', () => {
-            const newWorker = reg.installing;
-            if (!newWorker) return;
-            newWorker.addEventListener('statechange', () => {
-              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                document.getElementById('updateBanner')?.classList.add('-show');
-              }
-            });
-          });
-          // La pestaña puede llevar horas abierta: al volver a primer plano
-          // se comprueba si hay una versión nueva publicada mientras tanto
-          // (por defecto el navegador solo revisa de vez en cuando).
-          document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-              reg.update().then(() => hideBannerIfSettled(reg)).catch(() => {});
-            }
-          });
-        }).catch((e) => console.warn('[SW] Registro falló:', e));
+        navigator.serviceWorker.register('sw.js').catch((e) => console.warn('[SW] Registro falló:', e));
+        checkForRealUpdate();
+      });
+      // La pestaña puede llevar horas abierta (o Safari puede haberla
+      // "suspendido" en vez de recargarla del todo al volver a ella, típico
+      // en iOS): al volver a primer plano, o al restaurarse desde ese
+      // estado suspendido ('pageshow' con persisted=true), se vuelve a
+      // comprobar la versión realmente desplegada.
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') checkForRealUpdate();
+      });
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) checkForRealUpdate();
       });
 
-      // Pestaña restaurada desde el estado suspendido de Safari en vez de
-      // recargada de verdad: vuelve a comprobar si el aviso sigue teniendo
-      // sentido.
-      window.addEventListener('pageshow', (e) => {
-        if (e.persisted) hideBannerIfSettled(swReg);
-      });
-      // OJO: confiar en 'controllerchange'/'installed' para decidir CUÁNDO
-      // recargar resultó frágil en la práctica (reportado en producción,
-      // sobre todo en Safari de iOS): el aviso podía volver a aparecer justo
-      // después de pulsar "Actualizar", en bucle, incluso con los datos del
-      // sitio borrados del todo. En vez de perseguir esa carrera de eventos,
-      // el botón ahora fuerza un borrado completo del Service Worker y de
-      // toda su caché él mismo antes de recargar: así la recarga siempre
-      // parte de cero, sin nada a medias que pueda volver a detectarse como
-      // "otra actualización pendiente". No toca localStorage (progreso,
-      // licencia), solo el Service Worker y la Cache Storage.
+      // El botón fuerza un borrado completo del Service Worker y de toda
+      // su caché antes de recargar, para que la recarga parta siempre de
+      // cero. No toca localStorage (progreso, licencia).
       document.getElementById('updateBannerBtn')?.addEventListener('click', async (ev) => {
         const btn = ev.currentTarget;
         btn.disabled = true;

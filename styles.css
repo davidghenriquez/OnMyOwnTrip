@@ -2496,7 +2496,18 @@ html[data-mode="kids"] .ai-input-wrap {
      como PWA — sin el +44px extra, el botón "Actualizar" queda tapado por
      esa barra y es imposible de pulsar (bug real reportado por un usuario). */
   bottom: max(60px, calc(env(safe-area-inset-bottom) + 44px));
+  /* OJO: un translateY en % se calcula sobre la altura DEL PROPIO elemento
+     (~55px), así que 140% solo baja ~77px — no basta para sacarlo del todo
+     de la pantalla y se quedaba un trozo asomando siempre por el borde
+     inferior, estuviera "mostrado" o no (bug real, confirmado con
+     getBoundingClientRect: con viewport de 567px de alto, el aviso
+     "oculto" llegaba hasta arriba de los 528px, bien dentro de lo
+     visible). visibility+opacity+pointer-events lo ocultan de verdad,
+     pase lo que pase con el offset del transform.*/
   transform: translateX(-50%) translateY(140%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   z-index: 9500;
   display: flex;
   align-items: center;
@@ -2508,9 +2519,14 @@ html[data-mode="kids"] .ai-input-wrap {
   padding: 10px 10px 10px 16px;
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-lg);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
 }
-.update-banner.-show { transform: translateX(-50%) translateY(0); }
+.update-banner.-show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 .update-banner-text { font-size: 13px; font-weight: 600; white-space: nowrap; }
 .update-banner-btn {
   flex-shrink: 0;
