@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.43</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.44</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -599,7 +599,27 @@
           });
         }).catch((e) => console.warn('[SW] Registro falló:', e));
       });
-      document.getElementById('updateBannerBtn')?.addEventListener('click', () => window.location.reload());
+      // OJO: recargar aquí mismo, sin más, provocaba que el aviso volviera a
+      // aparecer en bucle — el nuevo Service Worker se activa solo
+      // (skipWaiting + clients.claim en sw.js), pero si el reload llegaba
+      // antes de que esa activación terminara del todo, la página recién
+      // cargada volvía a pillar esa misma actualización "a medias" y
+      // mostraba el aviso otra vez. Ahora se espera a 'controllerchange'
+      // (la señal real de que el cambio ya se completó) antes de recargar,
+      // con un margen de seguridad por si ese evento no llegara a saltar.
+      let swRefreshing = false;
+      const reloadOnce = () => {
+        if (swRefreshing) return;
+        swRefreshing = true;
+        window.location.reload();
+      };
+      navigator.serviceWorker.addEventListener('controllerchange', reloadOnce);
+      document.getElementById('updateBannerBtn')?.addEventListener('click', (ev) => {
+        const btn = ev.currentTarget;
+        btn.disabled = true;
+        btn.textContent = 'Actualizando…';
+        setTimeout(reloadOnce, 1200);
+      });
     }
   </script>
 </body>
