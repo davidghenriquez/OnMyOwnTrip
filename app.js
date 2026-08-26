@@ -1978,7 +1978,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=44`;
+    const src = `data/cities/${cityId}.js?v=45`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
@@ -5772,12 +5772,32 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       });
     };
 
+    // Ciudades con el mismo "region" (ej. varias ciudades de la Comunidad de
+    // Madrid) se agrupan bajo un desplegable extra con el nombre de esa
+    // región, en vez de listarse sueltas junto al resto de ciudades del
+    // país. Las ciudades sin "region" (la mayoría) se muestran igual que
+    // siempre, directamente en este mismo nivel.
     const renderCities = (continent, country) => {
       if (!cityList) return;
       cityList.innerHTML = '';
       cityList.appendChild(makeBack(country, () => renderCountries(continent)));
+      const cities = allCities.filter((c) => c.continent === continent && c.country === country);
+      const regions = [...new Set(cities.filter((c) => c.region).map((c) => c.region))];
+      const items = [
+        ...regions.map((region) => ({ label: region, onClick: () => renderRegionCities(continent, country, region) })),
+        ...cities.filter((c) => !c.region).map((city) => ({ label: city.name, onClick: () => finishOnboarding(city.id, chosenMode) }))
+      ];
+      items
+        .sort((a, b) => alphabetically(a.label, b.label))
+        .forEach((item) => cityList.appendChild(makeRow(item.label, '', item.onClick)));
+    };
+
+    const renderRegionCities = (continent, country, region) => {
+      if (!cityList) return;
+      cityList.innerHTML = '';
+      cityList.appendChild(makeBack(region, () => renderCities(continent, country)));
       allCities
-        .filter((c) => c.continent === continent && c.country === country)
+        .filter((c) => c.continent === continent && c.country === country && c.region === region)
         .sort((a, b) => alphabetically(a.name, b.name))
         .forEach((city) => {
           cityList.appendChild(makeRow(city.name, '', () => finishOnboarding(city.id, chosenMode)));

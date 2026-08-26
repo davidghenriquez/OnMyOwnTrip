@@ -94,8 +94,13 @@ const CITIES = {
 
   madrid: {
     id: 'madrid',
-    name: 'Madrid',
+    name: 'Madrid Centro',
     country: 'España',
+    // Agrupa esta ciudad junto a Alcalá de Henares y Buitrago del Lozoya
+    // bajo un desplegable "Madrid" en el selector (ver renderCities en
+    // app.js), en vez de listarlas las tres sueltas junto a Toledo o
+    // Peñíscola: las tres pertenecen a la misma Comunidad de Madrid.
+    region: 'Madrid',
     continent: 'Europa',
     subtitle: { adult: 'La Villa y Corte', kids: '¡La Ciudad del Oso y el Madroño! 🐻' },
     // ~50% del máximo real de Madrid (81 POIs con quiz × 10 = 2430 posibles).
@@ -148,6 +153,75 @@ const CITIES = {
         intro: {
           adult: 'Una ruta por el Madrid más monumental, alrededor del Palacio Real. Empezarás en el Teatro Real, cruzarás la Plaza de Oriente y los Jardines de Sabatini, subirás hasta el Templo de Debod —un templo egipcio real, regalado a España hace más de 2.000 años— y el Monumento al Dos de Mayo de 1808, visitarás el Museo Cerralbo y terminarás en la Plaza de España, el Monasterio de la Encarnación y el Palacio del Senado. Al terminar habrás visto cómo Madrid combina la grandeza de sus palacios con un templo egipcio original, algo que no se ve en ninguna otra capital europea. Toca cada parada en el mapa para ver la información específica de ese lugar.',
           kids: '¡Esta ruta es la del rey! 👑 Vas a pasar por un teatro enorme, unos jardines preciosos, ¡y hasta un templo egipcio de verdad, con miles de años, que le regalaron a España! También verás un monumento a un grupo de valientes que se enfrentaron a un ejército entero. Terminarás en una plaza con Don Quijote y Sancho Panza, un monasterio tranquilo y el edificio donde trabajan los senadores. Al final sabrás que en Madrid hay un pedacito de Egipto, ¡y pocos niños lo saben! ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      }
+    ]
+  },
+
+  'alcala-de-henares': {
+    id: 'alcala-de-henares',
+    name: 'Alcalá de Henares',
+    country: 'España',
+    region: 'Madrid',
+    continent: 'Europa',
+    subtitle: { adult: 'Cuna de Cervantes, Patrimonio de la Humanidad', kids: '¡La Ciudad Donde Nació Don Quijote... o Casi! 🖋️' },
+    // ~50% del máximo real de Alcalá de Henares (16 POIs con quiz × 30 = 480 posibles).
+    badgeThreshold: 240,
+    badgeImg: 'assets/badges/alcala-de-henares.png',
+    center: [40.4835, -3.3670],
+    zoom: 15.5,
+    minZoom: 13,
+    // Cubre todo el casco histórico Patrimonio de la Humanidad, desde la
+    // Puerta de Madrid y la muralla (oeste) hasta el Palacio Laredo y la
+    // estación de tren (norte), y desde el convento de las Bernardas hasta
+    // el Hospital de Antezana y la Calle Mayor.
+    bounds: [[40.4775, -3.3755], [40.4905, -3.3605]],
+    routes: [
+      {
+        id: 'main',
+        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
+        color: '#F59E0B',
+        intro: {
+          adult: 'Esta ruta reúne el corazón cervantino y universitario de Alcalá de Henares, Patrimonio de la Humanidad desde 1998. Empezarás en el Colegio de San Ildefonso, la universidad fundada por el cardenal Cisneros en 1499 donde hoy se entrega el Premio Cervantes, seguirás hasta la Catedral Magistral —una de las dos únicas del mundo con ese título—, visitarás la casa donde se conserva la partida de bautismo de Miguel de Cervantes y su plaza, te asomarás al Corral de Comedias, uno de los teatros en activo más antiguos de Europa, y terminarás subiendo a la torre mirador construida sobre las ruinas de la iglesia donde el propio Cervantes fue bautizado en 1547. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta te lleva al Alcalá de Cervantes! 🖋️ Vas a entrar en una universidad de más de 500 años donde cada año se entrega un premio súper importante de libros, visitarás una catedral que solo comparte su título con otra en todo el mundo, entrarás en la casa donde nació el escritor más famoso de España, y subirás a una torre mirador construida sobre una iglesia muy antigua. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      },
+      {
+        id: 'palacios',
+        name: { adult: 'Palacios y Murallas', kids: '¡El Alcalá de los Palacios! 🏯' },
+        color: '#0EA5E9',
+        intro: {
+          adult: 'Una ruta por el Alcalá monumental y religioso, menos transitada que el centro cervantino pero igual de sorprendente. Recorrerás la Calle Mayor, la calle soportalada más larga conservada de Europa, cruzarás la Puerta de Madrid y un tramo de la muralla árabe y medieval del siglo XI, visitarás el Palacio Arzobispal —donde Isabel la Católica recibió a Cristóbal Colón en 1486— y el Palacio Laredo, y terminarás junto a la cúpula ovalada más grande de España, en el convento de las Bernardas. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta es la de los palacios y las murallas! 🏯 Vas a caminar por la calle con soportales más larga de toda Europa, cruzar una puerta muy antigua y un trozo de muralla de hace casi 1.000 años, visitar un palacio donde una reina se reunió con el marinero que después cruzó el océano, y otro palacio con decoración árabe. Terminarás junto a la cúpula más grande de España en forma de óvalo. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+        }
+      }
+    ]
+  },
+
+  'buitrago-del-lozoya': {
+    id: 'buitrago-del-lozoya',
+    name: 'Buitrago del Lozoya',
+    country: 'España',
+    region: 'Madrid',
+    continent: 'Europa',
+    subtitle: { adult: 'El pueblo amurallado de la Sierra Norte', kids: '¡El Pueblo con Muralla de Verdad! 🏰' },
+    // ~50% del máximo real de Buitrago del Lozoya (7 POIs con quiz × 30 = 210 posibles).
+    badgeThreshold: 105,
+    badgeImg: 'assets/badges/buitrago-del-lozoya.png',
+    center: [40.9945, -3.6345],
+    zoom: 16.2,
+    minZoom: 14.5,
+    // El recinto amurallado casi completo del pueblo, desde el puente del
+    // Arrabal (norte) hasta el castillo y la iglesia (sur).
+    bounds: [[40.991, -3.639], [40.998, -3.6305]],
+    routes: [
+      {
+        id: 'main',
+        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
+        color: '#F59E0B',
+        intro: {
+          adult: 'La ruta recorre por completo el recinto amurallado mejor conservado de la Comunidad de Madrid, de origen musulmán del siglo XI. Caminarás junto a la muralla y su barbacana, visitarás el castillo donde se refugió Juana la Beltraneja durante su disputa con Isabel la Católica por el trono de Castilla, entrarás en la iglesia mudéjar de Santa María del Castillo, descubrirás un pequeño museo con obras auténticas de Picasso regaladas a su peluquero y amigo, y cruzarás el puente medieval sobre el río Lozoya. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+          kids: '¡Esta ruta rodea un pueblo amurallado como de cuento! 🏰 Vas a caminar junto a una muralla de hace casi 1.000 años, visitar un castillo donde se escondió una princesa, entrar en una iglesia muy antigua, y descubrir un museo pequeñito con cuadros auténticos de Picasso que regaló a su amigo peluquero. Terminarás cruzando un puente de piedra muy viejo sobre un río. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
         }
       }
     ]
