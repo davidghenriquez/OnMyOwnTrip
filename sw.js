@@ -16,7 +16,7 @@
 // Sube este número cuando cambies la lista SHELL_URLS de aquí abajo
 // (los propios archivos versionados con "?v=N" ya se cachean solos con
 // su nueva clave la primera vez que se piden, sin necesidad de tocar esto).
-const CACHE_VERSION = 'v165';
+const CACHE_VERSION = 'v166';
 const SHELL_CACHE = `omot-shell-${CACHE_VERSION}`;
 const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
 
@@ -61,8 +61,20 @@ self.addEventListener('install', (event) => {
         } catch (_) { /* se cacheará más adelante vía el fetch handler */ }
       })
     );
-    self.skipWaiting();
+    // OJO: aquí había un self.skipWaiting() incondicional, que activaba
+    // cualquier versión nueva al instante sin que el usuario llegara a
+    // pulsar "Actualizar". Combinado con index.html comparando un número
+    // de versión copiado a mano (que se desincronizaba fácilmente y dejaba
+    // el aviso de actualización en bucle infinito), resultó ser un diseño
+    // frágil. Ahora se espera de verdad en estado "waiting" hasta que
+    // index.html pida explícitamente saltárselo (ver el listener de
+    // 'message' más abajo), el patrón estándar y bien probado para
+    // Service Workers.
   })());
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {

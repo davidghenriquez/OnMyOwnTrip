@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.49</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.50</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -574,65 +574,70 @@
        intermitente (típico caminando por cascos históricos). Ruta relativa
        a propósito: ver el comentario de cabecera en sw.js. -->
   <script>
-    // Debe coincidir siempre con CACHE_VERSION en sw.js: súbelo a la vez
-    // que subas ese número. Comprobado contra lo que realmente hay
-    // desplegado (ver checkForRealUpdate) en vez de fiarse de los eventos
-    // 'updatefound'/'installed' del Service Worker: con skipWaiting()
-    // activo, hasta una comprobación SIN ningún cambio real pasa un
-    // instante por el estado "instalado", así que ese enfoque hacía
-    // parpadear el aviso de "Nueva versión" en cada recarga aunque no
-    // hubiera nada nuevo (bug real, reportado en producción, reproducido
-    // también en Chrome de escritorio con el sw.js comprobado byte a byte
-    // idéntico). Comparar directamente el número de versión desplegado es
-    // determinista y no depende de esa carrera de eventos.
-    const OMOT_SW_VERSION = 'v164';
-
+    // Historial de este aviso: primero se basaba en los eventos
+    // 'updatefound'/'installed' del propio Service Worker, pero
+    // skipWaiting() automático hacía que hasta una comprobación sin ningún
+    // cambio real pasara un instante por el estado "instalado" (bug real).
+    // Se sustituyó por comparar un número de versión copiado a mano en
+    // este mismo archivo — pero eso introdujo un bug PEOR: en el push
+    // siguiente nos olvidamos de subir ese número a la vez que
+    // CACHE_VERSION en sw.js, y el aviso quedó en bucle infinito para
+    // siempre, sin importar cuántas veces se recargara. Ahora se usa el
+    // patrón estándar de Service Worker, sin ningún número que sincronizar
+    // a mano: sw.js ya NO se auto-activa solo (ver sw.js, ya no llama a
+    // self.skipWaiting() en el install), así que reg.waiting es la fuente
+    // de verdad — indica que hay de verdad una versión nueva instalada y
+    // esperando, ni más ni menos.
     if ('serviceWorker' in navigator) {
-      const checkForRealUpdate = async () => {
-        try {
-          const res = await fetch('sw.js', { cache: 'no-store' });
-          const text = await res.text();
-          const m = text.match(/CACHE_VERSION\s*=\s*'(v\d+)'/);
-          const deployed = m && m[1];
-          const banner = document.getElementById('updateBanner');
-          if (deployed && deployed !== OMOT_SW_VERSION) {
-            banner?.classList.add('-show');
-          } else if (banner?.classList.contains('-show')) {
-            banner.classList.remove('-show');
-          }
-        } catch (e) { /* sin red: no tocar el aviso tal cual estuviera */ }
+      let swReg = null;
+      const showBannerIfWaiting = () => {
+        document.getElementById('updateBanner')?.classList.toggle('-show', !!(swReg && swReg.waiting));
       };
 
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch((e) => console.warn('[SW] Registro falló:', e));
-        checkForRealUpdate();
-      });
-      // La pestaña puede llevar horas abierta (o Safari puede haberla
-      // "suspendido" en vez de recargarla del todo al volver a ella, típico
-      // en iOS): al volver a primer plano, o al restaurarse desde ese
-      // estado suspendido ('pageshow' con persisted=true), se vuelve a
-      // comprobar la versión realmente desplegada.
-      document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') checkForRealUpdate();
-      });
-      window.addEventListener('pageshow', (e) => {
-        if (e.persisted) checkForRealUpdate();
+        navigator.serviceWorker.register('sw.js').then((reg) => {
+          swReg = reg;
+          showBannerIfWaiting();
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            newWorker?.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed') showBannerIfWaiting();
+            });
+          });
+          // La pestaña puede llevar horas abierta (o Safari puede haberla
+          // "suspendido" en vez de recargarla del todo al volver a ella,
+          // típico en iOS): al volver a primer plano se comprueba si hay
+          // una versión nueva publicada mientras tanto.
+          document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') reg.update().then(showBannerIfWaiting).catch(() => {});
+          });
+        }).catch((e) => console.warn('[SW] Registro falló:', e));
       });
 
-      // El botón fuerza un borrado completo del Service Worker y de toda
-      // su caché antes de recargar, para que la recarga parta siempre de
-      // cero. No toca localStorage (progreso, licencia).
-      document.getElementById('updateBannerBtn')?.addEventListener('click', async (ev) => {
+      // Pestaña restaurada desde el estado suspendido de Safari en vez de
+      // recargada de verdad ('pageshow' con persisted=true).
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) showBannerIfWaiting();
+      });
+
+      let swRefreshing = false;
+      const reloadOnce = () => {
+        if (swRefreshing) return;
+        swRefreshing = true;
+        window.location.reload();
+      };
+      navigator.serviceWorker.addEventListener('controllerchange', reloadOnce);
+
+      document.getElementById('updateBannerBtn')?.addEventListener('click', (ev) => {
         const btn = ev.currentTarget;
         btn.disabled = true;
         btn.textContent = 'Actualizando…';
-        try {
-          const regs = await navigator.serviceWorker.getRegistrations();
-          await Promise.all(regs.map((r) => r.unregister()));
-          const keys = await caches.keys();
-          await Promise.all(keys.map((k) => caches.delete(k)));
-        } catch (e) { /* si algo falla aquí, recargamos igual: peor caso, vuelve a aparecer el aviso */ }
-        window.location.reload();
+        // Le dice al Service Worker en espera que active ya mismo: eso
+        // dispara 'controllerchange' arriba, que recarga la página. El
+        // margen de seguridad recarga igual si, por lo que sea, no hubiera
+        // ningún worker esperando o el evento no llegara a saltar.
+        swReg?.waiting?.postMessage({ type: 'SKIP_WAITING' });
+        setTimeout(reloadOnce, 1500);
       });
     }
   </script>
