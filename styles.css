@@ -1206,8 +1206,17 @@ button { -webkit-appearance: none; appearance: none; border: none; background: n
   inset: 0;
   background: #E6E0D3;
 }
-.leaflet-control-zoom, .leaflet-control-attribution {
+.leaflet-control-zoom {
   display: none !important;
+}
+/* La atribución a OpenStreetMap es obligatoria por su política de uso (a
+   diferencia de CARTO antes, que no la exigía con la misma firmeza): se
+   mantiene visible pero discreta, en vez de ocultarla del todo como el
+   control de zoom de arriba. */
+.leaflet-control-attribution {
+  font-size: 9px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0 4px;
 }
 .leaflet-layer {
   filter: var(--map-filter);

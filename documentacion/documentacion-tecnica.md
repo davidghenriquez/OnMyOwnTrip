@@ -86,9 +86,11 @@ No hay build step: los archivos se sirven tal cual (GitHub Pages).
 
 ## 4. Mapa y pines
 
-- **Leaflet** + teselas de **CartoDB Voyager** (`{s}.basemaps.cartocdn.com`),
-  con un filtro CSS (`--map-filter`) que las oscurece para que encajen con
-  el tema oscuro de la app.
+- **Leaflet** + teselas estándar de **OpenStreetMap** (`{s}.tile.openstreetmap.org`),
+  con un filtro CSS (`--map-filter`) disponible para oscurecerlas si hiciera
+  falta encajar con el tema oscuro de la app. Antes se usaban teselas de
+  CartoDB Voyager, pero CARTO cerró el acceso anónimo a su servicio de
+  mosaicos (ahora exige una clave de API incluso para uso básico).
 - Cada POI se dibuja como un `L.divIcon` (`makePinIcon`): un círculo del
   color de su categoría con un icono SVG dibujado a mano dentro (no
   emoji, para que se vea igual en todos los sistemas): columnas para

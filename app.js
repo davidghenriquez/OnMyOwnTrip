@@ -1246,11 +1246,19 @@
     }
     const city = CURRENT_CITY || CITIES.toledo;
     const cityMinZoom = city.minZoom || 11;
-    map = L.map('map', { zoomControl: false, attributionControl: false, scrollWheelZoom: true, maxBoundsViscosity: 0.7 })
+    map = L.map('map', { zoomControl: false, attributionControl: true, scrollWheelZoom: true, maxBoundsViscosity: 0.7 })
       .setView(city.center, city.zoom);
     map.setMaxBounds(L.latLngBounds(city.bounds[0], city.bounds[1]).pad(0.25));
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      maxZoom: 19, minZoom: cityMinZoom, subdomains: 'abcd'
+    // CARTO cerró el acceso anónimo a sus mosaicos (basemaps.cartocdn.com):
+    // desde ahora exige una clave de API incluso para el uso más básico, y
+    // sin ella todas las peticiones devuelven un tile con el aviso "API KEY
+    // REQUIRED" en vez del mapa real (bug real, reportado en producción).
+    // Los tiles estándar de OpenStreetMap son gratuitos sin clave, pero su
+    // política de uso exige atribución visible: de ahí attributionControl
+    // pasando a true arriba, en vez de estar desactivado del todo.
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19, minZoom: cityMinZoom, subdomains: 'abc',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     markersLayer = L.layerGroup().addTo(map);
     // Agrupa pines en modo "explorar libremente" (fuera de una ruta): con
@@ -1978,7 +1986,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=45`;
+    const src = `data/cities/${cityId}.js?v=46`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
