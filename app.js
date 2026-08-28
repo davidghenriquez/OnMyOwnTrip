@@ -5855,7 +5855,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   const ONBOARDING_STRINGS = {
     es: {
       obHeroTitle: 'Explora a tu manera',
-      obHeroSubtitle: 'Historias, leyendas y secretos de cada rincón, contados según caminas.',
+      obHeroSubtitle: 'Historias, leyendas y secretos de cada rincón de tu ciudad preferida, a tu ritmo.',
       obSectionCityHeading: '¿Dónde quieres explorar?',
       obNearbyTitle: 'Cerca de mí',
       obNearbyDesc: 'Detecto la ciudad más cercana con tu ubicación',
@@ -5870,7 +5870,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     },
     en: {
       obHeroTitle: 'Explore your way',
-      obHeroSubtitle: 'Stories, legends and secrets from every corner, told as you walk.',
+      obHeroSubtitle: 'Stories, legends and secrets from every corner of your favorite city, at your own pace.',
       obSectionCityHeading: 'Where do you want to explore?',
       obNearbyTitle: 'Near me',
       obNearbyDesc: 'I detect the closest city using your location',
