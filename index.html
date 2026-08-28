@@ -54,8 +54,8 @@
   <div class="license-gate" id="licenseGate" hidden aria-hidden="true">
     <div class="license-gate-card">
       <div class="license-gate-icon" aria-hidden="true">🔑</div>
-      <h2 class="license-gate-title">Acceso privado</h2>
-      <p class="license-gate-text">Introduce tu clave de acceso para continuar.</p>
+      <h2 class="license-gate-title" id="licenseGateTitle">Acceso privado</h2>
+      <p class="license-gate-text" id="licenseGateText">Introduce tu clave de acceso para continuar.</p>
       <input type="text" class="license-gate-input" id="licenseGateInput" placeholder="Tu clave de acceso" autocomplete="off" autocapitalize="off" spellcheck="false" />
       <button type="button" class="license-gate-submit" id="licenseGateSubmit">Entrar</button>
       <p class="license-gate-error" id="licenseGateError" hidden></p>
@@ -404,7 +404,7 @@
           <p class="sheet-sub">—</p>
           <span class="sheet-distance" hidden></span>
         </div>
-        <button type="button" class="sheet-close" aria-label="Cerrar ficha">
+        <button type="button" class="sheet-close" id="sheetCloseBtn" aria-label="Cerrar ficha">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -512,7 +512,7 @@
 
     <!-- LIGHTBOX: imagen ampliada del punto de interés -->
     <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
-      <button type="button" class="lightbox-close" aria-label="Cerrar imagen">
+      <button type="button" class="lightbox-close" id="lightboxCloseBtn" aria-label="Cerrar imagen">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -526,13 +526,13 @@
           <path d="M3 12a9 9 0 0 1 15.5-6.3M21 12a9 9 0 0 1-15.5 6.3"></path>
           <path d="M3 5v5h5M21 19v-5h-5"></path>
         </svg>
-        <span>Reintentar</span>
+        <span id="lightboxRetryLabel">Reintentar</span>
       </button>
     </div>
 
     <div class="visit-summary-modal" id="visitSummaryModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Resumen de tu visita">
       <div class="visit-summary-card">
-        <button type="button" class="lightbox-close visit-summary-close" aria-label="Cerrar resumen">
+        <button type="button" class="lightbox-close visit-summary-close" id="visitSummaryCloseBtn" aria-label="Cerrar resumen">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -594,8 +594,8 @@
   <!-- El "?v=N" de data.js/app.js/styles.css evita que el móvil se quede con
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
-  <script src="data/core.js?v=24"></script>
-  <script src="app.js?v=176"></script>
+  <script src="data/core.js?v=25"></script>
+  <script src="app.js?v=177"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa

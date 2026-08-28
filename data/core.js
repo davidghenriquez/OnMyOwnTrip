@@ -522,9 +522,9 @@ const AI_PROMPTS = {
 };
 
 const AI_TOPIC_NAMES = {
-  'secret-history': { adult: 'la historia secreta', kids: 'el secreto' },
-  'architecture': { adult: 'la arquitectura', kids: 'los trucos de construcción' },
-  'legends': { adult: 'las leyendas', kids: 'las leyendas' }
+  'secret-history': { es: { adult: 'la historia secreta', kids: 'el secreto' }, en: { adult: 'the secret history', kids: 'the secret' } },
+  'architecture': { es: { adult: 'la arquitectura', kids: 'los trucos de construcción' }, en: { adult: 'the architecture', kids: 'the building tricks' } },
+  'legends': { es: { adult: 'las leyendas', kids: 'las leyendas' }, en: { adult: 'the legends', kids: 'the legends' } }
 };
 
 // Vive fuera del cierre de app.js, así que no tiene acceso a STATE.lang (ver

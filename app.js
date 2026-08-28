@@ -313,47 +313,99 @@
     /* ---- LOCAL SIMULATOR (template + POI context-aware, no network) ---- */
     const SIM = {
       pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; },
+      // Idioma activo del simulador local: SIM vive en el mismo cierre que
+      // STATE, así que puede leerlo directamente en cada llamada sin que
+      // haga falta pasarlo como parámetro por todas las funciones de abajo.
+      L() { return STATE.lang === 'en' ? 'en' : 'es'; },
       // Los textos de poi.tabs son bastante breves (~60-90 palabras). Estas
       // intros/cierres genéricos se combinan con ellos para que cada
       // narración dure de forma fiable alrededor de un minuto hablado.
-      introsAdult: [
-        `Este casco histórico concentra siglos de civilizaciones superpuestas, y este lugar es una de las piezas clave para entenderlo.`,
-        `Pocos rincones del mundo condensan tanta historia en tan poco espacio como este; aquí conviven huellas de distintas épocas y culturas.`,
-        `Este es uno de esos lugares que conviene visitar despacio, porque cada detalle esconde una capa distinta de la historia de la ciudad.`
-      ],
-      closingsAdult: [
-        `Antes de seguir caminando, tómate un momento para observar los materiales, las proporciones y la luz: son estos detalles, más que las fechas, los que realmente transmiten el paso del tiempo. Si te fijas bien, notarás que las distintas épocas conviven sin imponerse unas sobre otras, algo poco habitual.`,
-        `Vale la pena imaginar cómo sería este lugar hace siglos, con otro tráfico de personas, otros oficios y otras preocupaciones cotidianas. La piedra permanece, pero quienes la habitaron cambiaron muchas veces de forma de vida, de lengua y de religión, dejando cada uno su propia huella superpuesta.`,
-        `Un buen viajero no solo mira, también escucha: el eco de los pasos, el silencio de las calles, el contraste entre la piedra fría y la luz del día. Todo eso forma parte de la experiencia tanto como los datos históricos que acabas de escuchar.`
-      ],
-      introsKids: [
-        `¡Prepárate para un viaje en el tiempo! Este sitio ha visto pasar reyes, caballeros y hasta alguna leyenda de dragones. 🐉`,
-        `Esta ciudad esconde secretos en cada rincón, ¡y este es uno de los más chulos que vas a descubrir hoy! 🗺️`,
-        `Agárrate fuerte, porque lo que te voy a contar lleva aquí cientos y cientos de años. ⏳✨`
-      ],
-      closingsKids: [
-        `Antes de seguir tu aventura, mira bien a tu alrededor: fíjate en los colores de la piedra, en las formas raras de las ventanas y en lo alto que es todo. Los mejores exploradores son los que se fijan en los detalles pequeños que casi nadie ve. 🔍`,
-        `Imagina a los niños que vivían aquí hace muchísimos años, jugando por estas mismas calles. ¿Jugarían a lo mismo que tú? Seguro que también se hacían un montón de preguntas mirando este lugar, igual que tú ahora mismo. 🤔`,
-        `Cierra los ojos un segundo y escucha: el viento, los pájaros, algún eco lejano… Cada rincón de esta ciudad suena distinto, y este es uno de los sitios donde más se nota. 👂✨`
-      ],
+      introsAdult: {
+        es: [
+          `Este casco histórico concentra siglos de civilizaciones superpuestas, y este lugar es una de las piezas clave para entenderlo.`,
+          `Pocos rincones del mundo condensan tanta historia en tan poco espacio como este; aquí conviven huellas de distintas épocas y culturas.`,
+          `Este es uno de esos lugares que conviene visitar despacio, porque cada detalle esconde una capa distinta de la historia de la ciudad.`
+        ],
+        en: [
+          `This historic quarter holds centuries of overlapping civilizations, and this spot is one of the key pieces for understanding it.`,
+          `Few corners of the world pack as much history into so little space as this one; traces of different eras and cultures coexist right here.`,
+          `This is one of those places worth visiting slowly, because every detail hides a different layer of the city's history.`
+        ]
+      },
+      closingsAdult: {
+        es: [
+          `Antes de seguir caminando, tómate un momento para observar los materiales, las proporciones y la luz: son estos detalles, más que las fechas, los que realmente transmiten el paso del tiempo. Si te fijas bien, notarás que las distintas épocas conviven sin imponerse unas sobre otras, algo poco habitual.`,
+          `Vale la pena imaginar cómo sería este lugar hace siglos, con otro tráfico de personas, otros oficios y otras preocupaciones cotidianas. La piedra permanece, pero quienes la habitaron cambiaron muchas veces de forma de vida, de lengua y de religión, dejando cada uno su propia huella superpuesta.`,
+          `Un buen viajero no solo mira, también escucha: el eco de los pasos, el silencio de las calles, el contraste entre la piedra fría y la luz del día. Todo eso forma parte de la experiencia tanto como los datos históricos que acabas de escuchar.`
+        ],
+        en: [
+          `Before you keep walking, take a moment to look at the materials, the proportions, the light: these details, more than any date, are what really convey the passage of time. Look closely and you'll notice how the different eras coexist without one overpowering the other — something not so common.`,
+          `It's worth imagining what this place looked like centuries ago, with a different flow of people, different trades, different everyday concerns. The stone remains, but the people who lived here changed their way of life, their language, and their religion many times over, each leaving their own layer behind.`,
+          `A good traveler doesn't just look, they also listen: the echo of footsteps, the silence of the streets, the contrast between cold stone and daylight. All of that is as much a part of the experience as the historical facts you just heard.`
+        ]
+      },
+      introsKids: {
+        es: [
+          `¡Prepárate para un viaje en el tiempo! Este sitio ha visto pasar reyes, caballeros y hasta alguna leyenda de dragones. 🐉`,
+          `Esta ciudad esconde secretos en cada rincón, ¡y este es uno de los más chulos que vas a descubrir hoy! 🗺️`,
+          `Agárrate fuerte, porque lo que te voy a contar lleva aquí cientos y cientos de años. ⏳✨`
+        ],
+        en: [
+          `Get ready for a trip through time! This spot has seen kings, knights, and even a dragon legend or two go by. 🐉`,
+          `This city hides secrets around every corner, and this is one of the coolest ones you'll discover today! 🗺️`,
+          `Hold on tight, because what I'm about to tell you has been here for hundreds and hundreds of years. ⏳✨`
+        ]
+      },
+      closingsKids: {
+        es: [
+          `Antes de seguir tu aventura, mira bien a tu alrededor: fíjate en los colores de la piedra, en las formas raras de las ventanas y en lo alto que es todo. Los mejores exploradores son los que se fijan en los detalles pequeños que casi nadie ve. 🔍`,
+          `Imagina a los niños que vivían aquí hace muchísimos años, jugando por estas mismas calles. ¿Jugarían a lo mismo que tú? Seguro que también se hacían un montón de preguntas mirando este lugar, igual que tú ahora mismo. 🤔`,
+          `Cierra los ojos un segundo y escucha: el viento, los pájaros, algún eco lejano… Cada rincón de esta ciudad suena distinto, y este es uno de los sitios donde más se nota. 👂✨`
+        ],
+        en: [
+          `Before you continue your adventure, take a good look around: check out the colors of the stone, the funny shapes of the windows, and how tall everything is. The best explorers are the ones who notice the tiny details almost nobody else sees. 🔍`,
+          `Imagine the kids who lived here a very long time ago, playing in these very same streets. Would they play the same games as you? They probably asked themselves a ton of questions looking at this place too, just like you're doing right now. 🤔`,
+          `Close your eyes for a second and listen: the wind, the birds, some far-off echo… Every corner of this city sounds different, and this is one of the places where you notice it the most. 👂✨`
+        ]
+      },
       // Introducciones específicas para "Historia secreta": el dato real viene
       // de poi.tabs.legends (igual que el chip "Leyendas"), así que aquí se usa
       // un envoltorio distinto ("dato poco conocido" en vez de "cuenta la
       // leyenda") para que no se lea como una repetición literal del otro chip.
-      secretIntrosAdult: [
-        `No es un dato que aparezca en las guías al uso, pero muchos vecinos y guías locales lo conocen bien.`,
-        `Es de esos detalles que casi nunca se cuentan en una visita rápida, aunque cambian bastante la forma de ver el lugar.`,
-        `Pocos visitantes se paran a preguntar por esto, aunque forma parte de lo que hace único a este sitio.`
-      ],
-      secretIntrosKids: [
-        `¡Esto es un secreto que no todo el mundo conoce! 🤫`,
-        `Prepárate, porque esto que te voy a contar no lo sabe todo el mundo... 🤭`,
-        `¡Shhh! Acércate un poco, que esto es un secretillo especial de este lugar. 🤫✨`
-      ],
+      secretIntrosAdult: {
+        es: [
+          `No es un dato que aparezca en las guías al uso, pero muchos vecinos y guías locales lo conocen bien.`,
+          `Es de esos detalles que casi nunca se cuentan en una visita rápida, aunque cambian bastante la forma de ver el lugar.`,
+          `Pocos visitantes se paran a preguntar por esto, aunque forma parte de lo que hace único a este sitio.`
+        ],
+        en: [
+          `It's not something you'll find in the usual guidebooks, but plenty of locals and tour guides know it well.`,
+          `It's the kind of detail that's almost never mentioned on a quick visit, even though it changes the way you see the place quite a bit.`,
+          `Few visitors ever stop to ask about this, even though it's part of what makes this place unique.`
+        ]
+      },
+      secretIntrosKids: {
+        es: [
+          `¡Esto es un secreto que no todo el mundo conoce! 🤫`,
+          `Prepárate, porque esto que te voy a contar no lo sabe todo el mundo... 🤭`,
+          `¡Shhh! Acércate un poco, que esto es un secretillo especial de este lugar. 🤫✨`
+        ],
+        en: [
+          `This is a secret not everyone knows! 🤫`,
+          `Get ready, because not everybody knows what I'm about to tell you... 🤭`,
+          `Shhh! Come a little closer, this is a special little secret about this place. 🤫✨`
+        ]
+      },
       greet(poi, m) {
         // Nombre real siempre, aunque se hable en modo niño: el apodo
         // divertido es solo para lo que se lee en pantalla.
         const n = pickLang(poi.name).adult;
+        if (this.L() === 'en') {
+          if (m === 'kids') {
+            return `Hi! 👋 You're right at ${n}, one of my favorite spots in the whole city! 🤩 Let me tell you all about it in the coolest way possible… Ready for the adventure?`;
+          }
+          return `Welcome to ${n}. I'm your personal local guide. Here's a quick rundown so you can make the most of your visit without missing a single detail.`;
+        }
         if (m === 'kids') {
           return `¡Hola! 👋 Estás justo en ${n}, ¡uno de mis lugares preferidos de toda la ciudad! 🤩 Déjame contártelo de la forma más chula… ¿Listo para la aventura?`;
         }
@@ -366,16 +418,25 @@
         const historyFull = poi.tabs.history[m] || poi.tabs.history.adult || '';
         const historyRest = historyFull.split('.').slice(1).join('.').trim();
         const historyForSummary = historyRest || historyFull;
+        const lang = this.L();
         if (m === 'kids') {
-          const challenges = [
+          const challenges = lang === 'en' ? [
+            `🎯 Challenge: Count how many towers you can see from here and shout the number out loud 🔊.`,
+            `🎯 Challenge: Take a photo pretending to grab the building with your hand 🤏.`,
+            `🎯 Challenge: Find a colorful window and describe what shape it has 🌈.`
+          ] : [
             `🎯 Reto: Cuenta cuántas torres se ven desde aquí y grita el número en voz alta 🔊.`,
             `🎯 Reto: Haz una foto fingiendo que agarras el edificio con tu mano 🤏.`,
             `🎯 Reto: Encuentra una ventana de colores y describe qué forma tiene 🌈.`
           ];
-          return `${this.pick(this.introsKids)}\n\n${historyForSummary}\n\n${this.pick(this.closingsKids)}\n\n${this.pick(challenges)}`;
+          return `${this.pick(this.introsKids[lang])}\n\n${historyForSummary}\n\n${this.pick(this.closingsKids[lang])}\n\n${this.pick(challenges)}`;
+        }
+        if (lang === 'en') {
+          const src = `Guide source: ${this.pick(['Local chronicles (16th c.)', 'Academy of History', 'General Inventory of Cultural Heritage Sites'])}`;
+          return `${this.pick(this.introsAdult.en)}\n\n${historyForSummary}\n\n${this.pick(this.closingsAdult.en)}\n\n${src}.`;
         }
         const src = `Fuente guía: ${this.pick(['Crónicas locales (s. XVI)', 'Academia de la Historia', 'Inventario General de Bienes de Interés Cultural'])}`;
-        return `${this.pick(this.introsAdult)}\n\n${historyForSummary}\n\n${this.pick(this.closingsAdult)}\n\n${src}.`;
+        return `${this.pick(this.introsAdult.es)}\n\n${historyForSummary}\n\n${this.pick(this.closingsAdult.es)}\n\n${src}.`;
       },
       pickDistinct(arr, count) {
         const pool = arr.slice();
@@ -398,98 +459,187 @@
       // producción no era que "no fuera IA de verdad" sino que el banco de
       // respaldo era demasiado corto para disimularlo.
       deepenFacts: {
-        adult: {
-          'secret-history': [
-            `un documento del archivo diocesano menciona un incidente que nunca llegó a las crónicas oficiales, silenciado probablemente por conveniencia política de la época`,
-            `algunos vecinos más veteranos del barrio conservan relatos orales que nunca se han recogido por escrito, transmitidos de generación en generación`,
-            `un historiador local publicó hace pocos años una referencia que contradice la versión más difundida de los hechos, aunque todavía no se ha investigado a fondo`,
-            `existen indicios de que ciertos episodios se atenuaron deliberadamente en las crónicas para no comprometer a familias influyentes de la época`,
-            `se conserva una carta privada que menciona un uso del edificio distinto del que se cuenta habitualmente en las visitas, nunca confirmado del todo`,
-            `un inventario antiguo recoge un detalle que no encaja del todo con la explicación que suele darse hoy a los visitantes`,
-            `existe una fotografía de época que muestra un elemento que ya no está y del que apenas queda constancia documental`,
-            `algunos archivos parroquiales de la zona guardan referencias sueltas que nunca se han cruzado entre sí para reconstruir la historia completa`,
-            `un cronista de hace más de un siglo dejó anotado un episodio menor que ninguna guía moderna recoge`,
-            `los registros municipales conservan una versión de los hechos que rara vez coincide del todo con la que se cuenta en las visitas guiadas`,
-            `los planos originales, comparados con el estado actual, muestran un cambio que ningún documento explica con claridad`,
-            `hay un testimonio recogido a mediados del siglo pasado que aporta un matiz distinto a la versión oficial, aunque nunca se llegó a publicar`
-          ],
-          'architecture': [
-            `un detalle que pocos guías mencionan es que los canteros solían dejar una marca personal oculta, visible solo con luz rasante al amanecer o al atardecer`,
-            `los registros de la época recogen anécdotas curiosas sobre reformas posteriores que no siempre aparecen en las guías oficiales`,
-            `un matiz que sorprende a los expertos es la superposición de técnicas constructivas de distintas épocas en el mismo punto`,
-            `restauraciones recientes revelaron capas anteriores que cambian ligeramente la datación tradicional que se suele contar a los visitantes`,
-            `algunos elementos estructurales se reutilizaron de una construcción anterior, algo que solo se aprecia mirando con atención los materiales`,
-            `los canteros de la época solían firmar su trabajo con pequeñas marcas de cantero, muchas de las cuales siguen sin identificarse del todo`,
-            `un estudio reciente detectó asimetrías deliberadas en la construcción, probablemente para corregir efectos ópticos a cierta distancia`,
-            `parte de la piedra empleada procede de una cantera bastante alejada, lo que en su momento supuso un esfuerzo logístico considerable`,
-            `algunas reformas posteriores intentaron imitar el estilo original con tanto cuidado que hoy cuesta distinguir qué es antiguo y qué no`,
-            `los cimientos esconden restos de una estructura anterior, descubiertos por casualidad durante unas obras de mantenimiento`,
-            `ciertos detalles decorativos se colocaron pensando en cómo se verían desde la calle, no desde donde hoy los observa la mayoría de visitantes`,
-            `una revisión técnica reciente encontró señales de al menos dos fases constructivas distintas, algo que no siempre se explica en las visitas`
-          ],
-          'legends': [
-            `existen variantes de esta leyenda en pueblos cercanos, con protagonistas distintos pero un desenlace casi idéntico, lo que sugiere un origen común más antiguo`,
-            `algunos investigadores del folclore creen que estas historias servían para explicar fenómenos naturales que la gente de la época no podía comprender de otra forma`,
-            `hay quien asegura haber vivido una experiencia similar a la de la leyenda en tiempos recientes, aunque nunca ha quedado documentada de forma oficial`,
-            `la versión que se cuenta hoy en día difiere bastante de la recogida en manuscritos antiguos, señal de que la historia se ha ido adornando con el tiempo`,
-            `algunos folcloristas apuntan a que la leyenda pudo nacer como advertencia práctica, disfrazada de historia fantástica para que se recordara mejor`,
-            `existe una versión bastante más antigua y menos conocida, con un final distinto al que se suele contar hoy a los visitantes`,
-            `en pueblos vecinos circula una historia parecida, aunque allí se atribuye a un personaje completamente distinto`,
-            `algunos vecinos mayores todavía se refieren a la leyenda como si fuera un hecho histórico más, sin distinguir claramente dónde acaba lo real`,
-            `hay quien relaciona la leyenda con un suceso real documentado, aunque la conexión nunca se ha podido demostrar del todo`,
-            `la tradición oral local añade detalles que no aparecen en ninguna versión escrita conocida`,
-            `algunos estudiosos creen que la leyenda se reforzó con el tiempo para atraer peregrinos o viajeros a la zona`,
-            `existe una representación artística antigua de la leyenda que difiere en varios detalles de cómo se cuenta actualmente`
-          ]
+        es: {
+          adult: {
+            'secret-history': [
+              `un documento del archivo diocesano menciona un incidente que nunca llegó a las crónicas oficiales, silenciado probablemente por conveniencia política de la época`,
+              `algunos vecinos más veteranos del barrio conservan relatos orales que nunca se han recogido por escrito, transmitidos de generación en generación`,
+              `un historiador local publicó hace pocos años una referencia que contradice la versión más difundida de los hechos, aunque todavía no se ha investigado a fondo`,
+              `existen indicios de que ciertos episodios se atenuaron deliberadamente en las crónicas para no comprometer a familias influyentes de la época`,
+              `se conserva una carta privada que menciona un uso del edificio distinto del que se cuenta habitualmente en las visitas, nunca confirmado del todo`,
+              `un inventario antiguo recoge un detalle que no encaja del todo con la explicación que suele darse hoy a los visitantes`,
+              `existe una fotografía de época que muestra un elemento que ya no está y del que apenas queda constancia documental`,
+              `algunos archivos parroquiales de la zona guardan referencias sueltas que nunca se han cruzado entre sí para reconstruir la historia completa`,
+              `un cronista de hace más de un siglo dejó anotado un episodio menor que ninguna guía moderna recoge`,
+              `los registros municipales conservan una versión de los hechos que rara vez coincide del todo con la que se cuenta en las visitas guiadas`,
+              `los planos originales, comparados con el estado actual, muestran un cambio que ningún documento explica con claridad`,
+              `hay un testimonio recogido a mediados del siglo pasado que aporta un matiz distinto a la versión oficial, aunque nunca se llegó a publicar`
+            ],
+            'architecture': [
+              `un detalle que pocos guías mencionan es que los canteros solían dejar una marca personal oculta, visible solo con luz rasante al amanecer o al atardecer`,
+              `los registros de la época recogen anécdotas curiosas sobre reformas posteriores que no siempre aparecen en las guías oficiales`,
+              `un matiz que sorprende a los expertos es la superposición de técnicas constructivas de distintas épocas en el mismo punto`,
+              `restauraciones recientes revelaron capas anteriores que cambian ligeramente la datación tradicional que se suele contar a los visitantes`,
+              `algunos elementos estructurales se reutilizaron de una construcción anterior, algo que solo se aprecia mirando con atención los materiales`,
+              `los canteros de la época solían firmar su trabajo con pequeñas marcas de cantero, muchas de las cuales siguen sin identificarse del todo`,
+              `un estudio reciente detectó asimetrías deliberadas en la construcción, probablemente para corregir efectos ópticos a cierta distancia`,
+              `parte de la piedra empleada procede de una cantera bastante alejada, lo que en su momento supuso un esfuerzo logístico considerable`,
+              `algunas reformas posteriores intentaron imitar el estilo original con tanto cuidado que hoy cuesta distinguir qué es antiguo y qué no`,
+              `los cimientos esconden restos de una estructura anterior, descubiertos por casualidad durante unas obras de mantenimiento`,
+              `ciertos detalles decorativos se colocaron pensando en cómo se verían desde la calle, no desde donde hoy los observa la mayoría de visitantes`,
+              `una revisión técnica reciente encontró señales de al menos dos fases constructivas distintas, algo que no siempre se explica en las visitas`
+            ],
+            'legends': [
+              `existen variantes de esta leyenda en pueblos cercanos, con protagonistas distintos pero un desenlace casi idéntico, lo que sugiere un origen común más antiguo`,
+              `algunos investigadores del folclore creen que estas historias servían para explicar fenómenos naturales que la gente de la época no podía comprender de otra forma`,
+              `hay quien asegura haber vivido una experiencia similar a la de la leyenda en tiempos recientes, aunque nunca ha quedado documentada de forma oficial`,
+              `la versión que se cuenta hoy en día difiere bastante de la recogida en manuscritos antiguos, señal de que la historia se ha ido adornando con el tiempo`,
+              `algunos folcloristas apuntan a que la leyenda pudo nacer como advertencia práctica, disfrazada de historia fantástica para que se recordara mejor`,
+              `existe una versión bastante más antigua y menos conocida, con un final distinto al que se suele contar hoy a los visitantes`,
+              `en pueblos vecinos circula una historia parecida, aunque allí se atribuye a un personaje completamente distinto`,
+              `algunos vecinos mayores todavía se refieren a la leyenda como si fuera un hecho histórico más, sin distinguir claramente dónde acaba lo real`,
+              `hay quien relaciona la leyenda con un suceso real documentado, aunque la conexión nunca se ha podido demostrar del todo`,
+              `la tradición oral local añade detalles que no aparecen en ninguna versión escrita conocida`,
+              `algunos estudiosos creen que la leyenda se reforzó con el tiempo para atraer peregrinos o viajeros a la zona`,
+              `existe una representación artística antigua de la leyenda que difiere en varios detalles de cómo se cuenta actualmente`
+            ]
+          },
+          kids: {
+            'secret-history': [
+              `Cuentan que hay una carta muy antigua escondida en un archivo que nadie ha terminado de leer 📜, ¡y podría guardar otro secreto más!`,
+              `Los abuelos del barrio se cuentan unos a otros historias de este sitio que nunca se han escrito en ningún libro 👴👵.`,
+              `Un investigador encontró hace poco un papel que contaba la historia de otra forma distinta 🕵️‍♀️, ¡y todavía la están estudiando!`,
+              `¡Hay una foto muy vieja que muestra algo que ya no existe! 📷 Nadie sabe muy bien qué pasó con ello.`,
+              `Dicen que en los archivos de la iglesia hay papeles sueltos que nadie ha juntado todavía para saber la historia completa 🗂️.`,
+              `Un señor que escribía sobre esta ciudad hace muchísimos años apuntó un dato pequeñito que nadie más ha contado nunca ✍️.`,
+              `¡Los planos antiguos de este sitio no son iguales a como está ahora! 📐 Y nadie explica muy bien por qué cambió.`,
+              `Hay un testimonio guardado desde hace muchos años que cuenta la historia de una forma un poquito distinta 🗣️.`
+            ],
+            'architecture': [
+              `¿Sabías que si cuentas hasta 3 antes de mirar hacia arriba, dicen que ves el detalle mágico mejor? 👀 Muchos niños que han venido antes que tú lo han probado y juran que funciona.`,
+              `Un dato flipante: ¡algunas piedras de aquí pesan tanto como 3 elefantes juntos! 🐘🐘🐘 Y aun así, las subieron sin grúas ni máquinas, solo con cuerdas y mucha fuerza en equipo.`,
+              `¡Hay una marca secreta tallada en una piedra que solo se ve si el sol pega de lado! ☀️ Todavía nadie se pone de acuerdo en qué significa exactamente.`,
+              `¡Algunas piedras de aquí vienen de una cantera súper lejana! 🪨 Traerlas hasta aquí en aquella época fue toda una aventura.`,
+              `¿Sabías que parte de esta construcción se hizo reutilizando piedras de un edificio todavía más viejo? ♻️ ¡Como un puzle gigante!`,
+              `Los que construyeron esto dejaban su propia marca tallada en la piedra, como una firma secreta 🔏, ¡y muchas siguen sin descifrarse!`,
+              `¡Debajo de este sitio hay restos de una construcción todavía más antigua! 🕳️ Los encontraron sin querer haciendo obras.`,
+              `¡Fíjate bien! Algunos detalles se colocaron pensando en cómo se verían desde lejos, no desde tan cerca como los ves tú ahora 🔎.`
+            ],
+            'legends': [
+              `¡Esta misma leyenda se cuenta también en otros pueblos, pero con otros protagonistas! 🧚 A lo mejor todas vienen de una historia aún más antigua.`,
+              `Algunas personas mayores dicen que a ellos también les pasó algo parecido a lo de la leyenda 😲, ¡aunque nadie lo ha escrito nunca!`,
+              `Cuentan que esta leyenda ha ido cambiando un poquito cada vez que se cuenta, ¡como el juego del teléfono escacharrado! 📞😄`,
+              `¡Hay una versión mucho más antigua de esta leyenda, con un final distinto! 📖 A lo mejor te gusta más que la de ahora.`,
+              `En un pueblo cercano cuentan casi la misma historia, ¡pero con un personaje totalmente diferente! 🎭`,
+              `Algunos vecinos hablan de la leyenda como si de verdad hubiera pasado tal cual 😮, ¡sin dudarlo ni un poquito!`,
+              `Hay quien dice que la leyenda viene de algo que sí pasó de verdad, ¡aunque nadie lo ha podido comprobar del todo! 🔍`,
+              `¡Existe un dibujo muy antiguo de esta leyenda, y no se parece del todo a como te la acabo de contar! 🎨`
+            ]
+          }
         },
-        kids: {
-          'secret-history': [
-            `Cuentan que hay una carta muy antigua escondida en un archivo que nadie ha terminado de leer 📜, ¡y podría guardar otro secreto más!`,
-            `Los abuelos del barrio se cuentan unos a otros historias de este sitio que nunca se han escrito en ningún libro 👴👵.`,
-            `Un investigador encontró hace poco un papel que contaba la historia de otra forma distinta 🕵️‍♀️, ¡y todavía la están estudiando!`,
-            `¡Hay una foto muy vieja que muestra algo que ya no existe! 📷 Nadie sabe muy bien qué pasó con ello.`,
-            `Dicen que en los archivos de la iglesia hay papeles sueltos que nadie ha juntado todavía para saber la historia completa 🗂️.`,
-            `Un señor que escribía sobre esta ciudad hace muchísimos años apuntó un dato pequeñito que nadie más ha contado nunca ✍️.`,
-            `¡Los planos antiguos de este sitio no son iguales a como está ahora! 📐 Y nadie explica muy bien por qué cambió.`,
-            `Hay un testimonio guardado desde hace muchos años que cuenta la historia de una forma un poquito distinta 🗣️.`
-          ],
-          'architecture': [
-            `¿Sabías que si cuentas hasta 3 antes de mirar hacia arriba, dicen que ves el detalle mágico mejor? 👀 Muchos niños que han venido antes que tú lo han probado y juran que funciona.`,
-            `Un dato flipante: ¡algunas piedras de aquí pesan tanto como 3 elefantes juntos! 🐘🐘🐘 Y aun así, las subieron sin grúas ni máquinas, solo con cuerdas y mucha fuerza en equipo.`,
-            `¡Hay una marca secreta tallada en una piedra que solo se ve si el sol pega de lado! ☀️ Todavía nadie se pone de acuerdo en qué significa exactamente.`,
-            `¡Algunas piedras de aquí vienen de una cantera súper lejana! 🪨 Traerlas hasta aquí en aquella época fue toda una aventura.`,
-            `¿Sabías que parte de esta construcción se hizo reutilizando piedras de un edificio todavía más viejo? ♻️ ¡Como un puzle gigante!`,
-            `Los que construyeron esto dejaban su propia marca tallada en la piedra, como una firma secreta 🔏, ¡y muchas siguen sin descifrarse!`,
-            `¡Debajo de este sitio hay restos de una construcción todavía más antigua! 🕳️ Los encontraron sin querer haciendo obras.`,
-            `¡Fíjate bien! Algunos detalles se colocaron pensando en cómo se verían desde lejos, no desde tan cerca como los ves tú ahora 🔎.`
-          ],
-          'legends': [
-            `¡Esta misma leyenda se cuenta también en otros pueblos, pero con otros protagonistas! 🧚 A lo mejor todas vienen de una historia aún más antigua.`,
-            `Algunas personas mayores dicen que a ellos también les pasó algo parecido a lo de la leyenda 😲, ¡aunque nadie lo ha escrito nunca!`,
-            `Cuentan que esta leyenda ha ido cambiando un poquito cada vez que se cuenta, ¡como el juego del teléfono escacharrado! 📞😄`,
-            `¡Hay una versión mucho más antigua de esta leyenda, con un final distinto! 📖 A lo mejor te gusta más que la de ahora.`,
-            `En un pueblo cercano cuentan casi la misma historia, ¡pero con un personaje totalmente diferente! 🎭`,
-            `Algunos vecinos hablan de la leyenda como si de verdad hubiera pasado tal cual 😮, ¡sin dudarlo ni un poquito!`,
-            `Hay quien dice que la leyenda viene de algo que sí pasó de verdad, ¡aunque nadie lo ha podido comprobar del todo! 🔍`,
-            `¡Existe un dibujo muy antiguo de esta leyenda, y no se parece del todo a como te la acabo de contar! 🎨`
-          ]
+        en: {
+          adult: {
+            'secret-history': [
+              `a document in the diocesan archive mentions an incident that never made it into the official chronicles, likely silenced for political convenience at the time`,
+              `some of the neighborhood's oldest residents still keep oral accounts that have never been written down, passed on from generation to generation`,
+              `a local historian published a reference a few years ago that contradicts the most widespread version of events, though it still hasn't been fully investigated`,
+              `there are signs that certain episodes were deliberately toned down in the chronicles so as not to compromise influential families of the time`,
+              `a private letter survives that mentions a use of the building different from what's usually told on tours, though it's never been fully confirmed`,
+              `an old inventory records a detail that doesn't quite match the explanation usually given to visitors today`,
+              `there's a period photograph showing an element that's no longer there and for which barely any documentation survives`,
+              `some parish archives in the area hold scattered references that have never been cross-checked to reconstruct the full story`,
+              `a chronicler from over a century ago noted down a minor episode that no modern guidebook mentions`,
+              `municipal records preserve a version of events that rarely fully matches the one told on guided tours`,
+              `the original blueprints, compared with the current layout, show a change that no document explains clearly`,
+              `there's a testimony collected in the mid-20th century that adds a different nuance to the official version, though it was never published`
+            ],
+            'architecture': [
+              `a detail few guides mention is that stonemasons used to leave a hidden personal mark, visible only in raking light at dawn or dusk`,
+              `records from the period contain curious anecdotes about later renovations that don't always make it into official guides`,
+              `a detail that surprises experts is the overlap of construction techniques from different eras at the very same spot`,
+              `recent restorations revealed earlier layers that slightly shift the traditional dating usually given to visitors`,
+              `some structural elements were reused from an earlier building, something only noticeable if you look closely at the materials`,
+              `stonemasons of the time used to sign their work with small mason's marks, many of which still haven't been fully identified`,
+              `a recent study detected deliberate asymmetries in the construction, probably to correct optical effects at a certain distance`,
+              `some of the stone used comes from a quarry quite far away, which at the time meant a considerable logistical effort`,
+              `some later renovations tried to mimic the original style so carefully that today it's hard to tell what's original and what isn't`,
+              `the foundations hide remains of an earlier structure, discovered by chance during maintenance work`,
+              `certain decorative details were placed with how they'd look from the street in mind, not from where most visitors view them today`,
+              `a recent technical survey found signs of at least two distinct construction phases, something that isn't always explained on tours`
+            ],
+            'legends': [
+              `variants of this legend exist in nearby towns, with different characters but an almost identical ending, suggesting a common, older origin`,
+              `some folklore researchers believe these stories served to explain natural phenomena that people of the time couldn't understand any other way`,
+              `some claim to have had an experience similar to the legend in recent times, though it's never been officially documented`,
+              `the version told today differs quite a bit from the one recorded in old manuscripts, a sign the story has been embellished over time`,
+              `some folklorists suggest the legend may have started as a practical warning, dressed up as a fantastical tale so it would be remembered better`,
+              `a much older, lesser-known version exists, with a different ending from the one usually told to visitors today`,
+              `a similar story circulates in neighboring towns, though there it's attributed to a completely different character`,
+              `some older residents still talk about the legend as if it were plain historical fact, without clearly distinguishing where reality ends`,
+              `some link the legend to a real, documented event, although the connection has never been fully proven`,
+              `local oral tradition adds details that don't appear in any known written version`,
+              `some scholars believe the legend was reinforced over time to attract pilgrims or travelers to the area`,
+              `an old artistic depiction of the legend exists that differs in several details from how it's told today`
+            ]
+          },
+          kids: {
+            'secret-history': [
+              `They say there's a very old letter hidden in an archive that nobody has finished reading yet 📜, and it might hold another secret!`,
+              `The grandparents of the neighborhood tell each other stories about this place that have never been written in any book 👴👵.`,
+              `A researcher recently found a paper that told the story a totally different way 🕵️‍♀️, and they're still studying it!`,
+              `There's a very old photo that shows something that doesn't exist anymore! 📷 Nobody really knows what happened to it.`,
+              `They say the church archives have loose papers nobody has put together yet to find out the whole story 🗂️.`,
+              `A man who wrote about this city a very long time ago jotted down a tiny detail that nobody else has ever told ✍️.`,
+              `The old plans of this place aren't the same as how it looks now! 📐 And nobody really explains why it changed.`,
+              `There's a testimony kept for many years that tells the story in a slightly different way 🗣️.`
+            ],
+            'architecture': [
+              `Did you know that if you count to 3 before looking up, they say you spot the magic detail better? 👀 Lots of kids who came before you have tried it and swear it works.`,
+              `A mind-blowing fact: some of the stones here weigh as much as 3 elephants put together! 🐘🐘🐘 And they still hauled them up with no cranes or machines, just ropes and a lot of teamwork.`,
+              `There's a secret mark carved into a stone that you can only see when the sun hits it sideways! ☀️ Nobody agrees yet on exactly what it means.`,
+              `Some of the stones here come from a super far-away quarry! 🪨 Bringing them all the way here back then was a real adventure.`,
+              `Did you know part of this building was made by reusing stones from an even older building? ♻️ Like a giant puzzle!`,
+              `The people who built this carved their own mark into the stone, like a secret signature 🔏, and lots of them are still a mystery!`,
+              `Underneath this spot there are remains of an even older building! 🕳️ They found them by accident during some repair work.`,
+              `Look closely! Some details were placed thinking about how they'd look from far away, not up close like you're seeing them now 🔎.`
+            ],
+            'legends': [
+              `This very same legend is told in other towns too, but with different characters! 🧚 Maybe they all come from an even older story.`,
+              `Some grown-ups say something similar to the legend happened to them too 😲, even though nobody has ever written it down!`,
+              `They say this legend has changed a little bit every time it's told, just like the telephone game! 📞😄`,
+              `There's a much older version of this legend, with a different ending! 📖 Maybe you'll like it even more than the one now.`,
+              `In a nearby town they tell almost the same story, but with a totally different character! 🎭`,
+              `Some locals talk about the legend as if it really happened exactly like that 😮, without doubting it one bit!`,
+              `Some say the legend comes from something that really did happen, though nobody's been able to fully prove it! 🔍`,
+              `There's a very old drawing of this legend, and it doesn't quite look like how I just told it to you! 🎨`
+            ]
+          }
         }
       },
       deepen(poi, m, topicId) {
-        const topicMeta = AI_TOPIC_NAMES[topicId];
-        const topic = topicMeta ? (topicMeta[m] || topicMeta.adult) : (m === 'kids' ? 'esto' : 'este tema');
-        const pool = (this.deepenFacts[m] && this.deepenFacts[m][topicId]) || this.deepenFacts[m]['architecture'];
+        const lang = this.L();
+        const topicMeta = pickLang(AI_TOPIC_NAMES[topicId]);
+        const topic = topicMeta ? (topicMeta[m] || topicMeta.adult) : (m === 'kids' ? (lang === 'en' ? 'this' : 'esto') : (lang === 'en' ? 'this topic' : 'este tema'));
+        const bank = this.deepenFacts[lang] || this.deepenFacts.es;
+        const pool = (bank[m] && bank[m][topicId]) || bank[m]['architecture'];
         if (m === 'kids') {
           const [a, b, c] = this.pickDistinct(pool, Math.min(3, pool.length));
-          return `✨ ¡Sigo contándote sobre ${topic}!\n\n${a}\n\n${b}\n\n${c || ''}\n\n${this.pick(this.closingsKids)}\n\n¿Quieres que siga profundizando? 🔍`;
+          if (lang === 'en') {
+            return `✨ Still telling you about ${topic}!\n\n${a}\n\n${b}\n\n${c || ''}\n\n${this.pick(this.closingsKids.en)}\n\nWant me to dig even deeper? 🔍`;
+          }
+          return `✨ ¡Sigo contándote sobre ${topic}!\n\n${a}\n\n${b}\n\n${c || ''}\n\n${this.pick(this.closingsKids.es)}\n\n¿Quieres que siga profundizando? 🔍`;
         }
         const [factA, factB, factC] = this.pickDistinct(pool, Math.min(3, pool.length));
-        return `Profundizando en ${topic}:\n\n${factA.charAt(0).toUpperCase()}${factA.slice(1)}.\n\nAdemás, ${factB}.\n\nY otro detalle poco conocido: ${factC || ''}.\n\n${this.pick(this.closingsAdult)}\n\n¿Sigo profundizando?`;
+        if (lang === 'en') {
+          return `Digging deeper into ${topic}:\n\n${factA.charAt(0).toUpperCase()}${factA.slice(1)}.\n\nAlso, ${factB}.\n\nAnd one more little-known detail: ${factC || ''}.\n\n${this.pick(this.closingsAdult.en)}\n\nShall I keep digging?`;
+        }
+        return `Profundizando en ${topic}:\n\n${factA.charAt(0).toUpperCase()}${factA.slice(1)}.\n\nAdemás, ${factB}.\n\nY otro detalle poco conocido: ${factC || ''}.\n\n${this.pick(this.closingsAdult.es)}\n\n¿Sigo profundizando?`;
       },
       option(poi, m, optionId) {
         if (optionId && optionId.startsWith('deepen:')) {
           return this.deepen(poi, m, optionId.slice(7));
         }
+        const lang = this.L();
         const n = pickLang(poi.name).adult;
         switch (optionId) {
           case 'secret-history': {
@@ -499,19 +649,40 @@
             // poi.tabs.legends, con un envoltorio distinto al del chip
             // "Leyendas" para que no se lea como el mismo texto dos veces.
             const legendText = poi.tabs.legends[m] || poi.tabs.legends.adult || '';
+            if (lang === 'en') {
+              return m === 'kids'
+                ? `🤫 SECRET HISTORY\n\n${this.pick(this.secretIntrosKids.en)}\n\n${legendText}\n\n${this.pick(this.closingsKids.en)}\n\n🕵️‍♂️ Do you dare tell your family this secret?`
+                : `LITTLE-KNOWN HISTORY\n\n${this.pick(this.secretIntrosAdult.en)}\n\n${legendText}\n\n${this.pick(this.closingsAdult.en)}`;
+            }
             return m === 'kids'
-              ? `🤫 HISTORIA SECRETA\n\n${this.pick(this.secretIntrosKids)}\n\n${legendText}\n\n${this.pick(this.closingsKids)}\n\n🕵️‍♂️ ¿Te atreves a contarle este secreto a tu familia?`
-              : `HISTORIA POCO CONOCIDA\n\n${this.pick(this.secretIntrosAdult)}\n\n${legendText}\n\n${this.pick(this.closingsAdult)}`;
+              ? `🤫 HISTORIA SECRETA\n\n${this.pick(this.secretIntrosKids.es)}\n\n${legendText}\n\n${this.pick(this.closingsKids.es)}\n\n🕵️‍♂️ ¿Te atreves a contarle este secreto a tu familia?`
+              : `HISTORIA POCO CONOCIDA\n\n${this.pick(this.secretIntrosAdult.es)}\n\n${legendText}\n\n${this.pick(this.closingsAdult.es)}`;
           }
           case 'architecture':
+            if (lang === 'en') {
+              return m === 'kids'
+                ? `🏗️ ARCHITECTURE TRICKS!\n\n${this.pick(this.introsKids.en)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids.en)}\n\n👀 Observation challenge: how many of these tricks can you spot all by yourself, with no help?`
+                : `ARCHITECTURE\n\n${this.pick(this.introsAdult.en)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult.en)}`;
+            }
             return m === 'kids'
-              ? `🏗️ ¡TRUCOS DE ARQUITECTURA!\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
-              : `ARQUITECTURA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
+              ? `🏗️ ¡TRUCOS DE ARQUITECTURA!\n\n${this.pick(this.introsKids.es)}\n\n${poi.tabs.architecture.kids || ''}\n\n${this.pick(this.closingsKids.es)}\n\n👀 Reto observación: ¿cuántos de estos trucos puedes encontrar tú solo, sin que nadie te ayude?`
+              : `ARQUITECTURA\n\n${this.pick(this.introsAdult.es)}\n\n${poi.tabs.architecture.adult || ''}\n\n${this.pick(this.closingsAdult.es)}`;
           case 'legends':
+            if (lang === 'en') {
+              return m === 'kids'
+                ? `🧙‍♂️ LEGEND\n\n${this.pick(this.introsKids.en)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids.en)}`
+                : `LEGEND\n\n${this.pick(this.introsAdult.en)}\n\n${poi.tabs.legends.adult || ''}\n\n${this.pick(this.closingsAdult.en)}`;
+            }
             return m === 'kids'
-              ? `🧙‍♂️ LEYENDA\n\n${this.pick(this.introsKids)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids)}`
-              : `LEYENDA\n\n${this.pick(this.introsAdult)}\n\n${poi.tabs.legends.adult || ''}\n\n${this.pick(this.closingsAdult)}`;
+              ? `🧙‍♂️ LEYENDA\n\n${this.pick(this.introsKids.es)}\n\n${poi.tabs.legends.kids || ''}\n\n${this.pick(this.closingsKids.es)}`
+              : `LEYENDA\n\n${this.pick(this.introsAdult.es)}\n\n${poi.tabs.legends.adult || ''}\n\n${this.pick(this.closingsAdult.es)}`;
           default: {
+            if (lang === 'en') {
+              if (m === 'kids') {
+                return `Wow, great question! 🤔 Here's a secret: at ${n} there are ${this.pick(['invisible windows', 'staircases that spin', 'secret colors'])}, and only really observant kids discover them. Walk around with your eyes WIDE open! 👀 What have you spotted that nobody else has?`;
+              }
+              return `Good question. When it comes to ${n}, here's what matters most: ${(poi.tabs.history.adult || '').slice(0, 200)}\n\nIf you'd like to go deeper, ask about a specific period (Roman, Caliphate, medieval, Renaissance) or a particular figure (El Greco, Covarrubias, Berruguete).`;
+            }
             if (m === 'kids') {
               return `¡Vaya, qué buena pregunta! 🤔 Pues mira, te cuento un secreto: en ${n} hay ${this.pick(['ventanas invisibles', 'escaleras que giran', 'colores secretos'])} y solo los niños atentos lo descubren. ¡Pasea con los ojos MUY ABIERTOS! 👀 ¿Qué has visto tú que nadie más vea?`;
             }
@@ -520,26 +691,56 @@
         }
       },
       generic(poi, m, query) {
+        const lang = this.L();
         const n = pickLang(poi.name).adult;
         const q = (query || '').toLowerCase();
         const has = (arr) => arr.some((w) => q.includes(w));
-        if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
+        const scheduleWords = lang === 'en' ? ['schedule', 'hours', 'open', 'close', 'time'] : ['horario', 'abierto', 'abre', 'cierra', 'hora'];
+        const priceWords = lang === 'en' ? ['price', 'ticket', 'cost', 'money', 'euro'] : ['precio', 'entrada', 'dinero', 'cuesta', 'euro'];
+        const transportWords = lang === 'en' ? ['get there', 'arrive', 'bus', 'parking', 'car'] : ['llegar', 'cómo voy', 'autobús', 'bus', 'parking', 'coche', 'aparcamiento'];
+        if (has(scheduleWords)) {
+          if (lang === 'en') {
+            return m === 'kids'
+              ? `⏰ SUPER EASY schedule:\n\nTuesday to Saturday: from when you wake up until snack time (10:00 to 18:30!).\nSundays: mornings only! ☀️\nMondays: the castle takes a nap 🌙 (just like bears 🐻).\n\nTell mom or dad, and check the official website in case it changes on a holiday 🎊.`
+              : `Approximate hours (may vary on public holidays, worth confirming on the site's official website):\nTuesday–Saturday: 10:00 – 18:30 (last entry 17:45)\nSundays and public holidays: 10:00 – 14:00\nMondays: closed (except public-holiday Mondays).\n\nDiscounted entry with a youth card, large-family card, or student ID. Tip: buy your ticket online ahead of time and skip the line.`;
+          }
           return m === 'kids'
             ? `⏰ Horario MUY FÁCIL:\n\nDe martes a sábado: desde que te despiertas hasta la merienda (¡10:00 a 18:30!).\nDomingos: ¡solo por la mañana! ☀️\nLunes: el castillo descansa 🌙 (como los osos 🐻).\n\nCuentaselo a papá o mamá y mirad la web oficial por si cambian un día de fiesta 🎊.`
             : `Horario orientativo (puede variar en festivos, conviene confirmar en la web oficial del lugar):\nMartes–Sábado: 10:00 – 18:30 (último acceso 17:45)\nDomingos y festivos: 10:00 – 14:00\nLunes: cerrado (salvo lunes festivos).\n\nEntrada reducida si llevas carné joven, familia numerosa o carné de estudiante. Consejo: comprála online con antelación y ahorras la cola.`;
         }
-        if (has(['precio', 'entrada', 'dinero', 'cuesta', 'euro'])) {
+        if (has(priceWords)) {
+          if (lang === 'en') {
+            return m === 'kids'
+              ? `💰 It costs about the same as a burger meal 🍔 for grown-ups.\n\nKids your age get in FREE or almost free! 🎉\n\nAsk your parents to get the "family ticket" — it's cheaper 👨‍👩‍👧‍👦.`
+              : `Approximate general admission: ~€10 (or local currency equivalent). Discounted (student, 65+, large family): ~€5. Under 12: free in many cases. Many cities offer combined tickets with nearby monuments that can save up to 30% — worth asking at the ticket office or checking the official website.`;
+          }
           return m === 'kids'
             ? `💰 Cuesta casi lo mismo que un menú de hamburguesas 🍔 para los mayores.\n\nLos niños de tu edad ¡entran GRATIS o casi nada! 🎉\n\nPide a papá que pida "entrada familiar" que sale más barato 👨‍👩‍👧‍👦. `
             : `Entrada general orientativa: ~10 € (moneda local equivalente). Reducida (estudiante, >65, familia numerosa): ~5 €. Menores de 12 años: gratuita en muchos casos. Muchas ciudades ofrecen bonos conjuntos con otros monumentos cercanos que permiten ahorrar hasta un 30% — merece la pena preguntar en taquilla o mirar la web oficial.`;
         }
-        if (has(['llegar', 'cómo voy', 'autobús', 'bus', 'parking', 'coche', 'aparcamiento'])) {
+        if (has(transportWords)) {
+          if (lang === 'en') {
+            return m === 'kids'
+              ? `🚶 You almost always get there on FOOT! This city's best treasures are on narrow streets where cars can't go 🏘️.\n\nIf you come by car 🚗 you park near the center and then walk in. The views are like something from a movie! 🎬`
+              : `Recommended access: on foot from the nearest historic area (5–10 min); the old town is usually 100% pedestrian. If traveling by car, use a park-and-walk lot on the outskirts and avoid driving into the old town — narrow streets, restrictions, and very strict access hours. Local public transport usually covers the outer route in about 15 min.`;
+          }
           return m === 'kids'
             ? `🚶 ¡Casi siempre vas ANDANDO! Los mejores tesoros de esta ciudad están en calles estrechas donde no pasan coches 🏘️.\n\nSi venís en coche 🚗 lo dejáis en un parking cerca del centro y luego entráis caminando. ¡Las vistas son de película! 🎬`
             : `Acceso recomendado: a pie desde la zona monumental más cercana (5–10 min); el núcleo histórico suele ser 100% peatonal. Si viajas en coche, usa algún parking disuasorio en el perímetro y evita entrar en el casco histórico con vehículo — calles estrechas, limitaciones y horarios de acceso muy estrictos. El transporte público local suele cubrir el recorrido exterior en unos 15 min.`;
         }
         if (m === 'kids') {
+          if (lang === 'en') {
+            return `Wow, what a curious question! 🤩 Here's what's coolest about ${n || 'this place'}: there are things from MANY years ago that are still here, like a time machine is actually working ⏳✨.\n\nYou know what? If you look REALLY closely at the walls 👀 you'll spot strange marks left by the stonemasons (builders from centuries ago). Look for a tiny "X"! Can you find it?`;
+          }
           return `¡Guau, qué curioso/a! 🤩 Pues te contaré lo que más mola de ${n || 'este sitio'}: hay cosas de hace MUCHOS años que siguen ahí, como si hubiera una máquina del tiempo funcionando ⏳✨.\n\n¿Sabes qué? Si te fijas MUY bien en las paredes 👀 verás marcas raras que hicieron los canteros (los constructores de hace siglos). ¡Busca una "X" pequeña! ¿La encuentras?`;
+        }
+        if (lang === 'en') {
+          const extras = [
+            `If you have more time, here's a useful tip: pair this visit with the Jewish Quarter route — just 8 minutes on foot.`,
+            `Fun fact: according to the latest regional government study, only 12% of visitors notice this detail.`,
+            `A personal take: I think this place's real value lies less in what you see and more in the layering of eras — you can see 10 centuries in 20 square meters.`
+          ];
+          return `${SIM.option(poi, 'adult', null)}\n\n${this.pick(extras)}`;
         }
         const extras = [
           `Si dispones de más tiempo, un dato valioso: combina esta visita con la ruta judería — apenas 8 minutos andando.`,
@@ -554,25 +755,49 @@
       // dato directo y como mucho una frase más, igual que se le pide a la
       // IA real vía systemPromptFor(mode, cityName, concise: true).
       genericConcise(poi, m, query) {
+        const lang = this.L();
         const n = pickLang(poi.name).adult;
         const q = (query || '').toLowerCase();
         const has = (arr) => arr.some((w) => q.includes(w));
-        if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
+        const scheduleWords = lang === 'en' ? ['schedule', 'hours', 'open', 'close', 'time'] : ['horario', 'abierto', 'abre', 'cierra', 'hora'];
+        const priceWords = lang === 'en' ? ['price', 'ticket', 'cost', 'money', 'euro'] : ['precio', 'entrada', 'dinero', 'cuesta', 'euro'];
+        const transportWords = lang === 'en' ? ['get there', 'arrive', 'bus', 'parking', 'car'] : ['llegar', 'cómo voy', 'autobús', 'bus', 'parking', 'coche', 'aparcamiento'];
+        if (has(scheduleWords)) {
+          if (lang === 'en') {
+            return m === 'kids'
+              ? '⏰ Open Tuesday to Saturday, 10:00 to 18:30. Sundays mornings only, and Mondays it takes a break!'
+              : 'Tuesday to Saturday, 10:00–18:30. Sundays 10:00–14:00. Closed Mondays (check the official website for holiday changes).';
+          }
           return m === 'kids'
             ? '⏰ Abre de martes a sábado, de 10:00 a 18:30. Los domingos solo por la mañana, ¡y los lunes descansa!'
             : 'De martes a sábado, 10:00–18:30. Domingos 10:00–14:00. Lunes cerrado (confirma en la web oficial por si hay festivos).';
         }
-        if (has(['precio', 'entrada', 'dinero', 'cuesta', 'euro'])) {
+        if (has(priceWords)) {
+          if (lang === 'en') {
+            return m === 'kids'
+              ? "💰 It doesn't cost much, and kids almost always get in free or nearly free!"
+              : 'Approximate general admission: around €10, discounted around €5. Check the exact price on the official website.';
+          }
           return m === 'kids'
             ? '💰 Cuesta poquito, ¡y los niños casi siempre entran gratis o casi gratis!'
             : 'Entrada general orientativa: unos 10 €, reducida unos 5 €. Confirma el precio exacto en la web oficial.';
         }
-        if (has(['llegar', 'cómo voy', 'autobús', 'bus', 'parking', 'coche', 'aparcamiento'])) {
+        if (has(transportWords)) {
+          if (lang === 'en') {
+            return m === 'kids'
+              ? "🚶 You almost always walk there — the streets downtown are just for walking!"
+              : "Best on foot from the historic center, about 5-10 minutes; it's a very pedestrian-friendly area.";
+          }
           return m === 'kids'
             ? '🚶 Casi siempre se va andando, ¡las calles del centro son solo para caminar!'
             : 'Mejor a pie desde el centro histórico, unos 5-10 minutos; es una zona muy peatonal.';
         }
         const firstFact = (poi.tabs.history.adult || '').split('.')[0];
+        if (lang === 'en') {
+          return m === 'kids'
+            ? `Good question! The coolest thing about ${n} is that it has centuries of history hidden in every corner. 🕰️`
+            : `About ${n}: ${firstFact}.`;
+        }
         return m === 'kids'
           ? `¡Buena pregunta! De ${n} lo más curioso es que tiene siglos de historia escondidos en cada rincón. 🕰️`
           : `Sobre ${n}: ${firstFact}.`;
@@ -598,8 +823,12 @@
       const queryFor = (poi, mode, userQuery, optionId, cityName, alreadySaid) => {
         if (optionId && optionId.startsWith('deepen:')) {
           const topicId = optionId.slice(7);
-          const topicMeta = AI_TOPIC_NAMES[topicId];
-          const topicLabel = topicMeta ? (topicMeta[mode] || topicMeta.adult) : (mode === 'kids' ? 'esto' : 'este tema');
+          // Los prompts de AI_PROMPTS están siempre escritos en español (ver
+          // más abajo), así que aquí se usa siempre la etiqueta en español
+          // aunque STATE.lang esté en inglés; systemPromptFor ya se encarga
+          // de pedirle a la IA que responda en inglés cuando corresponda.
+          const topicMetaEs = AI_TOPIC_NAMES[topicId] && AI_TOPIC_NAMES[topicId].es;
+          const topicLabel = topicMetaEs ? (topicMetaEs[mode] || topicMetaEs.adult) : (mode === 'kids' ? 'esto' : 'este tema');
           const fn = AI_PROMPTS.deepen && AI_PROMPTS.deepen[mode];
           const base = typeof fn === 'function' ? fn(poi, topicLabel) : (mode === 'kids'
             ? `Sigue contándome más sobre ${topicLabel}, un dato nuevo que no hayas contado antes.`
@@ -1116,7 +1345,44 @@
     brandBadgeAdult: { es: { adult: 'Adultos', kids: 'Adultos' }, en: { adult: 'Adults', kids: 'Adults' } },
     brandBadgeKids: { es: { adult: 'Modo Niños 🎈', kids: 'Modo Niños 🎈' }, en: { adult: 'Kids Mode 🎈', kids: 'Kids Mode 🎈' } },
     brandSubKids: { es: { adult: '¡Aventuras mágicas a tu ritmo!', kids: '¡Aventuras mágicas a tu ritmo!' }, en: { adult: 'Magical adventures at your own pace!', kids: 'Magical adventures at your own pace!' } },
-    brandSubAdult: { es: { adult: '{city} · Turismo autoguiado inteligente', kids: '{city} · Turismo autoguiado inteligente' }, en: { adult: '{city} · Smart self-guided tourism', kids: '{city} · Smart self-guided tourism' } }
+    brandSubAdult: { es: { adult: '{city} · Turismo autoguiado inteligente', kids: '{city} · Turismo autoguiado inteligente' }, en: { adult: '{city} · Smart self-guided tourism', kids: '{city} · Smart self-guided tourism' } },
+    obContinentsBack: { es: { adult: 'Continentes', kids: 'Continentes' }, en: { adult: 'Continents', kids: 'Continents' } },
+    licenseGateTitle: { es: { adult: 'Acceso privado', kids: 'Acceso privado' }, en: { adult: 'Private access', kids: 'Private access' } },
+    licenseGateText: { es: { adult: 'Introduce tu clave de acceso para continuar.', kids: 'Introduce tu clave de acceso para continuar.' }, en: { adult: 'Enter your access key to continue.', kids: 'Enter your access key to continue.' } },
+    licenseGateInputPlaceholder: { es: { adult: 'Tu clave de acceso', kids: 'Tu clave de acceso' }, en: { adult: 'Your access key', kids: 'Your access key' } },
+    licenseGateSubmit: { es: { adult: 'Entrar', kids: 'Entrar' }, en: { adult: 'Enter', kids: 'Enter' } },
+    callHangup: { es: { adult: 'Colgar', kids: 'Colgar' }, en: { adult: 'Hang up', kids: 'Hang up' } },
+    lightboxRetryLabel: { es: { adult: 'Reintentar', kids: 'Reintentar' }, en: { adult: 'Retry', kids: 'Retry' } },
+    ariaFilters: { es: { adult: 'Filtrar puntos de interés', kids: 'Filtrar puntos de interés' }, en: { adult: 'Filter points of interest', kids: 'Filter points of interest' } },
+    ariaModeToggleGroup: { es: { adult: 'Cambiar modo de contenido', kids: 'Cambiar modo de contenido' }, en: { adult: 'Switch content mode', kids: 'Switch content mode' } },
+    ariaRouteIntroPlay: { es: { adult: 'Reproducir introducción de la ruta', kids: 'Reproducir introducción de la ruta' }, en: { adult: 'Play route introduction', kids: 'Play route introduction' } },
+    ariaRouteIntroClose: { es: { adult: 'Cerrar introducción de la ruta', kids: 'Cerrar introducción de la ruta' }, en: { adult: 'Close route introduction', kids: 'Close route introduction' } },
+    ariaMapTools: { es: { adult: 'Herramientas del mapa', kids: 'Herramientas del mapa' }, en: { adult: 'Map tools', kids: 'Map tools' } },
+    ariaFountains: { es: { adult: 'Mostrar fuentes de agua potable', kids: 'Mostrar fuentes de agua potable' }, en: { adult: 'Show drinking water fountains', kids: 'Show drinking water fountains' } },
+    ariaScan: { es: { adult: 'Identificar lo que estoy viendo', kids: 'Identificar lo que estoy viendo' }, en: { adult: "Identify what I'm looking at", kids: "Identify what I'm looking at" } },
+    ariaLocate: { es: { adult: 'Mostrar mi ubicación', kids: 'Mostrar mi ubicación' }, en: { adult: 'Show my location', kids: 'Show my location' } },
+    ariaSheet: { es: { adult: 'Información del punto de interés', kids: 'Información del punto de interés' }, en: { adult: 'Point of interest information', kids: 'Point of interest information' } },
+    ariaSheetClose: { es: { adult: 'Cerrar ficha', kids: 'Cerrar ficha' }, en: { adult: 'Close card', kids: 'Close card' } },
+    ariaImageRetry: { es: { adult: 'Reintentar cargar la imagen', kids: 'Reintentar cargar la imagen' }, en: { adult: 'Retry loading the image', kids: 'Retry loading the image' } },
+    ariaAudioPlayer: { es: { adult: 'Reproductor de audio', kids: 'Reproductor de audio' }, en: { adult: 'Audio player', kids: 'Audio player' } },
+    ariaAudioProgressGroup: { es: { adult: 'Progreso', kids: 'Progreso' }, en: { adult: 'Progress', kids: 'Progress' } },
+    ariaProgressBar: { es: { adult: 'Barra de progreso', kids: 'Barra de progreso' }, en: { adult: 'Progress bar', kids: 'Progress bar' } },
+    ariaAiMessages: { es: { adult: 'Conversación con la guía IA', kids: 'Conversación con la guía IA' }, en: { adult: 'Conversation with the AI guide', kids: 'Conversation with the AI guide' } },
+    ariaAiMic: { es: { adult: 'Preguntar por voz', kids: 'Preguntar por voz' }, en: { adult: 'Ask by voice', kids: 'Ask by voice' } },
+    ariaAiSend: { es: { adult: 'Enviar pregunta', kids: 'Enviar pregunta' }, en: { adult: 'Send question', kids: 'Send question' } },
+    ariaAiCallOpen: { es: { adult: 'Hablar con la guía IA', kids: 'Hablar con la guía IA' }, en: { adult: 'Talk to the AI guide', kids: 'Talk to the AI guide' } },
+    ariaAiCallModal: { es: { adult: 'Conversación por voz con la guía IA', kids: 'Conversación por voz con la guía IA' }, en: { adult: 'Voice conversation with the AI guide', kids: 'Voice conversation with the AI guide' } },
+    ariaAiCallClose: { es: { adult: 'Terminar conversación', kids: 'Terminar conversación' }, en: { adult: 'End conversation', kids: 'End conversation' } },
+    ariaAiCallSend: { es: { adult: 'Enviar', kids: 'Enviar' }, en: { adult: 'Send', kids: 'Send' } },
+    ariaCameraModal: { es: { adult: 'Tomar foto', kids: 'Tomar foto' }, en: { adult: 'Take photo', kids: 'Take photo' } },
+    ariaCameraClose: { es: { adult: 'Cerrar cámara', kids: 'Cerrar cámara' }, en: { adult: 'Close camera', kids: 'Close camera' } },
+    ariaZoomOut: { es: { adult: 'Alejar', kids: 'Alejar' }, en: { adult: 'Zoom out', kids: 'Zoom out' } },
+    ariaZoomIn: { es: { adult: 'Acercar', kids: 'Acercar' }, en: { adult: 'Zoom in', kids: 'Zoom in' } },
+    ariaShutter: { es: { adult: 'Tomar foto', kids: 'Tomar foto' }, en: { adult: 'Take photo', kids: 'Take photo' } },
+    ariaImageLightbox: { es: { adult: 'Imagen ampliada', kids: 'Imagen ampliada' }, en: { adult: 'Enlarged image', kids: 'Enlarged image' } },
+    ariaLightboxClose: { es: { adult: 'Cerrar imagen', kids: 'Cerrar imagen' }, en: { adult: 'Close image', kids: 'Close image' } },
+    ariaVisitSummaryModal: { es: { adult: 'Resumen de tu visita', kids: 'Resumen de tu visita' }, en: { adult: 'Your visit summary', kids: 'Your visit summary' } },
+    ariaVisitSummaryClose: { es: { adult: 'Cerrar resumen', kids: 'Cerrar resumen' }, en: { adult: 'Close summary', kids: 'Close summary' } }
   };
   const t = (key) => pickDual(UI_STRINGS[key]);
 
@@ -3414,6 +3680,48 @@
     if (modeAdultLabelEl) modeAdultLabelEl.textContent = t('modeToggleAdult');
     const modeKidsLabelEl = $('#modeToggleKidsLabel');
     if (modeKidsLabelEl) modeKidsLabelEl.textContent = t('modeToggleKids');
+    const aiCallEndEl = $('#aiCallEnd');
+    if (aiCallEndEl) aiCallEndEl.textContent = t('callHangup');
+    const lightboxRetryLabelEl = $('#lightboxRetryLabel');
+    if (lightboxRetryLabelEl) lightboxRetryLabelEl.textContent = t('lightboxRetryLabel');
+    // Aria-labels y otros atributos estáticos (invisibles para un usuario
+    // vidente, pero igual de importantes para lectores de pantalla).
+    [
+      ['#filters', 'aria-label', 'ariaFilters'],
+      ['.mode-toggle', 'aria-label', 'ariaModeToggleGroup'],
+      ['#routeIntroPlay', 'aria-label', 'ariaRouteIntroPlay'],
+      ['#routeIntroClose', 'aria-label', 'ariaRouteIntroClose'],
+      ['#mapTools', 'aria-label', 'ariaMapTools'],
+      ['#fountainsBtn', 'aria-label', 'ariaFountains'],
+      ['#scanBtn', 'aria-label', 'ariaScan'],
+      ['#locateBtn', 'aria-label', 'ariaLocate'],
+      ['#bottomSheet', 'aria-label', 'ariaSheet'],
+      ['#sheetCloseBtn', 'aria-label', 'ariaSheetClose'],
+      ['.sheet-thumb-retry', 'aria-label', 'ariaImageRetry'],
+      ['.audio-player', 'aria-label', 'ariaAudioPlayer'],
+      ['.audio-progress', 'aria-label', 'ariaAudioProgressGroup'],
+      ['.progress-wrap', 'aria-label', 'ariaProgressBar'],
+      ['#aiMessages', 'aria-label', 'ariaAiMessages'],
+      ['#aiMic', 'aria-label', 'ariaAiMic'],
+      ['#aiSend', 'aria-label', 'ariaAiSend'],
+      ['#aiCallBtn', 'aria-label', 'ariaAiCallOpen'],
+      ['#aiCallModal', 'aria-label', 'ariaAiCallModal'],
+      ['#aiCallClose', 'aria-label', 'ariaAiCallClose'],
+      ['#aiCallSend', 'aria-label', 'ariaAiCallSend'],
+      ['#cameraModal', 'aria-label', 'ariaCameraModal'],
+      ['#cameraCloseBtn', 'aria-label', 'ariaCameraClose'],
+      ['#cameraZoomOutBtn', 'aria-label', 'ariaZoomOut'],
+      ['#cameraZoomInBtn', 'aria-label', 'ariaZoomIn'],
+      ['#cameraShutterBtn', 'aria-label', 'ariaShutter'],
+      ['#imageLightbox', 'aria-label', 'ariaImageLightbox'],
+      ['#lightboxCloseBtn', 'aria-label', 'ariaLightboxClose'],
+      ['.lightbox-retry', 'aria-label', 'ariaImageRetry'],
+      ['#visitSummaryModal', 'aria-label', 'ariaVisitSummaryModal'],
+      ['#visitSummaryCloseBtn', 'aria-label', 'ariaVisitSummaryClose']
+    ].forEach(([sel, attr, key]) => {
+      const el = $(sel);
+      if (el) el.setAttribute(attr, t(key));
+    });
     const brandIcon = $('#brandIcon'), brandTitle = $('#brandTitle'), brandSub = $('#brandSub'), brandBadge = $('#brandBadge');
     if (brandIcon) brandIcon.textContent = isKids ? '🚀' : '🧭';
     if (brandTitle) brandTitle.textContent = isKids ? 'OnMyOwnTrip Kids' : 'OnMyOwnTrip';
@@ -6134,6 +6442,20 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const cityList = $('#obCityList');
     const allCities = Object.values(CITIES);
 
+    // continent/country en CITIES son claves fijas en español (se comparan
+    // por igualdad para agrupar), así que la traducción es solo de
+    // visualización: nunca se toca el valor real, solo la etiqueta.
+    const GEO_LABELS = {
+      Europa: { es: 'Europa', en: 'Europe' },
+      América: { es: 'América', en: 'America' },
+      España: { es: 'España', en: 'Spain' },
+      México: { es: 'México', en: 'Mexico' },
+      Alemania: { es: 'Alemania', en: 'Germany' },
+      Italia: { es: 'Italia', en: 'Italy' },
+      Vaticano: { es: 'Vaticano', en: 'Vatican' }
+    };
+    const geoLabel = (value) => (GEO_LABELS[value] ? GEO_LABELS[value][STATE.lang] || value : value);
+
     const makeRow = (label, sub, onClick) => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -6162,17 +6484,17 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       cityList.innerHTML = '';
       const continents = [...new Set(allCities.map((c) => c.continent))].sort(alphabetically);
       continents.forEach((continent) => {
-        cityList.appendChild(makeRow(continent, '', () => renderCountries(continent)));
+        cityList.appendChild(makeRow(geoLabel(continent), '', () => renderCountries(continent)));
       });
     };
 
     const renderCountries = (continent) => {
       if (!cityList) return;
       cityList.innerHTML = '';
-      cityList.appendChild(makeBack('Continentes', renderContinents));
+      cityList.appendChild(makeBack(t('obContinentsBack'), renderContinents));
       const countries = [...new Set(allCities.filter((c) => c.continent === continent).map((c) => c.country))].sort(alphabetically);
       countries.forEach((country) => {
-        cityList.appendChild(makeRow(country, '', () => renderCities(continent, country)));
+        cityList.appendChild(makeRow(geoLabel(country), '', () => renderCities(continent, country)));
       });
     };
 
@@ -6184,7 +6506,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const renderCities = (continent, country) => {
       if (!cityList) return;
       cityList.innerHTML = '';
-      cityList.appendChild(makeBack(country, () => renderCountries(continent)));
+      cityList.appendChild(makeBack(geoLabel(country), () => renderCountries(continent)));
       const cities = allCities.filter((c) => c.continent === continent && c.country === country);
       const regions = [...new Set(cities.filter((c) => c.region).map((c) => c.region))];
       const items = [
@@ -6378,6 +6700,15 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   const init = () => {
     loadState();
     document.documentElement.dataset.mode = STATE.mode;
+    document.documentElement.dataset.lang = STATE.lang;
+    const gateTitleEl = $('#licenseGateTitle');
+    if (gateTitleEl) gateTitleEl.textContent = t('licenseGateTitle');
+    const gateTextEl = $('#licenseGateText');
+    if (gateTextEl) gateTextEl.textContent = t('licenseGateText');
+    const gateInputEl = $('#licenseGateInput');
+    if (gateInputEl) gateInputEl.placeholder = t('licenseGateInputPlaceholder');
+    const gateSubmitEl = $('#licenseGateSubmit');
+    if (gateSubmitEl) gateSubmitEl.textContent = t('licenseGateSubmit');
     wireLicenseGate();
 
     const cached = LICENSE.checkStoredValidOffline();
