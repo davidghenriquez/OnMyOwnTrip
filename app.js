@@ -3320,12 +3320,19 @@
     return buildPreviewText(poi, mode) + guide;
   };
 
-  const buildIntroText = (poi, mode) => {
+  // includeOpener: false cuando la llama showFullIntro en modo Adultos — el
+  // chip "Introducción" solo existe ahí, y para cuando el usuario llega a
+  // pulsarlo ya vio la frase corta de bienvenida como primer mensaje del
+  // chat (ver ensureAiPanelInitialGreet). Repetirla aquí sonaba como si la
+  // app se presentara dos veces seguidas. En modo Niños sigue en true: ahí
+  // esta es la ÚNICA llamada (no hay chip de Introducción separado), así
+  // que la frase de bienvenida tiene que decirse en algún punto.
+  const buildIntroText = (poi, mode, includeOpener = true) => {
     const historyFull = pickDual(poi.tabs.history) || '';
     const legends = poi.tabs.legends ? pickDual(poi.tabs.legends) : '';
     const architecture = poi.tabs.architecture ? pickDual(poi.tabs.architecture) : '';
 
-    const opener = buildPreviewText(poi, mode);
+    const opener = includeOpener ? buildPreviewText(poi, mode) : '';
     const legendBridge = legends
       ? (mode === 'kids' ? ` Aquí va un dato curioso: ${legends}` : ` Un dato curioso: ${legends}`)
       : '';
@@ -3352,7 +3359,8 @@
       ? (poi.quiz ? ' Escucha bien, que cuando termine te voy a hacer una pregunta para ver cuánto se te ha quedado.' : '')
       : ' Si quieres profundizar en algún tema, tienes el botón "Profundiza más" aquí abajo. Y si buscas el horario y el precio exactos, ahí tienes el botón de entradas.';
 
-    return `${opener} ${historyFull}${legendBridge}${archBridge}${visitLine}${cta}`;
+    const body = `${historyFull}${legendBridge}${archBridge}${visitLine}${cta}`;
+    return opener ? `${opener} ${body}` : body;
   };
 
   const ensureAiPanelInitialGreet = (poi) => {
@@ -3753,7 +3761,7 @@
   const showFullIntro = (poi) => {
     if (!poi) return;
     const hist = aiHistoryFor(poi.id);
-    hist.push({ role: 'assistant', text: buildIntroText(poi, STATE.mode), isSummary: true });
+    hist.push({ role: 'assistant', text: buildIntroText(poi, STATE.mode, STATE.mode === 'kids'), isSummary: true });
     renderAiMessages();
     scrollAiToBottom();
     saveState();
