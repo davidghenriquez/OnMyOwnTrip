@@ -1164,6 +1164,8 @@
   // "deepen" usa un destello de dos puntas, el símbolo habitual de "generado
   // por IA" en el resto de apps.
   const SUGGEST_ICON_SVG = {
+    directions: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>`,
+    intro: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H12v18H6.5A2.5 2.5 0 0 0 4 22.5v-18Z"/><path d="M20 4.5A2.5 2.5 0 0 0 17.5 2H12v18h5.5a2.5 2.5 0 0 1 2.5 2.5v-18Z"/></svg>`,
     ticket: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a1.5 1.5 0 0 0 0 3V15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1.5a1.5 1.5 0 0 0 0-3V9Z"/><path d="M9 7.5v9" stroke-dasharray="1.5 2.2"/></svg>`,
     deepen: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.5 2c.5 3 1.2 5 2.2 6s3 1.7 6 2.2c-3 .5-5 1.2-6 2.2s-1.7 3-2.2 6c-.5-3-1.2-5-2.2-6s-3-1.7-6-2.2c3-.5 5-1.2 6-2.2s1.7-3 2.2-6Z"/><path d="M19 15c.3 1.3.6 2.1 1.1 2.6s1.3.8 2.6 1.1c-1.3.3-2.1.6-2.6 1.1s-.8 1.3-1.1 2.6c-.3-1.3-.6-2.1-1.1-2.6s-1.3-.8-2.6-1.1c1.3-.3 2.1-.6 2.6-1.1s.8-1.3 1.1-2.6Z"/></svg>`,
     'secret-history': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2.2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.4" r="1.3" fill="currentColor" stroke="none"/></svg>`,
@@ -1986,7 +1988,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=46`;
+    const src = `data/cities/${cityId}.js?v=49`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
@@ -3296,14 +3298,34 @@
   // aparte y un "resto" mostrado en pantalla): lo que se narra en voz alta
   // debe ser exactamente lo que aparece en la burbuja del chat, ni una
   // palabra de más ni de menos.
-  const buildIntroText = (poi, mode) => {
+  // Frase corta de bienvenida (nombre + subtítulo ya escrito de cada POI):
+  // la intro completa de abajo la reutiliza tal cual como primera frase, así
+  // que se queda "pura" — el aviso de "abajo tienes opciones" (ver
+  // buildOpeningGreeting) no pinta nada ahí en medio de la audioguía larga.
+  const buildPreviewText = (poi, mode) => {
     const name = poi.name.adult;
-    const subtitle = pickDual(poi.subtitle);
+    // "teaser" (si el POI ya lo tiene escrito) es una frase algo más rica
+    // que el subtitle — pensada para que la persona decida si quiere
+    // visitarlo, no solo una etiqueta — pero solo en modo Adultos: en niño
+    // se sigue usando el subtitle de siempre, más corto y directo.
+    const body = (mode !== 'kids' && poi.teaser) ? pickDual(poi.teaser) : pickDual(poi.subtitle);
+    return mode === 'kids' ? `¡Hola! Estás en ${name}. ${body}` : `Bienvenido a ${name}. ${body}`;
+  };
+
+  // Lo que se dice de verdad al abrir la ficha en modo Adultos (ver
+  // ensureAiPanelInitialGreet): la frase corta de arriba + un empujón hacia
+  // los chips de debajo, para que no haga falta adivinar qué hacen.
+  const buildOpeningGreeting = (poi, mode) => {
+    const guide = '\n\nAbajo tienes varias opciones: cómo llegar hasta aquí, o si prefieres, ir escuchando información del sitio en el botón Introducción.';
+    return buildPreviewText(poi, mode) + guide;
+  };
+
+  const buildIntroText = (poi, mode) => {
     const historyFull = pickDual(poi.tabs.history) || '';
     const legends = poi.tabs.legends ? pickDual(poi.tabs.legends) : '';
     const architecture = poi.tabs.architecture ? pickDual(poi.tabs.architecture) : '';
 
-    const opener = mode === 'kids' ? `¡Hola! Estás en ${name}. ${subtitle}.` : `Bienvenido a ${name}. ${subtitle}.`;
+    const opener = buildPreviewText(poi, mode);
     const legendBridge = legends
       ? (mode === 'kids' ? ` Aquí va un dato curioso: ${legends}` : ` Un dato curioso: ${legends}`)
       : '';
@@ -3337,17 +3359,30 @@
     if (!poi) return;
     const history = aiHistoryFor(poi.id);
     if (history.length === 0) {
+      // Solo en modo Adultos se dice nada más que la frase corta de
+      // bienvenida (ver buildPreviewText) — la intro completa de siempre
+      // queda detrás del chip "Introducción" (ver showFullIntro). En modo
+      // niño no hay chips en absoluto (renderAiSuggestions corta antes de
+      // montarlos: es audio + quiz, no una lista de botones), así que ahí
+      // se mantiene el comportamiento de siempre o se quedarían sin forma
+      // de llegar a la historia completa.
       // isSummary marca de forma explícita cuál es el resumen inicial, para
       // que el audio principal en modo niño siempre lo identifique bien sin
       // depender de su posición en el historial (ver buildNarrativeText).
-      history.push({ role: 'assistant', text: buildIntroText(poi, STATE.mode), isSummary: true });
+      const openingText = STATE.mode === 'kids' ? buildIntroText(poi, STATE.mode) : buildOpeningGreeting(poi, STATE.mode);
+      history.push({ role: 'assistant', text: openingText, isSummary: true });
       saveState();
       STATE.ai.localIntroSpoken[poi.id] = true;
       // Ya no hace falta ningún "adelanto" hablado aparte mientras se
       // espera a la IA (el texto de arriba está listo al instante): se
       // reproduce directo por el camino normal, igual que cualquier otra
       // narración (ver startAudio).
-      if (SPEECH.isSupported() && !STATE.audio.playing) startAudio(false, true);
+      // CLOUD_TTS.isConfigured() cubre el caso de la app empaquetada en
+      // Capacitor (WebView de Android sin window.speechSynthesis: ver
+      // startAudio más abajo, que ya sabe pedir la voz en la nube al vuelo
+      // cuando no hay síntesis local) — sin esto, la app se quedaba muda
+      // ahí porque esta comprobación solo miraba la voz del navegador.
+      if ((SPEECH.isSupported() || CLOUD_TTS.isConfigured()) && !STATE.audio.playing) startAudio(false, true);
     }
     renderAiMessages();
     scrollAiToBottom();
@@ -3383,6 +3418,14 @@
     // práctica fija (horario/precio), solo se muestra si el propio POI la
     // trae (poi.visitInfo) y va siempre primero, antes que "Profundiza más".
     const chips = [];
+    // "Cómo llegar" va siempre el primero de todos: es la acción práctica
+    // más inmediata al abrir la ficha de un sitio, antes incluso que la
+    // información de entradas.
+    if (poi && poi.coords) chips.push({ id: 'directions', kind: 'directions', label: 'Cómo llegar' });
+    // "Introducción" va justo después: es la audioguía completa de siempre,
+    // ahora a un toque en vez de sonar sola al abrir la ficha (ver
+    // ensureAiPanelInitialGreet / showFullIntro).
+    chips.push({ id: 'intro', kind: 'intro', label: 'Introducción' });
     if (poi && poi.visitInfo) chips.push({ id: 'ticket', kind: 'ticket', label: 'Entrada: horario y precio' });
     // "Profundiza más" va siempre el primero de los de IA, incluso antes de
     // elegir un tema (en ese caso profundiza sobre el resumen inicial, no
@@ -3419,6 +3462,13 @@
           return;
         }
 
+        // No es una pregunta a la IA: no se registra en el chat, igual que
+        // "reset" arriba.
+        if (chip.kind === 'directions') {
+          openDirectionsConfirm(poi);
+          return;
+        }
+
         // Si había un párrafo de "profundiza más" en curso (relleno local
         // sonando, o esperando a la IA real) y el usuario elige OTRO
         // chip mientras tanto, se abandona limpiamente antes de seguir —
@@ -3436,6 +3486,11 @@
 
         if (chip.kind === 'ticket') {
           showVisitInfo(poi);
+          return;
+        }
+
+        if (chip.kind === 'intro') {
+          showFullIntro(poi);
           return;
         }
 
@@ -3688,6 +3743,43 @@
     scrollAiToBottom();
     saveState();
     if (STATE.activePoiId === poi.id) startAudio(false, true);
+  };
+
+  // Chip "Introducción": la audioguía completa de siempre (historia,
+  // leyendas, arquitectura...), que ahora queda a un toque de distancia en
+  // vez de arrancar sola al abrir la ficha — ver ensureAiPanelInitialGreet,
+  // que solo dice la frase corta de bienvenida. Mismo patrón que
+  // showVisitInfo: se añade como mensaje de la IA en el chat y se narra.
+  const showFullIntro = (poi) => {
+    if (!poi) return;
+    const hist = aiHistoryFor(poi.id);
+    hist.push({ role: 'assistant', text: buildIntroText(poi, STATE.mode), isSummary: true });
+    renderAiMessages();
+    scrollAiToBottom();
+    saveState();
+    if (STATE.activePoiId === poi.id) startAudio(false, true);
+  };
+
+  // "Cómo llegar": aviso previo antes de saltar a Google Maps, para que
+  // quien lo pida sepa que la app se queda tal cual la dejó (no se cierra,
+  // solo pasa a segundo plano) — modal propio en vez de window.confirm,
+  // mismo motivo que el de reiniciar la app (ver wireEvents). Los listeners
+  // de los botones del modal se cablean en wireEvents; open/close viven
+  // aquí porque el chip que llama a openDirectionsConfirm se define en
+  // renderAiSuggestions, no dentro de wireEvents.
+  const directionsModal = $('#directionsConfirmModal');
+  let directionsPoi = null;
+  const closeDirectionsConfirm = () => {
+    if (!directionsModal) return;
+    directionsModal.classList.remove('-open');
+    directionsModal.setAttribute('aria-hidden', 'true');
+    directionsPoi = null;
+  };
+  const openDirectionsConfirm = (poi) => {
+    if (!directionsModal || !poi || !poi.coords) return;
+    directionsPoi = poi;
+    directionsModal.classList.add('-open');
+    directionsModal.setAttribute('aria-hidden', 'false');
   };
 
   // Registro en memoria (a propósito NO va dentro de STATE: no tiene
@@ -5361,8 +5453,32 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     };
 
     if (!isResume) {
-      const cloudUrl = CLOUD_TTS.getReadyUrl(SPEECH.getText());
+      const textForCloud = SPEECH.getText();
+      const cloudUrl = CLOUD_TTS.getReadyUrl(textForCloud);
       if (cloudUrl) { startCloudAudio(cloudUrl, silent); return; }
+      // Sin síntesis de voz del navegador (WebView de Capacitor en Android:
+      // no existe window.speechSynthesis ahí) no hay ningún motor local al
+      // que caer — sin este intento activo la audioguía se quedaría muda
+      // del todo dentro de la app empaquetada, porque antes la voz en la
+      // nube solo se usaba si ya estaba precacheada de antemano (ver
+      // queueAiMessage). Se pide ya mismo y se reproduce en cuanto llegue;
+      // si STATE.activePoiId cambió mientras tanto (el usuario ya se fue a
+      // otro punto), se descarta sin reproducir nada encima de lo nuevo.
+      if (!SPEECH.isSupported() && CLOUD_TTS.isConfigured()) {
+        const poiId = STATE.activePoiId;
+        STATE.audio.playing = true;
+        updateAudioUi();
+        CLOUD_TTS.fetchAndCache(textForCloud).then((url) => {
+          if (url && STATE.activePoiId === poiId) {
+            startCloudAudio(url, silent);
+          } else {
+            STATE.audio.playing = false;
+            updateAudioUi();
+            if (!silent) showToast('No se pudo cargar el audio. Comprueba tu conexión.', 3200);
+          }
+        });
+        return;
+      }
       STATE.audio.engine = null;
     } else if (STATE.audio.engine === 'cloud') {
       cloudAudioEl.play().catch(() => {});
@@ -5722,6 +5838,26 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     });
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && resetModal && resetModal.classList.contains('-open')) closeResetConfirm();
+    });
+
+    // "Cómo llegar": el estado y las funciones open/close viven fuera de
+    // wireEvents (ver junto a showVisitInfo), porque el chip que las llama
+    // se define en renderAiSuggestions, una función hermana, no anidada
+    // aquí dentro — aquí solo se cablean los listeners de los botones.
+    $('#directionsConfirmCancel')?.addEventListener('click', closeDirectionsConfirm);
+    $('#directionsConfirmOk')?.addEventListener('click', () => {
+      if (directionsPoi) {
+        const [lat, lng] = directionsPoi.coords;
+        const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+        window.open(url, '_blank', 'noopener');
+      }
+      closeDirectionsConfirm();
+    });
+    directionsModal?.addEventListener('click', (e) => {
+      if (e.target === directionsModal) closeDirectionsConfirm();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && directionsModal && directionsModal.classList.contains('-open')) closeDirectionsConfirm();
     });
 
     let chosenMode = STATE.mode === 'kids' ? 'kids' : 'adult';

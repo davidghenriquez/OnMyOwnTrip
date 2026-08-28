@@ -50,6 +50,24 @@ yarn.lock
 dist/
 build/
 
+# ---- Capacitor: carpeta generada por scripts/build-www.js ----
+www/
+
+# ---- Android / Gradle: solo se versiona el código fuente del proyecto,
+#      no lo que Gradle genera al compilar (pesa mucho y es distinto en
+#      cada máquina) ----
+android/.gradle/
+android/build/
+android/app/build/
+android/app/release/
+android/app/debug/
+android/local.properties
+android/captures/
+android/*.iml
+android/app/*.iml
+*.jks
+*.keystore
+
 # ---- PowerShell history & sandbox ----
 ConsoleHost_history.txt
 _TRaeSandbox/

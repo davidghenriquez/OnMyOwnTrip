@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=52" />
+  <link rel="stylesheet" href="styles.css?v=53" />
 </head>
 <body>
   <!-- PANTALLA DE ACCESO: se muestra ANTES que la de bienvenida cuando no
@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.52</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.53</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html">Privacidad y créditos</a>
   </div>
@@ -157,6 +157,21 @@
       <div class="reset-confirm-actions">
         <button type="button" class="reset-confirm-cancel" id="resetConfirmCancel">Cancelar</button>
         <button type="button" class="reset-confirm-ok" id="resetConfirmOk">Sí, reiniciar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="directions-confirm-modal" id="directionsConfirmModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Confirmar salir a Google Maps">
+    <div class="directions-confirm-card">
+      <div class="directions-confirm-icon" aria-hidden="true">🗺️</div>
+      <h2 class="directions-confirm-title">Vas a abrir Google Maps</h2>
+      <p class="directions-confirm-text">
+        Te llevará paso a paso hasta aquí. Cuando termines, vuelve a esta app
+        para seguir con la visita — la encontrarás tal como la dejaste.
+      </p>
+      <div class="directions-confirm-actions">
+        <button type="button" class="directions-confirm-cancel" id="directionsConfirmCancel">Cancelar</button>
+        <button type="button" class="directions-confirm-ok" id="directionsConfirmOk">Abrir Maps</button>
       </div>
     </div>
   </div>
@@ -568,7 +583,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=22"></script>
-  <script src="app.js?v=151"></script>
+  <script src="app.js?v=159"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
