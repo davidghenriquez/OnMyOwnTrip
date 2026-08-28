@@ -3353,6 +3353,9 @@
     // visitarlo, no solo una etiqueta — pero solo en modo Adultos: en niño
     // se sigue usando el subtitle de siempre, más corto y directo.
     const body = (mode !== 'kids' && poi.teaser) ? pickDual(poi.teaser) : pickDual(poi.subtitle);
+    if (STATE.lang === 'en') {
+      return mode === 'kids' ? `Hi! You're at ${name}. ${body}` : `Welcome to ${name}. ${body}`;
+    }
     return mode === 'kids' ? `¡Hola! Estás en ${name}. ${body}` : `Bienvenido a ${name}. ${body}`;
   };
 
@@ -3360,7 +3363,9 @@
   // ensureAiPanelInitialGreet): la frase corta de arriba + un empujón hacia
   // los chips de debajo, para que no haga falta adivinar qué hacen.
   const buildOpeningGreeting = (poi, mode) => {
-    const guide = '\n\nAbajo tienes varias opciones: cómo llegar hasta aquí, o si prefieres, ir escuchando información del sitio en el botón Introducción.';
+    const guide = STATE.lang === 'en'
+      ? "\n\nBelow you'll find a few options: how to get here, or if you'd rather, listen to the site's information with the Introduction button."
+      : '\n\nAbajo tienes varias opciones: cómo llegar hasta aquí, o si prefieres, ir escuchando información del sitio en el botón Introducción.';
     return buildPreviewText(poi, mode) + guide;
   };
 
@@ -3372,36 +3377,54 @@
   // esta es la ÚNICA llamada (no hay chip de Introducción separado), así
   // que la frase de bienvenida tiene que decirse en algún punto.
   const buildIntroText = (poi, mode, includeOpener = true) => {
+    const isEn = STATE.lang === 'en';
     const historyFull = pickDual(poi.tabs.history) || '';
     const legends = poi.tabs.legends ? pickDual(poi.tabs.legends) : '';
     const architecture = poi.tabs.architecture ? pickDual(poi.tabs.architecture) : '';
 
     const opener = includeOpener ? buildPreviewText(poi, mode) : '';
     const legendBridge = legends
-      ? (mode === 'kids' ? ` Aquí va un dato curioso: ${legends}` : ` Un dato curioso: ${legends}`)
+      ? (isEn
+        ? (mode === 'kids' ? ` Here's a fun fact: ${legends}` : ` A curious fact: ${legends}`)
+        : (mode === 'kids' ? ` Aquí va un dato curioso: ${legends}` : ` Un dato curioso: ${legends}`))
       : '';
     const archBridge = architecture
-      ? (mode === 'kids' ? ` Y por fuera, fíjate: ${architecture}` : ` En cuanto a su arquitectura: ${architecture}`)
+      ? (isEn
+        ? (mode === 'kids' ? ` And on the outside, take a look: ${architecture}` : ` As for its architecture: ${architecture}`)
+        : (mode === 'kids' ? ` Y por fuera, fíjate: ${architecture}` : ` En cuanto a su arquitectura: ${architecture}`))
       : '';
 
     // "Visitable o no": se deduce del propio texto de horario/precio ya
     // escrito para cada POI (poi.visitInfo), en vez de añadir un campo de
     // datos nuevo — un espacio "de acceso libre, sin horario" (una plaza,
     // una calle) se trata distinto de uno con horario y entrada (un museo,
-    // un palacio).
+    // un palacio). El patrón que detecta "gratis" cambia con el idioma
+    // porque busca dentro del propio texto ya traducido de visitInfo.
     let visitLine = '';
     if (poi.visitInfo) {
       const priceText = pickDual(poi.visitInfo.price) || '';
       const hoursText = pickDual(poi.visitInfo.hours) || '';
-      const freeAccess = /gratis|acceso libre|sin horario/i.test(`${priceText} ${hoursText}`);
-      visitLine = mode === 'kids'
-        ? (freeAccess ? ' ¡Puedes verlo cuando quieras, es de acceso libre!' : ' Se puede entrar, aunque tiene su horario.')
-        : (freeAccess ? ' Es un espacio de acceso libre: puedes visitarlo cuando quieras.' : ' Se puede visitar por dentro, con su horario y su entrada.');
+      const freeAccess = isEn
+        ? /free|no ticket|open access/i.test(`${priceText} ${hoursText}`)
+        : /gratis|acceso libre|sin horario/i.test(`${priceText} ${hoursText}`);
+      if (isEn) {
+        visitLine = mode === 'kids'
+          ? (freeAccess ? " You can see it whenever you want, it's open access!" : ' You can go inside, though it has set hours.')
+          : (freeAccess ? " It's an open-access site: you can visit it whenever you like." : ' You can visit the inside, with set hours and a ticket.');
+      } else {
+        visitLine = mode === 'kids'
+          ? (freeAccess ? ' ¡Puedes verlo cuando quieras, es de acceso libre!' : ' Se puede entrar, aunque tiene su horario.')
+          : (freeAccess ? ' Es un espacio de acceso libre: puedes visitarlo cuando quieras.' : ' Se puede visitar por dentro, con su horario y su entrada.');
+      }
     }
 
-    const cta = mode === 'kids'
-      ? (poi.quiz ? ' Escucha bien, que cuando termine te voy a hacer una pregunta para ver cuánto se te ha quedado.' : '')
-      : ' Si quieres profundizar en algún tema, tienes el botón "Profundiza más" aquí abajo. Y si buscas el horario y el precio exactos, ahí tienes el botón de entradas.';
+    const cta = isEn
+      ? (mode === 'kids'
+        ? (poi.quiz ? " Listen carefully, because when it's over I'm going to ask you a question to see how much you remember." : '')
+        : ' If you want to dig deeper into a topic, use the "Dig deeper" button below. And if you\'re after the exact hours and price, there\'s a tickets button for that.')
+      : (mode === 'kids'
+        ? (poi.quiz ? ' Escucha bien, que cuando termine te voy a hacer una pregunta para ver cuánto se te ha quedado.' : '')
+        : ' Si quieres profundizar en algún tema, tienes el botón "Profundiza más" aquí abajo. Y si buscas el horario y el precio exactos, ahí tienes el botón de entradas.');
 
     const body = `${historyFull}${legendBridge}${archBridge}${visitLine}${cta}`;
     return opener ? `${opener} ${body}` : body;
@@ -5825,9 +5848,65 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     startApp();
   };
 
+  // Textos fijos de la pantalla de bienvenida (ver index.html, sección
+  // .onboarding): a diferencia del contenido de cada POI, esto no viene de
+  // ningún archivo de datos, así que vive aquí como un pequeño diccionario
+  // propio en vez de forzarlo por el mecanismo pickDual/pickLang, pensado
+  // para contenido de POI con modo adulto/niño.
+  const ONBOARDING_STRINGS = {
+    es: {
+      obHeroTitle: 'Explora a tu manera',
+      obHeroSubtitle: 'Historias, leyendas y secretos de cada rincón, contados según caminas.',
+      obSectionCityHeading: '¿Dónde quieres explorar?',
+      obNearbyTitle: 'Cerca de mí',
+      obNearbyDesc: 'Detecto la ciudad más cercana con tu ubicación',
+      obPickCityLabel: 'Elegir una ciudad',
+      obSectionModeHeading: '¿Modo Adultos o Niños?',
+      obModeAdultTitle: 'Adultos',
+      obModeAdultDesc: 'Contenido experto y riguroso',
+      obModeKidsTitle: 'Niños',
+      obModeKidsDesc: 'Aventuras, retos y magia',
+      obResetBtn: 'Reiniciar app',
+      obPrivacyLink: 'Privacidad y créditos'
+    },
+    en: {
+      obHeroTitle: 'Explore your way',
+      obHeroSubtitle: 'Stories, legends and secrets from every corner, told as you walk.',
+      obSectionCityHeading: 'Where do you want to explore?',
+      obNearbyTitle: 'Near me',
+      obNearbyDesc: 'I detect the closest city using your location',
+      obPickCityLabel: 'Choose a city',
+      obSectionModeHeading: 'Adult or Kids mode?',
+      obModeAdultTitle: 'Adults',
+      obModeAdultDesc: 'Expert, rigorous content',
+      obModeKidsTitle: 'Kids',
+      obModeKidsDesc: 'Adventures, challenges and magic',
+      obResetBtn: 'Restart app',
+      obPrivacyLink: 'Privacy & credits'
+    }
+  };
+
+  const applyOnboardingLang = () => {
+    const dict = ONBOARDING_STRINGS[STATE.lang] || ONBOARDING_STRINGS.es;
+    Object.entries(dict).forEach(([id, text]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    });
+    $$('#obLangToggle .lang-toggle-option').forEach((o) => o.dataset.active = o.dataset.lang === STATE.lang ? 'true' : 'false');
+    document.documentElement.lang = STATE.lang;
+  };
+
   const wireOnboarding = () => {
     const ob = $('#onboarding');
     if (!ob) return;
+
+    applyOnboardingLang();
+    $$('#obLangToggle .lang-toggle-option').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        setStateLang(opt.dataset.lang);
+        applyOnboardingLang();
+      });
+    });
 
     // Ayuda temporal de diagnóstico: 3 toques sobre el número de versión
     // muestran los datos guardados en un cuadro directamente en la página
