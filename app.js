@@ -244,8 +244,9 @@
         'RESUMEN: <una frase breve>',
         'INFO: <2-3 frases con datos concretos y contrastables: qué es, época o autor, algo destacable>',
         '3) Si no puedes identificarlo con una confianza razonable: DESCONOCIDO',
-        'No uses nunca palabrotas, insultos ni lenguaje obsceno en ninguna parte de la respuesta.'
-      ].join('\n');
+        'No uses nunca palabrotas, insultos ni lenguaje obsceno en ninguna parte de la respuesta.',
+        STATE.lang === 'en' ? 'Write the NAME/SUMMARY/INFO content in English (keep the labels MATCH/NOMBRE/RESUMEN/INFO/DESCONOCIDO exactly as given, only the content after them goes in English).' : ''
+      ].filter(Boolean).join('\n');
       const usrText = candidates.length
         ? `Foto tomada cerca de ${cityName}. Candidatos cercanos:\n${list}\n\n¿Cuál coincide (MATCH:<id>)? Si no coincide ninguno, identifica igualmente el lugar si puedes (formato NOMBRE/RESUMEN/INFO), o responde DESCONOCIDO.`
         : `Foto tomada cerca de ${cityName}, sin candidatos cercanos conocidos. Identifica qué edificio, monumento o lugar es (formato NOMBRE/RESUMEN/INFO), o responde DESCONOCIDO si no puedes.`;
@@ -1022,7 +1023,29 @@
     askPlaceholder: { es: { adult: 'Escribe tu pregunta…', kids: 'Escribe tu pregunta…' }, en: { adult: 'Type your question…', kids: 'Type your question…' } },
     askAriaLabel: { es: { adult: 'Escribe tu pregunta a la guía IA', kids: 'Escribe tu pregunta a la guía IA' }, en: { adult: 'Type your question to the AI guide', kids: 'Type your question to the AI guide' } },
     backToMenu: { es: { adult: 'Menú principal', kids: 'Menú principal' }, en: { adult: 'Main menu', kids: 'Main menu' } },
-    audioguideCompleted: { es: { adult: 'Audioguía completada', kids: '¡Fin del cuento! 🎉' }, en: { adult: 'Audio guide completed', kids: 'The End! 🎉' } }
+    audioguideCompleted: { es: { adult: 'Audioguía completada', kids: '¡Fin del cuento! 🎉' }, en: { adult: 'Audio guide completed', kids: 'The End! 🎉' } },
+    locationUnsupported: { es: { adult: 'La geolocalización no está disponible en este navegador.', kids: 'Tu navegador no sabe dónde estás 😅' }, en: { adult: 'Geolocation is not available in this browser.', kids: "Your browser doesn't know where you are 😅" } },
+    locationDenied: { es: { adult: 'Has denegado el permiso de ubicación. Actívalo en los ajustes del navegador para usar esta función.', kids: 'Necesito permiso para saber dónde estás 🗺️' }, en: { adult: 'You denied location permission. Enable it in your browser settings to use this feature.', kids: 'I need permission to know where you are 🗺️' } },
+    locationFailed: { es: { adult: 'No se pudo obtener tu ubicación. Inténtalo de nuevo.', kids: 'No he podido encontrarte ahora mismo.' }, en: { adult: "We couldn't get your location. Please try again.", kids: "I couldn't find you right now." } },
+    distanceFromYou: { es: { adult: '📍 A ', kids: '📍 A ' }, en: { adult: '📍 ', kids: '📍 ' } },
+    distanceFromYouSuffix: { es: { adult: '', kids: ' de ti' }, en: { adult: ' away', kids: ' away' } },
+    scanAnalyzing: { es: { adult: 'Analizando tu foto…', kids: 'Mirando tu foto… 🔍' }, en: { adult: 'Analyzing your photo…', kids: 'Looking at your photo… 🔍' } },
+    scanNoLocation: { es: { adult: 'No se pudo obtener tu ubicación; analizo la foto de todos modos.', kids: 'No sé dónde estás, pero miro la foto igual 🔍' }, en: { adult: "Couldn't get your location; analyzing the photo anyway.", kids: "I don't know where you are, but I'll look at the photo anyway 🔍" } },
+    scanNoAiOffline: { es: { adult: 'No se puede analizar la foto sin conexión a la IA.', kids: 'No puedo analizar fotos sin conexión a la IA 😅' }, en: { adult: "Can't analyze the photo without an AI connection.", kids: "I can't look at photos without an AI connection 😅" } },
+    scanAiBusyRetry: { es: { adult: 'La IA está saturada ahora mismo, reintentando…', kids: '¡La IA está muy solicitada! Probando otra vez… 🔁' }, en: { adult: 'The AI is overloaded right now, retrying…', kids: 'The AI is really busy! Trying again… 🔁' } },
+    scanFailedGeneric: { es: { adult: 'No se pudo analizar la foto. Inténtalo de nuevo.', kids: '¡Uy! Algo ha fallado con la foto 😅' }, en: { adult: "The photo couldn't be analyzed. Please try again.", kids: 'Oops! Something went wrong with the photo 😅' } },
+    scanNotRecognized: { es: { adult: 'No he podido identificar este lugar. Prueba a acercarte más o a otro ángulo.', kids: '¡No he reconocido este sitio! Prueba a acercarte más 🔍' }, en: { adult: "I couldn't identify this place. Try getting closer or a different angle.", kids: "I didn't recognize this place! Try getting closer 🔍" } },
+    scanAiStillBusy: { es: { adult: 'La IA sigue saturada. Prueba de nuevo en un minuto.', kids: '¡La IA sigue muy solicitada! Prueba otra vez en un ratito 🙏' }, en: { adult: 'The AI is still overloaded. Try again in a minute.', kids: 'The AI is still really busy! Try again in a bit 🙏' } },
+    scanRecognized: { es: { adult: '¡Reconocido! Es ', kids: '¡Es ' }, en: { adult: 'Recognized! It\'s ', kids: 'It\'s ' } },
+    scanIdentifiedFromPhoto: { es: { adult: 'Identificado a partir de tu foto', kids: '¡Descubierto con tu foto!' }, en: { adult: 'Identified from your photo', kids: 'Discovered with your photo!' } },
+    scanUnverifiedBadge: { es: { adult: 'ANÁLISIS IA · SIN VERIFICAR', kids: 'IA · SIN VERIFICAR' }, en: { adult: 'AI ANALYSIS · UNVERIFIED', kids: 'AI · UNVERIFIED' } },
+    scanAdHocResult: { es: { adult: 'No estaba en mis datos, pero creo que es: {name} (sin verificar).', kids: '¡Creo que es {name}! (sin verificar) 🔍' }, en: { adult: "It wasn't in my data, but I think it's: {name} (unverified).", kids: "I think it's {name}! (unverified) 🔍" } },
+    scanAiAnalysisTitle: { es: { adult: 'Análisis IA: ', kids: 'Análisis IA: ' }, en: { adult: 'AI Analysis: ', kids: 'AI Analysis: ' } },
+    scanNoMoreData: { es: { adult: 'Sin más datos disponibles.', kids: 'Sin más datos disponibles.' }, en: { adult: 'No further data available.', kids: 'No further data available.' } },
+    scanReasonTimeout: { es: { adult: 'tiempo agotado con la IA', kids: 'tiempo agotado con la IA' }, en: { adult: 'AI request timed out', kids: 'AI request timed out' } },
+    scanReasonImageFailed: { es: { adult: 'no se pudo procesar la imagen', kids: 'no se pudo procesar la imagen' }, en: { adult: 'could not process the image', kids: 'could not process the image' } },
+    scanReasonUnknown: { es: { adult: 'error desconocido', kids: 'error desconocido' }, en: { adult: 'unknown error', kids: 'unknown error' } },
+    scanFailedWithCode: { es: { adult: 'No se pudo analizar la foto ({code}). Inténtalo de nuevo.', kids: '¡Uy! Algo ha fallado con la foto ({code}) 😅' }, en: { adult: "The photo couldn't be analyzed ({code}). Please try again.", kids: 'Oops! Something went wrong with the photo ({code}) 😅' } }
   };
   const t = (key) => pickDual(UI_STRINGS[key]);
 
@@ -1544,7 +1567,7 @@
     startHeadingWatch();
     const btn = $('#locateBtn');
     if (!navigator.geolocation) {
-      showToast(STATE.mode === 'kids' ? 'Tu navegador no sabe dónde estás 😅' : 'La geolocalización no está disponible en este navegador.');
+      showToast(t('locationUnsupported'));
       return;
     }
     // Si el seguimiento continuo ya está activo y tenemos una posición
@@ -1567,12 +1590,7 @@
       (err) => {
         btn?.classList.remove('-locating');
         const denied = err && err.code === 1;
-        showToast(
-          STATE.mode === 'kids'
-            ? (denied ? 'Necesito permiso para saber dónde estás 🗺️' : 'No he podido encontrarte ahora mismo.')
-            : (denied ? 'Has denegado el permiso de ubicación. Actívalo en los ajustes del navegador para usar esta función.' : 'No se pudo obtener tu ubicación. Inténtalo de nuevo.'),
-          3200
-        );
+        showToast(denied ? t('locationDenied') : t('locationFailed'), 3200);
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
     );
@@ -1585,7 +1603,7 @@
     if (!poi || !STATE.userLocation) { el.hidden = true; return; }
     const meters = haversineMeters([STATE.userLocation.lat, STATE.userLocation.lng], poi.coords);
     el.hidden = false;
-    el.textContent = (STATE.mode === 'kids' ? '📍 A ' : '📍 A ') + formatDistance(meters) + (STATE.mode === 'kids' ? ' de ti' : '');
+    el.textContent = t('distanceFromYou') + formatDistance(meters) + t('distanceFromYouSuffix');
   };
 
   /* =========================================================
@@ -1839,7 +1857,7 @@
     // Feedback inmediato: localizarte + que la IA mire la foto puede tardar
     // varios segundos, y sin esto el único indicio de que algo está
     // pasando es el pulso sutil del botón — fácil de no notar.
-    showToast(STATE.mode === 'kids' ? 'Mirando tu foto… 🔍' : 'Analizando tu foto…', 6000);
+    showToast(t('scanAnalyzing'), 6000);
     try {
       let coords = STATE.userLocation;
       try {
@@ -1854,9 +1872,7 @@
         // de forma persistente y bloquear la función entera por eso sería
         // peor que ofrecer un resultado sin ubicación confirmada.
         if (!coords) {
-          showToast(STATE.mode === 'kids'
-            ? 'No sé dónde estás, pero miro la foto igual 🔍'
-            : 'No se pudo obtener tu ubicación; analizo la foto de todos modos.', 2600);
+          showToast(t('scanNoLocation'), 2600);
         }
       }
 
@@ -1873,7 +1889,7 @@
         // de un sitio distinto al fotografiado (p.ej. una estatua concreta
         // dentro de una plaza acababa mostrando la ficha de la plaza
         // entera), lo cual confunde más de lo que ayuda.
-        showToast(STATE.mode === 'kids' ? 'No puedo analizar fotos sin conexión a la IA 😅' : 'No se puede analizar la foto sin conexión a la IA.', 3000);
+        showToast(t('scanNoAiOffline'), 3000);
         return;
       }
 
@@ -1886,7 +1902,7 @@
         result = await LLM.identifyPoi({ imageDataUrl, candidates, cityName: CURRENT_CITY.name });
       } catch (e) {
         if (e && (e.status === 429 || e.status === 503)) {
-          showToast(STATE.mode === 'kids' ? '¡La IA está muy solicitada! Probando otra vez… 🔁' : 'La IA está saturada ahora mismo, reintentando…', 2500);
+          showToast(t('scanAiBusyRetry'), 2500);
           await new Promise((r) => setTimeout(r, 2500));
           result = await LLM.identifyPoi({ imageDataUrl, candidates, cityName: CURRENT_CITY.name });
         } else {
@@ -1894,7 +1910,7 @@
         }
       }
       if (!result.supported) {
-        showToast(STATE.mode === 'kids' ? '¡Uy! Algo ha fallado con la foto 😅' : 'No se pudo analizar la foto. Inténtalo de nuevo.', 3000);
+        showToast(t('scanFailedGeneric'), 3000);
         return;
       }
       if (result.type === 'match') {
@@ -1904,9 +1920,7 @@
         openAdHocScanResult(result, imageDataUrl, coords);
       } else {
         logUnrecognizedScan({ type: 'none', name: null, coords, imageDataUrl });
-        showToast(STATE.mode === 'kids'
-          ? '¡No he reconocido este sitio! Prueba a acercarte más 🔍'
-          : 'No he podido identificar este lugar. Prueba a acercarte más o a otro ángulo.', 3200);
+        showToast(t('scanNotRecognized'), 3200);
       }
     } catch (e) {
       console.warn('[Scan] Error identificando POI:', e);
@@ -1914,20 +1928,18 @@
         // Ya se reintentó una vez arriba: si sigue saturada, mensaje
         // honesto de "vuelve a intentarlo en un momento" en vez de un
         // código HTTP que no significa nada para quien lo lee.
-        showToast(STATE.mode === 'kids'
-          ? '¡La IA sigue muy solicitada! Prueba otra vez en un ratito 🙏'
-          : 'La IA sigue saturada. Prueba de nuevo en un minuto.', 3500);
+        showToast(t('scanAiStillBusy'), 3500);
       } else {
         // Se incluye el motivo real y corto en el propio aviso (no solo en
         // consola, que en el móvil nadie mira): así un fallo se puede
         // reportar con una captura de pantalla en vez de tener que
         // adivinarlo a ciegas otra vez.
         const code = e && e.status ? `HTTP ${e.status}`
-          : (e && (e.name === 'AbortError' || e.message === 'vision-timeout')) ? 'tiempo agotado con la IA'
-          : (e && (e.message === 'image-load-timeout' || e.message === 'image-load-failed')) ? 'no se pudo procesar la imagen'
+          : (e && (e.name === 'AbortError' || e.message === 'vision-timeout')) ? t('scanReasonTimeout')
+          : (e && (e.message === 'image-load-timeout' || e.message === 'image-load-failed')) ? t('scanReasonImageFailed')
           : (e && e.message) ? e.message
-          : 'error desconocido';
-        showToast(STATE.mode === 'kids' ? `¡Uy! Algo ha fallado con la foto (${code}) 😅` : `No se pudo analizar la foto (${code}). Inténtalo de nuevo.`, 4200);
+          : t('scanReasonUnknown');
+        showToast(t('scanFailedWithCode').replace('{code}', code), 4200);
       }
     } finally {
       setScanning(false);
@@ -1938,10 +1950,7 @@
     const poi = POIS.find((p) => p.id === poiId);
     if (!poi) return;
     selectPoi(poiId, true);
-    showToast(
-      STATE.mode === 'kids' ? `¡Es ${pickDual(poi.name)}! 🎉` : `¡Reconocido! Es ${pickDual(poi.name)}.`,
-      2800
-    );
+    showToast(`${t('scanRecognized')}${pickDual(poi.name)}${STATE.mode === 'kids' ? '! 🎉' : '.'}`, 2800);
   };
 
   // Cuando la foto no es ninguno de los POIs curados de la app pero la IA
@@ -1958,7 +1967,7 @@
     // que si el aviso viviera ahí la audioguía leería literalmente "sin
     // verificar, puede contener errores" como si fuera parte del relato.
     // Se deja solo en el badge y en el aviso emergente, que son visuales.
-    const tagline = info.subtitle || (STATE.mode === 'kids' ? '¡Descubierto con tu foto!' : 'Identificado a partir de tu foto');
+    const tagline = info.subtitle || t('scanIdentifiedFromPhoto');
     const poi = {
       id,
       name: { adult: info.name, kids: info.name },
@@ -1972,12 +1981,12 @@
       image: imageDataUrl,
       audio: {
         duration: Math.max(40, Math.round((info.info || info.subtitle || '').split(/\s+/).length / 2.3)),
-        title: { adult: `Análisis IA: ${info.name}`, kids: `Análisis IA: ${info.name}` }
+        title: { adult: `${t('scanAiAnalysisTitle')}${info.name}`, kids: `${t('scanAiAnalysisTitle')}${info.name}` }
       },
       tabs: {
         history: {
-          adult: info.info || info.subtitle || 'Sin más datos disponibles.',
-          kids: info.info || info.subtitle || 'Sin más datos disponibles.'
+          adult: info.info || info.subtitle || t('scanNoMoreData'),
+          kids: info.info || info.subtitle || t('scanNoMoreData')
         }
       },
       isAdHocScan: true
@@ -1985,10 +1994,8 @@
     POIS.push(poi);
     selectPoi(id, true);
     const badge = $('.sheet-cat-badge', els.sheet);
-    if (badge) badge.textContent = STATE.mode === 'kids' ? 'IA · SIN VERIFICAR' : 'ANÁLISIS IA · SIN VERIFICAR';
-    showToast(STATE.mode === 'kids'
-      ? `¡Creo que es ${info.name}! (sin verificar) 🔍`
-      : `No estaba en mis datos, pero creo que es: ${info.name} (sin verificar).`, 3200);
+    if (badge) badge.textContent = t('scanUnverifiedBadge');
+    showToast(t('scanAdHocResult').replace('{name}', info.name), 3200);
   };
 
   // Las fichas efímeras del escaneo no deben quedarse coladas en POIS: si
