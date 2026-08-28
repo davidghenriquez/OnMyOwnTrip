@@ -663,16 +663,12 @@
           // con una captura de pantalla en vez de adivinarlo a ciegas (mismo
           // motivo que en scanForPoi para el escaneo de fotos).
           const code = e && e.status ? `HTTP ${e.status}`
-            : (e && (e.name === 'AbortError' || e.message === 'chat-timeout')) ? 'tiempo agotado'
+            : (e && (e.name === 'AbortError' || e.message === 'chat-timeout')) ? pickLang({ es: 'tiempo agotado', en: 'timed out' })
             : (e && e.message) ? e.message
-            : 'error desconocido';
+            : pickLang({ es: 'error desconocido', en: 'unknown error' });
           const suffix = isQuotaError
-            ? (mode === 'kids'
-                ? '\n\n⚠️ (¡La IA está muy solicitada ahora mismo! Se ha usado el modo sin conexión mientras se libera hueco.)'
-                : '\n\n(La IA está saturada de peticiones en este momento —no es un fallo de la app—, se ha usado el simulador local mientras tanto.)')
-            : (mode === 'kids'
-                ? `\n\n⚠️ (Modo offline: la IA real respondió con error — ${code})`
-                : `\n\n(Modo offline. Error al conectar con la API (${code}), se ha usado el simulador local.)`);
+            ? pickLang(UI_STRINGS.aiQuotaSuffix)[mode]
+            : pickLang(UI_STRINGS.aiOfflineSuffix)[mode].replace('{code}', code);
           return await simulated(poi, mode, userQuery, optionId, concise) + suffix;
         }
       }
@@ -1042,10 +1038,85 @@
     scanAdHocResult: { es: { adult: 'No estaba en mis datos, pero creo que es: {name} (sin verificar).', kids: '¡Creo que es {name}! (sin verificar) 🔍' }, en: { adult: "It wasn't in my data, but I think it's: {name} (unverified).", kids: "I think it's {name}! (unverified) 🔍" } },
     scanAiAnalysisTitle: { es: { adult: 'Análisis IA: ', kids: 'Análisis IA: ' }, en: { adult: 'AI Analysis: ', kids: 'AI Analysis: ' } },
     scanNoMoreData: { es: { adult: 'Sin más datos disponibles.', kids: 'Sin más datos disponibles.' }, en: { adult: 'No further data available.', kids: 'No further data available.' } },
+    routeFollowNumbers: { es: { adult: 'Ruta "{route}": sigue el orden numerado en el mapa.', kids: '¡Sigue los números de "{route}" en el mapa! 🚩' }, en: { adult: 'Route "{route}": follow the numbered order on the map.', kids: 'Follow the numbers of "{route}" on the map! 🚩' } },
+    beforeStarting: { es: { adult: 'Antes de empezar — ', kids: '¡Antes de empezar! — ' }, en: { adult: 'Before you start — ', kids: 'Before you start! — ' } },
+    tutorialNext: { es: { adult: 'Siguiente', kids: 'Siguiente' }, en: { adult: 'Next', kids: 'Next' } },
+    tutorialGo: { es: { adult: 'Entendido', kids: '¡Vamos allá! 🚀' }, en: { adult: 'Got it', kids: "Let's go! 🚀" } },
+    tutorialSkip: { es: { adult: 'Saltar tutorial ✕', kids: 'Saltar tutorial ✕' }, en: { adult: 'Skip tutorial ✕', kids: 'Skip tutorial ✕' } },
+    tutorialBack: { es: { adult: '‹ Atrás', kids: '‹ Atrás' }, en: { adult: '‹ Back', kids: '‹ Back' } },
+    tutorialBackAria: { es: { adult: 'Paso anterior', kids: 'Paso anterior' }, en: { adult: 'Previous step', kids: 'Previous step' } },
+    demoBadge: { es: { adult: 'Museos · Ilustrativo', kids: 'Museos · Ilustrativo' }, en: { adult: 'Museums · Illustrative', kids: 'Museums · Illustrative' } },
+    demoImgAlt: { es: { adult: 'Ejemplo de punto de interés', kids: 'Ejemplo de punto de interés' }, en: { adult: 'Example point of interest', kids: 'Example point of interest' } },
+    demoTitle: { es: { adult: 'Nombre del lugar', kids: 'Nombre del lugar' }, en: { adult: 'Place name', kids: 'Place name' } },
+    demoSubtitle: { es: { adult: 'Así se ve cualquier punto que abras', kids: 'Así se ve cualquier punto que abras' }, en: { adult: 'This is what any point you open looks like', kids: 'This is what any point you open looks like' } },
+    demoAudioTitle: { es: { adult: 'Audioguía de ejemplo', kids: 'Audioguía de ejemplo' }, en: { adult: 'Example audio guide', kids: 'Example audio guide' } },
+    demoMsg1: { es: { adult: '¡Hola! Este lugar tiene mucha historia detrás — te resumo lo esencial mientras lo recorres.', kids: '¡Hola! Este lugar tiene mucha historia detrás — te resumo lo esencial mientras lo recorres.' }, en: { adult: "Hi! This place has a lot of history behind it — I'll sum up the essentials as you explore it.", kids: "Hi! This place has a lot of history behind it — I'll sum up the essentials as you explore it." } },
+    demoMsg2: { es: { adult: '¿Sabes alguna curiosidad menos conocida?', kids: '¿Sabes alguna curiosidad menos conocida?' }, en: { adult: 'Do you know any lesser-known fact?', kids: 'Do you know any lesser-known fact?' } },
+    demoMsg3: { es: { adult: 'Así vería tu respuesta: contexto, anécdotas y datos verificados sobre el lugar que estés visitando.', kids: 'Así vería tu respuesta: contexto, anécdotas y datos verificados sobre el lugar que estés visitando.' }, en: { adult: "This is what your answer would look like: context, anecdotes and verified facts about the place you're visiting.", kids: "This is what your answer would look like: context, anecdotes and verified facts about the place you're visiting." } },
+    fictionalBadge: { es: { adult: ' · Ilustrativo', kids: ' · Imaginado' }, en: { adult: ' · Illustrative', kids: ' · Imagined' } },
+    cameraOpenFailed: { es: { adult: 'No se pudo abrir la cámara. Prueba a subir una foto en su lugar.', kids: '¡No pude abrir la cámara! Prueba a subir una foto 📷' }, en: { adult: "Couldn't open the camera. Try uploading a photo instead.", kids: "I couldn't open the camera! Try uploading a photo instead 📷" } },
+    welcomeBack: { es: { adult: 'Bienvenido a {city} · Toca un pin', kids: '¡Hola aventurero! Toca los pines 🏰' }, en: { adult: 'Welcome to {city} · Tap a pin', kids: 'Hi there, adventurer! Tap the pins 🏰' } },
+    quizAllDone: { es: { adult: '¡Ya conoces todos los secretos de este lugar! ⭐⭐⭐', kids: '¡Ya conoces todos los secretos de este lugar! ⭐⭐⭐' }, en: { adult: 'You already know all the secrets of this place! ⭐⭐⭐', kids: 'You already know all the secrets of this place! ⭐⭐⭐' } },
+    quizCorrectWithPoints: { es: { adult: '🎉 ¡Correcto! +{points} ⭐ ', kids: '🎉 ¡Correcto! +{points} ⭐ ' }, en: { adult: '🎉 Correct! +{points} ⭐ ', kids: '🎉 Correct! +{points} ⭐ ' } },
+    quizCorrect: { es: { adult: '🎉 ¡Correcto! ', kids: '🎉 ¡Correcto! ' }, en: { adult: '🎉 Correct! ', kids: '🎉 Correct! ' } },
+    quizAlmost: { es: { adult: '¡Casi! Era esta 👉 ', kids: '¡Casi! Era esta 👉 ' }, en: { adult: 'Almost! It was this one 👉 ', kids: 'Almost! It was this one 👉 ' } },
+    quizNext: { es: { adult: 'Siguiente ▶', kids: 'Siguiente ▶' }, en: { adult: 'Next ▶', kids: 'Next ▶' } },
+    audioStartFailed: { es: { adult: 'No se pudo iniciar la audioguía. Prueba a pulsar reproducir otra vez.', kids: 'No pude arrancar la voz. Toca reproducir otra vez.' }, en: { adult: "The audio guide couldn't start. Try tapping play again.", kids: "I couldn't start the voice. Tap play again." } },
+    rewardMissing: { es: { adult: '🔒 Faltan {n} ⭐', kids: '🔒 Faltan {n} ⭐' }, en: { adult: '🔒 {n} more needed ⭐', kids: '🔒 {n} more needed ⭐' } },
+    rewardClaim: { es: { adult: 'Reclamar {points} ⭐', kids: 'Reclamar {points} ⭐' }, en: { adult: 'Claim for {points} ⭐', kids: 'Claim for {points} ⭐' } },
+    rewardAriaClaimed: { es: { adult: '{name}, ya reclamado', kids: '{name}, ya reclamado' }, en: { adult: '{name}, already claimed', kids: '{name}, already claimed' } },
+    rewardAriaClaimable: { es: { adult: '{name}, reclamable por {points} estrellas', kids: '{name}, reclamable por {points} estrellas' }, en: { adult: '{name}, claimable for {points} stars', kids: '{name}, claimable for {points} stars' } },
+    rewardAriaLocked: { es: { adult: '{name}, bloqueado, faltan {n} estrellas', kids: '{name}, bloqueado, faltan {n} estrellas' }, en: { adult: '{name}, locked, {n} more stars needed', kids: '{name}, locked, {n} more stars needed' } },
+    yourTripThrough: { es: { adult: 'Tu aventura por {city}', kids: 'Tu aventura por {city}' }, en: { adult: 'Your trip through {city}', kids: 'Your trip through {city}' } },
+    placesVisited: { es: { adult: '{visited} de {total} lugares visitados', kids: '{visited} de {total} lugares visitados' }, en: { adult: '{visited} of {total} places visited', kids: '{visited} of {total} places visited' } },
+    cityBadgeEarned: { es: { adult: '🏅 ¡Insignia de {city} conseguida!', kids: '🏅 ¡Insignia de {city} conseguida!' }, en: { adult: '🏅 {city} badge earned!', kids: '🏅 {city} badge earned!' } },
+    cityBadgeProgress: { es: { adult: '🏅 Insignia de {city}: {points}/{threshold} ⭐', kids: '🏅 Insignia de {city}: {points}/{threshold} ⭐' }, en: { adult: '🏅 {city} badge: {points}/{threshold} ⭐', kids: '🏅 {city} badge: {points}/{threshold} ⭐' } },
+    cityBadgeAriaEarned: { es: { adult: 'Insignia de {city}, conseguida', kids: 'Insignia de {city}, conseguida' }, en: { adult: '{city} badge, earned', kids: '{city} badge, earned' } },
+    cityBadgeAriaLocked: { es: { adult: 'Insignia de {city}, todavía sin conseguir', kids: 'Insignia de {city}, todavía sin conseguir' }, en: { adult: '{city} badge, not earned yet', kids: '{city} badge, not earned yet' } },
+    cityBadgeLabelEarned: { es: { adult: '🏅 Insignia de {city}', kids: '🏅 Insignia de {city}' }, en: { adult: '🏅 {city} badge', kids: '🏅 {city} badge' } },
+    cityBadgeLabelLocked: { es: { adult: '🔒 Insignia de {city} (todavía sin conseguir)', kids: '🔒 Insignia de {city} (todavía sin conseguir)' }, en: { adult: '🔒 {city} badge (not earned yet)', kids: '🔒 {city} badge (not earned yet)' } },
+    cityBadgeUnlocked: { es: { adult: '🏅 ¡Insignia de {city} desbloqueada! Mírala en tu mochila.', kids: '🏅 ¡Insignia de {city} desbloqueada! Mírala en tu mochila.' }, en: { adult: "🏅 {city} badge unlocked! Check it out in your backpack.", kids: "🏅 {city} badge unlocked! Check it out in your backpack." } },
+    callListening: { es: { adult: 'Te escucho…', kids: 'Te escucho… 🎙️' }, en: { adult: "I'm listening…", kids: "I'm listening… 🎙️" } },
+    callAskMore: { es: { adult: '¿Quieres preguntar algo más?', kids: '¿Quieres preguntarme algo más?' }, en: { adult: 'Do you want to ask anything else?', kids: 'Do you want to ask me anything else?' } },
+    callDidYouSaySomething: { es: { adult: 'Disculpa, ¿quieres decirme algo, o continúo?', kids: '¡Ups! ¿Querías decirme algo, o sigo? 👂' }, en: { adult: 'Sorry, did you want to say something, or should I continue?', kids: 'Oops! Did you want to tell me something, or should I keep going? 👂' } },
+    callBye: { es: { adult: 'Hasta luego, que disfrutes la visita.', kids: '¡Hasta la próxima aventura! 👋' }, en: { adult: 'Goodbye, enjoy your visit.', kids: 'See you on the next adventure! 👋' } },
+    callThinking: { es: { adult: 'Pensando…', kids: 'Pensando… 🤔' }, en: { adult: 'Thinking…', kids: 'Thinking… 🤔' } },
+    callStillThinking: { es: { adult: 'Sigo pensando, un momento…', kids: 'Sigo pensando… dame un segundo más 🤔' }, en: { adult: 'Still thinking, one moment…', kids: 'Still thinking… give me one more second 🤔' } },
+    callAnswerFailed: { es: { adult: 'No he podido generar una respuesta. ¿Lo intentamos de nuevo?', kids: '¡Ups! Mi cajita mágica está un poquito lenta. ¿Lo intentamos otra vez?' }, en: { adult: "I couldn't generate an answer. Shall we try again?", kids: 'Oops! My magic box is running a little slow. Shall we try again?' } },
+    callSpeaking: { es: { adult: 'Respondiendo…', kids: 'Hablando…' }, en: { adult: 'Answering…', kids: 'Talking…' } },
+    callGreetListen: { es: { adult: 'Te escucho. Pregúntame lo que quieras sobre {name}.', kids: '¡Hola! Pregúntame lo que quieras sobre {name}.' }, en: { adult: "I'm listening. Ask me anything about {name}.", kids: 'Hi! Ask me anything about {name}.' } },
+    deepenFillerContinue: { es: { adult: '{fact}\n\n¿Sigo profundizando?', kids: '✨ {fact}\n\n¿Sigo contándote más? 🔍' }, en: { adult: '{fact}\n\nShall I keep digging deeper?', kids: '✨ {fact}\n\nShall I tell you more? 🔍' } },
+    deepenFetchFailed: { es: { adult: 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).', kids: '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.' }, en: { adult: "We couldn't get a response. Check your connection or the API configuration (window.LLM_CONFIG).", kids: 'Oops! 😵 My magic box is running a little slow… Please try again in 1 minute.' } },
+    aiQuotaSuffix: { es: { adult: '\n\n(La IA está saturada de peticiones en este momento —no es un fallo de la app—, se ha usado el simulador local mientras tanto.)', kids: '\n\n⚠️ (¡La IA está muy solicitada ahora mismo! Se ha usado el modo sin conexión mientras se libera hueco.)' }, en: { adult: "\n\n(The AI is overloaded with requests right now — this isn't an app failure — the local simulator was used in the meantime.)", kids: '\n\n⚠️ (The AI is really busy right now! Offline mode was used while it frees up.)' } },
+    aiOfflineSuffix: { es: { adult: '\n\n(Modo offline. Error al conectar con la API ({code}), se ha usado el simulador local.)', kids: '\n\n⚠️ (Modo offline: la IA real respondió con error — {code})' }, en: { adult: '\n\n(Offline mode. Error connecting to the API ({code}), the local simulator was used.)', kids: '\n\n⚠️ (Offline mode: the real AI responded with an error — {code})' } },
+    deepenScriptDone: { es: { adult: '\n\nEso es todo lo que tengo preparado sobre este lugar. Si quieres saber algo muy concreto, escríbeme tu pregunta aquí abajo.', kids: '\n\n¡Eso es todo lo que tengo preparado sobre este lugar! Si quieres saber algo muy concreto, escríbeme tu pregunta aquí abajo.' }, en: { adult: "\n\nThat's everything I have ready about this place. If there's something specific you'd like to know, type your question below.", kids: "\n\nThat's everything I have ready about this place! If there's something specific you'd like to know, type your question below." } },
+    deepenPregenNotice: { es: { adult: '\n\nGenerando respuesta complementaria.\nVuelve a tocar "{label}" en un momento para verla.', kids: '\n\n💭 (¡Esto es solo un adelanto rápido! Estoy preparando algo todavía mejor — vuelve a tocar "{label}" en un ratito para verlo.)' }, en: { adult: '\n\nGenerating a fuller answer.\nTap "{label}" again in a moment to see it.', kids: '\n\n💭 (This is just a quick preview! I\'m preparing something even better — tap "{label}" again in a bit to see it.)' } },
     scanReasonTimeout: { es: { adult: 'tiempo agotado con la IA', kids: 'tiempo agotado con la IA' }, en: { adult: 'AI request timed out', kids: 'AI request timed out' } },
     scanReasonImageFailed: { es: { adult: 'no se pudo procesar la imagen', kids: 'no se pudo procesar la imagen' }, en: { adult: 'could not process the image', kids: 'could not process the image' } },
     scanReasonUnknown: { es: { adult: 'error desconocido', kids: 'error desconocido' }, en: { adult: 'unknown error', kids: 'unknown error' } },
-    scanFailedWithCode: { es: { adult: 'No se pudo analizar la foto ({code}). Inténtalo de nuevo.', kids: '¡Uy! Algo ha fallado con la foto ({code}) 😅' }, en: { adult: "The photo couldn't be analyzed ({code}). Please try again.", kids: 'Oops! Something went wrong with the photo ({code}) 😅' } }
+    scanFailedWithCode: { es: { adult: 'No se pudo analizar la foto ({code}). Inténtalo de nuevo.', kids: '¡Uy! Algo ha fallado con la foto ({code}) 😅' }, en: { adult: "The photo couldn't be analyzed ({code}). Please try again.", kids: 'Oops! Something went wrong with the photo ({code}) 😅' } },
+    resetConfirmTitle: { es: { adult: '¿Reiniciar la app?', kids: '¿Reiniciar la app?' }, en: { adult: 'Reset the app?', kids: 'Reset the app?' } },
+    resetConfirmText: { es: { adult: 'Se borrará todo: la ciudad y el modo guardados, tus puntos y progreso del quiz, las conversaciones con la guía IA y todo el contenido descargado para uso sin conexión. Quedará como la primera vez que abriste la web. Esta acción no se puede deshacer.', kids: 'Se borrará todo: la ciudad y el modo guardados, tus puntos y progreso del quiz, las conversaciones con la guía IA y todo el contenido descargado para uso sin conexión. Quedará como la primera vez que abriste la web. Esta acción no se puede deshacer.' }, en: { adult: "Everything will be erased: the saved city and mode, your points and quiz progress, your conversations with the AI guide, and all content downloaded for offline use. It will be as if you were opening the site for the first time. This action can't be undone.", kids: "Everything will be erased: the saved city and mode, your points and quiz progress, your conversations with the AI guide, and all content downloaded for offline use. It will be as if you were opening the site for the first time. This action can't be undone." } },
+    resetConfirmCancel: { es: { adult: 'Cancelar', kids: 'Cancelar' }, en: { adult: 'Cancel', kids: 'Cancel' } },
+    resetConfirmOk: { es: { adult: 'Sí, reiniciar', kids: 'Sí, reiniciar' }, en: { adult: 'Yes, reset', kids: 'Yes, reset' } },
+    directionsConfirmTitle: { es: { adult: 'Vas a abrir Google Maps', kids: 'Vas a abrir Google Maps' }, en: { adult: "You're about to open Google Maps", kids: "You're about to open Google Maps" } },
+    directionsConfirmText: { es: { adult: 'Te llevará paso a paso hasta aquí. Cuando termines, vuelve a esta app para seguir con la visita — la encontrarás tal como la dejaste.', kids: 'Te llevará paso a paso hasta aquí. Cuando termines, vuelve a esta app para seguir con la visita — la encontrarás tal como la dejaste.' }, en: { adult: "It'll guide you step by step to get here. When you're done, come back to this app to continue your visit — you'll find it just as you left it.", kids: "It'll guide you step by step to get here. When you're done, come back to this app to continue your visit — you'll find it just as you left it." } },
+    directionsConfirmCancel: { es: { adult: 'Cancelar', kids: 'Cancelar' }, en: { adult: 'Cancel', kids: 'Cancel' } },
+    directionsConfirmOk: { es: { adult: 'Abrir Maps', kids: 'Abrir Maps' }, en: { adult: 'Open Maps', kids: 'Open Maps' } },
+    scanLogTitle: { es: { adult: 'Fotos no reconocidas', kids: 'Fotos no reconocidas' }, en: { adult: 'Unrecognized photos', kids: 'Unrecognized photos' } },
+    scanLogHint: { es: { adult: 'Registro local de fotos escaneadas que no coincidían con ningún lugar de la app. Solo tú puedes verlo.', kids: 'Registro local de fotos escaneadas que no coincidían con ningún lugar de la app. Solo tú puedes verlo.' }, en: { adult: "Local log of scanned photos that didn't match any place in the app. Only you can see it.", kids: "Local log of scanned photos that didn't match any place in the app. Only you can see it." } },
+    scanLogExport: { es: { adult: '⬇️ Exportar JSON', kids: '⬇️ Exportar JSON' }, en: { adult: '⬇️ Export JSON', kids: '⬇️ Export JSON' } },
+    scanLogClear: { es: { adult: '🗑️ Borrar registro', kids: '🗑️ Borrar registro' }, en: { adult: '🗑️ Clear log', kids: '🗑️ Clear log' } },
+    rewardChestTitle: { es: { adult: 'Mochila de viaje', kids: 'Mochila de viaje' }, en: { adult: 'Travel backpack', kids: 'Travel backpack' } },
+    rewardChestHint: { es: { adult: 'Responde bien a las preguntas de cada sitio para ganar ⭐. Cuando te lleguen para algo, toca "Reclamar" y elige tú qué te llevas.', kids: 'Responde bien a las preguntas de cada sitio para ganar ⭐. Cuando te lleguen para algo, toca "Reclamar" y elige tú qué te llevas.' }, en: { adult: 'Answer each place\'s questions correctly to earn ⭐. Once you have enough, tap "Claim" and choose what you take home.', kids: 'Answer each place\'s questions correctly to earn ⭐. Once you have enough, tap "Claim" and choose what you take home.' } },
+    scanTakePhoto: { es: { adult: 'Tomar foto', kids: 'Tomar foto' }, en: { adult: 'Take photo', kids: 'Take photo' } },
+    scanUploadPhoto: { es: { adult: 'Subir foto', kids: 'Subir foto' }, en: { adult: 'Upload photo', kids: 'Upload photo' } },
+    modeToggleAdult: { es: { adult: 'Adultos', kids: 'Adultos' }, en: { adult: 'Adults', kids: 'Adults' } },
+    modeToggleKids: { es: { adult: 'Niños', kids: 'Niños' }, en: { adult: 'Kids', kids: 'Kids' } },
+    brandBadgeAdult: { es: { adult: 'Adultos', kids: 'Adultos' }, en: { adult: 'Adults', kids: 'Adults' } },
+    brandBadgeKids: { es: { adult: 'Modo Niños 🎈', kids: 'Modo Niños 🎈' }, en: { adult: 'Kids Mode 🎈', kids: 'Kids Mode 🎈' } },
+    brandSubKids: { es: { adult: '¡Aventuras mágicas a tu ritmo!', kids: '¡Aventuras mágicas a tu ritmo!' }, en: { adult: 'Magical adventures at your own pace!', kids: 'Magical adventures at your own pace!' } },
+    brandSubAdult: { es: { adult: '{city} · Turismo autoguiado inteligente', kids: '{city} · Turismo autoguiado inteligente' }, en: { adult: '{city} · Smart self-guided tourism', kids: '{city} · Smart self-guided tourism' } }
   };
   const t = (key) => pickDual(UI_STRINGS[key]);
 
@@ -2146,9 +2217,7 @@
     }
     const routeMeta = getCityRoutes().find((r) => r.id === routeId);
     const routeLabel = routeMeta ? pickDual(routeMeta.name) : '';
-    showToast(STATE.mode === 'kids'
-      ? `¡Sigue los números de "${routeLabel}" en el mapa! 🚩`
-      : `Ruta "${routeLabel}": sigue el orden numerado en el mapa.`, 3000);
+    showToast(t('routeFollowNumbers').replace('{route}', routeLabel), 3000);
     playRouteIntro(routeMeta);
   };
 
@@ -2263,7 +2332,7 @@
     STATE.audio.overrideText = text;
     const title = $('#routeIntroTitle');
     if (title) {
-      title.textContent = (STATE.mode === 'kids' ? '¡Antes de empezar! — ' : 'Antes de empezar — ') + pickDual(routeMeta.name);
+      title.textContent = t('beforeStarting') + pickDual(routeMeta.name);
     }
     els.routeIntro.style.setProperty('--route-intro-color', routeMeta.color || '');
     els.routeIntro.hidden = false;
@@ -2388,9 +2457,9 @@
   // Niveles del explorador (modo niño): umbrales de puntos pensados para
   // cuando haya preguntas en más lugares, no solo para este prototipo.
   const EXPLORER_LEVELS = [
-    { id: 'principiante', min: 0,   label: 'Principiante', color: '#22C55E', img: 'assets/explorer/principiante.png' },
-    { id: 'intermedio',   min: 200, label: 'Intermedio',   color: '#F5B942', img: 'assets/explorer/intermedio.png' },
-    { id: 'avanzado',     min: 600, label: 'Avanzado',     color: '#EF4444', img: 'assets/explorer/avanzado.png' }
+    { id: 'principiante', min: 0,   label: { es: 'Principiante', en: 'Beginner' }, color: '#22C55E', img: 'assets/explorer/principiante.png' },
+    { id: 'intermedio',   min: 200, label: { es: 'Intermedio', en: 'Intermediate' }, color: '#F5B942', img: 'assets/explorer/intermedio.png' },
+    { id: 'avanzado',     min: 600, label: { es: 'Avanzado', en: 'Advanced' }, color: '#EF4444', img: 'assets/explorer/avanzado.png' }
   ];
 
   // Mochila de viaje (modo niño): objetos coleccionables que se reclaman a
@@ -2411,19 +2480,19 @@
   // techo en 1000, hace falta explorar a fondo una ciudad mediana/grande —o
   // combinar varias— para completarla.
   const REWARD_ITEMS = [
-    { id: 'insignia-principiante', name: 'Insignia de Principiante', points: 10, img: 'assets/rewards/insignia-principiante.png' },
-    { id: 'brujula', name: 'Brújula', points: 40, img: 'assets/rewards/brujula.png' },
-    { id: 'mapa-tesoro', name: 'Mapa del tesoro', points: 80, img: 'assets/rewards/mapa-tesoro.png' },
-    { id: 'linterna', name: 'Linterna', points: 160, img: 'assets/rewards/linterna.png' },
-    { id: 'insignia-intermedio', name: 'Insignia de Intermedio', points: 200, img: 'assets/rewards/insignia-intermedio.png' },
-    { id: 'cuerda', name: 'Cuerda', points: 240, img: 'assets/rewards/cuerda.png' },
-    { id: 'walkie-talkie', name: 'Walkie-talkies', points: 320, img: 'assets/rewards/walkie-talkie.png' },
-    { id: 'botas', name: 'Botas de explorador', points: 400, img: 'assets/rewards/botas.png' },
-    { id: 'chubasquero', name: 'Chubasquero', points: 520, img: 'assets/rewards/chubasquero.png' },
-    { id: 'insignia-avanzado', name: 'Insignia de Avanzado', points: 600, img: 'assets/rewards/insignia-avanzado.png' },
-    { id: 'hornillo', name: 'Hornillo de campamento', points: 640, img: 'assets/rewards/hornillo.png' },
-    { id: 'chaqueta', name: 'Chaqueta de explorador', points: 800, img: 'assets/rewards/chaqueta.png' },
-    { id: 'tienda', name: 'Tienda de campaña', points: 1000, img: 'assets/rewards/tienda.png' }
+    { id: 'insignia-principiante', name: { es: 'Insignia de Principiante', en: 'Beginner Badge' }, points: 10, img: 'assets/rewards/insignia-principiante.png' },
+    { id: 'brujula', name: { es: 'Brújula', en: 'Compass' }, points: 40, img: 'assets/rewards/brujula.png' },
+    { id: 'mapa-tesoro', name: { es: 'Mapa del tesoro', en: 'Treasure map' }, points: 80, img: 'assets/rewards/mapa-tesoro.png' },
+    { id: 'linterna', name: { es: 'Linterna', en: 'Flashlight' }, points: 160, img: 'assets/rewards/linterna.png' },
+    { id: 'insignia-intermedio', name: { es: 'Insignia de Intermedio', en: 'Intermediate Badge' }, points: 200, img: 'assets/rewards/insignia-intermedio.png' },
+    { id: 'cuerda', name: { es: 'Cuerda', en: 'Rope' }, points: 240, img: 'assets/rewards/cuerda.png' },
+    { id: 'walkie-talkie', name: { es: 'Walkie-talkies', en: 'Walkie-talkies' }, points: 320, img: 'assets/rewards/walkie-talkie.png' },
+    { id: 'botas', name: { es: 'Botas de explorador', en: "Explorer's boots" }, points: 400, img: 'assets/rewards/botas.png' },
+    { id: 'chubasquero', name: { es: 'Chubasquero', en: 'Raincoat' }, points: 520, img: 'assets/rewards/chubasquero.png' },
+    { id: 'insignia-avanzado', name: { es: 'Insignia de Avanzado', en: 'Advanced Badge' }, points: 600, img: 'assets/rewards/insignia-avanzado.png' },
+    { id: 'hornillo', name: { es: 'Hornillo de campamento', en: 'Camping stove' }, points: 640, img: 'assets/rewards/hornillo.png' },
+    { id: 'chaqueta', name: { es: 'Chaqueta de explorador', en: "Explorer's jacket" }, points: 800, img: 'assets/rewards/chaqueta.png' },
+    { id: 'tienda', name: { es: 'Tienda de campaña', en: 'Camping tent' }, points: 1000, img: 'assets/rewards/tienda.png' }
   ];
   const getExplorerLevel = (points) =>
     [...EXPLORER_LEVELS].reverse().find((lv) => points >= lv.min) || EXPLORER_LEVELS[0];
@@ -2478,7 +2547,7 @@
     if (cityPointsEarned() < CURRENT_CITY.badgeThreshold) return;
     STATE.game.cityBadges.push(CURRENT_CITY.id);
     saveState();
-    showToast(`🏅 ¡Insignia de ${CURRENT_CITY.name} desbloqueada! Mírala en tu mochila.`, 4000);
+    showToast(t('cityBadgeUnlocked').replace('{city}', CURRENT_CITY.name), 4000);
   };
 
   // Tanto los stickers del explorador como los de la mochila de viaje (ver
@@ -2685,7 +2754,7 @@
     // puede usar ahora mismo. El nivel de explorador, en cambio, sí usa el
     // total histórico (STATE.game.points), para que no "baje" de nivel por
     // gastar estrellas en la mochila.
-    badge.textContent = `⭐ ${rewardBalance()} · ${level.label}`;
+    badge.textContent = `⭐ ${rewardBalance()} · ${pickLang(level.label)}`;
   };
 
   const updateExplorerBadge = () => {
@@ -2698,7 +2767,7 @@
     const canvas = $('#explorerAvatar', wrap);
     if (canvas.dataset.levelId === level.id) return;
     canvas.dataset.levelId = level.id;
-    canvas.setAttribute('aria-label', `Explorador nivel ${level.label}`);
+    canvas.setAttribute('aria-label', `${pickLang({ es: 'Explorador nivel', en: 'Explorer level' })} ${pickLang(level.label)}`);
     loadExplorerSprite(level.img).then((sprite) => {
       if (canvas.dataset.levelId !== level.id) return; // el nivel cambió mientras cargaba
       const ctx = canvas.getContext('2d');
@@ -2760,7 +2829,7 @@
       label.textContent = city.name;
       card.appendChild(canvas);
       card.appendChild(label);
-      card.setAttribute('aria-label', earned ? `Insignia de ${city.name}, conseguida` : `Insignia de ${city.name}, todavía sin conseguir`);
+      card.setAttribute('aria-label', earned ? t('cityBadgeAriaEarned').replace('{city}', city.name) : t('cityBadgeAriaLocked').replace('{city}', city.name));
       row.appendChild(card);
       if (city.badgeImg) {
         const spritePromise = loadExplorerSprite(city.badgeImg);
@@ -2772,7 +2841,7 @@
         }).catch(() => {});
         card.addEventListener('click', () => {
           spritePromise.then((sprite) => {
-            const label = earned ? `🏅 Insignia de ${city.name}` : `🔒 Insignia de ${city.name} (todavía sin conseguir)`;
+            const label = earned ? t('cityBadgeLabelEarned').replace('{city}', city.name) : t('cityBadgeLabelLocked').replace('{city}', city.name);
             openBadgeZoom(sprite, label, !earned);
           }).catch(() => {});
         });
@@ -2806,14 +2875,15 @@
       canvas.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span');
       label.className = 'reward-item-label';
-      label.textContent = claimed ? `✓ ${item.name}` : (claimable ? item.name : `🔒 Faltan ${item.points - balance} ⭐`);
+      const itemName = pickLang(item.name);
+      label.textContent = claimed ? `✓ ${itemName}` : (claimable ? itemName : t('rewardMissing').replace('{n}', item.points - balance));
       card.appendChild(canvas);
       card.appendChild(label);
       if (claimable) {
         const claimBtn = document.createElement('button');
         claimBtn.type = 'button';
         claimBtn.className = 'reward-item-claim-btn';
-        claimBtn.textContent = `Reclamar ${item.points} ⭐`;
+        claimBtn.textContent = t('rewardClaim').replace('{points}', item.points);
         claimBtn.addEventListener('click', () => {
           claimReward(item);
           updatePointsBadge();
@@ -2822,8 +2892,8 @@
         card.appendChild(claimBtn);
       }
       card.setAttribute('aria-label', claimed
-        ? `${item.name}, ya reclamado`
-        : (claimable ? `${item.name}, reclamable por ${item.points} estrellas` : `${item.name}, bloqueado, faltan ${item.points - balance} estrellas`));
+        ? t('rewardAriaClaimed').replace('{name}', itemName)
+        : (claimable ? t('rewardAriaClaimable').replace('{name}', itemName).replace('{points}', item.points) : t('rewardAriaLocked').replace('{name}', itemName).replace('{n}', item.points - balance)));
       list.appendChild(card);
       loadExplorerSprite(item.img).then((sprite) => {
         const ctx = canvas.getContext('2d');
@@ -2888,23 +2958,23 @@
   const KIDS_TUTORIAL_STEPS = [
     {
       target: '#explorerBadge',
-      title: '¡Hola, gran explorador! 🌟',
-      text: '¡Qué aventura nos espera! Vamos a ayudar a Billy a prepararse para su viaje. Escucha bien, que te cuento el secreto para conseguirlo.'
+      title: { es: '¡Hola, gran explorador! 🌟', en: 'Hi there, great explorer! 🌟' },
+      text: { es: '¡Qué aventura nos espera! Vamos a ayudar a Billy a prepararse para su viaje. Escucha bien, que te cuento el secreto para conseguirlo.', en: "What an adventure awaits! Let's help Billy get ready for his trip. Listen closely, I'll tell you the secret to make it happen." }
     },
     {
       target: '#map',
-      title: 'Cada punto esconde un secreto 🗺️',
-      text: 'Mira todos esos puntos brillantes del mapa: cada uno guarda una leyenda, un secreto... ¡y una pregunta para poner a prueba tu ingenio! Tócalos para descubrirlos.'
+      title: { es: 'Cada punto esconde un secreto 🗺️', en: 'Every point hides a secret 🗺️' },
+      text: { es: 'Mira todos esos puntos brillantes del mapa: cada uno guarda una leyenda, un secreto... ¡y una pregunta para poner a prueba tu ingenio! Tócalos para descubrirlos.', en: 'Look at all those shiny dots on the map: each one holds a legend, a secret... and a question to test your wits! Tap them to discover them.' }
     },
     {
       target: '#pointsBadge',
-      title: '¡Responde bien y gana estrellas! ⭐',
-      text: 'Si aciertas la pregunta de un lugar, ganas estrellas. ¡Cuantos más secretos descubras, más estrellas brillarán aquí arriba!'
+      title: { es: '¡Responde bien y gana estrellas! ⭐', en: 'Answer right and earn stars! ⭐' },
+      text: { es: 'Si aciertas la pregunta de un lugar, ganas estrellas. ¡Cuantos más secretos descubras, más estrellas brillarán aquí arriba!', en: 'If you answer a place\'s question correctly, you earn stars. The more secrets you discover, the more stars will shine up here!' }
     },
     {
       target: '#rewardChestBtn',
-      title: 'Canjea tus estrellas 🎒',
-      text: 'Con esas estrellas puedes reclamar recompensas geniales para la mochila de Billy: una brújula, un mapa del tesoro ¡y muchas sorpresas más! ¿Le ayudamos a conseguirlas todas?'
+      title: { es: 'Canjea tus estrellas 🎒', en: 'Trade in your stars 🎒' },
+      text: { es: 'Con esas estrellas puedes reclamar recompensas geniales para la mochila de Billy: una brújula, un mapa del tesoro ¡y muchas sorpresas más! ¿Le ayudamos a conseguirlas todas?', en: "With those stars you can claim awesome rewards for Billy's backpack: a compass, a treasure map, and lots more surprises! Shall we help him get them all?" }
     }
   ];
   // Versión para modo adultos: mismo motor (spotlight + tooltip + voz),
@@ -2919,43 +2989,43 @@
   const ADULT_TUTORIAL_STEPS = [
     {
       target: '#brandIcon',
-      title: 'Bienvenido a OnMyOwnTrip',
-      text: 'Una herramienta pensada para ayudarte a aprender más de cada sitio turístico a tu propio ritmo: historia verificada, curiosidades y una guía IA siempre disponible, todo narrado mientras caminas. Te cuento en unos segundos cómo sacarle el máximo partido.'
+      title: { es: 'Bienvenido a OnMyOwnTrip', en: 'Welcome to OnMyOwnTrip' },
+      text: { es: 'Una herramienta pensada para ayudarte a aprender más de cada sitio turístico a tu propio ritmo: historia verificada, curiosidades y una guía IA siempre disponible, todo narrado mientras caminas. Te cuento en unos segundos cómo sacarle el máximo partido.', en: "A tool designed to help you learn more about every tourist site at your own pace: verified history, curiosities and an AI guide always available, all narrated as you walk. I'll show you in a few seconds how to get the most out of it." }
     },
     {
       target: '#changeCityBtn',
-      title: 'Vuelve al inicio cuando quieras',
-      text: 'Este botón te lleva al menú principal para cambiar de ciudad o de modo, adultos o niños. Tranquilo: tu progreso no se borra al volver.'
+      title: { es: 'Vuelve al inicio cuando quieras', en: 'Go back to the start whenever you like' },
+      text: { es: 'Este botón te lleva al menú principal para cambiar de ciudad o de modo, adultos o niños. Tranquilo: tu progreso no se borra al volver.', en: "This button takes you to the main menu to change city or mode, Adults or Kids. Don't worry: your progress isn't erased when you go back." }
     },
     {
       target: '#filters',
-      title: 'La barra de filtros',
-      text: 'Con estas pestañas filtras el mapa para ver solo lo que te interesa en cada momento. Repasemos cada opción:'
+      title: { es: 'La barra de filtros', en: 'The filter bar' },
+      text: { es: 'Con estas pestañas filtras el mapa para ver solo lo que te interesa en cada momento. Repasemos cada opción:', en: "With these tabs you filter the map to see only what interests you at each moment. Let's go through each option:" }
     },
     {
       target: '.pill[data-category="all"]',
-      title: '«Todos»',
-      text: 'Muestra en el mapa todos los puntos de interés de la ciudad, sin ningún filtro aplicado.'
+      title: { es: '«Todos»', en: '"All"' },
+      text: { es: 'Muestra en el mapa todos los puntos de interés de la ciudad, sin ningún filtro aplicado.', en: "Shows every point of interest in the city on the map, with no filter applied." }
     },
     {
       target: '.pill[data-category="essential"]',
-      title: '«Recomendaciones»',
-      text: 'Son rutas temáticas: agrupan varias paradas en un recorrido con un orden sugerido, para centrarte en un itinerario concreto en vez de explorar sin rumbo.'
+      title: { es: '«Recomendaciones»', en: '"Highlights"' },
+      text: { es: 'Son rutas temáticas: agrupan varias paradas en un recorrido con un orden sugerido, para centrarte en un itinerario concreto en vez de explorar sin rumbo.', en: 'These are themed routes: they group several stops into a route with a suggested order, so you can focus on a specific itinerary instead of exploring aimlessly.' }
     },
     {
       target: '.pill[data-category="rincones-ocultos"]',
-      title: '«Interés»',
-      text: 'Rincones curiosos y menos conocidos: historias y detalles que se salen del recorrido turístico habitual.'
+      title: { es: '«Interés»', en: '"Interest"' },
+      text: { es: 'Rincones curiosos y menos conocidos: historias y detalles que se salen del recorrido turístico habitual.', en: 'Curious, lesser-known corners: stories and details that fall outside the usual tourist route.' }
     },
     {
       target: '.pill[data-category="historia"]',
-      title: '«Museos»',
-      text: 'Los monumentos, museos y edificios históricos más relevantes de la ciudad.'
+      title: { es: '«Museos»', en: '"Museums"' },
+      text: { es: 'Los monumentos, museos y edificios históricos más relevantes de la ciudad.', en: "The city's most important monuments, museums and historic buildings." }
     },
     {
       target: '.pill[data-category="gastronomia"]',
-      title: '«Restauración»',
-      text: 'Recomendaciones gastronómicas: bares, restaurantes y sitios donde parar a comer, cerca de cada zona.'
+      title: { es: '«Restauración»', en: '"Food & Drink"' },
+      text: { es: 'Recomendaciones gastronómicas: bares, restaurantes y sitios donde parar a comer, cerca de cada zona.', en: 'Food recommendations: bars, restaurants and places to stop for a bite, near each area.' }
     },
     {
       // Ilumina un único pin real (nunca una burbuja de agrupación, de ahí
@@ -2963,40 +3033,40 @@
       // entero se vería exactamente igual que la interfaz normal ya
       // interactiva, y podría parecer que hay que tocar algo ahora mismo.
       target: TUTORIAL_MAP_PIN_TARGET,
-      title: 'Los puntos del mapa',
-      text: 'Cada marcador del mapa abre su historia, contexto y curiosidades, con la opción de escucharlo narrado en lugar de leerlo.'
+      title: { es: 'Los puntos del mapa', en: 'The map markers' },
+      text: { es: 'Cada marcador del mapa abre su historia, contexto y curiosidades, con la opción de escucharlo narrado en lugar de leerlo.', en: "Each map marker opens its history, context and curiosities, with the option to listen to it narrated instead of reading it." }
     },
     {
       target: '#bottomSheet',
       demoSheet: true,
-      title: 'Así es la ficha de cada punto',
-      text: 'Título, resumen narrado con audioguía, y un historial de conversación con tu guía IA. Así quedaría, por ejemplo, tras preguntar por una curiosidad del lugar.'
+      title: { es: 'Así es la ficha de cada punto', en: "This is what each place's card looks like" },
+      text: { es: 'Título, resumen narrado con audioguía, y un historial de conversación con tu guía IA. Así quedaría, por ejemplo, tras preguntar por una curiosidad del lugar.', en: 'Title, a narrated summary with an audio guide, and a conversation history with your AI guide. This is what it would look like, for example, after asking about a curiosity of the place.' }
     },
     {
       target: '.ai-input-wrap',
       demoSheet: true,
-      title: 'Pregunta como prefieras',
-      text: 'Escribe tu duda, pulsa el micrófono para preguntarla en voz alta, o toca el icono de ondas para iniciar una llamada de voz completa con la guía.'
+      title: { es: 'Pregunta como prefieras', en: 'Ask however you prefer' },
+      text: { es: 'Escribe tu duda, pulsa el micrófono para preguntarla en voz alta, o toca el icono de ondas para iniciar una llamada de voz completa con la guía.', en: 'Type your question, tap the microphone to ask it out loud, or tap the waves icon to start a full voice call with the guide.' }
     },
     {
       target: '#mapTools',
-      title: 'Herramientas del mapa',
-      text: 'Abajo a la derecha tienes accesos rápidos para identificar lugares, encontrar agua o ubicarte. Vamos una a una:'
+      title: { es: 'Herramientas del mapa', en: 'Map tools' },
+      text: { es: 'Abajo a la derecha tienes accesos rápidos para identificar lugares, encontrar agua o ubicarte. Vamos una a una:', en: "Bottom right you'll find quick access to identify places, find water, or locate yourself. Let's go one by one:" }
     },
     {
       target: '#fountainsBtn',
-      title: 'Fuentes de agua potable',
-      text: 'Muestra en el mapa las fuentes más cercanas: útil para rellenar la botella mientras caminas.'
+      title: { es: 'Fuentes de agua potable', en: 'Drinking water fountains' },
+      text: { es: 'Muestra en el mapa las fuentes más cercanas: útil para rellenar la botella mientras caminas.', en: 'Shows the nearest fountains on the map: handy for refilling your bottle as you walk.' }
     },
     {
       target: '#scanBtn',
-      title: 'Identifica lo que ves',
-      text: 'Apunta con la cámara a un monumento o edificio y la IA intentará identificarlo, aunque no sepas su nombre.'
+      title: { es: 'Identifica lo que ves', en: 'Identify what you see' },
+      text: { es: 'Apunta con la cámara a un monumento o edificio y la IA intentará identificarlo, aunque no sepas su nombre.', en: "Point the camera at a monument or building and the AI will try to identify it, even if you don't know its name." }
     },
     {
       target: '#locateBtn',
-      title: 'Tu ubicación',
-      text: 'Centra el mapa en tu posición actual en cualquier momento, para no perder la orientación.'
+      title: { es: 'Tu ubicación', en: 'Your location' },
+      text: { es: 'Centra el mapa en tu posición actual en cualquier momento, para no perder la orientación.', en: 'Centers the map on your current position at any time, so you never lose your bearings.' }
     }
   ];
   let tutorialSteps = KIDS_TUTORIAL_STEPS;
@@ -3048,15 +3118,15 @@
   const fillTutorialDemoSheetContent = () => {
     if (!els.sheet) return;
     const thumb = $('.sheet-thumb', els.sheet);
-    if (thumb) { thumb.src = TUTORIAL_DEMO_THUMB_SRC; thumb.alt = 'Ejemplo de punto de interés'; }
+    if (thumb) { thumb.src = TUTORIAL_DEMO_THUMB_SRC; thumb.alt = t('demoImgAlt'); }
     const badge = $('.sheet-cat-badge', els.sheet);
-    if (badge) badge.textContent = 'Museos · Ilustrativo';
+    if (badge) badge.textContent = t('demoBadge');
     const title = $('.sheet-title', els.sheet);
-    if (title) title.textContent = 'Nombre del lugar';
+    if (title) title.textContent = t('demoTitle');
     const sub = $('.sheet-sub', els.sheet);
-    if (sub) sub.textContent = 'Así se ve cualquier punto que abras';
+    if (sub) sub.textContent = t('demoSubtitle');
     const audioTitle = $('.audio-title', els.sheet);
-    if (audioTitle) audioTitle.textContent = 'Audioguía de ejemplo';
+    if (audioTitle) audioTitle.textContent = t('demoAudioTitle');
     const progressFill = $('.progress-fill', els.sheet);
     if (progressFill) progressFill.style.width = '40%';
     const audioTime = $('.audio-time', els.sheet);
@@ -3066,9 +3136,9 @@
     if (box) {
       box.innerHTML = '';
       [
-        { user: false, text: '¡Hola! Este lugar tiene mucha historia detrás — te resumo lo esencial mientras lo recorres.' },
-        { user: true, text: '¿Sabes alguna curiosidad menos conocida?' },
-        { user: false, text: 'Así vería tu respuesta: contexto, anécdotas y datos verificados sobre el lugar que estés visitando.' }
+        { user: false, text: t('demoMsg1') },
+        { user: true, text: t('demoMsg2') },
+        { user: false, text: t('demoMsg3') }
       ].forEach((msg) => {
         const wrap = document.createElement('div');
         wrap.className = 'ai-msg' + (msg.user ? ' -user' : '');
@@ -3179,17 +3249,17 @@
   };
   const speakTutorialStep = (step) => {
     if (!SPEECH.isSupported()) return;
-    STATE.audio.overrideText = `${step.title}. ${step.text}`;
+    STATE.audio.overrideText = `${pickLang(step.title)}. ${pickLang(step.text)}`;
     SPEECH.speak(() => { STATE.audio.overrideText = null; });
   };
 
   const showTutorialStep = (index) => {
     tutorialStepIndex = Math.max(0, Math.min(index, tutorialSteps.length - 1));
     const step = tutorialSteps[tutorialStepIndex];
-    $('#tutorialTitle').textContent = step.title;
-    $('#tutorialText').textContent = step.text;
+    $('#tutorialTitle').textContent = pickLang(step.title);
+    $('#tutorialText').textContent = pickLang(step.text);
     const isLast = tutorialStepIndex === tutorialSteps.length - 1;
-    $('#tutorialNext').textContent = isLast ? (STATE.mode === 'kids' ? '¡Vamos allá! 🚀' : 'Entendido') : 'Siguiente';
+    $('#tutorialNext').textContent = isLast ? t('tutorialGo') : t('tutorialNext');
     const backBtn = $('#tutorialBack');
     if (backBtn) backBtn.dataset.hidden = tutorialStepIndex === 0 ? 'true' : 'false';
     const dots = $('#tutorialDots');
@@ -3304,12 +3374,52 @@
     if (aiCallInputEl) { aiCallInputEl.placeholder = t('askPlaceholder'); aiCallInputEl.setAttribute('aria-label', t('askPlaceholder')); }
     const changeCityBtnEl = $('#changeCityBtn');
     if (changeCityBtnEl) { changeCityBtnEl.setAttribute('aria-label', t('backToMenu')); changeCityBtnEl.setAttribute('title', t('backToMenu')); }
+    const tutSkipEl = $('#tutorialSkip');
+    if (tutSkipEl) tutSkipEl.textContent = t('tutorialSkip');
+    const tutBackEl = $('#tutorialBack');
+    if (tutBackEl) { tutBackEl.setAttribute('aria-label', t('tutorialBackAria')); tutBackEl.textContent = t('tutorialBack'); }
+    const resetTitleEl = $('#resetConfirmTitle');
+    if (resetTitleEl) resetTitleEl.textContent = t('resetConfirmTitle');
+    const resetTextEl = $('#resetConfirmText');
+    if (resetTextEl) resetTextEl.textContent = t('resetConfirmText');
+    const resetCancelEl = $('#resetConfirmCancel');
+    if (resetCancelEl) resetCancelEl.textContent = t('resetConfirmCancel');
+    const resetOkEl = $('#resetConfirmOk');
+    if (resetOkEl) resetOkEl.textContent = t('resetConfirmOk');
+    const dirTitleEl = $('#directionsConfirmTitle');
+    if (dirTitleEl) dirTitleEl.textContent = t('directionsConfirmTitle');
+    const dirTextEl = $('#directionsConfirmText');
+    if (dirTextEl) dirTextEl.textContent = t('directionsConfirmText');
+    const dirCancelEl = $('#directionsConfirmCancel');
+    if (dirCancelEl) dirCancelEl.textContent = t('directionsConfirmCancel');
+    const dirOkEl = $('#directionsConfirmOk');
+    if (dirOkEl) dirOkEl.textContent = t('directionsConfirmOk');
+    const scanLogTitleEl = $('#scanLogTitle');
+    if (scanLogTitleEl) scanLogTitleEl.textContent = t('scanLogTitle');
+    const scanLogHintEl = $('#scanLogHint');
+    if (scanLogHintEl) scanLogHintEl.textContent = t('scanLogHint');
+    const scanLogExportEl = $('#scanLogExport');
+    if (scanLogExportEl) scanLogExportEl.textContent = t('scanLogExport');
+    const scanLogClearEl = $('#scanLogClear');
+    if (scanLogClearEl) scanLogClearEl.textContent = t('scanLogClear');
+    const chestTitleEl = $('#rewardChestTitle');
+    if (chestTitleEl) chestTitleEl.textContent = t('rewardChestTitle');
+    const chestHintEl = $('#rewardChestHint');
+    if (chestHintEl) chestHintEl.textContent = t('rewardChestHint');
+    const scanTakeLabelEl = $('#scanTakePhotoLabel');
+    if (scanTakeLabelEl) scanTakeLabelEl.textContent = t('scanTakePhoto');
+    const scanUploadLabelEl = $('#scanUploadPhotoLabel');
+    if (scanUploadLabelEl) scanUploadLabelEl.textContent = t('scanUploadPhoto');
+    const modeAdultLabelEl = $('#modeToggleAdultLabel');
+    if (modeAdultLabelEl) modeAdultLabelEl.textContent = t('modeToggleAdult');
+    const modeKidsLabelEl = $('#modeToggleKidsLabel');
+    if (modeKidsLabelEl) modeKidsLabelEl.textContent = t('modeToggleKids');
     const brandIcon = $('#brandIcon'), brandTitle = $('#brandTitle'), brandSub = $('#brandSub'), brandBadge = $('#brandBadge');
     if (brandIcon) brandIcon.textContent = isKids ? '🚀' : '🧭';
     if (brandTitle) brandTitle.textContent = isKids ? 'OnMyOwnTrip Kids' : 'OnMyOwnTrip';
     const cityName = CURRENT_CITY ? CURRENT_CITY.name : 'Toledo';
-    if (brandSub) brandSub.textContent = isKids ? '¡Aventuras mágicas a tu ritmo!' : `${cityName} · Turismo autoguiado inteligente`;
-    if (brandBadge) brandBadge.textContent = isKids ? 'Modo Niños 🎈' : 'Adultos';
+    if (brandSub) brandSub.textContent = isKids ? t('brandSubKids') : t('brandSubAdult').replace('{city}', cityName);
+    if (brandBadge) brandBadge.textContent = isKids ? t('brandBadgeKids') : t('brandBadgeAdult');
     if (CURRENT_CITY) {
       const citySubtitle = pickDual(CURRENT_CITY.subtitle);
       document.title = `OnMyOwnTrip · ${cityName}`;
@@ -3660,7 +3770,7 @@
     if (!topicId) {
       const done = document.createElement('p');
       done.className = 'quiz-done';
-      done.textContent = '¡Ya conoces todos los secretos de este lugar! ⭐⭐⭐';
+      done.textContent = t('quizAllDone');
       card.appendChild(done);
       return;
     }
@@ -3713,8 +3823,8 @@
       else if (i === selectedIndex) btn.classList.add('-incorrect');
     });
     const revealText = (isCorrect
-      ? (pointsAwarded ? `🎉 ¡Correcto! +${pointsAwarded} ⭐ ` : '🎉 ¡Correcto! ')
-      : '¡Casi! Era esta 👉 ') + q.reveal;
+      ? (pointsAwarded ? t('quizCorrectWithPoints').replace('{points}', pointsAwarded) : t('quizCorrect'))
+      : t('quizAlmost')) + q.reveal;
     const reveal = document.createElement('p');
     reveal.className = 'quiz-reveal';
     reveal.textContent = revealText;
@@ -3734,7 +3844,7 @@
     const nextBtn = document.createElement('button');
     nextBtn.type = 'button';
     nextBtn.className = 'quiz-next-btn';
-    nextBtn.textContent = 'Siguiente ▶';
+    nextBtn.textContent = t('quizNext');
     nextBtn.addEventListener('click', () => {
       stopAudio();
       renderKidsQuizCard();
@@ -4025,9 +4135,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const idx = progress.fillerIndex || 0;
     const fact = fillers[idx % fillers.length];
     progress.fillerIndex = idx + 1;
-    return STATE.mode === 'kids'
-      ? `✨ ${fact}\n\n¿Sigo contándote más? 🔍`
-      : `${fact}\n\n¿Sigo profundizando?`;
+    return t('deepenFillerContinue').replace('{fact}', fact);
   };
 
   // Quita el aviso final "(Modo offline...)" / "(La IA está saturada...)"
@@ -4040,15 +4148,13 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   // equilibrados se corta todo lo que queda desde el aviso hasta el final
   // — construction garantiza que el aviso es siempre lo último del texto.
   const stripOfflineSuffix = (text) => (text || '')
-    .replace(/\n\n(?:⚠️)?\s?\((?:¡La IA está muy solicitada|La IA está saturada|Modo offline)[\s\S]*$/, '')
+    .replace(/\n\n(?:⚠️)?\s?\((?:¡La IA está muy solicitada|La IA está saturada|Modo offline|The AI is (?:overloaded|really busy)|Offline mode)[\s\S]*$/, '')
     .trimEnd();
 
   const queueDeepenWithFillers = async ({ poi, optionId, userText }) => {
     if (!poi || STATE.ai.deepenBusy) return;
     const hist = aiHistoryFor(poi.id);
-    const fallbackText = STATE.mode === 'kids'
-      ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
-      : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).';
+    const fallbackText = t('deepenFetchFailed');
     const progress = deepenProgressFor(poi.id);
 
     // Lanza (sin esperar aquí) una consulta real nueva y la registra como
@@ -4131,10 +4237,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
           // aporta nada (el usuario va a ver la despedida igualmente), así
           // que se quita antes de cerrar el guion.
           text = stripOfflineSuffix(text);
-          const closing = STATE.mode === 'kids'
-            ? '\n\n¡Eso es todo lo que tengo preparado sobre este lugar! Si quieres saber algo muy concreto, escríbeme tu pregunta aquí abajo.'
-            : '\n\nEso es todo lo que tengo preparado sobre este lugar. Si quieres saber algo muy concreto, escríbeme tu pregunta aquí abajo.';
-          text += closing;
+          text += t('deepenScriptDone');
         } else {
           launchAiQuery();
         }
@@ -4157,9 +4260,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     // "Modo offline...", ver LLM.generate).
     if (pregen) {
       const deepenLabel = pickDual(AI_PROMPTS.deepenLabel);
-      text += STATE.mode === 'kids'
-        ? `\n\n💭 (¡Esto es solo un adelanto rápido! Estoy preparando algo todavía mejor — vuelve a tocar "${deepenLabel}" en un ratito para verlo.)`
-        : `\n\nGenerando respuesta complementaria.\nVuelve a tocar "${deepenLabel}" en un momento para verla.`;
+      text += t('deepenPregenNotice').replace('{label}', deepenLabel);
     }
 
     await new Promise((resolve) => {
@@ -4204,9 +4305,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     // fetchOpenAI) se siente como que la app se ha quedado colgada, ya
     // que los puntos por sí solos no comunican que sigue en marcha.
     const slowTimer = setTimeout(() => {
-      typingMsg.statusText = STATE.mode === 'kids'
-        ? 'Sigo pensando… dame un segundo más 🤔'
-        : 'Sigo pensando, un momento…';
+      typingMsg.statusText = t('callStillThinking');
       renderAiMessages();
     }, 6000);
 
@@ -4270,9 +4369,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     } catch (e) {
       const idx = hist.findIndex((m) => m.role === 'typing');
       if (idx >= 0) hist.splice(idx, 1);
-      hist.push({ role: 'assistant', text: STATE.mode === 'kids'
-        ? '¡Ups! 😵 Mi cajita mágica está un poquito lenta… Vuelve a intentarlo en 1 minuto, por favor.'
-        : 'No hemos podido obtener respuesta. Revisa tu conexión o la configuración de la API (window.LLM_CONFIG).' });
+      hist.push({ role: 'assistant', text: t('deepenFetchFailed') });
     } finally {
       clearTimeout(slowTimer);
       STATE.ai.pending = false;
@@ -4511,7 +4608,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!Recognition) { focusCallTextInput(callState.nextHandler); return; }
     $('#aiCallTextRow').hidden = true;
-    setCallStatus(STATE.mode === 'kids' ? 'Te escucho… 🎙️' : 'Te escucho…');
+    setCallStatus(t('callListening'));
     setCallAvatarState('-listening');
     try {
       callRecognition = new Recognition();
@@ -4533,7 +4630,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
 
   const askCallForMore = (poi) => {
     if (!callState.active) return;
-    const more = STATE.mode === 'kids' ? '¿Quieres preguntarme algo más?' : '¿Quieres preguntar algo más?';
+    const more = t('callAskMore');
     setCallStatus(more);
     speakCallText(more, () => {
       if (!callState.active) return;
@@ -4551,7 +4648,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     if (!callState.active) return;
     STATE.audio.overrideText = null;
     setCallAvatarState(null);
-    const ask = STATE.mode === 'kids' ? '¡Ups! ¿Querías decirme algo, o sigo? 👂' : 'Disculpa, ¿quieres decirme algo, o continúo?';
+    const ask = t('callDidYouSaySomething');
     appendCallBubble('assistant', ask);
     setCallStatus(ask);
     speakCallText(ask, () => {
@@ -4569,7 +4666,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     }
     appendCallBubble('user', t);
     if (CALL_END_RE.test(t)) {
-      const bye = STATE.mode === 'kids' ? '¡Hasta la próxima aventura! 👋' : 'Hasta luego, que disfrutes la visita.';
+      const bye = pickDual(UI_STRINGS.callBye);
       setCallStatus(bye);
       speakCallText(bye, () => closeAiCallMode());
       return;
@@ -4580,7 +4677,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   const queueCallTurn = async (userText) => {
     if (!callState.active || !callState.poi) return;
     const poi = callState.poi;
-    setCallStatus(STATE.mode === 'kids' ? 'Pensando… 🤔' : 'Pensando…');
+    setCallStatus(t('callThinking'));
     setCallAvatarState(null);
     STATE.ai.pending = true;
     if (STATE.activePoiId === poi.id) updateAudioUi();
@@ -4590,7 +4687,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     // queda ahí quieto y parece que la llamada se ha colgado sin más.
     const slowTimer = setTimeout(() => {
       if (callState.active) {
-        setCallStatus(STATE.mode === 'kids' ? 'Sigo pensando… dame un segundo más 🤔' : 'Sigo pensando, un momento…');
+        setCallStatus(t('callStillThinking'));
       }
     }, 6000);
     let text;
@@ -4612,9 +4709,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       aiHistoryFor(poi.id).push({ role: 'assistant', text });
       saveState();
     } catch (e) {
-      text = STATE.mode === 'kids'
-        ? '¡Ups! Mi cajita mágica está un poquito lenta. ¿Lo intentamos otra vez?'
-        : 'No he podido generar una respuesta. ¿Lo intentamos de nuevo?';
+      text = t('callAnswerFailed');
     } finally {
       clearTimeout(slowTimer);
       STATE.ai.pending = false;
@@ -4622,7 +4717,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     }
     if (!callState.active) return; // se colgó mientras esperaba la respuesta
     appendCallBubble('assistant', text);
-    setCallStatus(STATE.mode === 'kids' ? 'Hablando…' : 'Respondiendo…');
+    setCallStatus(t('callSpeaking'));
     speakCallText(text, () => askCallForMore(poi), { interruptible: true });
   };
 
@@ -4637,7 +4732,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     }
     appendCallBubble('user', t);
     if (CALL_END_RE.test(t)) {
-      const bye = STATE.mode === 'kids' ? '¡Hasta la próxima aventura! 👋' : 'Hasta luego, que disfrutes la visita.';
+      const bye = pickDual(UI_STRINGS.callBye);
       setCallStatus(bye);
       speakCallText(bye, () => closeAiCallMode());
       return;
@@ -4675,9 +4770,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     $('#aiCallInput').value = '';
     modal.classList.add('-open');
     modal.setAttribute('aria-hidden', 'false');
-    const greet = STATE.mode === 'kids'
-      ? `¡Hola! Pregúntame lo que quieras sobre ${pickDual(poi.name)}.`
-      : `Te escucho. Pregúntame lo que quieras sobre ${pickDual(poi.name)}.`;
+    const greet = t('callGreetListen').replace('{name}', pickDual(poi.name));
     setCallStatus(greet);
     appendCallBubble('assistant', greet);
     speakCallText(greet, () => {
@@ -4826,13 +4919,13 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const total = realPois.length;
     const level = getExplorerLevel(STATE.game.points);
 
-    $('#visitSummaryTitle', els.visitSummary).textContent = `Tu aventura por ${CURRENT_CITY.name}`;
+    $('#visitSummaryTitle', els.visitSummary).textContent = t('yourTripThrough').replace('{city}', CURRENT_CITY.name);
     $('#visitSummaryStat', els.visitSummary).textContent =
-      `${visited.length} de ${total} lugares visitados`;
+      t('placesVisited').replace('{visited}', visited.length).replace('{total}', total);
     $('#visitSummaryFill', els.visitSummary).style.width =
       `${total ? Math.round((visited.length / total) * 100) : 0}%`;
     const pointsEl = $('#visitSummaryPoints', els.visitSummary);
-    pointsEl.textContent = `⭐ ${STATE.game.points} · ${level.label}`;
+    pointsEl.textContent = `⭐ ${STATE.game.points} · ${pickLang(level.label)}`;
     pointsEl.style.setProperty('--explorer-color', level.color);
 
     // Progreso hacia la insignia de ESTA ciudad (ver checkCityBadge): solo
@@ -4846,8 +4939,8 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
         const cityPts = cityPointsEarned();
         const pct = Math.min(100, Math.round((cityPts / CURRENT_CITY.badgeThreshold) * 100));
         $('#visitSummaryBadgeLabel', els.visitSummary).textContent = earned
-          ? `🏅 ¡Insignia de ${CURRENT_CITY.name} conseguida!`
-          : `🏅 Insignia de ${CURRENT_CITY.name}: ${cityPts}/${CURRENT_CITY.badgeThreshold} ⭐`;
+          ? t('cityBadgeEarned').replace('{city}', CURRENT_CITY.name)
+          : t('cityBadgeProgress').replace('{city}', CURRENT_CITY.name).replace('{points}', cityPts).replace('{threshold}', CURRENT_CITY.badgeThreshold);
         $('#visitSummaryBadgeFill', els.visitSummary).style.width = `${pct}%`;
         const badgeCanvas = $('#visitSummaryBadgeIcon', els.visitSummary);
         badgeCanvas.classList.toggle('-locked', !earned);
@@ -4915,7 +5008,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
 
     setSheetThumbImage(poi.image, pickDual(poi.name));
     $('.sheet-cat-badge', els.sheet).textContent = pickDual(meta.label)
-      + (poi.fictional ? (STATE.mode === 'kids' ? ' · Imaginado' : ' · Ilustrativo') : '');
+      + (poi.fictional ? t('fictionalBadge') : '');
     $('.sheet-title', els.sheet).textContent = pickDual(poi.name);
     $('.sheet-sub', els.sheet).textContent = pickDual(poi.subtitle);
     updateSheetDistance(id);
@@ -5083,7 +5176,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       // versión antigua, sin la marca isSummary ni en la posición esperada
       // (p.ej. si en su momento se respondió una pregunta antes de que
       // terminara de llegar el resumen inicial).
-      const looksLikeQuizReveal = (text) => /^(🎉 ¡Correcto!|¡Casi! Era esta)/.test(text || '');
+      const looksLikeQuizReveal = (text) => /^(🎉 ¡Correcto!|¡Casi! Era esta|🎉 Correct!|Almost! It was this one)/.test(text || '');
       // En modo niño el audio principal es siempre el resumen original: no
       // hay chips que generen respuestas legítimas adicionales, así que
       // cualquier otro mensaje del historial se ignora aquí a propósito.
@@ -5633,12 +5726,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
           // fuera de un gesto directo puede fallar siempre, y el botón de
           // play ya queda listo para un toque manual (eso sí funcionará).
           if (!silent) {
-            showToast(
-              STATE.mode === 'kids'
-                ? 'No pude arrancar la voz. Toca reproducir otra vez.'
-                : 'No se pudo iniciar la audioguía. Prueba a pulsar reproducir otra vez.',
-              3200
-            );
+            showToast(t('audioStartFailed'), 3200);
           }
           notifySegmentEnd();
         }
@@ -5742,9 +5830,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       prefetchLocation(); // ver comentario en scanUploadPhoto
       const opened = await openCameraCapture();
       if (!opened) {
-        showToast(STATE.mode === 'kids'
-          ? '¡No pude abrir la cámara! Prueba a subir una foto 📷'
-          : 'No se pudo abrir la cámara. Prueba a subir una foto en su lugar.', 3200);
+        showToast(t('cameraOpenFailed'), 3200);
       }
     });
     $('#scanUploadPhoto')?.addEventListener('click', () => {
@@ -6199,9 +6285,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       setTimeout(() => maybeAutoStartTutorial(), 600);
     } else {
       setTimeout(() => {
-        showToast(STATE.mode === 'kids'
-          ? '¡Hola aventurero! Toca los pines 🏰'
-          : `Bienvenido a ${CURRENT_CITY.name} · Toca un pin`);
+        showToast(t('welcomeBack').replace('{city}', CURRENT_CITY.name));
       }, 600);
     }
   };

@@ -151,7 +151,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.68</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.69</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html" id="obPrivacyLink">Privacidad y créditos</a>
   </div>
@@ -159,8 +159,8 @@
   <div class="reset-confirm-modal" id="resetConfirmModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Confirmar reinicio de la app">
     <div class="reset-confirm-card">
       <div class="reset-confirm-icon" aria-hidden="true">⚠️</div>
-      <h2 class="reset-confirm-title">¿Reiniciar la app?</h2>
-      <p class="reset-confirm-text">
+      <h2 class="reset-confirm-title" id="resetConfirmTitle">¿Reiniciar la app?</h2>
+      <p class="reset-confirm-text" id="resetConfirmText">
         Se borrará todo: la ciudad y el modo guardados, tus puntos y progreso del quiz,
         las conversaciones con la guía IA y todo el contenido descargado para uso sin
         conexión. Quedará como la primera vez que abriste la web. Esta acción no se
@@ -176,8 +176,8 @@
   <div class="directions-confirm-modal" id="directionsConfirmModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Confirmar salir a Google Maps">
     <div class="directions-confirm-card">
       <div class="directions-confirm-icon" aria-hidden="true">🗺️</div>
-      <h2 class="directions-confirm-title">Vas a abrir Google Maps</h2>
-      <p class="directions-confirm-text">
+      <h2 class="directions-confirm-title" id="directionsConfirmTitle">Vas a abrir Google Maps</h2>
+      <p class="directions-confirm-text" id="directionsConfirmText">
         Te llevará paso a paso hasta aquí. Cuando termines, vuelve a esta app
         para seguir con la visita — la encontrarás tal como la dejaste.
       </p>
@@ -191,10 +191,10 @@
   <div class="scan-log-modal" id="scanLogModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Registro de fotos no reconocidas">
     <div class="scan-log-card">
       <div class="scan-log-head">
-        <h2 class="scan-log-title">Fotos no reconocidas</h2>
+        <h2 class="scan-log-title" id="scanLogTitle">Fotos no reconocidas</h2>
         <button type="button" class="scan-log-close" id="scanLogClose" aria-label="Cerrar">✕</button>
       </div>
-      <p class="scan-log-hint">Registro local de fotos escaneadas que no coincidían con ningún lugar de la app. Solo tú puedes verlo.</p>
+      <p class="scan-log-hint" id="scanLogHint">Registro local de fotos escaneadas que no coincidían con ningún lugar de la app. Solo tú puedes verlo.</p>
       <ul class="scan-log-list" id="scanLogList"></ul>
       <div class="scan-log-actions">
         <button type="button" class="scan-log-export" id="scanLogExport">⬇️ Exportar JSON</button>
@@ -207,10 +207,10 @@
   <div class="reward-chest-modal" id="rewardChestModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mochila de viaje">
     <div class="reward-chest-card">
       <div class="reward-chest-head">
-        <h2 class="reward-chest-title"><canvas id="rewardChestTitleIcon" width="28" height="28"></canvas> Mochila de viaje</h2>
+        <h2 class="reward-chest-title"><canvas id="rewardChestTitleIcon" width="28" height="28"></canvas> <span id="rewardChestTitle">Mochila de viaje</span></h2>
         <button type="button" class="reward-chest-close" id="rewardChestClose" aria-label="Cerrar">✕</button>
       </div>
-      <p class="reward-chest-hint">Responde bien a las preguntas de cada sitio para ganar ⭐. Cuando te lleguen para algo, toca "Reclamar" y elige tú qué te llevas.</p>
+      <p class="reward-chest-hint" id="rewardChestHint">Responde bien a las preguntas de cada sitio para ganar ⭐. Cuando te lleguen para algo, toca "Reclamar" y elige tú qué te llevas.</p>
       <div class="city-badge-row" id="cityBadgeRow"></div>
       <div class="reward-item-grid" id="rewardChestList"></div>
     </div>
@@ -268,11 +268,11 @@
           </div>
           <div class="mode-toggle" role="group" aria-label="Cambiar modo de contenido">
             <button type="button" class="mode-toggle-option" data-mode="adult" data-active="true">
-              <span>Adultos</span>
+              <span id="modeToggleAdultLabel">Adultos</span>
             </button>
             <button type="button" class="mode-toggle-option" data-mode="kids" data-active="false">
               <span class="mode-ico" aria-hidden="true">🌳</span>
-              <span>Niños</span>
+              <span id="modeToggleKidsLabel">Niños</span>
             </button>
             <span class="mode-toggle-thumb" aria-hidden="true"></span>
           </div>
@@ -363,7 +363,7 @@
             <path d="M4 8a2 2 0 0 1 2-2h1.2l.9-1.4A2 2 0 0 1 9.8 3.6h4.4a2 2 0 0 1 1.7 1L16.8 6H18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z"></path>
             <circle cx="12" cy="13" r="3.4"></circle>
           </svg>
-          <span>Tomar foto</span>
+          <span id="scanTakePhotoLabel">Tomar foto</span>
         </button>
         <button type="button" class="dropdown-option" id="scanUploadPhoto">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18">
@@ -371,7 +371,7 @@
             <circle cx="8.5" cy="9.5" r="1.6"></circle>
             <path d="m4 17 5-5 3.5 3.5L17 11l4 4"></path>
           </svg>
-          <span>Subir foto</span>
+          <span id="scanUploadPhotoLabel">Subir foto</span>
         </button>
       </div>
       <input type="file" id="scanInput" accept="image/*" hidden />
@@ -595,7 +595,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=24"></script>
-  <script src="app.js?v=174"></script>
+  <script src="app.js?v=176"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa
