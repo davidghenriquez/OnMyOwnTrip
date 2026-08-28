@@ -410,7 +410,10 @@ const CITIES = {
     name: 'Vaticano',
     country: 'Vaticano',
     continent: 'Europa',
-    subtitle: { adult: 'El Estado más pequeño del mundo', kids: '¡El País Más Pequeño del Mundo! 🕊️' },
+    subtitle: {
+      es: { adult: 'El Estado más pequeño del mundo', kids: '¡El País Más Pequeño del Mundo! 🕊️' },
+      en: { adult: 'The smallest state in the world', kids: 'The Smallest Country in the World! 🕊️' }
+    },
     // ~50% del máximo real del Vaticano (3 POIs con quiz × 30 = 90 posibles).
     badgeThreshold: 45,
     badgeImg: 'assets/badges/vaticano.png',
@@ -425,11 +428,20 @@ const CITIES = {
     routes: [
       {
         id: 'main',
-        name: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
+        name: {
+          es: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' },
+          en: { adult: 'Highlights', kids: 'The Top Spots! 🚩' }
+        },
         color: '#F5C518',
         intro: {
-          adult: 'La ruta imprescindible del Vaticano recorre el Estado más pequeño del mundo, apenas 0,44 km² con más historia y arte por metro cuadrado que casi cualquier otro lugar del planeta. Empezarás en la Plaza de San Pedro, abrazada por la columnata de Bernini, entrarás en la Basílica de San Pedro, el templo católico más grande del mundo, y visitarás los Museos Vaticanos y la Capilla Sixtina, con el techo pintado por Miguel Ángel. Terminarás cruzando hacia el Castel Sant\'Angelo, el antiguo mausoleo de Adriano convertido en fortaleza papal, y el Ponte Sant\'Angelo, decorado con ángeles de Bernini. Al acabar habrás visto cómo, en apenas un kilómetro, conviven la sede de la Iglesia católica, una de las mayores colecciones de arte del mundo y un mausoleo imperial romano reconvertido en fortaleza. Toca cada parada en el mapa para ver la información específica de ese lugar.',
-          kids: '¡Esta ruta te lleva al país más pequeño del mundo entero! 🕊️ Vas a entrar en la iglesia más grande de todo el planeta, visitar un museo con un techo pintado a mano que tardó años en terminarse, y cruzar hasta un castillo que antes fue la tumba de un emperador romano, pasando por un puente con estatuas de ángeles. Al final habrás visto en un solo paseo la iglesia más grande del mundo y algunas de las obras de arte más famosas de la historia. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+          es: {
+            adult: 'La ruta imprescindible del Vaticano recorre el Estado más pequeño del mundo, apenas 0,44 km² con más historia y arte por metro cuadrado que casi cualquier otro lugar del planeta. Empezarás en la Plaza de San Pedro, abrazada por la columnata de Bernini, entrarás en la Basílica de San Pedro, el templo católico más grande del mundo, y visitarás los Museos Vaticanos y la Capilla Sixtina, con el techo pintado por Miguel Ángel. Terminarás cruzando hacia el Castel Sant\'Angelo, el antiguo mausoleo de Adriano convertido en fortaleza papal, y el Ponte Sant\'Angelo, decorado con ángeles de Bernini. Al acabar habrás visto cómo, en apenas un kilómetro, conviven la sede de la Iglesia católica, una de las mayores colecciones de arte del mundo y un mausoleo imperial romano reconvertido en fortaleza. Toca cada parada en el mapa para ver la información específica de ese lugar.',
+            kids: '¡Esta ruta te lleva al país más pequeño del mundo entero! 🕊️ Vas a entrar en la iglesia más grande de todo el planeta, visitar un museo con un techo pintado a mano que tardó años en terminarse, y cruzar hasta un castillo que antes fue la tumba de un emperador romano, pasando por un puente con estatuas de ángeles. Al final habrás visto en un solo paseo la iglesia más grande del mundo y algunas de las obras de arte más famosas de la historia. ¡Toca cada punto del mapa para descubrir todo sobre ese sitio!'
+          },
+          en: {
+            adult: 'The unmissable route through Vatican City covers the smallest state in the world — barely 0.44 km², yet packed with more history and art per square meter than almost anywhere else on the planet. You\'ll start at St. Peter\'s Square, embraced by Bernini\'s colonnade, step inside St. Peter\'s Basilica, the largest Catholic church in the world, and visit the Vatican Museums and the Sistine Chapel, with its ceiling painted by Michelangelo. You\'ll finish by crossing over to Castel Sant\'Angelo, the ancient mausoleum of Hadrian turned papal fortress, and the Ponte Sant\'Angelo, decorated with Bernini\'s angels. By the end you\'ll have seen how, in barely a kilometer, the seat of the Catholic Church, one of the greatest art collections in the world, and an imperial Roman mausoleum turned fortress all sit side by side. Tap each stop on the map to see specific information about that spot.',
+            kids: 'This route takes you to the smallest country in the whole world! 🕊️ You\'ll step inside the biggest church on the entire planet, visit a museum with a hand-painted ceiling that took years to finish, and cross over to a castle that used to be a Roman emperor\'s tomb, passing over a bridge decorated with angel statues. By the end you\'ll have seen, in a single walk, the biggest church in the world and some of the most famous artworks in history. Tap each point on the map to discover everything about that spot!'
+          }
         }
       }
     ]
@@ -491,7 +503,15 @@ const AI_TOPIC_NAMES = {
   'legends': { adult: 'las leyendas', kids: 'las leyendas' }
 };
 
+// Vive fuera del cierre de app.js, así que no tiene acceso a STATE.lang (ver
+// pickLang/pickDual ahí): si el campo ya viene con el envoltorio bilingüe
+// { es: {...}, en: {...} } (ver data/cities/vaticano.js), aquí siempre se
+// usa español como valor por defecto — esta función solo alimenta el
+// prompt de fallback para generar un resumen con IA, un camino que en la
+// práctica no se usa en los POIs ya traducidos (todos tienen su propio
+// tabs.history/legends/architecture escritos a mano).
 function pick(obj, mode) {
   if (!obj) return '';
-  return obj[mode] ?? obj.adult ?? obj.kids ?? '';
+  const langObj = (obj.es || obj.en) ? (obj.es || obj.en) : obj;
+  return langObj[mode] ?? langObj.adult ?? langObj.kids ?? '';
 }

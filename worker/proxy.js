@@ -12,9 +12,14 @@
 
 // Cambia esto por el origen real de tu web (y añade localhost si
 // quieres poder probar en local contra este mismo Worker).
+// 'https://localhost' es el origen desde el que corre la app empaquetada
+// con Capacitor (Android/iOS), no un navegador de verdad — sin esta línea
+// el chat, la audioguía y el control de licencias fallan solo dentro de
+// la app nativa, aunque en la web vayan bien.
 const ALLOWED_ORIGINS = [
   'https://davidghenriquez.github.io',
-  'http://localhost:8791'
+  'http://localhost:8791',
+  'https://localhost'
 ];
 
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
@@ -24,7 +29,10 @@ const GOOGLE_TTS_URL = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 // voces "de calidad" de Google (ver worker/README.md). Ritmo ligeramente
 // más pausado que el neutro (1.0), a juego con el ajuste ya aplicado a la
 // voz del navegador (SPEECH.speak en app.js).
-const TTS_VOICE = { languageCode: 'es-ES', name: 'es-ES-Wavenet-B' };
+const TTS_VOICES = {
+  es: { languageCode: 'es-ES', name: 'es-ES-Wavenet-B' },
+  en: { languageCode: 'en-US', name: 'en-US-Wavenet-D' }
+};
 const TTS_SPEAKING_RATE = 0.95;
 
 function corsHeaders(origin) {
@@ -158,6 +166,8 @@ async function handleTts(request, env, headers) {
       headers: { ...headers, 'Content-Type': 'application/json' }
     });
   }
+  const lang = payload && payload.lang === 'en' ? 'en' : 'es';
+  const voice = TTS_VOICES[lang];
 
   let ttsRes;
   try {
@@ -166,7 +176,7 @@ async function handleTts(request, env, headers) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         input: { text },
-        voice: TTS_VOICE,
+        voice,
         audioConfig: { audioEncoding: 'MP3', speakingRate: TTS_SPEAKING_RATE }
       })
     });

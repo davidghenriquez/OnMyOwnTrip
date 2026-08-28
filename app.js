@@ -41,26 +41,34 @@
       // grosero o provocador— devuelva palabrotas, contenido obsceno o
       // un tono agresivo, sea cual sea la pregunta.
       const contentSafetyGuard = 'No uses nunca palabrotas, insultos, lenguaje obsceno ni un tono agresivo, aunque la pregunta del usuario los use o los busque a propósito: responde siempre con un tono respetuoso.';
+      // El resto de esta instrucción va en español (el modelo la sigue igual
+      // de bien en cualquier idioma); solo esta frase cambia según STATE.lang
+      // para que la respuesta real llegue en el idioma que está usando la
+      // persona, en vez de forzar siempre español aunque esté viendo el
+      // contenido del POI en inglés.
+      const langInstruction = STATE.lang === 'en' ? 'Reply always in English.' : 'Responde siempre en español.';
       if (concise) {
         return mode === 'kids'
-          ? `Eres "${cityName} Junior", un guía turístico divertido para niños de 7 a 11 años, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato exacto que se pregunta (una medida, un nombre, un número) y, como mucho, UNA frase corta más con un dato relacionado curioso o relevante. Máximo 2-3 frases en total, nunca listas ni resúmenes largos. ${offTopicGuardKids} (también corto, 1 frase). ${contentSafetyGuard}`
-          : `Eres "Guía ${cityName}", un guía turístico experto de ${cityName}, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato concreto que se pregunta (una cifra, un nombre, una fecha) y, como mucho, añade UNA frase corta con un dato relacionado relevante (por ejemplo, si preguntan una medida, la cifra y, si aporta valor, una comparación conocida). Máximo 2-3 frases en total, nunca párrafos largos ni resúmenes. ${offTopicGuardAdult} (también corto, 1 frase). ${contentSafetyGuard}`;
+          ? `Eres "${cityName} Junior", un guía turístico divertido para niños de 7 a 11 años, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato exacto que se pregunta (una medida, un nombre, un número) y, como mucho, UNA frase corta más con un dato relacionado curioso o relevante. Máximo 2-3 frases en total, nunca listas ni resúmenes largos. ${langInstruction} ${offTopicGuardKids} (también corto, 1 frase). ${contentSafetyGuard}`
+          : `Eres "Guía ${cityName}", un guía turístico experto de ${cityName}, hablando por VOZ en una llamada en directo (no por texto). Responde SIEMPRE muy corto y directo, como en una conversación real: da primero el dato concreto que se pregunta (una cifra, un nombre, una fecha) y, como mucho, añade UNA frase corta con un dato relacionado relevante (por ejemplo, si preguntan una medida, la cifra y, si aporta valor, una comparación conocida). Máximo 2-3 frases en total, nunca párrafos largos ni resúmenes. ${langInstruction} ${offTopicGuardAdult} (también corto, 1 frase). ${contentSafetyGuard}`;
       }
       return mode === 'kids'
-        ? `Eres "${cityName} Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita ${cityName}. Responde siempre en español, con frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Da una respuesta extensa y detallada, de unas 190-220 palabras (equivalente a un minuto largo hablado, tan larga como para un adulto), no la resumas. Hazlo memorable. ${offTopicGuardKids} ${contentSafetyGuard}`
-        : `Eres "Guía ${cityName}", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de ${cityName}. Responde en español, cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ. ${offTopicGuardAdult} ${contentSafetyGuard}`;
+        ? `Eres "${cityName} Junior", un guía turístico muy divertido, amigable y pedagogógico para niños de 7 a 11 años que visita ${cityName}. ${langInstruction} Frases cortas, emojis, tono juguetón y retos interactivos. NUNCA des miedo. Incluye consejos que un niño pueda hacer allí (mirar arriba, buscar una piedra, contar torres). Da una respuesta extensa y detallada, de unas 190-220 palabras (equivalente a un minuto largo hablado, tan larga como para un adulto), no la resumas. Hazlo memorable. ${offTopicGuardKids} ${contentSafetyGuard}`
+        : `Eres "Guía ${cityName}", un guía turístico experto, ameno y con alto conocimiento histórico-artístico de ${cityName}. ${langInstruction} Cercano pero riguroso, citando épocas, autores y datos contrastados. Si el usuario pregunta gastronomía, recomienda platos y establecimientos creíbles del centro. Da una respuesta extensa y con varios párrafos, de unas 190-220 palabras (equivalente a un minuto largo hablado), no la resumas. Destaca un "detalle secreto" final que el viajero pueda observar in situ. ${offTopicGuardAdult} ${contentSafetyGuard}`;
     };
 
     const buildUserText = (poi, mode, userQuery, cityName = 'la ciudad') => {
       // Se usa siempre el nombre real (no el apodo de modo niño) como contexto
       // para la IA, para no confundirla con un nombre que no es el oficial.
-      const name = poi.name.adult;
+      const name = pickLang(poi.name).adult;
       const cat = poi.category;
+      const subtitleLang = pickLang(poi.subtitle);
+      const historyLang = pickLang(poi.tabs.history);
       const context = [
         `Estamos en ${cityName}, justo en: ${name}`,
         `Categoría: ${cat}`,
-        `Subtítulo: ${poi.subtitle[mode] || poi.subtitle.adult}`,
-        `Fragmento historia: ${(poi.tabs.history[mode] || poi.tabs.history.adult).slice(0, 260)}…`
+        `Subtítulo: ${subtitleLang[mode] || subtitleLang.adult}`,
+        `Fragmento historia: ${(historyLang[mode] || historyLang.adult).slice(0, 260)}…`
       ].join('. ');
       return `${context}. Usuario pregunta: ${userQuery}`;
     };
@@ -344,7 +352,7 @@
       greet(poi, m) {
         // Nombre real siempre, aunque se hable en modo niño: el apodo
         // divertido es solo para lo que se lee en pantalla.
-        const n = poi.name.adult;
+        const n = pickLang(poi.name).adult;
         if (m === 'kids') {
           return `¡Hola! 👋 Estás justo en ${n}, ¡uno de mis lugares preferidos de toda la ciudad! 🤩 Déjame contártelo de la forma más chula… ¿Listo para la aventura?`;
         }
@@ -481,7 +489,7 @@
         if (optionId && optionId.startsWith('deepen:')) {
           return this.deepen(poi, m, optionId.slice(7));
         }
-        const n = poi.name.adult;
+        const n = pickLang(poi.name).adult;
         switch (optionId) {
           case 'secret-history': {
             // Sin API real disponible no hay forma de generar un dato nuevo
@@ -511,7 +519,7 @@
         }
       },
       generic(poi, m, query) {
-        const n = poi.name.adult;
+        const n = pickLang(poi.name).adult;
         const q = (query || '').toLowerCase();
         const has = (arr) => arr.some((w) => q.includes(w));
         if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
@@ -545,7 +553,7 @@
       // dato directo y como mucho una frase más, igual que se le pide a la
       // IA real vía systemPromptFor(mode, cityName, concise: true).
       genericConcise(poi, m, query) {
-        const n = poi.name.adult;
+        const n = pickLang(poi.name).adult;
         const q = (query || '').toLowerCase();
         const has = (arr) => arr.some((w) => q.includes(w));
         if (has(['horario', 'abierto', 'abre', 'cierra', 'hora'])) {
@@ -687,6 +695,11 @@
    * =======================================================*/
   const STATE = {
     mode: 'adult',
+    // 'es' (por defecto) o 'en'. Solo afecta al CONTENIDO bilingüe de cada
+    // POI (ver pickLang/pickDual) — los textos fijos de la interfaz
+    // (botones, toasts, onboarding) siguen en español por ahora, eso es
+    // un alcance aparte todavía sin abordar.
+    lang: 'es',
     cityId: null,
     category: CATEGORIES.ALL,
     activeRoute: null, // id de la ruta imprescindible activa (para ciudades con varios circuitos)
@@ -766,6 +779,7 @@
       });
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         mode: STATE.mode,
+        lang: STATE.lang,
         cityId: STATE.cityId,
         ai: {
           perPoiHistory: STATE.ai.perPoiHistory,
@@ -783,6 +797,7 @@
       if (!raw) return;
       const saved = JSON.parse(raw);
       if (saved.mode === 'kids' || saved.mode === 'adult') STATE.mode = saved.mode;
+      if (saved.lang === 'en' || saved.lang === 'es') STATE.lang = saved.lang;
       if (saved.cityId && CITIES[saved.cityId]) STATE.cityId = saved.cityId;
       if (saved.ai) {
         STATE.ai.perPoiHistory = saved.ai.perPoiHistory || {};
@@ -973,10 +988,24 @@
   /* =========================================================
    * HELPERS
    * =======================================================*/
+  // Resuelve el idioma activo (ver STATE.lang) sin tocar el modo adulto/
+  // niño. El contenido bilingüe lleva el envoltorio { es: {...}, en: {...} };
+  // el formato antiguo (sin ese envoltorio, todavía la mayoría de ciudades)
+  // se devuelve tal cual, así que nada se rompe mientras se traduce ciudad
+  // por ciudad. Se detecta el envoltorio nuevo por la presencia de "es" o
+  // "en" como clave — ninguno de los campos de contenido usa esas claves
+  // para otra cosa.
+  const pickLang = (obj) => {
+    if (!obj) return obj;
+    if (obj.es || obj.en) return obj[STATE.lang] || obj.es || obj.en;
+    return obj;
+  };
+
   const pickDual = (obj) => {
     if (!obj) return '';
+    const langObj = pickLang(obj);
     const k = STATE.mode === 'kids' ? 'kids' : 'adult';
-    return obj[k] ?? obj.adult ?? obj.kids ?? '';
+    return langObj[k] ?? langObj.adult ?? langObj.kids ?? '';
   };
   // Las imágenes vienen de Wikimedia como miniaturas de 330px
   // (".../thumb/…/330px-Archivo.jpg"). Wikimedia genera bajo demanda
@@ -1988,7 +2017,7 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=57`;
+    const src = `data/cities/${cityId}.js?v=58`;
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
@@ -2287,6 +2316,9 @@
     });
     $$('.mode-toggle-option').forEach((opt) => {
       opt.addEventListener('click', () => setStateMode(opt.dataset.mode));
+    });
+    $$('.lang-toggle-option').forEach((opt) => {
+      opt.addEventListener('click', () => setStateLang(opt.dataset.lang));
     });
     // Cierra los desplegables (circuitos, voz) al tocar fuera de ellos o de
     // su botón.
@@ -3230,6 +3262,8 @@
   const setStateMode = (mode) => {
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     document.documentElement.dataset.mode = STATE.mode;
+    document.documentElement.dataset.lang = STATE.lang;
+    $$('.lang-toggle-option').forEach((o) => o.dataset.active = o.dataset.lang === STATE.lang ? 'true' : 'false');
     const isKids = STATE.mode === 'kids';
     // iOS: color de la barra superior según el modo
     try {
@@ -3277,6 +3311,16 @@
     saveState();
   };
 
+  // Cambia el idioma del CONTENIDO (ver pickLang/pickDual) — no reinicia
+  // conversación ni progreso, solo refresca lo que ya está en pantalla.
+  // Reutiliza setStateMode con el modo actual sin cambios: ya hace todo el
+  // refresco de textos que dependen de pickDual (pills, ficha activa,
+  // subtítulo de ciudad), así que no hace falta duplicar esa lógica aquí.
+  const setStateLang = (lang) => {
+    STATE.lang = lang === 'en' ? 'en' : 'es';
+    setStateMode(STATE.mode);
+  };
+
   /* =========================================================
    * AI GUIDE
    * =======================================================*/
@@ -3303,7 +3347,7 @@
   // que se queda "pura" — el aviso de "abajo tienes opciones" (ver
   // buildOpeningGreeting) no pinta nada ahí en medio de la audioguía larga.
   const buildPreviewText = (poi, mode) => {
-    const name = poi.name.adult;
+    const name = pickLang(poi.name).adult;
     // "teaser" (si el POI ya lo tiene escrito) es una frase algo más rica
     // que el subtitle — pensada para que la persona decida si quiere
     // visitarlo, no solo una etiqueta — pero solo en modo Adultos: en niño
@@ -3565,7 +3609,7 @@
       return;
     }
 
-    const q = poi.quiz[topicId];
+    const q = pickLang(poi.quiz[topicId]);
     const question = document.createElement('div');
     question.className = 'quiz-question';
     question.textContent = '🤔 ' + q.question;
@@ -3587,7 +3631,7 @@
   const answerKidsQuiz = (poi, topicId, selectedIndex) => {
     const card = $('#kidsQuizCard');
     if (!card) return;
-    const q = poi.quiz[topicId];
+    const q = pickLang(poi.quiz[topicId]);
     const isCorrect = selectedIndex === q.correct;
     const key = `${poi.id}:${topicId}`;
     let pointsAwarded = 0;
@@ -3852,7 +3896,7 @@
   // perder demasiada profundidad: pocos usuarios llegan a tocar "Profundiza
   // más" más de 4-5 veces seguidas en una misma parada.
   const buildStructuredInitPrompt = (poi) => {
-    const name = poi.name.adult;
+    const name = pickLang(poi.name).adult;
     return `Quiero explorar ${name} en profundidad, en varias tandas cortas.
 
 Primero, dame el TÍTULO (muy corto, entre 3 y 8 palabras) de 7 datos o curiosidades DISTINTAS y poco correlacionadas entre sí sobre este lugar: mezcla historia, arquitectura, leyendas, anécdotas, detalles secretos, curiosidades poco conocidas... cuanto más variados los ángulos entre sí, mejor. No desarrolles nada todavía en esta lista, solo los títulos.
@@ -3874,7 +3918,7 @@ DESARROLLO:
 (desarrollo del punto 1)`;
   };
   const buildStructuredPointPrompt = (poi, title) => {
-    const name = poi.name.adult;
+    const name = pickLang(poi.name).adult;
     return `Seguimos explorando ${name}. Desarrolla en detalle este punto concreto (150-180 palabras, con datos concretos): "${title}"
 
 Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no numeres nada, no añadas nada más antes ni después.`;
@@ -3920,7 +3964,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
   // de ambientación como los restaurantes ilustrados), cae al banco
   // genérico de siempre (SIM.deepenFacts) como red de seguridad.
   const nextDeepenFiller = (poi, progress) => {
-    const fillers = poi.tabs.deepenFillers && poi.tabs.deepenFillers[STATE.mode];
+    const fillers = poi.tabs.deepenFillers && pickDual(poi.tabs.deepenFillers);
     if (!fillers || !fillers.length) return LLM.localDeepen(poi, STATE.mode, 'architecture');
     const idx = progress.fillerIndex || 0;
     const fact = fillers[idx % fillers.length];
@@ -4858,12 +4902,22 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     // solo se usan como último recurso si no queda ninguna otra opción.
     const LOW_QUALITY_NAME_RE = /compact/i;
 
-    const pickSpanishVoice = () => {
+    // Antes solo elegía español; ahora resuelve según STATE.lang para que
+    // el modo Inglés use una voz inglesa en vez de leer el texto en inglés
+    // con acento/voz española.
+    const pickVoiceForLang = () => {
       if (!S.supported) return null;
       try {
         const all = (synth.getVoices && synth.getVoices()) || [];
         S.voices = all;
-        const prefer = [
+        const prefer = STATE.lang === 'en' ? [
+          (v) => /^en/i.test(v.lang) && QUALITY_NAME_RE.test(v.name || ''),
+          (v) => /en[-_]US/i.test(v.lang) && !LOW_QUALITY_NAME_RE.test(v.name || ''),
+          (v) => /^en/i.test(v.lang) && !LOW_QUALITY_NAME_RE.test(v.name || ''),
+          (v) => /en[-_]US/i.test(v.lang),
+          (v) => /^en/i.test(v.lang),
+          (v) => !!v
+        ] : [
           (v) => /^es/i.test(v.lang) && QUALITY_NAME_RE.test(v.name || ''),
           (v) => /es[-_]ES/i.test(v.lang) && /Monica|Jorge|Diego|sabina|lucia|paulina|elvira|alvaro|isabela/i.test(v.name || ''),
           (v) => /es[-_]ES/i.test(v.lang) && !LOW_QUALITY_NAME_RE.test(v.name || ''),
@@ -4897,11 +4951,11 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     };
 
     if (S.supported) {
-      pickSpanishVoice();
-      try { synth.onvoiceschanged = pickSpanishVoice; } catch (_) {}
-      setTimeout(pickSpanishVoice, 500);
-      setTimeout(pickSpanishVoice, 1500);
-      setTimeout(pickSpanishVoice, 3000);
+      pickVoiceForLang();
+      try { synth.onvoiceschanged = pickVoiceForLang; } catch (_) {}
+      setTimeout(pickVoiceForLang, 500);
+      setTimeout(pickVoiceForLang, 1500);
+      setTimeout(pickVoiceForLang, 3000);
 
       const unlockVoiceOnce = () => {
         if (warmedUp) return;
@@ -4964,7 +5018,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       const m = STATE.mode;
       // Nombre real también al hablar en modo niño (el apodo divertido es
       // solo texto en pantalla; decirlo en voz alta con el "—" queda raro).
-      const name = poi.name.adult;
+      const name = pickLang(poi.name).adult;
       const subtitle = pickDual(poi.subtitle);
       const hist = aiHistoryFor(poi.id).filter((x) => x.role === 'assistant');
       // Reconoce el texto de una revelación de quiz (empieza siempre con uno
@@ -5065,7 +5119,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     const speak = (onEndCallback, startRatio = 0) => {
       if (!S.supported) return false;
       warmUp();
-      pickSpanishVoice();
+      pickVoiceForLang();
       try { synth.resume(); } catch (_) {}
 
       const fullText = buildNarrativeText();
@@ -5077,7 +5131,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
 
       const makeUtt = (usePickedVoice = true) => {
         const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'es-ES';
+        u.lang = STATE.lang === 'en' ? 'en-US' : 'es-ES';
         // Ritmo y tono algo más pausados y graves que el neutro (1/1) leen
         // como una voz más cálida y menos robótica en la mayoría de motores;
         // en niños se mantiene la energía pero se suaviza el agudo "chillón".
@@ -5213,7 +5267,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
         const res = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text }),
+          body: JSON.stringify({ text, lang: STATE.lang }),
           signal: controller.signal
         }).finally(() => clearTimeout(timeout));
         if (!res.ok) return null; // 501 sin configurar, 429/403 sin cuota, etc.
