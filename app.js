@@ -1007,6 +1007,25 @@
     const k = STATE.mode === 'kids' ? 'kids' : 'adult';
     return langObj[k] ?? langObj.adult ?? langObj.kids ?? '';
   };
+
+  // Diccionario de textos fijos de la interfaz (chips, botones, mensajes
+  // comunes) que NO vienen de ningún archivo de datos de ciudad — a
+  // diferencia del contenido de cada POI, este vive aquí mismo. Mismo
+  // envoltorio { es: {adult,kids}, en: {adult,kids} } que el resto, así
+  // que se resuelve con el propio pickDual: t('claveDelTexto').
+  const UI_STRINGS = {
+    comeHere: { es: { adult: 'Cómo llegar', kids: 'Cómo llegar' }, en: { adult: 'Directions', kids: 'Directions' } },
+    intro: { es: { adult: 'Introducción', kids: 'Introducción' }, en: { adult: 'Introduction', kids: 'Introduction' } },
+    ticket: { es: { adult: 'Entrada: horario y precio', kids: 'Entrada: horario y precio' }, en: { adult: 'Tickets: hours & price', kids: 'Tickets: hours & price' } },
+    allPill: { es: { adult: 'Todos', kids: 'Todo ✨' }, en: { adult: 'All', kids: 'All ✨' } },
+    essentialFallback: { es: { adult: 'Recomendaciones', kids: '¡Lo Top! 🚩' }, en: { adult: 'Highlights', kids: 'The Top Spots! 🚩' } },
+    askPlaceholder: { es: { adult: 'Escribe tu pregunta…', kids: 'Escribe tu pregunta…' }, en: { adult: 'Type your question…', kids: 'Type your question…' } },
+    askAriaLabel: { es: { adult: 'Escribe tu pregunta a la guía IA', kids: 'Escribe tu pregunta a la guía IA' }, en: { adult: 'Type your question to the AI guide', kids: 'Type your question to the AI guide' } },
+    backToMenu: { es: { adult: 'Menú principal', kids: 'Menú principal' }, en: { adult: 'Main menu', kids: 'Main menu' } },
+    audioguideCompleted: { es: { adult: 'Audioguía completada', kids: '¡Fin del cuento! 🎉' }, en: { adult: 'Audio guide completed', kids: 'The End! 🎉' } }
+  };
+  const t = (key) => pickDual(UI_STRINGS[key]);
+
   // Las imágenes vienen de Wikimedia como miniaturas de 330px
   // (".../thumb/…/330px-Archivo.jpg"). Wikimedia genera bajo demanda
   // cualquier ancho pedido en esa misma URL, pero si el ancho pedido supera
@@ -1321,7 +1340,7 @@
   // Rutas imprescindibles de la ciudad activa; las ciudades sin `routes` propio
   // se tratan como una única ruta "main" con el color primario de la app.
   const getCityRoutes = () => (CURRENT_CITY && CURRENT_CITY.routes) || [
-    { id: 'main', name: { adult: 'Recomendaciones', kids: '¡Lo Top!' }, color: null }
+    { id: 'main', name: { es: { adult: 'Recomendaciones', kids: '¡Lo Top!' }, en: { adult: 'Highlights', kids: 'The Top Spots!' } }, color: null }
   ];
   const isPoiInActiveRoute = (poi) => !!(poi.essential && poi.essential.route === STATE.activeRoute);
 
@@ -2280,10 +2299,9 @@
   const updateEssentialPillLabel = () => {
     const pill = els.filters && els.filters.querySelector('.pill[data-category="essential"]');
     if (!pill) return;
-    const isKids = STATE.mode === 'kids';
     const active = STATE.category === 'essential' && getCityRoutes().find((r) => r.id === STATE.activeRoute);
     pill.innerHTML = `<span class="pill-icon">${ROUTE_ICON_SVG()}</span><span>${
-      active ? pickDual(active.name) : (isKids ? '¡Lo Top! 🚩' : 'Recomendaciones')
+      active ? pickDual(active.name) : t('essentialFallback')
     }</span>`;
     pill.style.setProperty('--pill-color', (active && active.color) || getCssVar('--color-primary'));
   };
@@ -3270,6 +3288,15 @@
       if (metaTheme) metaTheme.setAttribute('content', isKids ? '#12102b' : '#0F172A');
     } catch (_) {}
     $$('.mode-toggle-option').forEach((o) => o.dataset.active = o.dataset.mode === STATE.mode ? 'true' : 'false');
+    // Textos fijos del HTML que no se re-renderizan solos (atributos, no
+    // contenido de un template): hay que empujarlos a mano en cada cambio
+    // de idioma o de modo.
+    const aiInputEl = $('#aiInput');
+    if (aiInputEl) { aiInputEl.placeholder = t('askPlaceholder'); aiInputEl.setAttribute('aria-label', t('askAriaLabel')); }
+    const aiCallInputEl = $('#aiCallInput');
+    if (aiCallInputEl) { aiCallInputEl.placeholder = t('askPlaceholder'); aiCallInputEl.setAttribute('aria-label', t('askPlaceholder')); }
+    const changeCityBtnEl = $('#changeCityBtn');
+    if (changeCityBtnEl) { changeCityBtnEl.setAttribute('aria-label', t('backToMenu')); changeCityBtnEl.setAttribute('title', t('backToMenu')); }
     const brandIcon = $('#brandIcon'), brandTitle = $('#brandTitle'), brandSub = $('#brandSub'), brandBadge = $('#brandBadge');
     if (brandIcon) brandIcon.textContent = isKids ? '🚀' : '🧭';
     if (brandTitle) brandTitle.textContent = isKids ? 'OnMyOwnTrip Kids' : 'OnMyOwnTrip';
@@ -3292,7 +3319,7 @@
     $$('.pill').forEach((p) => {
       const cat = p.dataset.category;
       if (cat === CATEGORIES.ALL) {
-        p.innerHTML = `<span>${isKids ? 'Todo ✨' : 'Todos'}</span>`;
+        p.innerHTML = `<span>${t('allPill')}</span>`;
       } else if (cat === 'essential') {
         updateEssentialPillLabel();
       } else {
@@ -3495,12 +3522,12 @@
     // "Cómo llegar" va siempre el primero de todos: es la acción práctica
     // más inmediata al abrir la ficha de un sitio, antes incluso que la
     // información de entradas.
-    if (poi && poi.coords) chips.push({ id: 'directions', kind: 'directions', label: 'Cómo llegar' });
+    if (poi && poi.coords) chips.push({ id: 'directions', kind: 'directions', label: t('comeHere') });
     // "Introducción" va justo después: es la audioguía completa de siempre,
     // ahora a un toque en vez de sonar sola al abrir la ficha (ver
     // ensureAiPanelInitialGreet / showFullIntro).
-    chips.push({ id: 'intro', kind: 'intro', label: 'Introducción' });
-    if (poi && poi.visitInfo) chips.push({ id: 'ticket', kind: 'ticket', label: 'Entrada: horario y precio' });
+    chips.push({ id: 'intro', kind: 'intro', label: t('intro') });
+    if (poi && poi.visitInfo) chips.push({ id: 'ticket', kind: 'ticket', label: t('ticket') });
     // "Profundiza más" va siempre el primero de los de IA, incluso antes de
     // elegir un tema (en ese caso profundiza sobre el resumen inicial, no
     // sobre un tema concreto); luego, hasta 2 temas sin explorar todavía.
@@ -5491,7 +5518,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     };
     cloudAudioEl.onended = () => {
       stopAudio();
-      if (!silent) showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
+      if (!silent) showToast(t('audioguideCompleted'));
       if (STATE.mode === 'kids') maybeShowFirstKidsQuiz();
     };
     // Si el audio en caché falla al reproducir (blob corrupto, formato no
@@ -5586,7 +5613,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
           stopAudio();
           STATE.audio.currentTime = 0;
           updateAudioUi();
-          if (!silent) showToast(STATE.mode === 'kids' ? '¡Fin del cuento! 🎉' : 'Audioguía completada');
+          if (!silent) showToast(t('audioguideCompleted'));
           if (STATE.mode === 'kids') maybeShowFirstKidsQuiz();
           notifySegmentEnd();
           return;
