@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
-  <link rel="stylesheet" href="styles.css?v=55" />
+  <link rel="stylesheet" href="styles.css?v=56" />
 </head>
 <body>
   <!-- PANTALLA DE ACCESO: se muestra ANTES que la de bienvenida cuando no
@@ -80,15 +80,6 @@
       <div class="onboarding-brand">
         <span aria-hidden="true">🧭</span>
         <span>OnMyOwnTrip</span>
-        <div class="lang-toggle" role="group" aria-label="Elegir idioma / Choose language" id="obLangToggle">
-          <button type="button" class="lang-toggle-option" data-lang="es" data-active="true">
-            <span>ES</span>
-          </button>
-          <button type="button" class="lang-toggle-option" data-lang="en" data-active="false">
-            <span>EN</span>
-          </button>
-          <span class="lang-toggle-thumb" aria-hidden="true"></span>
-        </div>
       </div>
 
       <div class="onboarding-hero-copy">
@@ -97,6 +88,18 @@
       </div>
 
       <div class="onboarding-card">
+        <div class="onboarding-section">
+          <h2 id="obSectionLangHeading">Idioma / Language</h2>
+          <div class="onboarding-mode-row" id="obLangToggle">
+            <button type="button" class="onboarding-btn -lang" data-lang="es" data-active="true">
+              <span><strong>Español</strong></span>
+            </button>
+            <button type="button" class="onboarding-btn -lang" data-lang="en" data-active="false">
+              <span><strong>English</strong></span>
+            </button>
+          </div>
+        </div>
+
         <div class="onboarding-section">
           <h2 id="obSectionCityHeading">¿Dónde quieres explorar?</h2>
 
@@ -148,7 +151,7 @@
       </div>
     </div>
 
-    <span class="onboarding-version" id="appVersion">Beta V24.64</span>
+    <span class="onboarding-version" id="appVersion">Beta V24.65</span>
     <button type="button" class="onboarding-reset" id="obResetBtn">Reiniciar app</button>
     <a class="onboarding-legal" href="privacidad.html" id="obPrivacyLink">Privacidad y créditos</a>
   </div>
@@ -272,15 +275,6 @@
               <span>Niños</span>
             </button>
             <span class="mode-toggle-thumb" aria-hidden="true"></span>
-          </div>
-          <div class="lang-toggle" role="group" aria-label="Cambiar idioma del contenido">
-            <button type="button" class="lang-toggle-option" data-lang="es" data-active="true">
-              <span>ES</span>
-            </button>
-            <button type="button" class="lang-toggle-option" data-lang="en" data-active="false">
-              <span>EN</span>
-            </button>
-            <span class="lang-toggle-thumb" aria-hidden="true"></span>
           </div>
         </div>
       </div>
@@ -601,7 +595,7 @@
        una versión vieja en caché: sube este número en cada cambio a esos
        archivos para forzar que se vuelvan a descargar. -->
   <script src="data/core.js?v=23"></script>
-  <script src="app.js?v=170"></script>
+  <script src="app.js?v=171"></script>
   <!-- Service Worker: cachea el shell de la app y las imágenes de POIs ya
        vistas, para que la audioguía siga funcionando con conexión
        intermitente (típico caminando por cascos históricos). Ruta relativa

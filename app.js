@@ -2317,9 +2317,9 @@
     $$('.mode-toggle-option').forEach((opt) => {
       opt.addEventListener('click', () => setStateMode(opt.dataset.mode));
     });
-    $$('.lang-toggle-option').forEach((opt) => {
-      opt.addEventListener('click', () => setStateLang(opt.dataset.lang));
-    });
+    // El idioma solo se elige en la pantalla de bienvenida (ver
+    // wireOnboarding/obLangToggle) — no hay selector de idioma en la
+    // cabecera de la app ya dentro de una ciudad.
     // Cierra los desplegables (circuitos, voz) al tocar fuera de ellos o de
     // su botón.
     document.addEventListener('click', (e) => {
@@ -3263,7 +3263,6 @@
     STATE.mode = mode === 'kids' ? 'kids' : 'adult';
     document.documentElement.dataset.mode = STATE.mode;
     document.documentElement.dataset.lang = STATE.lang;
-    $$('.lang-toggle-option').forEach((o) => o.dataset.active = o.dataset.lang === STATE.lang ? 'true' : 'false');
     const isKids = STATE.mode === 'kids';
     // iOS: color de la barra superior según el modo
     try {
@@ -5892,7 +5891,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
       const el = document.getElementById(id);
       if (el) el.textContent = text;
     });
-    $$('#obLangToggle .lang-toggle-option').forEach((o) => o.dataset.active = o.dataset.lang === STATE.lang ? 'true' : 'false');
+    $$('#obLangToggle .onboarding-btn.-lang').forEach((o) => o.dataset.active = o.dataset.lang === STATE.lang ? 'true' : 'false');
     document.documentElement.lang = STATE.lang;
   };
 
@@ -5901,7 +5900,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     if (!ob) return;
 
     applyOnboardingLang();
-    $$('#obLangToggle .lang-toggle-option').forEach((opt) => {
+    $$('#obLangToggle .onboarding-btn.-lang').forEach((opt) => {
       opt.addEventListener('click', () => {
         setStateLang(opt.dataset.lang);
         applyOnboardingLang();
