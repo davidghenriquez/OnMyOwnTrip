@@ -1210,6 +1210,7 @@
   let POIS = []; // POIs de la ciudad activa (CURRENT_CITY.pois) — se rellena al elegir ciudad
   let CURRENT_CITY = null;
   let fountainsLayer = null, fountainsVisible = false;
+  let restroomsLayer = null, restroomsVisible = false;
 
   /* =========================================================
    * HELPERS
@@ -1359,6 +1360,7 @@
     ariaRouteIntroClose: { es: { adult: 'Cerrar introducción de la ruta', kids: 'Cerrar introducción de la ruta' }, en: { adult: 'Close route introduction', kids: 'Close route introduction' } },
     ariaMapTools: { es: { adult: 'Herramientas del mapa', kids: 'Herramientas del mapa' }, en: { adult: 'Map tools', kids: 'Map tools' } },
     ariaFountains: { es: { adult: 'Mostrar fuentes de agua potable', kids: 'Mostrar fuentes de agua potable' }, en: { adult: 'Show drinking water fountains', kids: 'Show drinking water fountains' } },
+    ariaRestrooms: { es: { adult: 'Mostrar aseos públicos', kids: 'Mostrar aseos públicos' }, en: { adult: 'Show public restrooms', kids: 'Show public restrooms' } },
     ariaScan: { es: { adult: 'Identificar lo que estoy viendo', kids: 'Identificar lo que estoy viendo' }, en: { adult: "Identify what I'm looking at", kids: "Identify what I'm looking at" } },
     ariaLocate: { es: { adult: 'Mostrar mi ubicación', kids: 'Mostrar mi ubicación' }, en: { adult: 'Show my location', kids: 'Show my location' } },
     ariaSheet: { es: { adult: 'Información del punto de interés', kids: 'Información del punto de interés' }, en: { adult: 'Point of interest information', kids: 'Point of interest information' } },
@@ -1620,6 +1622,18 @@
     iconSize: [12, 12], iconAnchor: [6, 6], popupAnchor: [0, -6]
   });
 
+  // Pin de los aseos públicos: mismo lenguaje visual que la capa de
+  // bebederos (mismo tamaño, por detrás de los POIs), pero con el
+  // pictograma hombre/mujer encargado como imagen (assets/icons/restroom.png)
+  // en vez de un SVG propio, para no alterar el diseño ya aprobado. Los
+  // aseos "evento" (solo abiertos en actos puntuales) usan el estilo
+  // atenuado, igual que "fuera-de-servicio" en las fuentes.
+  const makeRestroomIcon = (status) => L.divIcon({
+    className: 'fountain-pin-wrap',
+    html: `<div class="restroom-pin${status === 'evento' ? ' -off' : ''}"><img src="assets/icons/restroom.png?v=2" alt="" /></div>`,
+    iconSize: [12, 12], iconAnchor: [6, 6], popupAnchor: [0, -6]
+  });
+
   // Burbuja de agrupación (cluster): mismo lenguaje visual que .custom-pin,
   // pero con el número de POIs agrupados dentro. Crece un poco con la
   // cantidad para que se note de un vistazo si hay 3 o 30 ahí dentro.
@@ -1690,6 +1704,15 @@
       loadWaterFountains(STATE.cityId).then(() => {
         renderFountains();
         if (map && fountainsLayer) fountainsLayer.addTo(map);
+      });
+    }
+    // Capa independiente de aseos públicos: mismo patrón que fountainsLayer
+    // (ver comentario arriba), con su propio botón (ver toggleRestrooms).
+    restroomsLayer = L.layerGroup();
+    if (restroomsVisible) {
+      loadRestrooms(STATE.cityId).then(() => {
+        renderRestrooms();
+        if (map && restroomsLayer) restroomsLayer.addTo(map);
       });
     }
     map.on('zoom', updatePinScale);
@@ -2439,6 +2462,57 @@
       if (!map.hasLayer(fountainsLayer)) fountainsLayer.addTo(map);
     } else if (map.hasLayer(fountainsLayer)) {
       map.removeLayer(fountainsLayer);
+    }
+  };
+
+  // Carga bajo demanda de data/layers/restrooms-<id>.js: mismo patrón que
+  // loadWaterFountains (ver comentario arriba) — solo se pide la primera
+  // vez que el usuario activa el toggle de aseos.
+  const loadedRestroomScripts = new Set();
+  const loadRestrooms = async (cityId) => {
+    if (window.RESTROOMS && window.RESTROOMS[cityId]) return;
+    if (loadedRestroomScripts.has(cityId)) return;
+    try {
+      await loadScriptOnce(`data/layers/restrooms-${cityId}.js?v=1`);
+      loadedRestroomScripts.add(cityId);
+    } catch (e) {
+      console.warn(`No se pudieron cargar los aseos de ${cityId}`, e);
+    }
+  };
+
+  const renderRestrooms = () => {
+    if (!restroomsLayer) return;
+    restroomsLayer.clearLayers();
+    const list = (window.RESTROOMS && window.RESTROOMS[STATE.cityId]) || [];
+    list.forEach((r) => {
+      // zIndexOffset muy negativo: igual que en renderFountains, mantiene
+      // los aseos siempre por detrás de los pines de POI.
+      const marker = L.marker(r.coords, { icon: makeRestroomIcon(r.status), zIndexOffset: -1000 });
+      const info = [
+        r.tipo === 'urinario' ? 'Urinario' : null,
+        r.precio ? `${r.precio.toFixed(2).replace('.', ',')} €` : 'Gratuito',
+        r.accesible === 'si' ? 'Accesible' : null
+      ].filter(Boolean).join(' · ');
+      const offNote = r.status === 'evento' ? '<br><em>Solo abierto en eventos</em>' : '';
+      marker.bindPopup(`<strong>Aseo público</strong><br>${r.address}<br>${info}${offNote}`);
+      marker.addTo(restroomsLayer);
+    });
+  };
+
+  // Toggle del botón de aseos: mismo patrón que toggleFountains (ver
+  // comentario arriba), independiente de markersLayer/clusterLayer y de
+  // fountainsLayer.
+  const toggleRestrooms = async () => {
+    restroomsVisible = !restroomsVisible;
+    const btn = $('#restroomsBtn');
+    btn?.classList.toggle('-active', restroomsVisible);
+    if (!map || !restroomsLayer) return;
+    if (restroomsVisible) {
+      await loadRestrooms(STATE.cityId);
+      renderRestrooms();
+      if (!map.hasLayer(restroomsLayer)) restroomsLayer.addTo(map);
+    } else if (map.hasLayer(restroomsLayer)) {
+      map.removeLayer(restroomsLayer);
     }
   };
 
@@ -3317,12 +3391,17 @@
     {
       target: '#mapTools',
       title: { es: 'Herramientas del mapa', en: 'Map tools' },
-      text: { es: 'Abajo a la derecha tienes accesos rápidos para identificar lugares, encontrar agua o ubicarte. Vamos una a una:', en: "Bottom right you'll find quick access to identify places, find water, or locate yourself. Let's go one by one:" }
+      text: { es: 'Abajo a la derecha tienes accesos rápidos para identificar lugares, encontrar agua, encontrar aseos o ubicarte. Vamos una a una:', en: "Bottom right you'll find quick access to identify places, find water, find restrooms, or locate yourself. Let's go one by one:" }
     },
     {
       target: '#fountainsBtn',
       title: { es: 'Fuentes de agua potable', en: 'Drinking water fountains' },
       text: { es: 'Muestra en el mapa las fuentes más cercanas: útil para rellenar la botella mientras caminas.', en: 'Shows the nearest fountains on the map: handy for refilling your bottle as you walk.' }
+    },
+    {
+      target: '#restroomsBtn',
+      title: { es: 'Aseos públicos', en: 'Public restrooms' },
+      text: { es: 'Muestra en el mapa los aseos públicos más cercanos, con precio y accesibilidad.', en: 'Shows the nearest public restrooms on the map, with price and accessibility.' }
     },
     {
       target: '#scanBtn',
@@ -3693,6 +3772,7 @@
       ['#routeIntroClose', 'aria-label', 'ariaRouteIntroClose'],
       ['#mapTools', 'aria-label', 'ariaMapTools'],
       ['#fountainsBtn', 'aria-label', 'ariaFountains'],
+      ['#restroomsBtn', 'aria-label', 'ariaRestrooms'],
       ['#scanBtn', 'aria-label', 'ariaScan'],
       ['#locateBtn', 'aria-label', 'ariaLocate'],
       ['#bottomSheet', 'aria-label', 'ariaSheet'],
@@ -6125,6 +6205,7 @@ Responde solo con el desarrollo de ese punto: no repitas el título tal cual, no
     $('#locateBtn')?.addEventListener('click', () => requestLocation(true));
 
     $('#fountainsBtn')?.addEventListener('click', () => toggleFountains());
+    $('#restroomsBtn')?.addEventListener('click', () => toggleRestrooms());
 
     $('#scanBtn')?.addEventListener('click', () => {
       const menu = $('#scanMenu'), btn = $('#scanBtn');
