@@ -60,8 +60,9 @@ export default {
     const isVisit = url.pathname.endsWith('/license/visit');
     const isDashboard = url.pathname.endsWith('/license/dashboard');
     const isDashboardClear = url.pathname.endsWith('/license/dashboard/clear');
+    const isContent = url.pathname.endsWith('/content');
 
-    if (request.method !== 'POST' || (!isChat && !isTts && !isLicense && !isVisit && !isDashboard && !isDashboardClear)) {
+    if (request.method !== 'POST' || (!isChat && !isTts && !isLicense && !isVisit && !isDashboard && !isDashboardClear && !isContent)) {
       return new Response(JSON.stringify({ error: 'not found' }), {
         status: 404,
         headers: { ...headers, 'Content-Type': 'application/json' }
@@ -84,6 +85,7 @@ export default {
     if (isVisit) return handleVisit(request, env, headers);
     if (isDashboard) return handleDashboard(request, env, headers);
     if (isDashboardClear) return handleDashboardClear(request, env, headers);
+    if (isContent) return handleContent(request, env, headers);
 
     // Rate limiting por IP (binding "RATE_LIMITER", configurado en el panel
     // de Cloudflare → pestaña "Bindings" → Add binding → Rate Limiting).
@@ -294,16 +296,24 @@ async function handleLicenseCheck(request, env, headers) {
 
   if (!username) return respond({ ok: false, reason: 'not-found' });
 
+  const result = await checkLicenseValidity(env, username);
+  return respond(result);
+}
+
+// Lógica de validez compartida entre handleLicenseCheck (arriba) y
+// handleContent (más abajo, gate del contenido de ciudad): mismo criterio de
+// KV/"libre"/fecha en un único sitio para no duplicarlo entre los dos.
+async function checkLicenseValidity(env, username) {
   const raw = await env.LICENSES.get(username);
-  if (raw == null) return respond({ ok: false, reason: 'not-found' });
+  if (raw == null) return { ok: false, reason: 'not-found' };
 
   const value = raw.trim();
-  if (value.toLowerCase() === 'libre') return respond({ ok: true, expires: null });
+  if (value.toLowerCase() === 'libre') return { ok: true, expires: null };
 
   const today = new Date().toISOString().slice(0, 10);
-  if (today <= value) return respond({ ok: true, expires: value });
+  if (today <= value) return { ok: true, expires: value };
 
-  return respond({ ok: false, reason: 'expired', expires: value });
+  return { ok: false, reason: 'expired', expires: value };
 }
 
 // Cuenta de visitas por usuario (ver LICENSE.recordVisit en app.js): se
@@ -447,6 +457,83 @@ async function handleDashboardClear(request, env, headers) {
   await Promise.all(keys.map((k) => env.ACCESS_LOG.delete(k)));
 
   return new Response(JSON.stringify({ ok: true, deleted: keys.length }), {
+    status: 200,
+    headers: { ...headers, 'Content-Type': 'application/json' }
+  });
+}
+
+// Contenido de ciudad (ver app.js/loadCityData): sirve data/cities/<id>.json
+// desde un KV namespace propio ("CITY_CONTENT", igual de configurado que
+// LICENSES/ACCESS_LOG) en vez de como fichero estático público del repo, y
+// solo si el username tiene una licencia válida en ese momento — así el
+// contenido de pago no se puede leer solo con abrir la URL del repo en
+// GitHub, hace falta pasar primero por el control de acceso real.
+async function handleContent(request, env, headers) {
+  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+
+  // Rate limiting con clave propia ("content:..."), igual que license/chat:
+  // no comparte cupo con ninguno de los otros dos.
+  if (env.RATE_LIMITER) {
+    const { success } = await env.RATE_LIMITER.limit({ key: `content:${ip}` });
+    if (!success) {
+      return new Response(JSON.stringify({ ok: false, reason: 'rate-limited' }), {
+        status: 429,
+        headers: { ...headers, 'Content-Type': 'application/json' }
+      });
+    }
+  }
+
+  let payload;
+  try {
+    payload = await request.json();
+  } catch (e) {
+    return new Response(JSON.stringify({ ok: false, reason: 'bad-request' }), {
+      status: 400,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  if (!env.CITY_CONTENT || !env.LICENSES) {
+    // Igual que handleLicenseCheck: sin el binding, se falla "cerrado" en vez
+    // de servir el contenido sin comprobar nada.
+    return new Response(JSON.stringify({ ok: false, reason: 'not-configured' }), {
+      status: 501,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const username = String((payload && payload.username) || '').trim();
+  const cityId = String((payload && payload.cityId) || '').trim();
+  if (!username || !cityId) {
+    return new Response(JSON.stringify({ ok: false, reason: 'bad-request' }), {
+      status: 400,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const licenseResult = await checkLicenseValidity(env, username);
+  if (!licenseResult.ok) {
+    // Mismo registro que un intento de login fallido: si alguien machaca
+    // este endpoint con usernames al azar, queda igual de rastreable que
+    // machacar /license/check.
+    await logAccessEvent(env, { type: 'content', username, result: licenseResult.reason, ip, cityId });
+    return new Response(JSON.stringify({ ok: false, reason: licenseResult.reason }), {
+      status: 403,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  const content = await env.CITY_CONTENT.get(cityId);
+  if (content == null) {
+    return new Response(JSON.stringify({ ok: false, reason: 'city-not-found' }), {
+      status: 404,
+      headers: { ...headers, 'Content-Type': 'application/json' }
+    });
+  }
+
+  // El valor en KV ya es el JSON tal cual (array de pois, generado por
+  // scripts/build-city-content.js) — se devuelve sin volver a parsear/serializar.
+  return new Response(content, {
     status: 200,
     headers: { ...headers, 'Content-Type': 'application/json' }
   });

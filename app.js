@@ -2379,14 +2379,24 @@
     return best;
   };
 
-  // Carga bajo demanda de data/cities/<id>.js (POIs de una ciudad): solo
+  // Carga bajo demanda del contenido de una ciudad (POIs): solo
   // CATEGORIES/CITIES-esqueleto/AI_PROMPTS viven en data/core.js, que se
   // descarga siempre; el contenido real de cada ciudad se pide solo la
   // primera vez que se elige, y queda cacheado (variable + Service Worker)
   // para las siguientes veces en la misma sesión o visitas posteriores.
+  //
+  // El contenido se sirve desde el Worker (endpoint /content, gate de
+  // licencia — ver worker/proxy.js) en vez de como fichero estático
+  // data/cities/<id>.js del repo: así no queda legible por cualquiera que
+  // abra el repo público en GitHub sin pasar antes por el control de acceso.
   const loadedCityScripts = new Set();
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+  const CONTENT_BASE_URL = (typeof window !== 'undefined' && window.LLM_CONFIG && window.LLM_CONFIG.baseUrl) || '';
+  const CONTENT_ENDPOINT = CONTENT_BASE_URL ? `${CONTENT_BASE_URL.replace(/\/$/, '')}/content` : '';
+
+  // Usado por loadWaterFountains/loadRestrooms (capas opcionales, siguen
+  // siendo ficheros estáticos del repo, no llevan gate de licencia).
   const loadScriptOnce = (src) => new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = src;
@@ -2403,13 +2413,24 @@
   const loadCityData = async (cityId) => {
     if (CITIES[cityId] && Array.isArray(CITIES[cityId].pois)) return;
     if (loadedCityScripts.has(cityId)) return;
-    const src = `data/cities/${cityId}.js?v=66`;
+
+    const stored = LICENSE.readStored();
+    const username = stored && stored.username;
+    if (!username || !CONTENT_ENDPOINT) throw new Error('Sin licencia válida para cargar contenido');
+
     const delays = [0, 350, 900];
     let lastError;
     for (const delay of delays) {
       if (delay) await sleep(delay);
       try {
-        await loadScriptOnce(src);
+        const res = await fetch(CONTENT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, cityId })
+        });
+        if (!res.ok) throw new Error(`content ${res.status}`);
+        const pois = await res.json();
+        CITIES[cityId].pois = pois;
         loadedCityScripts.add(cityId);
         return;
       } catch (e) {

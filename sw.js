@@ -19,6 +19,11 @@
 const CACHE_VERSION = 'v186';
 const SHELL_CACHE = `omot-shell-${CACHE_VERSION}`;
 const IMAGE_CACHE = `omot-images-${CACHE_VERSION}`;
+// Contenido de ciudad servido por el Worker (POST /content, ver
+// worker/proxy.js): no lleva CACHE_VERSION porque no depende del shell, solo
+// se invalidaría si cambiara la forma de la respuesta (no el contenido en sí,
+// que ya se actualiza solo al volver a pedirse con red).
+const CONTENT_CACHE = 'omot-content-v1';
 
 // Rutas relativas al propio sw.js (que vive en la raíz del sitio): se
 // resuelven correctamente tanto en local como bajo el subpath de GitHub
@@ -79,7 +84,7 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
-    const keep = new Set([SHELL_CACHE, IMAGE_CACHE]);
+    const keep = new Set([SHELL_CACHE, IMAGE_CACHE, CONTENT_CACHE]);
     const names = await caches.keys();
     await Promise.all(names.filter((n) => !keep.has(n)).map((n) => caches.delete(n)));
     self.clients.claim();
@@ -90,11 +95,49 @@ const isImageRequest = (req) => req.destination === 'image';
 
 self.addEventListener('fetch', (event) => {
   const { request } = event;
-  // Solo GET: deja pasar sin tocar las llamadas POST a la IA y cualquier
-  // otro método, tal cual, directo a la red.
+  const url = new URL(request.url);
+
+  // Contenido de ciudad (POST /content, gate de licencia — ver
+  // worker/proxy.js): a diferencia del resto de peticiones POST de este
+  // Worker (chat/tts/license, que se dejan pasar sin tocar más abajo), esta
+  // SÍ conviene cachearla, para que la app siga funcionando offline con las
+  // ciudades ya visitadas — igual que antes con el <script src=
+  // "data/cities/...">  estático. La Cache API no indexa por método HTTP
+  // como el navegador: se usa una key sintética (URL inventada, estable por
+  // ciudad) en vez del Request real.
+  if (url.pathname.endsWith('/content') && request.method === 'POST') {
+    event.respondWith((async () => {
+      const body = await request.clone().json().catch(() => null);
+      const cityId = body && body.cityId;
+      const cacheKey = cityId ? new Request(`https://omot-content-cache.local/${cityId}`) : null;
+      const cache = await caches.open(CONTENT_CACHE);
+
+      try {
+        const res = await fetch(request);
+        if (res.ok && cacheKey) cache.put(cacheKey, res.clone());
+        // Licencia caducada/no encontrada pero con la ciudad ya cacheada de
+        // una visita anterior con acceso válido: servir la copia local en
+        // vez de bloquear (no penalizar a alguien de viaje sin cobertura).
+        if (!res.ok && cacheKey) {
+          const cached = await cache.match(cacheKey);
+          if (cached) return cached;
+        }
+        return res;
+      } catch (_) {
+        if (cacheKey) {
+          const cached = await cache.match(cacheKey);
+          if (cached) return cached;
+        }
+        return Response.error();
+      }
+    })());
+    return;
+  }
+
+  // Solo GET a partir de aquí: deja pasar sin tocar cualquier otro POST
+  // (chat/tts/license), tal cual, directo a la red.
   if (request.method !== 'GET') return;
 
-  const url = new URL(request.url);
   // Nunca cachear el proxy de IA (aunque en la práctica siempre es POST,
   // por si acaso cambia a GET en el futuro no queremos servir respuestas
   // de IA cacheadas y desactualizadas).
