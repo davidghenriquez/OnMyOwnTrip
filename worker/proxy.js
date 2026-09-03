@@ -237,6 +237,23 @@ async function handleLicenseCheck(request, env, headers) {
   // a /license/visit desde app.js — ver wireLicenseGate/init — así que
   // registrarlo también aquí duplicaría la misma entrada dos veces en el
   // historial por cada acceso bueno.)
+  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+
+  // Rate limiting por IP, con clave propia ("license:...") para no compartir
+  // cupo con el rate limiter del proxy de IA de más abajo: alguien probando
+  // usernames al azar no debería poder agotarle la cuota de chat a nadie, ni
+  // al revés. Igual que allí, si el binding no está configurado se salta sin
+  // romper nada.
+  if (env.RATE_LIMITER) {
+    const { success } = await env.RATE_LIMITER.limit({ key: `license:${ip}` });
+    if (!success) {
+      return new Response(JSON.stringify({ ok: false, reason: 'rate-limited' }), {
+        status: 429,
+        headers: { ...headers, 'Content-Type': 'application/json' }
+      });
+    }
+  }
+
   let payload;
   try {
     payload = await request.json();
@@ -265,7 +282,8 @@ async function handleLicenseCheck(request, env, headers) {
       await logAccessEvent(env, {
         type: 'check',
         username: username || '(vacío)',
-        result: body.reason || 'error'
+        result: body.reason || 'error',
+        ip
       });
     }
     return new Response(JSON.stringify(body), {
@@ -322,7 +340,8 @@ async function handleVisit(request, env, headers) {
     await env.ACCESS_LOG.put(key, String(count));
   } catch (_) { /* un fallo aquí no debe romper la apertura de la app */ }
 
-  await logAccessEvent(env, { type: 'visit', username, result: 'ok' });
+  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+  await logAccessEvent(env, { type: 'visit', username, result: 'ok', ip });
 
   return new Response(JSON.stringify({ ok: true, visits: count }), {
     status: 200,
